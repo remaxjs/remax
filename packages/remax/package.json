@@ -1,0 +1,37 @@
+{
+  "name": "remax",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:tpl": "ejs-cli -f src/tpl/base.wxml.ejs > lib/base.wxml",
+    "watch": "babel src -d lib -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeFalling/remax.git"
+  },
+  "keywords": [
+    "react",
+    "miniapp",
+    "mini-program",
+    "wechat"
+  ],
+  "author": "code.falling@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodeFalling/remax/issues"
+  },
+  "homepage": "https://github.com/CodeFalling/remax#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "ejs-cli": "^2.0.1"
+  },
+  "dependencies": {
+    "react": "16.7.0-alpha.2",
+    "react-reconciler": "0.18.0-alpha.2"
+  }
+}

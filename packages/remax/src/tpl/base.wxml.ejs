@@ -1,0 +1,23 @@
+<template name="REACT_MINI_APP_TPL">
+    <block wx:for="{{$$REACT_MINI_APP_ROOT}}" wx:key="">
+        <template is="REACT_MINI_APP_TPL_1" data="{{item}}"/>
+    </block>
+</template>
+
+<% for (let i = 0; i < 15; i ++) { %>
+<template name="REACT_MINI_APP_TPL_<%=i%>">
+    <block wx:if="{{item.text}}">
+      <!-- string -->
+      {{item.text}}
+    </block>
+
+    <block wx:if="{{item.type === 'view'}}">
+        <view bind:touchstart="{{item.props.onClick || ''}}">
+            <block wx:for="{{item.children}}" wx:key="">
+              <template is="REACT_MINI_APP_TPL_<%=(i + 1)%>" data="{{item}}"/>
+            </block>
+        </view>
+    </block>
+  
+</template>
+<% } %>
