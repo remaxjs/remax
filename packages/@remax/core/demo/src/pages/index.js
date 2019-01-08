@@ -8,7 +8,7 @@ import {
   View,
   Image,
   Button,
-} from '../../../../remax-components';
+} from '../../../../components';
 
 import './index.less';
 
