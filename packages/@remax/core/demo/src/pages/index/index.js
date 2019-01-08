@@ -3,12 +3,12 @@ import {
   useState,
 } from 'react';
 
-import Remax from '../../..';
+import Remax from '../../../..';
 import {
   View,
   Image,
   Button,
-} from '../../../../components';
+} from '../../../../../components';
 
 import './index.less';
 

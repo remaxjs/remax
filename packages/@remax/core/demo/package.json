@@ -20,6 +20,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "loader-utils": "^1.2.3",
     "mini-css-extract-plugin": "^0.5.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.28.3",

@@ -3,10 +3,57 @@ const CreateFileWebpack = require('create-file-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const fs = require('fs');
+
+const readJSON = file => JSON.parse(fs.readFileSync(file, 'utf-8'));
+
+function GeneraeWxmlWebpackPlugin() {
+  const content = `<import src="../base.wxml"/>
+  <view>
+      <template is="REMAX_TPL" data="{{$$REMAX_ROOT}}"/>
+  </view>`;
+  const contentBuffer = Buffer.from(content);
+
+  const apply = (compiler) => {
+    const emit = (compilation, cb) => {
+      const {
+        chunks,
+      } = compilation;
+      chunks.forEach((item) => {
+        compilation.assets[`${item.id}.wxml`] = {
+          source: () => content,
+          size: () => content.length,
+        };
+      });
+
+      cb();
+    };
+
+    if (compiler.hooks) {
+      const plugin = { name: 'GeneraeWxmlWebpackPlugin' };
+      compiler.hooks.emit.tapAsync(plugin, emit);
+    } else {
+      compiler.plugin('emit', emit);
+    }
+  };
+
+  return {
+    apply,
+  };
+}
+
 
 module.exports = {
-  entry: {
-    'pages/index': './src/pages/index.js',
+  entry() {
+    const {
+      pages,
+    } = readJSON('./src/app.json');
+    const result = {};
+
+    for (const page of pages) {
+      result[page] = path.join(process.cwd(), './src/', page, '/index.js');
+    }
+    return result;
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -48,55 +95,25 @@ module.exports = {
       filename: '[name].wxss',
       chunkFilename: '[id].wxss',
     }),
-    new CreateFileWebpack({
-      path: './dist',
-      fileName: 'app.json',
-      content: `{
-        "pages": [
-          "pages/index"
-        ],
-        "window": {
-          "backgroundColor": "#F6F6F6",
-          "backgroundTextStyle": "light",
-          "navigationBarBackgroundColor": "#F6F6F6",
-          "navigationBarTitleText": "Remax DEMO",
-          "navigationBarTextStyle": "black"
-        }
-      }
-      `,
-    }),
-
     new CopyWebpackPlugin([{
       from: '../lib/base.wxml',
       to: './base.wxml',
     }]),
-    // TODO：暂时先写死
-    new CreateFileWebpack({
-      path: './dist',
-      fileName: 'pages/index.wxml',
-      content: `
-      <import src="../base.wxml"/>
-<view>
-    <template is="REMAX_TPL" data="{{$$REMAX_ROOT}}"/>
-</view>
-        `,
-    }),
+    new CopyWebpackPlugin([{
+      from: './src/app.json',
+      to: './app.json',
+    }]),
+
 
     new CreateFileWebpack({
       path: './dist',
       fileName: 'app.js',
-      content: `
-          `,
+      content: '',
     }),
 
-    new CreateFileWebpack({
-      path: './dist',
-      fileName: 'pages/index.json',
-      content: `{
-        "navigationBarTitleText": "首页"
-      }
-          `,
-    }),
+
+    new GeneraeWxmlWebpackPlugin(),
+
 
   ],
 
