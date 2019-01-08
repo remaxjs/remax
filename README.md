@@ -26,13 +26,14 @@ npm run watch
 
 登录微信开发者工具，新建项目，选择 `remax/pacakges/remax/demo` 目录，就能看到 DEMO 小程序
 
-![miniapp](https://user-images.githubusercontent.com/5436704/50802583-efd3e280-1321-11e9-826b-ccbdf95a6db5.gif)
+![miniapp](https://user-images.githubusercontent.com/5436704/50804644-ed758680-1329-11e9-90e6-6871f5f1540e.gif)
 
 
 DEMO 代码见：`packages/remax/demo/src/pages/index.js` 
 
 ```js
 import Remax from '../../..';
+import './index.less';
 
 const {
   React,
@@ -48,7 +49,7 @@ const ClickComponent = () => {
 
   return (
     <view onClick={handleClick}>
-      <image src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" />
+      <image className="test-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" />
 
     CLICK the image
       {count}
@@ -59,12 +60,29 @@ const ClickComponent = () => {
 
 const Component = () => (
   <view>
-    {'<ClickComponent />'}
-with useState below
+    <view className="title">
+      {'<ClickComponent />'}
+with useState
+    </view>
     <ClickComponent />
   </view>
 );
 ```
 
-如 DEMO 所见，我们可以自由的使用 React 带来的新特性
+`index.less` ：
 
+```less
+.test-image {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.title {
+    font-size: 24px;
+    text-align: center;
+}
+```
+
+
+如 DEMO 所见，我们可以自由的使用 React 带来的新特性

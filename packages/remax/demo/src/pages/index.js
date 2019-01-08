@@ -28,7 +28,7 @@ const Component = () => (
   <view>
     <view className="title">
       {'<ClickComponent />'}
-with useState below
+with useState
     </view>
     <ClickComponent />
   </view>
