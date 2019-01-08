@@ -62,6 +62,13 @@ module.exports = {
 
     new CreateFileWebpack({
       path: './dist',
+      fileName: 'app.js',
+      content: `
+          `,
+    }),
+
+    new CreateFileWebpack({
+      path: './dist',
       fileName: 'pages/index.json',
       content: `{
         "navigationBarTitleText": "首页"

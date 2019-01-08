@@ -19,6 +19,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 <template name="REACT_MINI_APP_TPL_1">
@@ -35,6 +39,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 <template name="REACT_MINI_APP_TPL_2">
@@ -51,6 +59,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 <template name="REACT_MINI_APP_TPL_3">
@@ -67,6 +79,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 <template name="REACT_MINI_APP_TPL_4">
@@ -83,6 +99,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 <template name="REACT_MINI_APP_TPL_5">
@@ -99,6 +119,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 <template name="REACT_MINI_APP_TPL_6">
@@ -115,6 +139,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 <template name="REACT_MINI_APP_TPL_7">
@@ -131,6 +159,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 <template name="REACT_MINI_APP_TPL_8">
@@ -147,6 +179,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 <template name="REACT_MINI_APP_TPL_9">
@@ -163,6 +199,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 <template name="REACT_MINI_APP_TPL_10">
@@ -179,6 +219,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 <template name="REACT_MINI_APP_TPL_11">
@@ -195,6 +239,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 <template name="REACT_MINI_APP_TPL_12">
@@ -211,6 +259,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 <template name="REACT_MINI_APP_TPL_13">
@@ -227,6 +279,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 <template name="REACT_MINI_APP_TPL_14">
@@ -243,6 +299,10 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 
 

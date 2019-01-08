@@ -19,5 +19,9 @@
         </view>
     </block>
   
+    <block wx:elif="{{item.type === 'image'}}">
+        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        </image>
+    </block>
 </template>
 <% } %>
