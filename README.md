@@ -68,4 +68,3 @@ with useState below
 
 如 DEMO 所见，我们可以自由的使用 React 带来的新特性
 
-我们可以自由的使用 React 带来的新特性
