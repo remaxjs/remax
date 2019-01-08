@@ -26,34 +26,40 @@ npm run watch
 
 登录微信开发者工具，新建项目，选择 `remax/pacakges/remax/demo` 目录，就能看到 DEMO 小程序
 
-![miniapp](https://user-images.githubusercontent.com/5436704/50823409-e3c24200-136e-11e9-9432-4c15f6c5b3fa.gif)
+![miniapp](https://s2.ax1x.com/2019/01/08/FLnWRg.md.gif)
 
 DEMO 代码见：`packages/remax/demo/src/pages/index.js` 
 
 ```js
+import React from 'react';
+import {
+  useState,
+} from 'react';
+
 import Remax from '../../..';
+import {
+  View,
+  Image,
+  Button,
+} from '../../../../remax-components';
+
 import './index.less';
 
-const {
-  React,
-  useState,
-} = Remax;
-
 const ClickComponent = () => {
-  const [count, setCount] = Remax.useState(0);
+  const [count, setCount] = useState(0);
 
   const handleClick = () => {
-    setCount(count + 1);
+    setCount(count + 222);
   };
 
   return (
-    <view onClick={handleClick}>
-      <image className="test-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" />
+    <View onClick={handleClick}>
+      <Image className="test-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" />
 
     CLICK the image
       {count}
     times
-    </view>
+    </View>
   );
 };
 
@@ -64,22 +70,24 @@ const showToast = () => Remax.api.showToast({
   mask: true,
 });
 
-const Component = () => (
-  <view>
 
-    <view className="title">
+const Component = () => (
+  <View>
+
+    <View className="title">
       {'<ClickComponent />'}
 with useState
-    </view>
+    </View>
     <ClickComponent />
-    <button onClick={showToast}>
-    点击
-    </button>
+    <Button className="test-btn" type="primary" onClick={showToast}>
+      点击
+    </Button>
 
-  </view>
+  </View>
 );
 
 Remax.render(<Component />);
+
 
 ```
 
@@ -107,6 +115,13 @@ Remax.render(<Component />);
     font-size: 24px;
     text-align: center;
 }
+
+.test-btn {
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
 ```
 
 

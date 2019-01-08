@@ -12,6 +12,11 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
   },
+  resolve: {
+    alias: {
+      react: path.resolve('./node_modules/react'),
+    },
+  },
   module: {
     rules: [
       {
@@ -72,7 +77,7 @@ module.exports = {
       content: `
       <import src="../base.wxml"/>
 <view>
-    <template is="REACT_MINI_APP_TPL" data="{{$$REACT_MINI_APP_ROOT}}"/>
+    <template is="REMAX_TPL" data="{{$$REMAX_ROOT}}"/>
 </view>
         `,
     }),
@@ -95,4 +100,5 @@ module.exports = {
 
   ],
 
+  mode: 'development',
 };

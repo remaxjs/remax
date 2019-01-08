@@ -1,22 +1,25 @@
-<!-- vars -->
-<!-- 
+<%/*
     - tpl_index
     - type
     - propKeys
--->
+*/%>
+<% camelCased = function(str) { return str.replace(/-([a-z0-9])/g, function (g) { return g[1].toUpperCase(); })}%>
 
-<% camelCased = function(str) { return str.replace(/-([a-z])/g, function (g) { return g[1].toUpperCase(); })}%>
-
-<block wx:if="{{item.type === '<%= type %>'}}">
+<%
+const events = [
+    'tap'
+];
+propKeys = propKeys.concat(events.map(item => `bind${item}`));
+%>
+<block wx:if="{{item.type === 'mini-<%= type %>'}}">
     <<%=type%>
         class="{{ item.props.className }}"
         <% for(let key of propKeys) { %>
-            <%=key%>="{{ item.props.<%=camelCased(key)%> || null }}"
+            <%=key%>="{{item.props.<%=camelCased(key)%>}}"
         <% } %>
-        bindtap="{{item.props.onClick || null}}"
         >
         <block wx:for="{{item.children}}" wx:key="">
-            <template is="REACT_MINI_APP_TPL_<%=(tpl_index + 1)%>" data="{{item}}"/>
+            <template is="REMAX_TPL_<%=(tpl_index + 1)%>" data="{{item}}"/>
         </block>
     </<%=type%>>
 </block>

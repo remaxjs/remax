@@ -7,21 +7,15 @@ exports.default = void 0;
 
 var _reactReconciler = _interopRequireDefault(require("react-reconciler"));
 
-var _react = _interopRequireWildcard(require("react"));
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-var REACT_MINI_APP_ROOT = '$$REACT_MINI_APP_ROOT';
-var REACT_MINI_APP_ROOT_BACKUP = '$$REACT_MINI_APP_ROOT_BACKUP';
-var REACT_MINI_APP_METHOD = '$$REACT_MINI_APP_METHOD';
+var REMAX_ROOT = '$$REMAX_ROOT';
+var REMAX_ROOT_BACKUP = '$$REMAX_ROOT_BACKUP';
+var REMAX_METHOD = '$$REMAX_METHOD';
 var TYPE_TEXT = Symbol('text');
 var instanceCount = 0;
 
@@ -50,8 +44,8 @@ function setData(rootContext) {
     return result;
   }
 
-  var pureObject = clone(rootContext[REACT_MINI_APP_ROOT_BACKUP]);
-  rootContext.setData(_defineProperty({}, REACT_MINI_APP_ROOT, [pureObject]));
+  var pureObject = clone(rootContext[REMAX_ROOT_BACKUP]);
+  rootContext.setData(_defineProperty({}, REMAX_ROOT, [pureObject]));
 }
 
 function processProps(newProps, rootContext, id) {
@@ -63,7 +57,7 @@ function processProps(newProps, rootContext, id) {
     var propKey = _arr2[_i2];
 
     if (typeof newProps[propKey] === 'function') {
-      var contextKey = "".concat(REACT_MINI_APP_METHOD, "_").concat(id, "_").concat(propKey);
+      var contextKey = "".concat(REMAX_METHOD, "_").concat(id, "_").concat(propKey);
       rootContext[contextKey] = newProps[propKey];
       props[propKey] = contextKey;
     } else if (propKey === 'children') {// pass
@@ -139,14 +133,14 @@ var hostConfig = {
     if (_parent._rootContainer) {
       // append to root
       parent = {
-        type: 'view',
+        type: 'mini-view',
         children: [],
         rootContext: _parent
       };
     }
 
     parent.children.push(child);
-    child.rootContext[REACT_MINI_APP_ROOT_BACKUP] = parent;
+    child.rootContext[REMAX_ROOT_BACKUP] = parent;
     setData(child.rootContext);
   },
   removeChild: function removeChild(parentInstance, child) {
@@ -154,9 +148,7 @@ var hostConfig = {
   }
 };
 var ReactReconcilerInst = (0, _reactReconciler.default)(hostConfig);
-
-var _default = _objectSpread({}, _react.default, {
-  React: _react.default,
+var _default = {
   api: {
     showToast: function showToast(conf) {
       wx.showToast(conf);
@@ -165,7 +157,7 @@ var _default = _objectSpread({}, _react.default, {
   render: function render(reactElement, callback) {
     Page({
       data: {
-        $$REACT_MINI_APP_ROOT: []
+        $$REMAX_ROOT: []
       },
       onReady: function onReady() {
         var miniAppContext = this; // Create a root Container if it doesnt exist
@@ -178,6 +170,5 @@ var _default = _objectSpread({}, _react.default, {
       }
     });
   }
-});
-
+};
 exports.default = _default;

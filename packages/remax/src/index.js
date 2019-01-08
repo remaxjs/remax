@@ -1,12 +1,9 @@
 import ReactReconciler from 'react-reconciler';
-import React from 'react';
-import {
-  useState,
-} from 'react';
 
-const REACT_MINI_APP_ROOT = '$$REACT_MINI_APP_ROOT';
-const REACT_MINI_APP_ROOT_BACKUP = '$$REACT_MINI_APP_ROOT_BACKUP';
-const REACT_MINI_APP_METHOD = '$$REACT_MINI_APP_METHOD';
+
+const REMAX_ROOT = '$$REMAX_ROOT';
+const REMAX_ROOT_BACKUP = '$$REMAX_ROOT_BACKUP';
+const REMAX_METHOD = '$$REMAX_METHOD';
 const TYPE_TEXT = Symbol('text');
 
 let instanceCount = 0;
@@ -29,10 +26,10 @@ function setData(rootContext) {
     return result;
   }
 
-  const pureObject = clone(rootContext[REACT_MINI_APP_ROOT_BACKUP]);
+  const pureObject = clone(rootContext[REMAX_ROOT_BACKUP]);
 
   rootContext.setData({
-    [REACT_MINI_APP_ROOT]: [pureObject],
+    [REMAX_ROOT]: [pureObject],
   });
 }
 
@@ -40,7 +37,7 @@ function processProps(newProps, rootContext, id) {
   const props = {};
   for (const propKey of Object.keys(newProps)) {
     if (typeof newProps[propKey] === 'function') {
-      const contextKey = `${REACT_MINI_APP_METHOD}_${id}_${propKey}`;
+      const contextKey = `${REMAX_METHOD}_${id}_${propKey}`;
       rootContext[contextKey] = newProps[propKey];
       props[propKey] = contextKey;
     } else if (propKey === 'children') {
@@ -124,7 +121,7 @@ const hostConfig = {
     if (_parent._rootContainer) {
       // append to root
       parent = {
-        type: 'view',
+        type: 'mini-view',
         children: [],
         rootContext: _parent,
       };
@@ -132,7 +129,7 @@ const hostConfig = {
 
     parent.children.push(child);
 
-    child.rootContext[REACT_MINI_APP_ROOT_BACKUP] = parent;
+    child.rootContext[REMAX_ROOT_BACKUP] = parent;
     setData(child.rootContext);
   },
 
@@ -143,8 +140,6 @@ const hostConfig = {
 
 const ReactReconcilerInst = ReactReconciler(hostConfig);
 export default {
-  ...React,
-  React,
   api: {
     showToast(conf) {
       wx.showToast(conf);
@@ -153,7 +148,7 @@ export default {
   render: (reactElement, callback) => {
     Page({
       data: {
-        $$REACT_MINI_APP_ROOT: [
+        $$REMAX_ROOT: [
         ],
       },
 

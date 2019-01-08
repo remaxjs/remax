@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:tpl": "ejs-cli -f src/tpl/base.wxml.ejs > lib/base.wxml",
     "watch": "babel src -d lib -w",
-    "build": "npm run build:tpl && babel src -d lib"
+    "build": "npm run build:tpl && babel src -d lib  && node src/tpl/compress.js"
   },
   "repository": {
     "type": "git",

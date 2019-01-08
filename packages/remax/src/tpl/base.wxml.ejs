@@ -1,70 +1,444 @@
-<template name="REACT_MINI_APP_TPL">
-    <block wx:for="{{$$REACT_MINI_APP_ROOT}}" wx:key="">
-        <template is="REACT_MINI_APP_TPL_1" data="{{item}}"/>
+<template name="REMAX_TPL">
+    <block wx:for="{{$$REMAX_ROOT}}" wx:key="">
+        <template is="REMAX_TPL_1" data="{{item}}"/>
     </block>
 </template>
 
+<% var componentData = [
+    {
+        type: 'view',
+        propKeys: `hover-class
+        hover-stop-propagation
+        hover-start-time
+        hover-stay-time`,
+    },
+    {
+        type: 'scroll-view',
+        propKeys: `scroll-x
+        scroll-y
+        upper-threshold
+        lower-threshold
+        scroll-top
+        scroll-left
+        scroll-into-view
+        scroll-with-animation
+        enable-back-to-top
+        bindscrolltoupper
+        bindscrolltolower
+        bindscroll`,
+    },
+    {
+        type: 'swiper',
+        propKeys: `indicator-dots
+        indicator-color
+        indicator-active-color
+        autoplay
+        current
+        current-item-id
+        interval
+        duration
+        circular
+        vertical
+        previous-margin
+        next-margin
+        display-multiple-items
+        skip-hidden-item-layout
+        bindchange
+        bindtransition
+        bindanimationfinish`,
+    },
+    {
+        type: 'movable-view',
+        propKeys: `direction
+        inertia
+        out-of-bounds
+        x
+        y
+        damping
+        friction
+        disabled
+        scale
+        scale-min
+        scale-max
+        scale-value
+        animation
+        bindchange
+        bindscale`,
+    },
+    {
+        type: 'movable-area',
+        propKeys: `scale-area`,
+    },
+    {
+        type: 'cover-view',
+        propKeys: `scroll-top`,
+    },
+    {
+        type: 'cover-image',
+        propKeys: `src
+        bindload
+        binderror`,
+    },
+    {
+        type: 'icon',
+        propKeys: `type
+        size
+        color`,
+    },
+    {
+        type: 'text',
+        propKeys: `selectable
+        space
+        decode`,
+    },
+    {
+        type: 'rich-text',
+        propKeys: `nodes
+        space`,
+    },
+    {
+        type: 'progress',
+        propKeys: `percent
+        show-info
+        border-radius
+        font-size
+        stroke-width
+        color
+        activeColor
+        backgroundColor
+        active
+        active-mode
+        bindactiveend`,
+    },
+    {
+        type: 'button',
+        propKeys: `size
+        type
+        plain
+        disabled
+        loading
+        form-type
+        open-type
+        hover-class
+        hover-stop-propagation
+        hover-start-time
+        hover-stay-time
+        lang
+        bindgetuserinfo
+        session-from
+        send-message-title
+        send-message-path
+        send-message-img
+        show-message-card
+        bindcontact
+        bindgetphonenumber
+        app-parameter
+        binderror
+        bindopensetting`,
+    },
+    {
+        type: 'checkbox-group',
+        propKeys: `bindchange`,
+    },
+    {
+        type: 'checkbox',
+        propKeys: `value
+        disabled
+        checked
+        color`,
+    },
+    {
+        type: 'form',
+        propKeys: `report-submit
+        bindsubmit
+        bindreset`,
+    },
+    {
+        type: 'input',
+        propKeys: `value
+        type
+        password
+        placeholder
+        placeholder-style
+        placeholder-class
+        disabled
+        maxlength
+        cursor-spacing
+        auto-focus
+        focus
+        confirm-type
+        confirm-hold
+        cursor
+        selection-start
+        selection-end
+        adjust-position
+        bindinput
+        bindfocus
+        bindblur
+        bindconfirm`,
+    },
+    {
+        type: 'label',
+        propKeys: `for`,
+    },
+    {
+        type: 'picker',
+        propKeys: `range
+        range-key
+        value
+        bindchange
+        disabled
+        bindcancel
+        bindcolumnchange
+        start
+        end
+        fields`,
+    },
+    {
+        type: 'picker-view',
+        propKeys: `value
+        indicator-style
+        indicator-class
+        mask-style
+        mask-class
+        bindchange
+        bindpickstart
+        bindpickend`,
+    },
+    {
+        type: 'radio-group',
+        propKeys: `bindchange`,
+    },
+    {
+        type: 'radio',
+        propKeys: `value
+        checked
+        disabled
+        color`,
+    },
+    {
+        type: 'slider',
+        propKeys: `min
+        max
+        step
+        disabled
+        value
+        color
+        selected-color
+        activeColor
+        backgroundColor
+        block-size
+        block-color
+        show-value
+        bindchange
+        bindchanging`,
+    },
+    {
+        type: 'switch',
+        propKeys: `checked
+        disabled
+        type
+        bindchange
+        color`,
+    },
+    {
+        type: 'textarea',
+        propKeys: `value
+        placeholder
+        placeholder-style
+        placeholder-class
+        disabled
+        maxlength
+        auto-focus
+        focus
+        auto-height
+        fixed
+        cursor-spacing
+        cursor
+        show-confirm-bar
+        selection-start
+        selection-end
+        adjust-position
+        bindfocus
+        bindblur
+        bindlinechange
+        bindinput
+        bindconfirm`,
+    },
+    {
+        type: 'navigator',
+        propKeys: `target
+        url
+        open-type
+        delta
+        app-id
+        path
+        extra-data
+        version
+        hover-class
+        hover-stop-propagation
+        hover-start-time
+        hover-stay-time
+        bindsuccess
+        bindfail
+        bindcomplete
+        `,
+    },
+    {
+        type: 'image',
+        propKeys: `src
+        mode
+        lazy-load
+        binderror
+        bindload`,
+    },
+    {
+        type: 'video',
+        propKeys: `src
+        initial-time
+        duration
+        controls
+        danmu-list
+        danmu-btn
+        enable-danmu
+        autoplay
+        loop
+        muted
+        page-gesture
+        direction
+        show-progress
+        show-fullscreen-btn
+        show-play-btn
+        show-center-play-btn
+        enable-progress-gesture
+        objectFit
+        poster
+        bindplay
+        bindpause
+        bindended
+        bindtimeupdate
+        bindfullscreenchange
+        bindwaiting
+        binderror
+        bindprogress`,
+    },
+    {
+        type: 'camera',
+        propKeys: `mode
+        device-position
+        flash
+        bindstop
+        binderror
+        bindscancode`,
+    },
+    {
+        type: 'live-player',
+        propKeys: `src
+        mode
+        autoplay
+        muted
+        orientation
+        object-fit
+        background-mute
+        min-cache
+        max-cache
+        bindstatechange
+        bindfullscreenchange
+        bindnetstatus`,
+    },
+    {
+        type: 'live-pusher',
+        propKeys: `url
+        mode
+        autopush
+        muted
+        enable-camera
+        auto-focus
+        orientation
+        beauty
+        whiteness
+        aspect
+        min-bitrate
+        max-bitrate
+        waiting-image
+        waiting-image-hash
+        zoom
+        device-position
+        background-mute
+        bindstatechange
+        bindnetstatus
+        binderror
+        bindbgmstart
+        bindbgmprogress
+        bindbgmcomplete`,
+    },
+    {
+        type: 'map',
+        propKeys: `longitude
+        latitude
+        scale
+        markers
+        covers
+        polyline
+        polygons
+        circles
+        controls
+        include-points
+        show-location
+        subkey
+        enable-3D
+        show-compass
+        enable-overlooking
+        enable-zoom
+        enable-scroll
+        enable-rotate
+        bindmarkertap
+        bindcallouttap
+        bindcontroltap
+        bindregionchange
+        bindtap
+        bindupdated
+        bindpoitap`,
+    },
+    {
+        type: 'canvas',
+        propKeys: `canvas-id
+        disable-scroll
+        bindtouchstart
+        bindtouchmove
+        bindtouchend
+        bindtouchcancel
+        bindlongtap
+        binderror`,
+    },
+    {
+        type: 'open-data',
+        propKeys: `type
+        open-gid
+        lang`,
+    },
+    {
+        type: 'official-account',
+        propKeys: `bindload
+        binderror`,
+    },
+];
+%>
 
-
-<% for (let i = 0; i < 8; i ++) { %>
-<template name="REACT_MINI_APP_TPL_<%=i%>">
+<% for (let i = 0; i < 7; i ++) { %>
+<template name="REMAX_TPL_<%=i%>">
     <block wx:if="{{item.text}}">
       <!-- string -->
       {{item.text}}
     </block>
 
-    <%- include('./component.wxml.ejs', {
-        type: 'view',
-        tpl_index: i,
-        propKeys: [
-            'hover-class',
-            'hover-stop-propagation',
-            'hover-start-time',
-            'hover-stay-time',
-        ]
-    }) %>
-  
-    <%- include('./component.wxml.ejs', {
-        type: 'image',
-        tpl_index: i,
-        propKeys: [
-            'src',
-            'mode',
-            'lazy-load',
-            'binderror',
-            'bindload',
-        ]
-    }) %>
-
-    <%- include('./component.wxml.ejs', {
-        type: 'button',
-        tpl_index: i,
-        propKeys: [
-            'size',
-            'type',
-            'plain',
-            'disabled',
-            'loading',
-            'form-type',
-            'open-type',
-            'hover-class',
-            'hover-stop-propagation',
-            'hover-start-time',
-            'hover-stay-time',
-            'lang',
-            'bindgetuserinfo',
-            'session-from',
-            'send-message-title',
-            'send-message-path',
-            'send-message-img',
-            'show-message-card',
-            'bindcontact',
-            'bindgetphonenumber',
-            'app-parameter',
-            'binderror',
-            'bindopensetting',
-        ]
-    }) %>
-
+    <% for (let component of componentData) { %>
+        <%- include('./component.wxml.ejs', {
+            type: component.type,
+            tpl_index: i,
+            propKeys: component.propKeys.split('\n').map(item => item.trim()).filter(item => item),
+        }) %>
+    <% } %>
 </template>
+
 <% } %>
