@@ -83,7 +83,8 @@ var hostConfig = {
     return rootHostContext;
   },
   shouldSetTextContent: function shouldSetTextContent(type, props) {
-    return typeof props.children === 'string' || typeof props.children === 'number';
+    return false; // console.log(props);
+    // return typeof props.children === 'string' || typeof props.children === 'number';
   },
   prepareForCommit: function prepareForCommit() {},
   resetAfterCommit: function resetAfterCommit() {},
@@ -156,6 +157,11 @@ var ReactReconcilerInst = (0, _reactReconciler.default)(hostConfig);
 
 var _default = _objectSpread({}, _react.default, {
   React: _react.default,
+  api: {
+    showToast: function showToast(conf) {
+      wx.showToast(conf);
+    }
+  },
   render: function render(reactElement, callback) {
     Page({
       data: {

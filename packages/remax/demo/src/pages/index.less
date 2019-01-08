@@ -1,7 +1,18 @@
+@-webkit-keyframes rotation {
+    from {-webkit-transform: rotate(0deg);
+}to {
+    -webkit-transform: rotate(360deg);
+}}
+
 .test-image {
     display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: auto;
+    -webkit-transform: rotate(360deg);
+    animation: rotation 8s linear infinite;
+    border-radius: 200px;
+    width: 150px;
 }
 
 .title {

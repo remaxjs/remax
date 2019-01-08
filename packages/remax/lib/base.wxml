@@ -5,24 +5,144 @@
 </template>
 
 
+
+
 <template name="REACT_MINI_APP_TPL_0">
     <block wx:if="{{item.text}}">
       <!-- string -->
       {{item.text}}
     </block>
 
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_1" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'view'}}">
+    <view
+        class="{{ item.props.className }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_1" data="{{item}}"/>
+        </block>
+    </view>
+</block>
+
   
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'image'}}">
+    <image
+        class="{{ item.props.className }}"
+        
+            src="{{ item.props.src || null }}"
+        
+            mode="{{ item.props.mode || null }}"
+        
+            lazy-load="{{ item.props.lazyLoad || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindload="{{ item.props.bindload || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_1" data="{{item}}"/>
+        </block>
+    </image>
+</block>
+
+
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'button'}}">
+    <button
+        class="{{ item.props.className }}"
+        
+            size="{{ item.props.size || null }}"
+        
+            type="{{ item.props.type || null }}"
+        
+            plain="{{ item.props.plain || null }}"
+        
+            disabled="{{ item.props.disabled || null }}"
+        
+            loading="{{ item.props.loading || null }}"
+        
+            form-type="{{ item.props.formType || null }}"
+        
+            open-type="{{ item.props.openType || null }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+            lang="{{ item.props.lang || null }}"
+        
+            bindgetuserinfo="{{ item.props.bindgetuserinfo || null }}"
+        
+            session-from="{{ item.props.sessionFrom || null }}"
+        
+            send-message-title="{{ item.props.sendMessageTitle || null }}"
+        
+            send-message-path="{{ item.props.sendMessagePath || null }}"
+        
+            send-message-img="{{ item.props.sendMessageImg || null }}"
+        
+            show-message-card="{{ item.props.showMessageCard || null }}"
+        
+            bindcontact="{{ item.props.bindcontact || null }}"
+        
+            bindgetphonenumber="{{ item.props.bindgetphonenumber || null }}"
+        
+            app-parameter="{{ item.props.appParameter || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindopensetting="{{ item.props.bindopensetting || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_1" data="{{item}}"/>
+        </block>
+    </button>
+</block>
+
+
 </template>
 
 <template name="REACT_MINI_APP_TPL_1">
@@ -31,18 +151,136 @@
       {{item.text}}
     </block>
 
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_2" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'view'}}">
+    <view
+        class="{{ item.props.className }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_2" data="{{item}}"/>
+        </block>
+    </view>
+</block>
+
   
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'image'}}">
+    <image
+        class="{{ item.props.className }}"
+        
+            src="{{ item.props.src || null }}"
+        
+            mode="{{ item.props.mode || null }}"
+        
+            lazy-load="{{ item.props.lazyLoad || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindload="{{ item.props.bindload || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_2" data="{{item}}"/>
+        </block>
+    </image>
+</block>
+
+
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'button'}}">
+    <button
+        class="{{ item.props.className }}"
+        
+            size="{{ item.props.size || null }}"
+        
+            type="{{ item.props.type || null }}"
+        
+            plain="{{ item.props.plain || null }}"
+        
+            disabled="{{ item.props.disabled || null }}"
+        
+            loading="{{ item.props.loading || null }}"
+        
+            form-type="{{ item.props.formType || null }}"
+        
+            open-type="{{ item.props.openType || null }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+            lang="{{ item.props.lang || null }}"
+        
+            bindgetuserinfo="{{ item.props.bindgetuserinfo || null }}"
+        
+            session-from="{{ item.props.sessionFrom || null }}"
+        
+            send-message-title="{{ item.props.sendMessageTitle || null }}"
+        
+            send-message-path="{{ item.props.sendMessagePath || null }}"
+        
+            send-message-img="{{ item.props.sendMessageImg || null }}"
+        
+            show-message-card="{{ item.props.showMessageCard || null }}"
+        
+            bindcontact="{{ item.props.bindcontact || null }}"
+        
+            bindgetphonenumber="{{ item.props.bindgetphonenumber || null }}"
+        
+            app-parameter="{{ item.props.appParameter || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindopensetting="{{ item.props.bindopensetting || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_2" data="{{item}}"/>
+        </block>
+    </button>
+</block>
+
+
 </template>
 
 <template name="REACT_MINI_APP_TPL_2">
@@ -51,18 +289,136 @@
       {{item.text}}
     </block>
 
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_3" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'view'}}">
+    <view
+        class="{{ item.props.className }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_3" data="{{item}}"/>
+        </block>
+    </view>
+</block>
+
   
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'image'}}">
+    <image
+        class="{{ item.props.className }}"
+        
+            src="{{ item.props.src || null }}"
+        
+            mode="{{ item.props.mode || null }}"
+        
+            lazy-load="{{ item.props.lazyLoad || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindload="{{ item.props.bindload || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_3" data="{{item}}"/>
+        </block>
+    </image>
+</block>
+
+
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'button'}}">
+    <button
+        class="{{ item.props.className }}"
+        
+            size="{{ item.props.size || null }}"
+        
+            type="{{ item.props.type || null }}"
+        
+            plain="{{ item.props.plain || null }}"
+        
+            disabled="{{ item.props.disabled || null }}"
+        
+            loading="{{ item.props.loading || null }}"
+        
+            form-type="{{ item.props.formType || null }}"
+        
+            open-type="{{ item.props.openType || null }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+            lang="{{ item.props.lang || null }}"
+        
+            bindgetuserinfo="{{ item.props.bindgetuserinfo || null }}"
+        
+            session-from="{{ item.props.sessionFrom || null }}"
+        
+            send-message-title="{{ item.props.sendMessageTitle || null }}"
+        
+            send-message-path="{{ item.props.sendMessagePath || null }}"
+        
+            send-message-img="{{ item.props.sendMessageImg || null }}"
+        
+            show-message-card="{{ item.props.showMessageCard || null }}"
+        
+            bindcontact="{{ item.props.bindcontact || null }}"
+        
+            bindgetphonenumber="{{ item.props.bindgetphonenumber || null }}"
+        
+            app-parameter="{{ item.props.appParameter || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindopensetting="{{ item.props.bindopensetting || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_3" data="{{item}}"/>
+        </block>
+    </button>
+</block>
+
+
 </template>
 
 <template name="REACT_MINI_APP_TPL_3">
@@ -71,18 +427,136 @@
       {{item.text}}
     </block>
 
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_4" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'view'}}">
+    <view
+        class="{{ item.props.className }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_4" data="{{item}}"/>
+        </block>
+    </view>
+</block>
+
   
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'image'}}">
+    <image
+        class="{{ item.props.className }}"
+        
+            src="{{ item.props.src || null }}"
+        
+            mode="{{ item.props.mode || null }}"
+        
+            lazy-load="{{ item.props.lazyLoad || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindload="{{ item.props.bindload || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_4" data="{{item}}"/>
+        </block>
+    </image>
+</block>
+
+
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'button'}}">
+    <button
+        class="{{ item.props.className }}"
+        
+            size="{{ item.props.size || null }}"
+        
+            type="{{ item.props.type || null }}"
+        
+            plain="{{ item.props.plain || null }}"
+        
+            disabled="{{ item.props.disabled || null }}"
+        
+            loading="{{ item.props.loading || null }}"
+        
+            form-type="{{ item.props.formType || null }}"
+        
+            open-type="{{ item.props.openType || null }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+            lang="{{ item.props.lang || null }}"
+        
+            bindgetuserinfo="{{ item.props.bindgetuserinfo || null }}"
+        
+            session-from="{{ item.props.sessionFrom || null }}"
+        
+            send-message-title="{{ item.props.sendMessageTitle || null }}"
+        
+            send-message-path="{{ item.props.sendMessagePath || null }}"
+        
+            send-message-img="{{ item.props.sendMessageImg || null }}"
+        
+            show-message-card="{{ item.props.showMessageCard || null }}"
+        
+            bindcontact="{{ item.props.bindcontact || null }}"
+        
+            bindgetphonenumber="{{ item.props.bindgetphonenumber || null }}"
+        
+            app-parameter="{{ item.props.appParameter || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindopensetting="{{ item.props.bindopensetting || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_4" data="{{item}}"/>
+        </block>
+    </button>
+</block>
+
+
 </template>
 
 <template name="REACT_MINI_APP_TPL_4">
@@ -91,18 +565,136 @@
       {{item.text}}
     </block>
 
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_5" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'view'}}">
+    <view
+        class="{{ item.props.className }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_5" data="{{item}}"/>
+        </block>
+    </view>
+</block>
+
   
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'image'}}">
+    <image
+        class="{{ item.props.className }}"
+        
+            src="{{ item.props.src || null }}"
+        
+            mode="{{ item.props.mode || null }}"
+        
+            lazy-load="{{ item.props.lazyLoad || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindload="{{ item.props.bindload || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_5" data="{{item}}"/>
+        </block>
+    </image>
+</block>
+
+
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'button'}}">
+    <button
+        class="{{ item.props.className }}"
+        
+            size="{{ item.props.size || null }}"
+        
+            type="{{ item.props.type || null }}"
+        
+            plain="{{ item.props.plain || null }}"
+        
+            disabled="{{ item.props.disabled || null }}"
+        
+            loading="{{ item.props.loading || null }}"
+        
+            form-type="{{ item.props.formType || null }}"
+        
+            open-type="{{ item.props.openType || null }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+            lang="{{ item.props.lang || null }}"
+        
+            bindgetuserinfo="{{ item.props.bindgetuserinfo || null }}"
+        
+            session-from="{{ item.props.sessionFrom || null }}"
+        
+            send-message-title="{{ item.props.sendMessageTitle || null }}"
+        
+            send-message-path="{{ item.props.sendMessagePath || null }}"
+        
+            send-message-img="{{ item.props.sendMessageImg || null }}"
+        
+            show-message-card="{{ item.props.showMessageCard || null }}"
+        
+            bindcontact="{{ item.props.bindcontact || null }}"
+        
+            bindgetphonenumber="{{ item.props.bindgetphonenumber || null }}"
+        
+            app-parameter="{{ item.props.appParameter || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindopensetting="{{ item.props.bindopensetting || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_5" data="{{item}}"/>
+        </block>
+    </button>
+</block>
+
+
 </template>
 
 <template name="REACT_MINI_APP_TPL_5">
@@ -111,18 +703,136 @@
       {{item.text}}
     </block>
 
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_6" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'view'}}">
+    <view
+        class="{{ item.props.className }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_6" data="{{item}}"/>
+        </block>
+    </view>
+</block>
+
   
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'image'}}">
+    <image
+        class="{{ item.props.className }}"
+        
+            src="{{ item.props.src || null }}"
+        
+            mode="{{ item.props.mode || null }}"
+        
+            lazy-load="{{ item.props.lazyLoad || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindload="{{ item.props.bindload || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_6" data="{{item}}"/>
+        </block>
+    </image>
+</block>
+
+
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'button'}}">
+    <button
+        class="{{ item.props.className }}"
+        
+            size="{{ item.props.size || null }}"
+        
+            type="{{ item.props.type || null }}"
+        
+            plain="{{ item.props.plain || null }}"
+        
+            disabled="{{ item.props.disabled || null }}"
+        
+            loading="{{ item.props.loading || null }}"
+        
+            form-type="{{ item.props.formType || null }}"
+        
+            open-type="{{ item.props.openType || null }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+            lang="{{ item.props.lang || null }}"
+        
+            bindgetuserinfo="{{ item.props.bindgetuserinfo || null }}"
+        
+            session-from="{{ item.props.sessionFrom || null }}"
+        
+            send-message-title="{{ item.props.sendMessageTitle || null }}"
+        
+            send-message-path="{{ item.props.sendMessagePath || null }}"
+        
+            send-message-img="{{ item.props.sendMessageImg || null }}"
+        
+            show-message-card="{{ item.props.showMessageCard || null }}"
+        
+            bindcontact="{{ item.props.bindcontact || null }}"
+        
+            bindgetphonenumber="{{ item.props.bindgetphonenumber || null }}"
+        
+            app-parameter="{{ item.props.appParameter || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindopensetting="{{ item.props.bindopensetting || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_6" data="{{item}}"/>
+        </block>
+    </button>
+</block>
+
+
 </template>
 
 <template name="REACT_MINI_APP_TPL_6">
@@ -131,18 +841,136 @@
       {{item.text}}
     </block>
 
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_7" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'view'}}">
+    <view
+        class="{{ item.props.className }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_7" data="{{item}}"/>
+        </block>
+    </view>
+</block>
+
   
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'image'}}">
+    <image
+        class="{{ item.props.className }}"
+        
+            src="{{ item.props.src || null }}"
+        
+            mode="{{ item.props.mode || null }}"
+        
+            lazy-load="{{ item.props.lazyLoad || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindload="{{ item.props.bindload || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_7" data="{{item}}"/>
+        </block>
+    </image>
+</block>
+
+
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'button'}}">
+    <button
+        class="{{ item.props.className }}"
+        
+            size="{{ item.props.size || null }}"
+        
+            type="{{ item.props.type || null }}"
+        
+            plain="{{ item.props.plain || null }}"
+        
+            disabled="{{ item.props.disabled || null }}"
+        
+            loading="{{ item.props.loading || null }}"
+        
+            form-type="{{ item.props.formType || null }}"
+        
+            open-type="{{ item.props.openType || null }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+            lang="{{ item.props.lang || null }}"
+        
+            bindgetuserinfo="{{ item.props.bindgetuserinfo || null }}"
+        
+            session-from="{{ item.props.sessionFrom || null }}"
+        
+            send-message-title="{{ item.props.sendMessageTitle || null }}"
+        
+            send-message-path="{{ item.props.sendMessagePath || null }}"
+        
+            send-message-img="{{ item.props.sendMessageImg || null }}"
+        
+            show-message-card="{{ item.props.showMessageCard || null }}"
+        
+            bindcontact="{{ item.props.bindcontact || null }}"
+        
+            bindgetphonenumber="{{ item.props.bindgetphonenumber || null }}"
+        
+            app-parameter="{{ item.props.appParameter || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindopensetting="{{ item.props.bindopensetting || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_7" data="{{item}}"/>
+        </block>
+    </button>
+</block>
+
+
 </template>
 
 <template name="REACT_MINI_APP_TPL_7">
@@ -151,158 +979,136 @@
       {{item.text}}
     </block>
 
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_8" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+
+
+<block wx:if="{{item.type === 'view'}}">
+    <view
+        class="{{ item.props.className }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_8" data="{{item}}"/>
+        </block>
+    </view>
+</block>
+
   
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
-</template>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
 
-<template name="REACT_MINI_APP_TPL_8">
-    <block wx:if="{{item.text}}">
-      <!-- string -->
-      {{item.text}}
-    </block>
 
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_9" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
-  
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
-</template>
 
-<template name="REACT_MINI_APP_TPL_9">
-    <block wx:if="{{item.text}}">
-      <!-- string -->
-      {{item.text}}
-    </block>
+<block wx:if="{{item.type === 'image'}}">
+    <image
+        class="{{ item.props.className }}"
+        
+            src="{{ item.props.src || null }}"
+        
+            mode="{{ item.props.mode || null }}"
+        
+            lazy-load="{{ item.props.lazyLoad || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindload="{{ item.props.bindload || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_8" data="{{item}}"/>
+        </block>
+    </image>
+</block>
 
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_10" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
-  
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
-</template>
 
-<template name="REACT_MINI_APP_TPL_10">
-    <block wx:if="{{item.text}}">
-      <!-- string -->
-      {{item.text}}
-    </block>
+    <!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
 
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_11" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
-  
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
-</template>
 
-<template name="REACT_MINI_APP_TPL_11">
-    <block wx:if="{{item.text}}">
-      <!-- string -->
-      {{item.text}}
-    </block>
 
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_12" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
-  
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
-</template>
+<block wx:if="{{item.type === 'button'}}">
+    <button
+        class="{{ item.props.className }}"
+        
+            size="{{ item.props.size || null }}"
+        
+            type="{{ item.props.type || null }}"
+        
+            plain="{{ item.props.plain || null }}"
+        
+            disabled="{{ item.props.disabled || null }}"
+        
+            loading="{{ item.props.loading || null }}"
+        
+            form-type="{{ item.props.formType || null }}"
+        
+            open-type="{{ item.props.openType || null }}"
+        
+            hover-class="{{ item.props.hoverClass || null }}"
+        
+            hover-stop-propagation="{{ item.props.hoverStopPropagation || null }}"
+        
+            hover-start-time="{{ item.props.hoverStartTime || null }}"
+        
+            hover-stay-time="{{ item.props.hoverStayTime || null }}"
+        
+            lang="{{ item.props.lang || null }}"
+        
+            bindgetuserinfo="{{ item.props.bindgetuserinfo || null }}"
+        
+            session-from="{{ item.props.sessionFrom || null }}"
+        
+            send-message-title="{{ item.props.sendMessageTitle || null }}"
+        
+            send-message-path="{{ item.props.sendMessagePath || null }}"
+        
+            send-message-img="{{ item.props.sendMessageImg || null }}"
+        
+            show-message-card="{{ item.props.showMessageCard || null }}"
+        
+            bindcontact="{{ item.props.bindcontact || null }}"
+        
+            bindgetphonenumber="{{ item.props.bindgetphonenumber || null }}"
+        
+            app-parameter="{{ item.props.appParameter || null }}"
+        
+            binderror="{{ item.props.binderror || null }}"
+        
+            bindopensetting="{{ item.props.bindopensetting || null }}"
+        
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_8" data="{{item}}"/>
+        </block>
+    </button>
+</block>
 
-<template name="REACT_MINI_APP_TPL_12">
-    <block wx:if="{{item.text}}">
-      <!-- string -->
-      {{item.text}}
-    </block>
 
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_13" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
-  
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
-</template>
-
-<template name="REACT_MINI_APP_TPL_13">
-    <block wx:if="{{item.text}}">
-      <!-- string -->
-      {{item.text}}
-    </block>
-
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_14" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
-  
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
-</template>
-
-<template name="REACT_MINI_APP_TPL_14">
-    <block wx:if="{{item.text}}">
-      <!-- string -->
-      {{item.text}}
-    </block>
-
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_15" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
-  
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
 </template>
 
 

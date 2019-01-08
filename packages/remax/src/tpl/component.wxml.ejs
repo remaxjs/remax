@@ -1,0 +1,22 @@
+<!-- vars -->
+<!-- 
+    - tpl_index
+    - type
+    - propKeys
+-->
+
+<% camelCased = function(str) { return str.replace(/-([a-z])/g, function (g) { return g[1].toUpperCase(); })}%>
+
+<block wx:if="{{item.type === '<%= type %>'}}">
+    <<%=type%>
+        class="{{ item.props.className }}"
+        <% for(let key of propKeys) { %>
+            <%=key%>="{{ item.props.<%=camelCased(key)%> || null }}"
+        <% } %>
+        bindtap="{{item.props.onClick || null}}"
+        >
+        <block wx:for="{{item.children}}" wx:key="">
+            <template is="REACT_MINI_APP_TPL_<%=(tpl_index + 1)%>" data="{{item}}"/>
+        </block>
+    </<%=type%>>
+</block>

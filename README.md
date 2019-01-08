@@ -26,8 +26,7 @@ npm run watch
 
 登录微信开发者工具，新建项目，选择 `remax/pacakges/remax/demo` 目录，就能看到 DEMO 小程序
 
-![miniapp](https://user-images.githubusercontent.com/5436704/50804644-ed758680-1329-11e9-90e6-6871f5f1540e.gif)
-
+![miniapp](https://user-images.githubusercontent.com/5436704/50823409-e3c24200-136e-11e9-9432-4c15f6c5b3fa.gif)
 
 DEMO 代码见：`packages/remax/demo/src/pages/index.js` 
 
@@ -58,26 +57,50 @@ const ClickComponent = () => {
   );
 };
 
+const showToast = () => Remax.api.showToast({
+  title: '成功',
+  icon: 'succes',
+  duration: 1000,
+  mask: true,
+});
+
 const Component = () => (
   <view>
+
     <view className="title">
       {'<ClickComponent />'}
 with useState
     </view>
     <ClickComponent />
+    <button onClick={showToast}>
+    点击
+    </button>
+
   </view>
 );
 
 Remax.render(<Component />);
+
 ```
 
 `index.less` ：
 
 ```less
+@-webkit-keyframes rotation {
+    from {-webkit-transform: rotate(0deg);
+}to {
+    -webkit-transform: rotate(360deg);
+}}
+
 .test-image {
     display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: auto;
+    -webkit-transform: rotate(360deg);
+    animation: rotation 8s linear infinite;
+    border-radius: 200px;
+    width: 150px;
 }
 
 .title {

@@ -4,24 +4,67 @@
     </block>
 </template>
 
-<% for (let i = 0; i < 15; i ++) { %>
+
+
+<% for (let i = 0; i < 8; i ++) { %>
 <template name="REACT_MINI_APP_TPL_<%=i%>">
     <block wx:if="{{item.text}}">
       <!-- string -->
       {{item.text}}
     </block>
 
-    <block wx:if="{{item.type === 'view'}}">
-        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-            <block wx:for="{{item.children}}" wx:key="">
-              <template is="REACT_MINI_APP_TPL_<%=(i + 1)%>" data="{{item}}"/>
-            </block>
-        </view>
-    </block>
+    <%- include('./component.wxml.ejs', {
+        type: 'view',
+        tpl_index: i,
+        propKeys: [
+            'hover-class',
+            'hover-stop-propagation',
+            'hover-start-time',
+            'hover-stay-time',
+        ]
+    }) %>
   
-    <block wx:elif="{{item.type === 'image'}}">
-        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
-        </image>
-    </block>
+    <%- include('./component.wxml.ejs', {
+        type: 'image',
+        tpl_index: i,
+        propKeys: [
+            'src',
+            'mode',
+            'lazy-load',
+            'binderror',
+            'bindload',
+        ]
+    }) %>
+
+    <%- include('./component.wxml.ejs', {
+        type: 'button',
+        tpl_index: i,
+        propKeys: [
+            'size',
+            'type',
+            'plain',
+            'disabled',
+            'loading',
+            'form-type',
+            'open-type',
+            'hover-class',
+            'hover-stop-propagation',
+            'hover-start-time',
+            'hover-stay-time',
+            'lang',
+            'bindgetuserinfo',
+            'session-from',
+            'send-message-title',
+            'send-message-path',
+            'send-message-img',
+            'show-message-card',
+            'bindcontact',
+            'bindgetphonenumber',
+            'app-parameter',
+            'binderror',
+            'bindopensetting',
+        ]
+    }) %>
+
 </template>
 <% } %>

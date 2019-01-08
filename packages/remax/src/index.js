@@ -62,7 +62,9 @@ const hostConfig = {
     return rootHostContext;
   },
   shouldSetTextContent: (type, props) => {
-    return typeof props.children === 'string' || typeof props.children === 'number';
+    return false;
+    // console.log(props);
+    // return typeof props.children === 'string' || typeof props.children === 'number';
   },
   prepareForCommit: () => {},
   resetAfterCommit: () => {},
@@ -128,7 +130,6 @@ const hostConfig = {
       };
     }
 
-
     parent.children.push(child);
 
     child.rootContext[REACT_MINI_APP_ROOT_BACKUP] = parent;
@@ -144,6 +145,11 @@ const ReactReconcilerInst = ReactReconciler(hostConfig);
 export default {
   ...React,
   React,
+  api: {
+    showToast(conf) {
+      wx.showToast(conf);
+    },
+  },
   render: (reactElement, callback) => {
     Page({
       data: {

@@ -3,14 +3,13 @@ import './index.less';
 
 const {
   React,
-  useState,
 } = Remax;
 
 const ClickComponent = () => {
   const [count, setCount] = Remax.useState(0);
 
   const handleClick = () => {
-    setCount(count + 1);
+    setCount(count + 222);
   };
 
   return (
@@ -24,13 +23,25 @@ const ClickComponent = () => {
   );
 };
 
+const showToast = () => Remax.api.showToast({
+  title: '成功',
+  icon: 'succes',
+  duration: 1000,
+  mask: true,
+});
+
 const Component = () => (
   <view>
+
     <view className="title">
       {'<ClickComponent />'}
 with useState
     </view>
     <ClickComponent />
+    <button onClick={showToast}>
+      点击
+    </button>
+
   </view>
 );
 
