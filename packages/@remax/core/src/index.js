@@ -29,7 +29,7 @@ function setData(rootContext) {
   const pureObject = clone(rootContext[REMAX_ROOT_BACKUP]);
 
   rootContext.setData({
-    [REMAX_ROOT]: [pureObject],
+    [REMAX_ROOT]: pureObject,
   });
 }
 
@@ -129,11 +129,13 @@ const hostConfig = {
 
     parent.children.push(child);
 
-    child.rootContext[REMAX_ROOT_BACKUP] = parent;
+    child.rootContext[REMAX_ROOT_BACKUP] = child.rootContext[REMAX_ROOT_BACKUP] || [];
+    child.rootContext[REMAX_ROOT_BACKUP].push(parent);
     setData(child.rootContext);
   },
 
   removeChild(parentInstance, child) {
+    console.log('remove');
     parentInstance.children.splice(parentInstance.indexOf(child), 1);
   },
 };

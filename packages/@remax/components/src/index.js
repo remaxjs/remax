@@ -48,6 +48,12 @@ const eventAlias = {
   onClick: 'tap',
 };
 
+const styleString = style => (
+  Object.entries(style).reduce((styleString, [propName, propValue]) => {
+    return `${styleString}${propName}:${propValue};`;
+  }, '')
+);
+
 for (const component of components) {
   resultComponents[camelCased(component)] = (props) => {
     const Tag = `mini-${component}`;
@@ -58,6 +64,8 @@ for (const component of components) {
     for (const propKey of Object.keys(props)) {
       if (eventAlias[propKey]) {
         newProps[`bind${eventAlias[propKey]}`] = props[propKey];
+      } else if (propKey === 'style') {
+        newProps.style = styleString(props.style);
       } else {
         newProps[propKey] = props[propKey];
       }

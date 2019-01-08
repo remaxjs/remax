@@ -45,7 +45,7 @@ function setData(rootContext) {
   }
 
   var pureObject = clone(rootContext[REMAX_ROOT_BACKUP]);
-  rootContext.setData(_defineProperty({}, REMAX_ROOT, [pureObject]));
+  rootContext.setData(_defineProperty({}, REMAX_ROOT, pureObject));
 }
 
 function processProps(newProps, rootContext, id) {
@@ -140,10 +140,12 @@ var hostConfig = {
     }
 
     parent.children.push(child);
-    child.rootContext[REMAX_ROOT_BACKUP] = parent;
+    child.rootContext[REMAX_ROOT_BACKUP] = child.rootContext[REMAX_ROOT_BACKUP] || [];
+    child.rootContext[REMAX_ROOT_BACKUP].push(parent);
     setData(child.rootContext);
   },
   removeChild: function removeChild(parentInstance, child) {
+    console.log('remove');
     parentInstance.children.splice(parentInstance.indexOf(child), 1);
   }
 };

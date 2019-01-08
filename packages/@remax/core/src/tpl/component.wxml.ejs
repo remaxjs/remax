@@ -14,6 +14,7 @@ propKeys = propKeys.concat(events.map(item => `bind${item}`));
 <block wx:if="{{item.type === 'mini-<%= type %>'}}">
     <<%=type%>
         class="{{ item.props.className }}"
+        style="{{ item.props.style }}"
         <% for(let key of propKeys) { %>
             <%=key%>="{{item.props.<%=camelCased(key)%>}}"
         <% } %>
