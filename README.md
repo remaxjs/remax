@@ -67,6 +67,8 @@ with useState
     <ClickComponent />
   </view>
 );
+
+Remax.render(<Component />);
 ```
 
 `index.less` ：

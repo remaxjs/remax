@@ -144,13 +144,23 @@ const ReactReconcilerInst = ReactReconciler(hostConfig);
 export default {
   ...React,
   React,
-  render: (reactElement, miniAppContext, callback) => {
-    // Create a root Container if it doesnt exist
-    if (!miniAppContext._rootContainer) {
-      miniAppContext._rootContainer = ReactReconcilerInst.createContainer(miniAppContext, false);
-    }
+  render: (reactElement, callback) => {
+    Page({
+      data: {
+        $$REACT_MINI_APP_ROOT: [
+        ],
+      },
 
-    // update the root Container
-    return ReactReconcilerInst.updateContainer(reactElement, miniAppContext._rootContainer, null, callback);
+      onReady() {
+        const miniAppContext = this;
+        // Create a root Container if it doesnt exist
+        if (!miniAppContext._rootContainer) {
+          miniAppContext._rootContainer = ReactReconcilerInst.createContainer(miniAppContext, false);
+        }
+
+        return ReactReconcilerInst.updateContainer(reactElement, miniAppContext._rootContainer, null, callback);
+      },
+
+    });
   },
 };

@@ -156,14 +156,21 @@ var ReactReconcilerInst = (0, _reactReconciler.default)(hostConfig);
 
 var _default = _objectSpread({}, _react.default, {
   React: _react.default,
-  render: function render(reactElement, miniAppContext, callback) {
-    // Create a root Container if it doesnt exist
-    if (!miniAppContext._rootContainer) {
-      miniAppContext._rootContainer = ReactReconcilerInst.createContainer(miniAppContext, false);
-    } // update the root Container
+  render: function render(reactElement, callback) {
+    Page({
+      data: {
+        $$REACT_MINI_APP_ROOT: []
+      },
+      onReady: function onReady() {
+        var miniAppContext = this; // Create a root Container if it doesnt exist
 
+        if (!miniAppContext._rootContainer) {
+          miniAppContext._rootContainer = ReactReconcilerInst.createContainer(miniAppContext, false);
+        }
 
-    return ReactReconcilerInst.updateContainer(reactElement, miniAppContext._rootContainer, null, callback);
+        return ReactReconcilerInst.updateContainer(reactElement, miniAppContext._rootContainer, null, callback);
+      }
+    });
   }
 });
 

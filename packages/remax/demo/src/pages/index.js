@@ -34,14 +34,4 @@ with useState
   </view>
 );
 
-Page({
-  data: {
-    $$REACT_MINI_APP_ROOT: [
-    ],
-  },
-
-  onReady() {
-    Remax.render(<Component />, this);
-  },
-
-});
+Remax.render(<Component />);
