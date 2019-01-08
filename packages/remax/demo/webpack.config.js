@@ -2,7 +2,7 @@ const path = require('path');
 const CreateFileWebpack = require('create-file-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
@@ -10,6 +10,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
+    filename: '[name].js',
   },
   module: {
     rules: [
@@ -20,12 +21,28 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          'css-loader',
+          'less-loader',
+        ],
+      },
     ],
   },
-  mode: 'development',
   devtool: 'source-map',
 
   plugins: [
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: '[name].wxss',
+      chunkFilename: '[id].wxss',
+    }),
     new CreateFileWebpack({
       path: './dist',
       fileName: 'app.json',
@@ -75,5 +92,8 @@ module.exports = {
       }
           `,
     }),
+
   ],
+
+  mode: 'development',
 };

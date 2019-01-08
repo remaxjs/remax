@@ -12,7 +12,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_1" data="{{item}}"/>
             </block>
@@ -20,7 +20,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
@@ -32,7 +32,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_2" data="{{item}}"/>
             </block>
@@ -40,7 +40,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
@@ -52,7 +52,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_3" data="{{item}}"/>
             </block>
@@ -60,7 +60,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
@@ -72,7 +72,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_4" data="{{item}}"/>
             </block>
@@ -80,7 +80,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
@@ -92,7 +92,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_5" data="{{item}}"/>
             </block>
@@ -100,7 +100,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
@@ -112,7 +112,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_6" data="{{item}}"/>
             </block>
@@ -120,7 +120,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
@@ -132,7 +132,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_7" data="{{item}}"/>
             </block>
@@ -140,7 +140,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
@@ -152,7 +152,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_8" data="{{item}}"/>
             </block>
@@ -160,7 +160,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
@@ -172,7 +172,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_9" data="{{item}}"/>
             </block>
@@ -180,7 +180,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
@@ -192,7 +192,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_10" data="{{item}}"/>
             </block>
@@ -200,7 +200,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
@@ -212,7 +212,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_11" data="{{item}}"/>
             </block>
@@ -220,7 +220,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
@@ -232,7 +232,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_12" data="{{item}}"/>
             </block>
@@ -240,7 +240,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
@@ -252,7 +252,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_13" data="{{item}}"/>
             </block>
@@ -260,7 +260,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
@@ -272,7 +272,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_14" data="{{item}}"/>
             </block>
@@ -280,7 +280,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
@@ -292,7 +292,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_15" data="{{item}}"/>
             </block>
@@ -300,7 +300,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>

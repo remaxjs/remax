@@ -12,7 +12,7 @@
     </block>
 
     <block wx:if="{{item.type === 'view'}}">
-        <view bind:touchstart="{{item.props.onClick || ''}}">
+        <view class="{{item.props.className || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
             <block wx:for="{{item.children}}" wx:key="">
               <template is="REACT_MINI_APP_TPL_<%=(i + 1)%>" data="{{item}}"/>
             </block>
@@ -20,7 +20,7 @@
     </block>
   
     <block wx:elif="{{item.type === 'image'}}">
-        <image src="{{item.props.src}}" bind:touchstart="{{item.props.onClick || ''}}">
+        <image class="{{item.props.className || ''}}" src="{{item.props.src || ''}}" bind:touchstart="{{item.props.onClick || ''}}">
         </image>
     </block>
 </template>
