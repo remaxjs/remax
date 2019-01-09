@@ -1,11 +1,37 @@
 {
-  "name": "remax-cli",
+  "name": "@remax/cli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "babel src -d lib -w",
+    "build": "babel src -d lib"
+  },
+  "bin": {
+    "remax": "./bin/remax"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "@remax/babel-plugin-remax-static-info": "^1.0.0",
+    "babel-loader": "^8.0.5",
+    "commander": "^2.19.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "create-file-webpack": "^1.0.2",
+    "css-loader": "^2.1.0",
+    "ejs": "^2.6.1",
+    "extract-css-chunks-webpack-plugin": "^3.3.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "path": "^0.12.7",
+    "webpack": "^4.28.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3"
+  }
 }

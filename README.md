@@ -14,17 +14,19 @@
 git clone https://github.com/CodeFalling/remax
 cd remax/packages/remax
 
-# 先构建一次
-npm install
-npm run build
+# 安装 yarn
+npm install -g yarn
 
-# demo 目录可以启动
-cd demo
-npm install
-npm run watch
+# 国内用户推荐使用 yrm 切换源
+# npm install -g yrm
+# yrm use taobao
+
+npm run bootstrap
+# 启动 demo
+npm run dev:demo
 ```
 
-登录微信开发者工具，新建项目，选择 `remax/pacakges/remax/demo` 目录，就能看到 DEMO 小程序
+登录微信开发者工具，新建项目，选择 `remax/pacakges/@remax/demo` 目录，就能看到 DEMO 小程序
 
 ![miniapp](https://s2.ax1x.com/2019/01/08/FLnWRg.md.gif)
 
@@ -36,12 +38,12 @@ import {
   useState,
 } from 'react';
 
-import Remax from '../../..';
+import Remax from '@remax/core';
 import {
   View,
   Image,
   Button,
-} from '../../../../remax-components';
+} from '@remax/components';
 
 import './index.less';
 

@@ -3,12 +3,12 @@ import {
   useState,
 } from 'react';
 
-import Remax from '../../../..';
+import Remax from '@remax/core';
 import {
   View,
   Image,
   Button,
-} from '../../../../../components';
+} from '@remax/components';
 
 import './index.less';
 
@@ -36,6 +36,7 @@ const Component = () => {
     loading,
     setLoading,
   ] = useState(false);
+
   const showToast = () => {
     setLoading(!loading);
     Remax.api.showToast({
@@ -61,5 +62,6 @@ with useState
     </View>
   );
 };
+
 
 Remax.render(<Component />);

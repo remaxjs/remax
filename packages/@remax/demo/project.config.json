@@ -1,6 +1,6 @@
 {
 	"miniprogramRoot": "dist/",
-	"projectname": "remax-demo-test",
+	"projectname": "%40remax%2Fdemo",
 	"description": "",
 	"appid": "wx3ff50b1e5d29f6aa",
 	"setting": {

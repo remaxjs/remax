@@ -1,7 +1,21 @@
 {
   "name": "root",
-  "private": true,
+  "version": "1.0.0",
   "devDependencies": {
-    "lerna": "^3.4.3"
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "ejs": "^2.6.1",
+    "lerna": "^3.4.3",
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1"
+  },
+  "scripts": {
+    "watch": "lerna run watch --parallel",
+    "clean": "lerna clean",
+    "bootstrap": "yarn install && yarn run clean && lerna bootstrap",
+    "dev:demo": "cd packages/@remax/demo && npm run dev"
   }
 }

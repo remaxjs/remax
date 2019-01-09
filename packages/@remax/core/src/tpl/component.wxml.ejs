@@ -1,7 +1,8 @@
 <%/*
     - tpl_index
-    - type
     - propKeys
+    - id
+    - type
 */%>
 <% camelCased = function(str) { return str.replace(/-([a-z0-9])/g, function (g) { return g[1].toUpperCase(); })}%>
 
@@ -12,9 +13,7 @@ const events = [
 propKeys = propKeys.concat(events.map(item => `bind${item}`));
 %>
 <block wx:if="{{item.type === 'mini-<%= type %>'}}">
-    <<%=type%>
-        class="{{ item.props.className }}"
-        style="{{ item.props.style }}"
+    <<%=id%>
         <% for(let key of propKeys) { %>
             <%=key%>="{{item.props.<%=camelCased(key)%>}}"
         <% } %>
@@ -22,5 +21,5 @@ propKeys = propKeys.concat(events.map(item => `bind${item}`));
         <block wx:for="{{item.children}}" wx:key="">
             <template is="REMAX_TPL_<%=(tpl_index + 1)%>" data="{{item}}"/>
         </block>
-    </<%=type%>>
+    </<%=id%>>
 </block>

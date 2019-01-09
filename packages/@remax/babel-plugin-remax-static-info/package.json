@@ -1,17 +1,19 @@
 {
-  "name": "@remax/components",
+  "name": "@remax/babel-plugin-remax-static-info",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "babel src -d lib -w",
-    "build": "babel src -d lib"
+    "watch": "babel src -d lib -w"
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@babel/preset-env": "^7.2.3",
+    "dot-prop": "^4.2.0"
+  },
   "devDependencies": {
-    "react": "^16.7.0",
     "@babel/preset-env": "^7.2.3"
   }
 }
