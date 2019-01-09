@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/CodeFalling/remax#readme",
   "devDependencies": {
-    "ejs-cli": "^2.0.1",
     "@babel/preset-env": "^7.2.3"
   },
   "dependencies": {
