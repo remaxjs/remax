@@ -8,6 +8,8 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "ejs": "^2.6.1",
+    "eslint": "^5.12.0",
+    "eslint-plugin-react": "^7.12.3",
     "lerna": "^3.4.3",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.2.1"

@@ -44,7 +44,7 @@ function GeneraeBaseWxmlWebpackPlugin() {
       }, {
       }, (err, str) => {
         if (err) {
-          console.error(err);
+          console.error(err); // eslint-disable-line
         } else {
           compilation.assets['base.wxml'] = {
             source: () => str,
@@ -75,7 +75,7 @@ function GeneraeWxmlWebpackPlugin() {
   <view>
       <template is="REMAX_TPL" data="{{$$REMAX_ROOT}}"/>
   </view>`;
-  const contentBuffer = Buffer.from(content);
+  const contentBuffer = Buffer.from(content); // eslint-disable-line
 
   const apply = (compiler) => {
     const emit = (compilation, cb) => {
@@ -106,7 +106,11 @@ function GeneraeWxmlWebpackPlugin() {
 }
 
 
-module.exports = function getWebpackConfig() {
+module.exports = function getWebpackConfig(_config) {
+  const config = {
+    cssModules: true,
+    ..._config,
+  };
   return {
     entry() {
       const {
@@ -120,7 +124,7 @@ module.exports = function getWebpackConfig() {
       return result;
     },
     output: {
-      path: path.join(__dirname, 'dist'),
+      path: path.join(process.cwd(), 'dist'),
       filename: '[name].js',
     },
     resolve: {
@@ -153,7 +157,7 @@ module.exports = function getWebpackConfig() {
             {
               loader: cssLoader,
               options: {
-                modules: true,
+                modules: config.cssModules,
               },
             },
             lessLoader,
@@ -173,7 +177,7 @@ module.exports = function getWebpackConfig() {
           hot: false, // if you want HMR - we try to automatically inject hot reloading but if it's not working, add it to the config
           orderWarning: true, // Disable to remove warnings about conflicting order between imports
           reloadAll: false, // when desperation kicks in - this is a brute force HMR flag
-          cssModules: true, // if you use cssModules, this can help.
+          cssModules: config.cssModules, // if you use cssModules, this can help.
         },
       ),
       new CopyWebpackPlugin([{

@@ -10,7 +10,7 @@ import {
   Button,
 } from '@remax/components';
 
-import './index.less';
+import styles from './index.less';
 
 const ClickComponent = () => {
   const [count, setCount] = useState(0);
