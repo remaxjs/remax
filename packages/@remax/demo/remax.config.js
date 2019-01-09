@@ -1,3 +1,3 @@
 module.exports = {
-  cssModules: false,
+  cssModules: true,
 };

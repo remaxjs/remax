@@ -45,7 +45,7 @@ import {
   Button,
 } from '@remax/components';
 
-import './index.less';
+import styles from './index.less';
 
 const ClickComponent = () => {
   const [count, setCount] = useState(0);
@@ -56,8 +56,7 @@ const ClickComponent = () => {
 
   return (
     <View onClick={handleClick}>
-      <Image className="test-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" />
-
+      <Image className={styles.image} src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K" />
     CLICK the image
       {count}
     times
@@ -65,31 +64,41 @@ const ClickComponent = () => {
   );
 };
 
-const showToast = () => Remax.api.showToast({
-  title: '成功',
-  icon: 'succes',
-  duration: 1000,
-  mask: true,
-});
 
+const Component = () => {
+  const [
+    loading,
+    setLoading,
+  ] = useState(false);
 
-const Component = () => (
-  <View>
+  const showToast = () => {
+    setLoading(!loading);
+    Remax.api.showToast({
+      title: 'ok',
+      icon: 'succes',
+      duration: 1000,
+      mask: true,
+    });
+  };
 
-    <View className="title">
-      {'<ClickComponent />'}
+  return (
+    <View>
+
+      <View className={styles.title}>
+        {'<ClickComponent />'}
 with useState
-    </View>
-    <ClickComponent />
-    <Button className="test-btn" type="primary" onClick={showToast}>
+      </View>
+      <ClickComponent />
+      <Button loading={loading} className={styles.btn} type="primary" onClick={showToast}>
       点击
-    </Button>
+      </Button>
 
-  </View>
-);
+    </View>
+  );
+};
+
 
 Remax.render(<Component />);
-
 
 ```
 
@@ -102,7 +111,7 @@ Remax.render(<Component />);
     -webkit-transform: rotate(360deg);
 }}
 
-.test-image {
+.image {
     display: block;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -118,7 +127,7 @@ Remax.render(<Component />);
     text-align: center;
 }
 
-.test-btn {
+.btn {
     width: 80%;
     display: block;
     margin: auto;
@@ -126,5 +135,4 @@ Remax.render(<Component />);
 
 ```
 
-
-如 DEMO 所见，我们可以自由的使用 React 带来的新特性
+我们可以无障碍的使用 CSS Modules, React Hooks 等特性
