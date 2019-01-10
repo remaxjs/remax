@@ -8,7 +8,7 @@ import {
   NavBar,
 } from '@remax/weui';
 
-import '@remax/weui/dist/weui.less';
+import '@remax/weui/weui.less';
 
 let inited = false;
 
