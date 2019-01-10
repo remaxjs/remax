@@ -4,33 +4,28 @@
 
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
-  resolved "http://registry.npm.taobao.org/js-tokens/download/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
-  integrity sha1-GSA/tZmR35jjoocFDUZHzerzJJk=
+  resolved "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
 
 loose-envify@^1.1.0, loose-envify@^1.3.1:
   version "1.4.0"
-  resolved "http://registry.npm.taobao.org/loose-envify/download/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
-  integrity sha1-ce5R+nvkyuwaY4OffmgtgTLTDK8=
+  resolved "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
 object-assign@^4.1.1:
   version "4.1.1"
-  resolved "http://registry.npm.taobao.org/object-assign/download/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
-  integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+  resolved "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
 prop-types@^15.6.2:
   version "15.6.2"
-  resolved "http://registry.npm.taobao.org/prop-types/download/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
-  integrity sha1-BdXKd7RFPphdYPx/+MhZCUpJcQI=
+  resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
 react@16.7.0-alpha.2:
   version "16.7.0-alpha.2"
-  resolved "http://registry.npm.taobao.org/react/download/react-16.7.0-alpha.2.tgz#924f2ae843a46ea82d104a8def7a599fbf2c78ce"
-  integrity sha1-kk8q6EOkbqgtEEqN73pZn78seM4=
+  resolved "https://registry.npmjs.org/react/-/react-16.7.0-alpha.2.tgz#924f2ae843a46ea82d104a8def7a599fbf2c78ce"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -39,13 +34,11 @@ react@16.7.0-alpha.2:
 
 scheduler@^0.12.0-alpha.2:
   version "0.12.0"
-  resolved "http://registry.npm.taobao.org/scheduler/download/scheduler-0.12.0.tgz#8ab17699939c0aedc5a196a657743c496538647b"
-  integrity sha1-irF2mZOcCu3FoZamV3Q8SWU4ZHs=
+  resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.12.0.tgz#8ab17699939c0aedc5a196a657743c496538647b"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
 weui@^1.1.3:
   version "1.1.3"
-  resolved "http://registry.npm.taobao.org/weui/download/weui-1.1.3.tgz#0f0899bb61bb2ec603b2648367a8139298f81514"
-  integrity sha1-DwiZu2G7LsYDsmSDZ6gTkpj4FRQ=
+  resolved "https://registry.npmjs.org/weui/-/weui-1.1.3.tgz#0f0899bb61bb2ec603b2648367a8139298f81514"
