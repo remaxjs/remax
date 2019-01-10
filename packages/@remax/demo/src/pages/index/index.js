@@ -22,7 +22,7 @@ const ClickComponent = () => {
   const [count, setCount] = useState(0);
 
   const handleClick = () => {
-    setCount(count + 222);
+    setCount(count + 1);
   };
 
   return (
@@ -38,12 +38,12 @@ const ClickComponent = () => {
 
 const Component = () => {
   const [
-    loading,
-    setLoading,
-  ] = useState(false);
+    isPrimary,
+    setPrimary,
+  ] = useState(true);
 
   const showToast = () => {
-    setLoading(!loading);
+    setPrimary(!isPrimary);
     Remax.api.showToast({
       title: 'ok',
       icon: 'succes',
@@ -59,7 +59,7 @@ const Component = () => {
 with useState & CSS Module
       </View>
       <ClickComponent />
-      <Button size="mini" loading={loading} className={styles.btn} type="primary" onClick={showToast}>
+      <Button className={styles.btn} type={isPrimary ? 'primary': 'normal'} onClick={showToast}>
       点击
       </Button>
 

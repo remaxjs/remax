@@ -1,9 +1,12 @@
 import {
-    Button,
+  Button,
 } from '@remax/components';
 
 import React from 'react';
 import classnames from 'classnames';
+
+import weuiStyles from '../../weui.mod.less';
+import styles from './index.mod.less';
 
 export default (props) => {
   const {
@@ -18,8 +21,8 @@ export default (props) => {
 
   const nextClassName = classnames({
     [className]: true,
-    'weui-btn': true,
-    'mini-btn': size === 'mini',
+    [weuiStyles['weui-btn']]: true,
+    [styles['mini-btn']]: size === 'mini',
   });
 
   return <Button

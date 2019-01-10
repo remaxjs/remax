@@ -6,9 +6,8 @@ import {
 } from 'react';
 import {
   NavBar,
+  Button,
 } from '@remax/weui';
-
-import '@remax/weui/weui.less';
 
 let inited = false;
 
@@ -29,9 +28,16 @@ const Page = () => {
         <NavBar tabs={[{
           title: '测试',
           key: 'test',
+          content: '这是测试内容'
         }, {
           title: '嘿嘿',
           key: 'hey',
+          content: <><NavBar tabs={[
+            {title: '嵌套', key: 'hei', content: '这是嵌套的第一个页面'},
+            {title: '嵌套二', key: 'hehe', content: <Button loading>加载中的按钮</Button>},
+          ]}/>
+          这里是嵌套的外面，props 也可以是 JSX
+          </>
         }, {
           title: 'test 中文',
           key: 'test_cn'

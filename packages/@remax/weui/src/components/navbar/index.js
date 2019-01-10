@@ -5,6 +5,9 @@ import {
 import React from 'react';
 import classnames from 'classnames';
 
+import weuiStyles from '../../weui.mod.less';
+import style from './index.mod.less';
+
 import {
   useState,
 } from 'react';
@@ -29,23 +32,30 @@ export default (props) => {
     width: sliderWidth,
   };
 
-  return <View className="weui-tab">
-    <View className="weui-navbar">
+  return <View className={weuiStyles['weui-tab']}>
+    <View className={weuiStyles['weui-navbar']}>
       {tabs.map((item, index) => {
         const handleTap = () => {
           setActiveIndex(index);
         };
         const itemClassName = classnames({
-          'weui-navbar__item': true,
-          'weui-bar__item_on': activeIndex === index,
+          [weuiStyles['weui-navbar__item']]: true,
+          [weuiStyles['weui-bar__item_on']]: activeIndex === index,
         });
         return <View key={item.key} className={itemClassName} onTap={handleTap}>
-          <View className="weui-navbar__title">
+          <View className={weuiStyles['weui-navbar__title']}>
             {item.title}
           </View>
         </View>;
       })}
-      <View className="weui-navbar__slider" style={innerStyle}></View>
+      <View className={weuiStyles['weui-navbar__slider']} style={innerStyle}></View>
+    </View>
+    <View>
+      {tabs.map((item, index) => {
+        return <View key={item.key} className={style['tab-content']} hidden={activeIndex !== index}>
+          {item.content}
+        </View>;
+      })}
     </View>
   </View>;
 };
