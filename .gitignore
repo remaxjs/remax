@@ -65,3 +65,4 @@ dist
 node_modules
 demo-minitomato
 lib
+^packages/@remax/weui/dist
