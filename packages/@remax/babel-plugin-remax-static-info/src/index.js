@@ -74,9 +74,14 @@ module.exports = ({ types }) => ({
         if (propsAlias[propName]) {
           e.name.name = propsAlias[propName];
         }
+        if (propName === 'key') {
+          // ignore key
+          return;
+        }
         return get(e, 'name.name');
       }).filter(item => item)
         .sort();
+
   
       components[JSON.stringify({
         componentName,
