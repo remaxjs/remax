@@ -1,16 +1,22 @@
 import React from 'react';
 import {
   useState,
+  useEffect,
 } from 'react';
 
 import Remax from '@remax/core';
 import {
   View,
   Image,
-  Button,
 } from '@remax/components';
 
-import styles from './index.less';
+import {
+  Button,
+  NavBar,
+} from '@remax/weui';
+
+
+import styles from './index.module.less';
 
 const ClickComponent = () => {
   const [count, setCount] = useState(0);
@@ -48,19 +54,17 @@ const Component = () => {
 
   return (
     <View>
-
       <View className={styles.title}>
         {'<ClickComponent />'}
-with useState
+with useState & CSS Module
       </View>
       <ClickComponent />
-      <Button loading={loading} className={styles.btn} type="primary" onClick={showToast}>
+      <Button size="mini" loading={loading} className={styles.btn} type="primary" onClick={showToast}>
       点击
       </Button>
 
     </View>
   );
 };
-
 
 Remax.render(<Component />);

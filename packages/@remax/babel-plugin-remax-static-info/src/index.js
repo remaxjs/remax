@@ -47,29 +47,37 @@ const componentList = [
   'canvas',
   'open-data',
   'official-account',
-].map(item => camelCased(item));
+];
 
 const propsAlias = {
   className: 'class',
   onClick: 'bindtap',
+  onTap: 'bindtap',
 };
 
 module.exports = ({ types }) => ({
   visitor: {
     JSXElement(path, state) {
       const componentName = path.node.openingElement.name.name;
-      if (componentList.indexOf(componentName) === -1) {
-        return;
+      const binding = path.scope.getBinding(componentName);
+      const componentPath = get(binding, 'path');
+      let notBaseComponent = true;
+      if (componentPath && componentPath.node.type === 'ImportSpecifier' && componentPath.parent.source.value === '@remax/components') {
+        notBaseComponent = false;
       }
+
+      if (notBaseComponent) return;
+
+      // 基础组件
       const propKeys = path.node.openingElement.attributes.map((e) => {
         const propName = get(e, 'name.name');
         if (propsAlias[propName]) {
           e.name.name = propsAlias[propName];
         }
-        return e.name.name;
+        return get(e, 'name.name');
       }).filter(item => item)
         .sort();
-
+  
       components[JSON.stringify({
         componentName,
         propKeys,
@@ -78,6 +86,7 @@ module.exports = ({ types }) => ({
         id: unCamelCased(componentName),
         propKeys,
       };
+
     },
   },
 

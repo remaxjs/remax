@@ -1,6 +1,7 @@
 {
     "pages": [
-        "pages/index"
+        "pages/index",
+        "pages/weui"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",
@@ -8,5 +9,18 @@
         "navigationBarBackgroundColor": "#F6F6F6",
         "navigationBarTitleText": "Remax DEMO",
         "navigationBarTextStyle": "black"
-    }
+    },
+    "tabBar": {
+        "position": "top",
+        "list": [
+          {
+            "pagePath": "pages/index",
+            "text": "首页"
+          },
+          {
+            "pagePath": "pages/weui",
+            "text": "WeUI"
+          }
+        ]
+      }
 }

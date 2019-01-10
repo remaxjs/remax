@@ -11,6 +11,11 @@ const styleString = style => (
   }, '')
 );
 
+function factoryTag(component, props) {
+  const Tag = `mini-${component}+${Object.keys(props).filter(propKey => propKey !== 'children').sort().join('+')}`;
+  return Tag;
+}
+
 function factoryComponent(component) {
   return (props) => {
     const {
@@ -20,11 +25,13 @@ function factoryComponent(component) {
     for (const propKey of Object.keys(props)) {
       if (propKey === 'style') {
         newProps.style = styleString(props.style);
+      } else if (propKey === 'key') {
+        // pass
       } else {
         newProps[propKey] = props[propKey];
       }
     }
-    const Tag = `mini-${component}+${Object.keys(newProps).filter(propKey => propKey !== 'children').sort().join('+')}`;
+    const Tag = factoryTag(component, newProps);
     return React.createElement(Tag, newProps, children);
   };
 }

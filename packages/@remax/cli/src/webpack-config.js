@@ -1,13 +1,16 @@
 const path = require('path');
 const CreateFileWebpack = require('create-file-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const fs = require('fs');
 const babelPluginComponentStaticInfo = require('@remax/babel-plugin-remax-static-info');
 const ejs = require('ejs');
 
 const thisNodeMoudles = name => require.resolve(name);
+
+const getLocalIdent = require('css-loader/dist/utils.js').getLocalIdent;
 
 const cssLoader = thisNodeMoudles('css-loader');
 const babelLoader = thisNodeMoudles('babel-loader');
@@ -22,17 +25,6 @@ const readJSON = file => JSON.parse(fs.readFileSync(file, 'utf-8'));
 function GeneraeBaseWxmlWebpackPlugin() {
   const apply = (compiler) => {
     const emit = (compilation, cb) => {
-      // const {
-      //   chunks,
-      // } = compilation;
-      // chunks.forEach((item) => {
-      //   // compilation.assets[`${item.id}.wxml`] = {
-      //   //   source: () => content,
-      //   //   size: () => content.length,
-      //   // };
-      // });
-
-
       const {
         components,
       } = babelPluginComponentStaticInfo.getStaticInfo();
@@ -141,6 +133,7 @@ module.exports = function getWebpackConfig(_config) {
             options: {
               plugins: [
                 babelPluginComponentStaticInfoPath,
+                thisNodeMoudles('@babel/plugin-proposal-class-properties')
               ],
               presets: [
                 babelPresetEnv,
@@ -150,36 +143,45 @@ module.exports = function getWebpackConfig(_config) {
           },
         },
 
+        
         {
-          test: /\.less$/,
+          test: /.less$/,
           use: [
-            ExtractCssChunks.loader,
+            MiniCssExtractPlugin.loader,
             {
               loader: cssLoader,
               options: {
-                modules: config.cssModules,
+                modules: true,
+                // css modules 和无 modules 混用
+                // https://github.com/css-modules/css-modules/pull/65
+                getLocalIdent: (loaderContext, localIdentName, localName, options) => {
+                  if (/\.module\.less/.test(loaderContext.resourcePath)) {
+                    return getLocalIdent(loaderContext, localIdentName, localName, options);
+                  } else {
+                    return localName;
+                  }
+                }
               },
             },
             lessLoader,
           ],
         },
+
+
+
       ],
     },
     devtool: 'source-map',
 
     plugins: [
-      new ExtractCssChunks(
-        {
-          // Options similar to the same options in webpackOptions.output
-          // both options are optional
-          filename: '[name].wxss',
-          chunkFilename: '[id].wxss',
-          hot: false, // if you want HMR - we try to automatically inject hot reloading but if it's not working, add it to the config
-          orderWarning: true, // Disable to remove warnings about conflicting order between imports
-          reloadAll: false, // when desperation kicks in - this is a brute force HMR flag
-          cssModules: config.cssModules, // if you use cssModules, this can help.
-        },
-      ),
+      new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: '[name].wxss',
+        chunkFilename: '[id].wxss'
+      }),
+
+      
       new CopyWebpackPlugin([{
         from: './src/app.json',
         to: './app.json',
