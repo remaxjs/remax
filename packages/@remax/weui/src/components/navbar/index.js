@@ -29,7 +29,7 @@ export default (props) => {
     left: sliderLeft + 'px',
     transform: `translateX(${sliderOffset}px);`,
     '-webkit-transform': `translateX(${sliderOffset}px)`,
-    width: sliderWidth,
+    width: sliderWidth + 'px',
   };
 
   return <View className={weuiStyles['weui-tab']}>

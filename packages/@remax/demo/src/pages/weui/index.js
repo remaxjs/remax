@@ -35,7 +35,9 @@ const Page = () => {
           content: <><NavBar tabs={[
             {title: '嵌套', key: 'hei', content: '这是嵌套的第一个页面'},
             {title: '嵌套二', key: 'hehe', content: <Button loading>加载中的按钮</Button>},
-          ]}/>
+          ]}
+          windowWidth={windowWidth}
+          />
           这里是嵌套的外面，props 也可以是 JSX
           </>
         }, {
