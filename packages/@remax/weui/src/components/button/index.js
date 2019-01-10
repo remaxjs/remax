@@ -5,8 +5,8 @@ import {
 import React from 'react';
 import classnames from 'classnames';
 
-import weuiStyles from '../../weui.mod.less';
-import styles from './index.mod.less';
+import weuiStyles from '../../weui.module.less';
+import styles from './index.module.less';
 
 export default (props) => {
   const {
