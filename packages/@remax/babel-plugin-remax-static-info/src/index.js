@@ -53,6 +53,7 @@ const propsAlias = {
   className: 'class',
   onClick: 'bindtap',
   onTap: 'bindtap',
+  hoverClass: 'hover-class',
 };
 
 module.exports = ({ types }) => ({

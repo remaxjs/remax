@@ -2,14 +2,15 @@
 	"miniprogramRoot": "dist/",
 	"projectname": "%40remax%2Fdemo-one",
 	"description": "",
-	"appid": "wx3ff50b1e5d29f6aa",
+	"appid": "wx700ebfdd6276dbe1",
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
 		"postcss": false,
-		"minified": false,
+		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
 	"condition": {}

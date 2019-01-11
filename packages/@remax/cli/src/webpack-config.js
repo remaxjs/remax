@@ -75,7 +75,7 @@ function GeneraeWxmlWebpackPlugin() {
         chunks,
       } = compilation;
       chunks.forEach((item) => {
-        compilation.assets[`${item.id}.wxml`] = {
+        compilation.assets[`${item.name}.wxml`] = {
           source: () => content,
           size: () => content.length,
         };
@@ -200,6 +200,5 @@ module.exports = function getWebpackConfig(_config) {
 
     ],
 
-    mode: 'development',
   };
 };

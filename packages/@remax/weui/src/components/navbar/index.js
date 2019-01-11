@@ -21,7 +21,7 @@ export default (props) => {
 
   const [ activeIndex, setActiveIndex ] = useState(initalActiveIndex);
 
-  const sliderWidth = (windowWidth / tabs.length) - 10;
+  const sliderWidth = (windowWidth / tabs.length);
   const sliderLeft = (windowWidth / tabs.length - sliderWidth) / 2;
   const sliderOffset = (windowWidth / tabs.length * (activeIndex));
 

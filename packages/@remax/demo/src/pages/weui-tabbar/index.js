@@ -7,6 +7,7 @@ import {
 import {
   NavBar,
   Button,
+  List,
 } from '@remax/weui';
 
 let inited = false;
@@ -30,7 +31,7 @@ const Page = () => {
           key: 'test',
           content: '这是测试内容'
         }, {
-          title: '嘿嘿',
+          title: '选项卡二',
           key: 'hey',
           content: <><NavBar tabs={[
             {title: '嵌套', key: 'hei', content: '这是嵌套的第一个页面'},
@@ -41,8 +42,9 @@ const Page = () => {
           这里是嵌套的外面，props 也可以是 JSX
           </>
         }, {
-          title: 'test 中文',
-          key: 'test_cn'
+          title: '选项卡三',
+          key: 'test_cn',
+          content: '选项卡三的内容'
         }]}
         windowWidth={windowWidth}
         />

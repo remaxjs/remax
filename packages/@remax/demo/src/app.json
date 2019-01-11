@@ -1,26 +1,15 @@
 {
     "pages": [
         "pages/index",
-        "pages/weui"
+        "pages/demo",
+        "pages/weui-tabbar",
+        "pages/weui-button"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#F6F6F6",
-        "navigationBarTitleText": "Remax DEMO",
+        "navigationBarTitleText": "Remax 示例",
         "navigationBarTextStyle": "black"
-    },
-    "tabBar": {
-        "position": "top",
-        "list": [
-          {
-            "pagePath": "pages/index",
-            "text": "首页"
-          },
-          {
-            "pagePath": "pages/weui",
-            "text": "WeUI"
-          }
-        ]
-      }
+    }
 }
