@@ -135,7 +135,6 @@ const hostConfig = {
   },
 
   removeChild(parentInstance, child) {
-    console.log('remove');
     parentInstance.children.splice(parentInstance.indexOf(child), 1);
   },
 };
@@ -154,12 +153,20 @@ export default {
         ],
       },
 
+      onShareAppMessage() {
+        return {
+          title: 'React Hooks with Mini APP',
+          path: '/pages/index'
+        };
+      },
+
       onReady() {
         const miniAppContext = this;
         // Create a root Container if it doesnt exist
         if (!miniAppContext._rootContainer) {
           miniAppContext._rootContainer = ReactReconcilerInst.createContainer(miniAppContext, false);
         }
+
 
         return ReactReconcilerInst.updateContainer(reactElement, miniAppContext._rootContainer, null, callback);
       },

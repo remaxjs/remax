@@ -200,5 +200,7 @@ module.exports = function getWebpackConfig(_config) {
 
     ],
 
+    mode: 'development',
   };
+
 };

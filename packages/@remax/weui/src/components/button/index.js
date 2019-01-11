@@ -17,6 +17,7 @@ export default (props) => {
     children = '',
     loading = '',
     onClick = '',
+    openType = '',
   } = props;
 
   const nextClassName = classnames({
@@ -32,6 +33,7 @@ export default (props) => {
     style={style}
     loading={loading}
     onClick={onClick}
+    openType={openType}
   >
     {children}
   </Button>;

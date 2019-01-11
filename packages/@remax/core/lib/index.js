@@ -131,7 +131,6 @@ const hostConfig = {
   },
 
   removeChild(parentInstance, child) {
-    console.log('remove');
     parentInstance.children.splice(parentInstance.indexOf(child), 1);
   }
 
@@ -148,6 +147,13 @@ export default {
     Page({
       data: {
         $$REMAX_ROOT: []
+      },
+
+      onShareAppMessage() {
+        return {
+          title: 'React Hooks with Mini APP',
+          path: '/pages/index'
+        };
       },
 
       onReady() {
