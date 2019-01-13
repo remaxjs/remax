@@ -92,7 +92,8 @@ export default {
         },
       },
       {
-        test: /.less$/,
+        test: /.(le|c)ss$/,
+        include: [/\.module\./],
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -102,6 +103,15 @@ export default {
               localIdentName: '[local]-[hash:base64:5]',
             },
           },
+          require.resolve('less-loader'),
+        ],
+      },
+      {
+        test: /.(le|c)ss$/,
+        exclude: [/\.module\./],
+        use: [
+          MiniCssExtractPlugin.loader,
+          require.resolve('css-loader'),
           require.resolve('less-loader'),
         ],
       },
