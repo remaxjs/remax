@@ -1,6 +1,0 @@
-{
-    "plugins": [
-        "@remax/babel-plugin-remax-static-info"
-    ],
-    "presets": ["@babel/preset-env", "@babel/preset-react"]
-}

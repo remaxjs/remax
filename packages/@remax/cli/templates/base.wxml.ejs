@@ -18,7 +18,7 @@
         id: 'view',
     }) %>
 
-    <% for (let component of componentData) { %>
+    <% for (let component of components) { %>
         <%- include('./component.wxml.ejs', {
             type: component.type,
             tpl_index: i,
