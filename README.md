@@ -21,18 +21,17 @@ remax 允许你使用 React 的和前端工程化的全部能力进行微信小�
 
 ```shell
 git clone https://github.com/CodeFalling/remax
-cd remax/packages/remax
+cd remax
 
 # 安装 yarn
 yarn install -g yarn
 
-
+# 安装依赖
 yarn run bootstrap
-# 启动监听
-yarn run watch
-
-# 启动 demo
-yarn run dev:demo
+# 构建
+yarn run build
+# 运行 demo
+yarn run start:demo
 ```
 
-登录微信开发者工具，新建项目，选择 `remax/pacakges/@remax/demo` 目录，就能看到 DEMO 小程序
+登录微信开发者工具，新建项目，选择 `remax/pacakges/@remax/demo/dist` 目录，就能看到 DEMO 小程序

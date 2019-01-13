@@ -4,12 +4,11 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "babel src -d lib -w",
     "build": "babel src -d lib"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "react": "^16.7.0",
     "@babel/preset-env": "^7.2.3"
