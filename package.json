@@ -16,9 +16,10 @@
   },
   "scripts": {
     "watch": "lerna run watch --parallel",
+    "build": "lerna run build",
     "clean": "lerna clean",
-    "bootstrap": "yarn install && yarn run clean && lerna bootstrap",
-    "dev:demo": "cd packages/@remax/demo && npm run dev"
+    "bootstrap": "yarn install && lerna bootstrap",
+    "start:demo": "cd packages/@remax/demo && npm run start"
   },
   "dependencies": {}
 }

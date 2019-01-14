@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "remax dev"
+    "start": "./node_modules/.bin/remax dev"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@remax/cli": "^1.0.0"
   },
