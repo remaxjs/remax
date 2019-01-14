@@ -7,6 +7,8 @@ const REMAX_METHOD = '$$REMAX_METHOD';
 const TYPE_TEXT = Symbol('text');
 
 let instanceCount = 0;
+let lastTimer = null;
+
 
 function setData(rootContext) {
   function clone(item) {
@@ -28,9 +30,21 @@ function setData(rootContext) {
 
   const pureObject = clone(rootContext[REMAX_ROOT_BACKUP]);
 
-  rootContext.setData({
-    [REMAX_ROOT]: pureObject,
-  });
+  if (lastTimer) {
+    clearTimeout(lastTimer);
+  }
+  lastTimer = setTimeout(() => {
+    const startTime = new Date().getTime();
+    
+    rootContext.setData({
+      [REMAX_ROOT]: pureObject,
+    }, () => {
+      if (process.env.NODE_ENV !== 'production') {
+        console.log(`setData 触发小程序渲染耗时：${new Date().getTime() - startTime}ms`);
+      }
+    });
+  }, 1000 / 60);
+
 }
 
 function processProps(newProps, rootContext, id) {
