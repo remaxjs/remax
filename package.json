@@ -18,7 +18,7 @@
     "watch": "lerna run watch --parallel",
     "build": "lerna run build",
     "clean": "lerna clean",
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "yarn install && lerna bootstrap",
     "start:demo": "cd packages/@remax/demo && npm run start"
   },
   "dependencies": {}
