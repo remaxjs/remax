@@ -120,11 +120,22 @@ export default {
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].wxss',
-      chunkFilename: '[id].wxss',
     }),
     new CopyWebpackPlugin(getCopyWebpackPluginConfig()),
 
     new PageWxmlWebpackPlugin(),
     new BaseWxmlWebpackPlugin(),
   ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'app',
+          test: /\.(le|c)ss$/,
+          chunks: 'all',
+          enforce: true
+        }
+      }
+    }
+  }
 };

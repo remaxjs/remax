@@ -1,3 +1,4 @@
+// @ts-ignore: @types/webpack-merge incorrect
 import merge from 'webpack-merge';
 
 import webpackCommonConfig from './webpack.common';
