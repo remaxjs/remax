@@ -7,8 +7,8 @@ import webpackProdConfig from './webpack.prod';
 import { Configuration } from 'webpack';
 
 enum ConfigModeEnum {
-  DEVELOPMENT,
-  PRODUCTION,
+  DEVELOPMENT = 'development',
+  PRODUCTION = 'production',
 };
 
 const webpackConfigMap = {

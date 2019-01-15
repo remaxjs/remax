@@ -18,6 +18,7 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "@remax/babel-plugin-remax-static-info": "^1.0.0",
+    "clean-webpack-plugin": "^1.0.0",
     "commander": "^2.19.0",
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^2.1.0",
@@ -26,9 +27,11 @@
     "less-loader": "^4.1.0",
     "mini-css-extract-plugin": "^0.5.0",
     "webpack": "^4.28.4",
+    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-merge": "^4.2.1"
   },
   "devDependencies": {
+    "@types/clean-webpack-plugin": "^0.1.2",
     "@types/copy-webpack-plugin": "^4.4.2",
     "@types/ejs": "^2.6.1",
     "@types/mini-css-extract-plugin": "^0.2.0",

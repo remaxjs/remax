@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import BaseWxmlWebpackPlugin from './plugins/BaseWxmlWebpackPlugin';
 import PageWxmlWebpackPlugin from './plugins/PageWxmlWebpackPlugin';
@@ -13,8 +15,6 @@ interface AppConfig {
 
 /**
  * get pages entry from {project}/src/app.json
- *
- * @return {string[]}
  */
 function getDefaultEntry(): webpack.Entry {
   const cwd = process.cwd();
@@ -41,8 +41,6 @@ function getDefaultEntry(): webpack.Entry {
 /**
  * Get CopyWebpackPlugin config
  * copy remax project app.js if is exists
- *
- * @return {array}
  */
 function getCopyWebpackPluginConfig() {
   const config = [{ from: 'src/app.json', to: 'app.json' }];
@@ -66,6 +64,7 @@ export default {
   output: {
     path: path.join(process.cwd(), 'dist'),
     filename: '[name].js',
+    globalObject: 'global',
   },
   resolve: {
     alias: {
@@ -118,6 +117,9 @@ export default {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(['dist'], {
+      root: process.cwd(),
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].wxss',
     }),
@@ -125,6 +127,7 @@ export default {
 
     new PageWxmlWebpackPlugin(),
     new BaseWxmlWebpackPlugin(),
+    new BundleAnalyzerPlugin(),
   ],
   optimization: {
     splitChunks: {
@@ -133,7 +136,13 @@ export default {
           name: 'app',
           test: /\.(le|c)ss$/,
           chunks: 'all',
-          enforce: true
+          enforce: true,
+          reuseExistingChunk: true,
+        },
+        vendors: {
+          name: 'lib/vendors',
+          test: /\/node_modules\//,
+          chunks: 'initial',
         }
       }
     }

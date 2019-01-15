@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/remax dev",
-    "build": "./node_modules/.bin/remax dev"
+    "build": "./node_modules/.bin/remax build"
   },
   "author": "",
   "license": "MIT",
