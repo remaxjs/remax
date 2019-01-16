@@ -7,8 +7,11 @@ const REMAX_METHOD = '$$REMAX_METHOD';
 const TYPE_TEXT = Symbol('text');
 
 let instanceCount = 0;
-let lastTimer = null;
 
+// 缓冲一下要 set 的 Data
+// 如果有值说明还没 set，直接改变他的值
+// 真正 setData 后把 lastData 置空
+let lastData = null;
 
 function setData(rootContext) {
   function clone(item) {
@@ -30,20 +33,27 @@ function setData(rootContext) {
 
   const pureObject = clone(rootContext[REMAX_ROOT_BACKUP]);
 
-  if (lastTimer) {
-    clearTimeout(lastTimer);
+
+  if (lastData) {
+    // 更新了 lastData 等待 setData 发生即可
+    lastData = pureObject;
+  } else {
+    lastData = pureObject;
+    setTimeout(() => {
+      const startTime = new Date().getTime();
+      
+      rootContext.setData({
+        [REMAX_ROOT]: lastData,
+      }, () => {
+        if (process.env.NODE_ENV !== 'production') {
+          console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`);
+        }
+      });
+
+      lastData = null;
+    }, 1000 / 60);
+  
   }
-  lastTimer = setTimeout(() => {
-    const startTime = new Date().getTime();
-    
-    rootContext.setData({
-      [REMAX_ROOT]: pureObject,
-    }, () => {
-      if (process.env.NODE_ENV !== 'production') {
-        console.log(`setData 触发小程序渲染耗时：${new Date().getTime() - startTime}ms`);
-      }
-    });
-  }, 1000 / 60);
 
 }
 
