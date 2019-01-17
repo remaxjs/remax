@@ -1,38 +1,43 @@
-import React from 'react';
+import React, { CSSProperties, HTMLAttributes, Props } from 'react';
+import { TComponent } from './types'
 
-const camelCased = (_str) => {
+interface IProps {
+  [s: string]: any
+}
+const camelCased = (_str: string) => {
   const str = _str.split('').map((ch, index) => (index === 0 ? ch.toUpperCase() : ch)).join('');
   return str.replace(/-([a-z0-9])/g, (g) => { return g[1].toUpperCase(); });
 };
 
-const styleString = style => (
+const styleString = (style: CSSProperties) => (
   Object.entries(style).reduce((styleString, [propName, propValue]) => {
-    return `${styleString}${propName}:${propValue};`;
+    return `${styleString}${propName}:${propValue}`;
   }, '')
 );
 
-function factoryTag(component, props) {
-  const Tag = `mini-${component}+${Object.keys(props).filter(propKey => propKey !== 'children').sort().join('+')}`;
-  return Tag;
+function factoryTag(component: string, props: Props<any>) {
+  return `mini-${component}+${Object.keys(props).filter(propKey => propKey !== 'children').sort().join('+')}`;
 }
 
-function factoryComponent(component) {
-  return (props) => {
+function factoryComponent(component: TComponent) {
+  // props 类型存在问题
+  return <T>(props: Props<T> & IProps) => {
     const {
-      children,
+      children
     } = props;
-    const newProps = {};
+    const newProps: IProps = Object.assign({}, { style: styleString(props.style!) });
     for (const propKey of Object.keys(props)) {
       if (propKey === 'style') {
-        newProps.style = styleString(props.style);
+        newProps.style = styleString(props.style!);
       } else if (propKey === 'key') {
         // pass
       } else {
         newProps[propKey] = props[propKey];
       }
     }
-    const Tag = factoryTag(component, newProps);
-    return React.createElement(Tag, newProps, children);
+    const tag = factoryTag(component, newProps);
+
+    return React.createElement(tag, newProps, ...children);
   };
 }
 
