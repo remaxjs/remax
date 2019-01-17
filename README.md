@@ -12,6 +12,8 @@
 
 当前还在开发中，暂时无法用于生产环境。
 
+[![Throughput Graph](https://graphs.waffle.io/CodeFalling/remax/throughput.svg)](https://waffle.io/CodeFalling/remax/metrics/throughput)
+
 ## Why Remax
 ![remax-miniapp](https://user-images.githubusercontent.com/5436704/50967966-ad262c00-1514-11e9-8991-3a702804afcb.jpg)
 
