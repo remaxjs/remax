@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/remax dev"
+    "start": "remax dev",
+    "build": "remax build",
+    "build:analyze": "remax build --analyze"
   },
   "author": "",
   "license": "MIT",

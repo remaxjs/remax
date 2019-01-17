@@ -13,8 +13,6 @@ interface AppConfig {
 
 /**
  * get pages entry from {project}/src/app.json
- *
- * @return {string[]}
  */
 function getDefaultEntry(): webpack.Entry {
   const cwd = process.cwd();
@@ -28,12 +26,15 @@ function getDefaultEntry(): webpack.Entry {
     throw new Error('app.json `pages` field should not be undefined or empty object');
   }
 
+  const defaultEntry = {
+    'app': path.join(cwd, 'src', 'app.js'),
+  };
   const entry = pages.reduce((ret, page) => {
     return {
       ...ret,
       [page]: path.join(cwd, 'src', page, 'index.js'),
     };
-  }, {})
+  }, defaultEntry)
 
   return entry;
 }
@@ -41,19 +42,11 @@ function getDefaultEntry(): webpack.Entry {
 /**
  * Get CopyWebpackPlugin config
  * copy remax project app.js if is exists
- *
- * @return {array}
  */
 function getCopyWebpackPluginConfig() {
   const config = [{ from: 'src/app.json', to: 'app.json' }];
 
-  const appJsPath = path.join(process.cwd(), 'src/app.js');
-  if (fs.existsSync(appJsPath)) {
-    config.push({
-      from: 'src/app.js',
-      to: 'app.js',
-    });
-  }
+  // TODO: copy page's **.json
 
   return config;
 }
@@ -66,6 +59,7 @@ export default {
   output: {
     path: path.join(process.cwd(), 'dist'),
     filename: '[name].js',
+    globalObject: 'global',
   },
   resolve: {
     alias: {
@@ -120,11 +114,23 @@ export default {
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].wxss',
-      chunkFilename: '[id].wxss',
     }),
     new CopyWebpackPlugin(getCopyWebpackPluginConfig()),
 
     new PageWxmlWebpackPlugin(),
     new BaseWxmlWebpackPlugin(),
   ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          name: 'app',
+          test: /\.(less|css|js)$/,
+          chunks: 'all',
+          enforce: true,
+          reuseExistingChunk: true,
+        },
+      }
+    }
+  }
 };
