@@ -27,6 +27,7 @@
     "@babel/preset-env": "^7.2.3"
   },
   "dependencies": {
+    "lodash": "^4.17.11",
     "react": "16.7.0-alpha.2",
     "react-reconciler": "0.18.0-alpha.2"
   }

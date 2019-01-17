@@ -1,5 +1,5 @@
 import ReactReconciler from 'react-reconciler';
-
+import isEqual from 'lodash/isEqual';
 
 const REMAX_ROOT = '$$REMAX_ROOT';
 const REMAX_ROOT_BACKUP = '$$REMAX_ROOT_BACKUP';
@@ -33,10 +33,11 @@ function setData(rootContext) {
 
   const pureObject = clone(rootContext[REMAX_ROOT_BACKUP]);
 
-
   if (lastData) {
-    // 更新了 lastData 等待 setData 发生即可
-    lastData = pureObject;
+    // 更新了 lastData 等待 setData 发生即可, 只再两个值不等时赋值
+    if(!isEqual(lastData, pureObject)) {
+      lastData = pureObject;
+    }
   } else {
     lastData = pureObject;
     setTimeout(() => {
