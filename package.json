@@ -6,6 +6,7 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "@types/react": "^16.7.20",
     "babel-loader": "^8.0.5",
     "ejs": "^2.6.1",
     "eslint": "^5.12.0",

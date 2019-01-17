@@ -10,7 +10,8 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "outDir": "lib",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "downlevelIteration": true,
   },
   "include": ["src/**/*"],
   "exclude": [
