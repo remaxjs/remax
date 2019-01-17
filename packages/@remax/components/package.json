@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "watch": "./node_modules/.bin/tsc -w",
-    "build": "./node_modules/.bin/tsc"
+    "watch": "tsc -w",
+    "build": "tsc"
   },
   "author": "",
   "license": "MIT",
