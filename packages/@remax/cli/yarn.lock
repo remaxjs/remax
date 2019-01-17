@@ -631,6 +631,12 @@
   dependencies:
     source-map "^0.6.1"
 
+"@types/webpack-bundle-analyzer@^2.13.0":
+  version "2.13.0"
+  resolved "https://registry.npmjs.org/@types/webpack-bundle-analyzer/-/webpack-bundle-analyzer-2.13.0.tgz#07bcd469690869c249047a7ca993a8f918922e33"
+  dependencies:
+    "@types/webpack" "*"
+
 "@types/webpack@*":
   version "4.4.22"
   resolved "https://registry.npmjs.org/@types/webpack/-/webpack-4.4.22.tgz#c4a5ea8b74a31b579537515bcfe86d2b2a34382c"

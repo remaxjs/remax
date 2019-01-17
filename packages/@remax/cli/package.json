@@ -36,6 +36,7 @@
     "@types/ejs": "^2.6.1",
     "@types/mini-css-extract-plugin": "^0.2.0",
     "@types/node": "^10.12.18",
+    "@types/webpack-bundle-analyzer": "^2.13.0",
     "typescript": "^3.2.2"
   }
 }

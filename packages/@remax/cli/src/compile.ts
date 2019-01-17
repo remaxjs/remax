@@ -4,17 +4,14 @@ import webpack, { Configuration, Stats } from 'webpack';
 
 import config from './config';
 
-interface CompileOptions {
+export interface CompileOptions {
   watch?: boolean;
+  analyze?: boolean;
 }
 
-interface RemaxProjectConfig {
+export interface RemaxProjectConfig {
   __unsafe_webpack_config__?: (config: Configuration) => Configuration;
 }
-
-const defaultCompileOptions: CompileOptions = {
-  watch: false,
-};
 
 /**
  * Read remax project configuration
@@ -28,21 +25,26 @@ function tryRequireRemaxProjectConfig(): RemaxProjectConfig {
   return {};
 }
 
+const defaultCompileOptions: CompileOptions = {
+  watch: false,
+};
+
 /**
  * Build  remax project
  */
 export default (options: CompileOptions = defaultCompileOptions) => {
   const { watch } = options;
 
-  return () => {
+  return (cmd: any) => {
+    const { analyze } = cmd;
+    const compileOptions: CompileOptions = {
+      ...options,
+      analyze,
+    };
+
     const remaxProjectConfig: RemaxProjectConfig = tryRequireRemaxProjectConfig();
     const mode = watch ? config.mode.DEVELOPMENT : config.mode.PRODUCTION;
-    let webpackConfig: Configuration = config.getWebpackConfig(mode, remaxProjectConfig);
-
-    // WARNING: unsafa modify webpack config
-    if (remaxProjectConfig.__unsafe_webpack_config__) {
-      webpackConfig = remaxProjectConfig.__unsafe_webpack_config__(webpackConfig);
-    }
+    const webpackConfig: Configuration = config.getWebpackConfig(mode, remaxProjectConfig, compileOptions);
 
     webpack(
       {

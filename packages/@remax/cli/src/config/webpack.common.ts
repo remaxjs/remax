@@ -2,8 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import CleanWebpackPlugin from 'clean-webpack-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import BaseWxmlWebpackPlugin from './plugins/BaseWxmlWebpackPlugin';
 import PageWxmlWebpackPlugin from './plugins/PageWxmlWebpackPlugin';
@@ -28,12 +26,15 @@ function getDefaultEntry(): webpack.Entry {
     throw new Error('app.json `pages` field should not be undefined or empty object');
   }
 
+  const defaultEntry = {
+    'app': path.join(cwd, 'src', 'app.js'),
+  };
   const entry = pages.reduce((ret, page) => {
     return {
       ...ret,
       [page]: path.join(cwd, 'src', page, 'index.js'),
     };
-  }, {})
+  }, defaultEntry)
 
   return entry;
 }
@@ -45,13 +46,7 @@ function getDefaultEntry(): webpack.Entry {
 function getCopyWebpackPluginConfig() {
   const config = [{ from: 'src/app.json', to: 'app.json' }];
 
-  const appJsPath = path.join(process.cwd(), 'src/app.js');
-  if (fs.existsSync(appJsPath)) {
-    config.push({
-      from: 'src/app.js',
-      to: 'app.js',
-    });
-  }
+  // TODO: copy page's **.json
 
   return config;
 }
@@ -117,9 +112,6 @@ export default {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], {
-      root: process.cwd(),
-    }),
     new MiniCssExtractPlugin({
       filename: '[name].wxss',
     }),
@@ -127,23 +119,17 @@ export default {
 
     new PageWxmlWebpackPlugin(),
     new BaseWxmlWebpackPlugin(),
-    new BundleAnalyzerPlugin(),
   ],
   optimization: {
     splitChunks: {
       cacheGroups: {
         styles: {
           name: 'app',
-          test: /\.(le|c)ss$/,
+          test: /\.(less|css|js)$/,
           chunks: 'all',
           enforce: true,
           reuseExistingChunk: true,
         },
-        vendors: {
-          name: 'lib/vendors',
-          test: /\/node_modules\//,
-          chunks: 'initial',
-        }
       }
     }
   }
