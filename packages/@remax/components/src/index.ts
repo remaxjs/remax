@@ -23,9 +23,9 @@ function factoryComponent(component: TComponent) {
   // props 类型存在问题
   return <T>(props: Props<T> & IProps) => {
     const {
-      children
+      children = [],
     } = props;
-    const newProps: IProps = Object.assign({}, { style: styleString(props.style!) });
+    const newProps: IProps = {};
     for (const propKey of Object.keys(props)) {
       if (propKey === 'style') {
         newProps.style = styleString(props.style!);
@@ -36,8 +36,8 @@ function factoryComponent(component: TComponent) {
       }
     }
     const tag = factoryTag(component, newProps);
-
-    return React.createElement(tag, newProps, ...children);
+    // ts dose not accept ...emptyArray
+    return React.createElement(tag, newProps, children);
   };
 }
 

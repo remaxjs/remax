@@ -72,3 +72,4 @@ with useState & CSS Module
 };
 
 Remax.render(<Component />);
+
