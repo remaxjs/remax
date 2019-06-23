@@ -2,10 +2,10 @@
   "name": "@remax/core",
   "version": "1.0.0",
   "description": "Core framework for remax",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "watch": "babel src -d lib -w",
-    "build": "babel src -d lib"
+    "watch": "./node_modules/.bin/tsc -w",
+    "build": "./node_modules/.bin/tsc "
   },
   "repository": {
     "type": "git",
@@ -23,11 +23,13 @@
     "url": "https://github.com/CodeFalling/remax/issues"
   },
   "homepage": "https://github.com/CodeFalling/remax#readme",
-  "devDependencies": {
-    "@babel/preset-env": "^7.2.3"
-  },
   "dependencies": {
     "react": "16.7.0-alpha.2",
     "react-reconciler": "0.18.0-alpha.2"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.2.3",
+    "@types/react-reconciler": "^0.18.0",
+    "typescript": "^3.5.2"
   }
 }

@@ -1,70 +1,81 @@
-import fs from 'fs';
-import path from 'path';
-import webpack, { Configuration, Stats } from 'webpack';
-
-import config from './config';
-
-export interface CompileOptions {
-  watch?: boolean;
-  analyze?: boolean;
-}
-
-export interface RemaxProjectConfig {
-  __unsafe_webpack_config__?: (config: Configuration) => Configuration;
-}
-
-/**
- * Read remax project configuration
- * {project}/remax.config.js
- */
-function tryRequireRemaxProjectConfig(): RemaxProjectConfig {
-  const configPath: string = path.join(process.cwd(), './remax.config.js');
-  if (fs.existsSync(configPath)) {
-    return require(configPath);
-  }
-  return {};
-}
-
-const defaultCompileOptions: CompileOptions = {
-  watch: false,
-};
+import * as rollup from 'rollup';
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+import rename from 'rollup-plugin-rename';
+import babel from 'rollup-plugin-babel';
+import postcss from 'rollup-plugin-postcss';
+import progress from 'rollup-plugin-progress';
+import clear from 'rollup-plugin-clear';
+import pxToUnits from 'postcss-px2units';
+import getEntries from './getEntries';
+import miniProgram from './plugins/miniProgram';
+import components from './plugins/components';
+import page from './plugins/page';
 
 /**
  * Build  remax project
  */
-export default (options: CompileOptions = defaultCompileOptions) => {
-  const { watch } = options;
-
+export default (options: any) => {
   return (cmd: any) => {
-    const { analyze } = cmd;
-    const compileOptions: CompileOptions = {
-      ...options,
-      analyze,
-    };
-
-    const remaxProjectConfig: RemaxProjectConfig = tryRequireRemaxProjectConfig();
-    const mode = watch ? config.mode.DEVELOPMENT : config.mode.PRODUCTION;
-    const webpackConfig: Configuration = config.getWebpackConfig(mode, remaxProjectConfig, compileOptions);
-
-    webpack(
+    const entries = getEntries();
+    console.log(entries);
+    const watcher = rollup.watch([
       {
-        ...webpackConfig,
-        watch,
-      },
-      (err: Error, stats: Stats) => {
-        if (err || stats.hasErrors()) {
-          console.log(err || stats.toString());
-        }
-        console.log(
-          stats.toString({
-            chunks: false,
-            colors: true,
-            children: false,
-            builtAt: true,
-            modules: false,
+        input: entries,
+        output: {
+          dir: 'dist',
+          format: 'esm', // immediately-invoked function expression — suitable for <script> tags
+          sourcemap: true,
+        },
+        preserveModules: true,
+        plugins: [
+          progress(),
+          clear({
+            targets: ['dist'],
           }),
-        );
+          babel({
+            include: /pages\/.+\.js/,
+            plugins: [page],
+          }),
+          babel({
+            plugins: [components, require.resolve('@babel/plugin-proposal-class-properties')],
+            presets: [require.resolve('@babel/preset-react')],
+          }),
+          postcss({
+            extract: true,
+            modules: true,
+            plugins: [pxToUnits()],
+          }),
+          resolve(),
+          commonjs({
+            include: /node_modules/,
+            namedExports: {
+              'node_modules/react/index.js': ['Children', 'Component', 'createElement'],
+            },
+          }),
+          rename({
+            include: 'src/**',
+            map: input => {
+              return input.replace(/^demo\/src\//, '').replace(/\.less$/, '.js');
+            },
+          }),
+          miniProgram(),
+        ],
+        watch: {
+          include: ['src/**'],
+        },
       },
-    );
+    ]);
+
+    watcher.on('event', (event: any) => {
+      if (event.code === 'FATAL') {
+        throw event.error;
+      }
+    });
+
+    // stop watching
+    process.on('exit', () => {
+      watcher.close();
+    });
   };
 };

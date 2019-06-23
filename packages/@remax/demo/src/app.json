@@ -1,9 +1,6 @@
 {
     "pages": [
-        "pages/index",
-        "pages/demo",
-        "pages/weui-tabbar",
-        "pages/weui-button"
+        "pages/index/index"
     ],
     "window": {
         "backgroundColor": "#F6F6F6",

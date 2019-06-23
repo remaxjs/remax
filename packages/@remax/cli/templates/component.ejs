@@ -12,13 +12,13 @@ const events = [
 ];
 propKeys = propKeys.concat(events.map(item => `bind${item}`));
 %>
-<block wx:if="{{item.type === 'mini-<%= type %>'}}">
+<block a:if="{{item.type === 'mini-<%= type %>'}}">
     <<%=id%>
         <% for(let key of propKeys) { %>
             <%=key%>="{{item.props.<%=camelCased(key)%>}}"
         <% } %>
         >
-        <block wx:for="{{item.children}}" wx:key="">
+        <block a:for="{{item.children}}" a:key="">
             <template is="REMAX_TPL_<%=(tpl_index + 1)%>" data="{{item}}"/>
         </block>
     </<%=id%>>

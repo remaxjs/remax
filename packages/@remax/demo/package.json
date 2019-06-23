@@ -14,10 +14,10 @@
     "@remax/cli": "^1.0.0"
   },
   "dependencies": {
-    "@remax/babel-plugin-remax-static-info": "^1.0.0",
     "@remax/components": "^1.0.0",
     "@remax/core": "^1.0.0",
     "@remax/weui": "^1.0.0",
+    "less": "^3.9.0",
     "react": "16.7.0-alpha.2",
     "weui": "^1.1.3"
   }

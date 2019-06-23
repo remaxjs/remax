@@ -1,5 +1,4 @@
 import program from 'commander';
-
 import compile from './compile';
 
 program

@@ -1,6 +1,5 @@
 import ReactReconciler from 'react-reconciler';
 
-
 const REMAX_ROOT = '$$REMAX_ROOT';
 const REMAX_ROOT_BACKUP = '$$REMAX_ROOT_BACKUP';
 const REMAX_METHOD = '$$REMAX_METHOD';
@@ -33,7 +32,6 @@ function setData(rootContext) {
 
   const pureObject = clone(rootContext[REMAX_ROOT_BACKUP]);
 
-
   if (lastData) {
     // 更新了 lastData 等待 setData 发生即可
     lastData = pureObject;
@@ -41,20 +39,21 @@ function setData(rootContext) {
     lastData = pureObject;
     setTimeout(() => {
       const startTime = new Date().getTime();
-      
-      rootContext.setData({
-        [REMAX_ROOT]: lastData,
-      }, () => {
-        if (process.env.NODE_ENV !== 'production') {
-          console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`);
-        }
-      });
+
+      rootContext.setData(
+        {
+          [REMAX_ROOT]: lastData,
+        },
+        () => {
+          if (process.env.NODE_ENV !== 'production') {
+            console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`);
+          }
+        },
+      );
 
       lastData = null;
     }, 1000 / 60);
-  
   }
-
 }
 
 function processProps(newProps, rootContext, id) {
@@ -101,6 +100,7 @@ const hostConfig = {
   },
 
   createInstance: (type, newProps, rootContainerInstance, _currentHostContext, workInProgress) => {
+    console.log(type, 'type');
     const rootContext = rootContainerInstance;
     const id = instanceCount;
     instanceCount += 1;
@@ -117,7 +117,7 @@ const hostConfig = {
 
     return ins;
   },
-  createTextInstance: (text) => {
+  createTextInstance: text => {
     return {
       type: TYPE_TEXT,
       text,
@@ -164,37 +164,28 @@ const hostConfig = {
 };
 
 const ReactReconcilerInst = ReactReconciler(hostConfig);
-export default {
-  api: {
-    showToast(conf) {
-      wx.showToast(conf);
+
+export function render(reactElement, callback) {
+  return {
+    data: {
+      $$REMAX_ROOT: [],
     },
-  },
-  render: (reactElement, callback) => {
-    Page({
-      data: {
-        $$REMAX_ROOT: [
-        ],
-      },
 
-      onShareAppMessage() {
-        return {
-          title: 'React Hooks with Mini APP',
-          path: '/pages/index'
-        };
-      },
+    onShareAppMessage() {
+      return {
+        title: 'React Hooks with Mini APP',
+        path: '/pages/index',
+      };
+    },
 
-      onReady() {
-        const miniAppContext = this;
-        // Create a root Container if it doesnt exist
-        if (!miniAppContext._rootContainer) {
-          miniAppContext._rootContainer = ReactReconcilerInst.createContainer(miniAppContext, false);
-        }
+    onReady() {
+      const miniAppContext = this;
+      // Create a root Container if it doesnt exist
+      if (!miniAppContext._rootContainer) {
+        miniAppContext._rootContainer = ReactReconcilerInst.createContainer(miniAppContext, false);
+      }
 
-
-        return ReactReconcilerInst.updateContainer(reactElement, miniAppContext._rootContainer, null, callback);
-      },
-
-    });
-  },
-};
+      return ReactReconcilerInst.updateContainer(reactElement, miniAppContext._rootContainer, null, callback);
+    },
+  };
+}
