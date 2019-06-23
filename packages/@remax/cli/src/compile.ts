@@ -1,7 +1,6 @@
 import * as rollup from 'rollup';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-import rename from 'rollup-plugin-rename';
 import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
@@ -11,6 +10,7 @@ import getEntries from './getEntries';
 import miniProgram from './plugins/miniProgram';
 import components from './plugins/components';
 import page from './plugins/page';
+import rename from './plugins/rename';
 
 /**
  * Build  remax project
@@ -18,7 +18,6 @@ import page from './plugins/page';
 export default (options: any) => {
   return (cmd: any) => {
     const entries = getEntries();
-    console.log(entries);
     const watcher = rollup.watch([
       {
         input: entries,
@@ -46,17 +45,25 @@ export default (options: any) => {
             modules: true,
             plugins: [pxToUnits()],
           }),
-          resolve(),
+          resolve({
+            dedupe: ['react']
+          }),
           commonjs({
             include: /node_modules/,
             namedExports: {
-              'node_modules/react/index.js': ['Children', 'Component', 'createElement'],
+              'node_modules/react/index.js': ['Children', 'Component', 'createElement', 'useState'],
             },
           }),
           rename({
             include: 'src/**',
             map: input => {
-              return input.replace(/^demo\/src\//, '').replace(/\.less$/, '.js');
+              return (
+                input &&
+                input
+                  .replace(/^demo\/src\//, '')
+                  .replace(/\.less$/, '.js')
+                  .replace(/\.css$/, '.acss')
+              );
             },
           }),
           miniProgram(),
