@@ -17,11 +17,9 @@ export default function getEntries(): any {
     throw new Error('app.json `pages` field should not be undefined or empty object');
   }
 
-  const defaultEntry = {
-    app: path.join(cwd, 'src', 'app.js'),
-  };
+  const defaultEntry = [path.join(cwd, 'src', 'app.js')];
   const entry = pages.reduce((ret, page) => {
-    return { ...ret, [page]: path.join(cwd, 'src', `${page}.js`) };
+    return [...ret, path.join(cwd, 'src', `${page}.js`)];
   }, defaultEntry);
 
   return entry;

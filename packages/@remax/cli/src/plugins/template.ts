@@ -14,7 +14,9 @@ function isApp(file: string) {
 
 async function createTemplate(pageFile: string) {
   const fileName = `${path.dirname(pageFile)}/${path.basename(pageFile, path.extname(pageFile))}.axml`;
-  const code = (await ejs.renderFile(path.join(__dirname, '../../templates/page.ejs'))) as string;
+  const code = (await ejs.renderFile(path.join(__dirname, '../../templates/page.ejs'), {
+    baseTemplate: path.relative(path.dirname(pageFile), 'base.axml'),
+  })) as string;
   return {
     fileName,
     isAsset: true as true,
@@ -40,7 +42,7 @@ function createManifest() {
   };
 }
 
-export default function miniProgram() {
+export default function template() {
   return {
     name: 'template', // this name will show up in warnings and errors
     generateBundle: async (options: OutputOptions, bundle: OutputBundle) => {

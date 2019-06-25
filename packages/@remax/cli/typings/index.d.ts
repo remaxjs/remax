@@ -5,3 +5,4 @@ declare module 'rollup-plugin-progress';
 declare module 'rollup-plugin-clear';
 declare module 'postcss-px2units';
 declare module '@babel/helper-module-imports';
+declare module 'acorn-walk';

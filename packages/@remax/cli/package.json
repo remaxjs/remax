@@ -19,6 +19,7 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "@babel/types": "^7.4.4",
+    "@betit/rollup-plugin-rename-extensions": "^0.0.4",
     "commander": "^2.19.0",
     "ejs": "^2.6.1",
     "less": "^3.9.0",
@@ -29,8 +30,7 @@
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-node-resolve": "^5.0.3",
     "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-progress": "^1.1.1",
-    "rollup-plugin-rename": "^0.0.1"
+    "rollup-plugin-progress": "^1.1.1"
   },
   "devDependencies": {
     "@babel/traverse": "^7.4.5",
