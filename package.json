@@ -20,7 +20,7 @@
     "build": "lerna run build",
     "clean": "lerna clean",
     "bootstrap": "yarn install && lerna bootstrap",
-    "start:demo": "cd packages/@remax/demo && npm run start"
+    "start:demo": "cd packages/@remax/demo && npm run dev"
   },
   "dependencies": {}
 }
