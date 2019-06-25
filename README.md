@@ -26,3 +26,13 @@ $ yarn run start:demo
 ```
 
 登录支付宝小程序开发者工具，新建项目，选择 `remax/pacakges/@remax/demo/dist` 目录，就能看到 DEMO 小程序
+
+## Roadmap
+
+- 🚧 支付宝小程序
+- 🤔 [支付宝小程序组件库](https://github.com/ant-mini-program/mini-antui)
+- 🤔 集成 [umi](https://github.com/umijs/umi)，可以编译到 Web
+- 🤔 React Developer Tools
+- 🤔 微信小程序
+- 🤔 [WeUI](https://github.com/Tencent/weui)
+- 🤔 其他小程序
