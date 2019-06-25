@@ -63,8 +63,8 @@ const componentList = [
 
 const propsAlias: { [key: string]: string } = {
   className: 'class',
-  onClick: 'bindtap',
-  onTap: 'bindtap',
+  onClick: 'onTap',
+  onTap: 'onTap',
 };
 
 export default () => ({
