@@ -635,14 +635,15 @@ prop-types@^15.6.2:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-react-reconciler@0.18.0-alpha.2:
-  version "0.18.0-alpha.2"
-  resolved "https://registry.npmjs.org/react-reconciler/-/react-reconciler-0.18.0-alpha.2.tgz#ae7295dce4bafa3a332be05b3c1b242c3dd93bf2"
+react-reconciler@^0.20.4:
+  version "0.20.4"
+  resolved "https://registry.npm.taobao.org/react-reconciler/download/react-reconciler-0.20.4.tgz#3da6a95841592f849cb4edd3d38676c86fd920b2"
+  integrity sha1-PaapWEFZL4SctO3T04Z2yG/ZILI=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.12.0-alpha.2"
+    scheduler "^0.13.6"
 
 react@16.7.0-alpha.2:
   version "16.7.0-alpha.2"
@@ -693,6 +694,14 @@ regjsparser@^0.6.0:
 scheduler@^0.12.0-alpha.2:
   version "0.12.0"
   resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.12.0.tgz#8ab17699939c0aedc5a196a657743c496538647b"
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
+scheduler@^0.13.6:
+  version "0.13.6"
+  resolved "https://registry.npm.taobao.org/scheduler/download/scheduler-0.13.6.tgz?cache=0&sync_timestamp=1559596534856&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fscheduler%2Fdownload%2Fscheduler-0.13.6.tgz#466a4ec332467b31a91b9bf74e5347072e4cd889"
+  integrity sha1-RmpOwzJGezGpG5v3TlNHBy5M2Ik=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

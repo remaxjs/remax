@@ -81,26 +81,31 @@ const hostConfig = {
   getRootHostContext: () => {
     return rootHostContext;
   },
-  shouldSetTextContent: (type, props) => {
+
+  shouldSetTextContent(type, props) {
     return false;
     // console.log(props);
     // return typeof props.children === 'string' || typeof props.children === 'number';
   },
+
   prepareForCommit: () => {},
+
   resetAfterCommit: () => {},
+
   getChildHostContext: () => {
     return childHostContext;
   },
+
   prepareUpdate(domElement, oldProps, newProps) {
     return true;
   },
+
   commitTextUpdate(textInstance, oldText, newText) {
     textInstance.text = newText;
     setData(textInstance.rootContext);
   },
 
   createInstance: (type, newProps, rootContainerInstance, _currentHostContext, workInProgress) => {
-    console.log(type, 'type');
     const rootContext = rootContainerInstance;
     const id = instanceCount;
     instanceCount += 1;
@@ -117,12 +122,14 @@ const hostConfig = {
 
     return ins;
   },
+
   createTextInstance: text => {
     return {
       type: TYPE_TEXT,
       text,
     };
   },
+
   commitUpdate(targetIns, updatePayload, type, oldProps, newProps) {
     const props = processProps(newProps, targetIns.rootContext, targetIns.id);
 
@@ -130,16 +137,21 @@ const hostConfig = {
 
     setData(targetIns.rootContext);
   },
+
   appendInitialChild: (parent, child) => {
     child.rootContext = parent.rootContext;
     parent.children.push(child);
   },
+
   appendChild(parent, child) {
     child.rootContext = parent.rootContext;
     parent.children.push(child);
   },
+
   finalizeInitialChildren: () => {},
+
   supportsMutation: true,
+
   appendChildToContainer: (_parent, child) => {
     let parent = null;
     if (_parent._rootContainer) {
@@ -165,7 +177,7 @@ const hostConfig = {
 
 const ReactReconcilerInst = ReactReconciler(hostConfig);
 
-export function render(reactElement, callback) {
+export function render(reactElement: React.ReactElement, callback: () => void) {
   return {
     data: {
       $$REMAX_ROOT: [],
@@ -178,8 +190,8 @@ export function render(reactElement, callback) {
       };
     },
 
-    onReady() {
-      const miniAppContext = this;
+    onReady(): any {
+      const miniAppContext = this as any;
       // Create a root Container if it doesnt exist
       if (!miniAppContext._rootContainer) {
         miniAppContext._rootContainer = ReactReconcilerInst.createContainer(miniAppContext, false);
