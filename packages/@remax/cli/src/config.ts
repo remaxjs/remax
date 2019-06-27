@@ -26,6 +26,11 @@ const config: RollupOptions = {
   preserveModules: true,
   preserveSymlinks: true,
   plugins: [
+    babel({
+      babelrc: false,
+      plugins: [components, require.resolve('@babel/plugin-proposal-class-properties')],
+      presets: [[require.resolve('@babel/preset-env'), { modules: false }], [require.resolve('@babel/preset-react')]],
+    }),
     progress(),
     clear({
       targets: ['dist'],
@@ -33,10 +38,6 @@ const config: RollupOptions = {
     babel({
       include: /pages\/.+\.js/,
       plugins: [page],
-    }),
-    babel({
-      plugins: [components, require.resolve('@babel/plugin-proposal-class-properties')],
-      presets: [require.resolve('@babel/preset-react')],
     }),
     postcss({
       extract: true,
