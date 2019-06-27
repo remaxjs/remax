@@ -191,7 +191,7 @@ const hostConfig = {
 
 const ReactReconcilerInst = ReactReconciler(hostConfig);
 
-export function render(reactElement: React.ReactElement, callback: () => void) {
+export function render(rootElement: React.ReactElement, callback: () => void) {
   return {
     data: {
       $$REMAX_ROOT: [],
@@ -204,14 +204,21 @@ export function render(reactElement: React.ReactElement, callback: () => void) {
       };
     },
 
-    onReady(): any {
+    onLoad(query: any): any {
+      const element = { ...rootElement };
+      element.props = {
+        ...element.props,
+        location: {
+          query: query || {},
+        },
+      };
       const miniAppContext = this as any;
       // Create a root Container if it doesnt exist
       if (!miniAppContext._rootContainer) {
         miniAppContext._rootContainer = ReactReconcilerInst.createContainer(miniAppContext, false);
       }
 
-      return ReactReconcilerInst.updateContainer(reactElement, miniAppContext._rootContainer, null, callback);
+      return ReactReconcilerInst.updateContainer(element, miniAppContext._rootContainer, null, callback);
     },
   };
 }
