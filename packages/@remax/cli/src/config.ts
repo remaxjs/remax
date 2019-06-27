@@ -13,11 +13,14 @@ import page from './plugins/page';
 import removeSrc from './plugins/removeSrc';
 import rename from './plugins/rename';
 
+
+const entries = getEntries();
+
 /**
  * Build  remax project
  */
 const config: RollupOptions = {
-  input: getEntries(),
+  input: entries,
   output: {
     dir: 'dist',
     format: 'esm', // immediately-invoked function expression — suitable for <script> tags
@@ -42,7 +45,7 @@ const config: RollupOptions = {
       targets: ['dist'],
     }),
     babel({
-      include: /pages\/.+\.js/,
+      include: entries,
       plugins: [page],
     }),
     postcss({
