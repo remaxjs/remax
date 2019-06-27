@@ -26,10 +26,16 @@ const config: RollupOptions = {
   preserveModules: true,
   preserveSymlinks: true,
   plugins: [
+    commonjs({
+      include: /node_modules/,
+      namedExports: {
+        'node_modules/react/index.js': ['Children', 'Component', 'createElement', 'useState'],
+      },
+    }),
     babel({
       babelrc: false,
       plugins: [components, require.resolve('@babel/plugin-proposal-class-properties')],
-      presets: [[require.resolve('@babel/preset-env'), { modules: false }], [require.resolve('@babel/preset-react')]],
+      presets: [[require.resolve('@babel/preset-env')], [require.resolve('@babel/preset-react')]],
     }),
     progress(),
     clear({
@@ -46,12 +52,6 @@ const config: RollupOptions = {
     }),
     resolve({
       dedupe: ['react'],
-    }),
-    commonjs({
-      include: /node_modules/,
-      namedExports: {
-        'node_modules/react/index.js': ['Children', 'Component', 'createElement', 'useState'],
-      },
     }),
     rename({
       include: 'src/**',
