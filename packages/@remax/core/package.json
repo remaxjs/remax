@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/CodeFalling/remax#readme",
   "dependencies": {
-    "react": "16.7.0-alpha.2",
-    "react-reconciler": "^0.20.4"
+    "react-reconciler": "0.20.4",
+    "scheduler": "0.13.6"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.2.3",

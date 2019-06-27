@@ -1,4 +1,12 @@
 import ReactReconciler from 'react-reconciler';
+import scheduler from 'scheduler';
+
+const {
+  unstable_scheduleCallback: scheduleDeferredCallback,
+  unstable_cancelCallback: cancelDeferredCallback,
+  unstable_shouldYield: shouldYield,
+  unstable_now: now,
+} = scheduler;
 
 const REMAX_ROOT = '$$REMAX_ROOT';
 const REMAX_ROOT_BACKUP = '$$REMAX_ROOT_BACKUP';
@@ -76,7 +84,7 @@ const rootHostContext = {};
 const childHostContext = {};
 
 const hostConfig = {
-  now: Date.now,
+  now,
 
   getRootHostContext: () => {
     return rootHostContext;
@@ -173,6 +181,12 @@ const hostConfig = {
   removeChild(parentInstance, child) {
     parentInstance.children.splice(parentInstance.indexOf(child), 1);
   },
+
+  schedulePassiveEffects: scheduleDeferredCallback,
+  cancelPassiveEffects: cancelDeferredCallback,
+  shouldYield,
+  scheduleDeferredCallback,
+  cancelDeferredCallback,
 };
 
 const ReactReconcilerInst = ReactReconciler(hostConfig);
