@@ -12,7 +12,7 @@ export default (options: CompileOptions = {}) => {
         {
           ...config,
           watch: {
-            include: ['src/**'],
+            include: ['src/**', 'app.js', 'app.json'],
           },
         },
       ]);
@@ -28,7 +28,6 @@ export default (options: CompileOptions = {}) => {
         watcher.close();
       });
     } else {
-      debugger
       const bundle = await rollup.rollup(config);
       await bundle.write(config.output!);
     }
