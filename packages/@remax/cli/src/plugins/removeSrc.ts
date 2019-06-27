@@ -1,4 +1,5 @@
 import { OutputAsset, Plugin } from 'rollup';
+import * as path from 'path';
 import { simple } from 'acorn-walk';
 import MagicString from 'magic-string';
 
@@ -90,8 +91,12 @@ export default function removeSrc(options: Options): Plugin {
               const req = getRequireSource(node) || getImportSource(node);
               if (req) {
                 const { start, end } = req;
-                const newPath = req.value.replace(PARENT_DIR_PATTERN, '');
-                magicString.overwrite(start, end, `'${newPath}'`);
+                const distance = req.value.split('/').filter((d: string) => d === '..').length;
+                const targetDistance = path.relative(path.dirname(file), 'src').split('/').length;
+                if (distance > targetDistance) {
+                  const newPath = req.value.replace(PARENT_DIR_PATTERN, '');
+                  magicString.overwrite(start, end, `'${newPath}'`);
+                }
               }
             };
 
