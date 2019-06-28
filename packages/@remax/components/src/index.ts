@@ -44,6 +44,7 @@ function factoryComponent(component: TComponent) {
 export const View = factoryComponent('view');
 export const ScrollView = factoryComponent('scroll-view');
 export const Swiper = factoryComponent('swiper');
+export const SwiperItem = factoryComponent('swiper-item');
 export const MovableView = factoryComponent('movable-view');
 export const MovableArea = factoryComponent('movable-area');
 export const CoverView = factoryComponent('cover-view');

@@ -2,6 +2,7 @@ export type TComponent =
   | "view"
   | "scroll-view"
   | "swiper"
+  | "swiper-item"
   | "movable-view"
   | "movable-area"
   | "cover-view"
