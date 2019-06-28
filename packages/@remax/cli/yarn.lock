@@ -713,6 +713,18 @@
     "@types/vinyl-fs" "*"
     chokidar "^2.1.2"
 
+"@types/lodash-es@^4.17.3":
+  version "4.17.3"
+  resolved "https://registry.npm.taobao.org/@types/lodash-es/download/@types/lodash-es-4.17.3.tgz#87eb0b3673b076b8ee655f1890260a136af09a2d"
+  integrity sha1-h+sLNnOwdrjuZV8YkCYKE2rwmi0=
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*":
+  version "4.14.135"
+  resolved "https://registry.npm.taobao.org/@types/lodash/download/@types/lodash-4.14.135.tgz?cache=0&sync_timestamp=1561570678873&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Flodash%2Fdownload%2F%40types%2Flodash-4.14.135.tgz#d2607c35dd68f70c2b35ba020c667493dedd8447"
+  integrity sha1-0mB8Nd1o9wwrNboCDGZ0k97dhEc=
+
 "@types/mini-css-extract-plugin@^0.2.0":
   version "0.2.0"
   resolved "https://registry.npmjs.org/@types/mini-css-extract-plugin/-/mini-css-extract-plugin-0.2.0.tgz#afb037dbbd76f6c13803927c2751d194188b5d47"
@@ -2233,6 +2245,11 @@ loader-utils@^0.2.16:
     json5 "^0.5.0"
     object-assign "^4.0.1"
 
+lodash-es@^4.17.11:
+  version "4.17.11"
+  resolved "https://registry.npm.taobao.org/lodash-es/download/lodash-es-4.17.11.tgz#145ab4a7ac5c5e52a3531fb4f310255a152b4be0"
+  integrity sha1-FFq0p6xcXlKjUx+08xAlWhUrS+A=
+
 lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "https://registry.npm.taobao.org/lodash.camelcase/download/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
@@ -3232,15 +3249,6 @@ rollup-plugin-progress@^1.1.1:
   integrity sha1-/M4vkV1UUBSsieoJJ+6Xy0gFL2A=
   dependencies:
     chalk "^2.4.2"
-
-rollup-plugin-rename@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.npm.taobao.org/rollup-plugin-rename/download/rollup-plugin-rename-0.0.1.tgz#5a8be555472f9df7c272832c0f803d51ea4ce440"
-  integrity sha1-WovlVUcvnffCcoMsD4A9UepM5EA=
-  dependencies:
-    acorn-walk "^6.1.1"
-    magic-string "^0.25.2"
-    rollup-pluginutils "^2.6.0"
 
 rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.3.0, rollup-pluginutils@^2.6.0, rollup-pluginutils@^2.7.0, rollup-pluginutils@^2.8.0:
   version "2.8.1"

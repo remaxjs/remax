@@ -1,66 +1,9 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { get } from 'dot-prop';
-
-const camelCased = (_str: string) => {
-  const str = _str
-    .split('')
-    .map((ch, index) => (index === 0 ? ch.toUpperCase() : ch))
-    .join('');
-  return str.replace(/-([a-z0-9])/g, g => {
-    return g[1].toUpperCase();
-  });
-};
-
-const unCamelCased = (_str: string) => {
-  const str = _str
-    .split('')
-    .map((ch, index) => (index === 0 ? ch.toLowerCase() : ch))
-    .join('');
-  return str.replace(/([A-Z])/g, g => {
-    return `-${g[0].toLowerCase()}`;
-  });
-};
+import { uniqueId, kebabCase } from 'lodash';
 
 const components: any = {};
-
-const componentList = [
-  'view',
-  'scroll-view',
-  'swiper',
-  'swiper-item',
-  'movable-view',
-  'movable-area',
-  'cover-view',
-  'cover-image',
-  'icon',
-  'text',
-  'rich-text',
-  'progress',
-  'button',
-  'checkbox-group',
-  'checkbox',
-  'form',
-  'input',
-  'label',
-  'picker',
-  'picker-view',
-  'radio-group',
-  'radio',
-  'slider',
-  'switch',
-  'textarea',
-  'navigator',
-  'image',
-  'video',
-  'camera',
-  'live-player',
-  'live-pusher',
-  'map',
-  'canvas',
-  'open-data',
-  'official-account',
-];
 
 const propsAlias: { [key: string]: string } = {
   className: 'class',
@@ -99,15 +42,15 @@ export default () => ({
               if (propsAlias[propName]) {
                 e.name.name = propsAlias[propName];
               }
-              if (propName === 'key') {
-                // ignore key
-                return;
-              }
               return get(e, 'name.name');
             }
           })
           .filter(item => item)
           .sort();
+
+        const uid = uniqueId('component_');
+
+        node.openingElement.attributes.push(t.jsxAttribute(t.jsxIdentifier('__uid__'), t.stringLiteral(uid)));
 
         components[
           JSON.stringify({
@@ -115,8 +58,8 @@ export default () => ({
             propKeys,
           })
         ] = {
-          type: `${unCamelCased(componentName)}+${propKeys.join('+')}`,
-          id: unCamelCased(componentName),
+          type: uid,
+          id: kebabCase(componentName),
           propKeys,
         };
       }

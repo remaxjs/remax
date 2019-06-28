@@ -47,7 +47,7 @@ function setData(rootContext) {
     lastData = pureObject;
     setTimeout(() => {
       const startTime = new Date().getTime();
-
+      console.log(lastData);
       rootContext.setData(
         {
           [REMAX_ROOT]: lastData,

@@ -12,7 +12,7 @@
   ];
   propKeys = propKeys.concat(events.map(item => `bind${item}`));
 %>
-<block a:if="{{item.type === 'mini-<%= type %>'}}">
+<block a:if="{{item.type === '<%= type %>'}}">
   <<%=id%>
     <% for(let key of propKeys) { %>
         <%=key%>="{{item.props.<%=camelCased(key)%>}}"
