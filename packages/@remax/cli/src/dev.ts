@@ -13,8 +13,15 @@ export default async () => {
   ]);
 
   watcher.on('event', (event: any) => {
-    if (event.code === 'FATAL') {
-      throw event.error;
+    console.log(event.code);
+    switch (event.code) {
+      case 'ERROR':
+        console.error(event.error);
+        break;
+      case 'FATAL':
+        throw event.error;
+      default:
+        break;
     }
   });
 
