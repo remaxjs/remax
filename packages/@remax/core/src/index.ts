@@ -172,7 +172,7 @@ const hostConfig = {
     if (_parent._rootContainer) {
       // append to root
       parent = {
-        type: 'view',
+        type: 'root',
         children: [],
         rootContext: _parent,
       };

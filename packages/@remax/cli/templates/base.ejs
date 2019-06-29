@@ -11,6 +11,12 @@
       {{item.text}}
     </block>
 
+    <block a:if="{{item.type === 'root'}}">
+      <block a:for="{{item.children}}" a:key="">
+        <template is="REMAX_TPL_1" data="{{item}}"/>
+      </block>
+    </block>
+
     <%- include('./component.ejs', {
       type: 'view',
       propKeys: [],
