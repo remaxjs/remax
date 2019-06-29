@@ -12,6 +12,7 @@ import components from './plugins/components';
 import page from './plugins/page';
 import removeSrc from './plugins/removeSrc';
 import rename from './plugins/rename';
+import * as React from 'react';
 
 export default function getConfig({ dev }: { dev: boolean }) {
   const entries = getEntries();
@@ -20,7 +21,7 @@ export default function getConfig({ dev }: { dev: boolean }) {
     commonjs({
       include: /node_modules/,
       namedExports: {
-        'node_modules/react/index.js': ['Children', 'Component', 'createElement', 'useState'],
+        'node_modules/react/index.js': Object.keys(React).filter(k => k !== 'default'),
       },
     }),
     babel({
