@@ -5,6 +5,18 @@ interface AppConfig {
   pages: string[];
 }
 
+function searchFile(file: string) {
+  const tsFile = file + '.ts';
+  if (fs.existsSync(tsFile)) {
+    return tsFile;
+  }
+  const tsxFile = file + '.tsx';
+  if (fs.existsSync(tsxFile)) {
+    return tsxFile;
+  }
+  return file + '.js';
+}
+
 export default function getEntries(): any {
   const cwd = process.cwd();
   const appConfigPath: string = path.join(cwd, 'src', 'app.json');
@@ -17,9 +29,9 @@ export default function getEntries(): any {
     throw new Error('app.json `pages` field should not be undefined or empty object');
   }
 
-  const defaultEntry = [path.join(cwd, 'src', 'app.js')];
+  const defaultEntry = [searchFile(path.join(cwd, 'src', 'app'))];
   const entry = pages.reduce((ret, page) => {
-    return [...ret, path.join(cwd, 'src', `${page}.js`)];
+    return [...ret, searchFile(path.join(cwd, 'src', page))];
   }, defaultEntry);
 
   return entry;

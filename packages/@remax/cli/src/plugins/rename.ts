@@ -3,7 +3,6 @@ import { createFilter } from 'rollup-pluginutils';
 // @ts-ignore No typings.
 import { simple } from 'acorn-walk';
 import MagicString from 'magic-string';
-import { extname } from 'path';
 
 interface INode {
   start: number;

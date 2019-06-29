@@ -12,6 +12,7 @@
     "outDir": "lib",
     "baseUrl": ".",
     "downlevelIteration": true,
+    "declaration": true,
   },
   "include": ["src/**/*"],
   "exclude": [

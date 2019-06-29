@@ -8,7 +8,8 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "outDir": "lib",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "declaration": true
   },
   "include": ["src/**/*"]
 }

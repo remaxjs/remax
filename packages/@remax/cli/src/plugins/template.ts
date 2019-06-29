@@ -5,11 +5,11 @@ import { getComponents } from './components';
 import ejs from 'ejs';
 
 function isPage(file: string) {
-  return /^pages\/.+\.js$/.test(file);
+  return /^pages\/.+\.(js|ts|tsx)$/.test(file);
 }
 
 function isApp(file: string) {
-  return /^app.js$/.test(file);
+  return /^app.(js|ts|tsx)$/.test(file);
 }
 
 async function createTemplate(pageFile: string) {
@@ -44,7 +44,7 @@ function createManifest() {
 
 export default function template() {
   return {
-    name: 'template', // this name will show up in warnings and errors
+    name: 'template',
     generateBundle: async (options: OutputOptions, bundle: OutputBundle) => {
       // app.json
       const manifest = createManifest();
