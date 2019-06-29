@@ -1,7 +1,7 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { get } from 'dot-prop';
-import { uniqueId, kebabCase } from 'lodash';
+import { kebabCase } from 'lodash';
 
 const components: any = {};
 
@@ -42,15 +42,15 @@ export default () => ({
               if (propsAlias[propName]) {
                 e.name.name = propsAlias[propName];
               }
+              if (propName === 'key') {
+                node.openingElement.attributes.push(t.jsxAttribute(t.jsxIdentifier('__key__'), e.value));
+                return '__key__';
+              }
               return get(e, 'name.name');
             }
           })
           .filter(item => item)
           .sort();
-
-        const uid = uniqueId('component_');
-
-        node.openingElement.attributes.push(t.jsxAttribute(t.jsxIdentifier('__uid__'), t.stringLiteral(uid)));
 
         components[
           JSON.stringify({
@@ -58,7 +58,7 @@ export default () => ({
             propKeys,
           })
         ] = {
-          type: uid,
+          type: `${kebabCase(componentName)}+${propKeys.join('+')}`,
           id: kebabCase(componentName),
           propKeys,
         };

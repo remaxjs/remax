@@ -15,9 +15,9 @@
 <block a:if="{{item.type === '<%= type %>'}}">
   <<%=id%>
     <% for(let key of propKeys) { %>
-        <%=key%>="{{item.props.<%=camelCased(key)%>}}"
+        <%=key === '__key__' ? 'key' : key%>="{{item.props.<%=camelCased(key)%>}}"
     <% } %>
-   >
+  >
     <block a:for="{{item.children}}" a:key="">
       <template is="REMAX_TPL_1" data="{{item}}"/>
     </block>

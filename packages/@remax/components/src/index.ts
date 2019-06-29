@@ -1,18 +1,9 @@
-import React, { CSSProperties, HTMLAttributes, Props } from 'react';
+import React, { CSSProperties, Props } from 'react';
 import { TComponent } from './types';
 
 interface IProps {
   [s: string]: any;
 }
-const camelCased = (_str: string) => {
-  const str = _str
-    .split('')
-    .map((ch, index) => (index === 0 ? ch.toUpperCase() : ch))
-    .join('');
-  return str.replace(/-([a-z0-9])/g, g => {
-    return g[1].toUpperCase();
-  });
-};
 
 const styleString = (style: CSSProperties) =>
   Object.entries(style).reduce((styleString, [propName, propValue]) => {
@@ -32,7 +23,7 @@ function factoryComponent(component: TComponent) {
       }
     }
     // ts dose not accept ...emptyArray
-    return React.createElement(props.__uid__, newProps, children);
+    return React.createElement(component, newProps, children);
   };
 }
 

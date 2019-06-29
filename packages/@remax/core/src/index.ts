@@ -80,6 +80,13 @@ function processProps(newProps, rootContext, id) {
   return props;
 }
 
+function createType(component: string, props: any) {
+  return `${component}+${Object.keys(props)
+    .filter(propKey => propKey !== 'children')
+    .sort()
+    .join('+')}`;
+}
+
 const rootHostContext = {};
 const childHostContext = {};
 
@@ -121,7 +128,7 @@ const hostConfig = {
     const props = processProps(newProps, rootContext, id);
 
     const ins = {
-      type: type === 'div' ? 'view' : type,
+      type: type === 'div' ? 'view' : createType(type, newProps),
       props,
       children: [],
       rootContext,
@@ -165,7 +172,7 @@ const hostConfig = {
     if (_parent._rootContainer) {
       // append to root
       parent = {
-        type: 'mini-view',
+        type: 'view',
         children: [],
         rootContext: _parent,
       };
