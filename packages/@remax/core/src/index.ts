@@ -1,5 +1,7 @@
+import * as React from 'react';
 import ReactReconciler, { HostConfig } from 'react-reconciler';
 import scheduler from 'scheduler';
+import pageWrapper from './pageWrapper';
 
 const {
   unstable_scheduleCallback: scheduleDeferredCallback,
@@ -87,10 +89,18 @@ function createType(component: string, props: any) {
     .join('+')}`;
 }
 
+function getPublicRootInstance(container: any) {
+  var containerFiber = container.current;
+  if (!containerFiber.child) {
+    return null;
+  }
+  return containerFiber.child.stateNode;
+}
+
 const rootHostContext = {};
 const childHostContext = {};
 
-const hostConfig: HostConfig<any, any, any, any, any, any, any, any, any, any, any, any> = {
+const hostConfig = {
   now,
 
   getRootHostContext: () => {
@@ -205,11 +215,13 @@ const hostConfig: HostConfig<any, any, any, any, any, any, any, any, any, any, a
 
 const ReactReconcilerInst = ReactReconciler(hostConfig);
 
-export function render(rootElement: React.ReactElement, callback: () => void) {
+export function render(rootElement: React.ReactElement) {
   return {
     data: {
       $$REMAX_ROOT: [],
     },
+
+    wrapper: null,
 
     onShareAppMessage() {
       return {
@@ -219,20 +231,26 @@ export function render(rootElement: React.ReactElement, callback: () => void) {
     },
 
     onLoad(query: any): any {
-      const element = { ...rootElement };
-      element.props = {
-        ...element.props,
-        location: {
-          query: query || {},
-        },
-      };
+      const PageWrapper = pageWrapper(rootElement, query);
+
       const miniAppContext = this as any;
       // Create a root Container if it doesnt exist
       if (!miniAppContext._rootContainer) {
         miniAppContext._rootContainer = ReactReconcilerInst.createContainer(miniAppContext, false);
       }
 
-      return ReactReconcilerInst.updateContainer(element, miniAppContext._rootContainer, null, callback);
+      ReactReconcilerInst.updateContainer(
+        React.createElement(PageWrapper),
+        miniAppContext._rootContainer,
+        null,
+        () => {},
+      );
+
+      this.wrapper = getPublicRootInstance(miniAppContext._rootContainer);
+    },
+
+    onShow() {
+      this.wrapper.componentDidShow();
     },
   };
 }

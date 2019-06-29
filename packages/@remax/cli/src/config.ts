@@ -18,6 +18,7 @@ export default function getConfig({ dev }: { dev: boolean }) {
   const entries = getEntries();
 
   const plugins = [
+    progress(),
     commonjs({
       include: /node_modules/,
       namedExports: {
@@ -29,14 +30,13 @@ export default function getConfig({ dev }: { dev: boolean }) {
       plugins: [components, require.resolve('@babel/plugin-proposal-class-properties')],
       presets: [[require.resolve('@babel/preset-env')], [require.resolve('@babel/preset-react')]],
     }),
-    progress(),
     babel({
       include: entries,
       plugins: [page],
     }),
     postcss({
       extract: true,
-      modules: true,
+      modules: false,
       plugins: [pxToUnits()],
     }),
     resolve({
