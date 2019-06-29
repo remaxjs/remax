@@ -1,4 +1,4 @@
-import { RollupOptions } from 'rollup';
+import { RollupOptions, RollupWarning } from 'rollup';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
@@ -12,7 +12,6 @@ import components from './plugins/components';
 import page from './plugins/page';
 import removeSrc from './plugins/removeSrc';
 import rename from './plugins/rename';
-
 
 const entries = getEntries();
 
@@ -28,6 +27,10 @@ const config: RollupOptions = {
   },
   preserveModules: true,
   preserveSymlinks: true,
+  onwarn(warning, warn) {
+    if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
+    warn(warning); // this requires Rollup 0.46
+  },
   plugins: [
     commonjs({
       include: /node_modules/,
