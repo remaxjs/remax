@@ -1,15 +1,16 @@
 import program from 'commander';
-import compile from './compile';
+import dev from './dev';
+import build from './build';
 
 program
   .command('dev')
   .description('start development')
-  .action(compile({ watch: true }));
+  .action(dev);
 
 program
   .command('build')
   .description('build the project')
   .option('-a, --analyze', 'enable the bundle analyzer')
-  .action(compile());
+  .action(build);
 
 program.parse(process.argv);

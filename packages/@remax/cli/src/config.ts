@@ -13,25 +13,10 @@ import page from './plugins/page';
 import removeSrc from './plugins/removeSrc';
 import rename from './plugins/rename';
 
-const entries = getEntries();
+export default function getConfig({ dev }: { dev: boolean }) {
+  const entries = getEntries();
 
-/**
- * Build  remax project
- */
-const config: RollupOptions = {
-  input: entries,
-  output: {
-    dir: 'dist',
-    format: 'esm', // immediately-invoked function expression — suitable for <script> tags
-    sourcemap: true,
-  },
-  preserveModules: true,
-  preserveSymlinks: true,
-  onwarn(warning, warn) {
-    if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
-    warn(warning); // this requires Rollup 0.46
-  },
-  plugins: [
+  const plugins = [
     commonjs({
       include: /node_modules/,
       namedExports: {
@@ -44,9 +29,6 @@ const config: RollupOptions = {
       presets: [[require.resolve('@babel/preset-env')], [require.resolve('@babel/preset-react')]],
     }),
     progress(),
-    clear({
-      targets: ['dist'],
-    }),
     babel({
       include: entries,
       plugins: [page],
@@ -73,7 +55,31 @@ const config: RollupOptions = {
     }),
     removeSrc({}),
     template(),
-  ],
-};
+  ];
 
-export default config;
+  if (!dev) {
+    plugins.unshift(
+      clear({
+        targets: ['dist'],
+      }),
+    );
+  }
+
+  const config: RollupOptions = {
+    input: entries,
+    output: {
+      dir: 'dist',
+      format: 'esm',
+      sourcemap: true,
+    },
+    preserveModules: true,
+    preserveSymlinks: true,
+    onwarn(warning, warn) {
+      if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
+      warn(warning);
+    },
+    plugins,
+  };
+
+  return config;
+}
