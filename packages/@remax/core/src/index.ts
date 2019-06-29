@@ -1,4 +1,4 @@
-import ReactReconciler from 'react-reconciler';
+import ReactReconciler, { HostConfig } from 'react-reconciler';
 import scheduler from 'scheduler';
 
 const {
@@ -90,7 +90,7 @@ function createType(component: string, props: any) {
 const rootHostContext = {};
 const childHostContext = {};
 
-const hostConfig = {
+const hostConfig: HostConfig<any, any, any, any, any, any, any, any, any, any, any, any> = {
   now,
 
   getRootHostContext: () => {
@@ -163,7 +163,14 @@ const hostConfig = {
     parent.children.push(child);
   },
 
-  finalizeInitialChildren: () => {},
+  insertBefore(parent, child) {
+    child.rootContext = parent.rootContext;
+    parent.children.unshift(child);
+  },
+
+  finalizeInitialChildren: () => {
+    return false;
+  },
 
   supportsMutation: true,
 
