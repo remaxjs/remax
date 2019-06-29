@@ -1,6 +1,7 @@
 {
   "name": "@remax/demo",
   "version": "1.0.1-alpha.0",
+  "private": true,
   "description": "",
   "main": "index.js",
   "scripts": {
