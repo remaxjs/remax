@@ -10,7 +10,6 @@ program
 program
   .command('build')
   .description('build the project')
-  .option('-a, --analyze', 'enable the bundle analyzer')
   .action(build);
 
 program.parse(process.argv);
