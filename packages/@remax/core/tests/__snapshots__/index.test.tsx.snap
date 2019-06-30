@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`remax render render correctly 1`] = `
+Object {
+  "$$REMAX_ROOT": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "text": "hello",
+              "type": Symbol(text),
+            },
+          ],
+          "id": 0,
+          "props": Object {},
+          "type": "view+",
+        },
+      ],
+      "type": "root",
+    },
+  ],
+}
+`;

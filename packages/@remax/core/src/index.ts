@@ -1,7 +1,6 @@
 import * as React from 'react';
-import ReactReconciler, { HostConfig } from 'react-reconciler';
-import scheduler from 'scheduler';
-import pageWrapper from './pageWrapper';
+import ReactReconciler from 'react-reconciler';
+import * as scheduler from 'scheduler';
 
 const {
   unstable_scheduleCallback: scheduleDeferredCallback,
@@ -47,22 +46,19 @@ function setData(rootContext) {
     lastData = pureObject;
   } else {
     lastData = pureObject;
-    setTimeout(() => {
-      const startTime = new Date().getTime();
-      console.log(lastData);
-      rootContext.setData(
-        {
-          [REMAX_ROOT]: lastData,
-        },
-        () => {
-          if (process.env.NODE_ENV !== 'production') {
-            console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`);
-          }
-        },
-      );
+    const startTime = new Date().getTime();
+    rootContext.setData(
+      {
+        [REMAX_ROOT]: lastData,
+      },
+      () => {
+        if (process.env.NODE_ENV !== 'production') {
+          console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`);
+        }
+      },
+    );
 
-      lastData = null;
-    }, 1000 / 60);
+    lastData = null;
   }
 }
 
@@ -215,42 +211,13 @@ const hostConfig = {
 
 const ReactReconcilerInst = ReactReconciler(hostConfig);
 
-export function render(rootElement: React.ReactElement) {
-  return {
-    data: {
-      $$REMAX_ROOT: [],
-    },
+export function render(rootElement: React.ReactElement, container: any) {
+  // Create a root Container if it doesnt exist
+  if (!container._rootContainer) {
+    container._rootContainer = ReactReconcilerInst.createContainer(container, false);
+  }
 
-    wrapper: null,
+  ReactReconcilerInst.updateContainer(rootElement, container._rootContainer, null, () => {});
 
-    onShareAppMessage() {
-      return {
-        title: 'React Hooks with Mini APP',
-        path: '/pages/index',
-      };
-    },
-
-    onLoad(query: any): any {
-      const PageWrapper = pageWrapper(rootElement, query);
-
-      const miniAppContext = this as any;
-      // Create a root Container if it doesnt exist
-      if (!miniAppContext._rootContainer) {
-        miniAppContext._rootContainer = ReactReconcilerInst.createContainer(miniAppContext, false);
-      }
-
-      ReactReconcilerInst.updateContainer(
-        React.createElement(PageWrapper),
-        miniAppContext._rootContainer,
-        null,
-        () => {},
-      );
-
-      this.wrapper = getPublicRootInstance(miniAppContext._rootContainer);
-    },
-
-    onShow() {
-      this.wrapper.componentDidShow();
-    },
-  };
+  return getPublicRootInstance(container._rootContainer);
 }
