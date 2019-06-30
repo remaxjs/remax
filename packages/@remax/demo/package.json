@@ -1,6 +1,6 @@
 {
   "name": "@remax/demo",
-  "version": "1.0.1-alpha.0",
+  "version": "1.0.1-alpha.1",
   "private": true,
   "description": "",
   "main": "index.js",
@@ -11,9 +11,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@remax/cli": "^1.0.1-alpha.0",
-    "@remax/components": "^1.0.1-alpha.0",
-    "@remax/core": "^1.0.1-alpha.0",
+    "@remax/cli": "^1.0.1-alpha.1",
+    "@remax/components": "^1.0.1-alpha.1",
+    "@remax/core": "^1.0.1-alpha.1",
     "less": "^3.9.0",
     "react": "^16.8.6",
     "typescript": "^3.5.2"
