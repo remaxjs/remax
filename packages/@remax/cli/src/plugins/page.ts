@@ -9,12 +9,12 @@ export default () => ({
         const pageId = path.scope.generateUidIdentifier('page');
         const declaration = path.node.declaration;
         path.replaceWith(t.variableDeclaration('const', [t.variableDeclarator(pageId, declaration)]));
-        const renderId = addNamed(path, 'render', '@remax/core');
+        const createId = addNamed(path, 'createPageConfig', '@remax/core');
         path.insertAfter(
           t.exportDefaultDeclaration(
             t.callExpression(t.identifier('Page'), [
-              t.callExpression(renderId, [
-                t.callExpression(t.memberExpression(t.identifier('React'), t.identifier('createElement')), [pageId]),
+              t.callExpression(createId, [
+                pageId
               ]),
             ]),
           ),

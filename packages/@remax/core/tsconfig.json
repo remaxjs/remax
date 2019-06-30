@@ -10,5 +10,5 @@
     "outDir": "lib",
     "declaration": true,
     "jsx": "react"
-  },
+  }
 }

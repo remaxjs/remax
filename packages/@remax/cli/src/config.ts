@@ -5,7 +5,6 @@ import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
 import clear from 'rollup-plugin-clear';
-import typescript from 'rollup-plugin-typescript';
 import pxToUnits from 'postcss-px2units';
 import getEntries from './getEntries';
 import template from './plugins/template';
@@ -14,6 +13,7 @@ import page from './plugins/page';
 import removeSrc from './plugins/removeSrc';
 import rename from './plugins/rename';
 import * as React from 'react';
+import * as scheduler from 'scheduler';
 
 export default function getConfig({ dev }: { dev: boolean }) {
   const entries = getEntries();
@@ -24,6 +24,7 @@ export default function getConfig({ dev }: { dev: boolean }) {
       include: /node_modules/,
       namedExports: {
         'node_modules/react/index.js': Object.keys(React).filter(k => k !== 'default'),
+        'node_modules/@remax/core/node_modules/scheduler/index.js': Object.keys(scheduler).filter(k => k !== 'default'),
       },
     }),
     babel({

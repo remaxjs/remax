@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from '@remax/components';
-import { render } from '../src';
+import { render } from '..';
 
 class Context {
   data: any;

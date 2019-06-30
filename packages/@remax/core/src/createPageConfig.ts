@@ -1,6 +1,6 @@
 import * as React from 'react';
 import createPageWrapper from './createPageWrapper';
-import { render } from './';
+import render from './render';
 
 export default function createPageConfig(Page: React.ComponentType) {
   return {
