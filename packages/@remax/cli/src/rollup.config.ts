@@ -14,9 +14,11 @@ import removeSrc from './plugins/removeSrc';
 import rename from './plugins/rename';
 import * as React from 'react';
 import * as scheduler from 'scheduler';
+import getConfig from './getConfig';
 
-export default function getConfig({ dev }: { dev: boolean }) {
+export default function rollupConfig({ dev }: { dev: boolean }) {
   const entries = getEntries();
+  const projectConfig = getConfig();
 
   const plugins = [
     progress(),
@@ -44,7 +46,7 @@ export default function getConfig({ dev }: { dev: boolean }) {
     }),
     postcss({
       extract: true,
-      modules: true,
+      modules: projectConfig.cssModules,
       plugins: [pxToUnits()],
     }),
     resolve({

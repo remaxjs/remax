@@ -1,8 +1,8 @@
 import * as rollup from 'rollup';
-import getConfig from './config';
+import rollupConfig from './rollup.config';
 
 export default async () => {
-  const config = getConfig({ dev: true });
+  const config = rollupConfig({ dev: true });
   const watcher = rollup.watch([
     {
       ...config,
