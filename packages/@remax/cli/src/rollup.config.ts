@@ -59,7 +59,7 @@ export default function rollupConfig({ dev }: { dev: boolean }) {
           input &&
           input
             .replace(/^demo\/src\//, '')
-            .replace(/\.less$/, '.js')
+            .replace(/\.less$/, '.less.js')
             .replace(/\.css$/, '.acss')
             .replace(/\.ts$/, '.js')
             .replace(/\.tsx$/, '.js')
