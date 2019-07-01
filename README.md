@@ -1,5 +1,7 @@
 # remax
 
+![Travis (.org)](https://img.shields.io/travis/remaxjs/remax.svg?style=flat-square)
+
 **开发中，请勿用于生产环境**
 
 让你在小程序开发中使用**真正的 React**，完整的 JSX 甚至是最新的 `Hooks API`。而不是使用受到各种限制的 JSX（其实是模板）翻译成小程序模板。
