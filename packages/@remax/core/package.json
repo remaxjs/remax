@@ -25,12 +25,12 @@
   },
   "homepage": "https://github.com/CodeFalling/remax#readme",
   "dependencies": {
-    "@remax/components": "^1.0.1-alpha.1",
     "react-reconciler": "0.20.4",
     "scheduler": "0.13.6"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.2.3",
+    "@remax/components": "^1.0.1-alpha.1",
     "@types/jest": "^24.0.15",
     "@types/react": "^16.8.22",
     "@types/react-reconciler": "^0.18.0",
