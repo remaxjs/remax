@@ -5,7 +5,8 @@
   "main": "./lib/index.js",
   "scripts": {
     "watch": "./node_modules/.bin/tsc -w",
-    "build": "./node_modules/.bin/tsc "
+    "build": "./node_modules/.bin/tsc",
+    "test": "jest"
   },
   "bin": {
     "remax": "./bin/remax"
@@ -39,17 +40,21 @@
   "devDependencies": {
     "@babel/traverse": "^7.4.5",
     "@babel/types": "^7.4.4",
+    "@remax/components": "^1.0.1-alpha.1",
     "@types/babel__traverse": "^7.0.7",
     "@types/clean-webpack-plugin": "^0.1.2",
     "@types/copy-webpack-plugin": "^4.4.2",
     "@types/dot-prop": "^5.0.1",
     "@types/ejs": "^2.6.1",
     "@types/gulp": "^4.0.6",
+    "@types/jest": "^24.0.15",
     "@types/mini-css-extract-plugin": "^0.2.0",
     "@types/node": "^10.12.18",
     "@types/through2": "^2.0.34",
     "@types/webpack-bundle-analyzer": "^2.13.0",
+    "jest": "^24.8.0",
     "scheduler": "0.13.6",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.2.2"
   }
 }

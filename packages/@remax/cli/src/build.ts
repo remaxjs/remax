@@ -1,8 +1,9 @@
 import * as rollup from 'rollup';
-import rollupConfig from './rollup.config';
+import rollupConfig from './rollupConfig';
+import { RemaxOptions } from './getConfig';
 
-export default async () => {
-  const config = rollupConfig({ dev: false });
-  const bundle = await rollup.rollup(config);
-  await bundle.write(config.output!);
+export default async (options: RemaxOptions) => {
+  const rollupOptions = rollupConfig(options, false);
+  const bundle = await rollup.rollup(rollupOptions);
+  await bundle.write(rollupOptions.output!);
 };

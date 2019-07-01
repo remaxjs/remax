@@ -1,11 +1,13 @@
 import * as rollup from 'rollup';
-import rollupConfig from './rollup.config';
+import rollupConfig from './rollupConfig';
+import { RemaxOptions } from './getConfig';
 
-export default async () => {
-  const config = rollupConfig({ dev: true });
+export default async (options: RemaxOptions) => {
+  const rollupOptions = rollupConfig(options, true);
+
   const watcher = rollup.watch([
     {
-      ...config,
+      ...rollupOptions,
       watch: {
         include: ['src/**', 'app.js', 'app.json'],
       },

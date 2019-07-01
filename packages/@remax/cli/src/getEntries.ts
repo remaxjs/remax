@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { RemaxOptions } from './getConfig';
 
 interface AppConfig {
   pages: string[];
@@ -17,9 +18,8 @@ function searchFile(file: string) {
   return file + '.js';
 }
 
-export default function getEntries(): any {
-  const cwd = process.cwd();
-  const appConfigPath: string = path.join(cwd, 'src', 'app.json');
+export default function getEntries(options: RemaxOptions): any {
+  const appConfigPath: string = path.join(options.cwd, 'src', 'app.json');
   if (!fs.existsSync(appConfigPath)) {
     throw new Error(`${appConfigPath} is not found`);
   }
@@ -29,9 +29,9 @@ export default function getEntries(): any {
     throw new Error('app.json `pages` field should not be undefined or empty object');
   }
 
-  const defaultEntry = [searchFile(path.join(cwd, 'src', 'app'))];
+  const defaultEntry = [searchFile(path.join(options.cwd, 'src', 'app'))];
   const entry = pages.reduce((ret, page) => {
-    return [...ret, searchFile(path.join(cwd, 'src', page))];
+    return [...ret, searchFile(path.join(options.cwd, 'src', page))];
   }, defaultEntry);
 
   return entry;

@@ -1,15 +1,13 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import { OutputBundle, OutputOptions } from 'rollup';
+import { OutputChunk, Plugin } from 'rollup';
 import { getComponents } from './components';
 import ejs from 'ejs';
+import { RemaxOptions } from 'src/getConfig';
+import getEntries from '../getEntries';
 
-function isPage(file: string) {
-  return /^pages\/.+\.(js|ts|tsx)$/.test(file);
-}
-
-function isApp(file: string) {
-  return /^app.(js|ts|tsx)$/.test(file);
+function isPage(file: string | null, entries: string[]) {
+  return file && entries.indexOf(file) > -1;
 }
 
 async function createTemplate(pageFile: string) {
@@ -17,6 +15,7 @@ async function createTemplate(pageFile: string) {
   const code = (await ejs.renderFile(path.join(__dirname, '../../templates/page.ejs'), {
     baseTemplate: path.relative(path.dirname(pageFile), 'base.axml'),
   })) as string;
+
   return {
     fileName,
     isAsset: true as true,
@@ -34,31 +33,38 @@ async function createBaseTemplate() {
   };
 }
 
-function createManifest() {
+function createManifest(options: RemaxOptions) {
   return {
     fileName: 'app.json',
     isAsset: true as true,
-    source: fs.readFileSync(path.resolve(process.cwd(), 'src/app.json')),
+    source: fs.readFileSync(path.resolve(options.cwd, 'src/app.json')),
   };
 }
 
-export default function template() {
+function isEntry(chunk: any): chunk is OutputChunk {
+  return chunk.isEntry;
+}
+
+export default function template(options: RemaxOptions): Plugin {
   return {
     name: 'template',
-    generateBundle: async (options: OutputOptions, bundle: OutputBundle) => {
+    generateBundle: async (_, bundle) => {
+      const entries = getEntries(options);
       // app.json
-      const manifest = createManifest();
+      const manifest = createManifest(options);
       bundle[manifest.fileName] = manifest;
+
+      const template = await createBaseTemplate();
+      bundle[template.fileName] = template;
 
       const files = Object.keys(bundle);
       await Promise.all([
         files.map(async file => {
-          if ((bundle[file] as any).isEntry) {
-            if (isPage(file)) {
+          const chunk = bundle[file];
+          if (isEntry(chunk)) {
+            const filePath = Object.keys(chunk.modules)[0];
+            if (isPage(filePath, entries)) {
               const template = await createTemplate(file);
-              bundle[template.fileName] = template;
-            } else if (isApp(file)) {
-              const template = await createBaseTemplate();
               bundle[template.fileName] = template;
             }
           }

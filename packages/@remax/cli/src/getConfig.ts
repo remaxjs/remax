@@ -1,14 +1,22 @@
 import fs from 'fs';
 import path from 'path';
+import defaultOptions from './defaultOptions';
 
-export interface RemaxConfig {
-  cssModules?: boolean;
+export interface RemaxOptions {
+  cssModules: boolean;
+  cwd: string;
+  progress: boolean;
+  output: string;
 }
 
-export default function getConfig(): RemaxConfig {
+export default function getConfig(): RemaxOptions {
   const configPath: string = path.join(process.cwd(), './remax.config.js');
   if (fs.existsSync(configPath)) {
-    return require(configPath);
+    const options = require(configPath);
+    return {
+      ...defaultOptions,
+      ...options,
+    };
   }
-  return {};
+  return defaultOptions;
 }

@@ -14,14 +14,12 @@ import removeSrc from './plugins/removeSrc';
 import rename from './plugins/rename';
 import * as React from 'react';
 import * as scheduler from 'scheduler';
-import getConfig from './getConfig';
+import { RemaxOptions } from './getConfig';
 
-export default function rollupConfig({ dev }: { dev: boolean }) {
-  const entries = getEntries();
-  const projectConfig = getConfig();
+export default function rollupConfig(options: RemaxOptions, watch: boolean) {
+  const entries = getEntries(options);
 
   const plugins = [
-    progress(),
     commonjs({
       include: /node_modules/,
       namedExports: {
@@ -46,7 +44,7 @@ export default function rollupConfig({ dev }: { dev: boolean }) {
     }),
     postcss({
       extract: true,
-      modules: projectConfig.cssModules,
+      modules: options.cssModules,
       plugins: [pxToUnits()],
     }),
     resolve({
@@ -67,13 +65,17 @@ export default function rollupConfig({ dev }: { dev: boolean }) {
       },
     }),
     removeSrc({}),
-    template(),
+    template(options),
   ];
 
-  if (!dev) {
+  if (options.progress) {
+    plugins.push(progress());
+  }
+
+  if (!watch) {
     plugins.unshift(
       clear({
-        targets: ['dist'],
+        targets: options.output,
       }),
     );
   }
@@ -81,7 +83,7 @@ export default function rollupConfig({ dev }: { dev: boolean }) {
   const config: RollupOptions = {
     input: entries,
     output: {
-      dir: 'dist',
+      dir: options.output,
       format: 'esm',
       sourcemap: true,
     },
