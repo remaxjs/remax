@@ -23,8 +23,8 @@ export default function rollupConfig(options: RemaxOptions, watch: boolean) {
     commonjs({
       include: /node_modules/,
       namedExports: {
-        'node_modules/react/index.js': Object.keys(React).filter(k => k !== 'default'),
-        'node_modules/remax/node_modules/scheduler/index.js': Object.keys(scheduler).filter(k => k !== 'default'),
+        react: Object.keys(React).filter(k => k !== 'default'),
+        scheduler: Object.keys(scheduler).filter(k => k !== 'default'),
       },
     }),
     babel({
