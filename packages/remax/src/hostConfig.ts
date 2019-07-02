@@ -17,11 +17,11 @@ let instanceCount = 0;
 // 缓冲一下要 set 的 Data
 // 如果有值说明还没 set，直接改变他的值
 // 真正 setData 后把 lastData 置空
-let lastData = null;
+let lastData: any = null;
 
-function setData(rootContext) {
-  function clone(item) {
-    let result = {};
+function setData(rootContext: any) {
+  function clone(item: any) {
+    let result: any = {};
     if (Array.isArray(item)) {
       result = item.map(item => clone(item));
     } else if (typeof item === 'object') {
@@ -60,8 +60,8 @@ function setData(rootContext) {
   }
 }
 
-function processProps(newProps, rootContext, id) {
-  const props = {};
+function processProps(newProps: any, rootContext: any, id: number) {
+  const props: any = {};
   for (const propKey of Object.keys(newProps)) {
     if (typeof newProps[propKey] === 'function') {
       const contextKey = `${REMAX_METHOD}_${id}_${propKey}`;
@@ -93,10 +93,8 @@ export default {
     return rootHostContext;
   },
 
-  shouldSetTextContent(type, props) {
+  shouldSetTextContent(type: any, props: any) {
     return false;
-    // console.log(props);
-    // return typeof props.children === 'string' || typeof props.children === 'number';
   },
 
   prepareForCommit: () => {},
@@ -107,16 +105,16 @@ export default {
     return childHostContext;
   },
 
-  prepareUpdate(domElement, oldProps, newProps) {
+  prepareUpdate() {
     return true;
   },
 
-  commitTextUpdate(textInstance, oldText, newText) {
+  commitTextUpdate(textInstance: any, oldText: string, newText: string) {
     textInstance.text = newText;
     setData(textInstance.rootContext);
   },
 
-  createInstance: (type, newProps, rootContainerInstance, _currentHostContext, workInProgress) => {
+  createInstance: (type: string, newProps: any, rootContainerInstance: any, _currentHostContext: any) => {
     const rootContext = rootContainerInstance;
     const id = instanceCount;
     instanceCount += 1;
@@ -134,14 +132,14 @@ export default {
     return ins;
   },
 
-  createTextInstance: text => {
+  createTextInstance(text: string) {
     return {
       type: TYPE_TEXT,
       text,
     };
   },
 
-  commitUpdate(targetIns, updatePayload, type, oldProps, newProps) {
+  commitUpdate(targetIns: any, updatePayload: any, type: string, oldProps: any, newProps: any) {
     const props = processProps(newProps, targetIns.rootContext, targetIns.id);
 
     targetIns.props = props;
@@ -149,17 +147,17 @@ export default {
     setData(targetIns.rootContext);
   },
 
-  appendInitialChild: (parent, child) => {
+  appendInitialChild: (parent: any, child: any) => {
     child.rootContext = parent.rootContext;
     parent.children.push(child);
   },
 
-  appendChild(parent, child) {
+  appendChild(parent: any, child: any) {
     child.rootContext = parent.rootContext;
     parent.children.push(child);
   },
 
-  insertBefore(parent, child) {
+  insertBefore(parent: any, child: any) {
     child.rootContext = parent.rootContext;
     parent.children.unshift(child);
   },
@@ -170,8 +168,8 @@ export default {
 
   supportsMutation: true,
 
-  appendChildToContainer: (_parent, child) => {
-    let parent = null;
+  appendChildToContainer: (_parent: any, child: any) => {
+    let parent: any = null;
     if (_parent._rootContainer) {
       // append to root
       parent = {
@@ -188,7 +186,7 @@ export default {
     setData(child.rootContext);
   },
 
-  removeChild(parentInstance, child) {
+  removeChild(parentInstance: any, child: any) {
     parentInstance.children.splice(parentInstance.indexOf(child), 1);
   },
 

@@ -1,53 +1,53 @@
 import React, { CSSProperties, Props } from 'react';
 
-export type TComponent =
-  | "view"
-  | "scroll-view"
-  | "swiper"
-  | "swiper-item"
-  | "movable-view"
-  | "movable-area"
-  | "cover-view"
-  | "cover-image"
-  | "icon"
-  | "text"
-  | "rich-text"
-  | "progress"
-  | "button"
-  | "checkbox-group"
-  | "checkbox"
-  | "form"
-  | "input"
-  | "label"
-  | "picker"
-  | "picker-view"
-  | "radio-group"
-  | "radio"
-  | "slider"
-  | "switch"
-  | "textarea"
-  | "navigator"
-  | "image"
-  | "video"
-  | "camera"
-  | "live-player"
-  | "live-pusher"
-  | "map"
-  | "canvas"
-  | "open-data"
-  | "official-account"
-
+export type HostComponent =
+  | 'view'
+  | 'scroll-view'
+  | 'swiper'
+  | 'swiper-item'
+  | 'movable-view'
+  | 'movable-area'
+  | 'cover-view'
+  | 'cover-image'
+  | 'icon'
+  | 'text'
+  | 'rich-text'
+  | 'progress'
+  | 'button'
+  | 'checkbox-group'
+  | 'checkbox'
+  | 'form'
+  | 'input'
+  | 'label'
+  | 'picker'
+  | 'picker-view'
+  | 'radio-group'
+  | 'radio'
+  | 'slider'
+  | 'switch'
+  | 'textarea'
+  | 'navigator'
+  | 'image'
+  | 'video'
+  | 'camera'
+  | 'live-player'
+  | 'live-pusher'
+  | 'map'
+  | 'canvas'
+  | 'open-data'
+  | 'official-account';
 
 interface IProps {
   [s: string]: any;
 }
 
 const styleString = (style: CSSProperties) =>
-  Object.entries(style).reduce((styleString, [propName, propValue]) => {
-    return `${styleString}${propName}:${propValue}`;
+  Object.keys(style).reduce((styleString, key) => {
+    const value = (style as any)[key];
+    return `${styleString}${key}:${value}`;
   }, '');
 
-function factoryComponent(component: TComponent) {
+function factoryComponent(component: HostComponent) {
   // props 类型存在问题
   return <T>(props: Props<T> & IProps) => {
     const { children = [] } = props;
