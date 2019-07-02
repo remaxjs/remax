@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodeFalling/remax.git"
+    "url": "git+https://github.com/remaxjs/remax.git"
   },
   "keywords": [
     "react",
@@ -21,9 +21,9 @@
   "author": "code.falling@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CodeFalling/remax/issues"
+    "url": "https://github.com/remaxjs/remax/issues"
   },
-  "homepage": "https://github.com/CodeFalling/remax#readme",
+  "homepage": "https://github.com/remaxjs/remax#readme",
   "dependencies": {
     "react-reconciler": "0.20.4",
     "scheduler": "0.13.6"
