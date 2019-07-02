@@ -8,26 +8,9 @@
 
 ![Screenshot](https://user-images.githubusercontent.com/465125/60119002-10003c80-97b0-11e9-9df4-425528d504e4.gif)
 
-## 快速开始
+## Demo
 
-```shell
-$ git clone https://github.com/CodeFalling/remax
-$ cd remax
-
-# 安装 yarn
-$ yarn install -g yarn
-
-# 安装依赖
-$ yarn run bootstrap
-
-# 构建
-$ yarn run build
-
-# 运行 demo
-$ yarn run start:demo
-```
-
-登录支付宝小程序开发者工具，新建项目，选择 `remax/pacakges/@remax/demo/dist` 目录，就能看到 DEMO 小程序
+- [Todo Demo](https://github.com/remaxjs/todo-demo)
 
 ## Roadmap
 
