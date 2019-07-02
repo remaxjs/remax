@@ -1,6 +1,6 @@
 {
   "name": "remax-cli",
-  "version": "1.0.1-alpha.4",
+  "version": "1.0.1-alpha.5",
   "description": "",
   "main": "./lib/index.js",
   "scripts": {
@@ -36,7 +36,6 @@
     "rollup-plugin-progress": "^1.1.1"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.135",
     "@babel/traverse": "^7.4.5",
     "@babel/types": "^7.4.4",
     "@types/babel__traverse": "^7.0.7",
@@ -46,6 +45,7 @@
     "@types/ejs": "^2.6.1",
     "@types/gulp": "^4.0.6",
     "@types/jest": "^24.0.15",
+    "@types/lodash": "^4.14.135",
     "@types/mini-css-extract-plugin": "^0.2.0",
     "@types/node": "^10.12.18",
     "@types/react": "^16.8.22",
@@ -53,7 +53,7 @@
     "@types/webpack-bundle-analyzer": "^2.13.0",
     "jest": "^24.8.0",
     "react": "^16.8.6",
-    "remax": "^1.0.1-alpha.2",
+    "remax": "^1.0.1-alpha.5",
     "scheduler": "0.13.6",
     "ts-jest": "^24.0.2",
     "typescript": "^3.2.2"
