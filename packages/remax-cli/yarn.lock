@@ -1043,10 +1043,23 @@
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-10.14.10.tgz#e491484c6060af8d461e12ec81c0da8a3282b8de"
   integrity sha1-5JFITGBgr41GHhLsgcDaijKCuN4=
 
+"@types/prop-types@*":
+  version "15.7.1"
+  resolved "https://registry.npm.taobao.org/@types/prop-types/download/@types/prop-types-15.7.1.tgz#f1a11e7babb0c3cad68100be381d1e064c68f1f6"
+  integrity sha1-8aEee6uww8rWgQC+OB0eBkxo8fY=
+
 "@types/q@^1.5.1":
   version "1.5.2"
   resolved "https://registry.npm.taobao.org/@types/q/download/@types/q-1.5.2.tgz#690a1475b84f2a884fd07cd797c00f5f31356ea8"
   integrity sha1-aQoUdbhPKohP0HzXl8APXzE1bqg=
+
+"@types/react@^16.8.22":
+  version "16.8.22"
+  resolved "https://registry.npm.taobao.org/@types/react/download/@types/react-16.8.22.tgz#7f18bf5ea0c1cad73c46b6b1c804a3ce0eec6d54"
+  integrity sha1-fxi/XqDBytc8RraxyASjzg7sbVQ=
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
 
 "@types/resolve@0.0.8":
   version "0.0.8"
@@ -1957,6 +1970,11 @@ cssstyle@^1.0.0:
   integrity sha1-Qn6k1YWxhiT2/b+d56Kho7pxMHc=
   dependencies:
     cssom "0.3.x"
+
+csstype@^2.2.0:
+  version "2.6.5"
+  resolved "https://registry.npm.taobao.org/csstype/download/csstype-2.6.5.tgz#1cd1dff742ebf4d7c991470ae71e12bb6751e034"
+  integrity sha1-HNHf90Lr9NfJkUcK5x4Su2dR4DQ=
 
 dashdash@^1.12.0:
   version "1.14.1"
@@ -4737,6 +4755,16 @@ react-is@^16.8.1, react-is@^16.8.4:
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha1-W7weLSkUHJ+9/tRWND/ivEMKahY=
 
+react-reconciler@0.20.4:
+  version "0.20.4"
+  resolved "https://registry.npm.taobao.org/react-reconciler/download/react-reconciler-0.20.4.tgz#3da6a95841592f849cb4edd3d38676c86fd920b2"
+  integrity sha1-PaapWEFZL4SctO3T04Z2yG/ZILI=
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.13.6"
+
 react@^16.8.6:
   version "16.8.6"
   resolved "https://registry.npm.taobao.org/react/download/react-16.8.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact%2Fdownload%2Freact-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
@@ -4869,6 +4897,14 @@ regjsparser@^0.6.0:
   integrity sha1-8eaui32iuulsmTmbhozWyTOiupw=
   dependencies:
     jsesc "~0.5.0"
+
+remax@^1.0.1-alpha.2:
+  version "1.0.1-alpha.2"
+  resolved "https://registry.npm.taobao.org/remax/download/remax-1.0.1-alpha.2.tgz#5cda3de544b6d2e962487056fd55e412a1d1cfad"
+  integrity sha1-XNo95US20uliSHBW/VXkEqHRz60=
+  dependencies:
+    react-reconciler "0.20.4"
+    scheduler "0.13.6"
 
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
