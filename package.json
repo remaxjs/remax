@@ -9,6 +9,7 @@
     "build": "lerna run build",
     "test": "lerna run --scope remax --scope remax-cli --stream test",
     "clean": "lerna clean",
+    "prepack": "lerna build",
     "bootstrap": "yarn install && lerna bootstrap"
   },
   "dependencies": {}
