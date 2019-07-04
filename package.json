@@ -7,7 +7,7 @@
   "scripts": {
     "watch": "lerna run watch --parallel",
     "build": "lerna run build",
-    "test": "lerna run --scope remax --scope remax-cli --stream test",
+    "test": "lerna run --scope remax --stream test",
     "clean": "lerna clean",
     "prepack": "lerna exec -- rm -rf lib && lerna run build",
     "bootstrap": "yarn install && lerna bootstrap"
