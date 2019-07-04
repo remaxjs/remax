@@ -1,6 +1,6 @@
 # remax
 
-![Travis (.org)](https://img.shields.io/travis/remaxjs/remax.svg?style=flat-square)
+[![Travis (.org)](https://img.shields.io/travis/remaxjs/remax.svg?style=flat-square)](https://travis-ci.org/remaxjs/remax)
 
 **开发中，请勿用于生产环境**
 
