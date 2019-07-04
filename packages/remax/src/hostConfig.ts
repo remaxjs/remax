@@ -1,4 +1,4 @@
-import * as scheduler from 'scheduler';
+import * as scheduler from '@remax/scheduler';
 
 const {
   unstable_scheduleCallback: scheduleDeferredCallback,

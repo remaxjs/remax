@@ -38,6 +38,7 @@
   "devDependencies": {
     "@babel/traverse": "^7.4.5",
     "@babel/types": "^7.4.4",
+    "@remax/scheduler": "^0.13.6",
     "@types/babel__traverse": "^7.0.7",
     "@types/clean-webpack-plugin": "^0.1.2",
     "@types/copy-webpack-plugin": "^4.4.2",
@@ -54,7 +55,6 @@
     "jest": "^24.8.0",
     "react": "^16.8.6",
     "remax": "^1.0.1-alpha.5",
-    "scheduler": "0.13.6",
     "ts-jest": "^24.0.2",
     "typescript": "^3.2.2"
   }

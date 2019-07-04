@@ -730,6 +730,14 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
+"@remax/scheduler@^0.13.6":
+  version "0.13.6"
+  resolved "https://registry.npm.taobao.org/@remax/scheduler/download/@remax/scheduler-0.13.6.tgz#85d5efb5c6e537bba69306b5edb9071fe9b14edc"
+  integrity sha1-hdXvtcblN7umkwa17bkHH+mxTtw=
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
 "@types/babel__core@^7.1.0":
   version "7.1.2"
   resolved "https://registry.npm.taobao.org/@types/babel__core/download/@types/babel__core-7.1.2.tgz#608c74f55928033fce18b99b213c16be4b3d114f"

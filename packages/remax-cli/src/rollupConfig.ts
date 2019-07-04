@@ -13,7 +13,7 @@ import page from './plugins/page';
 import removeSrc from './plugins/removeSrc';
 import rename from './plugins/rename';
 import * as React from 'react';
-import * as scheduler from 'scheduler';
+import * as scheduler from '@remax/scheduler';
 import { RemaxOptions } from './getConfig';
 
 export default function rollupConfig(options: RemaxOptions, watch: boolean) {
@@ -24,7 +24,7 @@ export default function rollupConfig(options: RemaxOptions, watch: boolean) {
       include: /node_modules/,
       namedExports: {
         react: Object.keys(React).filter(k => k !== 'default'),
-        scheduler: Object.keys(scheduler).filter(k => k !== 'default'),
+        '@remax/scheduler': Object.keys(scheduler).filter(k => k !== 'default'),
       },
     }),
     babel({
