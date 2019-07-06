@@ -57,6 +57,11 @@ export default () => ({
         });
 
         const id = kebabCase(componentName);
+
+        if (id === 'swiper-item') {
+          return;
+        }
+
         const { props } = require(`../hostComponents/${id}`);
 
         components.push({
