@@ -17,16 +17,10 @@
       </block>
     </block>
 
-    <%- include('./component.ejs', {
-      type: 'view',
-      propKeys: [],
-      id: 'view',
-    }) %>
-
     <% for (let component of components) { %>
       <%- include('./component.ejs', {
         type: component.type,
-        propKeys: component.propKeys,
+        props: component.props,
         id: component.id,
       }) %>
     <% } %>

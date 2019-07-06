@@ -1,0 +1,17 @@
+export const props = [
+  'name',
+  'value',
+  'placeholder',
+  'placeholder-style',
+  'placeholder-class',
+  'disabled',
+  'maxlength',
+  'focus',
+  'auto-height',
+  'show-count',
+  'controlled',
+  'onInput',
+  'onFocus',
+  'onBlur',
+  'onConfirm',
+];

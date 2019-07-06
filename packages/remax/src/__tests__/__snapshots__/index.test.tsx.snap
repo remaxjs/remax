@@ -14,7 +14,7 @@ Object {
           ],
           "id": 0,
           "props": Object {},
-          "type": "view+",
+          "type": "view",
         },
       ],
       "type": "root",

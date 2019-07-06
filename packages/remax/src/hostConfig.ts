@@ -76,13 +76,6 @@ function processProps(newProps: any, rootContext: any, id: number) {
   return props;
 }
 
-function createType(component: string, props: any) {
-  return `${component}+${Object.keys(props)
-    .filter(propKey => propKey !== 'children')
-    .sort()
-    .join('+')}`;
-}
-
 const rootHostContext = {};
 const childHostContext = {};
 
@@ -122,7 +115,7 @@ export default {
     const props = processProps(newProps, rootContext, id);
 
     const ins = {
-      type: type === 'div' ? 'view' : createType(type, newProps),
+      type: type === 'div' ? 'view' : type,
       props,
       children: [],
       rootContext,

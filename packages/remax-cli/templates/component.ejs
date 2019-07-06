@@ -10,11 +10,11 @@
   const events = [
     'tap'
   ];
-  propKeys = propKeys.concat(events.map(item => `bind${item}`));
+  props = props.concat(events.map(item => `bind${item}`));
 %>
 <block a:if="{{item.type === '<%= type %>'}}">
   <<%=id%>
-    <% for(let key of propKeys) { %>
+    <% for(let key of props) { %>
         <%=key === '__key__' ? 'key' : key%>="{{item.props.<%=camelCased(key)%>}}"
     <% } %>
   >

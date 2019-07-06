@@ -1,9 +1,16 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { get } from 'dot-prop';
-import { kebabCase } from 'lodash';
+import { kebabCase, unionBy } from 'lodash';
 
-const components: any = {};
+interface Component {
+  type: string;
+  id: string;
+  props: string[];
+  children?: Component[];
+}
+
+const components: Component[] = [];
 
 const propsAlias: { [key: string]: string } = {
   className: 'class',
@@ -35,38 +42,33 @@ export default () => ({
         if (notBaseComponent) return;
 
         // 基础组件
-        const propKeys = node.openingElement.attributes
-          .map(e => {
-            if (t.isJSXAttribute(e)) {
-              const propName = get(e, 'name.name') as string;
-              if (propsAlias[propName]) {
-                e.name.name = propsAlias[propName];
-              }
-              if (propName === 'key') {
-                node.openingElement.attributes.push(t.jsxAttribute(t.jsxIdentifier('__key__'), e.value));
-                return '__key__';
-              }
-              return get(e, 'name.name');
+        node.openingElement.attributes.map(e => {
+          if (t.isJSXAttribute(e)) {
+            const propName = get(e, 'name.name') as string;
+            if (propsAlias[propName]) {
+              e.name.name = propsAlias[propName];
             }
-          })
-          .filter(item => item)
-          .sort();
+            if (propName === 'key') {
+              node.openingElement.attributes.push(t.jsxAttribute(t.jsxIdentifier('__key__'), e.value));
+              return '__key__';
+            }
+            return propName;
+          }
+        });
 
-        components[
-          JSON.stringify({
-            componentName,
-            propKeys,
-          })
-        ] = {
-          type: `${kebabCase(componentName)}+${propKeys.join('+')}`,
-          id: kebabCase(componentName),
-          propKeys,
-        };
+        const id = kebabCase(componentName);
+        const { props } = require(`../hostComponents/${id}`);
+
+        components.push({
+          type: kebabCase(componentName),
+          id,
+          props,
+        });
       }
     },
   },
 });
 
 export function getComponents() {
-  return Object.keys(components).map(key => components[key]);
+  return unionBy(components, 'type');
 }
