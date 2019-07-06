@@ -11,7 +11,7 @@ class Context {
 
 describe('remax render', () => {
   it('render correctly', () => {
-    const Page = () => <View>hello</View>;
+    const Page = () => <View className="foo">hello</View>;
     const context = new Context();
     render(<Page />, context);
     expect(context.data).toMatchSnapshot();

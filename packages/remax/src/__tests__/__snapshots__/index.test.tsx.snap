@@ -13,7 +13,9 @@ Object {
             },
           ],
           "id": 0,
-          "props": Object {},
+          "props": Object {
+            "className": "foo",
+          },
           "type": "view",
         },
       ],
