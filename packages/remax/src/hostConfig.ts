@@ -183,6 +183,8 @@ export default {
     parentInstance.children.splice(parentInstance.indexOf(child), 1);
   },
 
+  removeChildFromContainer() {},
+
   schedulePassiveEffects: scheduleDeferredCallback,
   cancelPassiveEffects: cancelDeferredCallback,
   shouldYield,
