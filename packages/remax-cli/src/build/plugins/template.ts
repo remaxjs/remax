@@ -12,7 +12,7 @@ function isPage(file: string | null, entries: string[]) {
 
 async function createTemplate(pageFile: string) {
   const fileName = `${path.dirname(pageFile)}/${path.basename(pageFile, path.extname(pageFile))}.axml`;
-  const code = (await ejs.renderFile(path.join(__dirname, '../../templates/page.ejs'), {
+  const code = (await ejs.renderFile(path.join(__dirname, '../../../templates/page.ejs'), {
     baseTemplate: path.relative(path.dirname(pageFile), 'base.axml'),
   })) as string;
 
@@ -25,7 +25,7 @@ async function createTemplate(pageFile: string) {
 
 async function createBaseTemplate() {
   const components = getComponents();
-  const code = (await ejs.renderFile(path.join(__dirname, '../../templates/base.ejs'), { components })) as string;
+  const code = (await ejs.renderFile(path.join(__dirname, '../../../templates/base.ejs'), { components })) as string;
   return {
     fileName: 'base.axml',
     isAsset: true as true,
