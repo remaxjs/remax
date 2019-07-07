@@ -41,6 +41,18 @@ function createManifest(options: RemaxOptions) {
   };
 }
 
+function createPageManifest(options: RemaxOptions, file: string) {
+  const manifestFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.json');
+  const filePath = path.resolve(options.cwd, path.join('src', manifestFile));
+  if (fs.existsSync(filePath)) {
+    return {
+      fileName: manifestFile,
+      isAsset: true as true,
+      source: fs.readFileSync(filePath),
+    };
+  }
+}
+
 function isEntry(chunk: any): chunk is OutputChunk {
   return chunk.isEntry;
 }
@@ -66,6 +78,10 @@ export default function template(options: RemaxOptions): Plugin {
             if (isPage(filePath, entries)) {
               const template = await createTemplate(file);
               bundle[template.fileName] = template;
+              const config = await createPageManifest(options, file);
+              if (config) {
+                bundle[config.fileName] = config;
+              }
             }
           }
         }),
