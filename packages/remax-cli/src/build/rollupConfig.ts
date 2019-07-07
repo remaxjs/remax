@@ -6,7 +6,7 @@ import postcss from 'rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
 import clear from 'rollup-plugin-clear';
 import pxToUnits from 'postcss-px2units';
-import getEntries from './getEntries';
+import getEntries from '../getEntries';
 import template from './plugins/template';
 import components from './plugins/components';
 import page from './plugins/page';
@@ -14,7 +14,7 @@ import removeSrc from './plugins/removeSrc';
 import rename from './plugins/rename';
 import * as React from 'react';
 import * as scheduler from '@remax/scheduler';
-import { RemaxOptions } from './getConfig';
+import { RemaxOptions } from '../getConfig';
 
 export default function rollupConfig(options: RemaxOptions, watch: boolean) {
   const entries = getEntries(options);

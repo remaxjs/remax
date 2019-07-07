@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as rollup from 'rollup';
-import rollupConfig from '../rollupConfig';
+import rollupConfig from '../build/rollupConfig';
 
 async function build(app: string) {
   const rollupOptions = rollupConfig(

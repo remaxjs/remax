@@ -4,7 +4,7 @@ import { OutputChunk, Plugin } from 'rollup';
 import { getComponents } from './components';
 import ejs from 'ejs';
 import { RemaxOptions } from 'src/getConfig';
-import getEntries from '../getEntries';
+import getEntries from '../../getEntries';
 
 function isPage(file: string | null, entries: string[]) {
   return file && entries.indexOf(file) > -1;
