@@ -76,7 +76,6 @@ export default function removeSrc(options: Options): Plugin {
           if (isAsset(module)) {
             return;
           }
-          console.log(file);
 
           module.fileName = rewrite(module.fileName);
           module.facadeModuleId = rewrite(module.fileName);

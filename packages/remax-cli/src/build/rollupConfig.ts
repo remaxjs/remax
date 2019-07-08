@@ -13,9 +13,10 @@ import page from './plugins/page';
 import removeSrc from './plugins/removeSrc';
 import rename from './plugins/rename';
 import * as React from 'react';
-import * as scheduler from '@remax/scheduler';
+import * as scheduler from 'scheduler';
 import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
+import removeESModuleFlag from './plugins/removeESModuleFlag';
 
 export default function rollupConfig(options: RemaxOptions, watch: boolean) {
   const entries = getEntries(options);
@@ -25,7 +26,7 @@ export default function rollupConfig(options: RemaxOptions, watch: boolean) {
       include: /node_modules/,
       namedExports: {
         react: Object.keys(React).filter(k => k !== 'default'),
-        '@remax/scheduler': Object.keys(scheduler).filter(k => k !== 'default'),
+        scheduler: Object.keys(scheduler).filter(k => k !== 'default'),
       },
     }),
     babel({
@@ -54,7 +55,7 @@ export default function rollupConfig(options: RemaxOptions, watch: boolean) {
       plugins: [pxToUnits()],
     }),
     resolve({
-      dedupe: ['react'],
+      dedupe: ['react', 'object-assign', 'prop-types', 'scheduler'],
     }),
     rename({
       include: 'src/**',
@@ -71,6 +72,7 @@ export default function rollupConfig(options: RemaxOptions, watch: boolean) {
       },
     }),
     removeSrc({}),
+    removeESModuleFlag(),
     template(options),
   ];
 

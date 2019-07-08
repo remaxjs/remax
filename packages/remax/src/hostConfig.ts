@@ -1,4 +1,4 @@
-import * as scheduler from '@remax/scheduler';
+import * as scheduler from 'scheduler';
 import { REMAX_ROOT_BACKUP, REMAX_METHOD, TYPE_TEXT } from './constants';
 
 /**

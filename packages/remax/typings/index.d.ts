@@ -1,2 +1,2 @@
-declare module '@remax/scheduler';
+declare module 'scheduler';
 declare var process: any;

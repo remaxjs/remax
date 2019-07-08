@@ -22,7 +22,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@babel/types": "^7.4.4",
     "@betit/rollup-plugin-rename-extensions": "^0.0.4",
-    "@remax/scheduler": "^0.13.6",
+    "scheduler": "0.13.6",
     "commander": "^2.19.0",
     "ejs": "^2.6.1",
     "less": "^3.9.0",

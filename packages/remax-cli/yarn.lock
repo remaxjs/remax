@@ -882,14 +882,6 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
-"@remax/scheduler@^0.13.6":
-  version "0.13.6"
-  resolved "https://registry.npm.taobao.org/@remax/scheduler/download/@remax/scheduler-0.13.6.tgz#85d5efb5c6e537bba69306b5edb9071fe9b14edc"
-  integrity sha1-hdXvtcblN7umkwa17bkHH+mxTtw=
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-
 "@types/anymatch@*":
   version "1.3.1"
   resolved "https://registry.npm.taobao.org/@types/anymatch/download/@types/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"
@@ -5146,7 +5138,7 @@ sax@^1.2.4, sax@~1.2.4:
   resolved "https://registry.npm.taobao.org/sax/download/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha1-KBYjTiN4vdxOU1T6tcqold9xANk=
 
-scheduler@^0.13.6:
+scheduler@0.13.6, scheduler@^0.13.6:
   version "0.13.6"
   resolved "https://registry.npm.taobao.org/scheduler/download/scheduler-0.13.6.tgz#466a4ec332467b31a91b9bf74e5347072e4cd889"
   integrity sha1-RmpOwzJGezGpG5v3TlNHBy5M2Ik=
