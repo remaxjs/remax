@@ -1,9 +1,9 @@
 import * as React from 'react';
 import createPageWrapper from './createPageWrapper';
 import render from './render';
-import debounce from 'lodash.debounce';
 import { REMAX_ROOT_BACKUP, REMAX_ROOT } from './constants';
 import pure from './utils/pure';
+import debounce from './utils/debounce';
 
 export default function createPageConfig(Page: React.ComponentType<any>) {
   return {

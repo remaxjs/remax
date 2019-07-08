@@ -26,7 +26,6 @@
   "homepage": "https://github.com/remaxjs/remax#readme",
   "dependencies": {
     "@remax/scheduler": "^0.13.6",
-    "lodash.debounce": "^4.0.8",
     "react-reconciler": "0.20.4"
   },
   "devDependencies": {
