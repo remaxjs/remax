@@ -22,6 +22,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@babel/types": "^7.4.4",
     "@betit/rollup-plugin-rename-extensions": "^0.0.4",
+    "@remax/scheduler": "^0.13.6",
     "commander": "^2.19.0",
     "ejs": "^2.6.1",
     "less": "^3.9.0",
@@ -38,7 +39,6 @@
   "devDependencies": {
     "@babel/traverse": "^7.4.5",
     "@babel/types": "^7.4.4",
-    "@remax/scheduler": "^0.13.6",
     "@types/babel__traverse": "^7.0.7",
     "@types/clean-webpack-plugin": "^0.1.2",
     "@types/copy-webpack-plugin": "^4.4.2",

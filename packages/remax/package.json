@@ -26,11 +26,13 @@
   "homepage": "https://github.com/remaxjs/remax#readme",
   "dependencies": {
     "@remax/scheduler": "^0.13.6",
+    "lodash.debounce": "^4.0.8",
     "react-reconciler": "0.20.4"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.2.3",
     "@types/jest": "^24.0.15",
+    "@types/lodash.debounce": "^4.0.6",
     "@types/react": "^16.8.22",
     "@types/react-reconciler": "^0.18.0",
     "@types/shallowequal": "^1.1.1",

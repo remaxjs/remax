@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { render, View } from '..';
+import { REMAX_ROOT_BACKUP, REMAX_ROOT } from '../constants';
+import pure from '../utils/pure';
 
 class Context {
   data: any;
 
-  setData(data: any) {
-    this.data = data;
+  requestUpdate(this: any) {
+    this.data = {
+      [REMAX_ROOT]: pure(this[REMAX_ROOT_BACKUP]),
+    };
   }
 }
 
