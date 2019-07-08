@@ -36,7 +36,10 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       this.wrapper = render(React.createElement(PageWrapper), this);
     },
 
-    onUnload() {
+    onUnload(this: any) {
+      if (this.requestUpdate) {
+        this.requestUpdate.cancel();
+      }
       render(null, this);
       this.wrapper = null;
     },
