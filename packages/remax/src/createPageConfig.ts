@@ -38,7 +38,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
 
     onUnload(this: any) {
       if (this.requestUpdate) {
-        this.requestUpdate.cancel();
+        this.requestUpdate.clear();
       }
       render(null, this);
       this.wrapper = null;
