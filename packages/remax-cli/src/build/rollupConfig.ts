@@ -15,6 +15,7 @@ import rename from './plugins/rename';
 import * as React from 'react';
 import * as scheduler from '@remax/scheduler';
 import { RemaxOptions } from '../getConfig';
+import app from './plugins/app';
 
 export default function rollupConfig(options: RemaxOptions, watch: boolean) {
   const entries = getEntries(options);
@@ -38,9 +39,14 @@ export default function rollupConfig(options: RemaxOptions, watch: boolean) {
       ],
     }),
     babel({
-      include: entries,
+      include: entries.pages,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [page],
+    }),
+    babel({
+      include: entries.app,
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      plugins: [app],
     }),
     postcss({
       extract: true,
@@ -81,7 +87,7 @@ export default function rollupConfig(options: RemaxOptions, watch: boolean) {
   }
 
   const config: RollupOptions = {
-    input: entries,
+    input: [entries.app, ...entries.pages],
     output: {
       dir: options.output,
       format: 'esm',

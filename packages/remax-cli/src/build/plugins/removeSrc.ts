@@ -76,6 +76,7 @@ export default function removeSrc(options: Options): Plugin {
           if (isAsset(module)) {
             return;
           }
+          console.log(file);
 
           module.fileName = rewrite(module.fileName);
           module.facadeModuleId = rewrite(module.fileName);
@@ -93,7 +94,12 @@ export default function removeSrc(options: Options): Plugin {
                 const { start, end } = req;
                 const distance = req.value.split('/').filter((d: string) => d === '..').length;
                 const targetDistance = path.relative(path.dirname(file), 'src').split('/').length;
-                if (distance > targetDistance) {
+                if ((distance == 1 && targetDistance === 1)) {
+                  // app.js
+                  const newPath = req.value.replace(PARENT_DIR_PATTERN, './');
+                  magicString.overwrite(start, end, `'${newPath}'`);
+                } else if (distance > targetDistance) {
+                  // page
                   const newPath = req.value.replace(PARENT_DIR_PATTERN, '');
                   magicString.overwrite(start, end, `'${newPath}'`);
                 }

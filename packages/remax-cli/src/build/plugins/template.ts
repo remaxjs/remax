@@ -6,8 +6,8 @@ import ejs from 'ejs';
 import { RemaxOptions } from 'src/getConfig';
 import getEntries from '../../getEntries';
 
-function isPage(file: string | null, entries: string[]) {
-  return file && entries.indexOf(file) > -1;
+function isPage(file: string | null, pages: string[]) {
+  return file && pages.indexOf(file) > -1;
 }
 
 async function createTemplate(pageFile: string) {
@@ -61,7 +61,7 @@ export default function template(options: RemaxOptions): Plugin {
   return {
     name: 'template',
     generateBundle: async (_, bundle) => {
-      const entries = getEntries(options);
+      const pages = getEntries(options).pages;
       // app.json
       const manifest = createManifest(options);
       bundle[manifest.fileName] = manifest;
@@ -75,7 +75,7 @@ export default function template(options: RemaxOptions): Plugin {
           const chunk = bundle[file];
           if (isEntry(chunk)) {
             const filePath = Object.keys(chunk.modules)[0];
-            if (isPage(filePath, entries)) {
+            if (isPage(filePath, pages)) {
               const template = await createTemplate(file);
               bundle[template.fileName] = template;
               const config = await createPageManifest(options, file);

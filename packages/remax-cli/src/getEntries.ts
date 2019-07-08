@@ -6,6 +6,11 @@ interface AppConfig {
   pages: string[];
 }
 
+interface Entries {
+  app: string;
+  pages: string[];
+}
+
 function searchFile(file: string) {
   const tsFile = file + '.ts';
   if (fs.existsSync(tsFile)) {
@@ -18,7 +23,7 @@ function searchFile(file: string) {
   return file + '.js';
 }
 
-export default function getEntries(options: RemaxOptions): any {
+export default function getEntries(options: RemaxOptions): Entries {
   const appConfigPath: string = path.join(options.cwd, 'src', 'app.json');
   if (!fs.existsSync(appConfigPath)) {
     throw new Error(`${appConfigPath} is not found`);
@@ -29,10 +34,14 @@ export default function getEntries(options: RemaxOptions): any {
     throw new Error('app.json `pages` field should not be undefined or empty object');
   }
 
-  const defaultEntry = [searchFile(path.join(options.cwd, 'src', 'app'))];
-  const entry = pages.reduce((ret, page) => {
-    return [...ret, searchFile(path.join(options.cwd, 'src', page))];
-  }, defaultEntry);
+  const entries: Entries = {
+    app: searchFile(path.join(options.cwd, 'src', 'app')),
+    pages: [],
+  };
 
-  return entry;
+  entries.pages = pages.reduce((ret: string[], page) => {
+    return [...ret, searchFile(path.join(options.cwd, 'src', page))];
+  }, []);
+
+  return entries;
 }
