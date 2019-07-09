@@ -1,11 +1,11 @@
 {
-  "name": "remax",
+  "name": "@remax/core",
   "version": "1.0.1-alpha.12",
   "description": "Core framework for remax",
   "main": "lib/index.js",
   "scripts": {
-    "watch": "./node_modules/.bin/tsc -w",
-    "build": "./node_modules/.bin/tsc ",
+    "watch": "tsc -w",
+    "build": "tsc",
     "test": "jest"
   },
   "repository": {

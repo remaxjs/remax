@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, PageProps } from '..';
+import { View, PageProps } from '../../src';
 import createPageConfig from '../createPageConfig';
 import Page from './helpers/Page';
 

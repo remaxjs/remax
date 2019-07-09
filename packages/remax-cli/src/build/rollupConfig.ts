@@ -18,7 +18,7 @@ import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';
 
-export default function rollupConfig(options: RemaxOptions, watch: boolean) {
+export default function rollupConfig(options: RemaxOptions, cmd: any, targetConfig: any) {
   const entries = getEntries(options);
 
   const plugins = [
@@ -65,7 +65,7 @@ export default function rollupConfig(options: RemaxOptions, watch: boolean) {
           input
             .replace(/^demo\/src\//, '')
             .replace(/\.less$/, '.less.js')
-            .replace(/\.css$/, '.acss')
+            .replace(/\.css$/, targetConfig.extensions.style)
             .replace(/\.ts$/, '.js')
             .replace(/\.tsx$/, '.js')
         );
@@ -80,7 +80,7 @@ export default function rollupConfig(options: RemaxOptions, watch: boolean) {
     plugins.push(progress());
   }
 
-  if (!watch) {
+  if (!cmd.watch) {
     plugins.unshift(
       clear({
         targets: options.output,

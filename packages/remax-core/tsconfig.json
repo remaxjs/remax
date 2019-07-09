@@ -4,6 +4,7 @@
     "module": "esnext",
     "lib": ["es2015", "dom"],
     "declaration": true,
-    "jsx": "react"
+    "jsx": "react",
+    "outDir": "lib"
   }
 }

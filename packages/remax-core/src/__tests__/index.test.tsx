@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render, View } from '..';
+import { render, View } from '../../src';
 import { REMAX_ROOT_BACKUP, REMAX_ROOT } from '../constants';
 import pure from '../utils/pure';
 

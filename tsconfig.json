@@ -4,7 +4,6 @@
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
-    "outDir": "lib"
+    "moduleResolution": "node"
   }
 }

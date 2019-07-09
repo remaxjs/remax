@@ -1,10 +1,20 @@
 import * as rollup from 'rollup';
 import rollupConfig from './rollupConfig';
-import { RemaxOptions } from '../getConfig';
+import getConfig from '../getConfig';
 
-export default async (options: RemaxOptions, watch: boolean = false) => {
-  const rollupOptions = rollupConfig(options, watch);
-  if (watch) {
+export default async (argv: any) => {
+  const options = getConfig();
+
+  let targetConfig;
+  try {
+    targetConfig = require(`@remax/${argv.target}/config`);
+  } catch (e) {
+    console.log(e);
+    throw new Error(`Target ${argv.target} is not supported yet.`);
+  }
+
+  const rollupOptions = rollupConfig(options, argv, targetConfig);
+  if (argv.watch) {
     const watcher = rollup.watch([
       {
         ...rollupOptions,

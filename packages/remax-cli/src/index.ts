@@ -1,17 +1,19 @@
-import program from 'commander';
+import cli from 'yargs';
 import build from './build';
-import getConfig from './getConfig';
 
-const projectOptions = getConfig();
-
-program
-  .command('dev')
-  .description('start development')
-  .action(() => build(projectOptions, true));
-
-program
-  .command('build')
-  .description('build the project')
-  .action(() => build(projectOptions, false));
-
-program.parse(process.argv);
+cli
+  .scriptName('remax-cli')
+  .usage('Usage: $0 <command> [options]')
+  .command<any>('build', 'build your project', () => {}, (argv: any) => build(argv))
+  .option('watch', {
+    describe: 'watch project',
+    alias: 'w',
+    type: 'boolean',
+    default: false,
+  })
+  .option('target', {
+    describe: 'target platform',
+    alias: 't',
+    type: 'string',
+    required: true,
+  }).showHelpOnFail(false).argv;

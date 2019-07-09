@@ -4,8 +4,8 @@
   "description": "",
   "main": "./lib/index.js",
   "scripts": {
-    "watch": "./node_modules/.bin/tsc -w",
-    "build": "./node_modules/.bin/tsc",
+    "watch": "tsc -w",
+    "build": "tsc",
     "test": "jest"
   },
   "bin": {
@@ -22,6 +22,8 @@
     "@babel/preset-typescript": "^7.3.3",
     "@babel/types": "^7.4.4",
     "@betit/rollup-plugin-rename-extensions": "^0.0.4",
+    "@remax/alipay": "^1.0.1-alpha.12",
+    "@types/node": "^12.6.1",
     "commander": "^2.19.0",
     "ejs": "^2.6.1",
     "less": "^3.9.0",
@@ -34,7 +36,8 @@
     "rollup-plugin-node-resolve": "^5.0.3",
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-progress": "^1.1.1",
-    "scheduler": "0.13.6"
+    "scheduler": "0.13.6",
+    "yargs": "^13.2.4"
   },
   "devDependencies": {
     "@babel/traverse": "^7.4.5",
