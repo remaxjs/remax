@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import { OutputChunk, Plugin } from 'rollup';
 import { getComponents } from './components';
 import ejs from 'ejs';
-import { RemaxOptions } from 'src/getConfig';
+import { RemaxOptions } from '../..//getConfig';
 import getEntries from '../../getEntries';
 
 function isPage(file: string | null, pages: string[]) {
