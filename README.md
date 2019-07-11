@@ -14,21 +14,24 @@
 
 **开发中，请勿用于生产环境**
 
-让你在小程序开发中使用**真正的 React**，完整的 JSX 甚至是最新的 Hooks API。
+Remax 让你在小程序开发中使用**真正的 React**，你可以把它当成小程序版本的 React Native。
 
 
 ```javascript
 import * as React from 'react';
-import { View, Text } from 'remax';
+import { View, Text, Button } from 'remax';
 
 export default () => {
+   const [count, setCount] = React.useState(0);
+
   return (
     <View>
-      <Text>
-        If you like React, you'll also like Remax.
-      </Text>
+      <Text>You clicked {count} times</Text>
+      <Button onClick={() => setCount(count + 1)}>
+        Click me
+      </Button>
     </View>
-  )
+  );
 }
 ```
 
