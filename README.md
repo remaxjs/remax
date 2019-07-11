@@ -35,9 +35,7 @@ export default () => {
 }
 ```
 
-## Demo
-
-- [Todo Demo](https://github.com/remaxjs/todo-demo)
+查看完整的 Demo 示例 [https://github.com/remaxjs/todo-demo](https://github.com/remaxjs/todo-demo)
 
 ## Roadmap
 
