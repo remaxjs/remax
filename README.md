@@ -3,7 +3,6 @@
 </h1>
 
 <p align="center">
-  <strong>Learn once, write anywhere:</strong><br>
   使用真正的 React 构建小程序。
 </p>
 
