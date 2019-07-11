@@ -24,3 +24,51 @@ Object {
   ],
 }
 `;
+
+exports[`remax render umount component 1`] = `
+Object {
+  "$$REMAX_ROOT": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "children": Array [
+                Object {
+                  "text": "foo",
+                  "type": Symbol(text),
+                },
+              ],
+              "id": 1,
+              "props": Object {},
+              "type": "view",
+            },
+          ],
+          "id": 2,
+          "props": Object {},
+          "type": "view",
+        },
+      ],
+      "type": "root",
+    },
+  ],
+}
+`;
+
+exports[`remax render umount component 2`] = `
+Object {
+  "$$REMAX_ROOT": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [],
+          "id": 2,
+          "props": Object {},
+          "type": "view",
+        },
+      ],
+      "type": "root",
+    },
+  ],
+}
+`;

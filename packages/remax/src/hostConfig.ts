@@ -132,7 +132,7 @@ export default {
   },
 
   removeChild(parentInstance: any, child: any) {
-    parentInstance.children.splice(parentInstance.indexOf(child), 1);
+    parentInstance.children.splice(parentInstance.children.indexOf(child), 1);
   },
 
   removeChildFromContainer() {},
