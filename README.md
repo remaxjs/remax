@@ -1,12 +1,21 @@
-# remax
+<h1 align="center">
+  Remax
+</h1>
 
-[![Travis (.org)](https://img.shields.io/travis/remaxjs/remax.svg?style=flat-square)](https://travis-ci.org/remaxjs/remax)
+<p align="center">
+  <strong>Learn once, write anywhere:</strong><br>
+  使用真正的 React 构建小程序。
+</p>
+
+<p align="center">
+  <a href="https://travis-ci.org/remaxjs/remax">
+    <img src="https://img.shields.io/travis/remaxjs/remax.svg?style=flat-square" alt="Travis CI build status" />
+  </a>
+</p>
 
 **开发中，请勿用于生产环境**
 
-让你在小程序开发中使用**真正的 React**，完整的 JSX 甚至是最新的 `Hooks API`。而不是使用受到各种限制的 JSX（其实是模板）翻译成小程序模板。
-
-![Screenshot](https://user-images.githubusercontent.com/465125/60119002-10003c80-97b0-11e9-9df4-425528d504e4.gif)
+让你在小程序开发中使用**真正的 React**，完整的 JSX 甚至是最新的 Hooks API。
 
 ## Demo
 
@@ -21,3 +30,7 @@
 - 🤔 微信小程序
 - 🤔 [WeUI](https://github.com/Tencent/weui)
 - 🤔 其他小程序
+
+## License
+
+[MIT](lICENSE)
