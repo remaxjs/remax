@@ -14,7 +14,7 @@
 
 **开发中，请勿用于生产环境**
 
-Remax 让你在小程序开发中使用**真正的 React**，你可以把它当成小程序版本的 React Native。
+Remax 将完整的 React 运行在小程序环境中，让你可以使用完整的 React 能力去开发小程序。
 
 
 ```javascript
