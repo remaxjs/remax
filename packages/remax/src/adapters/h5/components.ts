@@ -13,7 +13,6 @@ const styleString = (style: CSSProperties) =>
 function factoryComponent(component: string) {
   // props 类型存在问题
   return <T>(props: Props<T> & IProps) => {
-    const { children = [] } = props;
     const newProps: IProps = {};
     for (const propKey of Object.keys(props)) {
       if (propKey === 'style') {
@@ -23,7 +22,7 @@ function factoryComponent(component: string) {
       }
     }
     // ts dose not accept ...emptyArray
-    return React.createElement(component, newProps, children);
+    return React.createElement(component, newProps);
   };
 }
 
@@ -39,12 +38,12 @@ export const Icon = factoryComponent('div');
 export const Text = factoryComponent('span');
 export const RichText = factoryComponent('div');
 export const Progress = factoryComponent('div');
-export const Button = factoryComponent('div');
+export const Button = factoryComponent('button');
 export const CheckboxGroup = factoryComponent('div');
 export const Checkbox = factoryComponent('div');
 export const Form = factoryComponent('div');
 export const Input = factoryComponent('div');
-export const Label = factoryComponent('div');
+export const Label = factoryComponent('label');
 export const Picker = factoryComponent('div');
 export const PickerView = factoryComponent('div');
 export const RadioGroup = factoryComponent('div');
@@ -53,7 +52,7 @@ export const Slider = factoryComponent('div');
 export const Switch = factoryComponent('div');
 export const Textarea = factoryComponent('input');
 export const Navigator = factoryComponent('div');
-export const Image = factoryComponent('div');
+export const Image = factoryComponent('img');
 export const Video = factoryComponent('video');
 export const Camera = factoryComponent('div');
 export const LivePlayer = factoryComponent('div');

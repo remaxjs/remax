@@ -27,7 +27,9 @@
   },
   "dependencies": {
     "@babel/helper-module-imports": "^7.0.0",
-    "typescript": "^3.5.3"
+    "postcss-px2units": "^0.2.0",
+    "typescript": "^3.5.3",
+    "umi-plugin-react": "^1.9.10"
   },
   "devDependencies": {
     "@babel/types": "^7.5.0",
