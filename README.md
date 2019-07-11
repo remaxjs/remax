@@ -48,4 +48,4 @@ export default () => {
 
 ## License
 
-[MIT](lICENSE)
+[MIT](LICENSE)
