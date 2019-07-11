@@ -7,7 +7,7 @@ export default async (argv: any) => {
 
   let targetConfig;
   try {
-    targetConfig = require(`@remax/${argv.target}/config`);
+    targetConfig = require(`./adapters/${argv.target}`);
   } catch (e) {
     console.log(e);
     throw new Error(`Target ${argv.target} is not supported yet.`);

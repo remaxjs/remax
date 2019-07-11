@@ -22,7 +22,6 @@
     "@babel/preset-typescript": "^7.3.3",
     "@babel/types": "^7.4.4",
     "@betit/rollup-plugin-rename-extensions": "^0.0.4",
-    "@remax/alipay": "^1.0.1-alpha.12",
     "@types/node": "^12.6.1",
     "commander": "^2.19.0",
     "ejs": "^2.6.1",

@@ -34,7 +34,7 @@ export default () => ({
           componentPath &&
           t.isImportSpecifier(componentPath.node) &&
           t.isImportDeclaration(componentPath.parent) &&
-          componentPath.parent.source.value === 'remax'
+          componentPath.parent.source.value.startsWith('remax/')
         ) {
           notBaseComponent = false;
         }

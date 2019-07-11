@@ -1,4 +1,4 @@
-export const getApp = my.getApp;
+export const getAppStub = getApp;
 
 export const addCardAuth = my.addCardAuth;
 export const addPhoneContact = my.addPhoneContact;

@@ -1,30 +1,44 @@
 {
   "name": "remax",
   "version": "1.0.1-alpha.12",
-  "description": "> TODO: description",
-  "author": "Meck Zhu <yesmeck@gmail.com>",
-  "homepage": "https://github.com/remaxjs/remax#readme",
-  "license": "MIT",
+  "description": "Runtime of remax",
   "main": "lib/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc",
+    "test": "jest"
   },
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/remaxjs/remax.git"
   },
-  "scripts": {
-    "watch": "tsc -w",
-    "build": "tsc"
-  },
+  "keywords": [
+    "react",
+    "miniapp",
+    "mini-program",
+    "wechat"
+  ],
+  "author": "code.falling@gmail.com",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/remaxjs/remax/issues"
   },
+  "homepage": "https://github.com/remaxjs/remax#readme",
   "dependencies": {
-    "@remax/core": "^1.0.1-alpha.12"
+    "react-reconciler": "0.20.4",
+    "scheduler": "0.13.6"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.2.3",
+    "@types/jest": "^24.0.15",
+    "@types/lodash.debounce": "^4.0.6",
+    "@types/react": "^16.8.22",
+    "@types/react-reconciler": "^0.18.0",
+    "@types/shallowequal": "^1.1.1",
+    "jest": "^24.8.0",
+    "object-path-immutable": "^3.1.1",
+    "react": "^16.8.6",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.2"
   }
 }
