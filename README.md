@@ -17,6 +17,22 @@
 
 让你在小程序开发中使用**真正的 React**，完整的 JSX 甚至是最新的 Hooks API。
 
+
+```javascript
+import * as React from 'react';
+import { View, Text } from 'remax';
+
+export default () => {
+  return (
+    <View>
+      <Text>
+        If you like React, you'll also like Remax.
+      </Text>
+    </View>
+  )
+}
+```
+
 ## Demo
 
 - [Todo Demo](https://github.com/remaxjs/todo-demo)
