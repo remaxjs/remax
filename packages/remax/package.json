@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/remaxjs/remax#readme",
   "dependencies": {
+    "antd-mobile": "^2.2.14",
     "react-reconciler": "0.20.4",
     "scheduler": "0.13.6"
   },

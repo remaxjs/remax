@@ -1,63 +1,36 @@
-import React, { CSSProperties, Props } from 'react';
+export { Button } from 'antd-mobile';
 
-interface IProps {
-  [s: string]: any;
-}
-
-const styleString = (style: CSSProperties) =>
-  Object.keys(style).reduce((styleString, key) => {
-    const value = (style as any)[key];
-    return `${styleString}${key}:${value}`;
-  }, '');
-
-function factoryComponent(component: string) {
-  // props 类型存在问题
-  return <T>(props: Props<T> & IProps) => {
-    const newProps: IProps = {};
-    for (const propKey of Object.keys(props)) {
-      if (propKey === 'style') {
-        newProps.style = styleString(props.style!);
-      } else {
-        newProps[propKey] = props[propKey];
-      }
-    }
-    // ts dose not accept ...emptyArray
-    return React.createElement(component, newProps);
-  };
-}
-
-export const View = factoryComponent('div');
-export const ScrollView = factoryComponent('div');
-export const Swiper = factoryComponent('div');
-export const SwiperItem = factoryComponent('div');
-export const MovableView = factoryComponent('div');
-export const MovableArea = factoryComponent('div');
-export const CoverView = factoryComponent('div');
-export const CoverImage = factoryComponent('div');
-export const Icon = factoryComponent('div');
-export const Text = factoryComponent('span');
-export const RichText = factoryComponent('div');
-export const Progress = factoryComponent('div');
-export const Button = factoryComponent('button');
-export const CheckboxGroup = factoryComponent('div');
-export const Checkbox = factoryComponent('div');
-export const Form = factoryComponent('div');
-export const Input = factoryComponent('div');
-export const Label = factoryComponent('label');
-export const Picker = factoryComponent('div');
-export const PickerView = factoryComponent('div');
-export const RadioGroup = factoryComponent('div');
-export const Radio = factoryComponent('div');
-export const Slider = factoryComponent('div');
-export const Switch = factoryComponent('div');
-export const Textarea = factoryComponent('input');
-export const Navigator = factoryComponent('div');
-export const Image = factoryComponent('img');
-export const Video = factoryComponent('video');
-export const Camera = factoryComponent('div');
-export const LivePlayer = factoryComponent('div');
-export const LivePusher = factoryComponent('div');
-export const Map = factoryComponent('div');
-export const Canvas = factoryComponent('canvas');
-export const OpenData = factoryComponent('div');
-export const OfficialAccount = factoryComponent('div');
+export const View = 'div';
+export const ScrollView = 'div';
+export const Swiper = 'div';
+export const SwiperItem = 'div';
+export const MovableView = 'div';
+export const MovableArea = 'div';
+export const CoverView = 'div';
+export const CoverImage = 'div';
+export const Icon = 'div';
+export const Text = 'span';
+export const RichText = 'div';
+export const Progress = 'div';
+export const CheckboxGroup = 'div';
+export const Checkbox = 'div';
+export const Form = 'div';
+export const Input = 'div';
+export const Label = 'label';
+export const Picker = 'div';
+export const PickerView = 'div';
+export const RadioGroup = 'div';
+export const Radio = 'div';
+export const Slider = 'div';
+export const Switch = 'div';
+export const Textarea = 'input';
+export const Navigator = 'div';
+export const Image = 'img';
+export const Video = 'video';
+export const Camera = 'div';
+export const LivePlayer = 'div';
+export const LivePusher = 'div';
+export const Map = 'div';
+export const Canvas = 'canvas';
+export const OpenData = 'div';
+export const OfficialAccount = 'div';
