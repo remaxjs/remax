@@ -39,12 +39,12 @@ Object {
                   "type": Symbol(text),
                 },
               ],
-              "id": 1,
+              "id": 0,
               "props": Object {},
               "type": "view",
             },
           ],
-          "id": 2,
+          "id": 1,
           "props": Object {},
           "type": "view",
         },
@@ -62,7 +62,7 @@ Object {
       "children": Array [
         Object {
           "children": Array [],
-          "id": 2,
+          "id": 1,
           "props": Object {},
           "type": "view",
         },

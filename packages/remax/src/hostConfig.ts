@@ -37,6 +37,8 @@ export default {
   now,
 
   getRootHostContext: () => {
+    // reset instance count for testing purpose
+    instanceCount = 0;
     return rootHostContext;
   },
 
