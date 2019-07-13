@@ -1,18 +1,25 @@
 import { Toast } from 'antd-mobile';
 import 'antd-mobile/lib/toast/style';
+import * as API from '../../../../api';
 
-
-interface Params {
-  title: string;
-  icon: 'success' | 'loading' | 'none';
-  image: string;
-  duration: number;
-  mask: boolean;
-  success: boolean;
-  fail: boolean;
-  complete: boolean;
-}
-
-export function showToast(params: Params) {
-  Toast.info(params.title, params.duration);
-}
+export const showToast: typeof API.showToast = params => {
+  return new Promise(resolve => {
+    const typeMap = {
+      success: 'success',
+      fail: 'fail',
+      exception: 'offline',
+      none: 'info',
+    };
+    const method = params.type ? typeMap[params.type] || 'info' : 'info';
+    (Toast as any)[method](params.content, (params.duration || 3000) / 1000, () => {
+      if (params.success) {
+        params.success();
+      } else {
+        resolve();
+      }
+      if (params.complete) {
+        params.complete();
+      }
+    });
+  });
+};
