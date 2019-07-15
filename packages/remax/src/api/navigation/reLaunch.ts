@@ -9,6 +9,16 @@ interface Params {
   complete?: () => void;
 }
 
+/**
+ * 关闭当前所有页面，跳转到应用内的某个指定页面。
+ *
+ * @example
+ * reLaunch({
+ *   url: '/page/index'
+ * })
+ *
+ * @see [支付宝小程序]{@link https://docs.alipay.com/mini/api/hmn54z}
+ */
 export function reLaunch(params: Params) {
   return Promise.resolve();
 }
