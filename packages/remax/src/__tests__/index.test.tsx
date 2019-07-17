@@ -21,6 +21,38 @@ describe('remax render', () => {
     expect(context.data).toMatchSnapshot();
   });
 
+  it('insert new element', () => {
+    class Page extends React.Component {
+      state = {
+        list: [1, 3],
+      };
+
+      update() {
+        this.setState({
+          list: [1, 2, 3],
+        });
+      }
+
+      render() {
+        const { list } = this.state;
+        return (
+          <View>
+            {list.map(i => (
+              <View key={i}>{i}</View>
+            ))}
+          </View>
+        );
+      }
+    }
+
+    const context = new Context();
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, context);
+    expect(context.data).toMatchSnapshot();
+    page.current.update();
+    expect(context.data).toMatchSnapshot();
+  });
+
   it('umount component', () => {
     class Page extends React.Component {
       state = {

@@ -104,9 +104,9 @@ export default {
     parent.children.push(child);
   },
 
-  insertBefore(parent: any, child: any) {
+  insertBefore(parent: any, child: any, beforeChild: any) {
     child.rootContext = parent.rootContext;
-    parent.children.unshift(child);
+    parent.children.splice(parent.children.indexOf(beforeChild), 0, child);
   },
 
   finalizeInitialChildren: () => {
