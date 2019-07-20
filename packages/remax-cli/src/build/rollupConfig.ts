@@ -57,7 +57,7 @@ export default function rollupConfig(options: RemaxOptions, argv: any, targetCon
     }),
     resolve({
       dedupe: ['react', 'object-assign', 'prop-types', 'scheduler'],
-      extensions: [ '.mjs', '.js', '.jsx', '.json', '.ts', 'tsx' ],
+      extensions: [ '.mjs', '.js', '.jsx', '.json', '.ts', '.tsx' ],
     }),
     rename({
       include: 'src/**',
