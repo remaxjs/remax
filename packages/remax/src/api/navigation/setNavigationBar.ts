@@ -28,6 +28,6 @@ interface Params {
  *
  * @see [支付宝小程序]{@link https://docs.alipay.com/mini/api/xwq8e6}
  */
-export function setNavigationBarTitle(params: Params) {
+export function setNavigationBar(params: Params) {
   return Promise.resolve();
 }

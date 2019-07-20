@@ -25,7 +25,7 @@ export default function debounce(func: any, wait: number, immediate: boolean = f
     var last = Date.now() - timestamp;
 
     if (last < wait && last >= 0) {
-      timeout = setTimeout(later, wait - last);
+      timeout = window.setTimeout(later, wait - last);
     } else {
       timeout = null;
       if (!immediate) {
@@ -40,7 +40,7 @@ export default function debounce(func: any, wait: number, immediate: boolean = f
     args = arguments;
     timestamp = Date.now();
     var callNow = immediate && !timeout;
-    if (!timeout) timeout = setTimeout(later, wait);
+    if (!timeout) timeout = window.setTimeout(later, wait);
     if (callNow) {
       result = func.apply(context, args);
       context = args = null;
@@ -51,7 +51,7 @@ export default function debounce(func: any, wait: number, immediate: boolean = f
 
   debounced.clear = function() {
     if (timeout) {
-      clearTimeout(timeout);
+      window.clearTimeout(timeout);
       timeout = null;
     }
   };
@@ -61,7 +61,7 @@ export default function debounce(func: any, wait: number, immediate: boolean = f
       result = func.apply(context, args);
       context = args = null;
 
-      clearTimeout(timeout);
+      window.clearTimeout(timeout);
       timeout = null;
     }
   };
