@@ -1,4 +1,5 @@
 export const props = [
+  'class',
   'name',
   'min',
   'max',

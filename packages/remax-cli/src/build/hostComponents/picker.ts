@@ -1,1 +1,1 @@
-export const props = ['range', 'range-key', 'value', 'onChange', 'disabled'];
+export const props = ['class', 'range', 'range-key', 'value', 'onChange', 'disabled'];
