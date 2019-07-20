@@ -1,5 +1,5 @@
 export const props = [
-  'className',
+  'class',
   'name',
   'value',
   'placeholder',
