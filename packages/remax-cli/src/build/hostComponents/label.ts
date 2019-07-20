@@ -1,1 +1,1 @@
-export const props = ['class', 'for'];
+export const props = ['class', 'style', 'for'];

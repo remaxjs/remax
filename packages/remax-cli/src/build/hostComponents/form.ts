@@ -1,1 +1,1 @@
-export const props = ['class', 'report-submit', 'onSubmit', 'onReset'];
+export const props = ['class', 'style', 'report-submit', 'onSubmit', 'onReset'];

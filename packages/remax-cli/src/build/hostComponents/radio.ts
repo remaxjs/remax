@@ -1,1 +1,1 @@
-export const props = ['class', 'value', 'checked', 'disabled', 'color'];
+export const props = ['class', 'style', 'value', 'checked', 'disabled', 'color'];

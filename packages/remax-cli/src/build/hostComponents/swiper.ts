@@ -1,5 +1,6 @@
 export const props = [
   'class',
+  'style',
   'indicator-dots',
   'indicator-color',
   'indicator-active-color',

@@ -1,5 +1,6 @@
 export const props = [
   'class',
+  'style',
   'direction',
   'width',
   'height',

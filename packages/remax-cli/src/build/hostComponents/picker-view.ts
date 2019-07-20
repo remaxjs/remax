@@ -1,1 +1,1 @@
-export const props = ['class', 'value', 'indicator-style', 'indicator-class', 'mask-style', 'mask-class', 'onChange'];
+export const props = ['class', 'style', 'value', 'indicator-style', 'indicator-class', 'mask-style', 'mask-class', 'onChange'];

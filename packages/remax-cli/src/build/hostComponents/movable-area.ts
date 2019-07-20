@@ -1,1 +1,1 @@
-export const props = ['class', 'width', 'height'];
+export const props = ['class', 'style', 'width', 'height'];

@@ -1,1 +1,1 @@
-export const props = ['class', 'percent', 'show-info', 'stroke-width', 'active-color', 'background-color', 'active'];
+export const props = ['class', 'style',  'percent', 'show-info', 'stroke-width', 'active-color', 'background-color', 'active'];

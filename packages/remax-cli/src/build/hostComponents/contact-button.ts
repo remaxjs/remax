@@ -1,1 +1,1 @@
-export const props = ['tnt-inst-id', 'scene', 'size', 'color', 'icon', 'alipay-card-no'];
+export const props = ['class', 'style', 'tnt-inst-id', 'scene', 'size', 'color', 'icon', 'alipay-card-no'];
