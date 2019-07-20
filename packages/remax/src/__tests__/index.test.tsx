@@ -74,4 +74,11 @@ describe('remax render', () => {
     page.current.hide();
     expect(context.data).toMatchSnapshot();
   });
+
+  it('renders style', () => {
+    const Page = () => <View style={{ width: '100px', height: '100px' }}>hello</View>;
+    const context = new Context();
+    render(<Page />, context);
+    expect(context.data).toMatchSnapshot();
+  });
 });

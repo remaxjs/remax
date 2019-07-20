@@ -118,6 +118,31 @@ Object {
 }
 `;
 
+exports[`remax render renders style 1`] = `
+Object {
+  "$$REMAX_ROOT": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "text": "hello",
+              "type": Symbol(text),
+            },
+          ],
+          "id": 0,
+          "props": Object {
+            "style": "width:100px;height:100px",
+          },
+          "type": "view",
+        },
+      ],
+      "type": "root",
+    },
+  ],
+}
+`;
+
 exports[`remax render umount component 1`] = `
 Object {
   "$$REMAX_ROOT": Array [

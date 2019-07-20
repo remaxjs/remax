@@ -42,10 +42,12 @@ interface IProps {
 }
 
 const styleString = (style: CSSProperties) =>
-  Object.keys(style).reduce((styleString, key) => {
-    const value = (style as any)[key];
-    return `${styleString}${key}:${value}`;
-  }, '');
+  Object.keys(style)
+    .reduce((acc: string[], key) => {
+      const value = (style as any)[key];
+      return [...acc, `${key}:${value}`];
+    }, [])
+    .join(';');
 
 function factoryComponent(component: HostComponent) {
   // props 类型存在问题
