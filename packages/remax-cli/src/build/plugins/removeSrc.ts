@@ -64,6 +64,13 @@ function rewrite(input: string) {
   return input.replace(PREFIX_SRC_PATTERN, '');
 }
 
+function isInsideSrc(file: string, req: string) {
+  return path
+    .resolve(path.dirname(file), req)
+    .replace(process.cwd(), '')
+    .startsWith('/src/');
+}
+
 export default function removeSrc(options: Options): Plugin {
   const sourceMaps = options.sourceMap !== false;
   return {
@@ -93,7 +100,10 @@ export default function removeSrc(options: Options): Plugin {
                 const { start, end } = req;
                 const distance = req.value.split('/').filter((d: string) => d === '..').length;
                 const targetDistance = path.relative(path.dirname(file), 'src').split('/').length;
-                if ((distance == 1 && targetDistance === 1)) {
+                if (isInsideSrc(file, req.value)) {
+                  return;
+                }
+                if (distance == 1 && targetDistance === 1) {
                   // app.js
                   const newPath = req.value.replace(PARENT_DIR_PATTERN, './');
                   magicString.overwrite(start, end, `'${newPath}'`);
