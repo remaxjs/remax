@@ -1,5 +1,6 @@
 import * as scheduler from 'scheduler';
 import { REMAX_ROOT_BACKUP, REMAX_METHOD, TYPE_TEXT } from './constants';
+import { generate } from './instanceId';
 
 /**
  * rootContext Page 实例
@@ -11,8 +12,6 @@ const {
   unstable_shouldYield: shouldYield,
   unstable_now: now,
 } = scheduler;
-
-let instanceCount = 0;
 
 function processProps(newProps: any, rootContext: any, id: number) {
   const props: any = {};
@@ -37,8 +36,6 @@ export default {
   now,
 
   getRootHostContext: () => {
-    // reset instance count for testing purpose
-    instanceCount = 0;
     return rootHostContext;
   },
 
@@ -65,8 +62,7 @@ export default {
 
   createInstance: (type: string, newProps: any, rootContainerInstance: any, _currentHostContext: any) => {
     const rootContext = rootContainerInstance;
-    const id = instanceCount;
-    instanceCount += 1;
+    const id = generate();
 
     const props = processProps(newProps, rootContext, id);
 

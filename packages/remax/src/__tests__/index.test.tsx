@@ -2,6 +2,7 @@ import * as React from 'react';
 import { render, View } from '../../src';
 import { REMAX_ROOT_BACKUP, REMAX_ROOT } from '../constants';
 import pure from '../utils/pure';
+import { reset } from '../instanceId';
 
 class Context {
   data: any;
@@ -14,6 +15,10 @@ class Context {
 }
 
 describe('remax render', () => {
+  afterEach(() => {
+    reset();
+  });
+
   it('render correctly', () => {
     const Page = () => <View className="foo">hello</View>;
     const context = new Context();
