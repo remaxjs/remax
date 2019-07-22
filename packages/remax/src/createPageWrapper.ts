@@ -12,8 +12,6 @@ export interface PageProps<Q = {}> {
   };
 }
 
-export type PageComponent = React.Component<PageProps>;
-
 export interface LifecycleHooks {
   useShow: (callback: Callback, inputs?: any[]) => void;
   useHide: (callback: Callback, inputs?: any[]) => void;
