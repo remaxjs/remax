@@ -63,3 +63,4 @@ node_modules
 demo-minitomato
 lib
 
+.DS_Store

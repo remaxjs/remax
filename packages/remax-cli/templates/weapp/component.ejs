@@ -1,0 +1,24 @@
+<% camelCased = function(str) { return str.replace(/-([a-z0-9])/g, function (g) { return g[1].toUpperCase(); })}%>
+
+<block wx:if="{{item.type === '<%= type %>'}}">
+  <text>{{item.defaultProps.maxlength}}</text>
+  <<%=id%>
+    <% for(let key of props) { %>
+        <%=key === '__key__' ? 'key' : key%>="{{(item.props.<%=camelCased(key)%> || item.props.<%=camelCased(key)%> === 0) ? item.props.<%=camelCased(key)%> : ('<%=defaultProps[key]%>' || '') }}"
+    <% } %>
+  >
+    <% if (id === 'swiper') { %>
+      <block wx:for="{{item.children}}">
+        <swiper-item key="{{item.props.__key__}}" >
+          <block wx:for="{{item.children}}">
+            <template is="REMAX_TPL_<%= templateId%>" data="{{item}}"/>
+          </block>
+        </swiper-item>
+      </block>
+    <% } else { %>
+      <block wx:for="{{item.children}}" wx:key="{{item.props.__key__}}">
+        <template is="REMAX_TPL_<%= templateId%>" data="{{item}}"/>
+      </block>
+    <% } %>
+  </<%=id%>>
+</block>

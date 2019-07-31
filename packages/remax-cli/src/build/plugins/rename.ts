@@ -17,7 +17,7 @@ enum NodeType {
   Identifier = 'Identifier',
   ImportDeclaration = 'ImportDeclaration',
   ExportNamedDeclaration = 'ExportNamedDeclaration',
-  ExportAllDeclaration = 'ExportAllDeclaration',
+  ExportAllDeclaration = 'ExportAllDeclaration'
 }
 
 export interface IRenameExtensionsOptions {
@@ -67,7 +67,10 @@ export function getRequireSource(node: INode): INode | false {
 }
 
 export function getImportSource(node: INode): INode | false {
-  if (node.type !== NodeType.ImportDeclaration || node.source.type !== NodeType.Literal) {
+  if (
+    node.type !== NodeType.ImportDeclaration ||
+    node.source.type !== NodeType.Literal
+  ) {
     return false;
   }
 
@@ -75,9 +78,16 @@ export function getImportSource(node: INode): INode | false {
 }
 
 export function getExportSource(node: INode): INode | false {
-  const exportNodes = [NodeType.ExportAllDeclaration, NodeType.ExportNamedDeclaration];
+  const exportNodes = [
+    NodeType.ExportAllDeclaration,
+    NodeType.ExportNamedDeclaration
+  ];
 
-  if (!exportNodes.includes(node.type) || !node.source || node.source.type !== NodeType.Literal) {
+  if (
+    !exportNodes.includes(node.type) ||
+    !node.source ||
+    node.source.type !== NodeType.Literal
+  ) {
     return false;
   }
 
@@ -88,7 +98,9 @@ export function rewrite(input: string, map: (name: string) => string): string {
   return map(input);
 }
 
-export default function renameExtensions(options: IRenameExtensionsOptions): Plugin {
+export default function renameExtensions(
+  options: IRenameExtensionsOptions
+): Plugin {
   const filter = createFilter(options.include, options.exclude);
   const sourceMaps = options.sourceMap !== false;
   return {
@@ -97,11 +109,16 @@ export default function renameExtensions(options: IRenameExtensionsOptions): Plu
       const files = Object.entries<any>(bundle);
 
       for (const [key, file] of files) {
-        if (!filter(file.facadeModuleId) && file.fileName !== 'app.css') {
+        if (
+          options.include &&
+          !filter(file.facadeModuleId) &&
+          file.fileName !== 'app.css'
+        ) {
           continue;
         }
 
-        file.facadeModuleId = rewrite(file.facadeModuleId, options.map) || file.facadeModuleId;
+        file.facadeModuleId =
+          rewrite(file.facadeModuleId, options.map) || file.facadeModuleId;
         file.fileName = rewrite(file.fileName, options.map) || file.fileName;
 
         if (file.imports) {
@@ -118,11 +135,14 @@ export default function renameExtensions(options: IRenameExtensionsOptions): Plu
           const magicString = new MagicString(file.code);
           const ast = this.parse(file.code, {
             ecmaVersion: 6,
-            sourceType: 'module',
+            sourceType: 'module'
           });
 
           const extract = (node: INode) => {
-            const req = getRequireSource(node) || getImportSource(node) || getExportSource(node);
+            const req =
+              getRequireSource(node) ||
+              getImportSource(node) ||
+              getExportSource(node);
 
             if (req) {
               const { start, end } = req;
@@ -135,7 +155,7 @@ export default function renameExtensions(options: IRenameExtensionsOptions): Plu
             ImportDeclaration: extract,
             CallExpression: extract,
             ExportAllDeclaration: extract,
-            ExportNamedDeclaration: extract,
+            ExportNamedDeclaration: extract
           });
 
           if (sourceMaps) {
@@ -148,6 +168,6 @@ export default function renameExtensions(options: IRenameExtensionsOptions): Plu
         delete bundle[key];
         bundle[rewrite(key, options.map) || key] = file;
       }
-    },
+    }
   };
 }

@@ -2,23 +2,21 @@ import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { get } from 'dot-prop';
 import { kebabCase, unionBy } from 'lodash';
+import { Adapter } from '../adapters';
 
 interface Component {
   type: string;
   id: string;
   props: string[];
+  defaultProps: {
+    [key: string]: any;
+  };
   children?: Component[];
 }
 
 const components: Component[] = [];
 
-const propsAlias: { [key: string]: string } = {
-  className: 'class',
-  onClick: 'onTap',
-  onTap: 'onTap',
-};
-
-export default () => ({
+export default (adapter: Adapter) => () => ({
   visitor: {
     JSXElement(path: NodePath) {
       const node = path.node as t.JSXElement;
@@ -45,11 +43,13 @@ export default () => ({
         node.openingElement.attributes.map(e => {
           if (t.isJSXAttribute(e)) {
             const propName = get(e, 'name.name') as string;
-            if (propsAlias[propName]) {
-              e.name.name = propsAlias[propName];
+            if (adapter.propsAlias[propName]) {
+              e.name.name = adapter.propsAlias[propName];
             }
             if (propName === 'key') {
-              node.openingElement.attributes.push(t.jsxAttribute(t.jsxIdentifier('__key__'), e.value));
+              node.openingElement.attributes.push(
+                t.jsxAttribute(t.jsxIdentifier('__key__'), e.value)
+              );
               return '__key__';
             }
             return propName;
@@ -62,16 +62,17 @@ export default () => ({
           return;
         }
 
-        const { props } = require(`../hostComponents/${id}`);
+        const { props, defaultProps = {} } = adapter.hostComponents(id);
 
         components.push({
           type: kebabCase(componentName),
           id,
           props,
+          defaultProps
         });
       }
-    },
-  },
+    }
+  }
 });
 
 export function getComponents() {
