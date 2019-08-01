@@ -43,9 +43,8 @@ export default (adapter: Adapter) => () => ({
         node.openingElement.attributes.map(e => {
           if (t.isJSXAttribute(e)) {
             const propName = get(e, 'name.name') as string;
-            if (adapter.propsAlias[propName]) {
-              e.name.name = adapter.propsAlias[propName];
-            }
+            e.name.name = adapter.propsAlias(propName);
+
             if (propName === 'key') {
               node.openingElement.attributes.push(
                 t.jsxAttribute(t.jsxIdentifier('__key__'), e.value)

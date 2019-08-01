@@ -4,11 +4,14 @@ export function hostComponents(component: string) {
   return require(`./hostComponents/${component}`);
 }
 
-export const propsAlias: { [key: string]: string } = {
-  className: 'class',
-  onClick: 'onTap',
-  onTap: 'onTap'
-};
+export function propsAlias(prop: keyof typeof alias) {
+  const alias = {
+    className: 'class',
+    onClick: 'onTap'
+  };
+
+  return alias[prop] || prop;
+}
 
 export const extensions = {
   template: '.axml',

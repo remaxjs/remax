@@ -19,9 +19,7 @@ export interface Adapter {
     };
   };
 
-  propsAlias: {
-    [key: string]: string;
-  };
+  propsAlias: (key: string) => string;
 
-  moduleFormat: "cjs" | "esm";
+  moduleFormat: 'cjs' | 'esm';
 }
