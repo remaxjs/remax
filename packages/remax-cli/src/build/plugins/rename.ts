@@ -42,6 +42,11 @@ export interface IRenameExtensionsOptions {
    * Extensions should include the dot for both input and output.
    */
   map: (name: string) => string;
+
+  /**
+   * Match all files, include files start with '\0'
+   */
+  matchAll?: boolean;
 }
 
 export function isEmpty(array: any[] | undefined) {
@@ -98,9 +103,7 @@ export function rewrite(input: string, map: (name: string) => string): string {
   return map(input);
 }
 
-export default function renameExtensions(
-  options: IRenameExtensionsOptions
-): Plugin {
+export default function rename(options: IRenameExtensionsOptions): Plugin {
   const filter = createFilter(options.include, options.exclude);
   const sourceMaps = options.sourceMap !== false;
   return {
@@ -110,8 +113,8 @@ export default function renameExtensions(
 
       for (const [key, file] of files) {
         if (
-          options.include &&
           !filter(file.facadeModuleId) &&
+          !(options.matchAll && /\0/.test(file.facadeModuleId)) &&
           file.fileName !== 'app.css'
         ) {
           continue;

@@ -103,6 +103,7 @@ export default function rollupConfig(
       }
     }),
     rename({
+      matchAll: true,
       map: input => {
         return (
           input &&
