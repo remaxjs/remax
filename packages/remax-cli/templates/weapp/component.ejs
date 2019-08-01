@@ -1,7 +1,6 @@
 <% camelCased = function(str) { return str.replace(/-([a-z0-9])/g, function (g) { return g[1].toUpperCase(); })}%>
 
 <block wx:if="{{item.type === '<%= type %>'}}">
-  <text>{{item.defaultProps.maxlength}}</text>
   <<%=id%>
     <% for(let key of props) { %>
         <%=key === '__key__' ? 'key' : key%>="{{item.props.<%=camelCased(key)%> !== undefined ? item.props.<%=camelCased(key)%> : '<%=defaultProps[key]%>'}}"
