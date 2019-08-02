@@ -90,7 +90,7 @@ export default function createPageWrapper(Page: React.ComponentType, query: obje
       LIFECYCLE_PHASES.forEach(phase => {
         const callback = callbackName(phase);
         (this as any)[callback] = () => {
-          this.callLifecycle(phase);
+          return this.callLifecycle(phase);
         };
       });
     }
@@ -98,9 +98,9 @@ export default function createPageWrapper(Page: React.ComponentType, query: obje
     callLifecycle(phase: string) {
       const callback = callbackName(phase);
       if (this.instance && typeof this.instance[callback] === 'function') {
-        this.instance[callback]();
+        return this.instance[callback]();
       } else if (this.callbacks.has(phase)) {
-        this.callbacks.get(phase)!.callback.call(null);
+        return this.callbacks.get(phase)!.callback.call(null);
       }
     }
 
