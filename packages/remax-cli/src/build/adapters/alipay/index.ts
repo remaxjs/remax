@@ -4,15 +4,6 @@ export function hostComponents(component: string) {
   return require(`./hostComponents/${component}`);
 }
 
-export function propsAlias(prop: keyof typeof alias) {
-  const alias = {
-    className: 'class',
-    onClick: 'onTap'
-  };
-
-  return alias[prop] || prop;
-}
-
 export const extensions = {
   template: '.axml',
   style: '.acss'

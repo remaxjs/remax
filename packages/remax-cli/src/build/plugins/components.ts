@@ -8,9 +8,6 @@ interface Component {
   type: string;
   id: string;
   props: string[];
-  defaultProps: {
-    [key: string]: any;
-  };
   children?: Component[];
 }
 
@@ -43,7 +40,6 @@ export default (adapter: Adapter) => () => ({
         node.openingElement.attributes.map(e => {
           if (t.isJSXAttribute(e)) {
             const propName = get(e, 'name.name') as string;
-            e.name.name = adapter.propsAlias(propName);
 
             if (propName === 'key') {
               node.openingElement.attributes.push(
@@ -61,13 +57,12 @@ export default (adapter: Adapter) => () => ({
           return;
         }
 
-        const { props, defaultProps = {} } = adapter.hostComponents(id);
+        const { props } = adapter.hostComponents(id);
 
         components.push({
           type: kebabCase(componentName),
           id,
-          props,
-          defaultProps
+          props
         });
       }
     }

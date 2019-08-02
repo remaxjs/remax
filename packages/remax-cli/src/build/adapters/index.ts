@@ -14,9 +14,6 @@ export interface Adapter {
     component: string
   ) => {
     props: string[];
-    defaultProps?: {
-      [key: string]: any;
-    };
   };
 
   propsAlias: (key: string) => string;

@@ -23,7 +23,3 @@ export const props = [
   'bindfocus',
   'bindblur'
 ];
-
-export const defaultProps = {
-  maxlength: -1
-};

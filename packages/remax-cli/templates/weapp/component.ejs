@@ -3,7 +3,7 @@
 <block wx:if="{{item.type === '<%= type %>'}}">
   <<%=id%>
     <% for(let key of props) { %>
-        <%=key === '__key__' ? 'key' : key%>="{{item.props.<%=camelCased(key)%> !== undefined ? item.props.<%=camelCased(key)%> : '<%=defaultProps[key]%>'}}"
+        <%=key === '__key__' ? 'key' : key%>="{{item.props.<%=camelCased(key)%> !== undefined ? item.props.<%=camelCased(key)%> : ''}}"
     <% } %>
   >
     <% if (id === 'swiper') { %>
