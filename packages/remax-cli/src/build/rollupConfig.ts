@@ -19,7 +19,11 @@ import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';
 import renameImport from './plugins/renameImport';
 
-export default function rollupConfig(options: RemaxOptions, argv: any, targetConfig: any) {
+export default function rollupConfig(
+  options: RemaxOptions,
+  argv: any,
+  targetConfig: any
+) {
   const entries = getEntries(options);
 
   const plugins = [
@@ -27,37 +31,46 @@ export default function rollupConfig(options: RemaxOptions, argv: any, targetCon
       include: /node_modules/,
       namedExports: {
         react: Object.keys(React).filter(k => k !== 'default'),
-        scheduler: Object.keys(scheduler).filter(k => k !== 'default'),
-      },
-    }),
-    babel({
-      babelrc: false,
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [renameImport(argv.target), components, require.resolve('@babel/plugin-proposal-class-properties')],
-      presets: [
-        require.resolve('@babel/preset-typescript'),
-        [require.resolve('@babel/preset-env')],
-        [require.resolve('@babel/preset-react')],
-      ],
+        scheduler: Object.keys(scheduler).filter(k => k !== 'default')
+      }
     }),
     babel({
       include: entries.pages,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [page],
+      presets: [
+        require.resolve('@babel/preset-typescript'),
+        [require.resolve('@babel/preset-env')],
+        [require.resolve('@babel/preset-react')]
+      ]
+    }),
+    babel({
+      babelrc: false,
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      plugins: [
+        renameImport(argv.target),
+        components,
+        require.resolve('@babel/plugin-proposal-class-properties')
+      ],
+      presets: [
+        require.resolve('@babel/preset-typescript'),
+        [require.resolve('@babel/preset-env')],
+        [require.resolve('@babel/preset-react')]
+      ]
     }),
     babel({
       include: entries.app,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [app],
+      plugins: [app]
     }),
     postcss({
       extract: true,
       modules: options.cssModules,
-      plugins: [pxToUnits()],
+      plugins: [pxToUnits()]
     }),
     resolve({
       dedupe: ['react', 'object-assign', 'prop-types', 'scheduler'],
-      extensions: [ '.mjs', '.js', '.jsx', '.json', '.ts', '.tsx' ],
+      extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx']
     }),
     rename({
       include: 'src/**',
@@ -71,11 +84,11 @@ export default function rollupConfig(options: RemaxOptions, argv: any, targetCon
             .replace(/\.ts$/, '.js')
             .replace(/\.tsx$/, '.js')
         );
-      },
+      }
     }),
     removeSrc({}),
     removeESModuleFlag(),
-    template(options),
+    template(options)
   ];
 
   if (options.progress) {
@@ -85,8 +98,8 @@ export default function rollupConfig(options: RemaxOptions, argv: any, targetCon
   if (!argv.watch) {
     plugins.unshift(
       clear({
-        targets: options.output,
-      }),
+        targets: options.output
+      })
     );
   }
 
@@ -95,7 +108,7 @@ export default function rollupConfig(options: RemaxOptions, argv: any, targetCon
     output: {
       dir: options.output,
       format: 'esm',
-      sourcemap: true,
+      sourcemap: true
     },
     preserveModules: true,
     preserveSymlinks: true,
@@ -103,7 +116,7 @@ export default function rollupConfig(options: RemaxOptions, argv: any, targetCon
       if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
       warn(warning);
     },
-    plugins,
+    plugins
   };
 
   return config;
