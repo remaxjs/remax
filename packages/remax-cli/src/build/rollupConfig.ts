@@ -2,6 +2,7 @@ import { RollupOptions, RollupWarning } from 'rollup';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
+import json from 'rollup-plugin-json';
 import postcss from 'rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
 import clear from 'rollup-plugin-clear';
@@ -70,6 +71,7 @@ export default function rollupConfig(
       modules: options.cssModules,
       plugins: [pxToUnits()]
     }),
+    json({}),
     resolve({
       dedupe: [
         'react',
@@ -131,7 +133,12 @@ export default function rollupConfig(
   }
 
   const config: RollupOptions = {
-    input: [entries.app, ...entries.pages],
+    input: [
+      entries.appConfigPath,
+      entries.app,
+      ...entries.pages,
+      ...entries.pageConfigPath
+    ],
     output: {
       dir: options.output,
       format: adapter.moduleFormat,

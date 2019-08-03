@@ -7,20 +7,27 @@ interface AppConfig {
 }
 
 interface Entries {
+  appConfigPath: string;
+  pageConfigPath: string[];
   app: string;
   pages: string[];
 }
 
-function searchFile(file: string) {
-  const tsFile = file + '.ts';
-  if (fs.existsSync(tsFile)) {
-    return tsFile;
+function searchFile(file: string, ext?: string) {
+  const exts = [ext, 'ts', 'tsx', 'js'].filter(e => e);
+
+  for (const e of exts) {
+    const extFile = file + '.' + e;
+    if (fs.existsSync(extFile)) {
+      return extFile;
+    }
+
+    if (e === ext) {
+      return '';
+    }
   }
-  const tsxFile = file + '.tsx';
-  if (fs.existsSync(tsxFile)) {
-    return tsxFile;
-  }
-  return file + '.js';
+
+  return '';
 }
 
 export default function getEntries(options: RemaxOptions): Entries {
@@ -28,19 +35,33 @@ export default function getEntries(options: RemaxOptions): Entries {
   if (!fs.existsSync(appConfigPath)) {
     throw new Error(`${appConfigPath} is not found`);
   }
-  const appConfig: AppConfig = JSON.parse(fs.readFileSync(appConfigPath, 'utf-8'));
+  const appConfig: AppConfig = JSON.parse(
+    fs.readFileSync(appConfigPath, 'utf-8')
+  );
   const { pages } = appConfig;
   if (!pages || pages.length === 0) {
-    throw new Error('app.json `pages` field should not be undefined or empty object');
+    throw new Error(
+      'app.json `pages` field should not be undefined or empty object'
+    );
   }
 
   const entries: Entries = {
+    appConfigPath,
+    pageConfigPath: [],
     app: searchFile(path.join(options.cwd, 'src', 'app')),
-    pages: [],
+    pages: []
   };
 
   entries.pages = pages.reduce((ret: string[], page) => {
-    return [...ret, searchFile(path.join(options.cwd, 'src', page))];
+    return [...ret, searchFile(path.join(options.cwd, 'src', page))].filter(
+      f => f
+    );
+  }, []);
+  entries.pageConfigPath = pages.reduce((ret: string[], page) => {
+    return [
+      ...ret,
+      searchFile(path.join(options.cwd, 'src', page), 'json')
+    ].filter(f => f);
   }, []);
 
   return entries;
