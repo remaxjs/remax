@@ -59,7 +59,10 @@ function callbackName(name: string) {
   return 'on' + capitalize(name);
 }
 
-export default function createPageWrapper(Page: React.ComponentType, query: object) {
+export default function createPageWrapper(
+  Page: React.ComponentType,
+  query: object
+) {
   return class PageWrapper extends React.Component {
     instance: any = null;
 
@@ -71,18 +74,21 @@ export default function createPageWrapper(Page: React.ComponentType, query: obje
       }
     >();
 
-    lifecycle = LIFECYCLE_PHASES.reduce((acc: Partial<LifecycleHooks>, phase) => {
-      acc[hookName(phase)] = (callback: Callback, inputs?: any[]) => {
-        const prev = this.callbacks.get(phase);
-        if (!prev || !areInputsEqual(inputs, prev.inputs)) {
-          this.callbacks.set(phase, {
-            callback,
-            inputs,
-          });
-        }
-      };
-      return acc;
-    }, {});
+    lifecycle = LIFECYCLE_PHASES.reduce(
+      (acc: Partial<LifecycleHooks>, phase) => {
+        acc[hookName(phase)] = (callback: Callback, inputs?: any[]) => {
+          const prev = this.callbacks.get(phase);
+          if (!prev || !areInputsEqual(inputs, prev.inputs)) {
+            this.callbacks.set(phase, {
+              callback,
+              inputs,
+            });
+          }
+        };
+        return acc;
+      },
+      {}
+    );
 
     constructor(props: any) {
       super(props);

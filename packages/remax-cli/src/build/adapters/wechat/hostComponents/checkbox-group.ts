@@ -1,1 +1,1 @@
-export const props = ["class", "style", "name", "bindchange"];
+export const props = ['class', 'style', 'name', 'bindchange'];

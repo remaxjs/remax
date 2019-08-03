@@ -27,10 +27,14 @@ export default function getEntries(): Entries {
   if (!fs.existsSync(appConfigPath)) {
     throw new Error(`${appConfigPath} is not found`);
   }
-  const appConfig: AppConfig = JSON.parse(fs.readFileSync(appConfigPath, 'utf-8'));
+  const appConfig: AppConfig = JSON.parse(
+    fs.readFileSync(appConfigPath, 'utf-8')
+  );
   const { pages } = appConfig;
   if (!pages || pages.length === 0) {
-    throw new Error('app.json `pages` field should not be undefined or empty object');
+    throw new Error(
+      'app.json `pages` field should not be undefined or empty object'
+    );
   }
 
   const entries: Entries = {

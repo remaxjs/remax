@@ -11,15 +11,19 @@ export const showToast: typeof API.showToast = params => {
       none: 'info',
     };
     const method = params.type ? typeMap[params.type] || 'info' : 'info';
-    (Toast as any)[method](params.content, (params.duration || 3000) / 1000, () => {
-      if (params.success) {
-        params.success();
-      } else {
-        resolve();
+    (Toast as any)[method](
+      params.content,
+      (params.duration || 3000) / 1000,
+      () => {
+        if (params.success) {
+          params.success();
+        } else {
+          resolve();
+        }
+        if (params.complete) {
+          params.complete();
+        }
       }
-      if (params.complete) {
-        params.complete();
-      }
-    });
+    );
   });
 };

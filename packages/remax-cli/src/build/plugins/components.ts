@@ -62,11 +62,11 @@ export default (adapter: Adapter) => () => ({
         components.push({
           type: kebabCase(componentName),
           id,
-          props
+          props,
         });
       }
-    }
-  }
+    },
+  },
 });
 
 export function getComponents() {

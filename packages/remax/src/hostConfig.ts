@@ -60,7 +60,12 @@ export default {
     textInstance.rootContext.requestUpdate();
   },
 
-  createInstance: (type: string, newProps: any, rootContainerInstance: any, _currentHostContext: any) => {
+  createInstance: (
+    type: string,
+    newProps: any,
+    rootContainerInstance: any,
+    _currentHostContext: any
+  ) => {
     const rootContext = rootContainerInstance;
     const id = generate();
 
@@ -84,7 +89,13 @@ export default {
     };
   },
 
-  commitUpdate(targetIns: any, updatePayload: any, type: string, oldProps: any, newProps: any) {
+  commitUpdate(
+    targetIns: any,
+    updatePayload: any,
+    type: string,
+    oldProps: any,
+    newProps: any
+  ) {
     const props = processProps(newProps, targetIns.rootContext, targetIns.id);
     targetIns.props = props;
     targetIns.rootContext.requestUpdate();
@@ -124,7 +135,8 @@ export default {
 
     parent.children.push(child);
 
-    child.rootContext[REMAX_ROOT_BACKUP] = child.rootContext[REMAX_ROOT_BACKUP] || [];
+    child.rootContext[REMAX_ROOT_BACKUP] =
+      child.rootContext[REMAX_ROOT_BACKUP] || [];
     child.rootContext[REMAX_ROOT_BACKUP].push(parent);
     child.rootContext.requestUpdate();
   },

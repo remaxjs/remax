@@ -22,7 +22,7 @@ export const showActionSheet: typeof API.showActionSheet = params => {
         if (params.complete) {
           params.complete();
         }
-      },
+      }
     );
   });
 };

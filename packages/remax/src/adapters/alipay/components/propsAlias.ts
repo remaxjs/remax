@@ -2,7 +2,7 @@ import { CSSProperties } from 'react';
 
 const alias: any = {
   className: 'class',
-  onClick: 'onTap'
+  onClick: 'onTap',
 };
 
 function getAlias(prop: string) {

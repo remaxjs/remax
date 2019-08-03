@@ -13,5 +13,4 @@ interface Params {
  *
  * @see [支付宝小程序]{@link https://docs.alipay.com/mini/api/kc5zbx}
  */
-export function navigateBack(params: Params) {
-}
+export function navigateBack(params: Params) {}

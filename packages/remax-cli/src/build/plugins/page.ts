@@ -22,7 +22,7 @@ export default () => ({
         const declaration = path.node.declaration;
         path.replaceWith(
           t.variableDeclaration('const', [
-            t.variableDeclarator(pageId, declaration)
+            t.variableDeclarator(pageId, declaration),
           ])
         );
         pageConfigExpression(path, pageId);
@@ -40,6 +40,6 @@ export default () => ({
         pageConfigExpression(path, pageId);
         path.stop();
       }
-    }
-  }
+    },
+  },
 });

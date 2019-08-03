@@ -1,9 +1,9 @@
 export const props = [
-  "class",
-  "style",
-  "value",
-  "checked",
-  "disabled",
-  "bindchange",
-  "color"
+  'class',
+  'style',
+  'value',
+  'checked',
+  'disabled',
+  'bindchange',
+  'color',
 ];

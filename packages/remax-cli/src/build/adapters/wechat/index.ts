@@ -7,7 +7,7 @@ export function hostComponents(component: string) {
 export function propsAlias(prop: keyof typeof alias) {
   const alias = {
     className: 'class',
-    onClick: 'bindtap'
+    onClick: 'bindtap',
   };
 
   let aliasProp = alias[prop];
@@ -25,7 +25,7 @@ export function propsAlias(prop: keyof typeof alias) {
 
 export const extensions = {
   template: '.wxml',
-  style: '.wxss'
+  style: '.wxss',
 };
 
 const templateBaseDir = path.join(__dirname, '../../../../templates/wechat');
@@ -33,7 +33,7 @@ const templateBaseDir = path.join(__dirname, '../../../../templates/wechat');
 export const templates = {
   base: path.join(templateBaseDir, 'base.ejs'),
   component: path.join(templateBaseDir, 'component.ejs'),
-  page: path.join(templateBaseDir, 'page.ejs')
+  page: path.join(templateBaseDir, 'page.ejs'),
 };
 
 export const moduleFormat = 'cjs';

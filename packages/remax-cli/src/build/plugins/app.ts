@@ -8,10 +8,18 @@ export default () => ({
       if (t.isExpression(path.node.declaration)) {
         const appId = path.scope.generateUidIdentifier('app');
         const declaration = path.node.declaration;
-        path.replaceWith(t.variableDeclaration('const', [t.variableDeclarator(appId, declaration)]));
+        path.replaceWith(
+          t.variableDeclaration('const', [
+            t.variableDeclarator(appId, declaration),
+          ])
+        );
         const createId = addNamed(path, 'createAppConfig', 'remax');
         path.insertAfter(
-          t.exportDefaultDeclaration(t.callExpression(t.identifier('App'), [t.callExpression(createId, [appId])])),
+          t.exportDefaultDeclaration(
+            t.callExpression(t.identifier('App'), [
+              t.callExpression(createId, [appId]),
+            ])
+          )
         );
         path.stop();
       }

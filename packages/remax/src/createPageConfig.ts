@@ -25,9 +25,11 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
           },
           () => {
             if (process.env.NODE_ENV !== 'production') {
-              console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`);
+              console.log(
+                `setData => 回调时间：${new Date().getTime() - startTime}ms`
+              );
             }
-          },
+          }
         );
       }, 1000 / 60);
 

@@ -34,8 +34,8 @@ export default function rollupConfig(
       include: /node_modules/,
       namedExports: {
         react: Object.keys(React).filter(k => k !== 'default'),
-        scheduler: Object.keys(scheduler).filter(k => k !== 'default')
-      }
+        scheduler: Object.keys(scheduler).filter(k => k !== 'default'),
+      },
     }),
     babel({
       include: entries.pages,
@@ -44,8 +44,8 @@ export default function rollupConfig(
       presets: [
         require.resolve('@babel/preset-typescript'),
         [require.resolve('@babel/preset-env')],
-        [require.resolve('@babel/preset-react')]
-      ]
+        [require.resolve('@babel/preset-react')],
+      ],
     }),
     babel({
       babelrc: false,
@@ -53,23 +53,23 @@ export default function rollupConfig(
       plugins: [
         renameImport(argv.target),
         components(adapter),
-        require.resolve('@babel/plugin-proposal-class-properties')
+        require.resolve('@babel/plugin-proposal-class-properties'),
       ],
       presets: [
         require.resolve('@babel/preset-typescript'),
         [require.resolve('@babel/preset-env')],
-        [require.resolve('@babel/preset-react')]
-      ]
+        [require.resolve('@babel/preset-react')],
+      ],
     }),
     babel({
       include: entries.app,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [app]
+      plugins: [app],
     }),
     postcss({
       extract: true,
       modules: options.cssModules,
-      plugins: [pxToUnits()]
+      plugins: [pxToUnits()],
     }),
     json({}),
     resolve({
@@ -78,18 +78,18 @@ export default function rollupConfig(
         'object-assign',
         'prop-types',
         'scheduler',
-        'react-reconciler'
+        'react-reconciler',
       ],
       extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
       customResolveOptions: {
-        moduleDirectory: 'node_modules'
-      }
+        moduleDirectory: 'node_modules',
+      },
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(
         process.env.NODE_ENV || 'development'
       ),
-      'process.env.REMAX_PLATFORM': JSON.stringify(argv.target)
+      'process.env.REMAX_PLATFORM': JSON.stringify(argv.target),
     }),
     rename({
       include: 'src/**',
@@ -103,7 +103,7 @@ export default function rollupConfig(
             .replace(/\.ts$/, '.js')
             .replace(/\.tsx$/, '.js')
         );
-      }
+      },
     }),
     rename({
       matchAll: true,
@@ -114,11 +114,11 @@ export default function rollupConfig(
             .replace(/node_modules/, 'npm')
             .replace(/\.js_commonjs-proxy$/, '.js_commonjs-proxy.js')
         );
-      }
+      },
     }),
     removeSrc({}),
     removeESModuleFlag(),
-    template(options, adapter)
+    template(options, adapter),
   ];
 
   if (options.progress) {
@@ -128,7 +128,7 @@ export default function rollupConfig(
   if (!argv.watch) {
     plugins.unshift(
       clear({
-        targets: options.output
+        targets: options.output,
       })
     );
   }
@@ -138,13 +138,13 @@ export default function rollupConfig(
       entries.appConfigPath,
       entries.app,
       ...entries.pages,
-      ...entries.pageConfigPath
+      ...entries.pageConfigPath,
     ],
     output: {
       dir: options.output,
       format: adapter.moduleFormat,
       exports: 'named',
-      sourcemap: true
+      sourcemap: true,
     },
     preserveModules: true,
     preserveSymlinks: true,
@@ -152,7 +152,7 @@ export default function rollupConfig(
       if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
       warn(warning);
     },
-    plugins
+    plugins,
   };
 
   return config;

@@ -17,14 +17,14 @@ interface State {
 
 export default class Input extends React.Component<InputProps, State> {
   public static defaultProps = {
-    maxlength: -1
+    maxlength: -1,
   };
 
   public static getDerivedStateFromProps(props: InputProps, state: State) {
     // autoFocus 有值，并且 Input 未被 focus 过
     if (props.autoFocus !== undefined && state.focus !== true) {
       return {
-        focus: props.autoFocus
+        focus: props.autoFocus,
       };
     }
 
@@ -32,7 +32,7 @@ export default class Input extends React.Component<InputProps, State> {
   }
 
   public state = {
-    focus: false
+    focus: false,
   };
 
   public render() {
@@ -49,7 +49,7 @@ export default class Input extends React.Component<InputProps, State> {
       focus: this.focus,
       bindinput: this.handleInnerFocus(onInput),
       bindtap: this.handleInnerFocus(onClick),
-      bindfocus: this.handleInnerFocus(onFocus)
+      bindfocus: this.handleInnerFocus(onFocus),
     });
 
     return React.createElement('input', inputProps, children);
