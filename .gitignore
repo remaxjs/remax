@@ -64,3 +64,4 @@ demo-minitomato
 lib
 
 .DS_Store
+.vscode/
