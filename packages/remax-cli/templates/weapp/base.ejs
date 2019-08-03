@@ -1,0 +1,32 @@
+<template name="REMAX_TPL">
+  <block wx:for="{{$$REMAX_ROOT}}" wx:key="">
+    <template is="REMAX_TPL_1" data="{{item}}"/>
+  </block>
+</template>
+
+<% for (var i = 1; i <= 50; i++) { %>
+    <%var id = i; %>
+<template name="REMAX_TPL_<%= id%>">
+  <block>
+    <block wx:if="{{item && item.text}}">
+      <!-- string -->
+      {{item.text}}
+    </block>
+
+    <block wx:if="{{item.type === 'root'}}">
+      <block wx:for="{{item.children}}" wx:key="">
+        <template is="REMAX_TPL_<%= id + 1%>" data="{{item}}"/>
+      </block>
+    </block>
+
+    <% for (let component of components) { %>
+      <%- include('./component.ejs', {
+        type: component.type,
+        props: component.props,
+        id: component.id,
+        templateId: id + 1
+      }) %>
+    <% } %>
+  </block>
+</template>
+<% } %>

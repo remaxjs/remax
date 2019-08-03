@@ -12,17 +12,19 @@ import components from './plugins/components';
 import page from './plugins/page';
 import removeSrc from './plugins/removeSrc';
 import rename from './plugins/rename';
+import replace from 'rollup-plugin-replace';
 import * as React from 'react';
 import * as scheduler from 'scheduler';
 import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';
 import renameImport from './plugins/renameImport';
+import { Adapter } from './adapters';
 
 export default function rollupConfig(
   options: RemaxOptions,
   argv: any,
-  targetConfig: any
+  adapter: Adapter
 ) {
   const entries = getEntries(options);
 
@@ -69,8 +71,22 @@ export default function rollupConfig(
       plugins: [pxToUnits()]
     }),
     resolve({
-      dedupe: ['react', 'object-assign', 'prop-types', 'scheduler'],
-      extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx']
+      dedupe: [
+        'react',
+        'object-assign',
+        'prop-types',
+        'scheduler',
+        'react-reconciler'
+      ],
+      extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
+      customResolveOptions: {
+        moduleDirectory: 'node_modules'
+      }
+    }),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify(
+        process.env.NODE_ENV || 'development'
+      )
     }),
     rename({
       include: 'src/**',
@@ -80,15 +96,26 @@ export default function rollupConfig(
           input
             .replace(/^demo\/src\//, '')
             .replace(/\.less$/, '.less.js')
-            .replace(/\.css$/, targetConfig.extensions.style)
+            .replace(/\.css$/, adapter.extensions.style)
             .replace(/\.ts$/, '.js')
             .replace(/\.tsx$/, '.js')
         );
       }
     }),
+    rename({
+      matchAll: true,
+      map: input => {
+        return (
+          input &&
+          input
+            .replace(/node_modules/, 'npm')
+            .replace(/\.js_commonjs-proxy$/, '.js_commonjs-proxy.js')
+        );
+      }
+    }),
     removeSrc({}),
     removeESModuleFlag(),
-    template(options)
+    template(options, adapter)
   ];
 
   if (options.progress) {
@@ -107,7 +134,7 @@ export default function rollupConfig(
     input: [entries.app, ...entries.pages],
     output: {
       dir: options.output,
-      format: 'esm',
+      format: adapter.moduleFormat,
       sourcemap: true
     },
     preserveModules: true,

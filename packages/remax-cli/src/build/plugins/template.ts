@@ -3,33 +3,42 @@ import * as fs from 'fs';
 import { OutputChunk, Plugin } from 'rollup';
 import { getComponents } from './components';
 import ejs from 'ejs';
-import { RemaxOptions } from '../..//getConfig';
+import { RemaxOptions } from '../../getConfig';
 import getEntries from '../../getEntries';
+import { Adapter } from '../adapters';
 
 function isPage(file: string | null, pages: string[]) {
   return file && pages.indexOf(file) > -1;
 }
 
-async function createTemplate(pageFile: string) {
-  const fileName = `${path.dirname(pageFile)}/${path.basename(pageFile, path.extname(pageFile))}.axml`;
-  const code = (await ejs.renderFile(path.join(__dirname, '../../../templates/page.ejs'), {
-    baseTemplate: path.relative(path.dirname(pageFile), 'base.axml'),
+async function createTemplate(pageFile: string, adapter: Adapter) {
+  const fileName = `${path.dirname(pageFile)}/${path.basename(
+    pageFile,
+    path.extname(pageFile)
+  )}${adapter.extensions.template}`;
+  const code = (await ejs.renderFile(adapter.templates.page, {
+    baseTemplate: path.relative(
+      path.dirname(pageFile),
+      `base${adapter.extensions.template}`
+    )
   })) as string;
 
   return {
     fileName,
     isAsset: true as true,
-    source: code,
+    source: code
   };
 }
 
-async function createBaseTemplate() {
+async function createBaseTemplate(adapter: Adapter) {
   const components = getComponents();
-  const code = (await ejs.renderFile(path.join(__dirname, '../../../templates/base.ejs'), { components })) as string;
+  const code = (await ejs.renderFile(adapter.templates.base, {
+    components
+  })) as string;
   return {
-    fileName: 'base.axml',
+    fileName: `base${adapter.extensions.template}`,
     isAsset: true as true,
-    source: code,
+    source: code
   };
 }
 
@@ -37,7 +46,7 @@ function createManifest(options: RemaxOptions) {
   return {
     fileName: 'app.json',
     isAsset: true as true,
-    source: fs.readFileSync(path.resolve(options.cwd, 'src/app.json')),
+    source: fs.readFileSync(path.resolve(options.cwd, 'src/app.json'))
   };
 }
 
@@ -48,7 +57,7 @@ function createPageManifest(options: RemaxOptions, file: string) {
     return {
       fileName: manifestFile,
       isAsset: true as true,
-      source: fs.readFileSync(filePath),
+      source: fs.readFileSync(filePath)
     };
   }
 }
@@ -57,7 +66,10 @@ function isEntry(chunk: any): chunk is OutputChunk {
   return chunk.isEntry;
 }
 
-export default function template(options: RemaxOptions): Plugin {
+export default function template(
+  options: RemaxOptions,
+  adapter: Adapter
+): Plugin {
   return {
     name: 'template',
     generateBundle: async (_, bundle) => {
@@ -66,7 +78,7 @@ export default function template(options: RemaxOptions): Plugin {
       const manifest = createManifest(options);
       bundle[manifest.fileName] = manifest;
 
-      const template = await createBaseTemplate();
+      const template = await createBaseTemplate(adapter);
       bundle[template.fileName] = template;
 
       const files = Object.keys(bundle);
@@ -76,7 +88,7 @@ export default function template(options: RemaxOptions): Plugin {
           if (isEntry(chunk)) {
             const filePath = Object.keys(chunk.modules)[0];
             if (isPage(filePath, pages)) {
-              const template = await createTemplate(file);
+              const template = await createTemplate(file, adapter);
               bundle[template.fileName] = template;
               const config = await createPageManifest(options, file);
               if (config) {
@@ -84,8 +96,8 @@ export default function template(options: RemaxOptions): Plugin {
               }
             }
           }
-        }),
+        })
       ]);
-    },
+    }
   };
 }
