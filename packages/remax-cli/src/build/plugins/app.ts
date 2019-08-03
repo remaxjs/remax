@@ -2,6 +2,18 @@ import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { addNamed } from '@babel/helper-module-imports';
 
+function appConfigExpression(
+  path: NodePath<t.ExportDefaultDeclaration>,
+  id: t.Identifier
+) {
+  const createId = addNamed(path, 'createAppConfig', 'remax');
+  path.insertAfter(
+    t.exportDefaultDeclaration(
+      t.callExpression(t.identifier('App'), [t.callExpression(createId, [id])])
+    )
+  );
+}
+
 export default () => ({
   visitor: {
     ExportDefaultDeclaration: (path: NodePath<t.ExportDefaultDeclaration>) => {
@@ -10,6 +22,7 @@ export default () => ({
         const declaration = path.node.declaration;
         path.replaceWith(
           t.variableDeclaration('const', [
+<<<<<<< HEAD
             t.variableDeclarator(appId, declaration),
           ])
         );
@@ -20,7 +33,22 @@ export default () => ({
               t.callExpression(createId, [appId]),
             ])
           )
+=======
+            t.variableDeclarator(appId, declaration)
+          ])
+>>>>>>> fix create app config rollup plugin bug
         );
+        appConfigExpression(path, appId);
+        path.stop();
+      } else if (
+        t.isFunctionDeclaration(path.node.declaration) ||
+        t.isClassDeclaration(path.node.declaration)
+      ) {
+        const declaration = path.node.declaration;
+        const appId = path.scope.generateUidIdentifierBasedOnNode(path.node);
+        declaration.id = appId;
+        path.replaceWith(declaration);
+        appConfigExpression(path, appId);
         path.stop();
       }
     },
@@ -30,6 +58,6 @@ export default () => ({
         path.scope.rename('App', path.scope.generateUidIdentifier('App').name);
         return;
       }
-    },
-  },
+    }
+  }
 });
