@@ -51,7 +51,7 @@ export default function rollupConfig(
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [
         renameImport(argv.target),
-        components,
+        components(adapter),
         require.resolve('@babel/plugin-proposal-class-properties')
       ],
       presets: [
