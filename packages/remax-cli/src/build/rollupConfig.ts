@@ -143,6 +143,7 @@ export default function rollupConfig(
     output: {
       dir: options.output,
       format: adapter.moduleFormat,
+      exports: 'named',
       sourcemap: true
     },
     preserveModules: true,

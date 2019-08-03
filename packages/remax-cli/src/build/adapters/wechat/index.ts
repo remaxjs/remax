@@ -28,7 +28,7 @@ export const extensions = {
   style: '.wxss'
 };
 
-const templateBaseDir = path.join(__dirname, '../../../../templates/weapp');
+const templateBaseDir = path.join(__dirname, '../../../../templates/wechat');
 
 export const templates = {
   base: path.join(templateBaseDir, 'base.ejs'),
