@@ -88,7 +88,8 @@ export default function rollupConfig(
     replace({
       'process.env.NODE_ENV': JSON.stringify(
         process.env.NODE_ENV || 'development'
-      )
+      ),
+      'process.env.REMAX_PLATFORM': JSON.stringify(argv.target)
     }),
     rename({
       include: 'src/**',
@@ -142,6 +143,7 @@ export default function rollupConfig(
     output: {
       dir: options.output,
       format: adapter.moduleFormat,
+      exports: 'named',
       sourcemap: true
     },
     preserveModules: true,
