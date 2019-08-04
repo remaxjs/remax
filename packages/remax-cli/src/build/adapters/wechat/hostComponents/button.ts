@@ -15,4 +15,5 @@ export const props = [
   'bindtap',
   'app-parameter',
   'public-id',
+  'bindgetuserinfo',
 ];
