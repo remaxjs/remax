@@ -21,5 +21,5 @@ export const props = [
   'bindinput',
   'bindconfirm',
   'bindfocus',
-  'bindblur'
+  'bindblur',
 ];

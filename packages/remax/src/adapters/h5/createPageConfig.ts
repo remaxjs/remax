@@ -51,10 +51,13 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       }
     >();
 
-    lifecycle = LIFECYCLE_PHASES.reduce((acc: Partial<LifecycleHooks>, phase) => {
-      acc[hookName(phase)] = () => {};
-      return acc;
-    }, {});
+    lifecycle = LIFECYCLE_PHASES.reduce(
+      (acc: Partial<LifecycleHooks>, phase) => {
+        acc[hookName(phase)] = () => {};
+        return acc;
+      },
+      {}
+    );
 
     render() {
       return React.createElement(
@@ -63,7 +66,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
         React.createElement(Page, {
           ...this.props,
           lifecycle: this.lifecycle,
-        }),
+        })
       );
     }
   };

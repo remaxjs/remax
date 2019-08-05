@@ -77,9 +77,11 @@ export const navigateBack = my.navigateBack;
 export const navigateBackMiniProgram = my.navigateBackMiniProgram;
 export const navigateTo = my.navigateTo;
 export const navigateToMiniProgram = my.navigateToMiniProgram;
-export const notifyBLECharacteristicValueChange = my.notifyBLECharacteristicValueChange;
+export const notifyBLECharacteristicValueChange =
+  my.notifyBLECharacteristicValueChange;
 export const offAccelerometerChange = my.offAccelerometerChange;
-export const offBLECharacteristicValueChange = my.offBLECharacteristicValueChange;
+export const offBLECharacteristicValueChange =
+  my.offBLECharacteristicValueChange;
 export const offBLEConnectionStateChanged = my.offBLEConnectionStateChanged;
 export const offBluetoothAdapterStateChange = my.offBluetoothAdapterStateChange;
 export const offBluetoothDeviceFound = my.offBluetoothDeviceFound;

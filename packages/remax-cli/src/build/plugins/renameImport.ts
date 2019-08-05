@@ -10,7 +10,10 @@ export default (target: string) => () => {
           path.node.source.value = adapter;
 
           path.node.specifiers.forEach(specifier => {
-            if (t.isImportSpecifier(specifier) && specifier.imported.name === 'getApp') {
+            if (
+              t.isImportSpecifier(specifier) &&
+              specifier.imported.name === 'getApp'
+            ) {
               specifier.imported.name = 'getAppStub';
             }
           });
@@ -19,7 +22,11 @@ export default (target: string) => () => {
       CallExpression(path: NodePath<t.CallExpression>) {
         if (t.isIdentifier(path.node.callee)) {
           const firstArg = path.node.arguments[0];
-          if (path.node.callee.name === 'require' && t.isStringLiteral(firstArg) && firstArg.value === 'remax') {
+          if (
+            path.node.callee.name === 'require' &&
+            t.isStringLiteral(firstArg) &&
+            firstArg.value === 'remax'
+          ) {
             firstArg.value = adapter;
           }
         }

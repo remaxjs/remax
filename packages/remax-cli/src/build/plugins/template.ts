@@ -20,25 +20,25 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
     baseTemplate: path.relative(
       path.dirname(pageFile),
       `base${adapter.extensions.template}`
-    )
+    ),
   })) as string;
 
   return {
     fileName,
     isAsset: true as true,
-    source: code
+    source: code,
   };
 }
 
 async function createBaseTemplate(adapter: Adapter) {
   const components = getComponents();
   const code = (await ejs.renderFile(adapter.templates.base, {
-    components
+    components,
   })) as string;
   return {
     fileName: `base${adapter.extensions.template}`,
     isAsset: true as true,
-    source: code
+    source: code,
   };
 }
 
@@ -46,7 +46,7 @@ function createManifest(options: RemaxOptions) {
   return {
     fileName: 'app.json',
     isAsset: true as true,
-    source: fs.readFileSync(path.resolve(options.cwd, 'src/app.json'))
+    source: fs.readFileSync(path.resolve(options.cwd, 'src/app.json')),
   };
 }
 
@@ -57,7 +57,7 @@ function createPageManifest(options: RemaxOptions, file: string) {
     return {
       fileName: manifestFile,
       isAsset: true as true,
-      source: fs.readFileSync(filePath)
+      source: fs.readFileSync(filePath),
     };
   }
 }
@@ -96,8 +96,8 @@ export default function template(
               }
             }
           }
-        })
+        }),
       ]);
-    }
+    },
   };
 }

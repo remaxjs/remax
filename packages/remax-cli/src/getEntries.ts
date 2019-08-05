@@ -49,7 +49,7 @@ export default function getEntries(options: RemaxOptions): Entries {
     appConfigPath,
     pageConfigPath: [],
     app: searchFile(path.join(options.cwd, 'src', 'app')),
-    pages: []
+    pages: [],
   };
 
   entries.pages = pages.reduce((ret: string[], page) => {
@@ -60,7 +60,7 @@ export default function getEntries(options: RemaxOptions): Entries {
   entries.pageConfigPath = pages.reduce((ret: string[], page) => {
     return [
       ...ret,
-      searchFile(path.join(options.cwd, 'src', page), 'json')
+      searchFile(path.join(options.cwd, 'src', page), 'json'),
     ].filter(f => f);
   }, []);
 

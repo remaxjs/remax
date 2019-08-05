@@ -8,7 +8,7 @@ async function build(app: string) {
       cssModules: false,
       cwd: path.resolve(__dirname, `./fixtures/${app}`),
       progress: true,
-      output: 'dist'
+      output: 'dist',
     },
     false,
     {} as any
@@ -26,7 +26,7 @@ async function build(app: string) {
       }
       return {
         fileName: c.fileName,
-        code
+        code,
       };
     });
 }

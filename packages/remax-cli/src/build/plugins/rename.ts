@@ -17,7 +17,7 @@ enum NodeType {
   Identifier = 'Identifier',
   ImportDeclaration = 'ImportDeclaration',
   ExportNamedDeclaration = 'ExportNamedDeclaration',
-  ExportAllDeclaration = 'ExportAllDeclaration'
+  ExportAllDeclaration = 'ExportAllDeclaration',
 }
 
 export interface IRenameExtensionsOptions {
@@ -85,7 +85,7 @@ export function getImportSource(node: INode): INode | false {
 export function getExportSource(node: INode): INode | false {
   const exportNodes = [
     NodeType.ExportAllDeclaration,
-    NodeType.ExportNamedDeclaration
+    NodeType.ExportNamedDeclaration,
   ];
 
   if (
@@ -138,7 +138,7 @@ export default function rename(options: IRenameExtensionsOptions): Plugin {
           const magicString = new MagicString(file.code);
           const ast = this.parse(file.code, {
             ecmaVersion: 6,
-            sourceType: 'module'
+            sourceType: 'module',
           });
 
           const extract = (node: INode) => {
@@ -158,7 +158,7 @@ export default function rename(options: IRenameExtensionsOptions): Plugin {
             ImportDeclaration: extract,
             CallExpression: extract,
             ExportAllDeclaration: extract,
-            ExportNamedDeclaration: extract
+            ExportNamedDeclaration: extract,
           });
 
           if (sourceMaps) {
@@ -171,6 +171,6 @@ export default function rename(options: IRenameExtensionsOptions): Plugin {
         delete bundle[key];
         bundle[rewrite(key, options.map) || key] = file;
       }
-    }
+    },
   };
 }

@@ -13,7 +13,11 @@ export default () => {
       CallExpression(path: NodePath<t.CallExpression>) {
         if (t.isIdentifier(path.node.callee)) {
           const firstArg = path.node.arguments[0];
-          if (path.node.callee.name === 'require' && t.isStringLiteral(firstArg) && firstArg.value === 'remax') {
+          if (
+            path.node.callee.name === 'require' &&
+            t.isStringLiteral(firstArg) &&
+            firstArg.value === 'remax'
+          ) {
             firstArg.value = adapter;
           }
         }

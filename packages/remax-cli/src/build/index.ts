@@ -19,9 +19,9 @@ export default async (argv: any) => {
       {
         ...rollupOptions,
         watch: {
-          include: ['src/**', 'app.js', 'app.json']
-        }
-      }
+          include: ['src/**', 'app.js', 'app.json'],
+        },
+      },
     ]);
 
     watcher.on('event', (event: any) => {
