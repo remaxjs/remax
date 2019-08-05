@@ -28,6 +28,14 @@ export default function rollupConfig(
   adapter: Adapter
 ) {
   const entries = getEntries(options);
+  const babelConfig = {
+    presets: [
+      require.resolve('@babel/preset-typescript'),
+      [require.resolve('@babel/preset-env')],
+      [require.resolve('@babel/preset-react')],
+    ],
+    plugins: [require.resolve('@babel/plugin-proposal-class-properties')],
+  };
 
   const plugins = [
     commonjs({
@@ -40,12 +48,14 @@ export default function rollupConfig(
     babel({
       include: entries.pages,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [page],
-      presets: [
-        require.resolve('@babel/preset-typescript'),
-        [require.resolve('@babel/preset-env')],
-        [require.resolve('@babel/preset-react')],
-      ],
+      plugins: [page, ...babelConfig.plugins],
+      presets: babelConfig.presets,
+    }),
+    babel({
+      include: entries.app,
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      plugins: [app, ...babelConfig.plugins],
+      presets: babelConfig.presets,
     }),
     babel({
       babelrc: false,
@@ -53,18 +63,9 @@ export default function rollupConfig(
       plugins: [
         renameImport(argv.target),
         components(adapter),
-        require.resolve('@babel/plugin-proposal-class-properties'),
+        ...babelConfig.plugins,
       ],
-      presets: [
-        require.resolve('@babel/preset-typescript'),
-        [require.resolve('@babel/preset-env')],
-        [require.resolve('@babel/preset-react')],
-      ],
-    }),
-    babel({
-      include: entries.app,
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [app],
+      presets: babelConfig.presets,
     }),
     postcss({
       extract: true,
