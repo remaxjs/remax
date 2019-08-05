@@ -4,6 +4,7 @@ import { OutputChunk, Plugin } from 'rollup';
 import { getComponents } from './components';
 import ejs from 'ejs';
 import { RemaxOptions } from '../../getConfig';
+import readManifest from '../../readManifest';
 import getEntries from '../../getEntries';
 import { Adapter } from '../adapters';
 
@@ -42,22 +43,34 @@ async function createBaseTemplate(adapter: Adapter) {
   };
 }
 
-function createManifest(options: RemaxOptions) {
+function createAppManifest(options: RemaxOptions, target: string) {
   return {
     fileName: 'app.json',
     isAsset: true as true,
-    source: fs.readFileSync(path.resolve(options.cwd, 'src/app.json')),
+    source: JSON.stringify(
+      readManifest(path.resolve(options.cwd, 'src/app.config.js'), target),
+      null,
+      2
+    ),
   };
 }
 
-function createPageManifest(options: RemaxOptions, file: string) {
+function createPageManifest(
+  options: RemaxOptions,
+  file: string,
+  target: string
+) {
+  const configFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.config.js');
   const manifestFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.json');
-  const filePath = path.resolve(options.cwd, path.join('src', manifestFile));
-  if (fs.existsSync(filePath)) {
+  const configFilePath = path.resolve(
+    options.cwd,
+    path.join('src', configFile)
+  );
+  if (fs.existsSync(configFilePath)) {
     return {
       fileName: manifestFile,
       isAsset: true as true,
-      source: fs.readFileSync(filePath),
+      source: JSON.stringify(readManifest(configFilePath, target), null, 2),
     };
   }
 }
@@ -73,13 +86,15 @@ export default function template(
   return {
     name: 'template',
     generateBundle: async (_, bundle) => {
-      const pages = getEntries(options).pages;
       // app.json
-      const manifest = createManifest(options);
+      const manifest = createAppManifest(options, adapter.name);
       bundle[manifest.fileName] = manifest;
 
       const template = await createBaseTemplate(adapter);
       bundle[template.fileName] = template;
+
+      const entries = getEntries(options, adapter);
+      const { pages } = entries;
 
       const files = Object.keys(bundle);
       await Promise.all([
@@ -90,7 +105,12 @@ export default function template(
             if (isPage(filePath, pages)) {
               const template = await createTemplate(file, adapter);
               bundle[template.fileName] = template;
-              const config = await createPageManifest(options, file);
+              const config = await createPageManifest(
+                options,
+                file,
+                adapter.name
+              );
+
               if (config) {
                 bundle[config.fileName] = config;
               }

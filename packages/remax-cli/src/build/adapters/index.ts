@@ -1,4 +1,6 @@
 export interface Adapter {
+  name: string;
+
   extensions: {
     template: string;
     style: string;

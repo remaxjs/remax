@@ -1,5 +1,7 @@
 import * as path from 'path';
 
+export const name = 'alipay';
+
 export function hostComponents(component: string) {
   return require(`./hostComponents/${component}`);
 }

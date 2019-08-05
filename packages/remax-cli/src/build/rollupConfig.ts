@@ -12,6 +12,7 @@ import template from './plugins/template';
 import components from './plugins/components';
 import page from './plugins/page';
 import removeSrc from './plugins/removeSrc';
+import removeConfig from './plugins/removeConfig';
 import rename from './plugins/rename';
 import replace from 'rollup-plugin-replace';
 import * as React from 'react';
@@ -27,7 +28,6 @@ export default function rollupConfig(
   argv: any,
   adapter: Adapter
 ) {
-  const entries = getEntries(options);
   const babelConfig = {
     presets: [
       require.resolve('@babel/preset-typescript'),
@@ -36,6 +36,7 @@ export default function rollupConfig(
     ],
     plugins: [require.resolve('@babel/plugin-proposal-class-properties')],
   };
+  const entries = getEntries(options, adapter);
 
   const plugins = [
     commonjs({
@@ -118,6 +119,7 @@ export default function rollupConfig(
       },
     }),
     removeSrc({}),
+    removeConfig(),
     removeESModuleFlag(),
     template(options, adapter),
   ];
@@ -136,8 +138,8 @@ export default function rollupConfig(
 
   const config: RollupOptions = {
     input: [
-      entries.appConfigPath,
       entries.app,
+      entries.appConfigPath,
       ...entries.pages,
       ...entries.pageConfigPath,
     ],

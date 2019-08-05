@@ -1,5 +1,7 @@
 import * as path from 'path';
 
+export const name = 'wechat';
+
 export function hostComponents(component: string) {
   return require(`./hostComponents/${component}`);
 }
