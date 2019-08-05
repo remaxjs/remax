@@ -1,4 +1,4 @@
-import React, { CSSProperties, Props } from 'react';
+import React, { Props } from 'react';
 import propsAlias from './propsAlias';
 
 export { default as Input } from './Input';
