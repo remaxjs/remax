@@ -1,4 +1,5 @@
 export const props = [
+  'id',
   'class',
   'style',
   'value',
@@ -6,5 +7,7 @@ export const props = [
   'indicator-class',
   'mask-style',
   'mask-class',
-  'onChange',
+  'bindchange',
+  'bindpickstart',
+  'bindpickend',
 ];

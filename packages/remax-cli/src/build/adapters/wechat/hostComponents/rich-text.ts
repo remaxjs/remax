@@ -1,11 +1,13 @@
 export const props = [
+  'id',
   'class',
   'style',
   'nodes',
   'onTap',
-  'onTouchStart',
-  'onTouchMove',
-  'onTouchEnd',
-  'onTouchCancel',
-  'onLongTap',
+  'space',
+  'bindtouchstart',
+  'bindtouchmove',
+  'bindtouchend',
+  'bindtouchcancel',
+  'bindlongtap',
 ];

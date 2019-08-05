@@ -1,11 +1,12 @@
 export const props = [
+  'id',
   'src',
   'mode',
   'class',
   'style',
   'lazy-load',
-  'onLoad',
-  'onError',
-  'onTap',
-  'catchTap',
+  'bindload',
+  'binderror',
+  'bindtap',
+  'show-menu-by-longpress',
 ];

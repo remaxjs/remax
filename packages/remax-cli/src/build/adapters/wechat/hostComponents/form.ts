@@ -1,1 +1,9 @@
-export const props = ['class', 'style', 'report-submit', 'onSubmit', 'onReset'];
+export const props = [
+  'id',
+  'class',
+  'style',
+  'report-submit',
+  'bindsubmit',
+  'bindreset',
+  'report-submit-timeout',
+];

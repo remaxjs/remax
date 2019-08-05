@@ -1,9 +1,7 @@
 export const props = [
-  'id',
-  'class',
-  'style',
-  'src',
+  'unit-id',
+  'ad-intervals',
   'bindload',
   'binderror',
-  'bindtap',
+  'bindclose',
 ];

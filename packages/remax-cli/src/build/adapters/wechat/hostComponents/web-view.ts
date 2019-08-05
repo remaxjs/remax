@@ -1,1 +1,1 @@
-export const props = ['src', 'onMessage'];
+export const props = ['src', 'bindmessage', 'bindload', 'binderror'];

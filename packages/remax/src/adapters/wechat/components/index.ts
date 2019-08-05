@@ -1,9 +1,12 @@
-import React, { CSSProperties, Props, forwardRef } from 'react';
+import React, { Props, forwardRef } from 'react';
 import propsAlias from './propsAlias';
 
 export { default as Input } from './Input';
+export { default as Textarea } from './Textarea';
 
 export type HostComponent =
+  | 'ad'
+  | 'audio'
   | 'view'
   | 'scroll-view'
   | 'swiper'
@@ -19,8 +22,8 @@ export type HostComponent =
   | 'button'
   | 'checkbox-group'
   | 'checkbox'
+  | 'editor'
   | 'form'
-  | 'input'
   | 'label'
   | 'picker'
   | 'picker-view'
@@ -28,7 +31,6 @@ export type HostComponent =
   | 'radio'
   | 'slider'
   | 'switch'
-  | 'textarea'
   | 'navigator'
   | 'image'
   | 'video'
@@ -38,6 +40,8 @@ export type HostComponent =
   | 'map'
   | 'canvas'
   | 'open-data'
+  | 'web-view'
+  | 'functional-page-navigator'
   | 'official-account';
 
 interface IProps {
@@ -79,7 +83,6 @@ export const RadioGroup = factoryComponent('radio-group');
 export const Radio = factoryComponent('radio');
 export const Slider = factoryComponent('slider');
 export const Switch = factoryComponent('switch');
-export const Textarea = factoryComponent('textarea');
 export const Navigator = factoryComponent('navigator');
 export const Image = factoryComponent('image');
 export const Video = factoryComponent('video');
@@ -90,3 +93,10 @@ export const Map = factoryComponent('map');
 export const Canvas = factoryComponent('canvas');
 export const OpenData = factoryComponent('open-data');
 export const OfficialAccount = factoryComponent('official-account');
+export const Editor = factoryComponent('editor');
+export const Audio = factoryComponent('audio');
+export const Ad = factoryComponent('ad');
+export const WebView = factoryComponent('web-view');
+export const FunctionalPageNavigator = factoryComponent(
+  'functional-page-navigator'
+);

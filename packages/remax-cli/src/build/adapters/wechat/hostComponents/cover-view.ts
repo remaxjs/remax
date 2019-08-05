@@ -1,1 +1,1 @@
-export const props = ['class', 'style', 'onTap'];
+export const props = ['id', 'class', 'style', 'scroll-top', 'bindtap'];

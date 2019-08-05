@@ -1,10 +1,12 @@
 export const props = [
+  'id',
   'class',
   'style',
   'name',
   'checked',
   'disabled',
   'color',
-  'onChange',
+  'bindchange',
   'controlled',
+  'type',
 ];

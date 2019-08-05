@@ -6,25 +6,6 @@ export function hostComponents(component: string) {
   return require(`./hostComponents/${component}`);
 }
 
-export function propsAlias(prop: keyof typeof alias) {
-  const alias = {
-    className: 'class',
-    onClick: 'bindtap',
-  };
-
-  let aliasProp = alias[prop];
-
-  if (aliasProp) {
-    return aliasProp;
-  }
-
-  if (prop.startsWith('on')) {
-    return prop.toLowerCase().replace('on', 'bind');
-  }
-
-  return prop;
-}
-
 export const extensions = {
   template: '.wxml',
   style: '.wxss',
