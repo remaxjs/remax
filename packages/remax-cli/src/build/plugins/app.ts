@@ -22,21 +22,8 @@ export default () => ({
         const declaration = path.node.declaration;
         path.replaceWith(
           t.variableDeclaration('const', [
-<<<<<<< HEAD
             t.variableDeclarator(appId, declaration),
           ])
-        );
-        const createId = addNamed(path, 'createAppConfig', 'remax');
-        path.insertAfter(
-          t.exportDefaultDeclaration(
-            t.callExpression(t.identifier('App'), [
-              t.callExpression(createId, [appId]),
-            ])
-          )
-=======
-            t.variableDeclarator(appId, declaration)
-          ])
->>>>>>> fix create app config rollup plugin bug
         );
         appConfigExpression(path, appId);
         path.stop();
@@ -58,6 +45,6 @@ export default () => ({
         path.scope.rename('App', path.scope.generateUidIdentifier('App').name);
         return;
       }
-    }
-  }
+    },
+  },
 });
