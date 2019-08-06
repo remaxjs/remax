@@ -6,6 +6,10 @@ import { Adapter } from './build/adapters';
 
 interface AppConfig {
   pages: string[];
+  subpackages: {
+    root: string;
+    pages: string[];
+  }[];
 }
 
 interface Entries {
@@ -41,7 +45,7 @@ export default function getEntries(
     throw new Error(`${appConfigPath} is not found`);
   }
   const appConfig: AppConfig = readManifest(appConfigPath, adpater.name);
-  const { pages } = appConfig;
+  const { pages, subpackages = [] } = appConfig;
   if (!pages || pages.length === 0) {
     throw new Error(
       'app.config.js `pages` field should not be undefined or empty object'
@@ -60,6 +64,18 @@ export default function getEntries(
       f => f
     );
   }, []);
+
+  subpackages.forEach(pack => {
+    entries.pages = entries.pages.concat(
+      pack.pages.reduce((ret: string[], page) => {
+        return [
+          ...ret,
+          searchFile(path.join(options.cwd, 'src', pack.root, page)),
+        ].filter(f => f);
+      }, [])
+    );
+  });
+
   entries.pageConfigPath = pages.reduce((ret: string[], page) => {
     return [
       ...ret,
