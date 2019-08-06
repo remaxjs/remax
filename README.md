@@ -10,6 +10,9 @@
   <a href="https://travis-ci.org/remaxjs/remax">
     <img src="https://img.shields.io/travis/remaxjs/remax.svg?style=flat-square" alt="Travis CI build status" />
   </a>
+  <a href="https://remaxjs-slack-invite.herokuapp.com">
+    <img src="https://img.shields.io/badge/chat-on%20slack-brightgreen?style=flat-square&logo=slack" alt="Chat on Slack" />
+  </a>
 </p>
 
 **开发中，请勿用于生产环境**
