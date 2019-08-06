@@ -16,23 +16,20 @@
 
 Remax 将完整的 React 运行在小程序环境中，让你可以使用完整的 React 能力去开发小程序。
 
-
 ```javascript
 import * as React from 'react';
 import { View, Text, Button } from 'remax';
 
 export default () => {
-   const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0);
 
   return (
     <View>
       <Text>You clicked {count} times</Text>
-      <Button onClick={() => setCount(count + 1)}>
-        Click me
-      </Button>
+      <Button onClick={() => setCount(count + 1)}>Click me</Button>
     </View>
   );
-}
+};
 ```
 
 查看完整的 Demo 示例 [https://github.com/remaxjs/todo-demo](https://github.com/remaxjs/todo-demo)
@@ -40,10 +37,10 @@ export default () => {
 ## Roadmap
 
 - 🚧 支付宝小程序
+- 🚧 微信小程序
 - 🤔 [支付宝小程序组件库](https://github.com/ant-mini-program/mini-antui)
 - 🤔 集成 [umi](https://github.com/umijs/umi)，可以编译到 Web
 - 🤔 React Developer Tools
-- 🤔 微信小程序
 - 🤔 [WeUI](https://github.com/Tencent/weui)
 - 🤔 其他小程序
 
