@@ -1,4 +1,4 @@
-import React, { CSSProperties, Props } from 'react';
+import React, { CSSProperties, Props, forwardRef } from 'react';
 import propsAlias from './propsAlias';
 
 export { default as Input } from './Input';
@@ -46,11 +46,14 @@ interface IProps {
 
 function factoryComponent(component: HostComponent) {
   // props 类型存在问题
-  return <T>(props: Props<T> & IProps) => {
+  return forwardRef(<T>(props: Props<T> & IProps, ref: any) => {
     const { children = [] } = props;
-    // ts does not accept ...emptyArray
-    return React.createElement(component, propsAlias(props), children);
-  };
+    return React.createElement(
+      component,
+      propsAlias({ ...props, ref }),
+      children
+    );
+  });
 }
 
 export const View = factoryComponent('view');

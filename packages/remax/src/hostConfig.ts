@@ -35,6 +35,10 @@ const childHostContext = {};
 export default {
   now,
 
+  getPublicInstance: <T>(inst: T): T => {
+    return inst;
+  },
+
   getRootHostContext: () => {
     return rootHostContext;
   },
