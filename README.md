@@ -3,6 +3,7 @@
 </h1>
 
 <p align="center">
+  <strong>Learn once, write anywhere:</strong><br>
   使用真正的 React 构建小程序。
 </p>
 
@@ -17,7 +18,11 @@
 
 **开发中，请勿用于生产环境**
 
-Remax 将完整的 React 运行在小程序环境中，让你可以使用完整的 React 能力去开发小程序。
+Remax 将 React 运行在小程序环境中，让你可以使用完整的 React 能力去开发小程序。
+
+- **真正的 React** - 不同于静态编译的方案，你可以没有任何限制的使用 React 的能力去做开发，包括 React Hooks。
+- **多端支持** - 使用 Remax 把代码转换到多个小程序平台。
+- **TypeScript** - 完整的 TypeScript 支持，给你满满的安全感。
 
 ```javascript
 import * as React from 'react';
