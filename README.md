@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <quote>Learn once, write anywhere</quote><br>
+  <blockquote>Learn once, write anywhere</blockquote><br>
   <strong>使用真正的 React 构建小程序</strong>
 </p>
 
