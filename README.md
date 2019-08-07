@@ -3,8 +3,8 @@
 </h1>
 
 <p align="center">
-  <strong>Learn once, write anywhere:</strong><br>
-  使用真正的 React 构建小程序。
+  <quote>Learn once, write anywhere</quote><br>
+  <strong>使用真正的 React 构建小程序</strong>
 </p>
 
 <p align="center">
