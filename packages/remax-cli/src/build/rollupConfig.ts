@@ -8,6 +8,7 @@ import progress from 'rollup-plugin-progress';
 import clear from 'rollup-plugin-clear';
 import pxToUnits from 'postcss-px2units';
 import getEntries from '../getEntries';
+import getCssModuleConfig from '../getCssModuleConfig';
 import template from './plugins/template';
 import components from './plugins/components';
 import page from './plugins/page';
@@ -70,7 +71,7 @@ export default function rollupConfig(
     }),
     postcss({
       extract: true,
-      modules: options.cssModules,
+      modules: getCssModuleConfig(options.cssModules),
       plugins: [pxToUnits()],
     }),
     json({}),
