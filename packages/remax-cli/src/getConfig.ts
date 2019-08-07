@@ -3,7 +3,7 @@ import path from 'path';
 import defaultOptions from './defaultOptions';
 
 export interface RemaxOptions {
-  cssModules: boolean;
+  cssModules: boolean | RegExp;
   cwd: string;
   progress: boolean;
   output: string;
