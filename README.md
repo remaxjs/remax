@@ -24,6 +24,8 @@ Remax 将 React 运行在小程序环境中，让你可以使用完整的 React 
 - **多端支持** - 使用 Remax 把代码转换到多个小程序平台。
 - **TypeScript** - 完整的 TypeScript 支持，给你满满的安全感。
 
+## Example
+
 ```javascript
 import * as React from 'react';
 import { View, Text, Button } from 'remax';
