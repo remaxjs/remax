@@ -67,7 +67,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     },
 
     onShareAppMessage() {
-      this.wrapper.onShareAppMessage();
+      return this.wrapper.onShareAppMessage();
     },
 
     onTitleClick() {
