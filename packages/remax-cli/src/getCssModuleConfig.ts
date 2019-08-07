@@ -1,12 +1,16 @@
+import _ from 'lodash';
+
 function getCssModuleConfig(cssModule: boolean | RegExp) {
+  let regStr = cssModule.toString();
+
   if (typeof cssModule === 'boolean') {
-    return cssModule;
+    regStr = cssModule ? '^(?!.*.*)' : '(.*)';
+  } else {
+    regStr = '^(?!.*' + cssModule.toString().replace(/^\/|\/$/g, '') + ')';
   }
 
-  const regStr = new RegExp(cssModule).toString().replace(/^\/|\/$/g, '');
-
   return {
-    globalModulePaths: [new RegExp('^(?!.*' + regStr + ')')],
+    globalModulePaths: [new RegExp(regStr)],
   };
 }
 

@@ -38,6 +38,7 @@ export default function rollupConfig(
     plugins: [require.resolve('@babel/plugin-proposal-class-properties')],
   };
   const entries = getEntries(options, adapter);
+  const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
   const plugins = [
     commonjs({
@@ -71,7 +72,7 @@ export default function rollupConfig(
     }),
     postcss({
       extract: true,
-      modules: getCssModuleConfig(options.cssModules),
+      modules: cssModuleConfig,
       plugins: [pxToUnits()],
     }),
     json({}),
@@ -97,15 +98,24 @@ export default function rollupConfig(
     rename({
       include: 'src/**',
       map: input => {
-        return (
-          input &&
-          input
-            .replace(/^demo\/src\//, '')
-            .replace(/\.less$/, '.less.js')
-            .replace(/\.css$/, adapter.extensions.style)
-            .replace(/\.ts$/, '.js')
-            .replace(/\.tsx$/, '.js')
-        );
+        if (!input) {
+          return input;
+        }
+        input
+          .replace(/^demo\/src\//, '')
+          .replace(/\.less$/, '.less.js')
+          .replace(/\.ts$/, '.js')
+          .replace(/\.tsx$/, '.js');
+
+        // 不启用 css module 的 css 文件以及 app.css
+        if (
+          cssModuleConfig.globalModulePaths.some(reg => reg.test(input)) ||
+          input.indexOf('app.css') !== -1
+        ) {
+          return input.replace(/\.css/, adapter.extensions.style);
+        }
+
+        return input.replace(/\.css/, '.css.js');
       },
     }),
     rename({
@@ -148,7 +158,7 @@ export default function rollupConfig(
       dir: options.output,
       format: adapter.moduleFormat,
       exports: 'named',
-      sourcemap: true,
+      sourcemap: false,
     },
     preserveModules: true,
     preserveSymlinks: true,
