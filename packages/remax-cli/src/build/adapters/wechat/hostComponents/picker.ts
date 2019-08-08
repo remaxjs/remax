@@ -1,9 +1,16 @@
 export const props = [
+  'id',
   'class',
   'style',
   'range',
   'range-key',
   'value',
-  'onChange',
+  'bindchange',
+  'bindcancel',
+  'bindcolumnchange',
+  'start',
+  'end',
+  'fields',
+  'custom-item',
   'disabled',
 ];

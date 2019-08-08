@@ -6,7 +6,7 @@ import React, {
 } from 'react';
 import propsAlias from './propsAlias';
 
-export interface InputProps {
+export interface TextareaProps {
   id?: string;
   autoFocus?: boolean;
   className?: string;
@@ -58,7 +58,7 @@ function useInnerFocus(
   return [innerFocus, handleInnerFocus];
 }
 
-const InputRender: FunctionComponent<InputProps> = (props, ref) => {
+const TextareaRender: FunctionComponent<TextareaProps> = (props, ref) => {
   const {
     autoFocus,
     children,
@@ -80,13 +80,13 @@ const InputRender: FunctionComponent<InputProps> = (props, ref) => {
     ref,
   });
 
-  return React.createElement('input', inputProps, children);
+  return React.createElement('textarea', inputProps, children);
 };
 
-const Input = forwardRef(InputRender);
+const Textarea = forwardRef(TextareaRender);
 
-Input.defaultProps = {
+Textarea.defaultProps = {
   maxlength: -1,
 };
 
-export default Input;
+export default Textarea;

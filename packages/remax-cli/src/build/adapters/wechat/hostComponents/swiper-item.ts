@@ -1,1 +1,1 @@
-export const props = ['key'];
+export const props = ['key', 'id', 'class', 'style', 'item-id'];
