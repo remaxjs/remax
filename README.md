@@ -26,23 +26,12 @@ Remax 将 React 运行在小程序环境中，让你可以使用完整的 React 
 
 ## 示例
 
-```javascript
-import * as React from 'react';
-import { View, Text, Button } from 'remax';
+- [Todo](https://github.com/remaxjs/todo-demo)
 
-export default () => {
-  const [count, setCount] = React.useState(0);
+## 谁在使用
 
-  return (
-    <View>
-      <Text>You clicked {count} times</Text>
-      <Button onClick={() => setCount(count + 1)}>Click me</Button>
-    </View>
-  );
-};
-```
+<img src="https://user-images.githubusercontent.com/465125/62678119-1e628a80-b9e3-11e9-9c71-4fd7a2a730ea.jpg" width="240" />
 
-查看完整的 Demo 示例 [https://github.com/remaxjs/todo-demo](https://github.com/remaxjs/todo-demo)
 
 ## Roadmap
 
