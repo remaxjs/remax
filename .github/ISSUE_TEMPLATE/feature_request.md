@@ -1,7 +1,7 @@
 ---
 name: '功能需求 ✨'
 about: 对 remax 的需求或建议
-title: '[FEATURE]'
+title: '[需求]'
 labels: feature
 assignees: ''
 ---
