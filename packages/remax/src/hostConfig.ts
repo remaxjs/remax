@@ -142,7 +142,7 @@ export default {
     child.rootContext[REMAX_ROOT_BACKUP] =
       child.rootContext[REMAX_ROOT_BACKUP] || [];
     child.rootContext[REMAX_ROOT_BACKUP].push(parent);
-    child.rootContext.requestUpdate();
+    child.rootContext.executeUpdate();
   },
 
   removeChild(parentInstance: any, child: any) {

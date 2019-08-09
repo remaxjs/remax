@@ -14,7 +14,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     wrapper: null as any,
 
     onLoad(this: any, query: any) {
-      this.requestUpdate = debounce(() => {
+      const executeUpdate = () => {
         const data = pure(this[REMAX_ROOT_BACKUP]);
 
         const startTime = new Date().getTime();
@@ -31,6 +31,14 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
             }
           }
         );
+      };
+
+      // 直接执行 setData，用于第一次 render 等需要立即更新的场景
+      this.executeUpdate = executeUpdate;
+
+      // 合并 setData, 延迟执行提升效率
+      this.requestUpdate = debounce(() => {
+        executeUpdate();
       }, 1000 / 60);
 
       const PageWrapper = createPageWrapper(Page, query);

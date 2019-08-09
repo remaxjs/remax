@@ -12,6 +12,12 @@ class Context {
       [REMAX_ROOT]: pure(this[REMAX_ROOT_BACKUP]),
     };
   }
+
+  executeUpdate(this: any) {
+    this.data = {
+      [REMAX_ROOT]: pure(this[REMAX_ROOT_BACKUP]),
+    };
+  }
 }
 
 describe('remax render', () => {
