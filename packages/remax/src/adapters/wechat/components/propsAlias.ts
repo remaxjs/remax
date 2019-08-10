@@ -1,7 +1,9 @@
 import { CSSProperties } from 'react';
 
-const alias: any = {
+const alias: { [prop: string]: string } = {
   className: 'class',
+  activeColor: 'activeColor',
+  backgroundColor: 'backgroundColor',
   onClick: 'bindtap',
 };
 
