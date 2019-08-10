@@ -1,4 +1,5 @@
 import setDataImmutable from './setDataImmutable';
+import pages from './pages';
 
 class Page {
   config: any;
@@ -66,5 +67,7 @@ class Page {
 }
 
 export default function PageConstructor(config: any) {
-  return new Page(config);
+  const page = new Page(config);
+  pages.push(page.config);
+  return page;
 }
