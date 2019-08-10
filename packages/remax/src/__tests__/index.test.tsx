@@ -94,4 +94,35 @@ describe('remax render', () => {
     render(<Page />, context);
     expect(context.data).toMatchSnapshot();
   });
+
+  it('renders conditional fragment correctly', () => {
+    class Page extends React.Component {
+      state = {
+        show: false,
+      };
+
+      show() {
+        this.setState({ show: true });
+      }
+
+      render() {
+        if (this.state.show) {
+          return <View>foo</View>;
+        }
+
+        return (
+          <>
+            <View>one</View>
+            <View>two</View>
+          </>
+        );
+      }
+    }
+    const context = new Context();
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, context);
+    expect(context.data).toMatchSnapshot();
+    page.current.show();
+    expect(context.data).toMatchSnapshot();
+  });
 });

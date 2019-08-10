@@ -118,6 +118,68 @@ Object {
 }
 `;
 
+exports[`remax render renders conditional fragment correctly 1`] = `
+Object {
+  "$$REMAX_ROOT": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "text": "one",
+              "type": Symbol(text),
+            },
+          ],
+          "id": 0,
+          "props": Object {},
+          "type": "view",
+        },
+      ],
+      "type": "root",
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "text": "two",
+              "type": Symbol(text),
+            },
+          ],
+          "id": 1,
+          "props": Object {},
+          "type": "view",
+        },
+      ],
+      "type": "root",
+    },
+  ],
+}
+`;
+
+exports[`remax render renders conditional fragment correctly 2`] = `
+Object {
+  "$$REMAX_ROOT": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "text": "foo",
+              "type": Symbol(text),
+            },
+          ],
+          "id": 0,
+          "props": Object {},
+          "type": "view",
+        },
+      ],
+      "type": "root",
+    },
+  ],
+}
+`;
+
 exports[`remax render renders style 1`] = `
 Object {
   "$$REMAX_ROOT": Array [

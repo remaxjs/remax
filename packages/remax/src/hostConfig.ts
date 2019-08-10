@@ -126,7 +126,7 @@ export default {
 
   supportsMutation: true,
 
-  appendChildToContainer: (_parent: any, child: any) => {
+  appendChildToContainer(_parent: any, child: any) {
     let parent: any = null;
     if (_parent._rootContainer) {
       // append to root
@@ -149,7 +149,15 @@ export default {
     parentInstance.children.splice(parentInstance.children.indexOf(child), 1);
   },
 
-  removeChildFromContainer() {},
+  removeChildFromContainer(container: any, child: any) {
+    const root = container[REMAX_ROOT_BACKUP].find(
+      (root: any) => root.children.indexOf(child) > -1
+    );
+    container[REMAX_ROOT_BACKUP].splice(
+      container[REMAX_ROOT_BACKUP].indexOf(root),
+      1
+    );
+  },
 
   schedulePassiveEffects: scheduleDeferredCallback,
   cancelPassiveEffects: cancelDeferredCallback,
