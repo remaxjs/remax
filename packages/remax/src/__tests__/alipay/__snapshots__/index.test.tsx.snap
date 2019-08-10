@@ -107,7 +107,7 @@ Object {
           ],
           "id": 0,
           "props": Object {
-            "className": "foo",
+            "class": "foo",
           },
           "type": "view",
         },
