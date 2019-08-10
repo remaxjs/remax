@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { View, PageProps } from '../../src';
-import createPageConfig from '../createPageConfig';
+import './helpers/setupGlobals';
+import { View, PageProps } from '../../../src/adapters/alipay';
+import createPageConfig from '../../createPageConfig';
 import Page from './helpers/Page';
 
 describe('page', () => {
