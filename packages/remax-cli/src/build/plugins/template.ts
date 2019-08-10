@@ -44,21 +44,14 @@ async function createBaseTemplate(adapter: Adapter) {
 }
 
 function createAppManifest(options: RemaxOptions, target: string) {
-  const manifestConfigPath = path.resolve(options.cwd, 'src/app.json');
-  const manifestFilePath = path.resolve(options.cwd, 'src/app.config.js');
-
-  if (fs.existsSync(manifestConfigPath)) {
-    return {
-      fileName: 'app.json',
-      isAsset: true as true,
-      source: fs.readFileSync(manifestConfigPath, 'utf-8'),
-    };
-  }
-
   return {
     fileName: 'app.json',
     isAsset: true as true,
-    source: JSON.stringify(readManifest(manifestFilePath, target), null, 2),
+    source: JSON.stringify(
+      readManifest(path.resolve(options.cwd, 'src/app.config.js'), target),
+      null,
+      2
+    ),
   };
 }
 
@@ -73,19 +66,6 @@ function createPageManifest(
     options.cwd,
     path.join('src', configFile)
   );
-  const manifestFilePath = path.resolve(
-    options.cwd,
-    path.join('src', manifestFile)
-  );
-
-  if (fs.existsSync(manifestFilePath)) {
-    return {
-      fileName: manifestFile,
-      isAsset: true as true,
-      source: fs.readFileSync(manifestFilePath, 'utf-8'),
-    };
-  }
-
   if (fs.existsSync(configFilePath)) {
     return {
       fileName: manifestFile,
@@ -108,9 +88,7 @@ export default function template(
     generateBundle: async (_, bundle) => {
       // app.json
       const manifest = createAppManifest(options, adapter.name);
-      if (manifest) {
-        bundle[manifest.fileName] = manifest;
-      }
+      bundle[manifest.fileName] = manifest;
 
       const template = await createBaseTemplate(adapter);
       bundle[template.fileName] = template;
