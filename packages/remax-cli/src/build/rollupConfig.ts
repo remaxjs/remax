@@ -3,6 +3,7 @@ import path from 'path';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
+import url from 'rollup-plugin-url';
 import json from 'rollup-plugin-json';
 import postcss from 'rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
@@ -65,6 +66,11 @@ export default function rollupConfig(
         '/index.tsx',
       ],
       '@': path.resolve(options.cwd, 'src'),
+    }),
+    url({
+      limit: 0,
+      publicPath: '/',
+      include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
     }),
     commonjs({
       include: /node_modules/,
@@ -129,9 +135,17 @@ export default function rollupConfig(
 
         input = input
           .replace(/^demo\/src\//, '')
+          // stlye
           .replace(/\.less$/, '.less.js')
+          // typescript
           .replace(/\.ts$/, '.js')
-          .replace(/\.tsx$/, '.js');
+          .replace(/\.tsx$/, '.js')
+          // image
+          .replace(/\.png$/, 'png.js')
+          .replace(/\.gif$/, 'gif.js')
+          .replace(/\.svg$/, 'svg.js')
+          .replace(/\.jpeg$/, 'jpeg.js')
+          .replace(/\.jpg$/, 'jpg.js');
 
         // 不启用 css module 的 css 文件以及 app.css
         if (
