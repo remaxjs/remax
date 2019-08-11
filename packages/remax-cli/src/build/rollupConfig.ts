@@ -1,11 +1,14 @@
 import { RollupOptions, RollupWarning } from 'rollup';
+import path from 'path';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
+import url from 'rollup-plugin-url';
 import json from 'rollup-plugin-json';
 import postcss from 'rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
 import clear from 'rollup-plugin-clear';
+import alias from 'rollup-plugin-alias';
 import pxToUnits from 'postcss-px2units';
 import getEntries from '../getEntries';
 import getCssModuleConfig from '../getCssModuleConfig';
@@ -34,12 +37,40 @@ export default function rollupConfig(
       [require.resolve('@babel/preset-env')],
       [require.resolve('@babel/preset-react')],
     ],
-    plugins: [require.resolve('@babel/plugin-proposal-class-properties')],
+    plugins: [
+      require.resolve('@babel/plugin-proposal-class-properties'),
+      require.resolve('@babel/plugin-proposal-object-rest-spread'),
+      [
+        require.resolve('@babel/plugin-proposal-decorators'),
+        {
+          decoratorsBeforeExport: true,
+        },
+      ],
+    ],
   };
   const entries = getEntries(options, adapter);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
   const plugins = [
+    alias({
+      resolve: [
+        '',
+        '.ts',
+        '.js',
+        '.tsx',
+        '.jsx',
+        '/index.js',
+        '/index.jsx',
+        '/index.ts',
+        '/index.tsx',
+      ],
+      '@': path.resolve(options.cwd, 'src'),
+    }),
+    url({
+      limit: 0,
+      publicPath: '/',
+      include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
+    }),
     commonjs({
       include: /node_modules/,
       namedExports: {
@@ -96,11 +127,20 @@ export default function rollupConfig(
         if (!input) {
           return input;
         }
-        input
+
+        input = input
           .replace(/^demo\/src\//, '')
+          // stlye
           .replace(/\.less$/, '.less.js')
+          // typescript
           .replace(/\.ts$/, '.js')
-          .replace(/\.tsx$/, '.js');
+          .replace(/\.tsx$/, '.js')
+          // image
+          .replace(/\.png$/, 'png.js')
+          .replace(/\.gif$/, 'gif.js')
+          .replace(/\.svg$/, 'svg.js')
+          .replace(/\.jpeg$/, 'jpeg.js')
+          .replace(/\.jpg$/, 'jpg.js');
 
         // 不启用 css module 的 css 文件以及 app.css
         if (

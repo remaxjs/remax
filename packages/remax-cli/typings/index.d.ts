@@ -4,6 +4,8 @@ declare module 'rollup-plugin-json';
 declare module 'rollup-plugin-node-resolve';
 declare module 'rollup-plugin-progress';
 declare module 'rollup-plugin-clear';
+declare module 'rollup-plugin-alias';
+declare module 'rollup-plugin-url';
 declare module 'rollup-plugin-typescript';
 declare module 'postcss-px2units';
 declare module '@babel/helper-module-imports';
