@@ -21,7 +21,6 @@ import * as scheduler from 'scheduler';
 import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';
-import renameImport from './plugins/renameImport';
 import { Adapter } from './adapters';
 
 export default function rollupConfig(
@@ -63,11 +62,7 @@ export default function rollupConfig(
     babel({
       babelrc: false,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [
-        renameImport(argv.target),
-        components(adapter),
-        ...babelConfig.plugins,
-      ],
+      plugins: [components(adapter), ...babelConfig.plugins],
       presets: babelConfig.presets,
     }),
     postcss({
