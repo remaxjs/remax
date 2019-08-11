@@ -1,4 +1,5 @@
 import { RollupOptions, RollupWarning } from 'rollup';
+import path from 'path';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
@@ -6,6 +7,7 @@ import json from 'rollup-plugin-json';
 import postcss from 'rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
 import clear from 'rollup-plugin-clear';
+import alias from 'rollup-plugin-alias';
 import pxToUnits from 'postcss-px2units';
 import getEntries from '../getEntries';
 import getCssModuleConfig from '../getCssModuleConfig';
@@ -50,6 +52,20 @@ export default function rollupConfig(
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
   const plugins = [
+    alias({
+      resolve: [
+        '',
+        '.ts',
+        '.js',
+        '.tsx',
+        '.jsx',
+        '/index.js',
+        '/index.jsx',
+        '/index.ts',
+        '/index.tsx',
+      ],
+      '@': path.resolve(options.cwd, 'src'),
+    }),
     commonjs({
       include: /node_modules/,
       namedExports: {
@@ -110,7 +126,8 @@ export default function rollupConfig(
         if (!input) {
           return input;
         }
-        input
+
+        input = input
           .replace(/^demo\/src\//, '')
           .replace(/\.less$/, '.less.js')
           .replace(/\.ts$/, '.js')
