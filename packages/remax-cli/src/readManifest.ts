@@ -1,6 +1,6 @@
 export default function readManifest(path: string, target: string) {
   delete require.cache[require.resolve(path)];
-  const config = require(path)['default'] || require(path)[target];
+  const config = require(path) || require(path)[target];
 
   if (!config) {
     throw new Error(
