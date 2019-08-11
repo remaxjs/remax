@@ -1,3 +1,6 @@
+// TODO promise 化补充完整
+import promisify from '../../utils/promisify';
+
 export const getAppStub = getApp;
 
 export const addCardAuth = my.addCardAuth;
@@ -7,7 +10,7 @@ export const canIUse = my.canIUse;
 export const chooseAlipayContact = my.chooseAlipayContact;
 export const chooseCity = my.chooseCity;
 export const chooseContact = my.chooseContact;
-export const chooseImage = my.chooseImage;
+export const chooseImage = promisify(my.chooseImage);
 export const chooseLocation = my.chooseLocation;
 export const choosePhoneContact = my.choosePhoneContact;
 export const clearStorage = my.clearStorage;
@@ -73,9 +76,9 @@ export const hideToast = my.hideToast;
 export const loadFontFace = my.loadFontFace;
 export const makePhoneCall = my.makePhoneCall;
 export const multiLevelSelect = my.multiLevelSelect;
-export const navigateBack = my.navigateBack;
-export const navigateBackMiniProgram = my.navigateBackMiniProgram;
-export const navigateTo = my.navigateTo;
+export const navigateBack = promisify(my.navigateBack);
+export const navigateBackMiniProgram = promisify(my.navigateBackMiniProgram);
+export const navigateTo = promisify(my.navigateTo);
 export const navigateToMiniProgram = my.navigateToMiniProgram;
 export const notifyBLECharacteristicValueChange =
   my.notifyBLECharacteristicValueChange;
