@@ -35,7 +35,16 @@ export default function rollupConfig(
       [require.resolve('@babel/preset-env')],
       [require.resolve('@babel/preset-react')],
     ],
-    plugins: [require.resolve('@babel/plugin-proposal-class-properties')],
+    plugins: [
+      require.resolve('@babel/plugin-proposal-class-properties'),
+      require.resolve('@babel/plugin-proposal-object-rest-spread'),
+      [
+        require.resolve('@babel/plugin-proposal-decorators'),
+        {
+          decoratorsBeforeExport: true,
+        },
+      ],
+    ],
   };
   const entries = getEntries(options, adapter);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
