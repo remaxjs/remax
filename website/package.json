@@ -48,7 +48,7 @@
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build --prefix-paths",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "gatsby build --prefix-paths && echo remaxjs.org > public/CNAME && gh-pages -d public"
   },
   "devDependencies": {
     "gatsby-plugin-remove-trailing-slashes": "^2.0.11",
