@@ -18,11 +18,11 @@
     "emotion-theming": "^10.0.10",
     "gatsby": "^2.4.2",
     "gatsby-link": "^2.1.1",
-    "gatsby-plugin-mdx": "^1.0.23",
     "gatsby-plugin-catch-links": "^2.1.2",
     "gatsby-plugin-emotion": "3.0.1",
     "gatsby-plugin-gtag": "^1.0.10",
     "gatsby-plugin-layout": "^1.0.15",
+    "gatsby-plugin-mdx": "^1.0.23",
     "gatsby-plugin-react-helmet": "3.0.12",
     "gatsby-plugin-sharp": "^2.0.35",
     "gatsby-plugin-sitemap": "^2.0.12",
@@ -47,10 +47,12 @@
   "main": "n/a",
   "scripts": {
     "start": "gatsby develop",
-    "build": "gatsby build --prefix-paths"
+    "build": "gatsby build --prefix-paths",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "devDependencies": {
     "gatsby-plugin-remove-trailing-slashes": "^2.0.11",
+    "gh-pages": "^2.1.1",
     "prism-react-renderer": "^0.1.6"
   }
 }

@@ -21,8 +21,8 @@ const config = {
     ignoreIndex: true,
   },
   siteMetadata: {
-    title: 'Remax',
-    description: 'Remax: 全新的小程序开发体验',
+    title: 'Remax - 全新的小程序开发体验',
+    description: '使用真正的 React 构建小程序',
     ogImage: null,
     docsLocation: 'https://github.com/remaxjs/remax/tree/master/docs',
     favicon:
