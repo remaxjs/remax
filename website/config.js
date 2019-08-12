@@ -2,7 +2,7 @@ const config = {
   gatsby: {
     pathPrefix: '/',
     siteUrl: 'https://remaxjs.org',
-    gaTrackingId: null,
+    gaTrackingId: 'UA-145491804-1',
   },
   header: {
     logo:
