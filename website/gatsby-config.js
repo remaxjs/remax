@@ -73,7 +73,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-gtag`,
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'readme',
+        path: `${__dirname}/../README.md`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-gtag',
       options: {
         // your google analytics tracking id
         trackingId: config.gatsby.gaTrackingId,

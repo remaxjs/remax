@@ -1,9 +1,14 @@
+---
+metaTitle: 'Remax'
+metaDescription: 'Remax'
+---
+
 <h1 align="center">
   Remax
 </h1>
 
 <p align="center">
-  <span>Learn once, write anywhere</span><br>
+  <span>Learn once, write anywhere</span><br/>
   <strong>使用真正的 React 构建小程序</strong>
 </p>
 
@@ -31,7 +36,6 @@ Remax 将 React 运行在小程序环境中，让你可以使用完整的 React 
 ## 谁在使用
 
 <img src="https://user-images.githubusercontent.com/465125/62678119-1e628a80-b9e3-11e9-9c71-4fd7a2a730ea.jpg" width="180" />
-
 
 ## Roadmap
 
