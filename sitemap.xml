@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://remaxjs.org/API</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/介绍</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/指南</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/常见问题</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/指南/页面数据共享</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/开发/TypeScript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/指南/跨平台开发</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/开发</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/开发/小程序API</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/开发/React</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/开发/平台信息</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/开发/开始（支付宝小程序）</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/开发/生命周期</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/开发/组件</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/开发/样式</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/开发/开始（微信小程序）</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/开发/配置</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/开发/页面传参</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/介绍/示例</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/介绍/关于Remax</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+</urlset>
