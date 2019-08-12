@@ -122,7 +122,11 @@ export default class MDXRuntimeTest extends Component {
       });
 
     // meta tags
-    const metaTitle = mdx.frontmatter.metaTitle;
+    const defaultTitle = 'Remax 全新的小程序开发体验';
+    const metaTitle =
+      mdx.fields.title !== 'README'
+        ? `${mdx.fields.title} - ${defaultTitle}`
+        : defaultTitle;
     const metaDescription = mdx.frontmatter.metaDescription;
     let canonicalUrl = config.gatsby.siteUrl;
     canonicalUrl =

@@ -1,8 +1,3 @@
----
-metaTitle: 'Remax'
-metaDescription: 'Remax'
----
-
 <h1 align="center">
   Remax
 </h1>
