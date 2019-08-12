@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import styled, { injectGlobal } from 'react-emotion';
-import { Layout, Link } from '$components';
+import { Layout } from '$components';
 import NextPrevious from '../components/NextPrevious';
 import '../components/styles.css';
 import config from '../../config';
@@ -157,7 +157,7 @@ export default class MDXRuntimeTest extends Component {
           </div>
         )}
         <div className={'mainWrapper'}>
-          <MDXRenderer>{mdx.code.body}</MDXRenderer>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
         </div>
         <div className={'addPaddTopBottom'}>
           <NextPrevious mdx={mdx} nav={nav} />
@@ -181,9 +181,7 @@ export const pageQuery = graphql`
         title
         slug
       }
-      code {
-        body
-      }
+      body
       tableOfContents
       parent {
         ... on File {

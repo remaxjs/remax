@@ -18,7 +18,7 @@
     "emotion-theming": "^10.0.10",
     "gatsby": "2.4.2",
     "gatsby-link": "^2.1.1",
-    "gatsby-mdx": "^0.6.2",
+    "gatsby-plugin-mdx": "^1.0.23",
     "gatsby-plugin-catch-links": "^2.1.2",
     "gatsby-plugin-emotion": "3.0.1",
     "gatsby-plugin-gtag": "^1.0.10",

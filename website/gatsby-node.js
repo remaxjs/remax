@@ -1,4 +1,3 @@
-const componentWithMDXScope = require('gatsby-mdx/component-with-mdx-scope');
 const path = require('path');
 const startCase = require('lodash.startcase');
 
@@ -18,9 +17,6 @@ exports.createPages = ({ graphql, actions }) => {
                   tableOfContents
                   fields {
                     slug
-                  }
-                  code {
-                    scope
                   }
                 }
               }
