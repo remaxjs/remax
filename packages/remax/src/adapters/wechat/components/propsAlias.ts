@@ -21,11 +21,18 @@ function getAlias(prop: string) {
   return prop;
 }
 
+const transformReactStyleKey = (key: string) =>
+  key
+    .replace(/\.?([A-Z]+)/g, function(_x: any, y: string) {
+      return '-' + y.toLowerCase();
+    })
+    .replace(/^-/, '');
+
 const styleString = (style: CSSProperties) =>
   Object.keys(style)
     .reduce((acc: string[], key) => {
       const value = (style as any)[key];
-      return [...acc, `${key}:${value}`];
+      return [...acc, `${transformReactStyleKey(key)}:${value}`];
     }, [])
     .join(';');
 
