@@ -3,9 +3,7 @@ export default function readManifest(path: string, target: string) {
   const config = require(path)[target] || require(path);
 
   if (!config) {
-    throw new Error(
-      `config.js does not have default config or ${target} config`
-    );
+    throw new Error(`${path} does not have default config or ${target} config`);
   }
 
   return config;
