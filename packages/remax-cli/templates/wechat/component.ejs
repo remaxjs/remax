@@ -7,9 +7,9 @@
     <% } %>
   >
     <% if (id === 'swiper') { %>
-      <block wx:for="{{item.children}}">
+      <block wx:for="{{item.children}}" wx:key="{{item.props.__key__}}">
         <swiper-item key="{{item.props.__key__}}" >
-          <block wx:for="{{item.children}}">
+          <block wx:for="{{item.children}}" wx:key="{{item.props.__key__}}">
             <template is="REMAX_TPL_<%= templateId%>" data="{{item}}"/>
           </block>
         </swiper-item>
