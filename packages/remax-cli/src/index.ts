@@ -4,20 +4,15 @@ import build from './build';
 cli
   .scriptName('remax-cli')
   .usage('Usage: $0 <command> [options]')
-  .command<any>(
-    'build',
-    'build your project',
-    () => {},
-    (argv: any) => build(argv)
-  )
+  .command<any>('build', '编译项目', () => {}, (argv: any) => build(argv))
   .option('watch', {
-    describe: 'watch project',
+    describe: '监听文件变化',
     alias: 'w',
     type: 'boolean',
     default: false,
   })
   .option('target', {
-    describe: 'target platform',
+    describe: '目标平台，如wechat，alipay',
     alias: 't',
     type: 'string',
     required: true,
