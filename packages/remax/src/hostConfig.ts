@@ -1,6 +1,8 @@
 import * as scheduler from 'scheduler';
-import { REMAX_ROOT_BACKUP, REMAX_METHOD, TYPE_TEXT } from './constants';
+import shallowequal from 'shallowequal';
+import { REMAX_METHOD, TYPE_TEXT } from './constants';
 import { generate } from './instanceId';
+import VNode from './VNode';
 
 /**
  * rootContext Page 实例
@@ -55,15 +57,6 @@ export default {
     return childHostContext;
   },
 
-  prepareUpdate() {
-    return true;
-  },
-
-  commitTextUpdate(textInstance: any, oldText: string, newText: string) {
-    textInstance.text = newText;
-    textInstance.rootContext.requestUpdate();
-  },
-
   createInstance: (
     type: string,
     newProps: any,
@@ -72,97 +65,76 @@ export default {
   ) => {
     const rootContext = rootContainerInstance;
     const id = generate();
-
     const props = processProps(newProps, rootContext, id);
-
-    const ins = {
-      type: type === 'div' ? 'view' : type,
-      props,
-      children: [],
-      rootContext,
-      id,
-    };
-
-    return ins;
+    return new VNode(id, type, props, rootContext);
   },
 
-  createTextInstance(text: string) {
-    return {
-      type: TYPE_TEXT,
-      text,
-    };
+  createTextInstance(text: string, rootContainerInstance: any) {
+    const rootContext = rootContainerInstance;
+    const id = generate();
+    const node = new VNode(id, TYPE_TEXT, null, rootContext);
+    node.text = text;
+    return node;
+  },
+
+  commitTextUpdate(node: VNode, oldText: string, newText: string) {
+    node.text = newText;
+    if (oldText !== newText) {
+      node.page.updateData(node.path(), node.toJSON());
+    }
+  },
+
+  prepareUpdate(node: VNode, type: string, oldProps: any, newProps: any) {
+    oldProps = processProps(oldProps, node.page, node.id);
+    newProps = processProps(newProps, node.page, node.id);
+    if (!shallowequal(newProps, oldProps)) {
+      return true;
+    }
+    return null;
   },
 
   commitUpdate(
-    targetIns: any,
+    node: VNode,
     updatePayload: any,
     type: string,
     oldProps: any,
     newProps: any
   ) {
-    const props = processProps(newProps, targetIns.rootContext, targetIns.id);
-    targetIns.props = props;
-    targetIns.rootContext.requestUpdate();
+    node.props = processProps(newProps, node.page, node.id);
+    node.page.updateData(node.path(), node.toJSON());
   },
 
-  appendInitialChild: (parent: any, child: any) => {
-    child.rootContext = parent.rootContext;
-    parent.children.push(child);
-    child.rootContext.requestUpdate();
+  appendInitialChild: (parent: VNode, child: VNode) => {
+    parent.appendChild(child);
   },
 
-  appendChild(parent: any, child: any) {
-    child.rootContext = parent.rootContext;
-    parent.children.push(child);
-    child.rootContext.requestUpdate();
+  appendChild(parent: VNode, child: VNode) {
+    parent.appendChild(child);
   },
 
-  insertBefore(parent: any, child: any, beforeChild: any) {
-    child.rootContext = parent.rootContext;
-    parent.children.splice(parent.children.indexOf(beforeChild), 0, child);
-    child.rootContext.requestUpdate();
+  insertBefore(parent: VNode, child: VNode, beforeChild: VNode) {
+    parent.insertBefore(child, beforeChild);
   },
 
-  insertInContainerBefore() {},
+  removeChild(parent: VNode, child: VNode) {
+    parent.removeChild(child);
+  },
 
   finalizeInitialChildren: () => {
     return false;
   },
 
-  supportsMutation: true,
-
-  appendChildToContainer(_parent: any, child: any) {
-    let parent: any = null;
-    if (_parent._rootContainer) {
-      // append to root
-      parent = {
-        type: 'root',
-        children: [],
-        rootContext: _parent,
-      };
-    }
-
-    parent.children.push(child);
-
-    child.rootContext[REMAX_ROOT_BACKUP] =
-      child.rootContext[REMAX_ROOT_BACKUP] || [];
-    child.rootContext[REMAX_ROOT_BACKUP].push(parent);
-    child.rootContext.executeUpdate();
+  appendChildToContainer(container: any, child: VNode) {
+    container.appendChild(child);
+    child.mounted = true;
   },
 
-  removeChild(parentInstance: any, child: any) {
-    parentInstance.children.splice(parentInstance.children.indexOf(child), 1);
-    parentInstance.rootContext.requestUpdate();
+  insertInContainerBefore(container: any, child: VNode, beforeChild: VNode) {
+    container.insertBefore(child, beforeChild);
   },
 
-  removeChildFromContainer(container: any, child: any) {
-    const root = container[REMAX_ROOT_BACKUP].find(
-      (root: any) => root.children.indexOf(child) > -1
-    );
-    container[REMAX_ROOT_BACKUP].splice(
-      container[REMAX_ROOT_BACKUP].indexOf(root),
-      1
-    );
+  removeChildFromContainer(container: any, child: VNode) {
+    container.removeChild(child);
   },
 
   schedulePassiveEffects: scheduleDeferredCallback,
@@ -170,4 +142,6 @@ export default {
   shouldYield,
   scheduleDeferredCallback,
   cancelDeferredCallback,
+
+  supportsMutation: true,
 };

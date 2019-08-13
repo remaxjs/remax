@@ -1,23 +1,28 @@
 import * as React from 'react';
 import './helpers/setupGlobals';
 import { render, View } from '../../../src/adapters/alipay';
-import { REMAX_ROOT_BACKUP, REMAX_ROOT } from '../../constants';
-import pure from '../../utils/pure';
 import { reset } from '../../instanceId';
+import VNode from '../../VNode';
 
 class Context {
-  data: any;
+  root: VNode[] = [];
 
-  requestUpdate(this: any) {
-    this.data = {
-      [REMAX_ROOT]: pure(this[REMAX_ROOT_BACKUP]),
-    };
+  updateData() {}
+
+  appendChild(child: VNode) {
+    this.root.push(child);
   }
 
-  executeUpdate(this: any) {
-    this.data = {
-      [REMAX_ROOT]: pure(this[REMAX_ROOT_BACKUP]),
-    };
+  removeChild(child: VNode) {
+    const start = this.root.indexOf(child);
+    if (start >= 0) {
+      this.root.splice(start, 1);
+    }
+  }
+
+  insertBefore(child: VNode, beforeChild: VNode) {
+    const start = this.root.indexOf(beforeChild);
+    this.root.splice(start, 0, child);
   }
 }
 
@@ -30,7 +35,7 @@ describe('remax render', () => {
     const Page = () => <View className="foo">hello</View>;
     const context = new Context();
     render(<Page />, context);
-    expect(context.data).toMatchSnapshot();
+    expect(context.root).toMatchSnapshot();
   });
 
   it('insert new element', () => {
@@ -60,9 +65,9 @@ describe('remax render', () => {
     const context = new Context();
     const page = React.createRef<any>();
     render(<Page ref={page} />, context);
-    expect(context.data).toMatchSnapshot();
+    expect(context.root).toMatchSnapshot();
     page.current.update();
-    expect(context.data).toMatchSnapshot();
+    expect(context.root).toMatchSnapshot();
   });
 
   it('umount component', () => {
@@ -82,9 +87,9 @@ describe('remax render', () => {
     const context = new Context();
     const page = React.createRef<any>();
     render(<Page ref={page} />, context);
-    expect(context.data).toMatchSnapshot();
+    expect(context.root).toMatchSnapshot();
     page.current.hide();
-    expect(context.data).toMatchSnapshot();
+    expect(context.root).toMatchSnapshot();
   });
 
   it('renders style', () => {
@@ -93,10 +98,8 @@ describe('remax render', () => {
     );
     const context = new Context();
     render(<Page />, context);
-    expect(context.data).toMatchSnapshot();
-
-    const style = context.data[REMAX_ROOT][0].children[0].props.style;
-
+    expect(context.root).toMatchSnapshot();
+    const style = context.root[0].children![0].props.style;
     expect(style[style.length - 1]).toBe(';');
   });
 
@@ -126,8 +129,8 @@ describe('remax render', () => {
     const context = new Context();
     const page = React.createRef<any>();
     render(<Page ref={page} />, context);
-    expect(context.data).toMatchSnapshot();
+    expect(context.root).toMatchSnapshot();
     page.current.show();
-    expect(context.data).toMatchSnapshot();
+    expect(context.root).toMatchSnapshot();
   });
 });

@@ -26,7 +26,8 @@
   "homepage": "https://github.com/remaxjs/remax#readme",
   "dependencies": {
     "react-reconciler": "0.20.4",
-    "scheduler": "0.13.6"
+    "scheduler": "0.13.6",
+    "shallowequal": "^1.1.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.2.3",

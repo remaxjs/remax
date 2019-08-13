@@ -1,48 +1,77 @@
 import * as React from 'react';
 import createPageWrapper from './createPageWrapper';
 import render from './render';
-import { REMAX_ROOT_BACKUP, REMAX_ROOT } from './constants';
-import pure from './utils/pure';
-import debounce from './utils/debounce';
 import { Lifecycle, callbackName } from './lifecycle';
+import VNode from './VNode';
 
 export default function createPageConfig(Page: React.ComponentType<any>) {
   return {
     data: {
-      $$REMAX_ROOT: [],
+      root: [],
     },
+
+    root: [],
 
     wrapper: null as any,
 
     lifecycleCallback: {} as any,
 
     onLoad(this: any, query: any) {
-      const executeUpdate = () => {
-        const data = pure(this[REMAX_ROOT_BACKUP]);
-
+      this.updateData = (path: string, data: any) => {
         const startTime = new Date().getTime();
-
         this.setData(
           {
-            [REMAX_ROOT]: data,
+            [`root${path}`]: data,
           },
           () => {
             if (process.env.NODE_ENV !== 'production') {
               console.log(
-                `setData => 回调时间：${new Date().getTime() - startTime}ms`
+                `updateData => 回调时间：${new Date().getTime() - startTime}ms`
               );
             }
           }
         );
       };
 
-      // 直接执行 setData，用于第一次 render 等需要立即更新的场景
-      this.executeUpdate = executeUpdate;
+      this.spliceData = (
+        path: string,
+        start: number,
+        deleteCount: number,
+        ...items: any[]
+      ) => {
+        const startTime = new Date().getTime();
+        this.$spliceData(
+          {
+            [`root${path}`]: [start, deleteCount, ...items],
+          },
+          () => {
+            if (process.env.NODE_ENV !== 'production') {
+              console.log(
+                `spliceData => 回调时间：${new Date().getTime() - startTime}ms`
+              );
+            }
+          }
+        );
+      };
 
-      // 合并 setData, 延迟执行提升效率
-      this.requestUpdate = debounce(() => {
-        executeUpdate();
-      }, 1000 / 60);
+      this.appendChild = (child: VNode) => {
+        this.root.push(child);
+        this.updateData(child.path(), child.toJSON());
+      };
+
+      this.removeChild = (child: VNode) => {
+        const start = this.root.indexOf(child);
+        if (start >= 0 && !this.unloaded) {
+          this.root.splice(start, 1);
+          this.spliceData(child.path(), start, 1);
+        }
+      };
+
+      this.insertBefore = (child: VNode, beforeChild: VNode) => {
+        const start = this.root.indexOf(beforeChild);
+        this.root.splice(start, 0, child);
+        this.spliceData(child.path(), start, 0, child);
+      };
 
       const PageWrapper = createPageWrapper(Page, query);
 
@@ -53,6 +82,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     },
 
     onUnload(this: any) {
+      this.unloaded = true;
       if (this.requestUpdate) {
         this.requestUpdate.clear();
       }
