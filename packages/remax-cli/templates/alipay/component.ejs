@@ -13,7 +13,7 @@
     <% } %>
   >
     <% if (id === 'swiper') { %>
-      <block a:for="{{item.children}}">
+      <block a:for="{{item.children}}" a:key="{{item.id}}">
         <swiper-item key="{{item.props.__key__}}" >
           <block a:for="{{item.children}}">
             <template is="REMAX_TPL_1" data="{{item}}"/>
@@ -21,7 +21,7 @@
         </swiper-item>
       </block>
     <% } else { %>
-      <block a:for="{{item.children}}">
+      <block a:for="{{item.children}}" a:key="{{item.props.__key__}}">
         <template is="REMAX_TPL_1" data="{{item}}"/>
       </block>
     <% } %>
