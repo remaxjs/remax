@@ -25,6 +25,7 @@
     "@babel/types": "^7.4.4",
     "@betit/rollup-plugin-rename-extensions": "^0.0.4",
     "@types/node": "^12.6.1",
+    "babel-plugin-transform-async-to-promises": "^0.8.14",
     "commander": "^2.19.0",
     "ejs": "^2.6.1",
     "less": "^3.9.0",

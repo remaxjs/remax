@@ -48,6 +48,11 @@ export default function rollupConfig(
       ],
     ],
   };
+
+  if (adapter.name !== 'alipay') {
+    babelConfig.plugins.unshift('babel-plugin-transform-async-to-promises');
+  }
+
   const entries = getEntries(options, adapter);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
