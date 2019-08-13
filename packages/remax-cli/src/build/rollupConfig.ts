@@ -68,6 +68,7 @@ export default function rollupConfig(
     }),
     url({
       limit: 0,
+      fileName: '[dirname][name][extname]',
       publicPath: '/',
       include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
     }),
@@ -136,11 +137,11 @@ export default function rollupConfig(
           .replace(/\.ts$/, '.js')
           .replace(/\.tsx$/, '.js')
           // image
-          .replace(/\.png$/, 'png.js')
-          .replace(/\.gif$/, 'gif.js')
-          .replace(/\.svg$/, 'svg.js')
-          .replace(/\.jpeg$/, 'jpeg.js')
-          .replace(/\.jpg$/, 'jpg.js');
+          .replace(/\.png$/, '.png.js')
+          .replace(/\.gif$/, '.gif.js')
+          .replace(/\.svg$/, '.svg.js')
+          .replace(/\.jpeg$/, '.jpeg.js')
+          .replace(/\.jpg$/, '.jpg.js');
 
         // 不启用 css module 的 css 文件以及 app.css
         if (
