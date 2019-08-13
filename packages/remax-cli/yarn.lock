@@ -1538,6 +1538,11 @@ babel-plugin-jest-hoist@^24.6.0:
   dependencies:
     "@types/babel__traverse" "^7.0.6"
 
+babel-plugin-transform-async-to-promises@^0.8.14:
+  version "0.8.14"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-async-to-promises/-/babel-plugin-transform-async-to-promises-0.8.14.tgz#8c783aecb1139f39c608f8bb0f5bb69c343c878e"
+  integrity sha512-BHw2WriDbnLwaaIydAjVeXXKBal0pWlFWxfo0UKL2CTaSorvRocrsTflni/mzIOP8c+EJ8xHqtbre8GbIm4ehQ==
+
 babel-preset-jest@^24.6.0:
   version "24.6.0"
   resolved "https://registry.npm.taobao.org/babel-preset-jest/download/babel-preset-jest-24.6.0.tgz#66f06136eefce87797539c0d63f1769cc3915984"
@@ -5373,10 +5378,10 @@ regjsparser@^0.6.0:
   dependencies:
     jsesc "~0.5.0"
 
-remax@^1.0.1-dev.0:
-  version "1.0.1-dev.0"
-  resolved "https://registry.yarnpkg.com/remax/-/remax-1.0.1-dev.0.tgz#1ac55012651c86aaaffd6898a4ce906a211abde7"
-  integrity sha512-2dmwVebG6wRWDpfSaaDyqsiKPMYOjNENW88KmnwjVkgHSIIE8DbPQpupVA6oTXpFNtPZXpBzgaPSR5q8PpW8OA==
+remax@^1.0.1-dev.1:
+  version "1.0.1-dev.1"
+  resolved "https://registry.yarnpkg.com/remax/-/remax-1.0.1-dev.1.tgz#cdb5d042b1b85853b9bb35dbf2309513581de7eb"
+  integrity sha512-4Iotf4npNJAjKjBTgwJ3tVtn5nWdfo6edElzDG49TDMWPTNfpTtHttjJ74w3EScop3uPtezArx5ehAqtilHtgA==
   dependencies:
     antd-mobile "^2.2.14"
     react-reconciler "0.20.4"
