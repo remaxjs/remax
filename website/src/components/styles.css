@@ -46,7 +46,7 @@ body {
 
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
-  background-color: #542683;
+  background-color: #1b73fa;
 }
 
 .headerWrapper {
@@ -242,7 +242,7 @@ pre {
 }
 
 .hideFrontLine .active > a {
-  background-color: #542683;
+  background-color: #1b73fa;
   color: #fff !important;
 }
 
@@ -280,7 +280,7 @@ pre {
   color: #fff !important;
 }
 .showFrontLine .item > a:hover {
-  background-color: #542683;
+  background-color: #1b73fa;
 }
 .showFrontLine .active > a {
   color: #fff;
@@ -306,7 +306,7 @@ pre {
   border-color: rgb(230, 236, 241) !important;
   border-style: solid none solid solid;
   border-width: 1px 0px 1px 1px;
-  background-color: #542683;
+  background-color: #1b73fa;
   color: #fff;
 }
 
