@@ -40,13 +40,6 @@ export default (adapter: Adapter) => () => ({
         node.openingElement.attributes.map(e => {
           if (t.isJSXAttribute(e)) {
             const propName = get(e, 'name.name') as string;
-
-            if (propName === 'key') {
-              node.openingElement.attributes.push(
-                t.jsxAttribute(t.jsxIdentifier('__key__'), e.value)
-              );
-              return '__key__';
-            }
             return propName;
           }
         });

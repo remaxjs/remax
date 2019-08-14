@@ -50,7 +50,9 @@ export default function rollupConfig(
   };
 
   if (adapter.name !== 'alipay') {
-    babelConfig.plugins.unshift('babel-plugin-transform-async-to-promises');
+    babelConfig.plugins.unshift(
+      require.resolve('babel-plugin-transform-async-to-promises')
+    );
   }
 
   const entries = getEntries(options, adapter);
