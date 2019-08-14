@@ -1,21 +1,30 @@
 <template name="REMAX_TPL">
   <block wx:for="{{$$REMAX_ROOT}}" wx:key="{{item.id}}">
-    <template is="REMAX_TPL_1" data="{{item}}"/>
+    <template is="REMAX_TPL_1" data="{{i: item}}"/>
   </block>
 </template>
+
+<wxs module="_h">
+  var v = function(value) {
+    return value !== undefined ? value : ''
+  }
+  module.exports = {
+    v: v
+  }
+</wxs>
 
 <% for (var i = 1; i <= 50; i++) { %>
     <%var id = i; %>
 <template name="REMAX_TPL_<%= id%>">
   <block>
-    <block wx:if="{{item && item.text}}">
+    <block wx:if="{{i && i.text}}">
       <!-- string -->
-      {{item.text}}
+      {{i.text}}
     </block>
 
-    <block wx:if="{{item.type === 'root'}}">
-      <block wx:for="{{item.children}}" wx:key="{{item.props.__key__}}">
-        <template is="REMAX_TPL_<%= id + 1%>" data="{{item}}"/>
+    <block wx:if="{{i.type === 'root'}}">
+      <block wx:for="{{i.children}}" wx:key="{{item.id}}">
+        <template is="REMAX_TPL_<%= id + 1%>" data="{{ i: item}}"/>
       </block>
     </block>
 
