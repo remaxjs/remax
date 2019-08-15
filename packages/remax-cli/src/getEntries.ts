@@ -73,7 +73,7 @@ export default function getEntries(
   };
 
   entries.pages = pages.reduce(
-    (ret: Array<{ path: string; file: string }>, page) => {
+    (ret: Array<{ path: string; file: string }>, page: string) => {
       return [
         ...ret,
         {
@@ -85,7 +85,7 @@ export default function getEntries(
     []
   );
 
-  subpackages.forEach(pack => {
+  subpackages.forEach((pack: { pages: string[]; root: string }) => {
     entries.pages = entries.pages.concat(
       pack.pages.reduce((ret: Array<{ path: string; file: string }>, page) => {
         return [
@@ -99,7 +99,7 @@ export default function getEntries(
     );
   });
 
-  entries.pageConfigPath = pages.reduce((ret: string[], page) => {
+  entries.pageConfigPath = pages.reduce((ret: string[], page: string) => {
     return [
       ...ret,
       searchFile(path.join(options.cwd, 'src', page), 'config.js'),
