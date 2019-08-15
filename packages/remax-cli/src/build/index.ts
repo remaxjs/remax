@@ -1,6 +1,7 @@
 import * as rollup from 'rollup';
 import rollupConfig from './rollupConfig';
 import getConfig from '../getConfig';
+import { Context } from '../types';
 
 const COLORS = {
   red: '\x1b[31m',
@@ -12,8 +13,11 @@ const RESET = '\x1b[0m';
 const output = (content: string, color: 'red' | 'green' | 'blue') =>
   console.log(`${COLORS[color]}%s${RESET}`, content);
 
-export default async (argv: any) => {
-  const options = getConfig();
+export default async (argv: any, context?: Context) => {
+  const options = {
+    ...getConfig(),
+    ...(context ? context.config : {}),
+  };
 
   let targetConfig;
   try {
@@ -23,7 +27,7 @@ export default async (argv: any) => {
     throw new Error(`Target ${argv.target} is not supported yet.`);
   }
 
-  const rollupOptions = rollupConfig(options, argv, targetConfig);
+  const rollupOptions = rollupConfig(options, argv, targetConfig, context);
   if (argv.watch) {
     const watcher = rollup.watch([
       {
