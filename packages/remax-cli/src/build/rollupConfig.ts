@@ -25,11 +25,13 @@ import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';
 import { Adapter } from './adapters';
+import { Context } from '../types';
 
 export default function rollupConfig(
   options: RemaxOptions,
   argv: any,
-  adapter: Adapter
+  adapter: Adapter,
+  context?: Context
 ) {
   const babelConfig = {
     presets: [
@@ -55,7 +57,7 @@ export default function rollupConfig(
     );
   }
 
-  const entries = getEntries(options, adapter);
+  const entries = getEntries(options, adapter, context);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
   const plugins = [
@@ -87,7 +89,7 @@ export default function rollupConfig(
       },
     }),
     babel({
-      include: entries.pages,
+      include: entries.pages.map(p => p.file),
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [page, ...babelConfig.plugins],
       presets: babelConfig.presets,
@@ -175,7 +177,7 @@ export default function rollupConfig(
     removeSrc({}),
     removeConfig(),
     removeESModuleFlag(),
-    template(options, adapter),
+    template(options, adapter, context),
   ];
 
   if (options.progress) {
@@ -191,12 +193,7 @@ export default function rollupConfig(
   }
 
   const config: RollupOptions = {
-    input: [
-      entries.app,
-      entries.appConfigPath,
-      ...entries.pages,
-      ...entries.pageConfigPath,
-    ],
+    input: [entries.app, ...entries.pages.map(p => p.file)],
     output: {
       dir: options.output,
       format: adapter.moduleFormat,

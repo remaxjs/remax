@@ -7,10 +7,9 @@ import { RemaxOptions } from '../../getConfig';
 import readManifest from '../../readManifest';
 import getEntries from '../../getEntries';
 import { Adapter } from '../adapters';
+import { Context } from '../../types';
 
-function isPage(file: string | null, pages: string[]) {
-  return file && pages.indexOf(file) > -1;
-}
+function isPage(file: string | null, pages: any[]) {}
 
 async function createTemplate(pageFile: string, adapter: Adapter) {
   const fileName = `${path.dirname(pageFile)}/${path.basename(
@@ -43,22 +42,27 @@ async function createBaseTemplate(adapter: Adapter) {
   };
 }
 
-function createAppManifest(options: RemaxOptions, target: string) {
+function createAppManifest(
+  options: RemaxOptions,
+  target: string,
+  context?: Context
+) {
+  const config = context
+    ? { ...context.app, pages: context.pages.map(p => p.path) }
+    : readManifest(path.resolve(options.cwd, 'src/app.config.js'), target);
   return {
     fileName: 'app.json',
     isAsset: true as true,
-    source: JSON.stringify(
-      readManifest(path.resolve(options.cwd, 'src/app.config.js'), target),
-      null,
-      2
-    ),
+    source: JSON.stringify(config, null, 2),
   };
 }
 
 function createPageManifest(
   options: RemaxOptions,
   file: string,
-  target: string
+  target: string,
+  page: any,
+  context?: Context
 ) {
   const configFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.config.js');
   const manifestFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.json');
@@ -73,6 +77,17 @@ function createPageManifest(
       source: JSON.stringify(readManifest(configFilePath, target), null, 2),
     };
   }
+  if (context) {
+    const pageConfig = context.pages.find((p: any) => p.path === page.path);
+    if (pageConfig) {
+      const { path, ...config } = pageConfig;
+      return {
+        fileName: manifestFile,
+        isAsset: true as true,
+        source: JSON.stringify(config, null, 2),
+      };
+    }
+  }
 }
 
 function isEntry(chunk: any): chunk is OutputChunk {
@@ -81,19 +96,20 @@ function isEntry(chunk: any): chunk is OutputChunk {
 
 export default function template(
   options: RemaxOptions,
-  adapter: Adapter
+  adapter: Adapter,
+  context?: Context
 ): Plugin {
   return {
     name: 'template',
     generateBundle: async (_, bundle) => {
       // app.json
-      const manifest = createAppManifest(options, adapter.name);
+      const manifest = createAppManifest(options, adapter.name, context);
       bundle[manifest.fileName] = manifest;
 
       const template = await createBaseTemplate(adapter);
       bundle[template.fileName] = template;
 
-      const entries = getEntries(options, adapter);
+      const entries = getEntries(options, adapter, context);
       const { pages } = entries;
 
       const files = Object.keys(bundle);
@@ -102,13 +118,16 @@ export default function template(
           const chunk = bundle[file];
           if (isEntry(chunk)) {
             const filePath = Object.keys(chunk.modules)[0];
-            if (isPage(filePath, pages)) {
+            const page = pages.find(p => p.file === filePath);
+            if (page) {
               const template = await createTemplate(file, adapter);
               bundle[template.fileName] = template;
               const config = await createPageManifest(
                 options,
                 file,
-                adapter.name
+                adapter.name,
+                page,
+                context
               );
 
               if (config) {
