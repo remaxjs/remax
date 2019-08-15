@@ -19,4 +19,5 @@ export const props = [
   'bindscale',
   'htouchmove',
   'vtouchmove',
+  'animation',
 ];

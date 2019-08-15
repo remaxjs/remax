@@ -17,4 +17,5 @@ export const props = [
   'bindstatechange',
   'bindfullscreenchange',
   'bindnetstatus',
+  'animation',
 ];

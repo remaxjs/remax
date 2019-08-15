@@ -1,4 +1,5 @@
 export const props = [
+  'id',
   'class',
   'style',
   'name',
@@ -26,4 +27,5 @@ export const props = [
   'bindinput',
   'bindconfirm',
   'bindkeyboardheightchange',
+  'animation',
 ];

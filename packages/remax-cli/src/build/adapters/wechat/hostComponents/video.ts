@@ -37,4 +37,5 @@ export const props = [
   'bindwaiting',
   'binderror',
   'bindprogress',
+  'animation',
 ];

@@ -6,4 +6,5 @@ export const props = [
   'bindsubmit',
   'bindreset',
   'report-submit-timeout',
+  'animation',
 ];

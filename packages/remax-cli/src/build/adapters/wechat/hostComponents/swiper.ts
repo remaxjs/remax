@@ -20,4 +20,5 @@ export const props = [
   'bindtransition',
   'bindanimationfinish',
   'bindtap',
+  'animation',
 ];

@@ -9,4 +9,5 @@ export const props = [
   'bindchange',
   'controlled',
   'type',
+  'animation',
 ];

@@ -6,4 +6,5 @@ export const props = [
   'bindload',
   'binderror',
   'bindtap',
+  'animation',
 ];

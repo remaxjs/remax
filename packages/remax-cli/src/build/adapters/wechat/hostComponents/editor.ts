@@ -9,4 +9,5 @@ export const props = [
   'bindblur',
   'bindinput',
   'bindstatuschange',
+  'animation',
 ];

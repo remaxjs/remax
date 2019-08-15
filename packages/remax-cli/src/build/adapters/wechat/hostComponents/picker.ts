@@ -13,4 +13,5 @@ export const props = [
   'fields',
   'custom-item',
   'disabled',
+  'animation',
 ];

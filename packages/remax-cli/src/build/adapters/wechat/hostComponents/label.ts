@@ -1,1 +1,1 @@
-export const props = ['id', 'class', 'style', 'for'];
+export const props = ['id', 'class', 'style', 'for', 'animation'];

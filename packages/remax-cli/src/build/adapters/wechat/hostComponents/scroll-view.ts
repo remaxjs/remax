@@ -16,4 +16,5 @@ export const props = [
   'bindscrolltolower',
   'bindscroll',
   'bindtap',
+  'animation',
 ];
