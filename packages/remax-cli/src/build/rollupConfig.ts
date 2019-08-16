@@ -169,7 +169,7 @@ export default function rollupConfig(
         return (
           input &&
           input
-            .replace(/node_modules/, 'npm')
+            .replace(/node_modules/g, 'npm')
             .replace(/\.js_commonjs-proxy$/, '.js_commonjs-proxy.js')
         );
       },
