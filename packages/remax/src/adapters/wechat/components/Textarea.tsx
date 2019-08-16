@@ -88,6 +88,8 @@ const Textarea = forwardRef(TextareaRender);
 
 Textarea.defaultProps = {
   maxlength: -1,
+  selectionEnd: 999,
+  selectionStart: 999,
   fixed: false,
 };
 

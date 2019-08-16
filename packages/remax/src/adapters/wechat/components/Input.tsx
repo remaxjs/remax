@@ -88,6 +88,8 @@ const Input = forwardRef(InputRender);
 
 Input.defaultProps = {
   maxlength: -1,
+  selectionEnd: 999,
+  selectionStart: 999,
 };
 
 export default Input;
