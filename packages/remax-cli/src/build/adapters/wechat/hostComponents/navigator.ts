@@ -17,4 +17,5 @@ export const props = [
   'bindsuccess',
   'bindfail',
   'bindcomplete',
+  'animation',
 ];

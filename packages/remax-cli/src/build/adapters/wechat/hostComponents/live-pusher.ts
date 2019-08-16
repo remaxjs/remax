@@ -26,4 +26,5 @@ export const props = [
   'bindbgmstart',
   'bindbgmprogress',
   'bindbgmcomplete',
+  'animation',
 ];

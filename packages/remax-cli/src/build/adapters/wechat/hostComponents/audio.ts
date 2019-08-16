@@ -13,4 +13,5 @@ export const props = [
   'bindpause',
   'bindtimeupdate',
   'bindended',
+  'animation',
 ];

@@ -1,7 +1,7 @@
 // TODO: type定义
 function promisify(api: (config: any) => void) {
   return (config: any = {}) =>
-    new Promise((resolve, reject) => {
+    new Promise<any>((resolve, reject) => {
       api({
         ...config,
         success: (res: any) => {

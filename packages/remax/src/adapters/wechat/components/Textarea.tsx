@@ -11,13 +11,13 @@ export interface TextareaProps {
   autoFocus?: boolean;
   className?: string;
   focus?: boolean;
+  fixed?: boolean;
   name?: string;
   maxlength?: number;
   value: any;
   style?: CSSProperties;
   password?: string;
-  type: 'text' | 'number' | 'idcard' | 'digit';
-  confirmType: 'send' | 'search' | 'next' | 'go' | 'done';
+  confirmType?: 'send' | 'search' | 'next' | 'go' | 'done';
   confirmHold?: boolean;
   cursor?: number;
   selectionStart?: number;
@@ -31,13 +31,10 @@ export interface TextareaProps {
   onInput?: (...params: any) => void;
   onClick?: (...params: any) => void;
   onFocus?: (...params: any) => void;
-  onBlur?: () => void;
+  onBlur?: (...params: any) => void;
   onConfirm?: () => void;
   onKeyboardHeightChange?: () => void;
-}
-
-interface State {
-  focus: boolean;
+  animation: Object[];
 }
 
 function useInnerFocus(
@@ -45,8 +42,10 @@ function useInnerFocus(
 ): [boolean, typeof handleInnerFocus] {
   const [innerFocus = false, setInnerFocus] = useState(initialValue);
 
-  const handleInnerFocus = (func?: Function) => (...params: any) => {
-    if (!innerFocus) {
+  const handleInnerFocus = (func?: Function, focus = true) => (
+    ...params: any
+  ) => {
+    if (innerFocus !== focus) {
       setInnerFocus(true);
     }
 
@@ -66,6 +65,7 @@ const TextareaRender: FunctionComponent<TextareaProps> = (props, ref) => {
     onInput,
     onClick,
     onFocus,
+    onBlur,
     ...restProps
   } = props;
   const [innerFocus, handleInnerFocus] = useInnerFocus(focus || autoFocus);
@@ -77,6 +77,7 @@ const TextareaRender: FunctionComponent<TextareaProps> = (props, ref) => {
     onInput: handleInnerFocus(onInput),
     onClick: handleInnerFocus(onClick),
     onFocus: handleInnerFocus(onFocus),
+    onBlur: handleInnerFocus(onBlur, false),
     ref,
   });
 
@@ -87,6 +88,7 @@ const Textarea = forwardRef(TextareaRender);
 
 Textarea.defaultProps = {
   maxlength: -1,
+  fixed: false,
 };
 
 export default Textarea;

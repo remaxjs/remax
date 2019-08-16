@@ -9,4 +9,5 @@ export const props = [
   'binderror',
   'bindtap',
   'show-menu-by-longpress',
+  'animation',
 ];

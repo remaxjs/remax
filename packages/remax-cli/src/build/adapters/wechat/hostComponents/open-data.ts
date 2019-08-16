@@ -1,1 +1,1 @@
-export const props = ['type', 'open-gid', 'lang'];
+export const props = ['type', 'open-gid', 'lang', 'animation'];

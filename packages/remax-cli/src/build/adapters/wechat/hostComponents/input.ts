@@ -25,4 +25,5 @@ export const props = [
   'bindblur',
   'bindconfirm',
   'bindkeyboardheightchange',
+  'animation',
 ];

@@ -4,4 +4,5 @@ export const props = [
   'bindload',
   'binderror',
   'bindclose',
+  'animation',
 ];

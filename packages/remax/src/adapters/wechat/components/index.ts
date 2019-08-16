@@ -3,6 +3,7 @@ import propsAlias from './propsAlias';
 
 export { default as Input } from './Input';
 export { default as Textarea } from './Textarea';
+export { default as Video } from './Video';
 
 export type HostComponent =
   | 'ad'
@@ -33,7 +34,6 @@ export type HostComponent =
   | 'switch'
   | 'navigator'
   | 'image'
-  | 'video'
   | 'camera'
   | 'live-player'
   | 'live-pusher'
@@ -85,7 +85,6 @@ export const Slider = factoryComponent('slider');
 export const Switch = factoryComponent('switch');
 export const Navigator = factoryComponent('navigator');
 export const Image = factoryComponent('image');
-export const Video = factoryComponent('video');
 export const Camera = factoryComponent('camera');
 export const LivePlayer = factoryComponent('live-player');
 export const LivePusher = factoryComponent('live-pusher');

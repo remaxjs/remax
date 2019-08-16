@@ -17,7 +17,7 @@ export interface InputProps {
   style?: CSSProperties;
   password?: string;
   type: 'text' | 'number' | 'idcard' | 'digit';
-  confirmType: 'send' | 'search' | 'next' | 'go' | 'done';
+  confirmType?: 'send' | 'search' | 'next' | 'go' | 'done';
   confirmHold?: boolean;
   cursor?: number;
   selectionStart?: number;
@@ -31,13 +31,10 @@ export interface InputProps {
   onInput?: (...params: any) => void;
   onClick?: (...params: any) => void;
   onFocus?: (...params: any) => void;
-  onBlur?: () => void;
+  onBlur?: (...params: any) => void;
   onConfirm?: () => void;
   onKeyboardHeightChange?: () => void;
-}
-
-interface State {
-  focus: boolean;
+  animation: Object[];
 }
 
 function useInnerFocus(
@@ -45,9 +42,11 @@ function useInnerFocus(
 ): [boolean, typeof handleInnerFocus] {
   const [innerFocus = false, setInnerFocus] = useState(initialValue);
 
-  const handleInnerFocus = (func?: Function) => (...params: any) => {
-    if (!innerFocus) {
-      setInnerFocus(true);
+  const handleInnerFocus = (func?: Function, focus = true) => (
+    ...params: any
+  ) => {
+    if (innerFocus !== focus) {
+      setInnerFocus(focus);
     }
 
     if (typeof func === 'function') {
@@ -66,6 +65,7 @@ const InputRender: FunctionComponent<InputProps> = (props, ref) => {
     onInput,
     onClick,
     onFocus,
+    onBlur,
     ...restProps
   } = props;
   const [innerFocus, handleInnerFocus] = useInnerFocus(focus || autoFocus);
@@ -77,6 +77,7 @@ const InputRender: FunctionComponent<InputProps> = (props, ref) => {
     onInput: handleInnerFocus(onInput),
     onClick: handleInnerFocus(onClick),
     onFocus: handleInnerFocus(onFocus),
+    onBlur: handleInnerFocus(onBlur, false),
     ref,
   });
 

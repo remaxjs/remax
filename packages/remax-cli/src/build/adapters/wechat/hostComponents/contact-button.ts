@@ -7,4 +7,5 @@ export const props = [
   'color',
   'icon',
   'alipay-card-no',
+  'animation',
 ];
