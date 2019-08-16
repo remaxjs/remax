@@ -15,9 +15,11 @@ export default {
   plugins: ['umi-plugin-remax', {
     // same with remax.config.js in remax
     cssModules: true,
+    // same with app.config.js in remax
     app: {
-      // same with app.config.js in remax
-      defaultTitle: 'alipay mini app',
+      window: {
+        defaultTitle: 'alipay mini app',
+      }
     },
   }]
 };
