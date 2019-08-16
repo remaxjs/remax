@@ -7,7 +7,7 @@ before_script:
 
 script:
   - yarn test
-  - cd website && yarn build
+  - yarn build-site
 
 deploy:
   provider: pages

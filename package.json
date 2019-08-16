@@ -15,7 +15,8 @@
     "test": "lerna run --scope remax --stream test",
     "clean": "lerna clean",
     "prepack": "lerna exec -- rm -rf lib && lerna run build",
-    "bootstrap": "yarn install && lerna bootstrap"
+    "bootstrap": "yarn install && lerna bootstrap",
+    "build-site": "lerna run --scope website --stream build"
   },
   "dependencies": {},
   "husky": {
