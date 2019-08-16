@@ -17,3 +17,4 @@ deploy:
   local_dir: website/public
   on:
     branch: master
+    condition: $TRAVIS_COMMIT_MESSAGE =~ ^docs
