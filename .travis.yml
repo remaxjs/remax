@@ -1,6 +1,19 @@
 language: node_js
 node_js:
-- stable
+  - stable
 
 before_script:
   - yarn bootstrap
+
+script:
+  - yarn test
+  - cd website && yarn build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  local_dir: website/public
+  on:
+    branch: master
