@@ -7,7 +7,10 @@ before_script:
 
 script:
   - yarn test
-  - yarn site:build
+  - |
+    if [[ $TRAVIS_COMMIT_MESSAGE =~ ^docs ]] ; then
+      yarn site:build
+    fi
 
 deploy:
   provider: pages
