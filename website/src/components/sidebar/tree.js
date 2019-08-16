@@ -4,6 +4,7 @@ import TreeNode from './treeNode';
 import sort from '../sort';
 
 const calculateTreeData = edges => {
+  console.log(edges);
   const originalData = config.sidebar.ignoreIndex
     ? edges.filter(
         ({
@@ -42,6 +43,7 @@ const calculateTreeData = edges => {
       if (existingItem) {
         existingItem.url = slug;
         existingItem.title = title;
+        existingItem.order = order;
       } else {
         prevItems.push({
           label: parts[parts.length - 1],
@@ -55,6 +57,7 @@ const calculateTreeData = edges => {
     },
     { items: [] }
   );
+  tree.items = sort(tree.items);
   const {
     sidebar: { forcedNavOrder = [] },
   } = config;

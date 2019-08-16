@@ -67,7 +67,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     let value = parent.relativePath.replace(parent.ext, '');
 
     if (value === 'README') {
-      value = '';
+      createNodeField({
+        name: 'slug',
+        node,
+        value: '/',
+      });
     }
 
     createNodeField({

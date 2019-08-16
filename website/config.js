@@ -18,7 +18,7 @@ const config = {
     forcedNavOrder: [''],
     links: [],
     frontline: false,
-    ignoreIndex: true,
+    ignoreIndex: false,
   },
   siteMetadata: {
     title: 'Remax - 全新的小程序开发体验',

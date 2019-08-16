@@ -1,13 +1,14 @@
 ---
-order: 6
+title: 支付宝小程序
+order: 0
 ---
 
-让我们在一分钟内开启一个微信小程序项目吧！
+让我们在一分钟内开启一个支付宝小程序项目吧！
 
 创建新项目，并安装依赖
 
 ```bash
-$ npx degit remaxjs/template-wechat my-app
+$ npx degit remaxjs/template-alipay my-app
 $ cd my-app && npm install
 ```
 
@@ -17,15 +18,15 @@ $ cd my-app && npm install
 $ npm run dev
 ```
 
-打开微信调试器，选中项目 dist 目录，你将看到
+打开支付宝小程序开发者工具，选中项目 dist 目录，你将看到
 
-<img src="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*uyGOSLod26MAAAAAAAAAAABkARQnAQ" width="240" />
+<img src="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*Ig_sQarBrgIAAAAAAAAAAABkARQnAQ" width="240" />
 
 成功！
 
 ## 项目结构
 
-现在我们来看一下 Remax 应用的结构：
+现在我们来看一下 Remax 应用结构：
 
 ```
 my-app/
@@ -44,9 +45,7 @@ my-app/
       ┣ index.config.js
 ```
 
-`dist` 为打包编译后的文件目录。
-
-_在开发阶段我们无需关心打包结果的兼容性及体积，所以 remax 打包结果为 es6 语法未压缩版本，在需要上传代码时应勾选小程序的 **es6 转 es5**，**代码压缩**，**样式补全**选项_
+`dist` 为编译后的文件目录。
 
 `src` 为源文件目录
 
@@ -78,7 +77,7 @@ export default App;
 module.exports = {
   pages: ['pages/index/index'],
   window: {
-    navigationBarTitleText: 'My App',
+    navigationBarTitleText: 'My Project',
   },
 };
 ```
@@ -89,7 +88,7 @@ module.exports = {
 
 ```jsx
 import * as React from 'react';
-import { View, Text } from 'remax/wechat';
+import { View, Text } from 'remax/alipay';
 import './index.module.css';
 
 export default () => {
