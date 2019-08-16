@@ -16,7 +16,8 @@
     "clean": "lerna clean",
     "prepack": "lerna exec -- rm -rf lib && lerna run build",
     "bootstrap": "yarn install && lerna bootstrap",
-    "build-site": "lerna run --scope website --stream build"
+    "site:build": "lerna run --scope website --stream build",
+    "site:deploy": "lerna run --scope website --stream deploy"
   },
   "dependencies": {},
   "husky": {
