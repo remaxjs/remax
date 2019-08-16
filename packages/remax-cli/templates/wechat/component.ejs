@@ -14,6 +14,8 @@
         </swiper-item>
       </block>
     <% } else { %>
-      <block wx:for="{{i.children}}" wx:key="{{item.id}}"><template is="REMAX_TPL_<%= templateId%>" data="{{i: item}}"/></block>
-    <% } %></<%=id%>>
+      <block wx:for="{{i.children}}" wx:key="{{item.id}}">
+        <template is="REMAX_TPL_<%= templateId%>" data="{{i: item}}"/></block>
+    <% } %>
+  </<%=id%>>
 </block>
