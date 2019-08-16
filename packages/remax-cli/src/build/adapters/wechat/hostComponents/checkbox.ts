@@ -7,4 +7,5 @@ export const props = [
   'disabled',
   'bindchange',
   'color',
+  'animation',
 ];

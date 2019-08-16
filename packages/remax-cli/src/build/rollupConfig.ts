@@ -1,11 +1,14 @@
 import { RollupOptions, RollupWarning } from 'rollup';
+import path from 'path';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
+import url from 'rollup-plugin-url';
 import json from 'rollup-plugin-json';
 import postcss from 'rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
 import clear from 'rollup-plugin-clear';
+import alias from 'rollup-plugin-alias';
 import pxToUnits from 'postcss-px2units';
 import getEntries from '../getEntries';
 import getCssModuleConfig from '../getCssModuleConfig';
@@ -21,13 +24,14 @@ import * as scheduler from 'scheduler';
 import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';
-import renameImport from './plugins/renameImport';
 import { Adapter } from './adapters';
+import { Context } from '../types';
 
 export default function rollupConfig(
   options: RemaxOptions,
   argv: any,
-  adapter: Adapter
+  adapter: Adapter,
+  context?: Context
 ) {
   const babelConfig = {
     presets: [
@@ -35,12 +39,48 @@ export default function rollupConfig(
       [require.resolve('@babel/preset-env')],
       [require.resolve('@babel/preset-react')],
     ],
-    plugins: [require.resolve('@babel/plugin-proposal-class-properties')],
+    plugins: [
+      require.resolve('@babel/plugin-proposal-class-properties'),
+      require.resolve('@babel/plugin-proposal-object-rest-spread'),
+      [
+        require.resolve('@babel/plugin-proposal-decorators'),
+        {
+          decoratorsBeforeExport: true,
+        },
+      ],
+    ],
   };
-  const entries = getEntries(options, adapter);
+
+  if (adapter.name !== 'alipay') {
+    babelConfig.plugins.unshift(
+      require.resolve('babel-plugin-transform-async-to-promises')
+    );
+  }
+
+  const entries = getEntries(options, adapter, context);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
   const plugins = [
+    alias({
+      resolve: [
+        '',
+        '.ts',
+        '.js',
+        '.tsx',
+        '.jsx',
+        '/index.js',
+        '/index.jsx',
+        '/index.ts',
+        '/index.tsx',
+      ],
+      '@': path.resolve(options.cwd, 'src'),
+    }),
+    url({
+      limit: 0,
+      fileName: '[dirname][name][extname]',
+      publicPath: '/',
+      include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
+    }),
     commonjs({
       include: /node_modules/,
       namedExports: {
@@ -49,7 +89,7 @@ export default function rollupConfig(
       },
     }),
     babel({
-      include: entries.pages,
+      include: entries.pages.map(p => p.file),
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [page, ...babelConfig.plugins],
       presets: babelConfig.presets,
@@ -63,11 +103,7 @@ export default function rollupConfig(
     babel({
       babelrc: false,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [
-        renameImport(argv.target),
-        components(adapter),
-        ...babelConfig.plugins,
-      ],
+      plugins: [components(adapter), ...babelConfig.plugins],
       presets: babelConfig.presets,
     }),
     postcss({
@@ -101,11 +137,20 @@ export default function rollupConfig(
         if (!input) {
           return input;
         }
-        input
+
+        input = input
           .replace(/^demo\/src\//, '')
+          // stlye
           .replace(/\.less$/, '.less.js')
+          // typescript
           .replace(/\.ts$/, '.js')
-          .replace(/\.tsx$/, '.js');
+          .replace(/\.tsx$/, '.js')
+          // image
+          .replace(/\.png$/, '.png.js')
+          .replace(/\.gif$/, '.gif.js')
+          .replace(/\.svg$/, '.svg.js')
+          .replace(/\.jpeg$/, '.jpeg.js')
+          .replace(/\.jpg$/, '.jpg.js');
 
         // 不启用 css module 的 css 文件以及 app.css
         if (
@@ -132,7 +177,7 @@ export default function rollupConfig(
     removeSrc({}),
     removeConfig(),
     removeESModuleFlag(),
-    template(options, adapter),
+    template(options, adapter, context),
   ];
 
   if (options.progress) {
@@ -148,12 +193,7 @@ export default function rollupConfig(
   }
 
   const config: RollupOptions = {
-    input: [
-      entries.app,
-      entries.appConfigPath,
-      ...entries.pages,
-      ...entries.pageConfigPath,
-    ],
+    input: [entries.app, ...entries.pages.map(p => p.file)],
     output: {
       dir: options.output,
       format: adapter.moduleFormat,

@@ -19,4 +19,5 @@ export const props = [
   'bindanimationiteration',
   'bindanimationstart',
   'bindanimationend',
+  'animation',
 ];

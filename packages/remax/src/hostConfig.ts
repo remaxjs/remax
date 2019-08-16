@@ -108,17 +108,22 @@ export default {
   appendInitialChild: (parent: any, child: any) => {
     child.rootContext = parent.rootContext;
     parent.children.push(child);
+    child.rootContext.requestUpdate();
   },
 
   appendChild(parent: any, child: any) {
     child.rootContext = parent.rootContext;
     parent.children.push(child);
+    child.rootContext.requestUpdate();
   },
 
   insertBefore(parent: any, child: any, beforeChild: any) {
     child.rootContext = parent.rootContext;
     parent.children.splice(parent.children.indexOf(beforeChild), 0, child);
+    child.rootContext.requestUpdate();
   },
+
+  insertInContainerBefore() {},
 
   finalizeInitialChildren: () => {
     return false;
@@ -147,6 +152,7 @@ export default {
 
   removeChild(parentInstance: any, child: any) {
     parentInstance.children.splice(parentInstance.children.indexOf(child), 1);
+    parentInstance.rootContext.requestUpdate();
   },
 
   removeChildFromContainer(container: any, child: any) {

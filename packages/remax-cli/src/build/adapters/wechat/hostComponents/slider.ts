@@ -18,4 +18,5 @@ export const props = [
   'bindvhange',
   'bindchanging',
   'selected-color',
+  'animation',
 ];

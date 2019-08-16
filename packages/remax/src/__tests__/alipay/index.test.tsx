@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { render, View } from '../../src';
-import { REMAX_ROOT_BACKUP, REMAX_ROOT } from '../constants';
-import pure from '../utils/pure';
-import { reset } from '../instanceId';
+import './helpers/setupGlobals';
+import { render, View } from '../../../src/adapters/alipay';
+import { REMAX_ROOT_BACKUP, REMAX_ROOT } from '../../constants';
+import pure from '../../utils/pure';
+import { reset } from '../../instanceId';
 
 class Context {
   data: any;

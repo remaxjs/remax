@@ -10,4 +10,5 @@ export const props = [
   'bindchange',
   'bindpickstart',
   'bindpickend',
+  'animation',
 ];

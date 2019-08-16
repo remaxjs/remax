@@ -26,4 +26,5 @@ export const props = [
   'bindopensetting',
   'bindlaunchapp',
   'bindtap',
+  'animation',
 ];

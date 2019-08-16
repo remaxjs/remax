@@ -1,1 +1,1 @@
-export const props = ['bindload', 'binderror'];
+export const props = ['bindload', 'binderror', 'animation'];

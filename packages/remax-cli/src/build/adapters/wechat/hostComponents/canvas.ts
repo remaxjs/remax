@@ -12,5 +12,6 @@ export const props = [
   'bindtouchend',
   'bindtouchcancel',
   'bindlongtap',
-  'binderro',
+  'binderror',
+  'animation',
 ];

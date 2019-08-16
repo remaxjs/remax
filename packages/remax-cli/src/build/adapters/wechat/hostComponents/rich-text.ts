@@ -10,4 +10,5 @@ export const props = [
   'bindtouchend',
   'bindtouchcancel',
   'bindlongtap',
+  'animation',
 ];

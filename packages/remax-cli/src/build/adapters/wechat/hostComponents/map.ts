@@ -36,5 +36,6 @@ export const props = [
   'bindcallouttap',
   'bindupdated',
   'bindregionchange',
-  'bindpoita',
+  'bindpoitap',
+  'animation',
 ];

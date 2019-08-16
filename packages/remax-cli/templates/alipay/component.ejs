@@ -9,19 +9,19 @@
 <block a:if="{{item.type === '<%= type %>'}}">
   <<%=id%>
     <% for(let key of props) { %>
-        <%=key === '__key__' ? 'key' : key%>="{{item.props.<%=camelCased(key)%>}}"
+        <%=key%>="{{item.props.<%=camelCased(key)%>}}"
     <% } %>
   >
     <% if (id === 'swiper') { %>
-      <block a:for="{{item.children}}">
-        <swiper-item key="{{item.props.__key__}}" >
+      <block a:for="{{item.children}}" a:key="{{item.id}}">
+        <swiper-item key="{{item.props.key}}" >
           <block a:for="{{item.children}}">
             <template is="REMAX_TPL_1" data="{{item}}"/>
           </block>
         </swiper-item>
       </block>
     <% } else { %>
-      <block a:for="{{item.children}}">
+      <block a:for="{{item.children}}" a:key="{{item.id}}">
         <template is="REMAX_TPL_1" data="{{item}}"/>
       </block>
     <% } %>

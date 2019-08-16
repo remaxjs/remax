@@ -1,6 +1,19 @@
 import * as React from 'react';
-import { View, PageProps } from '../../src';
-import createPageConfig from '../createPageConfig';
+import './helpers/setupGlobals';
+import createPageConfig from '../../createPageConfig';
+import {
+  useShow,
+  useHide,
+  usePullDownRefresh,
+  useReachBottom,
+  usePageScroll,
+  useShareAppMessage,
+  useTitleClick,
+  useOptionMenuClick,
+  usePopMenuClick,
+  usePullIntercept,
+} from '../../../src';
+import { View, PageProps } from '../../../src/adapters/alipay';
 import Page from './helpers/Page';
 
 describe('page', () => {
@@ -15,44 +28,44 @@ describe('page', () => {
 
   it('lifecycle hooks', () => {
     const log: string[] = [];
-    const Foo: React.FC<PageProps> = ({ lifecycle }) => {
-      lifecycle.useShow(() => {
+    const Foo: React.FC<PageProps> = () => {
+      useShow(() => {
         log.push('useShow');
       });
 
-      lifecycle.useHide(() => {
+      useHide(() => {
         log.push('useHide');
       });
 
-      lifecycle.usePullDownRefresh(() => {
+      usePullDownRefresh(() => {
         log.push('usePullDownRefresh');
       });
 
-      lifecycle.useReachBottom(() => {
+      useReachBottom(() => {
         log.push('useReachBottom');
       });
 
-      lifecycle.usePageScroll(() => {
+      usePageScroll(() => {
         log.push('usePageScroll');
       });
 
-      lifecycle.useShareAppMessage(() => {
+      useShareAppMessage(() => {
         log.push('useShareAppMessage');
       });
 
-      lifecycle.useTitleClick(() => {
+      useTitleClick(() => {
         log.push('useTitleClick');
       });
 
-      lifecycle.useOptionMenuClick(() => {
+      useOptionMenuClick(() => {
         log.push('useOptionMenuClick');
       });
 
-      lifecycle.usePopMenuClick(() => {
+      usePopMenuClick(() => {
         log.push('usePopMenuClick');
       });
 
-      lifecycle.usePullIntercept(() => {
+      usePullIntercept(() => {
         log.push('usePullIntercept');
       });
 

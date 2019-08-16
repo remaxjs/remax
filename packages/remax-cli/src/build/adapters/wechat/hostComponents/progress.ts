@@ -13,4 +13,5 @@ export const props = [
   'active',
   'active-mode',
   'bindactiveend',
+  'animation',
 ];

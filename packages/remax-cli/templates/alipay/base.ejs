@@ -1,5 +1,5 @@
 <template name="REMAX_TPL">
-  <block a:for="{{$$REMAX_ROOT}}" a:key="">
+  <block a:for="{{$$REMAX_ROOT}}" a:key="{{item.id}}">
     <template is="REMAX_TPL_1" data="{{item}}"/>
   </block>
 </template>
@@ -12,7 +12,7 @@
     </block>
 
     <block a:if="{{item.type === 'root'}}">
-      <block a:for="{{item.children}}" a:key="">
+      <block a:for="{{item.children}}" a:key="{{item.id}}">
         <template is="REMAX_TPL_1" data="{{item}}"/>
       </block>
     </block>

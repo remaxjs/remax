@@ -1,1 +1,8 @@
-export const props = ['id', 'class', 'style', 'scroll-top', 'bindtap'];
+export const props = [
+  'id',
+  'class',
+  'style',
+  'scroll-top',
+  'bindtap',
+  'animation',
+];
