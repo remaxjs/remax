@@ -3,11 +3,17 @@ title: 样式
 order: 9
 ---
 
-Remax 默认支持 css/less，如：
+Remax 默认支持 css/less/sass/stylus，安装你需要的样式，即可使用。如：
+
+```bash
+  npm install less   # less 用户
+  npm install node-sass   # sass 用户
+```
 
 ```js
 import './index.css';
 import './index.less';
+import './index.scss';
 ```
 
 Remax 会自动对 `px` 做处理，如：
