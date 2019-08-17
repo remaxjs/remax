@@ -33,7 +33,7 @@ export default async (argv: any, context?: Context) => {
       {
         ...rollupOptions,
         watch: {
-          include: ['src/**', 'app.js', 'app.json'],
+          include: ['src/**', 'app.js', '*.config.js'],
         },
       },
     ]);
