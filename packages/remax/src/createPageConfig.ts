@@ -1,12 +1,29 @@
 import * as React from 'react';
+import Platform from './Platform';
 import createPageWrapper from './createPageWrapper';
 import render from './render';
 import { Lifecycle, callbackName } from './lifecycle';
-import VNode from './VNode';
+import VNode, { Path } from './VNode';
+
+function stringPath(path: Path) {
+  if (Platform.isAlipay) {
+    return path.reduce((acc, i) => {
+      if (typeof i === 'number') {
+        acc += `[${i}]`;
+      } else {
+        acc += `.${i}`;
+      }
+      return acc;
+    }, '');
+  } else {
+    return path.join('.');
+  }
+}
 
 export default function createPageConfig(Page: React.ComponentType<any>) {
   return {
     data: {
+      action: {},
       root: [],
     },
 
@@ -17,41 +34,60 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     lifecycleCallback: {} as any,
 
     onLoad(this: any, query: any) {
-      this.updateData = (path: string, data: any) => {
+      this.updateData = (path: Path, data: any) => {
         const startTime = new Date().getTime();
-        this.setData(
-          {
-            [`root${path}`]: data,
-          },
-          () => {
-            if (process.env.NODE_ENV !== 'production') {
-              console.log(
-                `updateData => 回调时间：${new Date().getTime() - startTime}ms`
-              );
+        const msg = this.$spliceData
+          ? {
+              [`root${stringPath(path)}`]: data,
             }
+          : {
+              action: {
+                type: 'set',
+                payload: {
+                  path: stringPath(path),
+                  value: data,
+                },
+              },
+            };
+        this.setData(msg, () => {
+          if (process.env.NODE_ENV !== 'production') {
+            console.log(
+              `updateData => 回调时间：${new Date().getTime() - startTime}ms`
+            );
           }
-        );
+        });
       };
 
       this.spliceData = (
-        path: string,
+        path: Path,
         start: number,
         deleteCount: number,
-        ...items: any[]
+        item: any
       ) => {
         const startTime = new Date().getTime();
-        this.$spliceData(
-          {
-            [`root${path}`]: [start, deleteCount, ...items],
-          },
-          () => {
-            if (process.env.NODE_ENV !== 'production') {
-              console.log(
-                `spliceData => 回调时间：${new Date().getTime() - startTime}ms`
-              );
+        const msg = this.$spliceData
+          ? {
+              [`root${stringPath(path)}`]: [start, deleteCount, item],
             }
+          : {
+              action: {
+                type: 'splice',
+                payload: {
+                  path: stringPath(path),
+                  start,
+                  deleteCount,
+                  item,
+                },
+              },
+            };
+        const method = this.$spliceData ? '$spliceData' : 'setData';
+        this[method](msg, () => {
+          if (process.env.NODE_ENV !== 'production') {
+            console.log(
+              `spliceData => 回调时间：${new Date().getTime() - startTime}ms`
+            );
           }
-        );
+        });
       };
 
       this.appendChild = (child: VNode) => {

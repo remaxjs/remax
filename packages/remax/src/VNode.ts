@@ -6,6 +6,8 @@ interface RawNode {
   text?: string;
 }
 
+export type Path = Array<string | number>;
+
 export default class VNode {
   id: number;
   page: any;
@@ -49,13 +51,15 @@ export default class VNode {
     }
   }
 
-  path(): string {
+  path(): Path {
     if (!this.parent) {
-      return `[${this.page.root.length - 1}]`;
+      return [this.page.root.length - 1];
     }
-    return `${this.parent.path()}.children[${this.parent.children!.indexOf(
-      this
-    )}]`;
+    return [
+      ...this.parent.path(),
+      'children',
+      this.parent.children!.indexOf(this),
+    ];
   }
 
   isMounted(): boolean {

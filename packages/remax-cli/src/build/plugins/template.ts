@@ -30,6 +30,23 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
   };
 }
 
+async function createReduceFile(pageFile: string, adapter: Adapter) {
+  const fileName = `${path.dirname(pageFile)}/${path.basename(
+    pageFile,
+    path.extname(pageFile)
+  )}${adapter.extensions.jsHelper}`;
+
+  const code: string = await ejs.renderFile(adapter.templates.jsHelper, {
+    target: adapter.name,
+  });
+
+  return {
+    fileName,
+    isAsset: true as true,
+    source: code,
+  };
+}
+
 async function createBaseTemplate(adapter: Adapter) {
   const components = getComponents();
   let code: string = await ejs.renderFile(
@@ -129,6 +146,8 @@ export default function template(
             if (page) {
               const template = await createTemplate(file, adapter);
               bundle[template.fileName] = template;
+              const reduceFile = await createReduceFile(file, adapter);
+              bundle[reduceFile.fileName] = reduceFile;
               const config = await createPageManifest(
                 options,
                 file,
