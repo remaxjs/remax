@@ -28,7 +28,6 @@
     "babel-plugin-transform-async-to-promises": "^0.8.14",
     "commander": "^2.19.0",
     "ejs": "^2.6.1",
-    "less": "^3.9.0",
     "lodash": "^4.17.11",
     "postcss-px2units": "^0.2.0",
     "rollup": "^1.16.0",
