@@ -66,11 +66,17 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const parent = getNode(node.parent);
     let value = parent.relativePath.replace(parent.ext, '');
 
-    if (value === 'README') {
+    if (!value) {
       createNodeField({
-        name: 'slug',
+        name: 'title',
         node,
-        value: '/',
+        value: '介绍',
+      });
+    } else {
+      createNodeField({
+        name: 'title',
+        node,
+        value: node.frontmatter.title || startCase(parent.name),
       });
     }
 
@@ -84,12 +90,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: 'id',
       node,
       value: node.id,
-    });
-
-    createNodeField({
-      name: 'title',
-      node,
-      value: node.frontmatter.title || startCase(parent.name),
     });
 
     createNodeField({
