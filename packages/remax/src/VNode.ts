@@ -1,7 +1,9 @@
+import { TYPE_TEXT } from './constants';
+
 interface RawNode {
-  id: number;
+  id?: number;
   type: string | Symbol;
-  props: any;
+  props?: any;
   children?: RawNode[];
   text?: string;
 }
@@ -67,6 +69,12 @@ export default class VNode {
   }
 
   toJSON(): RawNode {
+    if (this.type === TYPE_TEXT) {
+      return {
+        type: this.type,
+        text: this.text,
+      };
+    }
     return {
       id: this.id,
       type: this.type,

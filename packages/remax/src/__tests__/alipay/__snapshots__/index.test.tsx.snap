@@ -7,9 +7,6 @@ Array [
       Object {
         "children": Array [
           Object {
-            "children": undefined,
-            "id": 0,
-            "props": null,
             "text": "1",
             "type": Symbol(text),
           },
@@ -22,9 +19,6 @@ Array [
       Object {
         "children": Array [
           Object {
-            "children": undefined,
-            "id": 2,
-            "props": null,
             "text": "3",
             "type": Symbol(text),
           },
@@ -50,9 +44,6 @@ Array [
       Object {
         "children": Array [
           Object {
-            "children": undefined,
-            "id": 0,
-            "props": null,
             "text": "1",
             "type": Symbol(text),
           },
@@ -65,9 +56,6 @@ Array [
       Object {
         "children": Array [
           Object {
-            "children": undefined,
-            "id": 5,
-            "props": null,
             "text": "2",
             "type": Symbol(text),
           },
@@ -80,9 +68,6 @@ Array [
       Object {
         "children": Array [
           Object {
-            "children": undefined,
-            "id": 2,
-            "props": null,
             "text": "3",
             "type": Symbol(text),
           },
@@ -106,9 +91,6 @@ Array [
   Object {
     "children": Array [
       Object {
-        "children": undefined,
-        "id": 0,
-        "props": null,
         "text": "hello",
         "type": Symbol(text),
       },
@@ -128,9 +110,6 @@ Array [
   Object {
     "children": Array [
       Object {
-        "children": undefined,
-        "id": 0,
-        "props": null,
         "text": "one",
         "type": Symbol(text),
       },
@@ -143,9 +122,6 @@ Array [
   Object {
     "children": Array [
       Object {
-        "children": undefined,
-        "id": 2,
-        "props": null,
         "text": "two",
         "type": Symbol(text),
       },
@@ -163,9 +139,6 @@ Array [
   Object {
     "children": Array [
       Object {
-        "children": undefined,
-        "id": 0,
-        "props": null,
         "text": "foo",
         "type": Symbol(text),
       },
@@ -183,9 +156,6 @@ Array [
   Object {
     "children": Array [
       Object {
-        "children": undefined,
-        "id": 0,
-        "props": null,
         "text": "hello",
         "type": Symbol(text),
       },
@@ -207,9 +177,6 @@ Array [
       Object {
         "children": Array [
           Object {
-            "children": undefined,
-            "id": 0,
-            "props": null,
             "text": "foo",
             "type": Symbol(text),
           },
