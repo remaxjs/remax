@@ -5,14 +5,14 @@ order: 1
 
 让我们在一分钟内开启一个微信小程序项目吧！
 
-创建新项目，并安装依赖
+## 创建项目
 
 ```bash
 $ npx degit remaxjs/template-wechat my-app
 $ cd my-app && npm install
 ```
 
-编译小程序
+## 运行项目
 
 ```bash
 $ npm run dev

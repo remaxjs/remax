@@ -1,7 +1,5 @@
 ---
-title: 'Remax 命令'
-metaTitle: 'Remax 命令'
-metaDescription: 'Remax 命令'
+title: 'CLI'
 order: 15
 ---
 
