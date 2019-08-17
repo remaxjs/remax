@@ -1,4 +1,5 @@
 import { TYPE_TEXT } from './constants';
+import Container from './Container';
 
 interface RawNode {
   id?: number;
@@ -12,7 +13,7 @@ export type Path = Array<string | number>;
 
 export default class VNode {
   id: number;
-  page: any;
+  container: Container;
   children?: VNode[];
   mounted = false;
   type: string | Symbol;
@@ -22,7 +23,7 @@ export default class VNode {
 
   constructor(id: number, type: string | Symbol, props: any, page: any) {
     this.id = id;
-    this.page = page;
+    this.container = page;
     this.type = type;
     this.props = props;
   }
@@ -32,7 +33,7 @@ export default class VNode {
     this.children = this.children || [];
     this.children.push(node);
     if (this.isMounted()) {
-      this.page.updateData(this.path(), this.toJSON());
+      this.container.requestUpdate(this.path(), this.toJSON());
     }
   }
 
@@ -40,7 +41,7 @@ export default class VNode {
     const start = this.children!.indexOf(node);
     this.children!.splice(start, 1);
     if (this.isMounted() && this.parent) {
-      this.page.spliceData(this.parent.path(), start, 1);
+      this.container.spliceData(this.parent.path(), start, 1);
     }
   }
 
@@ -49,13 +50,13 @@ export default class VNode {
     const start = this.children!.indexOf(referenceNode);
     this.children!.splice(start, 0, newNode);
     if (this.isMounted() && this.parent) {
-      this.page.spliceData(this.parent.path(), start, 0, newNode);
+      this.container.spliceData(this.parent.path(), start, 0, newNode);
     }
   }
 
   path(): Path {
     if (!this.parent) {
-      return [this.page.root.length - 1];
+      return [this.container.root.length - 1];
     }
     return [
       ...this.parent.path(),

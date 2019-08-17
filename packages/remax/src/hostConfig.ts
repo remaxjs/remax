@@ -81,13 +81,13 @@ export default {
   commitTextUpdate(node: VNode, oldText: string, newText: string) {
     node.text = newText;
     if (oldText !== newText) {
-      node.page.updateData(node.path(), node.toJSON());
+      node.container.requestUpdate(node.path(), node.toJSON());
     }
   },
 
   prepareUpdate(node: VNode, type: string, oldProps: any, newProps: any) {
-    oldProps = processProps(oldProps, node.page, node.id);
-    newProps = processProps(newProps, node.page, node.id);
+    oldProps = processProps(oldProps, node.container, node.id);
+    newProps = processProps(newProps, node.container, node.id);
     if (!shallowequal(newProps, oldProps)) {
       return true;
     }
@@ -101,8 +101,8 @@ export default {
     oldProps: any,
     newProps: any
   ) {
-    node.props = processProps(newProps, node.page, node.id);
-    node.page.updateData(node.path(), node.toJSON());
+    node.props = processProps(newProps, node.container, node.id);
+    node.container.requestUpdate(node.path(), node.toJSON());
   },
 
   appendInitialChild: (parent: VNode, child: VNode) => {

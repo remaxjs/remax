@@ -16,27 +16,48 @@ function stringPath(path: Path) {
   }
 }
 
+interface Update {
+  path: Path;
+  data: any;
+}
+
 export default class Container {
   context: any;
   root: VNode[] = [];
+  inQueue: boolean = false;
+  queue: Update[] = [];
 
   constructor(context: any) {
     this.context = context;
   }
 
-  updateData(path: Path, data: any) {
+  requestUpdate(path: Path, data: any) {
+    this.queue.push({
+      path,
+      data,
+    });
+    if (this.inQueue) {
+      return;
+    }
+    this.inQueue = true;
+    Promise.resolve().then(() => this.applyUpdate(path, data));
+  }
+
+  applyUpdate(path: Path, data: any) {
+    this.inQueue = false;
     const startTime = new Date().getTime();
     const msg = this.context.$spliceData
-      ? {
-          [`root${stringPath(path)}`]: data,
-        }
+      ? this.queue.reduce((acc: any, update) => {
+          acc[`root${stringPath(update.path)}`] = update.data;
+          return acc;
+        }, {})
       : {
           action: {
             type: 'set',
-            payload: {
-              path: stringPath(path),
-              value: data,
-            },
+            payload: this.queue.map(update => ({
+              path: stringPath(update.path),
+              value: update.data,
+            })),
           },
         };
     this.context.setData(msg, () => {
@@ -46,6 +67,7 @@ export default class Container {
         );
       }
     });
+    this.queue = [];
   }
 
   spliceData(
@@ -86,7 +108,7 @@ export default class Container {
 
   appendChild(child: VNode) {
     this.root.push(child);
-    this.updateData(child.path(), child.toJSON());
+    this.requestUpdate(child.path(), child.toJSON());
   }
 
   removeChild(child: VNode) {

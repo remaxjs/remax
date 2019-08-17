@@ -3,7 +3,9 @@ var tree = [];
 function reduce(action) {
   switch (action.type) {
     case 'set':
-      set(tree, action.payload.path, action.payload.value);
+      for (var i = 0; i < action.payload.length; i += 1) {
+        set(tree, action.payload[i].path, action.payload[i].value);
+      }
       return tree;
     case 'splice':
       const value = get(tree, action.payload.path);
