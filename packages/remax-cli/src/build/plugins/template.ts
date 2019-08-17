@@ -16,12 +16,12 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
     pageFile,
     path.extname(pageFile)
   )}${adapter.extensions.template}`;
-  const code = (await ejs.renderFile(adapter.templates.page, {
+  const code: string = await ejs.renderFile(adapter.templates.page, {
     baseTemplate: path.relative(
       path.dirname(pageFile),
       `base${adapter.extensions.template}`
     ),
-  })) as string;
+  });
 
   return {
     fileName,
@@ -32,9 +32,16 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
 
 async function createBaseTemplate(adapter: Adapter) {
   const components = getComponents();
-  const code = (await ejs.renderFile(adapter.templates.base, {
-    components,
-  })) as string;
+  let code: string = await ejs.renderFile(
+    adapter.templates.base,
+    {
+      components,
+    },
+    {
+      rmWhitespace: true,
+    }
+  );
+  code = code.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
   return {
     fileName: `base${adapter.extensions.template}`,
     isAsset: true as true,
