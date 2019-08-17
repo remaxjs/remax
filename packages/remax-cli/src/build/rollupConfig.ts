@@ -142,6 +142,9 @@ export default function rollupConfig(
           .replace(/^demo\/src\//, '')
           // stlye
           .replace(/\.less$/, '.less.js')
+          .replace(/\.sass$/, '.sass.js')
+          .replace(/\.scss$/, '.scss.js')
+          .replace(/\..styl$/, '..styl.js')
           // typescript
           .replace(/\.ts$/, '.js')
           .replace(/\.tsx$/, '.js')
