@@ -3,6 +3,7 @@ import shallowequal from 'shallowequal';
 import { REMAX_METHOD, TYPE_TEXT } from './constants';
 import { generate } from './instanceId';
 import VNode from './VNode';
+import Container from './Container';
 
 /**
  * rootContext Page 实例
@@ -15,12 +16,12 @@ const {
   unstable_now: now,
 } = scheduler;
 
-function processProps(newProps: any, rootContext: any, id: number) {
+function processProps(newProps: any, rootContext: Container, id: number) {
   const props: any = {};
   for (const propKey of Object.keys(newProps)) {
     if (typeof newProps[propKey] === 'function') {
       const contextKey = `${REMAX_METHOD}_${id}_${propKey}`;
-      rootContext[contextKey] = newProps[propKey];
+      rootContext.createCallback(contextKey, newProps[propKey]);
       props[propKey] = contextKey;
     } else if (propKey === 'children') {
       // pass

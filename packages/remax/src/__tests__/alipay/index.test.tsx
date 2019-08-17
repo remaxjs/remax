@@ -2,29 +2,12 @@ import * as React from 'react';
 import './helpers/setupGlobals';
 import { render, View } from '../../../src/adapters/alipay';
 import { reset } from '../../instanceId';
-import VNode from '../../VNode';
+import Container from '../../Container';
 
-class Context {
-  root: VNode[] = [];
-
-  updateData() {}
-
-  appendChild(child: VNode) {
-    this.root.push(child);
-  }
-
-  removeChild(child: VNode) {
-    const start = this.root.indexOf(child);
-    if (start >= 0) {
-      this.root.splice(start, 1);
-    }
-  }
-
-  insertBefore(child: VNode, beforeChild: VNode) {
-    const start = this.root.indexOf(beforeChild);
-    this.root.splice(start, 0, child);
-  }
-}
+const p = {
+  setData() {},
+  $spliceData() {},
+};
 
 describe('remax render', () => {
   afterEach(() => {
@@ -33,9 +16,9 @@ describe('remax render', () => {
 
   it('render correctly', () => {
     const Page = () => <View className="foo">hello</View>;
-    const context = new Context();
-    render(<Page />, context);
-    expect(context.root).toMatchSnapshot();
+    const container = new Container(p);
+    render(<Page />, container);
+    expect(container.root).toMatchSnapshot();
   });
 
   it('insert new element', () => {
@@ -62,12 +45,12 @@ describe('remax render', () => {
       }
     }
 
-    const context = new Context();
+    const container = new Container(p);
     const page = React.createRef<any>();
-    render(<Page ref={page} />, context);
-    expect(context.root).toMatchSnapshot();
+    render(<Page ref={page} />, container);
+    expect(container.root).toMatchSnapshot();
     page.current.update();
-    expect(context.root).toMatchSnapshot();
+    expect(container.root).toMatchSnapshot();
   });
 
   it('umount component', () => {
@@ -84,23 +67,21 @@ describe('remax render', () => {
         return <View>{this.state.show && <View>foo</View>}</View>;
       }
     }
-    const context = new Context();
+    const container = new Container(p);
     const page = React.createRef<any>();
-    render(<Page ref={page} />, context);
-    expect(context.root).toMatchSnapshot();
+    render(<Page ref={page} />, container);
+    expect(container.root).toMatchSnapshot();
     page.current.hide();
-    expect(context.root).toMatchSnapshot();
+    expect(container.root).toMatchSnapshot();
   });
 
   it('renders style', () => {
     const Page = () => (
       <View style={{ width: '100px', height: '100px' }}>hello</View>
     );
-    const context = new Context();
-    render(<Page />, context);
-    expect(context.root).toMatchSnapshot();
-    const style = context.root[0].children![0].props.style;
-    expect(style[style.length - 1]).toBe(';');
+    const container = new Container(p);
+    render(<Page />, container);
+    expect(container.root).toMatchSnapshot();
   });
 
   it('renders conditional fragment correctly', () => {
@@ -126,11 +107,11 @@ describe('remax render', () => {
         );
       }
     }
-    const context = new Context();
+    const container = new Container(p);
     const page = React.createRef<any>();
-    render(<Page ref={page} />, context);
-    expect(context.root).toMatchSnapshot();
+    render(<Page ref={page} />, container);
+    expect(container.root).toMatchSnapshot();
     page.current.show();
-    expect(context.root).toMatchSnapshot();
+    expect(container.root).toMatchSnapshot();
   });
 });
