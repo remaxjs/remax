@@ -12,13 +12,11 @@ export interface Adapter {
     page: string;
   };
 
-  hostComponents: (
-    component: string
-  ) => {
-    props: string[];
-  };
+  hostComponents: (component: string) => { props: string[] };
 
   propsAlias: (key: string) => string;
 
   moduleFormat: 'cjs' | 'esm';
 }
+
+export default ['alipay', 'wechat', 'h5'];

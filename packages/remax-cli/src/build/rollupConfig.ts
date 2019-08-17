@@ -9,6 +9,7 @@ import postcss from 'rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
 import clear from 'rollup-plugin-clear';
 import alias from 'rollup-plugin-alias';
+import stub from './plugins/stub';
 import pxToUnits from 'postcss-px2units';
 import getEntries from '../getEntries';
 import getCssModuleConfig from '../getCssModuleConfig';
@@ -24,7 +25,7 @@ import * as scheduler from 'scheduler';
 import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';
-import { Adapter } from './adapters';
+import adapters, { Adapter } from './adapters';
 import { Context } from '../types';
 
 export default function rollupConfig(
@@ -57,6 +58,15 @@ export default function rollupConfig(
     );
   }
 
+  const stubModules: string[] = [];
+
+  adapters.forEach(name => {
+    if (adapter.name !== name) {
+      const packageName = `remax/lib/adapters/${name}`;
+      stubModules.push(packageName);
+    }
+  });
+
   const entries = getEntries(options, adapter, context);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
@@ -87,6 +97,9 @@ export default function rollupConfig(
         react: Object.keys(React).filter(k => k !== 'default'),
         scheduler: Object.keys(scheduler).filter(k => k !== 'default'),
       },
+    }),
+    stub({
+      modules: stubModules,
     }),
     babel({
       include: entries.pages.map(p => p.file),
