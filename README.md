@@ -6,11 +6,11 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/remax">
-    <img alt="npm" src="https://img.shields.io/npm/v/remax?style=flat-square">
-  </a>
   <a href="https://travis-ci.org/remaxjs/remax">
     <img src="https://img.shields.io/travis/remaxjs/remax.svg?style=flat-square" alt="Travis CI build status" />
+  </a>
+  <a href="https://www.npmjs.com/package/remax">
+    <img alt="npm" src="https://img.shields.io/npm/v/remax?style=flat-square" />
   </a>
   <a href="https://remaxjs-slack-invite.herokuapp.com">
     <img src="https://img.shields.io/badge/chat-on%20slack-brightgreen?style=flat-square&logo=slack" alt="Chat on Slack" />
