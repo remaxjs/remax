@@ -1,8 +1,8 @@
 import * as path from 'path';
 import * as fs from 'fs';
 import { OutputChunk, Plugin } from 'rollup';
-import { getComponents } from './components';
 import ejs from 'ejs';
+import { getComponents } from './components';
 import { RemaxOptions } from '../../getConfig';
 import readManifest from '../../readManifest';
 import getEntries from '../../getEntries';

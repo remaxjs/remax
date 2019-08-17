@@ -5,7 +5,7 @@ export const props = [
   'mode',
   'device-position',
   'flash',
-  'frame-size	string',
+  'frame-size',
   'bindstop',
   'binderror',
   'bindinitdone',
