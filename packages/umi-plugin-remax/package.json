@@ -26,6 +26,7 @@
     "url": "https://github.com/remaxjs/remax/issues"
   },
   "dependencies": {
-    "remax-cli": "^1.0.1-beta.1"
+    "remax-cli": "^1.0.1-beta.1",
+    "umi-types": "^0.3.17"
   }
 }
