@@ -8,7 +8,7 @@ function reduce(action) {
       }
       return tree;
     case 'splice':
-      const value = get(tree, action.payload.path);
+      var value = get(tree, action.payload.path);
       set(
         tree,
         action.payload.path,
@@ -69,10 +69,10 @@ function get(obj, path) {
     path = path.split('.').map(getKey);
   }
 
-  var nextObj;
+  var nextObj = obj;
   for (var i = 0; i < path.length; i += 1) {
     var currentPath = path[i];
-    nextObj = obj[currentPath];
+    nextObj = nextObj[currentPath];
   }
 
   return nextObj;
