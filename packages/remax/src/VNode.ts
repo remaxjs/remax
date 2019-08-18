@@ -42,7 +42,7 @@ export default class VNode {
     this.children!.splice(start, 1);
     if (this.isMounted()) {
       const path = this.parent
-        ? this.parent.path()
+        ? [...this.parent.path(), 'children']
         : [...this.path(), 'children'];
       this.container.requestSpliceUpdate(path, start, 1);
     }
@@ -54,7 +54,7 @@ export default class VNode {
     this.children!.splice(start, 0, newNode);
     if (this.isMounted()) {
       const path = this.parent
-        ? this.parent.path()
+        ? [...this.parent.path(), 'children']
         : [...this.path(), 'children'];
       this.container.requestSpliceUpdate(path, start, 0, newNode.toJSON());
     }
