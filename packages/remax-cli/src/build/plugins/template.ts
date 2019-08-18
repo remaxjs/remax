@@ -30,12 +30,13 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
   };
 }
 
-async function createBaseTemplate(adapter: Adapter) {
+async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
   const components = getComponents();
   let code: string = await ejs.renderFile(
     adapter.templates.base,
     {
       components,
+      depth: options.UNSAFE_wechatTemplateDepth,
     },
     {
       rmWhitespace: true,
@@ -113,7 +114,7 @@ export default function template(
       const manifest = createAppManifest(options, adapter.name, context);
       bundle[manifest.fileName] = manifest;
 
-      const template = await createBaseTemplate(adapter);
+      const template = await createBaseTemplate(adapter, options);
       bundle[template.fileName] = template;
 
       const entries = getEntries(options, adapter, context);

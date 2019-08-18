@@ -7,6 +7,7 @@ export interface RemaxOptions {
   cwd: string;
   progress: boolean;
   output: string;
+  UNSAFE_wechatTemplateDepth: number;
 }
 
 export default function getConfig(): RemaxOptions {
