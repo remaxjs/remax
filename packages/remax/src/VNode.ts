@@ -33,7 +33,7 @@ export default class VNode {
     this.children = this.children || [];
     this.children.push(node);
     if (this.isMounted()) {
-      this.container.requestUpdate(this.path(), this.toJSON());
+      this.container.requestUpdate(node.path(), node.toJSON());
     }
   }
 
