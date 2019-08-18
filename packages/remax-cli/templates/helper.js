@@ -12,11 +12,15 @@ function reduce(action) {
     case 'splice':
       for (var i = 0; i < action.payload.length; i += 1) {
         var value = get(tree, action.payload[i].path);
-        value.splice(
-          action.payload[i].start,
-          action.payload[i].deleteCount,
-          action.payload[i].item
-        );
+        if (action.payload[i].item) {
+          value.splice(
+            action.payload[i].start,
+            action.payload[i].deleteCount,
+            action.payload[i].item
+          );
+        } else {
+          value.splice(action.payload[i].start, action.payload[i].deleteCount);
+        }
         set(tree, action.payload[i].path, value);
       }
       return tree;
