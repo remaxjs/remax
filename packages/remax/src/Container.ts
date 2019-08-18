@@ -10,9 +10,9 @@ function stringPath(path: Path) {
         acc += `.${i}`;
       }
       return acc;
-    }, '');
+    }, 'root');
   } else {
-    return path.join('.');
+    return ['root', ...path].join('.');
   }
 }
 
@@ -52,7 +52,7 @@ export default class Container {
     const startTime = new Date().getTime();
     const msg = this.context.$spliceData
       ? this.setQueue.reduce((acc: any, update) => {
-          acc[`root${stringPath(update.path)}`] = update.data;
+          acc[stringPath(update.path)] = update.data;
           return acc;
         }, {})
       : {
@@ -97,7 +97,7 @@ export default class Container {
       ? this.spliceQueue.reduce(
           (acc, update) => ({
             ...acc,
-            [`root${stringPath(update.path)}`]: [
+            [stringPath(update.path)]: [
               update.start,
               update.deleteCount,
               ...update.items,
@@ -111,7 +111,7 @@ export default class Container {
             payload: this.spliceQueue.map(update => ({
               path: stringPath(update.path),
               start: update.start,
-              deleteCount: update.start,
+              deleteCount: update.deleteCount,
               item: update.items[0],
             })),
           },
@@ -140,13 +140,13 @@ export default class Container {
     const start = this.root.indexOf(child);
     if (start >= 0 && !this.context.unloaded) {
       this.root.splice(start, 1);
-      this.requestSpliceUpdate(child.path(), start, 1);
+      this.requestSpliceUpdate([], start, 1);
     }
   }
 
   insertBefore(child: VNode, beforeChild: VNode) {
     const start = this.root.indexOf(beforeChild);
     this.root.splice(start, 0, child);
-    this.requestSpliceUpdate(child.path(), start, 0, child);
+    this.requestSpliceUpdate([], start, 0, child);
   }
 }

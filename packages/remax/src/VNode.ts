@@ -40,8 +40,11 @@ export default class VNode {
   removeChild(node: VNode) {
     const start = this.children!.indexOf(node);
     this.children!.splice(start, 1);
-    if (this.isMounted() && this.parent) {
-      this.container.requestSpliceUpdate(this.parent.path(), start, 1);
+    if (this.isMounted()) {
+      const path = this.parent
+        ? this.parent.path()
+        : [...this.path(), 'children'];
+      this.container.requestSpliceUpdate(path, start, 1);
     }
   }
 
@@ -49,8 +52,11 @@ export default class VNode {
     newNode.parent = this;
     const start = this.children!.indexOf(referenceNode);
     this.children!.splice(start, 0, newNode);
-    if (this.isMounted() && this.parent) {
-      this.container.requestSpliceUpdate(this.parent.path(), start, 0, newNode);
+    if (this.isMounted()) {
+      const path = this.parent
+        ? this.parent.path()
+        : [...this.path(), 'children'];
+      this.container.requestSpliceUpdate(path, start, 0, newNode);
     }
   }
 
