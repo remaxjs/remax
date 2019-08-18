@@ -1,6 +1,7 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import { OutputChunk, Plugin } from 'rollup';
+import { parse } from 'acorn';
+import { Plugin, OutputChunk } from 'rollup';
 import { getComponents } from './components';
 import ejs from 'ejs';
 import { RemaxOptions } from '../../getConfig';
@@ -98,8 +99,31 @@ function createPageManifest(
   }
 }
 
-function isEntry(chunk: any): chunk is OutputChunk {
-  return chunk.isEntry;
+function isRemaxEntry(chunk: any): chunk is OutputChunk {
+  if (!chunk.isEntry) {
+    return false;
+  }
+
+  const ast: any = parse(chunk.code, {
+    ecmaVersion: 6,
+    sourceType: 'module',
+  });
+
+  return ast.body.every((node: any) => {
+    // 检查是不是原生写法
+    if (
+      node.type === 'ExpressionStatement' &&
+      node.expression.type === 'CallExpression' &&
+      node.expression.callee.type === 'Identifier' &&
+      node.expression.callee.name === 'Page' &&
+      node.expression.arguments.length > 0 &&
+      node.expression.arguments[0].type === 'ObjectExpression'
+    ) {
+      return false;
+    }
+
+    return true;
+  });
 }
 
 export default function template(
@@ -124,7 +148,7 @@ export default function template(
       await Promise.all([
         files.map(async file => {
           const chunk = bundle[file];
-          if (isEntry(chunk)) {
+          if (isRemaxEntry(chunk)) {
             const filePath = Object.keys(chunk.modules)[0];
             const page = pages.find(p => p.file === filePath);
             if (page) {

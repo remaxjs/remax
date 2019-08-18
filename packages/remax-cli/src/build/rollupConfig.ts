@@ -9,6 +9,7 @@ import postcss from 'rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
 import clear from 'rollup-plugin-clear';
 import alias from 'rollup-plugin-alias';
+import copy from 'rollup-plugin-copy';
 import pxToUnits from 'postcss-px2units';
 import getEntries from '../getEntries';
 import getCssModuleConfig from '../getCssModuleConfig';
@@ -61,6 +62,15 @@ export default function rollupConfig(
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
   const plugins = [
+    copy({
+      targets: [
+        {
+          src: ['src/native/*'],
+          dest: 'dist',
+        },
+      ],
+      copyOnce: true,
+    }),
     alias({
       resolve: [
         '',
