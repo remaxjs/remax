@@ -9,8 +9,6 @@ import getEntries from '../../getEntries';
 import { Adapter } from '../adapters';
 import { Context } from '../../types';
 
-function isPage(file: string | null, pages: any[]) {}
-
 async function createTemplate(pageFile: string, adapter: Adapter) {
   const fileName = `${path.dirname(pageFile)}/${path.basename(
     pageFile,
@@ -21,6 +19,10 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
       path.dirname(pageFile),
       `base${adapter.extensions.template}`
     ),
+    jsHelper: path.relative(
+      path.dirname(pageFile),
+      `helper${adapter.extensions.jsHelper}`
+    ),
   });
 
   return {
@@ -30,18 +32,13 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
   };
 }
 
-async function createReduceFile(pageFile: string, adapter: Adapter) {
-  const fileName = `${path.dirname(pageFile)}/${path.basename(
-    pageFile,
-    path.extname(pageFile)
-  )}${adapter.extensions.jsHelper}`;
-
+async function createHelperFile(adapter: Adapter) {
   const code: string = await ejs.renderFile(adapter.templates.jsHelper, {
     target: adapter.name,
   });
 
   return {
-    fileName,
+    fileName: `helper${adapter.extensions.jsHelper}`,
     isAsset: true as true,
     source: code,
   };
@@ -133,6 +130,9 @@ export default function template(
       const template = await createBaseTemplate(adapter);
       bundle[template.fileName] = template;
 
+      const helperFile = await createHelperFile(adapter);
+      bundle[helperFile.fileName] = helperFile;
+
       const entries = getEntries(options, adapter, context);
       const { pages } = entries;
 
@@ -146,8 +146,6 @@ export default function template(
             if (page) {
               const template = await createTemplate(file, adapter);
               bundle[template.fileName] = template;
-              const reduceFile = await createReduceFile(file, adapter);
-              bundle[reduceFile.fileName] = reduceFile;
               const config = await createPageManifest(
                 options,
                 file,

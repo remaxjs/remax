@@ -18,7 +18,7 @@ export const templates = {
   base: path.join(templateBaseDir, 'wechat/base.ejs'),
   component: path.join(templateBaseDir, 'wechat/component.ejs'),
   page: path.join(templateBaseDir, 'wechat/page.ejs'),
-  jsHelper: path.join(templateBaseDir, 'reduce.js'),
+  jsHelper: path.join(templateBaseDir, 'helper.js'),
 };
 
 export const moduleFormat = 'cjs';
