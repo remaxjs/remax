@@ -8,17 +8,19 @@ function reduce(action) {
       }
       return tree;
     case 'splice':
-      var value = get(tree, action.payload.path);
-      set(
-        tree,
-        action.payload.path,
-        value.splice(
-          action.payload.start,
-          0,
-          action.payload.deleteCount,
-          action.payload.item
-        )
-      );
+      for (var i = 0; i < action.payload.length; i += 1) {
+        var value = get(tree, action.payload[i].path);
+        set(
+          tree,
+          action.payload[i].path,
+          value.splice(
+            action.payload[i].start,
+            0,
+            action.payload[i].deleteCount,
+            action.payload[i].item
+          )
+        );
+      }
       return tree;
     default:
       return tree;

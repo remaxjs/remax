@@ -1,7 +1,7 @@
 import { TYPE_TEXT } from './constants';
 import Container from './Container';
 
-interface RawNode {
+export interface RawNode {
   id?: number;
   type: string | Symbol;
   props?: any;
@@ -41,7 +41,7 @@ export default class VNode {
     const start = this.children!.indexOf(node);
     this.children!.splice(start, 1);
     if (this.isMounted() && this.parent) {
-      this.container.spliceData(this.parent.path(), start, 1);
+      this.container.requestSpliceUpdate(this.parent.path(), start, 1);
     }
   }
 
@@ -50,7 +50,7 @@ export default class VNode {
     const start = this.children!.indexOf(referenceNode);
     this.children!.splice(start, 0, newNode);
     if (this.isMounted() && this.parent) {
-      this.container.spliceData(this.parent.path(), start, 0, newNode);
+      this.container.requestSpliceUpdate(this.parent.path(), start, 0, newNode);
     }
   }
 

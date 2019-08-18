@@ -1,5 +1,5 @@
 import Platform from './Platform';
-import VNode, { Path } from './VNode';
+import VNode, { Path, RawNode } from './VNode';
 
 function stringPath(path: Path) {
   if (Platform.isAlipay) {
@@ -16,45 +16,49 @@ function stringPath(path: Path) {
   }
 }
 
-interface Update {
+interface SetUpdate {
   path: Path;
-  data: any;
+  data: RawNode;
+}
+
+interface SpliceUpdate {
+  path: Path;
+  start: number;
+  deleteCount: number;
+  items: RawNode[];
 }
 
 export default class Container {
   context: any;
   root: VNode[] = [];
-  inQueue: boolean = false;
-  queue: Update[] = [];
+  setQueue: SetUpdate[] = [];
+  spliceQueue: SpliceUpdate[] = [];
 
   constructor(context: any) {
     this.context = context;
   }
 
   requestUpdate(path: Path, data: any) {
-    this.queue.push({
+    if (this.setQueue.length === 0) {
+      Promise.resolve().then(() => this.applyUpdate(path, data));
+    }
+    this.setQueue.push({
       path,
       data,
     });
-    if (this.inQueue) {
-      return;
-    }
-    this.inQueue = true;
-    Promise.resolve().then(() => this.applyUpdate(path, data));
   }
 
   applyUpdate(path: Path, data: any) {
-    this.inQueue = false;
     const startTime = new Date().getTime();
     const msg = this.context.$spliceData
-      ? this.queue.reduce((acc: any, update) => {
+      ? this.setQueue.reduce((acc: any, update) => {
           acc[`root${stringPath(update.path)}`] = update.data;
           return acc;
         }, {})
       : {
           action: {
             type: 'set',
-            payload: this.queue.map(update => ({
+            payload: this.setQueue.map(update => ({
               path: stringPath(update.path),
               value: update.data,
             })),
@@ -67,29 +71,49 @@ export default class Container {
         );
       }
     });
-    this.queue = [];
+    this.setQueue = [];
   }
 
-  spliceData(
+  requestSpliceUpdate(
     path: Path,
     start: number,
     deleteCount: number,
-    ...items: VNode[]
+    ...items: RawNode[]
   ) {
+    if (this.spliceQueue.length === 0) {
+      Promise.resolve().then(() => this.applySpliceUpdate());
+    }
+    this.spliceQueue.push({
+      path,
+      start,
+      deleteCount,
+      items,
+    });
+  }
+
+  applySpliceUpdate() {
     const startTime = new Date().getTime();
     const msg = this.context.$spliceData
-      ? {
-          [`root${stringPath(path)}`]: [start, deleteCount, ...items],
-        }
+      ? this.spliceQueue.reduce(
+          (acc, update) => ({
+            ...acc,
+            [`root${stringPath(update.path)}`]: [
+              update.start,
+              update.deleteCount,
+              ...update.items,
+            ],
+          }),
+          {}
+        )
       : {
           action: {
             type: 'splice',
-            payload: {
-              path: stringPath(path),
-              start,
-              deleteCount,
-              item: items[0],
-            },
+            payload: this.spliceQueue.map(update => ({
+              path: stringPath(update.path),
+              start: update.start,
+              deleteCount: update.start,
+              item: update.items[0],
+            })),
           },
         };
     const method = this.context.$spliceData ? '$spliceData' : 'setData';
@@ -100,6 +124,7 @@ export default class Container {
         );
       }
     });
+    this.spliceQueue = [];
   }
 
   createCallback(name: string, fn: Function) {
@@ -115,13 +140,13 @@ export default class Container {
     const start = this.root.indexOf(child);
     if (start >= 0 && !this.context.unloaded) {
       this.root.splice(start, 1);
-      this.spliceData(child.path(), start, 1);
+      this.requestSpliceUpdate(child.path(), start, 1);
     }
   }
 
   insertBefore(child: VNode, beforeChild: VNode) {
     const start = this.root.indexOf(beforeChild);
     this.root.splice(start, 0, child);
-    this.spliceData(child.path(), start, 0, child);
+    this.requestSpliceUpdate(child.path(), start, 0, child);
   }
 }
