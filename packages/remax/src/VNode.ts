@@ -56,7 +56,7 @@ export default class VNode {
       const path = this.parent
         ? this.parent.path()
         : [...this.path(), 'children'];
-      this.container.requestSpliceUpdate(path, start, 0, newNode);
+      this.container.requestSpliceUpdate(path, start, 0, newNode.toJSON());
     }
   }
 
