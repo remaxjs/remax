@@ -10,8 +10,13 @@ const COLORS = {
 };
 const RESET = '\x1b[0m';
 
-const output = (content: string, color: 'red' | 'green' | 'blue') =>
-  console.log(`${COLORS[color]}%s${RESET}`, content);
+const output = (
+  content: string | string[],
+  color: 'red' | 'green' | 'blue'
+) => {
+  const message = Array.isArray(content) ? content : [content];
+  console.log(`${COLORS[color]}%s${RESET}`, ...message);
+};
 
 export default async (argv: any, context?: Context) => {
   const options = {
@@ -33,7 +38,7 @@ export default async (argv: any, context?: Context) => {
       {
         ...rollupOptions,
         watch: {
-          include: ['src/**', 'app.js', 'app.json'],
+          include: ['src/**', 'app.js', '*.config.js'],
         },
       },
     ]);
@@ -49,18 +54,26 @@ export default async (argv: any, context?: Context) => {
           output('💡 完成', 'green');
           break;
         case 'ERROR':
-          output(event.error, 'red');
-          break;
         case 'FATAL':
-          throw event.error;
+          const { error } = event;
+          const name =
+            error.code === 'PLUGIN_ERROR' ? error.plugin : error.code;
+          output(`\n🚨 [${name}]: ${error.message}`, 'red');
+          throw error;
         default:
           break;
       }
     });
   } else {
-    output('🚀 开始 build...', 'blue');
-    const bundle = await rollup.rollup(rollupOptions);
-    await bundle.write(rollupOptions.output!);
-    output('💡 完成', 'green');
+    try {
+      output('🚀 开始 build...', 'blue');
+      const bundle = await rollup.rollup(rollupOptions);
+      await bundle.write(rollupOptions.output!);
+      output('💡 完成', 'green');
+    } catch (error) {
+      const name = error.code === 'PLUGIN_ERROR' ? error.plugin : error.code;
+      output(`\n🚨 [${name}]: ${error.message}`, 'red');
+      throw error;
+    }
   }
 };

@@ -1,5 +1,6 @@
 ---
-order: 17
+title: 跨平台开发
+order: 42
 ---
 
 在开始多端开发之前，我们建议开发者循序渐进：
@@ -8,6 +9,14 @@ order: 17
 - 在另一端新建一个 Remax 项目，而不是立即开启多端解决方案
 - 观察业务中的相似处和不同处，加深对产品的理解，构思可复用的逻辑，组件及架构。
 - 时机合适时融合 Remax 项目，整合出属于自己的跨多端解决方案。
+
+你可以使用脚手架快速开始:
+
+```bash
+  npx degit remaxjs/template-universe my-app
+  # typescript
+  npx degit remaxjs/template-universe-typescript my-app
+```
 
 现在让我们来看看如何利用 Remax 打造多端解决方案。（以微信和支付宝为例）
 
@@ -50,8 +59,8 @@ _如果没有默认导出，Remax 会去读取对应平台的配置信息，通�
 // src/components.js
 // 为了方便示例，这里将逻辑都写在一起，实际中开发者可以根据自己的需要合理规划代码
 import * as React from 'react';
-import * as RemaxWechat from 'remax/wechat';
-import * as RemaxAlipay from 'remax/alipay';
+import { View as WechatView, Text as WechatText } from 'remax/wechat';
+import { View as AlipayView, Text as AlipayText } from 'remax/alipay';
 import { Platform } from 'remax';
 
 export function View(props) {
@@ -60,14 +69,14 @@ export function View(props) {
       // 封装微信端的 View 组件逻辑，处理微信端的样式
       ...
 
-      return <RemaxWechat.View {...props} />;
+      return <AlipayView {...props} />;
     }
 
     case 'alipay': {
       // 封装支付宝端的 View 组件逻辑，处理支付宝端的样式
       ...
 
-      return <RemaxAlipay.View {...props} />;
+      return <WechatView {...props} />;
     }
   }
 }
@@ -78,14 +87,14 @@ export function Text(props) {
       // 封装微信端的 Text 组件逻辑，处理微信端的样式
       ...
 
-      return <RemaxWechat.Text {...props} />;
+      return <WechatText {...props} />;
     }
 
     case 'alipay': {
       // 封装支付宝端的 Text 组件逻辑， 处理支付宝端的样式
       ...
 
-      return <RemaxAlipay.Text {...props} />;
+      return <AlipayText {...props} />;
     }
   }
 }
@@ -102,8 +111,8 @@ _你可以以一端为标准，抹平多端差异，或者建立自己的组件�
 // src/api.js
 // 为了方便示例，这里将逻辑都写在一起，实际中开发者可以根据自己的需要合理规划代码
 import * as React from 'react';
-import * as RemaxWechat from 'remax/wechat';
-import * as RemaxAlipay from 'remax/alipay';
+import { navigateTo as wechatNavigateTo } from 'remax/wechat';
+import { navigateTo as alipayNavigateTo } from 'remax/alipay';
 import { Platform } from 'remax';
 
 export function navigateTo(...params) {
@@ -112,14 +121,14 @@ export function navigateTo(...params) {
       // 封装微信端的 navigateTo 逻辑
       ...
 
-      return RemaxWechat.navigaTo(...params);
+      return wechatNavigateTo(...params);
     }
 
     case 'alipay': {
       // 封装支付宝端的 navigateTO 逻辑
       ...
 
-      return RemaxAlipay.navigaTo(...params);
+      return wechatNavigateTo(...params);
     }
   }
 }

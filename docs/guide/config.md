@@ -1,5 +1,6 @@
 ---
-order: 7
+title: 配置
+order: 22
 ---
 
 ## Remax 配置
@@ -20,7 +21,7 @@ module.exports = {
 };
 ```
 
-_关于 css modules 和样式更多信息，请参考 [开发 - 样式](/开发/样式)_
+_关于 css modules 和样式更多信息，请参考 [指南 - 样式](/guide/style)_
 
 ### 路径别名
 
@@ -85,3 +86,5 @@ exports.alipay = {
 这样就可以根据 build 目标平台自动选择配置
 
 `app.config.js` 对应小程序 `app.json`，页面配置为对应页面的 `config.js`，如，`pages/index/index.js` 的页面配置为 `pages/index/index.config.js`
+
+> 由于微信不支持模板递归，因此在 Remax 中对层级深度有一定限制。如果开发者的小程序页面层级较深，可以通过 **UNSAFE_wechatTemplateDepth**来控制层级，Remax 默认层级为 20。需要注意的是，层级越深，Remax 打包结果的大小增长越快

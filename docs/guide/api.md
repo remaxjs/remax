@@ -1,6 +1,6 @@
 ---
 title: 小程序 API
-order: 11
+order: 26
 ---
 
 Remax 提供原生小程序 API 支持，如；

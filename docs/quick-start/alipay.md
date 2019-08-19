@@ -1,17 +1,18 @@
 ---
-order: 6
+title: 支付宝小程序
+order: 2
 ---
 
 让我们在一分钟内开启一个支付宝小程序项目吧！
 
-创建新项目，并安装依赖
+## 创建项目
 
 ```bash
 $ npx degit remaxjs/template-alipay my-app
 $ cd my-app && npm install
 ```
 
-编译小程序
+## 运行项目
 
 ```bash
 $ npm run dev
@@ -25,7 +26,7 @@ $ npm run dev
 
 ## 项目结构
 
-现在我们来看一下 Remax 应用结构：
+现在我们来看一下 Remax 应用的结构：
 
 ```
 my-app/
@@ -70,7 +71,7 @@ export default App;
 
 `app.css` 全局样式文件
 
-`app.config.js` 为小程序全局配置文件，对应 `app.json`，具体可参考 [开发 - 配置](/开发/配置)
+`app.config.js` 为小程序全局配置文件，对应 `app.json`，具体可参考 [指南 - 配置](/guide/config)
 
 ```js
 module.exports = {
@@ -99,10 +100,10 @@ export default () => {
 };
 ```
 
-_默认导出的的 React 组件就是当前的页面，关于生命周期的使用方式参考 [开发 - 生命周期](/开发/生命周期)_
+_默认导出的的 React 组件就是当前的页面，关于生命周期的使用方式参考 [指南 - 生命周期](/guide/lifecycle)_
 
-_Remax 针对不同平台有对应的实现，如 `remax/alipay`，`remax/wechat` 等等，开发者可根据需要选择对应的平台。关于跨平台开发解决方案请查看：[指南 - 跨平台开发](/指南/跨平台开发)`_
+_Remax 针对不同平台有对应的实现，如 `remax/alipay`，`remax/wechat` 等等，开发者可根据需要选择对应的平台。关于跨平台开发解决方案请查看：[高级指南 - 跨平台开发](/advanced-guide/cross-platform)`_
 
-`index.module.css` 页面样式文件，关于样式请参考 [开发 - 样式](/开发/样式)
+`index.module.css` 页面样式文件，关于样式请参考 [指南 - 样式](/guide/style)
 
-`index.config.js` 页面配置文件，会自动转换成小程序页面配置文件 `index.json`，关于配置请参考 [开发 - 配置](./开发/配置)
+`index.config.js` 页面配置文件，会自动转换成小程序页面配置文件 `index.json`，关于配置请参考 [指南 - 配置](./guide/config)

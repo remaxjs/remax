@@ -10,6 +10,7 @@ import progress from 'rollup-plugin-progress';
 import clear from 'rollup-plugin-clear';
 import alias from 'rollup-plugin-alias';
 import copy from 'rollup-plugin-copy';
+import stub from './plugins/stub';
 import pxToUnits from 'postcss-px2units';
 import getEntries from '../getEntries';
 import getCssModuleConfig from '../getCssModuleConfig';
@@ -25,7 +26,7 @@ import * as scheduler from 'scheduler';
 import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';
-import { Adapter } from './adapters';
+import adapters, { Adapter } from './adapters';
 import { Context } from '../types';
 
 export default function rollupConfig(
@@ -37,12 +38,12 @@ export default function rollupConfig(
   const babelConfig = {
     presets: [
       require.resolve('@babel/preset-typescript'),
-      [require.resolve('@babel/preset-env')],
-      [require.resolve('@babel/preset-react')],
+      require.resolve('@babel/preset-env'),
     ],
     plugins: [
       require.resolve('@babel/plugin-proposal-class-properties'),
       require.resolve('@babel/plugin-proposal-object-rest-spread'),
+      require.resolve('@babel/plugin-syntax-jsx'),
       [
         require.resolve('@babel/plugin-proposal-decorators'),
         {
@@ -57,6 +58,15 @@ export default function rollupConfig(
       require.resolve('babel-plugin-transform-async-to-promises')
     );
   }
+
+  const stubModules: string[] = [];
+
+  adapters.forEach(name => {
+    if (adapter.name !== name) {
+      const packageName = `remax/lib/adapters/${name}`;
+      stubModules.push(packageName);
+    }
+  });
 
   const entries = getEntries(options, adapter, context);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
@@ -98,6 +108,9 @@ export default function rollupConfig(
         scheduler: Object.keys(scheduler).filter(k => k !== 'default'),
       },
     }),
+    stub({
+      modules: stubModules,
+    }),
     babel({
       include: entries.pages.map(p => p.file),
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -114,7 +127,9 @@ export default function rollupConfig(
       babelrc: false,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [components(adapter), ...babelConfig.plugins],
-      presets: babelConfig.presets,
+      presets: babelConfig.presets.concat([
+        require.resolve('@babel/preset-react'),
+      ]),
     }),
     postcss({
       extract: true,
@@ -182,7 +197,7 @@ export default function rollupConfig(
         return (
           input &&
           input
-            .replace(/node_modules/, 'npm')
+            .replace(/node_modules/g, 'npm')
             .replace(/\.js_commonjs-proxy$/, '.js_commonjs-proxy.js')
         );
       },
@@ -217,6 +232,7 @@ export default function rollupConfig(
     preserveSymlinks: true,
     onwarn(warning, warn) {
       if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
+      if ((warning as RollupWarning).code === 'CIRCULAR_DEPENDENCY') return;
       warn(warning);
     },
     plugins,

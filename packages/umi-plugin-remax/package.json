@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-remax",
-  "version": "1.0.1-beta.0",
+  "version": "1.0.1-beta.4",
   "description": "> TODO: description",
   "author": "Meck Zhu <yesmeck@gmail.com>",
   "homepage": "https://github.com/remaxjs/remax#readme",
@@ -26,6 +26,7 @@
     "url": "https://github.com/remaxjs/remax/issues"
   },
   "dependencies": {
-    "remax-cli": "^1.0.1-beta.0"
+    "remax-cli": "^1.0.1-beta.4",
+    "umi-types": "^0.3.17"
   }
 }

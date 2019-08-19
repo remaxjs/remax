@@ -34,7 +34,7 @@ export interface InputProps {
   onBlur?: (...params: any) => void;
   onConfirm?: () => void;
   onKeyboardHeightChange?: () => void;
-  animation: Object[];
+  animation?: Object[];
 }
 
 function useInnerFocus(
@@ -88,6 +88,8 @@ const Input = forwardRef(InputRender);
 
 Input.defaultProps = {
   maxlength: -1,
+  selectionEnd: 999,
+  selectionStart: 999,
 };
 
 export default Input;

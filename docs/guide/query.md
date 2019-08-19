@@ -1,5 +1,6 @@
 ---
-order: 12
+title: 页面参数
+order: 27
 ---
 
 Remax 将页面参数通过 `props` 传递给页面组件，如：

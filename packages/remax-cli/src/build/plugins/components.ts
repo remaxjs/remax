@@ -18,23 +18,21 @@ export default (adapter: Adapter) => () => ({
     JSXElement(path: NodePath) {
       const node = path.node as t.JSXElement;
       if (t.isJSXIdentifier(node.openingElement.name)) {
-        const componentName = node.openingElement.name.name;
-        const binding = path.scope.getBinding(componentName);
+        const tagName = node.openingElement.name.name;
+        const binding = path.scope.getBinding(tagName);
         if (!binding) {
           return;
         }
         const componentPath = get(binding, 'path') as NodePath;
         let notBaseComponent = true;
         if (
-          componentPath &&
-          t.isImportSpecifier(componentPath.node) &&
-          t.isImportDeclaration(componentPath.parent) &&
-          componentPath.parent.source.value.startsWith('remax/')
+          !componentPath ||
+          !t.isImportSpecifier(componentPath.node) ||
+          !t.isImportDeclaration(componentPath.parent) ||
+          !componentPath.parent.source.value.startsWith('remax/')
         ) {
-          notBaseComponent = false;
+          return;
         }
-
-        if (notBaseComponent) return;
 
         // 基础组件
         node.openingElement.attributes.map(e => {
@@ -43,6 +41,8 @@ export default (adapter: Adapter) => () => ({
             return propName;
           }
         });
+
+        const componentName = componentPath.node.imported.name;
 
         const id = kebabCase(componentName);
 

@@ -1,5 +1,6 @@
 ---
-order: 13
+title: 平台
+order: 28
 ---
 
 Remax 目前支持的平台
@@ -35,4 +36,4 @@ import { View, navigateTo, useShow } from 'remax/alipay';
 
 ## 跨平台开发
 
-如果你有跨平台开发的需求，请查阅 [指南 - 跨平台开发](/指南/跨平台开发)
+如果你有跨平台开发的需求，请查阅 [高级指南 - 跨平台开发](/advanced-guide/cross-platform)
