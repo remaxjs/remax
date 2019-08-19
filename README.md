@@ -12,9 +12,6 @@
   <a href="https://www.npmjs.com/package/remax">
     <img alt="npm" src="https://img.shields.io/npm/v/remax?style=flat-square" />
   </a>
-  <a href="https://remaxjs-slack-invite.herokuapp.com">
-    <img src="https://img.shields.io/badge/chat-on%20slack-brightgreen?style=flat-square&logo=slack" alt="Chat on Slack" />
-  </a>
 </p>
 
 Remax 将 React 运行在小程序环境中，让你可以使用完整的 React 进行开发。
