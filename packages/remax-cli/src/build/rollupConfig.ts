@@ -37,11 +37,12 @@ export default function rollupConfig(
   const babelConfig = {
     presets: [
       require.resolve('@babel/preset-typescript'),
-      [require.resolve('@babel/preset-env')],
+      require.resolve('@babel/preset-env'),
     ],
     plugins: [
       require.resolve('@babel/plugin-proposal-class-properties'),
       require.resolve('@babel/plugin-proposal-object-rest-spread'),
+      require.resolve('@babel/plugin-syntax-jsx'),
       [
         require.resolve('@babel/plugin-proposal-decorators'),
         {
