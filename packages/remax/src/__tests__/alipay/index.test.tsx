@@ -94,6 +94,10 @@ describe('remax render', () => {
     const context = new Context();
     render(<Page />, context);
     expect(context.data).toMatchSnapshot();
+
+    const style = context.data[REMAX_ROOT][0].children[0].props.style;
+
+    expect(style[style.length - 1]).toBe(';');
   });
 
   it('renders conditional fragment correctly', () => {
