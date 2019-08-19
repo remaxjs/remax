@@ -44,6 +44,8 @@ export default (adapter: Adapter) => () => ({
 
         const componentName = componentPath.node.imported.name;
 
+        console.log(componentName);
+
         const id = kebabCase(componentName);
 
         if (id === 'swiper-item') {

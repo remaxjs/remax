@@ -38,7 +38,6 @@ export default function rollupConfig(
     presets: [
       require.resolve('@babel/preset-typescript'),
       [require.resolve('@babel/preset-env')],
-      [require.resolve('@babel/preset-react')],
     ],
     plugins: [
       require.resolve('@babel/plugin-proposal-class-properties'),
@@ -117,7 +116,9 @@ export default function rollupConfig(
       babelrc: false,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [components(adapter), ...babelConfig.plugins],
-      presets: babelConfig.presets,
+      presets: babelConfig.presets.concat([
+        require.resolve('@babel/preset-react'),
+      ]),
     }),
     postcss({
       extract: true,
