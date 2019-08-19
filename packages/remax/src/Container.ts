@@ -102,7 +102,7 @@ export default class Container {
     const method = this.context.$spliceData ? '$spliceData' : 'setData';
 
     this.context[method](msg, () => {
-      if (process.env.NODE_ENV !== 'production') {
+      if (process.env.REMAX_DEBUG) {
         console.log(
           `setData => 回调时间：${new Date().getTime() - startTime}ms`
         );
