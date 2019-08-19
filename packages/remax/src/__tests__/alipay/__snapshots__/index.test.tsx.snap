@@ -194,7 +194,7 @@ Object {
           ],
           "id": 0,
           "props": Object {
-            "style": "width:100px;height:100px",
+            "style": "width:100px;height:100px;",
           },
           "type": "view",
         },
