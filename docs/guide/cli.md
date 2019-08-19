@@ -1,6 +1,6 @@
 ---
 title: 'CLI'
-order: 15
+order: 30
 ---
 
 ```

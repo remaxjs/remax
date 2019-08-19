@@ -1,6 +1,6 @@
 ---
 title: 指南
-order: 3
+order: 20
 ---
 
 - [React](./guide/react)
@@ -11,5 +11,5 @@ order: 3
 - [API](./guide/api)
 - [页面传参](./guide/query)
 - [平台信息](./guide/platform)
-- [TypeScript](./guide/typeScript)
+- [TypeScript](./guide/typescript)
 - [CLI](./guide/cli)
