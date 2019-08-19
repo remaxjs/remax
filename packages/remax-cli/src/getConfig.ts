@@ -8,6 +8,7 @@ export interface RemaxOptions {
   progress: boolean;
   output: string;
   UNSAFE_wechatTemplateDepth: number;
+  alias?: any;
 }
 
 interface CliOptions {

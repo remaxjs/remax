@@ -84,6 +84,7 @@ export default function rollupConfig(
         '/index.tsx',
       ],
       '@': path.resolve(options.cwd, 'src'),
+      ...options.alias,
     }),
     url({
       limit: 0,
