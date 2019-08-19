@@ -15,7 +15,7 @@ const output = (content: string, color: 'red' | 'green' | 'blue') =>
 
 export default async (argv: any, context?: Context) => {
   const options = {
-    ...getConfig(),
+    ...getConfig(argv),
     ...(context ? context.config : {}),
   };
 
