@@ -7,6 +7,7 @@ export interface RemaxOptions {
   cwd: string;
   progress: boolean;
   output: string;
+  alias?: any;
 }
 
 interface CliOptions {
