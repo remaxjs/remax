@@ -155,6 +155,7 @@ export default function rollupConfig(
         process.env.NODE_ENV || 'development'
       ),
       'process.env.REMAX_PLATFORM': JSON.stringify(argv.target),
+      'process.env.REMAX_DEBUG': JSON.stringify(true),
     }),
     rename({
       include: 'src/**',
