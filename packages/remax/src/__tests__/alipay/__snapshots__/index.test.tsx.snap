@@ -2,164 +2,213 @@
 
 exports[`remax render insert new element 1`] = `
 Object {
-  "$$REMAX_ROOT": Array [
+  "children": Array [
     Object {
       "children": Array [
         Object {
           "children": Array [
             Object {
-              "children": Array [
-                Object {
-                  "text": "1",
-                  "type": Symbol(text),
-                },
-              ],
-              "id": 0,
-              "props": Object {},
-              "type": "view",
-            },
-            Object {
-              "children": Array [
-                Object {
-                  "text": "3",
-                  "type": Symbol(text),
-                },
-              ],
-              "id": 1,
-              "props": Object {},
-              "type": "view",
+              "text": "1",
+              "type": Symbol(text),
             },
           ],
           "id": 2,
           "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "text": "3",
+              "type": Symbol(text),
+            },
+          ],
+          "id": 4,
+          "props": Object {},
+          "text": undefined,
           "type": "view",
         },
       ],
-      "type": "root",
+      "id": 5,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
     },
   ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
 }
 `;
 
 exports[`remax render insert new element 2`] = `
 Object {
-  "$$REMAX_ROOT": Array [
+  "children": Array [
     Object {
       "children": Array [
         Object {
           "children": Array [
             Object {
-              "children": Array [
-                Object {
-                  "text": "1",
-                  "type": Symbol(text),
-                },
-              ],
-              "id": 0,
-              "props": Object {},
-              "type": "view",
-            },
-            Object {
-              "children": Array [
-                Object {
-                  "text": "2",
-                  "type": Symbol(text),
-                },
-              ],
-              "id": 3,
-              "props": Object {},
-              "type": "view",
-            },
-            Object {
-              "children": Array [
-                Object {
-                  "text": "3",
-                  "type": Symbol(text),
-                },
-              ],
-              "id": 1,
-              "props": Object {},
-              "type": "view",
+              "text": "1",
+              "type": Symbol(text),
             },
           ],
           "id": 2,
           "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "text": "2",
+              "type": Symbol(text),
+            },
+          ],
+          "id": 7,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "text": "3",
+              "type": Symbol(text),
+            },
+          ],
+          "id": 4,
+          "props": Object {},
+          "text": undefined,
           "type": "view",
         },
       ],
-      "type": "root",
+      "id": 5,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
     },
   ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
 }
 `;
 
 exports[`remax render render correctly 1`] = `
 Object {
-  "$$REMAX_ROOT": Array [
+  "children": Array [
     Object {
       "children": Array [
         Object {
-          "children": Array [
-            Object {
-              "text": "hello",
-              "type": Symbol(text),
-            },
-          ],
-          "id": 0,
-          "props": Object {
-            "class": "foo",
-          },
-          "type": "view",
+          "text": "hello",
+          "type": Symbol(text),
         },
       ],
-      "type": "root",
+      "id": 2,
+      "props": Object {
+        "class": "foo",
+      },
+      "text": undefined,
+      "type": "view",
     },
   ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
 }
 `;
 
 exports[`remax render renders conditional fragment correctly 1`] = `
 Object {
-  "$$REMAX_ROOT": Array [
+  "children": Array [
     Object {
       "children": Array [
         Object {
-          "children": Array [
-            Object {
-              "text": "one",
-              "type": Symbol(text),
-            },
-          ],
-          "id": 0,
-          "props": Object {},
-          "type": "view",
+          "text": "one",
+          "type": Symbol(text),
         },
       ],
-      "type": "root",
+      "id": 2,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
     },
     Object {
       "children": Array [
         Object {
-          "children": Array [
-            Object {
-              "text": "two",
-              "type": Symbol(text),
-            },
-          ],
-          "id": 1,
-          "props": Object {},
-          "type": "view",
+          "text": "two",
+          "type": Symbol(text),
         },
       ],
-      "type": "root",
+      "id": 4,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
     },
   ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
 }
 `;
 
 exports[`remax render renders conditional fragment correctly 2`] = `
 Object {
-  "$$REMAX_ROOT": Array [
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "text": "foo",
+          "type": Symbol(text),
+        },
+      ],
+      "id": 2,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
+    },
+  ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
+}
+`;
+
+exports[`remax render renders style 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "text": "hello",
+          "type": Symbol(text),
+        },
+      ],
+      "id": 2,
+      "props": Object {
+        "style": "width:100px;height:100px;",
+      },
+      "text": undefined,
+      "type": "view",
+    },
+  ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
+}
+`;
+
+exports[`remax render umount component 1`] = `
+Object {
+  "children": Array [
     Object {
       "children": Array [
         Object {
@@ -169,86 +218,39 @@ Object {
               "type": Symbol(text),
             },
           ],
-          "id": 0,
+          "id": 2,
           "props": Object {},
+          "text": undefined,
           "type": "view",
         },
       ],
-      "type": "root",
+      "id": 3,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
     },
   ],
-}
-`;
-
-exports[`remax render renders style 1`] = `
-Object {
-  "$$REMAX_ROOT": Array [
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "text": "hello",
-              "type": Symbol(text),
-            },
-          ],
-          "id": 0,
-          "props": Object {
-            "style": "width:100px;height:100px;",
-          },
-          "type": "view",
-        },
-      ],
-      "type": "root",
-    },
-  ],
-}
-`;
-
-exports[`remax render umount component 1`] = `
-Object {
-  "$$REMAX_ROOT": Array [
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "children": Array [
-                Object {
-                  "text": "foo",
-                  "type": Symbol(text),
-                },
-              ],
-              "id": 0,
-              "props": Object {},
-              "type": "view",
-            },
-          ],
-          "id": 1,
-          "props": Object {},
-          "type": "view",
-        },
-      ],
-      "type": "root",
-    },
-  ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
 }
 `;
 
 exports[`remax render umount component 2`] = `
 Object {
-  "$$REMAX_ROOT": Array [
+  "children": Array [
     Object {
-      "children": Array [
-        Object {
-          "children": Array [],
-          "id": 1,
-          "props": Object {},
-          "type": "view",
-        },
-      ],
-      "type": "root",
+      "children": Array [],
+      "id": 3,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
     },
   ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
 }
 `;

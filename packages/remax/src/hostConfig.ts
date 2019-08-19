@@ -1,6 +1,9 @@
 import * as scheduler from 'scheduler';
-import { REMAX_ROOT_BACKUP, REMAX_METHOD, TYPE_TEXT } from './constants';
+import shallowequal from 'shallowequal';
+import { REMAX_METHOD, TYPE_TEXT } from './constants';
 import { generate } from './instanceId';
+import VNode from './VNode';
+import Container from './Container';
 
 /**
  * rootContext Page 实例
@@ -13,12 +16,12 @@ const {
   unstable_now: now,
 } = scheduler;
 
-function processProps(newProps: any, rootContext: any, id: number) {
+function processProps(newProps: any, rootContext: Container, id: number) {
   const props: any = {};
   for (const propKey of Object.keys(newProps)) {
     if (typeof newProps[propKey] === 'function') {
       const contextKey = `${REMAX_METHOD}_${id}_${propKey}`;
-      rootContext[contextKey] = newProps[propKey];
+      rootContext.createCallback(contextKey, newProps[propKey]);
       props[propKey] = contextKey;
     } else if (propKey === 'children') {
       // pass
@@ -55,114 +58,92 @@ export default {
     return childHostContext;
   },
 
-  prepareUpdate() {
-    return true;
-  },
-
-  commitTextUpdate(textInstance: any, oldText: string, newText: string) {
-    textInstance.text = newText;
-    textInstance.rootContext.requestUpdate();
-  },
-
   createInstance: (
     type: string,
     newProps: any,
-    rootContainerInstance: any,
+    container: Container,
     _currentHostContext: any
   ) => {
-    const rootContext = rootContainerInstance;
     const id = generate();
-
-    const props = processProps(newProps, rootContext, id);
-
-    const ins = {
-      type: type === 'div' ? 'view' : type,
-      props,
-      children: [],
-      rootContext,
+    const props = processProps(newProps, container, id);
+    return new VNode({
       id,
-    };
-
-    return ins;
+      type,
+      props,
+      container,
+    });
   },
 
-  createTextInstance(text: string) {
-    return {
+  createTextInstance(text: string, container: Container) {
+    const id = generate();
+    const node = new VNode({
+      id,
       type: TYPE_TEXT,
-      text,
-    };
+      props: null,
+      container,
+    });
+    node.text = text;
+    return node;
+  },
+
+  commitTextUpdate(node: VNode, oldText: string, newText: string) {
+    if (oldText !== newText) {
+      node.text = newText;
+      node.update();
+    }
+  },
+
+  prepareUpdate(node: VNode, type: string, oldProps: any, newProps: any) {
+    oldProps = processProps(oldProps, node.container, node.id);
+    newProps = processProps(newProps, node.container, node.id);
+    if (!shallowequal(newProps, oldProps)) {
+      return true;
+    }
+    return null;
   },
 
   commitUpdate(
-    targetIns: any,
+    node: VNode,
     updatePayload: any,
     type: string,
     oldProps: any,
     newProps: any
   ) {
-    const props = processProps(newProps, targetIns.rootContext, targetIns.id);
-    targetIns.props = props;
-    targetIns.rootContext.requestUpdate();
+    node.props = processProps(newProps, node.container, node.id);
+    node.update();
   },
 
-  appendInitialChild: (parent: any, child: any) => {
-    child.rootContext = parent.rootContext;
-    parent.children.push(child);
-    child.rootContext.requestUpdate();
+  appendInitialChild: (parent: VNode, child: VNode) => {
+    parent.appendChild(child);
   },
 
-  appendChild(parent: any, child: any) {
-    child.rootContext = parent.rootContext;
-    parent.children.push(child);
-    child.rootContext.requestUpdate();
+  appendChild(parent: VNode, child: VNode) {
+    parent.appendChild(child);
   },
 
-  insertBefore(parent: any, child: any, beforeChild: any) {
-    child.rootContext = parent.rootContext;
-    parent.children.splice(parent.children.indexOf(beforeChild), 0, child);
-    child.rootContext.requestUpdate();
+  insertBefore(parent: VNode, child: VNode, beforeChild: VNode) {
+    parent.insertBefore(child, beforeChild);
   },
 
-  insertInContainerBefore() {},
+  removeChild(parent: VNode, child: VNode) {
+    parent.removeChild(child);
+  },
 
   finalizeInitialChildren: () => {
     return false;
   },
 
-  supportsMutation: true,
-
-  appendChildToContainer(_parent: any, child: any) {
-    let parent: any = null;
-    if (_parent._rootContainer) {
-      // append to root
-      parent = {
-        type: 'root',
-        children: [],
-        rootContext: _parent,
-      };
-    }
-
-    parent.children.push(child);
-
-    child.rootContext[REMAX_ROOT_BACKUP] =
-      child.rootContext[REMAX_ROOT_BACKUP] || [];
-    child.rootContext[REMAX_ROOT_BACKUP].push(parent);
-    child.rootContext.executeUpdate();
+  appendChildToContainer(container: any, child: VNode) {
+    container.appendChild(child);
+    child.mounted = true;
   },
 
-  removeChild(parentInstance: any, child: any) {
-    parentInstance.children.splice(parentInstance.children.indexOf(child), 1);
-    parentInstance.rootContext.requestUpdate();
+  insertInContainerBefore(container: any, child: VNode, beforeChild: VNode) {
+    container.insertBefore(child, beforeChild);
   },
 
-  removeChildFromContainer(container: any, child: any) {
-    const root = container[REMAX_ROOT_BACKUP].find(
-      (root: any) => root.children.indexOf(child) > -1
-    );
-    container[REMAX_ROOT_BACKUP].splice(
-      container[REMAX_ROOT_BACKUP].indexOf(root),
-      1
-    );
+  removeChildFromContainer(container: any, child: VNode) {
+    container.removeChild(child);
   },
 
   schedulePassiveEffects: scheduleDeferredCallback,
@@ -170,4 +151,6 @@ export default {
   shouldYield,
   scheduleDeferredCallback,
   cancelDeferredCallback,
+
+  supportsMutation: true,
 };

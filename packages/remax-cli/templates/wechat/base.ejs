@@ -1,5 +1,5 @@
 <template name="REMAX_TPL">
-  <block wx:for="{{$$REMAX_ROOT}}" wx:key="{{item.id}}">
+  <block wx:for="{{tree.root.children}}" wx:key="{{item.id}}">
     <template is="REMAX_TPL_1" data="{{i: item}}"/>
   </block>
 </template>
@@ -17,11 +17,6 @@
 <template name="REMAX_TPL_<%= id%>">
   <block>
     <block wx:if="{{i && i.text}}">{{i.text}}</block>
-    <block wx:if="{{i.type === 'root'}}">
-      <block wx:for="{{i.children}}" wx:key="{{item.id}}">
-        <template is="REMAX_TPL_<%= id + 1%>" data="{{ i: item}}"/>
-      </block>
-    </block>
     <% for (let component of components) { %>
       <%- include('./component.ejs', {
         type: component.type,
