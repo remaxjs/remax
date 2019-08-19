@@ -61,27 +61,35 @@ export default {
   createInstance: (
     type: string,
     newProps: any,
-    rootContainerInstance: any,
+    container: Container,
     _currentHostContext: any
   ) => {
-    const rootContext = rootContainerInstance;
     const id = generate();
-    const props = processProps(newProps, rootContext, id);
-    return new VNode(id, type, props, rootContext);
+    const props = processProps(newProps, container, id);
+    return new VNode({
+      id,
+      type,
+      props,
+      container,
+    });
   },
 
-  createTextInstance(text: string, rootContainerInstance: any) {
-    const rootContext = rootContainerInstance;
+  createTextInstance(text: string, container: Container) {
     const id = generate();
-    const node = new VNode(id, TYPE_TEXT, null, rootContext);
+    const node = new VNode({
+      id,
+      type: TYPE_TEXT,
+      props: null,
+      container,
+    });
     node.text = text;
     return node;
   },
 
   commitTextUpdate(node: VNode, oldText: string, newText: string) {
-    node.text = newText;
     if (oldText !== newText) {
-      node.container.requestUpdate(node.path(), node.toJSON());
+      node.text = newText;
+      node.update();
     }
   },
 
@@ -102,7 +110,7 @@ export default {
     newProps: any
   ) {
     node.props = processProps(newProps, node.container, node.id);
-    node.container.requestUpdate(node.path(), node.toJSON());
+    node.update();
   },
 
   appendInitialChild: (parent: VNode, child: VNode) => {

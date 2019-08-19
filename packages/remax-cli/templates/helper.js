@@ -1,14 +1,11 @@
 var tree = {
-  root: [],
+  root: {
+    children: [],
+  },
 };
 
 function reduce(action) {
   switch (action.type) {
-    case 'set':
-      for (var i = 0; i < action.payload.length; i += 1) {
-        set(tree, action.payload[i].path, action.payload[i].value);
-      }
-      return tree;
     case 'splice':
       for (var i = 0; i < action.payload.length; i += 1) {
         var value = get(tree, action.payload[i].path);
@@ -77,6 +74,13 @@ function get(obj, path) {
   for (var i = 0; i < path.length; i += 1) {
     var currentPath = path[i];
     nextObj = nextObj[currentPath];
+    if (nextObj === void 0) {
+      if (currentPath === 'children') {
+        nextObj = [];
+      } else {
+        nextObj = {};
+      }
+    }
   }
 
   return nextObj;

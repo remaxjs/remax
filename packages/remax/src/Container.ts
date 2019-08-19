@@ -1,5 +1,6 @@
 import Platform from './Platform';
 import VNode, { Path, RawNode } from './VNode';
+import { generate } from './instanceId';
 
 function stringPath(path: Path) {
   if (Platform.isAlipay) {
@@ -10,9 +11,9 @@ function stringPath(path: Path) {
         acc += `.${i}`;
       }
       return acc;
-    }, 'root');
+    });
   } else {
-    return ['root', ...path].join('.');
+    return path.join('.');
   }
 }
 
@@ -30,85 +31,67 @@ interface SpliceUpdate {
 
 export default class Container {
   context: any;
-  root: VNode[] = [];
-  setQueue: SetUpdate[] = [];
-  spliceQueue: SpliceUpdate[] = [];
+  root: VNode;
+  updateQueue: SpliceUpdate[] = [];
 
   constructor(context: any) {
     this.context = context;
-  }
 
-  requestUpdate(path: Path, data: any) {
-    if (this.setQueue.length === 0) {
-      Promise.resolve().then(() => this.applyUpdate(path, data));
-    }
-    this.setQueue.push({
-      path,
-      data,
+    this.root = new VNode({
+      id: generate(),
+      type: 'root',
+      container: this,
     });
+    this.root.mounted = true;
   }
 
-  applyUpdate(path: Path, data: any) {
-    const startTime = new Date().getTime();
-    const msg = this.context.$spliceData
-      ? this.setQueue.reduce((acc: any, update) => {
-          acc[stringPath(update.path)] = update.data;
-          return acc;
-        }, {})
-      : {
-          action: {
-            type: 'set',
-            payload: this.setQueue.map(update => ({
-              path: stringPath(update.path),
-              value: update.data,
-            })),
-          },
-        };
-    this.context.setData(msg, () => {
-      if (process.env.NODE_ENV !== 'production') {
-        console.log(
-          `updateData => 回调时间：${new Date().getTime() - startTime}ms`
-        );
-      }
-    });
-    this.setQueue = [];
-  }
-
-  requestSpliceUpdate(
+  requestUpdate(
     path: Path,
     start: number,
     deleteCount: number,
     ...items: RawNode[]
   ) {
-    if (this.spliceQueue.length === 0) {
-      Promise.resolve().then(() => this.applySpliceUpdate());
+    if (this.context.$spliceData) {
+      const prevSamePathUpdate = this.updateQueue.find(
+        u => stringPath(u.path) === stringPath(path)
+      );
+      if (prevSamePathUpdate) {
+        if (prevSamePathUpdate.start < start) {
+          prevSamePathUpdate.items = prevSamePathUpdate.items.concat(items);
+        } else {
+          prevSamePathUpdate.items = items.concat(prevSamePathUpdate.items);
+        }
+        return;
+      }
     }
-    this.spliceQueue.push({
+    const update: SpliceUpdate = {
       path,
       start,
       deleteCount,
       items,
-    });
+    };
+    if (this.updateQueue.length === 0) {
+      Promise.resolve().then(() => this.applyUpdate());
+    }
+    this.updateQueue.push(update);
   }
 
-  applySpliceUpdate() {
+  applyUpdate() {
     const startTime = new Date().getTime();
+
     const msg = this.context.$spliceData
-      ? this.spliceQueue.reduce(
-          (acc, update) => ({
-            ...acc,
-            [stringPath(update.path)]: [
-              update.start,
-              update.deleteCount,
-              ...update.items,
-            ],
-          }),
-          {}
-        )
+      ? this.updateQueue.reduce((acc: any, update) => {
+          acc[stringPath(update.path)] = [
+            update.start,
+            update.deleteCount,
+            ...update.items,
+          ];
+          return acc;
+        }, {})
       : {
           action: {
             type: 'splice',
-            payload: this.spliceQueue.map(update => ({
+            payload: this.updateQueue.map(update => ({
               path: stringPath(update.path),
               start: update.start,
               deleteCount: update.deleteCount,
@@ -117,14 +100,15 @@ export default class Container {
           },
         };
     const method = this.context.$spliceData ? '$spliceData' : 'setData';
+
     this.context[method](msg, () => {
       if (process.env.NODE_ENV !== 'production') {
         console.log(
-          `spliceData => 回调时间：${new Date().getTime() - startTime}ms`
+          `setData => 回调时间：${new Date().getTime() - startTime}ms`
         );
       }
     });
-    this.spliceQueue = [];
+    this.updateQueue = [];
   }
 
   createCallback(name: string, fn: Function) {
@@ -132,21 +116,14 @@ export default class Container {
   }
 
   appendChild(child: VNode) {
-    this.root.push(child);
-    this.requestUpdate(child.path(), child.toJSON());
+    this.root.appendChild(child);
   }
 
   removeChild(child: VNode) {
-    const start = this.root.indexOf(child);
-    if (start >= 0 && !this.context.unloaded) {
-      this.root.splice(start, 1);
-      this.requestSpliceUpdate([], start, 1);
-    }
+    this.root.removeChild(child);
   }
 
   insertBefore(child: VNode, beforeChild: VNode) {
-    const start = this.root.indexOf(beforeChild);
-    this.root.splice(start, 0, child);
-    this.requestSpliceUpdate([], start, 0, child);
+    this.root.insertBefore(child, beforeChild);
   }
 }

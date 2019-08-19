@@ -14,60 +14,84 @@ export type Path = Array<string | number>;
 export default class VNode {
   id: number;
   container: Container;
-  children?: VNode[];
+  children: VNode[];
   mounted = false;
   type: string | Symbol;
-  props: any;
+  props?: any;
   parent: VNode | null = null;
   text?: string;
 
-  constructor(id: number, type: string | Symbol, props: any, page: any) {
+  constructor({
+    id,
+    type,
+    props,
+    container,
+  }: {
+    id: number;
+    type: string | Symbol;
+    props?: any;
+    container: any;
+  }) {
     this.id = id;
-    this.container = page;
+    this.container = container;
     this.type = type;
     this.props = props;
+    this.children = [];
   }
 
   appendChild(node: VNode) {
     node.parent = this;
-    this.children = this.children || [];
     this.children.push(node);
     if (this.isMounted()) {
-      this.container.requestUpdate(node.path(), node.toJSON());
+      this.container.requestUpdate(
+        [...this.path(), 'children'],
+        this.children.length,
+        0,
+        node.toJSON()
+      );
     }
   }
 
   removeChild(node: VNode) {
-    const start = this.children!.indexOf(node);
-    this.children!.splice(start, 1);
+    const start = this.children.indexOf(node);
+    this.children.splice(start, 1);
     if (this.isMounted()) {
-      const path = this.parent
-        ? [...this.parent.path(), 'children']
-        : [...this.path(), 'children'];
-      this.container.requestSpliceUpdate(path, start, 1);
+      this.container.requestUpdate([...this.path(), 'children'], start, 1);
     }
   }
 
   insertBefore(newNode: VNode, referenceNode: VNode) {
     newNode.parent = this;
-    const start = this.children!.indexOf(referenceNode);
-    this.children!.splice(start, 0, newNode);
+    const start = this.children.indexOf(referenceNode);
+    this.children.splice(start, 0, newNode);
     if (this.isMounted()) {
-      const path = this.parent
-        ? [...this.parent.path(), 'children']
-        : [...this.path(), 'children'];
-      this.container.requestSpliceUpdate(path, start, 0, newNode.toJSON());
+      this.container.requestUpdate(
+        [...this.path(), 'children'],
+        start,
+        0,
+        newNode.toJSON()
+      );
     }
+  }
+
+  update() {
+    // root 不会更新，所以肯定有 parent
+    this.container.requestUpdate(
+      [...this.parent!.path(), 'children'],
+      this.parent!.children.indexOf(this),
+      1,
+      this.toJSON()
+    );
   }
 
   path(): Path {
     if (!this.parent) {
-      return [this.container.root.length - 1];
+      return ['root'];
     }
     return [
       ...this.parent.path(),
       'children',
-      this.parent.children!.indexOf(this),
+      this.parent.children.indexOf(this),
     ];
   }
 
