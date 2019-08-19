@@ -219,6 +219,7 @@ export default function rollupConfig(
     preserveSymlinks: true,
     onwarn(warning, warn) {
       if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
+      if ((warning as RollupWarning).code === 'CIRCULAR_DEPENDENCY') return;
       warn(warning);
     },
     plugins,
