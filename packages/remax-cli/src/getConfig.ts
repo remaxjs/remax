@@ -20,7 +20,7 @@ export default function getConfig(cli: CliOptions): RemaxOptions {
     const options = require(configPath);
 
     // options 为 fucntion
-    if (options.prototype) {
+    if (typeof options == 'function') {
       return {
         ...defaultOptions,
         ...options(cli),
