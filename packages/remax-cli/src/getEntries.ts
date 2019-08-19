@@ -80,7 +80,7 @@ export default function getEntries(
           path: page,
           file: searchFile(path.join(options.cwd, 'src', page)),
         },
-      ].filter(f => f);
+      ].filter(page => page && page.file);
     },
     []
   );
@@ -94,17 +94,10 @@ export default function getEntries(
             path: page,
             file: searchFile(path.join(options.cwd, 'src', pack.root, page)),
           },
-        ].filter(f => f);
+        ].filter(page => page && page.file);
       }, [])
     );
   });
-
-  entries.pageConfigPath = pages.reduce((ret: string[], page: string) => {
-    return [
-      ...ret,
-      searchFile(path.join(options.cwd, 'src', page), 'config.js'),
-    ].filter(f => f);
-  }, []);
 
   return entries;
 }
