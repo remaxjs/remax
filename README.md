@@ -26,7 +26,7 @@ Remax 将 React 运行在小程序环境中，让你可以使用完整的 React 
 
 你可以从我们的[网站上](https://remaxjs.org)找到详细的文档。
 
- 也可以通过[快速开始指南](https://remaxjs.org/quick-start)来立即体验 Remax。
+也可以通过[快速开始指南](https://remaxjs.org/quick-start)来立即体验 Remax。
 
 ## 示例
 
