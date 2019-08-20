@@ -1,8 +1,8 @@
 declare module 'rollup-plugin-babel';
-declare module 'rollup-plugin-postcss';
+declare module '@meck/rollup-plugin-postcss';
 declare module 'rollup-plugin-json';
 declare module 'rollup-plugin-node-resolve';
-declare module '@meck/rollup-plugin-progress';
+declare module 'rollup-plugin-progress';
 declare module 'rollup-plugin-clear';
 declare module 'rollup-plugin-alias';
 declare module 'rollup-plugin-url';
