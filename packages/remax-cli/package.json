@@ -1,6 +1,6 @@
 {
   "name": "remax-cli",
-  "version": "1.0.1-beta.8",
+  "version": "1.0.1-rc.0",
   "description": "",
   "main": "./lib/index.js",
   "scripts": {
@@ -64,7 +64,7 @@
     "@types/webpack-bundle-analyzer": "^2.13.0",
     "jest": "^24.8.0",
     "react": "^16.8.6",
-    "remax": "^1.0.1-beta.8",
+    "remax": "^1.0.1-rc.0",
     "ts-jest": "^24.0.2",
     "typescript": "^3.2.2"
   }
