@@ -1,6 +1,6 @@
 {
   "name": "remax",
-  "version": "1.0.1-beta.4",
+  "version": "1.0.1-beta.8",
   "description": "Runtime of remax",
   "main": "lib/index.js",
   "scripts": {
