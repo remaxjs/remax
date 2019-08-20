@@ -1,8 +1,6 @@
 language: node_js
 node_js:
   - stable
-before_script:
-  - yarn bootstrap
 script:
   - yarn test
   - |
