@@ -1,9 +1,28 @@
 import * as rollup from 'rollup';
 import rollupConfig from './rollupConfig';
 import getConfig from '../getConfig';
+import { Context } from '../types';
 
-export default async (argv: any) => {
-  const options = getConfig();
+const COLORS = {
+  red: '\x1b[31m',
+  green: '\x1b[32m',
+  blue: '\x1b[34m',
+};
+const RESET = '\x1b[0m';
+
+const output = (
+  content: string | string[],
+  color: 'red' | 'green' | 'blue'
+) => {
+  const message = Array.isArray(content) ? content : [content];
+  console.log(`${COLORS[color]}%s${RESET}`, ...message);
+};
+
+export default async (argv: any, context?: Context) => {
+  const options = {
+    ...getConfig(),
+    ...(context ? context.config : {}),
+  };
 
   let targetConfig;
   try {
@@ -13,31 +32,48 @@ export default async (argv: any) => {
     throw new Error(`Target ${argv.target} is not supported yet.`);
   }
 
-  const rollupOptions = rollupConfig(options, argv, targetConfig);
+  const rollupOptions = rollupConfig(options, argv, targetConfig, context);
   if (argv.watch) {
     const watcher = rollup.watch([
       {
         ...rollupOptions,
         watch: {
-          include: ['src/**', 'app.js', 'app.json'],
+          include: ['src/**', 'app.js', '*.config.js'],
         },
       },
     ]);
 
+    console.log('\x1b[34m%s\x1b[0m', '🚀 启动 watch');
+
     watcher.on('event', (event: any) => {
-      console.log(event.code);
       switch (event.code) {
-        case 'ERROR':
-          console.error(event.error);
+        case 'START':
+          output('🚚 编译...', 'blue');
           break;
+        case 'END':
+          output('💡 完成', 'green');
+          break;
+        case 'ERROR':
         case 'FATAL':
-          throw event.error;
+          const { error } = event;
+          const name =
+            error.code === 'PLUGIN_ERROR' ? error.plugin : error.code;
+          output(`\n🚨 [${name}]: ${error.message}`, 'red');
+          throw error;
         default:
           break;
       }
     });
   } else {
-    const bundle = await rollup.rollup(rollupOptions);
-    await bundle.write(rollupOptions.output!);
+    try {
+      output('🚀 开始 build...', 'blue');
+      const bundle = await rollup.rollup(rollupOptions);
+      await bundle.write(rollupOptions.output!);
+      output('💡 完成', 'green');
+    } catch (error) {
+      const name = error.code === 'PLUGIN_ERROR' ? error.plugin : error.code;
+      output(`\n🚨 [${name}]: ${error.message}`, 'red');
+      throw error;
+    }
   }
 };

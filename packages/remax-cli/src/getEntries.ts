@@ -1,47 +1,103 @@
 import fs from 'fs';
 import path from 'path';
 import { RemaxOptions } from './getConfig';
+import readManifest from './readManifest';
+import { Adapter } from './build/adapters';
+import { Context } from './types';
 
 interface AppConfig {
   pages: string[];
+  subpackages: {
+    root: string;
+    pages: string[];
+  }[];
 }
 
 interface Entries {
+  pageConfigPath: string[];
   app: string;
-  pages: string[];
+  pages: Array<{ path: string; file: string }>;
 }
 
-function searchFile(file: string) {
-  const tsFile = file + '.ts';
-  if (fs.existsSync(tsFile)) {
-    return tsFile;
+function searchFile(file: string, ext?: string) {
+  const exts = [ext, 'ts', 'tsx', 'js'].filter(e => e);
+
+  for (const e of exts) {
+    const extFile = file + '.' + e;
+    if (fs.existsSync(extFile)) {
+      return extFile;
+    }
+
+    if (e === ext) {
+      return '';
+    }
   }
-  const tsxFile = file + '.tsx';
-  if (fs.existsSync(tsxFile)) {
-    return tsxFile;
-  }
-  return file + '.js';
+
+  return '';
 }
 
-export default function getEntries(options: RemaxOptions): Entries {
-  const appConfigPath: string = path.join(options.cwd, 'src', 'app.json');
-  if (!fs.existsSync(appConfigPath)) {
-    throw new Error(`${appConfigPath} is not found`);
-  }
-  const appConfig: AppConfig = JSON.parse(fs.readFileSync(appConfigPath, 'utf-8'));
-  const { pages } = appConfig;
-  if (!pages || pages.length === 0) {
-    throw new Error('app.json `pages` field should not be undefined or empty object');
+export default function getEntries(
+  options: RemaxOptions,
+  adpater: Adapter,
+  context?: Context
+): Entries {
+  let pages: any = [];
+  let subpackages: any = [];
+
+  if (!context) {
+    const appConfigPath: string = path.join(
+      options.cwd,
+      'src',
+      'app.config.js'
+    );
+    if (!fs.existsSync(appConfigPath)) {
+      throw new Error(`${appConfigPath} is not found`);
+    }
+    const appConfig: AppConfig = readManifest(appConfigPath, adpater.name);
+    pages = appConfig.pages;
+    subpackages = appConfig.subpackages || [];
+    if (!pages || pages.length === 0) {
+      throw new Error(
+        'app.config.js `pages` field should not be undefined or empty object'
+      );
+    }
+  } else {
+    pages = context.pages.map(p => p.path);
+    subpackages = context.app.subpackages || [];
   }
 
   const entries: Entries = {
+    pageConfigPath: [],
     app: searchFile(path.join(options.cwd, 'src', 'app')),
     pages: [],
   };
 
-  entries.pages = pages.reduce((ret: string[], page) => {
-    return [...ret, searchFile(path.join(options.cwd, 'src', page))];
-  }, []);
+  entries.pages = pages.reduce(
+    (ret: Array<{ path: string; file: string }>, page: string) => {
+      return [
+        ...ret,
+        {
+          path: page,
+          file: searchFile(path.join(options.cwd, 'src', page)),
+        },
+      ].filter(page => page && page.file);
+    },
+    []
+  );
+
+  subpackages.forEach((pack: { pages: string[]; root: string }) => {
+    entries.pages = entries.pages.concat(
+      pack.pages.reduce((ret: Array<{ path: string; file: string }>, page) => {
+        return [
+          ...ret,
+          {
+            path: page,
+            file: searchFile(path.join(options.cwd, 'src', pack.root, page)),
+          },
+        ].filter(page => page && page.file);
+      }, [])
+    );
+  });
 
   return entries;
 }

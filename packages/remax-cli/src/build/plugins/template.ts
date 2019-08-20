@@ -1,20 +1,30 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import { OutputChunk, Plugin } from 'rollup';
+import { parse } from 'acorn';
+import { Plugin, OutputChunk } from 'rollup';
 import { getComponents } from './components';
 import ejs from 'ejs';
-import { RemaxOptions } from '../..//getConfig';
+import { RemaxOptions } from '../../getConfig';
+import readManifest from '../../readManifest';
 import getEntries from '../../getEntries';
+import { Adapter } from '../adapters';
+import { Context } from '../../types';
 
-function isPage(file: string | null, pages: string[]) {
-  return file && pages.indexOf(file) > -1;
-}
-
-async function createTemplate(pageFile: string) {
-  const fileName = `${path.dirname(pageFile)}/${path.basename(pageFile, path.extname(pageFile))}.axml`;
-  const code = (await ejs.renderFile(path.join(__dirname, '../../../templates/page.ejs'), {
-    baseTemplate: path.relative(path.dirname(pageFile), 'base.axml'),
-  })) as string;
+async function createTemplate(pageFile: string, adapter: Adapter) {
+  const fileName = `${path.dirname(pageFile)}/${path.basename(
+    pageFile,
+    path.extname(pageFile)
+  )}${adapter.extensions.template}`;
+  const code: string = await ejs.renderFile(adapter.templates.page, {
+    baseTemplate: path.relative(
+      path.dirname(pageFile),
+      `base${adapter.extensions.template}`
+    ),
+    jsHelper: path.relative(
+      path.dirname(pageFile),
+      `helper${adapter.extensions.jsHelper}`
+    ),
+  });
 
   return {
     fileName,
@@ -23,62 +33,152 @@ async function createTemplate(pageFile: string) {
   };
 }
 
-async function createBaseTemplate() {
-  const components = getComponents();
-  const code = (await ejs.renderFile(path.join(__dirname, '../../../templates/base.ejs'), { components })) as string;
+async function createHelperFile(adapter: Adapter) {
+  const code: string = await ejs.renderFile(adapter.templates.jsHelper, {
+    target: adapter.name,
+  });
+
   return {
-    fileName: 'base.axml',
+    fileName: `helper${adapter.extensions.jsHelper}`,
     isAsset: true as true,
     source: code,
   };
 }
 
-function createManifest(options: RemaxOptions) {
+async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
+  const components = getComponents();
+  let code: string = await ejs.renderFile(
+    adapter.templates.base,
+    {
+      components,
+      depth: options.UNSAFE_wechatTemplateDepth,
+    },
+    {
+      rmWhitespace: true,
+    }
+  );
+  code = code.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
   return {
-    fileName: 'app.json',
+    fileName: `base${adapter.extensions.template}`,
     isAsset: true as true,
-    source: fs.readFileSync(path.resolve(options.cwd, 'src/app.json')),
+    source: code,
   };
 }
 
-function createPageManifest(options: RemaxOptions, file: string) {
+function createAppManifest(
+  options: RemaxOptions,
+  target: string,
+  context?: Context
+) {
+  const config = context
+    ? { ...context.app, pages: context.pages.map(p => p.path) }
+    : readManifest(path.resolve(options.cwd, 'src/app.config.js'), target);
+  return {
+    fileName: 'app.json',
+    isAsset: true as true,
+    source: JSON.stringify(config, null, 2),
+  };
+}
+
+function createPageManifest(
+  options: RemaxOptions,
+  file: string,
+  target: string,
+  page: any,
+  context?: Context
+) {
+  const configFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.config.js');
   const manifestFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.json');
-  const filePath = path.resolve(options.cwd, path.join('src', manifestFile));
-  if (fs.existsSync(filePath)) {
+  const configFilePath = path.resolve(
+    options.cwd,
+    path.join('src', configFile)
+  );
+  if (fs.existsSync(configFilePath)) {
     return {
       fileName: manifestFile,
       isAsset: true as true,
-      source: fs.readFileSync(filePath),
+      source: JSON.stringify(readManifest(configFilePath, target), null, 2),
     };
+  }
+  if (context) {
+    const pageConfig = context.pages.find((p: any) => p.path === page.path);
+    if (pageConfig) {
+      const { path, ...config } = pageConfig;
+      return {
+        fileName: manifestFile,
+        isAsset: true as true,
+        source: JSON.stringify(config, null, 2),
+      };
+    }
   }
 }
 
-function isEntry(chunk: any): chunk is OutputChunk {
-  return chunk.isEntry;
+function isRemaxEntry(chunk: any): chunk is OutputChunk {
+  if (!chunk.isEntry) {
+    return false;
+  }
+
+  const ast: any = parse(chunk.code, {
+    ecmaVersion: 6,
+    sourceType: 'module',
+  });
+
+  return ast.body.every((node: any) => {
+    // 检查是不是原生写法
+    if (
+      node.type === 'ExpressionStatement' &&
+      node.expression.type === 'CallExpression' &&
+      node.expression.callee.type === 'Identifier' &&
+      node.expression.callee.name === 'Page' &&
+      node.expression.arguments.length > 0 &&
+      node.expression.arguments[0].type === 'ObjectExpression'
+    ) {
+      return false;
+    }
+
+    return true;
+  });
 }
 
-export default function template(options: RemaxOptions): Plugin {
+export default function template(
+  options: RemaxOptions,
+  adapter: Adapter,
+  context?: Context
+): Plugin {
   return {
     name: 'template',
     generateBundle: async (_, bundle) => {
-      const pages = getEntries(options).pages;
       // app.json
-      const manifest = createManifest(options);
+      const manifest = createAppManifest(options, adapter.name, context);
       bundle[manifest.fileName] = manifest;
 
-      const template = await createBaseTemplate();
+      const template = await createBaseTemplate(adapter, options);
       bundle[template.fileName] = template;
+
+      const helperFile = await createHelperFile(adapter);
+      bundle[helperFile.fileName] = helperFile;
+
+      const entries = getEntries(options, adapter, context);
+      const { pages } = entries;
 
       const files = Object.keys(bundle);
       await Promise.all([
         files.map(async file => {
           const chunk = bundle[file];
-          if (isEntry(chunk)) {
+          if (isRemaxEntry(chunk)) {
             const filePath = Object.keys(chunk.modules)[0];
-            if (isPage(filePath, pages)) {
-              const template = await createTemplate(file);
+            const page = pages.find(p => p.file === filePath);
+            if (page) {
+              const template = await createTemplate(file, adapter);
               bundle[template.fileName] = template;
-              const config = await createPageManifest(options, file);
+              const config = await createPageManifest(
+                options,
+                file,
+                adapter.name,
+                page,
+                context
+              );
+
               if (config) {
                 bundle[config.fileName] = config;
               }

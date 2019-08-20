@@ -12,7 +12,11 @@
  * @param {Boolean} whether to execute at the beginning (`false`)
  * @api public
  */
-export default function debounce(func: any, wait: number, immediate: boolean = false) {
+export default function debounce(
+  func: any,
+  wait: number,
+  immediate: boolean = false
+) {
   let timeout: any;
   let args: any;
   let context: any;

@@ -4,9 +4,15 @@ import rollupConfig from '../build/rollupConfig';
 
 async function build(app: string) {
   const rollupOptions = rollupConfig(
-    { cssModules: false, cwd: path.resolve(__dirname, `./fixtures/${app}`), progress: true, output: 'dist' },
+    {
+      cssModules: false,
+      cwd: path.resolve(__dirname, `./fixtures/${app}`),
+      progress: true,
+      output: 'dist',
+      UNSAFE_wechatTemplateDepth: 20,
+    },
     false,
-    {}
+    {} as any
   );
   const bundle = await rollup.rollup(rollupOptions);
   const result = await bundle.generate(rollupOptions.output!);

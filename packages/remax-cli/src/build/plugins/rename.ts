@@ -42,6 +42,11 @@ export interface IRenameExtensionsOptions {
    * Extensions should include the dot for both input and output.
    */
   map: (name: string) => string;
+
+  /**
+   * Match all files, include files start with '\0'
+   */
+  matchAll?: boolean;
 }
 
 export function isEmpty(array: any[] | undefined) {
@@ -67,7 +72,10 @@ export function getRequireSource(node: INode): INode | false {
 }
 
 export function getImportSource(node: INode): INode | false {
-  if (node.type !== NodeType.ImportDeclaration || node.source.type !== NodeType.Literal) {
+  if (
+    node.type !== NodeType.ImportDeclaration ||
+    node.source.type !== NodeType.Literal
+  ) {
     return false;
   }
 
@@ -75,9 +83,16 @@ export function getImportSource(node: INode): INode | false {
 }
 
 export function getExportSource(node: INode): INode | false {
-  const exportNodes = [NodeType.ExportAllDeclaration, NodeType.ExportNamedDeclaration];
+  const exportNodes = [
+    NodeType.ExportAllDeclaration,
+    NodeType.ExportNamedDeclaration,
+  ];
 
-  if (!exportNodes.includes(node.type) || !node.source || node.source.type !== NodeType.Literal) {
+  if (
+    !exportNodes.includes(node.type) ||
+    !node.source ||
+    node.source.type !== NodeType.Literal
+  ) {
     return false;
   }
 
@@ -88,7 +103,7 @@ export function rewrite(input: string, map: (name: string) => string): string {
   return map(input);
 }
 
-export default function renameExtensions(options: IRenameExtensionsOptions): Plugin {
+export default function rename(options: IRenameExtensionsOptions): Plugin {
   const filter = createFilter(options.include, options.exclude);
   const sourceMaps = options.sourceMap !== false;
   return {
@@ -97,11 +112,16 @@ export default function renameExtensions(options: IRenameExtensionsOptions): Plu
       const files = Object.entries<any>(bundle);
 
       for (const [key, file] of files) {
-        if (!filter(file.facadeModuleId) && file.fileName !== 'app.css') {
+        if (
+          !filter(file.facadeModuleId) &&
+          !(options.matchAll && /\0/.test(file.facadeModuleId)) &&
+          file.fileName !== 'app.css'
+        ) {
           continue;
         }
 
-        file.facadeModuleId = rewrite(file.facadeModuleId, options.map) || file.facadeModuleId;
+        file.facadeModuleId =
+          rewrite(file.facadeModuleId, options.map) || file.facadeModuleId;
         file.fileName = rewrite(file.fileName, options.map) || file.fileName;
 
         if (file.imports) {
@@ -122,7 +142,10 @@ export default function renameExtensions(options: IRenameExtensionsOptions): Plu
           });
 
           const extract = (node: INode) => {
-            const req = getRequireSource(node) || getImportSource(node) || getExportSource(node);
+            const req =
+              getRequireSource(node) ||
+              getImportSource(node) ||
+              getExportSource(node);
 
             if (req) {
               const { start, end } = req;

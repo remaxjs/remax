@@ -1,0 +1,30 @@
+<template name="REMAX_TPL">
+  <block wx:for="{{tree.root.children}}" wx:key="{{item.id}}">
+    <template is="REMAX_TPL_1" data="{{i: item}}"/>
+  </block>
+</template>
+
+<wxs module="_h">
+  module.exports = {
+    v: function(value) {
+      return value !== undefined ? value : '';
+    }
+  };
+</wxs>
+
+<% for (var i = 1; i <= depth; i++) { %>
+    <%var id = i; %>
+<template name="REMAX_TPL_<%= id%>">
+  <block>
+    <block wx:if="{{i && i.text}}">{{i.text}}</block>
+    <% for (let component of components) { %>
+      <%- include('./component.ejs', {
+        type: component.type,
+        props: component.props,
+        id: component.id,
+        templateId: id + 1
+      }) %>
+    <% } %>
+  </block>
+</template>
+<% } %>

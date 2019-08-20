@@ -1,6 +1,6 @@
 {
   "name": "remax",
-  "version": "1.0.1-alpha.27",
+  "version": "1.0.1-beta.4",
   "description": "Runtime of remax",
   "main": "lib/index.js",
   "scripts": {
@@ -25,9 +25,9 @@
   },
   "homepage": "https://github.com/remaxjs/remax#readme",
   "dependencies": {
-    "antd-mobile": "^2.2.14",
     "react-reconciler": "0.20.4",
-    "scheduler": "0.13.6"
+    "scheduler": "0.13.6",
+    "shallowequal": "^1.1.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.2.3",
@@ -42,5 +42,8 @@
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.2",
     "umi": "^2.8.11"
+  },
+  "optionalDependencies": {
+    "antd-mobile": "^2.2.14"
   }
 }

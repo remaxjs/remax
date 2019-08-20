@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-remax",
-  "version": "1.0.1-alpha.27",
+  "version": "1.0.1-beta.4",
   "description": "> TODO: description",
   "author": "Meck Zhu <yesmeck@gmail.com>",
   "homepage": "https://github.com/remaxjs/remax#readme",
@@ -26,16 +26,7 @@
     "url": "https://github.com/remaxjs/remax/issues"
   },
   "dependencies": {
-    "@babel/helper-module-imports": "^7.0.0",
-    "postcss-px2units": "^0.2.0",
-    "typescript": "^3.5.3",
-    "umi-plugin-react": "^1.9.10"
-  },
-  "devDependencies": {
-    "@babel/types": "^7.5.0",
-    "@types/babel__traverse": "^7.0.7",
-    "@types/node": "^12.6.2",
-    "postcss": "^7.0.17",
-    "umi-types": "^0.3.12"
+    "remax-cli": "^1.0.1-beta.4",
+    "umi-types": "^0.3.17"
   }
 }

@@ -1,87 +1,110 @@
 import * as React from 'react';
 import createPageWrapper from './createPageWrapper';
 import render from './render';
-import { REMAX_ROOT_BACKUP, REMAX_ROOT } from './constants';
-import pure from './utils/pure';
-import debounce from './utils/debounce';
+import { Lifecycle, callbackName } from './lifecycle';
+import Container from './Container';
 
 export default function createPageConfig(Page: React.ComponentType<any>) {
   return {
     data: {
-      $$REMAX_ROOT: [],
+      action: {},
     },
 
     wrapper: null as any,
 
+    lifecycleCallback: {} as any,
+
     onLoad(this: any, query: any) {
-      this.requestUpdate = debounce(() => {
-        const data = pure(this[REMAX_ROOT_BACKUP]);
-
-        const startTime = new Date().getTime();
-
-        this.setData(
-          {
-            [REMAX_ROOT]: data,
-          },
-          () => {
-            if (process.env.NODE_ENV !== 'production') {
-              console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`);
-            }
-          },
-        );
-      }, 1000 / 60);
-
       const PageWrapper = createPageWrapper(Page, query);
+      this.container = new Container(this);
 
-      this.wrapper = render(React.createElement(PageWrapper), this);
+      this.wrapper = render(
+        React.createElement(PageWrapper, { page: this }),
+        this.container
+      );
     },
 
     onUnload(this: any) {
+      this.unloaded = true;
       if (this.requestUpdate) {
         this.requestUpdate.clear();
       }
-      render(null, this);
+      render(null, this.container);
       this.wrapper = null;
     },
 
+    /**
+     * Lifecycle start
+     */
+    resetLifecyle() {
+      this.lifecycleCallback = {};
+    },
+
+    registerLifecycle(lifecycle: Lifecycle, callback: () => any) {
+      this.lifecycleCallback[lifecycle] =
+        this.lifecycleCallback[lifecycle] || [];
+
+      this.lifecycleCallback[lifecycle].push(callback);
+    },
+
+    callLifecycle(lifecycle: Lifecycle) {
+      const callbacks = this.lifecycleCallback[lifecycle] || [];
+      let result;
+      callbacks.forEach((callback: any) => {
+        result = callback();
+      });
+      if (result) {
+        return result;
+      }
+
+      const callback = callbackName(lifecycle);
+      if (this.wrapper[callback]) {
+        return this.wrapper[callback]();
+      }
+    },
+
     onShow() {
-      this.wrapper.onShow();
+      return this.callLifecycle(Lifecycle.show);
     },
 
     onHide() {
-      this.wrapper.onHide();
+      return this.callLifecycle(Lifecycle.hide);
     },
 
     onPullDownRefresh() {
-      this.wrapper.onPullDownRefresh();
+      return this.callLifecycle(Lifecycle.pullDownRefresh);
     },
 
     onReachBottom() {
-      this.wrapper.onReachBottom();
+      return this.callLifecycle(Lifecycle.reachBottom);
     },
 
     onPageScroll() {
-      this.wrapper.onPageScroll();
+      return this.callLifecycle(Lifecycle.pageScroll);
     },
 
     onShareAppMessage() {
-      this.wrapper.onShareAppMessage();
+      return this.callLifecycle(Lifecycle.shareAppMessage);
     },
 
     onTitleClick() {
-      this.wrapper.onTitleClick();
+      return this.callLifecycle(Lifecycle.titleClick);
     },
 
     onOptionMenuClick() {
-      this.wrapper.onOptionMenuClick();
+      return this.callLifecycle(Lifecycle.optionMenuClick);
     },
 
     onPopMenuClick() {
-      this.wrapper.onPopMenuClick();
+      return this.callLifecycle(Lifecycle.popMenuClick);
     },
 
     onPullIntercept() {
-      this.wrapper.onPullIntercept();
+      return this.callLifecycle(Lifecycle.pullIntercept);
     },
+
+    /**
+     * lifecycle end
+     */
   };
 }

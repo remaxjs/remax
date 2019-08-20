@@ -31,7 +31,10 @@ function isAsset(module: any): module is OutputAsset {
 }
 
 export function getImportSource(node: Node): Node | false {
-  if (node.type !== NodeType.ImportDeclaration || node.source.type !== NodeType.Literal) {
+  if (
+    node.type !== NodeType.ImportDeclaration ||
+    node.source.type !== NodeType.Literal
+  ) {
     return false;
   }
 
@@ -98,8 +101,12 @@ export default function removeSrc(options: Options): Plugin {
               const req = getRequireSource(node) || getImportSource(node);
               if (req) {
                 const { start, end } = req;
-                const distance = req.value.split('/').filter((d: string) => d === '..').length;
-                const targetDistance = path.relative(path.dirname(file), 'src').split('/').length;
+                const distance = req.value
+                  .split('/')
+                  .filter((d: string) => d === '..').length;
+                const targetDistance = path
+                  .relative(path.dirname(file), 'src')
+                  .split('/').length;
                 if (isInsideSrc(file, req.value)) {
                   return;
                 }

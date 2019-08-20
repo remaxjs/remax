@@ -1,7 +1,10 @@
 {
-  "packages": [
-    "packages/*"
-  ],
-  "version": "1.0.1-alpha.27",
+  "packages": ["packages/*", "website"],
+  "command": {
+    "publish": {
+      "conventionalCommits": false
+    }
+  },
+  "version": "1.0.1-beta.4",
   "npmClient": "yarn"
 }

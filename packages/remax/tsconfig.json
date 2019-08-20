@@ -6,5 +6,7 @@
     "declaration": true,
     "jsx": "react",
     "outDir": "lib"
-  }
+  },
+  "include": ["src/**/*", "typings/**/*"],
+  "exclude": ["__tests__/**/*"]
 }

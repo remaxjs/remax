@@ -1,0 +1,22 @@
+<template name="REMAX_TPL">
+  <block a:for="{{tree.root.children}}" a:key="{{item.id}}">
+    <template is="REMAX_TPL_1" data="{{item}}"/>
+  </block>
+</template>
+
+<template name="REMAX_TPL_1">
+  <block>
+    <block a:if="{{item && item.text}}">
+      <!-- string -->
+      {{item.text}}
+    </block>
+
+    <% for (let component of components) { %>
+      <%- include('./component.ejs', {
+        type: component.type,
+        props: component.props,
+        id: component.id,
+      }) %>
+    <% } %>
+  </block>
+</template>
