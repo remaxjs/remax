@@ -50,7 +50,6 @@ export default function createPageWrapper(
       let WrappedPage = Page;
       if (isClassComponent(Page)) {
         props.ref = (node: any) => (this.instance = node);
-        Page.prototype.render = () => {};
       } else {
         WrappedPage = (...args) => {
           this.props.page.resetLifecyle();
