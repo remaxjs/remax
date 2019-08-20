@@ -43,6 +43,7 @@
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-url": "^2.2.2",
     "scheduler": "0.13.6",
+    "slash2": "^2.0.0",
     "yargs": "^13.2.4"
   },
   "devDependencies": {

@@ -11,3 +11,4 @@ declare module 'postcss-px2units';
 declare module '@babel/helper-module-imports';
 declare module 'acorn-walk';
 declare module 'scheduler';
+declare module 'slash2';
