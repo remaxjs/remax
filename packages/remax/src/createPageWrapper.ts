@@ -41,19 +41,24 @@ export default function createPageWrapper(
     }
 
     render() {
-      this.props.page.resetLifecyle();
-
       const props: any = {
         location: {
           query: query || {},
         },
       };
 
+      let WrappedPage = Page;
       if (isClassComponent(Page)) {
         props.ref = (node: any) => (this.instance = node);
+        Page.prototype.render = () => {};
+      } else {
+        WrappedPage = (...args) => {
+          this.props.page.resetLifecyle();
+          return Page(...args);
+        };
       }
 
-      return React.createElement(Page, props);
+      return React.createElement(WrappedPage, props);
     }
   };
 }
