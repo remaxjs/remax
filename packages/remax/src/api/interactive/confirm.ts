@@ -33,6 +33,7 @@ interface Params {
  *
  * @see [支付宝小程序]{@link https://docs.alipay.com/mini/api/lt3uqc}
  */
+// eslint-disable-next-line
 export function confirm(params: Params): Promise<SuccessResult> {
   return Promise.resolve({ confirm: true });
 }

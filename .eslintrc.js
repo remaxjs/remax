@@ -4,7 +4,7 @@ module.exports = {
     node: true,
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'react'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/eslint-recommended',
@@ -20,7 +20,18 @@ module.exports = {
       jsx: true,
     },
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   rules: {
     'no-case-declarations': [0],
+    'require-atomic-updates': [0],
+    '@typescript-eslint/explicit-function-return-type': [0],
+    '@typescript-eslint/no-explicit-any': [0],
+    '@typescript-eslint/explicit-member-accessibility': [0],
+    '@typescript-eslint/no-non-null-assertion': [0],
+    'react/jsx-uses-vars': 2,
   },
 };

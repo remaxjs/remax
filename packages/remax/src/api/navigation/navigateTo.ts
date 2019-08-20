@@ -15,6 +15,7 @@ interface Params {
  *
  * @see [支付宝小程序]{@link https://docs.alipay.com/mini/api/zwi8gx}
  */
+// eslint-disable-next-line
 export function navigateTo(params: Params) {
   return Promise.resolve();
 }

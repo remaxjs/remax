@@ -108,6 +108,7 @@ function createPageManifest(
   if (context) {
     const pageConfig = context.pages.find((p: any) => p.path === page.path);
     if (pageConfig) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { path, ...config } = pageConfig;
       return {
         fileName: manifestFile,

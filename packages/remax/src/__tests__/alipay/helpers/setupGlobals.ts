@@ -1,3 +1,4 @@
+/* eslint-disable */
 import pages from './pages';
 
 // @ts-ignore

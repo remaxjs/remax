@@ -10,7 +10,7 @@
     "prepack": "lerna exec -- rm -rf lib && lerna run build",
     "prepublishOnly": "npm run lint && npm run test",
     "postinstall": "lerna bootstrap",
-    "lint": "eslint packages/*/src/**/*.{ts,tsx}",
+    "lint": "eslint 'packages/*/src/**/*.{ts,tsx}'",
     "site:build": "lerna run --scope website --stream build",
     "site:deploy": "lerna run --scope website --stream deploy"
   },
@@ -22,6 +22,7 @@
     "eslint": "^6.2.1",
     "eslint-config-prettier": "^6.1.0",
     "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
     "husky": "^3.0.2",
     "lerna": "^3.4.3",
     "prettier": "^1.18.2",

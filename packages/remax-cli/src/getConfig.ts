@@ -18,6 +18,7 @@ interface CliOptions {
 export default function getConfig(cli: CliOptions): RemaxOptions {
   const configPath: string = path.join(process.cwd(), './remax.config.js');
   if (fs.existsSync(configPath)) {
+    // eslint-disable-next-line
     const options = require(configPath);
 
     // options 为 fucntion

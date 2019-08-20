@@ -1,5 +1,4 @@
 import * as path from 'path';
-import * as rollupConfig from '../build/rollupConfig';
 import getConfig from '../getConfig';
 
 const cli = {

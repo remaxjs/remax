@@ -6,7 +6,7 @@ const alias: any = {
 };
 
 function getAlias(prop: string) {
-  let aliasProp = alias[prop];
+  const aliasProp = alias[prop];
 
   if (aliasProp) {
     return aliasProp;

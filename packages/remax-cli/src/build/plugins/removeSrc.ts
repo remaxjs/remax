@@ -42,6 +42,10 @@ export function getImportSource(node: Node): Node | false {
   return node.source;
 }
 
+function isEmpty(array: any[] | undefined) {
+  return !array || array.length === 0;
+}
+
 export function getRequireSource(node: Node): Node | false {
   if (node.type !== NodeType.CallExpresssion) {
     return false;
@@ -58,10 +62,6 @@ export function getRequireSource(node: Node): Node | false {
   }
 
   return args[0];
-}
-
-function isEmpty(array: any[] | undefined) {
-  return !array || array.length === 0;
 }
 
 function rewrite(input: string) {
