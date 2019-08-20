@@ -5,7 +5,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import url from 'rollup-plugin-url';
 import json from 'rollup-plugin-json';
-import postcss from 'rollup-plugin-postcss';
+import postcss from '@meck/rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
 import clear from 'rollup-plugin-clear';
 import alias from 'rollup-plugin-alias';
