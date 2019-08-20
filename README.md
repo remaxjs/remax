@@ -14,6 +14,9 @@
   <a href="https://www.npmjs.com/package/remax">
     <img alt="npm" src="https://img.shields.io/npm/v/remax?style=flat-square" />
   </a>
+  <a href="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*7kzfTayV-YMAAAAAAAAAAABkARQnAQ">
+    <img alt="wechat" src="https://img.shields.io/badge/交流-微信群-brightgreen?style=flat-square" />
+  </a>
 </p>
 
 Remax 将 React 运行在小程序环境中，让你可以使用完整的 React 进行开发。
