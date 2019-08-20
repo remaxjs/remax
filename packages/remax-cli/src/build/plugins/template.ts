@@ -8,6 +8,7 @@ import readManifest from '../../readManifest';
 import getEntries from '../../getEntries';
 import { Adapter } from '../adapters';
 import { Context } from '../../types';
+import winPath from '../../winPath';
 
 function isPage(file: string | null, pages: any[]) {}
 
@@ -17,9 +18,11 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
     path.extname(pageFile)
   )}${adapter.extensions.template}`;
   const code: string = await ejs.renderFile(adapter.templates.page, {
-    baseTemplate: path.relative(
-      path.dirname(pageFile),
-      `base${adapter.extensions.template}`
+    baseTemplate: winPath(
+      path.relative(
+        path.dirname(pageFile),
+        `base${adapter.extensions.template}`
+      )
     ),
   });
 
