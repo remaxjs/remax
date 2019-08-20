@@ -1,8 +1,11 @@
-import React, { FunctionComponent, forwardRef } from 'react';
+import React, { FunctionComponent, forwardRef, CSSProperties } from 'react';
 import propsAlias from './propsAlias';
 
 export interface VideoProps {
   src: string; // 要播放视频的资源地址，支持云文件ID（2.3.0）	1.0.0
+  id?: string;
+  className?: string;
+  style?: CSSProperties;
   duration?: number; // 指定视频时长	1.1.0
   controls?: boolean; // 是否显示默认播放控件（播放/暂停按钮、播放进度、时间）	1.0.0
   danmuList?: Array<object>; // 弹幕列表	1.0.0
