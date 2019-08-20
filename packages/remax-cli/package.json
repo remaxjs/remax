@@ -38,7 +38,7 @@
     "rollup-plugin-copy": "^3.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.0.3",
-    "rollup-plugin-postcss": "^2.0.3",
+    "@meck/rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-progress": "^1.1.1",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-url": "^2.2.2",
