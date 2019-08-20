@@ -40,7 +40,7 @@ export interface VideoProps {
   onWaiting?: (event: any) => any; // 视频出现缓冲时触发	1.7.0
   onError?: (event: any) => any; // 视频播放出错时触发	1.7.0
   onProgress?: (event: any) => any;
-  animation?: Object[];
+  animation?: Record<string, any>[];
 }
 
 const VideoRender: FunctionComponent<VideoProps> = (props, ref) => {

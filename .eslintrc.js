@@ -18,5 +18,7 @@ module.exports = {
       jsx: true,
     },
   },
-  rules: {},
+  rules: {
+    'no-case-declarations': [0],
+  },
 };

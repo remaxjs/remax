@@ -5,7 +5,9 @@ import { reset } from '../../instanceId';
 import Container from '../../Container';
 
 const p = {
+  // eslint-disable-next-line
   setData() {},
+  // eslint-disable-next-line
   $spliceData() {},
 };
 
