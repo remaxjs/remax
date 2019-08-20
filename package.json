@@ -1,25 +1,30 @@
 {
   "name": "root",
+  "private": true,
   "version": "1.0.0",
-  "devDependencies": {
-    "@commitlint/cli": "^8.1.0",
-    "@commitlint/config-conventional": "^8.1.0",
-    "husky": "^3.0.2",
-    "lerna": "^3.4.3",
-    "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1"
-  },
   "scripts": {
     "watch": "lerna run watch --parallel",
     "build": "lerna run build",
     "test": "lerna run --scope remax --stream test",
     "clean": "lerna clean",
     "prepack": "lerna exec -- rm -rf lib && lerna run build",
-    "bootstrap": "yarn install && lerna bootstrap",
+    "postinstall": "lerna bootstrap",
+    "lint": "eslint packages/*/src/**/*.{ts,tsx}",
     "site:build": "lerna run --scope website --stream build",
     "site:deploy": "lerna run --scope website --stream deploy"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "eslint": "^6.2.1",
+    "husky": "^3.0.2",
+    "lerna": "^3.4.3",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "typescript": "^3.5.3"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged",
