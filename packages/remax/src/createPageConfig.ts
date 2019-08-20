@@ -8,9 +8,6 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
   return {
     data: {
       action: {},
-      root: {
-        children: [],
-      },
     },
 
     wrapper: null as any,

@@ -45,7 +45,7 @@ export default class VNode {
     if (this.isMounted()) {
       this.container.requestUpdate(
         [...this.path(), 'children'],
-        this.children.length,
+        this.children.length - 1,
         0,
         node.toJSON()
       );
