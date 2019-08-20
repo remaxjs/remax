@@ -3,6 +3,7 @@ node_js:
   - stable
 script:
   - yarn lint
+  - yarn build
   - yarn test
   - |
     if [[ $TRAVIS_COMMIT_MESSAGE =~ ^docs ]] ; then

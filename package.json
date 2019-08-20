@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "watch": "lerna run watch --parallel",
-    "build": "lerna run build",
+    "build": "lerna run build --ignore website",
     "test": "lerna run --scope remax --stream test",
     "clean": "lerna clean",
     "prepack": "lerna exec -- rm -rf lib && lerna run build",
