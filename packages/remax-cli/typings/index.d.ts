@@ -7,7 +7,7 @@ declare module 'rollup-plugin-clear';
 declare module 'rollup-plugin-alias';
 declare module 'rollup-plugin-url';
 declare module 'rollup-plugin-typescript';
-declare module 'postcss-px2units';
+declare module '@remax/postcss-px2units';
 declare module '@babel/helper-module-imports';
 declare module 'acorn-walk';
 declare module 'scheduler';

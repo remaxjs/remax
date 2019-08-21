@@ -11,7 +11,7 @@ import clear from 'rollup-plugin-clear';
 import alias from 'rollup-plugin-alias';
 import copy from 'rollup-plugin-copy';
 import stub from './plugins/stub';
-import pxToUnits from 'postcss-px2units';
+import pxToUnits from '@remax/postcss-px2units';
 import getEntries from '../getEntries';
 import getCssModuleConfig from '../getCssModuleConfig';
 import template from './plugins/template';
