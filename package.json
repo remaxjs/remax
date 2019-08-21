@@ -11,6 +11,7 @@
     "prepublishOnly": "npm run lint && npm run test",
     "postinstall": "lerna bootstrap",
     "lint": "eslint 'packages/*/src/**/*.{ts,tsx}'",
+    "release": "lerna publish --force-publish --create-release=github",
     "site:build": "lerna run --scope website --stream build",
     "site:deploy": "lerna run --scope website --stream deploy"
   },
