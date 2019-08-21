@@ -16,7 +16,7 @@ import './index.less';
 import './index.scss';
 ```
 
-Remax 会自动对 `px` 做处理，如：
+Remax 会自动把 `px` 转换成小程序 `rpx`：
 
 ```css
 .view {
@@ -24,19 +24,9 @@ Remax 会自动对 `px` 做处理，如：
 }
 ```
 
-编译成微信小程序:
-
 ```css
 .view {
   height: 16rpx;
-}
-```
-
-编译成支付宝小程序:
-
-```
-.view {
-  height: 1rem;
 }
 ```
 
