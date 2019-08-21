@@ -171,7 +171,7 @@ export default function rollupConfig(
           .replace(/\.less$/, '.less.js')
           .replace(/\.sass$/, '.sass.js')
           .replace(/\.scss$/, '.scss.js')
-          .replace(/\..styl$/, '.styl.js')
+          .replace(/\.styl$/, '.styl.js')
           // typescript
           .replace(/\.ts$/, '.js')
           .replace(/\.tsx$/, '.js')
