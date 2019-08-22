@@ -1,15 +1,13 @@
 import * as React from 'react';
 import createPageWrapper from './createPageWrapper';
 import render from './render';
-import { REMAX_ROOT_BACKUP, REMAX_ROOT } from './constants';
-import pure from './utils/pure';
-import debounce from './utils/debounce';
 import { Lifecycle, callbackName } from './lifecycle';
+import Container from './Container';
 
 export default function createPageConfig(Page: React.ComponentType<any>) {
   return {
     data: {
-      $$REMAX_ROOT: [],
+      action: {},
     },
 
     wrapper: null as any,
@@ -17,61 +15,39 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     lifecycleCallback: {} as any,
 
     onLoad(this: any, query: any) {
-      const executeUpdate = () => {
-        const data = pure(this[REMAX_ROOT_BACKUP]);
-
-        const startTime = new Date().getTime();
-
-        this.setData(
-          {
-            [REMAX_ROOT]: data,
-          },
-          () => {
-            if (process.env.NODE_ENV !== 'production') {
-              console.log(
-                `setData => 回调时间：${new Date().getTime() - startTime}ms`
-              );
-            }
-          }
-        );
-      };
-
-      // 直接执行 setData，用于第一次 render 等需要立即更新的场景
-      this.executeUpdate = executeUpdate;
-
-      // 合并 setData, 延迟执行提升效率
-      this.requestUpdate = debounce(() => {
-        executeUpdate();
-      }, 1000 / 60);
-
       const PageWrapper = createPageWrapper(Page, query);
+      this.container = new Container(this);
 
       this.wrapper = render(
         React.createElement(PageWrapper, { page: this }),
-        this
+        this.container
       );
     },
 
     onUnload(this: any) {
+      this.unloaded = true;
       if (this.requestUpdate) {
         this.requestUpdate.clear();
       }
-      render(null, this);
+      render(null, this.container);
       this.wrapper = null;
     },
 
     /**
      * Lifecycle start
      */
-    resetLifecyle() {
-      this.lifecycleCallback = {};
-    },
-
     registerLifecycle(lifecycle: Lifecycle, callback: () => any) {
       this.lifecycleCallback[lifecycle] =
         this.lifecycleCallback[lifecycle] || [];
 
       this.lifecycleCallback[lifecycle].push(callback);
+
+      return () => {
+        this.lifecycleCallback[lifecycle].splice(
+          this.lifecycleCallback[lifecycle].indexOf(callback),
+          1
+        );
+      };
     },
 
     callLifecycle(lifecycle: Lifecycle) {

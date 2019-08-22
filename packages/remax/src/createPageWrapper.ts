@@ -41,8 +41,6 @@ export default function createPageWrapper(
     }
 
     render() {
-      this.props.page.resetLifecyle();
-
       const props: any = {
         location: {
           query: query || {},

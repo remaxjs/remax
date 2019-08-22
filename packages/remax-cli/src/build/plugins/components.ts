@@ -24,7 +24,6 @@ export default (adapter: Adapter) => () => ({
           return;
         }
         const componentPath = get(binding, 'path') as NodePath;
-        let notBaseComponent = true;
         if (
           !componentPath ||
           !t.isImportSpecifier(componentPath.node) ||

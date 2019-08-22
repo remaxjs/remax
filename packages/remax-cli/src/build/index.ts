@@ -20,7 +20,7 @@ const output = (
 
 export default async (argv: any, context?: Context) => {
   const options = {
-    ...getConfig(),
+    ...getConfig(argv),
     ...(context ? context.config : {}),
   };
 

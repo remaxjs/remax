@@ -9,6 +9,7 @@ async function build(app: string) {
       cwd: path.resolve(__dirname, `./fixtures/${app}`),
       progress: true,
       output: 'dist',
+      UNSAFE_wechatTemplateDepth: 20,
     },
     false,
     {} as any

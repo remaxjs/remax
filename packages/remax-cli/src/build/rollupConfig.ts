@@ -5,12 +5,13 @@ import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import url from 'rollup-plugin-url';
 import json from 'rollup-plugin-json';
-import postcss from 'rollup-plugin-postcss';
+import postcss from '@meck/rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
 import clear from 'rollup-plugin-clear';
 import alias from 'rollup-plugin-alias';
+import copy from 'rollup-plugin-copy';
 import stub from './plugins/stub';
-import pxToUnits from 'postcss-px2units';
+import pxToUnits from '@remax/postcss-px2units';
 import getEntries from '../getEntries';
 import getCssModuleConfig from '../getCssModuleConfig';
 import template from './plugins/template';
@@ -37,12 +38,12 @@ export default function rollupConfig(
   const babelConfig = {
     presets: [
       require.resolve('@babel/preset-typescript'),
-      [require.resolve('@babel/preset-env')],
-      [require.resolve('@babel/preset-react')],
+      require.resolve('@babel/preset-env'),
     ],
     plugins: [
       require.resolve('@babel/plugin-proposal-class-properties'),
       require.resolve('@babel/plugin-proposal-object-rest-spread'),
+      require.resolve('@babel/plugin-syntax-jsx'),
       [
         require.resolve('@babel/plugin-proposal-decorators'),
         {
@@ -71,6 +72,15 @@ export default function rollupConfig(
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
   const plugins = [
+    copy({
+      targets: [
+        {
+          src: ['src/native/*'],
+          dest: 'dist',
+        },
+      ],
+      copyOnce: true,
+    }),
     alias({
       resolve: [
         '',
@@ -84,6 +94,7 @@ export default function rollupConfig(
         '/index.tsx',
       ],
       '@': path.resolve(options.cwd, 'src'),
+      ...options.alias,
     }),
     url({
       limit: 0,
@@ -117,7 +128,9 @@ export default function rollupConfig(
       babelrc: false,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [components(adapter), ...babelConfig.plugins],
-      presets: babelConfig.presets,
+      presets: babelConfig.presets.concat([
+        require.resolve('@babel/preset-react'),
+      ]),
     }),
     postcss({
       extract: true,
@@ -143,6 +156,7 @@ export default function rollupConfig(
         process.env.NODE_ENV || 'development'
       ),
       'process.env.REMAX_PLATFORM': JSON.stringify(argv.target),
+      'process.env.REMAX_DEBUG': JSON.stringify(process.env.REMAX_DEBUG),
     }),
     rename({
       include: 'src/**',
@@ -155,6 +169,9 @@ export default function rollupConfig(
           .replace(/^demo\/src\//, '')
           // stlye
           .replace(/\.less$/, '.less.js')
+          .replace(/\.sass$/, '.sass.js')
+          .replace(/\.scss$/, '.scss.js')
+          .replace(/\.styl$/, '.styl.js')
           // typescript
           .replace(/\.ts$/, '.js')
           .replace(/\.tsx$/, '.js')
@@ -217,6 +234,7 @@ export default function rollupConfig(
     preserveSymlinks: true,
     onwarn(warning, warn) {
       if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
+      if ((warning as RollupWarning).code === 'CIRCULAR_DEPENDENCY') return;
       warn(warning);
     },
     plugins,

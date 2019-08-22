@@ -19,6 +19,7 @@ interface Params {
  *
  * @see [支付宝小程序]{@link https://docs.alipay.com/mini/api/hmn54z}
  */
+// eslint-disable-next-line
 export function reLaunch(params: Params) {
   return Promise.resolve();
 }

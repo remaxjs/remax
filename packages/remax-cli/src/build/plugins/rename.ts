@@ -1,10 +1,9 @@
 import { Plugin } from 'rollup';
 import { createFilter } from 'rollup-pluginutils';
-// @ts-ignore No typings.
 import { simple } from 'acorn-walk';
 import MagicString from 'magic-string';
 
-interface INode {
+interface Node {
   start: number;
   end: number;
   type: NodeType;
@@ -20,7 +19,7 @@ enum NodeType {
   ExportAllDeclaration = 'ExportAllDeclaration',
 }
 
-export interface IRenameExtensionsOptions {
+export interface RenameExtensionsOptions {
   /**
    * Files to include
    */
@@ -53,7 +52,7 @@ export function isEmpty(array: any[] | undefined) {
   return !array || array.length === 0;
 }
 
-export function getRequireSource(node: INode): INode | false {
+export function getRequireSource(node: Node): Node | false {
   if (node.type !== NodeType.CallExpresssion) {
     return false;
   }
@@ -71,7 +70,7 @@ export function getRequireSource(node: INode): INode | false {
   return args[0];
 }
 
-export function getImportSource(node: INode): INode | false {
+export function getImportSource(node: Node): Node | false {
   if (
     node.type !== NodeType.ImportDeclaration ||
     node.source.type !== NodeType.Literal
@@ -82,7 +81,7 @@ export function getImportSource(node: INode): INode | false {
   return node.source;
 }
 
-export function getExportSource(node: INode): INode | false {
+export function getExportSource(node: Node): Node | false {
   const exportNodes = [
     NodeType.ExportAllDeclaration,
     NodeType.ExportNamedDeclaration,
@@ -103,7 +102,7 @@ export function rewrite(input: string, map: (name: string) => string): string {
   return map(input);
 }
 
-export default function rename(options: IRenameExtensionsOptions): Plugin {
+export default function rename(options: RenameExtensionsOptions): Plugin {
   const filter = createFilter(options.include, options.exclude);
   const sourceMaps = options.sourceMap !== false;
   return {
@@ -141,7 +140,7 @@ export default function rename(options: IRenameExtensionsOptions): Plugin {
             sourceType: 'module',
           });
 
-          const extract = (node: INode) => {
+          const extract = (node: Node) => {
             const req =
               getRequireSource(node) ||
               getImportSource(node) ||

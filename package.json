@@ -1,33 +1,48 @@
 {
   "name": "root",
   "version": "1.0.0",
-  "devDependencies": {
-    "@commitlint/cli": "^8.1.0",
-    "@commitlint/config-conventional": "^8.1.0",
-    "husky": "^3.0.2",
-    "lerna": "^3.4.3",
-    "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1"
-  },
+  "private": true,
   "scripts": {
-    "watch": "lerna run watch --parallel",
-    "build": "lerna run build",
-    "test": "lerna run --scope remax --stream test",
+    "build": "lerna run build --ignore website",
     "clean": "lerna clean",
-    "lint": "eslint --ext .ts,.tsx packages",
+    "postinstall": "lerna bootstrap",
+    "lint": "eslint 'packages/*/src/**/*.{ts,tsx}'",
     "prepack": "lerna exec -- rm -rf lib && lerna run build",
-    "bootstrap": "yarn install && lerna bootstrap",
+    "prepublishOnly": "npm run lint && npm run test",
+    "release": "lerna publish --force-publish --create-release=github",
     "site:build": "lerna run --scope website --stream build",
-    "site:deploy": "lerna run --scope website --stream deploy"
-  },
-  "dependencies": {
-    "@umijs/fabric": "^1.1.9",
-    "typescript": "^3.5.3"
+    "site:deploy": "lerna run --scope website --stream deploy",
+    "test": "lerna run --scope remax --stream test",
+    "watch": "lerna run watch --parallel"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged",
+      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "lint-staged": {
+    "*.{md,js,jsx}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@umijs/fabric": "^1.1.9",
+    "eslint": "^6.2.1",
+    "husky": "^3.0.2",
+    "lerna": "^3.4.3",
+    "prettier": "^1.18.2",
+    "typescript": "^3.5.3"
+  },
+  "devDependencies": {
+    "lint-staged": ">=8"
   }
 }

@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 21
 ---
 
 在使用 Remax 前你需要有对 [React](https://reactjs.org/) 有基本的了解。

@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import plainStyle from '../../../utils/plainStyle';
 
 const alias: any = {
   className: 'class',
@@ -6,7 +6,7 @@ const alias: any = {
 };
 
 function getAlias(prop: string) {
-  let aliasProp = alias[prop];
+  const aliasProp = alias[prop];
 
   if (aliasProp) {
     return aliasProp;
@@ -14,14 +14,6 @@ function getAlias(prop: string) {
 
   return prop;
 }
-
-const styleString = (style: CSSProperties) =>
-  Object.keys(style)
-    .reduce((acc: string[], key) => {
-      const value = (style as any)[key];
-      return [...acc, `${key}:${value}`];
-    }, [])
-    .join(';');
 
 export interface GenericProps {
   [key: string]: any;
@@ -32,7 +24,7 @@ export default function propsAlias<T>(props: GenericProps) {
 
   Object.keys(props).forEach(prop => {
     if (prop === 'style') {
-      aliasProps.style = styleString(props.style!);
+      aliasProps.style = plainStyle(props.style!);
     } else {
       aliasProps[getAlias(prop)] = props[prop];
     }

@@ -1,6 +1,6 @@
 ---
 title: 配置
-order: 7
+order: 22
 ---
 
 ## Remax 配置
@@ -21,7 +21,7 @@ module.exports = {
 };
 ```
 
-_关于 css modules 和样式更多信息，请参考 [开发 - 样式](/开发/样式)_
+_关于 css modules 和样式更多信息，请参考 [指南 - 样式](/guide/style)_
 
 ### 路径别名
 

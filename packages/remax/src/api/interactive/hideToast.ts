@@ -15,6 +15,7 @@ interface Params {
  *
  * @see [支付宝小程序]{@link https://docs.alipay.com/mini/api/iygd4e}
  */
+// eslint-disable-next-line
 export function hideToast(params: Params) {
   return Promise.resolve();
 }

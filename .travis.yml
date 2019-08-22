@@ -1,9 +1,9 @@
 language: node_js
 node_js:
   - stable
-before_script:
-  - yarn bootstrap
 script:
+  - yarn lint
+  - yarn build
   - yarn test
   - |
     if [[ $TRAVIS_COMMIT_MESSAGE =~ ^docs ]] ; then

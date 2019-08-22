@@ -1,5 +1,5 @@
 <template name="REMAX_TPL">
-  <block a:for="{{$$REMAX_ROOT}}" a:key="{{item.id}}">
+  <block a:for="{{tree.root.children}}" a:key="{{item.id}}">
     <template is="REMAX_TPL_1" data="{{item}}"/>
   </block>
 </template>
@@ -9,12 +9,6 @@
     <block a:if="{{item && item.text}}">
       <!-- string -->
       {{item.text}}
-    </block>
-
-    <block a:if="{{item.type === 'root'}}">
-      <block a:for="{{item.children}}" a:key="{{item.id}}">
-        <template is="REMAX_TPL_1" data="{{item}}"/>
-      </block>
     </block>
 
     <% for (let component of components) { %>

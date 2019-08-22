@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 function getCssModuleConfig(cssModule: boolean | RegExp) {
   let regStr = cssModule.toString();
 

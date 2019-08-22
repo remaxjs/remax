@@ -4,7 +4,6 @@ import TreeNode from './treeNode';
 import sort from '../sort';
 
 const calculateTreeData = edges => {
-  console.log(edges);
   const originalData = config.sidebar.ignoreIndex
     ? edges.filter(
         ({

@@ -5,7 +5,7 @@ import hostConfig from './hostConfig';
 const ReactReconcilerInst = ReactReconciler(hostConfig as any);
 
 function getPublicRootInstance(container: any) {
-  var containerFiber = container.current;
+  const containerFiber = container.current;
   if (!containerFiber.child) {
     return null;
   }

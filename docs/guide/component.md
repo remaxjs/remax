@@ -1,6 +1,6 @@
 ---
 title: 组件
-order: 8
+order: 23
 ---
 
 Remax 用驼峰的方式来命令小程序组件，如：

@@ -1,4 +1,4 @@
-import React, { Props, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import propsAlias from './propsAlias';
 
 export { default as Input } from './Input';
@@ -44,13 +44,13 @@ export type HostComponent =
   | 'functional-page-navigator'
   | 'official-account';
 
-interface IProps {
+interface Props {
   [s: string]: any;
 }
 
 function factoryComponent(component: HostComponent) {
   // props 类型存在问题
-  return forwardRef(<T>(props: Props<T> & IProps, ref: any) => {
+  return forwardRef(<T>(props: React.Props<T> & Props, ref: any) => {
     const { children = [] } = props;
     return React.createElement(
       component,

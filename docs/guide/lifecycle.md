@@ -1,6 +1,6 @@
 ---
 title: 生命周期
-order: 10
+order: 25
 ---
 
 Remax 在 `component class` 中增加了对生命周期的支持，如：
