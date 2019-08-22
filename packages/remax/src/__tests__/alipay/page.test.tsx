@@ -26,75 +26,113 @@ describe('page', () => {
     expect(page.config.wrapper).not.toBeNull();
   });
 
-  it('lifecycle hooks', () => {
-    const log: string[] = [];
-    const Foo: React.FC<PageProps> = () => {
-      useShow(() => {
-        log.push('useShow');
+  describe('hooks', () => {
+    it('works', () => {
+      const log: string[] = [];
+      const Foo: React.FC<PageProps> = () => {
+        useShow(() => {
+          log.push('useShow');
+        });
+
+        useHide(() => {
+          log.push('useHide');
+        });
+
+        usePullDownRefresh(() => {
+          log.push('usePullDownRefresh');
+        });
+
+        useReachBottom(() => {
+          log.push('useReachBottom');
+        });
+
+        usePageScroll(() => {
+          log.push('usePageScroll');
+        });
+
+        useShareAppMessage(() => {
+          log.push('useShareAppMessage');
+        });
+
+        useTitleClick(() => {
+          log.push('useTitleClick');
+        });
+
+        useOptionMenuClick(() => {
+          log.push('useOptionMenuClick');
+        });
+
+        usePopMenuClick(() => {
+          log.push('usePopMenuClick');
+        });
+
+        usePullIntercept(() => {
+          log.push('usePullIntercept');
+        });
+
+        return <View>foo</View>;
+      };
+      const page = Page(createPageConfig(Foo));
+      page.load();
+      page.pullDownRefresh();
+      page.pullIntercept();
+      page.reachBottom();
+      page.pageScroll();
+      page.shareAppMessage();
+      page.titleClick();
+      page.optionMenuClick();
+      page.popMenuClick();
+      page.hide();
+
+      expect(log).toEqual([
+        'useShow',
+        'usePullDownRefresh',
+        'usePullIntercept',
+        'useReachBottom',
+        'usePageScroll',
+        'useShareAppMessage',
+        'useTitleClick',
+        'useOptionMenuClick',
+        'usePopMenuClick',
+        'useHide',
+      ]);
+    });
+
+    it('works in component', () => {
+      const log: string[] = [];
+      const Foo = () => {
+        useShow(() => {
+          log.push('onShow');
+        });
+        return <View>foo</View>;
+      };
+      const Bar = () => <Foo />;
+      const page = Page(createPageConfig(Bar));
+      page.load();
+      expect(log).toEqual(['onShow']);
+    });
+
+    it('register once', () => {
+      const log: string[] = [];
+      const foo = React.createRef<any>();
+      const Foo = React.forwardRef((props, ref) => {
+        const [_, forceUpdate] = React.useState(0);
+
+        useShow(() => {
+          log.push('onShow');
+        });
+
+        React.useImperativeHandle(ref, () => ({
+          forceUpdate,
+        }));
+
+        return <View>foo</View>;
       });
-
-      useHide(() => {
-        log.push('useHide');
-      });
-
-      usePullDownRefresh(() => {
-        log.push('usePullDownRefresh');
-      });
-
-      useReachBottom(() => {
-        log.push('useReachBottom');
-      });
-
-      usePageScroll(() => {
-        log.push('usePageScroll');
-      });
-
-      useShareAppMessage(() => {
-        log.push('useShareAppMessage');
-      });
-
-      useTitleClick(() => {
-        log.push('useTitleClick');
-      });
-
-      useOptionMenuClick(() => {
-        log.push('useOptionMenuClick');
-      });
-
-      usePopMenuClick(() => {
-        log.push('usePopMenuClick');
-      });
-
-      usePullIntercept(() => {
-        log.push('usePullIntercept');
-      });
-
-      return <View>foo</View>;
-    };
-    const page = Page(createPageConfig(Foo));
-    page.load();
-    page.pullDownRefresh();
-    page.pullIntercept();
-    page.reachBottom();
-    page.pageScroll();
-    page.shareAppMessage();
-    page.titleClick();
-    page.optionMenuClick();
-    page.popMenuClick();
-    page.hide();
-
-    expect(log).toEqual([
-      'useShow',
-      'usePullDownRefresh',
-      'usePullIntercept',
-      'useReachBottom',
-      'usePageScroll',
-      'useShareAppMessage',
-      'useTitleClick',
-      'useOptionMenuClick',
-      'usePopMenuClick',
-      'useHide',
-    ]);
+      const page = Page(createPageConfig(() => <Foo ref={foo} />));
+      page.load();
+      foo.current.forceUpdate();
+      expect(log).toEqual(['onShow']);
+    });
   });
 
   it('lifecycle methods', () => {

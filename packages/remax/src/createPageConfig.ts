@@ -45,6 +45,13 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
         this.lifecycleCallback[lifecycle] || [];
 
       this.lifecycleCallback[lifecycle].push(callback);
+
+      return () => {
+        this.lifecycleCallback[lifecycle].splice(
+          this.lifecycleCallback[lifecycle].indexOf(callback),
+          1
+        );
+      };
     },
 
     callLifecycle(lifecycle: Lifecycle) {
