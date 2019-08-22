@@ -1,7 +1,10 @@
 // TODO promise 化补充完整
 import promisify from '../../utils/promisify';
+import MyType from './my.d';
 
 export const getAppStub = getApp;
+
+declare const my: MyType;
 
 export const addCardAuth = my.addCardAuth;
 export const addPhoneContact = my.addPhoneContact;

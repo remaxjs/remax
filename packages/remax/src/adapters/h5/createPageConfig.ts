@@ -38,7 +38,7 @@ const LIFECYCLE_PHASES = [
 ];
 
 function hookName(name: string) {
-  return ('use' + capitalize(name)) as keyof LifecycleHooks;
+  return `use  ${capitalize(name)}` as keyof LifecycleHooks;
 }
 
 export default function createPageConfig(Page: React.ComponentType<any>) {
@@ -56,7 +56,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
         acc[hookName(phase)] = () => {};
         return acc;
       },
-      {}
+      {},
     );
 
     render() {
@@ -66,7 +66,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
         React.createElement(Page, {
           ...this.props,
           lifecycle: this.lifecycle,
-        })
+        }),
       );
     }
   };

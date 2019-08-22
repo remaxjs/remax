@@ -14,12 +14,16 @@
     "build": "lerna run build",
     "test": "lerna run --scope remax --stream test",
     "clean": "lerna clean",
+    "lint": "eslint --ext .ts,.tsx packages",
     "prepack": "lerna exec -- rm -rf lib && lerna run build",
     "bootstrap": "yarn install && lerna bootstrap",
     "site:build": "lerna run --scope website --stream build",
     "site:deploy": "lerna run --scope website --stream deploy"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@umijs/fabric": "^1.1.9",
+    "typescript": "^3.5.3"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged",
