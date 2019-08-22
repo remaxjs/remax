@@ -47,17 +47,11 @@ export default function createPageWrapper(
         },
       };
 
-      let WrappedPage = Page;
       if (isClassComponent(Page)) {
         props.ref = (node: any) => (this.instance = node);
-      } else {
-        WrappedPage = (...args) => {
-          this.props.page.resetLifecyle();
-          return Page(...args);
-        };
       }
 
-      return React.createElement(WrappedPage, props);
+      return React.createElement(Page, props);
     }
   };
 }
