@@ -16,7 +16,7 @@ export interface Adapter {
 
   hostComponents: (component: string) => { props: string[] };
 
-  propsAlias: (key: string) => string;
+  getNativePropName: (key: string) => string;
 
   moduleFormat: 'cjs' | 'esm';
 }
