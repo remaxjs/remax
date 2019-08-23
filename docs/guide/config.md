@@ -18,20 +18,48 @@ module.exports = {
   progress: true,
   // build 目录，默认 dist
   output: 'dist',
+  // 配置路径别名
+  alias: {},
 };
 ```
+
+如果你想针对平台做一些配置，你可以通过设置环境变量来控制，如：
+
+```js
+// PLATFORM=wechat
+// remax.config.js 默认配置
+module.exports = {
+  output: 'dist/' + process.env.PLATFORM,
+};
+```
+
+通过上面的方式，可以针对不同的平台定义不一样的打包输出路径
 
 _关于 css modules 和样式更多信息，请参考 [指南 - 样式](/guide/style)_
 
 ### 路径别名
 
-Remax 支持路径别名，'@/' 相当于 'src/'，例如：
+Remax 支持路径别名配置， 默认配置 `@/` 对应 `src/`，例如：
 
 ```js
 import Button from '@/components/Button';
 
 // 相当于
 import Button from 'project_cwd/src/components/Button';
+```
+
+你也可以通过 alias 自定义配置，如：
+
+```js
+// remax.config.js
+module.exports = {
+  ...
+  // 配置路径别名
+  alias: {
+    // 自动将 @components 指向 src/components
+    '@components': 'components',
+  },
+};
 ```
 
 ### 文件引用
@@ -87,4 +115,6 @@ exports.alipay = {
 
 `app.config.js` 对应小程序 `app.json`，页面配置为对应页面的 `config.js`，如，`pages/index/index.js` 的页面配置为 `pages/index/index.config.js`
 
-> 由于微信不支持模板递归，因此在 Remax 中对层级深度有一定限制。如果开发者的小程序页面层级较深，可以通过 **UNSAFE_wechatTemplateDepth**来控制层级，Remax 默认层级为 20。需要注意的是，层级越深，Remax 打包结果的大小增长越快
+## 其他
+
+> 由于微信不支持模板递归，因此在 Remax 中对层级深度有一定限制。如果开发者的小程序页面层级较深，可以通过 **UNSAFE_wechatTemplateDepth** 来控制层级，Remax 默认层级为 20。需要注意的是，层级越深，Remax 打包结果的大小增长越快
