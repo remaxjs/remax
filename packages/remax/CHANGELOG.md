@@ -8,14 +8,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 - style 为 null/undefined 时报错的问题 ([28f4367](https://github.com/remaxjs/remax/commit/28f4367))
-- stylus typo ([60c4ec9](https://github.com/remaxjs/remax/commit/60c4ec9))
-- 修复 PX 也会被转换成 rpx 的问题 ([e34c366](https://github.com/remaxjs/remax/commit/e34c366))
 - 生命周期 hooks 不能在组件中使用的问题 ([4fa5695](https://github.com/remaxjs/remax/commit/4fa5695))
-
-## 1.0.1
-
-第一个正式版本。
-
-## 1.0.0
-
-不存在。
