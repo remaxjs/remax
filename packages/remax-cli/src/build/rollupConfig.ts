@@ -70,6 +70,14 @@ export default function rollupConfig(
 
   const entries = getEntries(options, adapter, context);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
+  const aliasConfig = Object.entries(options.alias || {}).reduce(
+    (config, [key, value]) => {
+      config[key] = path.resolve(options.cwd, 'src', value);
+
+      return config;
+    },
+    {} as any
+  );
 
   const plugins = [
     copy({
@@ -94,7 +102,7 @@ export default function rollupConfig(
         '/index.tsx',
       ],
       '@': path.resolve(options.cwd, 'src'),
-      ...options.alias,
+      ...aliasConfig,
     }),
     url({
       limit: 0,
