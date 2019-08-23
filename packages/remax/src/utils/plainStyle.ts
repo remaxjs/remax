@@ -7,12 +7,16 @@ const transformReactStyleKey = (key: string) =>
     })
     .replace(/^-/, '');
 
-const plainStyle = (style: CSSProperties) =>
-  Object.keys(style)
+const plainStyle = (style: CSSProperties | null | undefined) => {
+  if (!style) {
+    return '';
+  }
+  return Object.keys(style)
     .reduce((acc: string[], key) => {
       const value = (style as any)[key];
       return [...acc, `${transformReactStyleKey(key)}:${value};`];
     }, [])
     .join('');
+};
 
 export default plainStyle;
