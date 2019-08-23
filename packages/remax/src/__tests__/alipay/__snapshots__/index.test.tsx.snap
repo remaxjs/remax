@@ -9,7 +9,7 @@ Object {
           "children": Array [
             Object {
               "text": "1",
-              "type": Symbol(text),
+              "type": "plain-text",
             },
           ],
           "id": 2,
@@ -21,7 +21,7 @@ Object {
           "children": Array [
             Object {
               "text": "3",
-              "type": Symbol(text),
+              "type": "plain-text",
             },
           ],
           "id": 4,
@@ -52,7 +52,7 @@ Object {
           "children": Array [
             Object {
               "text": "1",
-              "type": Symbol(text),
+              "type": "plain-text",
             },
           ],
           "id": 2,
@@ -64,7 +64,7 @@ Object {
           "children": Array [
             Object {
               "text": "2",
-              "type": Symbol(text),
+              "type": "plain-text",
             },
           ],
           "id": 7,
@@ -76,7 +76,7 @@ Object {
           "children": Array [
             Object {
               "text": "3",
-              "type": Symbol(text),
+              "type": "plain-text",
             },
           ],
           "id": 4,
@@ -105,7 +105,7 @@ Object {
       "children": Array [
         Object {
           "text": "hello",
-          "type": Symbol(text),
+          "type": "plain-text",
         },
       ],
       "id": 2,
@@ -130,7 +130,7 @@ Object {
       "children": Array [
         Object {
           "text": "one",
-          "type": Symbol(text),
+          "type": "plain-text",
         },
       ],
       "id": 2,
@@ -142,7 +142,7 @@ Object {
       "children": Array [
         Object {
           "text": "two",
-          "type": Symbol(text),
+          "type": "plain-text",
         },
       ],
       "id": 4,
@@ -165,7 +165,7 @@ Object {
       "children": Array [
         Object {
           "text": "foo",
-          "type": Symbol(text),
+          "type": "plain-text",
         },
       ],
       "id": 2,
@@ -188,7 +188,7 @@ Object {
       "children": Array [
         Object {
           "text": "hello",
-          "type": Symbol(text),
+          "type": "plain-text",
         },
       ],
       "id": 2,
@@ -213,7 +213,7 @@ Object {
       "children": Array [
         Object {
           "text": "hello",
-          "type": Symbol(text),
+          "type": "plain-text",
         },
       ],
       "id": 2,
@@ -240,7 +240,7 @@ Object {
           "children": Array [
             Object {
               "text": "foo",
-              "type": Symbol(text),
+              "type": "plain-text",
             },
           ],
           "id": 2,

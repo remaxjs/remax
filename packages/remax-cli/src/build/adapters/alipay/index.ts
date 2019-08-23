@@ -22,3 +22,19 @@ export const templates = {
 };
 
 export const moduleFormat = 'esm';
+
+// TODO: remax 和 remax-cli 重复定义了，要 DRY
+const alias: any = {
+  className: 'class',
+  onClick: 'onTap',
+};
+
+export function getNativePropName(prop: string) {
+  const aliasProp = alias[prop];
+
+  if (aliasProp) {
+    return aliasProp;
+  }
+
+  return prop;
+}
