@@ -20,6 +20,10 @@
           </block>
         </swiper-item>
       </block>
+    <% } else if (id === 'picker') { %>
+      <view>
+        <template is="REMAX_TPL_1" data="{{item: item.children[0]}}"/>
+      </view>
     <% } else { %>
       <block a:for="{{item.children}}" a:key="{{item.id}}">
         <template is="REMAX_TPL_1" data="{{item}}"/>
