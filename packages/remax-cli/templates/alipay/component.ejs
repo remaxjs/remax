@@ -24,6 +24,14 @@
       <view>
         <template is="REMAX_TPL_1" data="{{item: item.children[0]}}"/>
       </view>
+    <% } else if (id === 'picker-view') { %>
+      <block a:for="{{item.children}}" a:key="{{item.id}}">
+        <picker-view-column>
+          <view a:for="{{item.children}}">
+            <template is="REMAX_TPL_1" data="{{item}}"/>
+          </view>
+        </picker-view-column>
+      </block>
     <% } else { %>
       <block a:for="{{item.children}}" a:key="{{item.id}}">
         <template is="REMAX_TPL_1" data="{{item}}"/>
