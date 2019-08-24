@@ -1,6 +1,6 @@
 {
   "name": "remax-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "./lib/index.js",
   "scripts": {
@@ -60,7 +60,7 @@
     "@types/through2": "^2.0.34",
     "jest": "^24.8.0",
     "react": "^16.8.6",
-    "remax": "^1.0.3",
+    "remax": "^1.0.4",
     "ts-jest": "^24.0.2",
     "typescript": "^3.2.2"
   }
