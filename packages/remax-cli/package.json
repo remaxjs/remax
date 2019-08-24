@@ -26,6 +26,7 @@
     "@babel/types": "^7.4.4",
     "@meck/rollup-plugin-postcss": "^2.0.3",
     "@remax/postcss-px2units": "^0.2.0",
+    "acorn-walk": "^7.0.0",
     "babel-plugin-transform-async-to-promises": "^0.8.14",
     "commander": "^2.19.0",
     "ejs": "^2.6.1",
