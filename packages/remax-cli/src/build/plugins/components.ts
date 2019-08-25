@@ -50,6 +50,10 @@ export default (adapter: Adapter) => () => ({
           return;
         }
 
+        if (id === 'picker-view-column') {
+          return;
+        }
+
         const { props } = adapter.hostComponents(id);
 
         components.push({
