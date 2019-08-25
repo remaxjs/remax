@@ -23,12 +23,12 @@ export interface RenameExtensionsOptions {
   /**
    * Files to include
    */
-  include?: Array<string | RegExp> | string | RegExp | null;
+  include?: (string | RegExp)[] | string | RegExp | null;
 
   /**
    * Files to explicitly exclude
    */
-  exclude?: Array<string | RegExp> | string | RegExp | null;
+  exclude?: (string | RegExp)[] | string | RegExp | null;
 
   /**
    * Generate source maps for the transformations.
@@ -109,13 +109,14 @@ export default function rename(options: RenameExtensionsOptions): Plugin {
     name: 'rename-rollup',
     generateBundle(_, bundle) {
       const files = Object.entries<any>(bundle);
-
+      // eslint-disable-next-line no-restricted-syntax
       for (const [key, file] of files) {
         if (
           !filter(file.facadeModuleId) &&
           !(options.matchAll && /\0/.test(file.facadeModuleId)) &&
           file.fileName !== 'app.css'
         ) {
+          // eslint-disable-next-line no-continue
           continue;
         }
 

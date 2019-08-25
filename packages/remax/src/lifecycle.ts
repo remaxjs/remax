@@ -18,11 +18,11 @@ export enum Lifecycle {
 }
 
 export function hookName(name: string) {
-  return 'use' + capitalize(name);
+  return `use${capitalize(name)}`;
 }
 
 export function callbackName(name: string) {
-  return 'on' + capitalize(name);
+  return `on${capitalize(name)}`;
 }
 
 export function registerLifecycle(method: Lifecycle, callback: () => void) {

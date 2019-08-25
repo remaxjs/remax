@@ -16,21 +16,20 @@ interface AppConfig {
 interface Entries {
   pageConfigPath: string[];
   app: string;
-  pages: Array<{ path: string; file: string }>;
+  pages: { path: string; file: string }[];
 }
 
 function searchFile(file: string, ext?: string) {
-  const exts = [ext, 'ts', 'tsx', 'js'].filter(e => e);
-
-  for (const e of exts) {
-    const extFile = file + '.' + e;
-    if (fs.existsSync(extFile)) {
-      return extFile;
+  const extFiles = [ext, 'ts', 'tsx', 'js'].filter(e => e);
+  const extFile = extFiles.find(e => {
+    if (fs.existsSync(`${file}.${e}`)) {
+      return true;
     }
+    return false;
+  });
 
-    if (e === ext) {
-      return '';
-    }
+  if (extFile) {
+    return `${file}.${extFile}`;
   }
 
   return '';
@@ -39,7 +38,7 @@ function searchFile(file: string, ext?: string) {
 export default function getEntries(
   options: RemaxOptions,
   adpater: Adapter,
-  context?: Context
+  context?: Context,
 ): Entries {
   let pages: any = [];
   let subpackages: any = [];
@@ -48,7 +47,7 @@ export default function getEntries(
     const appConfigPath: string = path.join(
       options.cwd,
       'src',
-      'app.config.js'
+      'app.config.js',
     );
     if (!fs.existsSync(appConfigPath)) {
       throw new Error(`${appConfigPath} is not found`);
@@ -58,7 +57,7 @@ export default function getEntries(
     subpackages = appConfig.subpackages || [];
     if (!pages || pages.length === 0) {
       throw new Error(
-        'app.config.js `pages` field should not be undefined or empty object'
+        'app.config.js `pages` field should not be undefined or empty object',
       );
     }
   } else {
@@ -73,29 +72,30 @@ export default function getEntries(
   };
 
   entries.pages = pages.reduce(
-    (ret: Array<{ path: string; file: string }>, page: string) => {
-      return [
+    (ret: { path: string; file: string }[], page: string) =>
+      [
         ...ret,
         {
           path: page,
           file: searchFile(path.join(options.cwd, 'src', page)),
         },
-      ].filter(page => page && page.file);
-    },
-    []
+      ].filter(subPage => subPage && subPage.file),
+    [],
   );
 
   subpackages.forEach((pack: { pages: string[]; root: string }) => {
     entries.pages = entries.pages.concat(
-      pack.pages.reduce((ret: Array<{ path: string; file: string }>, page) => {
-        return [
-          ...ret,
-          {
-            path: page,
-            file: searchFile(path.join(options.cwd, 'src', pack.root, page)),
-          },
-        ].filter(page => page && page.file);
-      }, [])
+      pack.pages.reduce(
+        (ret: { path: string; file: string }[], page) =>
+          [
+            ...ret,
+            {
+              path: page,
+              file: searchFile(path.join(options.cwd, 'src', pack.root, page)),
+            },
+          ].filter(subPage => subPage && subPage.file),
+        [],
+      ),
     );
   });
 

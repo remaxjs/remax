@@ -2,61 +2,56 @@ import { useLayoutEffect } from 'react';
 import { registerLifecycle, Lifecycle, Callback } from './lifecycle';
 
 export function useShow(callback: Callback) {
-  useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.show, callback);
-  }, []);
+  useLayoutEffect(() => registerLifecycle(Lifecycle.show, callback), []);
 }
 
 export function useHide(callback: Callback) {
-  useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.hide, callback);
-  }, []);
+  useLayoutEffect(() => registerLifecycle(Lifecycle.hide, callback), []);
 }
 
 export function usePullDownRefresh(callback: Callback) {
-  useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.pullDownRefresh, callback);
-  }, []);
+  useLayoutEffect(
+    () => registerLifecycle(Lifecycle.pullDownRefresh, callback),
+    [],
+  );
 }
 
 export function useReachBottom(callback: Callback) {
-  useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.reachBottom, callback);
-  }, []);
+  useLayoutEffect(() => registerLifecycle(Lifecycle.reachBottom, callback), []);
 }
 
 export function usePageScroll(callback: Callback) {
-  useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.pageScroll, callback);
-  }, []);
+  useLayoutEffect(() => registerLifecycle(Lifecycle.pageScroll, callback), []);
 }
 
 export function useShareAppMessage(callback: Callback) {
-  useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.shareAppMessage, callback);
-  }, []);
+  useLayoutEffect(
+    () => registerLifecycle(Lifecycle.shareAppMessage, callback),
+    [],
+  );
 }
 
 export function useTitleClick(callback: Callback) {
-  useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.titleClick, callback);
-  }, []);
+  useLayoutEffect(() => registerLifecycle(Lifecycle.titleClick, callback), []);
 }
 
 export function useOptionMenuClick(callback: Callback) {
-  useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.optionMenuClick, callback);
-  }, []);
+  useLayoutEffect(
+    () => registerLifecycle(Lifecycle.optionMenuClick, callback),
+    [],
+  );
 }
 
 export function usePopMenuClick(callback: Callback) {
-  useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.popMenuClick, callback);
-  }, []);
+  useLayoutEffect(
+    () => registerLifecycle(Lifecycle.popMenuClick, callback),
+    [],
+  );
 }
 
 export function usePullIntercept(callback: Callback) {
-  useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.pullIntercept, callback);
-  }, []);
+  useLayoutEffect(
+    () => registerLifecycle(Lifecycle.pullIntercept, callback),
+    [],
+  );
 }

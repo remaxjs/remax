@@ -4,7 +4,7 @@ function getCssModuleConfig(cssModule: boolean | RegExp) {
   if (typeof cssModule === 'boolean') {
     regStr = cssModule ? '^(?!.*.*)' : '(.*)';
   } else {
-    regStr = '^(?!.*' + cssModule.toString().replace(/^\/|\/$/g, '') + ')';
+    regStr = `^(?!.*${cssModule.toString().replace(/^\/|\/$/g, '')})`;
   }
 
   return {

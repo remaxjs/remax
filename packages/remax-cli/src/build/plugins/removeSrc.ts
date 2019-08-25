@@ -81,7 +81,7 @@ export default function removeSrc(options: Options): Plugin {
     name: 'remove-src',
     generateBundle(_, bundle) {
       const files = Object.keys(bundle);
-      files.map(file => {
+      files.forEach(file => {
         if (PREFIX_SRC_PATTERN.test(file)) {
           const module = bundle[file];
           if (isAsset(module)) {
@@ -106,11 +106,12 @@ export default function removeSrc(options: Options): Plugin {
                   .split('/')
                   .filter((d: string) => d === '..').length;
                 const targetDistance = winPath(
-                  path.relative(path.dirname(file), 'src')
+                  path.relative(path.dirname(file), 'src'),
                 ).split('/').length;
                 if (isInsideSrc(file, req.value)) {
                   return;
                 }
+                // eslint-disable-next-line eqeqeq
                 if (distance == 1 && targetDistance === 1) {
                   // app.js
                   const newPath = req.value.replace(PARENT_DIR_PATTERN, './');

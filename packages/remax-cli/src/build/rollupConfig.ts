@@ -10,8 +10,11 @@ import progress from 'rollup-plugin-progress';
 import clear from 'rollup-plugin-clear';
 import alias from 'rollup-plugin-alias';
 import copy from 'rollup-plugin-copy';
-import stub from './plugins/stub';
 import pxToUnits from '@remax/postcss-px2units';
+import replace from 'rollup-plugin-replace';
+import * as React from 'react';
+import * as scheduler from 'scheduler';
+import stub from './plugins/stub';
 import getEntries from '../getEntries';
 import getCssModuleConfig from '../getCssModuleConfig';
 import template from './plugins/template';
@@ -20,9 +23,6 @@ import page from './plugins/page';
 import removeSrc from './plugins/removeSrc';
 import removeConfig from './plugins/removeConfig';
 import rename from './plugins/rename';
-import replace from 'rollup-plugin-replace';
-import * as React from 'react';
-import * as scheduler from 'scheduler';
 import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';
@@ -33,7 +33,7 @@ export default function rollupConfig(
   options: RemaxOptions,
   argv: any,
   adapter: Adapter,
-  context?: Context
+  context?: Context,
 ) {
   const babelConfig = {
     presets: [
@@ -55,7 +55,7 @@ export default function rollupConfig(
 
   if (adapter.name !== 'alipay') {
     babelConfig.plugins.unshift(
-      require.resolve('babel-plugin-transform-async-to-promises')
+      require.resolve('babel-plugin-transform-async-to-promises'),
     );
   }
 
@@ -153,7 +153,7 @@ export default function rollupConfig(
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify(
-        process.env.NODE_ENV || 'development'
+        process.env.NODE_ENV || 'development',
       ),
       'process.env.REMAX_PLATFORM': JSON.stringify(argv.target),
       'process.env.REMAX_DEBUG': JSON.stringify(process.env.REMAX_DEBUG),
@@ -195,14 +195,11 @@ export default function rollupConfig(
     }),
     rename({
       matchAll: true,
-      map: input => {
-        return (
-          input &&
-          input
-            .replace(/node_modules/g, 'npm')
-            .replace(/\.js_commonjs-proxy$/, '.js_commonjs-proxy.js')
-        );
-      },
+      map: input =>
+        input &&
+        input
+          .replace(/node_modules/g, 'npm')
+          .replace(/\.js_commonjs-proxy$/, '.js_commonjs-proxy.js'),
     }),
     removeSrc({}),
     removeConfig(),
@@ -218,7 +215,7 @@ export default function rollupConfig(
     plugins.unshift(
       clear({
         targets: options.output,
-      })
+      }),
     );
   }
 

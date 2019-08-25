@@ -12,7 +12,7 @@ const RESET = '\x1b[0m';
 
 const output = (
   content: string | string[],
-  color: 'red' | 'green' | 'blue'
+  color: 'red' | 'green' | 'blue',
 ) => {
   const message = Array.isArray(content) ? content : [content];
   console.log(`${COLORS[color]}%s${RESET}`, ...message);
@@ -26,6 +26,7 @@ export default async (argv: any, context?: Context) => {
 
   let targetConfig;
   try {
+    // eslint-disable-next-line import/no-dynamic-require, global-require
     targetConfig = require(`./adapters/${argv.target}`);
   } catch (e) {
     console.log(e);
@@ -46,6 +47,8 @@ export default async (argv: any, context?: Context) => {
     console.log('\x1b[34m%s\x1b[0m', '🚀 启动 watch');
 
     watcher.on('event', (event: any) => {
+      const { error } = event;
+      let { code } = error;
       switch (event.code) {
         case 'START':
           output('🚚 编译...', 'blue');
@@ -55,10 +58,10 @@ export default async (argv: any, context?: Context) => {
           break;
         case 'ERROR':
         case 'FATAL':
-          const { error } = event;
-          const name =
-            error.code === 'PLUGIN_ERROR' ? error.plugin : error.code;
-          output(`\n🚨 [${name}]: ${error.message}`, 'red');
+          if (code === 'PLUGIN_ERROR') {
+            code = error.plugin;
+          }
+          output(`\n🚨 [${code}]: ${error.message}`, 'red');
           throw error;
         default:
           break;
@@ -68,8 +71,10 @@ export default async (argv: any, context?: Context) => {
     try {
       output('🚀 开始 build...', 'blue');
       const bundle = await rollup.rollup(rollupOptions);
-      await bundle.write(rollupOptions.output!);
-      output('💡 完成', 'green');
+      if (rollupOptions.output) {
+        await bundle.write(rollupOptions.output);
+      }
+      output('🌟 完成', 'green');
     } catch (error) {
       const name = error.code === 'PLUGIN_ERROR' ? error.plugin : error.code;
       output(`\n🚨 [${name}]: ${error.message}`, 'red');

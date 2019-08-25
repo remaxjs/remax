@@ -4,6 +4,7 @@ import React, {
   useState,
   forwardRef,
 } from 'react';
+
 import propsAlias from './propsAlias';
 
 export interface TextareaProps {
@@ -38,8 +39,8 @@ export interface TextareaProps {
 }
 
 function useInnerFocus(
-  initialValue?: boolean
-): [boolean, typeof handleInnerFocus] {
+  initialValue?: boolean,
+): [boolean, (func?: Function, focus?: boolean) => undefined | any] {
   const [innerFocus = false, setInnerFocus] = useState(initialValue);
 
   const handleInnerFocus = (func?: Function, focus = true) => (
@@ -52,6 +53,7 @@ function useInnerFocus(
     if (typeof func === 'function') {
       return func(...params);
     }
+    return undefined;
   };
 
   return [innerFocus, handleInnerFocus];

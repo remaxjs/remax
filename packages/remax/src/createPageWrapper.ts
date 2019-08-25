@@ -10,7 +10,7 @@ export interface PageProps<Q = {}> {
 
 export default function createPageWrapper(
   Page: React.ComponentType,
-  query: object
+  query: object,
 ) {
   return class PageWrapper extends React.Component<{ page: any }> {
     instance: any = null;
@@ -27,9 +27,7 @@ export default function createPageWrapper(
 
       Object.keys(Lifecycle).forEach(phase => {
         const callback = callbackName(phase);
-        (this as any)[callback] = () => {
-          return this.callLifecycle(phase);
-        };
+        (this as any)[callback] = () => this.callLifecycle(phase);
       });
     }
 
@@ -38,6 +36,7 @@ export default function createPageWrapper(
       if (this.instance && typeof this.instance[callback] === 'function') {
         return this.instance[callback]();
       }
+      return undefined;
     }
 
     render() {
@@ -48,7 +47,9 @@ export default function createPageWrapper(
       };
 
       if (isClassComponent(Page)) {
-        props.ref = (node: any) => (this.instance = node);
+        props.ref = (node: unknown) => {
+          this.instance = node;
+        };
       }
 
       return React.createElement(Page, props);

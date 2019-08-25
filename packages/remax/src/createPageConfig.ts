@@ -20,7 +20,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
 
       this.wrapper = render(
         React.createElement(PageWrapper, { page: this }),
-        this.container
+        this.container,
       );
     },
 
@@ -45,7 +45,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       return () => {
         this.lifecycleCallback[lifecycle].splice(
           this.lifecycleCallback[lifecycle].indexOf(callback),
-          1
+          1,
         );
       };
     },
@@ -64,6 +64,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       if (this.wrapper[callback]) {
         return this.wrapper[callback]();
       }
+      return undefined;
     },
 
     onShow() {

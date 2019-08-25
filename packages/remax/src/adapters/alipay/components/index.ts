@@ -49,7 +49,7 @@ function factoryComponent(component: HostComponent) {
     return React.createElement(
       component,
       propsAlias({ ...props, ref }),
-      children
+      children,
     );
   });
 }

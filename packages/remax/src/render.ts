@@ -14,23 +14,26 @@ function getPublicRootInstance(container: any) {
 
 export default function render(
   rootElement: React.ReactElement | null,
-  container: any
+  container: any,
 ) {
   // Create a root Container if it doesnt exist
+  // eslint-disable-next-line no-underscore-dangle
   if (!container._rootContainer) {
+    // eslint-disable-next-line no-underscore-dangle
     container._rootContainer = ReactReconcilerInst.createContainer(
       container,
       false,
-      false
+      false,
     );
   }
 
   ReactReconcilerInst.updateContainer(
     rootElement,
+    // eslint-disable-next-line no-underscore-dangle
     container._rootContainer,
     null,
-    () => {}
+    () => {},
   );
-
+  // eslint-disable-next-line no-underscore-dangle
   return getPublicRootInstance(container._rootContainer);
 }

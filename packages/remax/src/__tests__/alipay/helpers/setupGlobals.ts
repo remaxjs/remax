@@ -1,4 +1,5 @@
-/* eslint-disable */
+/* eslint-disable eslint-comments/disable-enable-pair */
+/* eslint-disable dot-notation */
 import pages from './pages';
 
 // @ts-ignore

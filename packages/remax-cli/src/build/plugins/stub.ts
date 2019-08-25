@@ -26,7 +26,7 @@ export default function stub(options: Options = {}): Plugin {
 
       ast.body.forEach((node: any) => {
         if (node.type === 'ExportDefaultDeclaration') {
-          magicString.overwrite(node.start, node.end, `\nexport default {};`);
+          magicString.overwrite(node.start, node.end, '\nexport default {};');
         } else if (node.type === 'ExportNamedDeclaration') {
           if (node.declaration == null) {
             let content = '';
@@ -39,20 +39,20 @@ export default function stub(options: Options = {}): Plugin {
               magicString.overwrite(
                 node.start,
                 node.end,
-                `\nexport var ${declaration.id.name} = undefined;`
+                `\nexport var ${declaration.id.name} = undefined;`,
               );
             });
           } else if (node.declaration.type === 'FunctionDeclaration') {
             magicString.overwrite(
               node.start,
               node.end,
-              `\nexport var ${node.declaration.id.name} = undefined;`
+              `\nexport var ${node.declaration.id.name} = undefined;`,
             );
           } else if (node.declaration.type === 'ClassDeclaration') {
             magicString.overwrite(
               node.start,
               node.end,
-              `\nexport var ${node.declaration.id.name} = undefined;`
+              `\nexport var ${node.declaration.id.name} = undefined;`,
             );
           }
         }

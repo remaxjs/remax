@@ -12,24 +12,27 @@ async function build(app: string) {
       UNSAFE_wechatTemplateDepth: 20,
     },
     false,
-    {} as any
+    {} as any,
   );
   const bundle = await rollup.rollup(rollupOptions);
-  const result = await bundle.generate(rollupOptions.output!);
-  return result.output
-    .filter(c => !/(node_modules|_virtual)/.test(c.fileName))
-    .map(c => {
-      let code = '';
-      if (c.code) {
-        code = c.code.toString();
-      } else {
-        code = (c as rollup.OutputAsset).source.toString();
-      }
-      return {
-        fileName: c.fileName,
-        code,
-      };
-    });
+  if (rollupOptions.output) {
+    const result = await bundle.generate(rollupOptions.output);
+    return result.output
+      .filter(c => !/(node_modules|_virtual)/.test(c.fileName))
+      .map(c => {
+        let code = '';
+        if (c.code) {
+          code = c.code.toString();
+        } else {
+          code = (c as rollup.OutputAsset).source.toString();
+        }
+        return {
+          fileName: c.fileName,
+          code,
+        };
+      });
+  }
+  return undefined;
 }
 
 describe('build', () => {

@@ -2,8 +2,8 @@ import { Toast } from 'antd-mobile';
 import 'antd-mobile/lib/toast/style';
 import * as API from '../../../../api';
 
-export const showToast: typeof API.showToast = params => {
-  return new Promise(resolve => {
+export const showToast: typeof API.showToast = params =>
+  new Promise(resolve => {
     const typeMap = {
       success: 'success',
       fail: 'fail',
@@ -23,7 +23,6 @@ export const showToast: typeof API.showToast = params => {
         if (params.complete) {
           params.complete();
         }
-      }
+      },
     );
   });
-};

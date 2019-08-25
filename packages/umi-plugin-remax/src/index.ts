@@ -13,6 +13,6 @@ export default (api: IApi, opts: any = {}) => {
         app: opts.app,
         pages: api.config.routes,
       });
-    }
+    },
   );
 };

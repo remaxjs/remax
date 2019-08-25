@@ -55,7 +55,7 @@ function factoryComponent(component: HostComponent) {
     return React.createElement(
       component,
       propsAlias({ ...props, ref }),
-      children
+      children,
     );
   });
 }
@@ -97,5 +97,5 @@ export const Audio = factoryComponent('audio');
 export const Ad = factoryComponent('ad');
 export const WebView = factoryComponent('web-view');
 export const FunctionalPageNavigator = factoryComponent(
-  'functional-page-navigator'
+  'functional-page-navigator',
 );

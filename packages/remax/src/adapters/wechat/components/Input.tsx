@@ -38,8 +38,8 @@ export interface InputProps {
 }
 
 function useInnerFocus(
-  initialValue?: boolean
-): [boolean, typeof handleInnerFocus] {
+  initialValue?: boolean,
+): [boolean, (func?: Function, focus?: boolean) => undefined | any] {
   const [innerFocus = false, setInnerFocus] = useState(initialValue);
 
   const handleInnerFocus = (func?: Function, focus = true) => (
@@ -52,6 +52,7 @@ function useInnerFocus(
     if (typeof func === 'function') {
       return func(...params);
     }
+    return undefined;
   };
 
   return [innerFocus, handleInnerFocus];

@@ -3,6 +3,7 @@ import * as path from 'path';
 export const name = 'wechat';
 
 export function hostComponents(component: string) {
+  // eslint-disable-next-line import/no-dynamic-require, global-require
   return require(`./hostComponents/${component}`);
 }
 

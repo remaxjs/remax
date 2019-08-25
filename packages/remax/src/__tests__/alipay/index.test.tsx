@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './helpers/setupGlobals';
-import { render, View } from '../../../src/adapters/alipay';
+import { render, View } from '../../adapters/alipay';
 import { reset } from '../../instanceId';
 import Container from '../../Container';
 

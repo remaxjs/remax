@@ -2,10 +2,10 @@ import { Modal } from 'antd-mobile';
 import 'antd-mobile/lib/modal/style';
 import * as API from '../../../../api';
 
-export const confirm: typeof API.confirm = params => {
-  return new Promise(resolve => {
-    const onPress = (confirm: boolean) => () => {
-      const result = { confirm };
+export const confirm: typeof API.confirm = params =>
+  new Promise(resolve => {
+    const onPress = (ok: boolean) => () => {
+      const result = { confirm: ok };
       if (params.success) {
         params.success(result);
       } else {
@@ -28,4 +28,3 @@ export const confirm: typeof API.confirm = params => {
       },
     ]);
   });
-};

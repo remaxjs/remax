@@ -18,7 +18,7 @@ const {
 
 function processProps(newProps: any, rootContext: Container, id: number) {
   const props: any = {};
-  for (const propKey of Object.keys(newProps)) {
+  Object.keys(newProps).forEach(propKey => {
     if (typeof newProps[propKey] === 'function') {
       const contextKey = `${REMAX_METHOD}_${id}_${propKey}`;
       rootContext.createCallback(contextKey, newProps[propKey]);
@@ -28,7 +28,7 @@ function processProps(newProps: any, rootContext: Container, id: number) {
     } else {
       props[propKey] = newProps[propKey];
     }
-  }
+  });
   return props;
 }
 
@@ -38,13 +38,9 @@ const childHostContext = {};
 export default {
   now,
 
-  getPublicInstance: <T>(inst: T): T => {
-    return inst;
-  },
+  getPublicInstance: <T>(inst: T): T => inst,
 
-  getRootHostContext: () => {
-    return rootHostContext;
-  },
+  getRootHostContext: () => rootHostContext,
 
   shouldSetTextContent() {
     return false;
@@ -54,9 +50,7 @@ export default {
 
   resetAfterCommit: () => {},
 
-  getChildHostContext: () => {
-    return childHostContext;
-  },
+  getChildHostContext: () => childHostContext,
 
   createInstance(type: string, newProps: any, container: Container) {
     const id = generate();
@@ -102,7 +96,7 @@ export default {
     updatePayload: any,
     type: string,
     oldProps: any,
-    newProps: any
+    newProps: any,
   ) {
     node.props = processProps(newProps, node.container, node.id);
     node.update();
@@ -124,9 +118,7 @@ export default {
     parent.removeChild(child);
   },
 
-  finalizeInitialChildren: () => {
-    return false;
-  },
+  finalizeInitialChildren: () => false,
 
   appendChildToContainer(container: any, child: VNode) {
     container.appendChild(child);

@@ -24,7 +24,7 @@ export default function propsAlias<T>(props: GenericProps) {
 
   Object.keys(props).forEach(prop => {
     if (prop === 'style') {
-      aliasProps.style = plainStyle(props.style!);
+      aliasProps.style = plainStyle(props.style);
     } else {
       aliasProps[getAlias(prop)] = props[prop];
     }

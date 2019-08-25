@@ -7,7 +7,7 @@ export default function removeSrc(): Plugin {
     name: 'remove-config',
     generateBundle(_, bundle) {
       const files = Object.keys(bundle);
-      files.map(file => {
+      files.forEach(file => {
         if (SUFFIX_CONFIG_PATTERN.test(file)) {
           delete bundle[file];
         }

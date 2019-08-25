@@ -2,8 +2,8 @@ import { ActionSheet } from 'antd-mobile';
 import 'antd-mobile/lib/action-sheet/style';
 import * as API from '../../../../api';
 
-export const showActionSheet: typeof API.showActionSheet = params => {
-  return new Promise(resolve => {
+export const showActionSheet: typeof API.showActionSheet = params =>
+  new Promise(resolve => {
     ActionSheet.showActionSheetWithOptions(
       {
         options: [...params.items, params.cancelButtonText || '取消'],
@@ -22,7 +22,6 @@ export const showActionSheet: typeof API.showActionSheet = params => {
         if (params.complete) {
           params.complete();
         }
-      }
+      },
     );
   });
-};

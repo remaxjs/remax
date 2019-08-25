@@ -2,9 +2,7 @@ import { CSSProperties } from 'react';
 
 const transformReactStyleKey = (key: string) =>
   key
-    .replace(/\.?([A-Z]+)/g, function(_x: any, y: string) {
-      return '-' + y.toLowerCase();
-    })
+    .replace(/\.?([A-Z]+)/g, (_x: unknown, y: string) => `-${y.toLowerCase()}`)
     .replace(/^-/, '');
 
 const plainStyle = (style: CSSProperties) =>

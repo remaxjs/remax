@@ -2,8 +2,8 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { parse } from 'acorn';
 import { Plugin, OutputChunk } from 'rollup';
-import { getComponents } from './components';
 import ejs from 'ejs';
+import { getComponents } from './components';
 import { RemaxOptions } from '../../getConfig';
 import readManifest from '../../readManifest';
 import getEntries from '../../getEntries';
@@ -14,20 +14,20 @@ import winPath from '../../winPath';
 async function createTemplate(pageFile: string, adapter: Adapter) {
   const fileName = `${path.dirname(pageFile)}/${path.basename(
     pageFile,
-    path.extname(pageFile)
+    path.extname(pageFile),
   )}${adapter.extensions.template}`;
   const code: string = await ejs.renderFile(adapter.templates.page, {
     baseTemplate: winPath(
       path.relative(
         path.dirname(pageFile),
-        `base${adapter.extensions.template}`
-      )
+        `base${adapter.extensions.template}`,
+      ),
     ),
     jsHelper: winPath(
       path.relative(
         path.dirname(pageFile),
-        `helper${adapter.extensions.jsHelper}`
-      )
+        `helper${adapter.extensions.jsHelper}`,
+      ),
     ),
   });
 
@@ -60,7 +60,7 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
     },
     {
       rmWhitespace: true,
-    }
+    },
   );
   code = code.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
   return {
@@ -73,7 +73,7 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
 function createAppManifest(
   options: RemaxOptions,
   target: string,
-  context?: Context
+  context?: Context,
 ) {
   const config = context
     ? { ...context.app, pages: context.pages.map(p => p.path) }
@@ -85,18 +85,18 @@ function createAppManifest(
   };
 }
 
-function createPageManifest(
+const createPageManifest = (
   options: RemaxOptions,
   file: string,
   target: string,
   page: any,
-  context?: Context
-) {
+  context?: Context,
+) => {
   const configFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.config.js');
   const manifestFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.json');
   const configFilePath = path.resolve(
     options.cwd,
-    path.join('src', configFile)
+    path.join('src', configFile),
   );
   if (fs.existsSync(configFilePath)) {
     return {
@@ -109,7 +109,7 @@ function createPageManifest(
     const pageConfig = context.pages.find((p: any) => p.path === page.path);
     if (pageConfig) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { path, ...config } = pageConfig;
+      const { path: pagePath, ...config } = pageConfig;
       return {
         fileName: manifestFile,
         isAsset: true as true,
@@ -117,7 +117,8 @@ function createPageManifest(
       };
     }
   }
-}
+  return undefined;
+};
 
 function isRemaxEntry(chunk: any): chunk is OutputChunk {
   if (!chunk.isEntry) {
@@ -149,7 +150,7 @@ function isRemaxEntry(chunk: any): chunk is OutputChunk {
 export default function template(
   options: RemaxOptions,
   adapter: Adapter,
-  context?: Context
+  context?: Context,
 ): Plugin {
   return {
     name: 'template',
@@ -158,8 +159,8 @@ export default function template(
       const manifest = createAppManifest(options, adapter.name, context);
       bundle[manifest.fileName] = manifest;
 
-      const template = await createBaseTemplate(adapter, options);
-      bundle[template.fileName] = template;
+      const pageTemplate = await createBaseTemplate(adapter, options);
+      bundle[pageTemplate.fileName] = pageTemplate;
 
       const helperFile = await createHelperFile(adapter);
       bundle[helperFile.fileName] = helperFile;
@@ -175,14 +176,14 @@ export default function template(
             const filePath = Object.keys(chunk.modules)[0];
             const page = pages.find(p => p.file === filePath);
             if (page) {
-              const template = await createTemplate(file, adapter);
-              bundle[template.fileName] = template;
+              const newTemplate = await createTemplate(file, adapter);
+              bundle[newTemplate.fileName] = newTemplate;
               const config = await createPageManifest(
                 options,
                 file,
                 adapter.name,
                 page,
-                context
+                context,
               );
 
               if (config) {

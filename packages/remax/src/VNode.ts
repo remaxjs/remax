@@ -9,16 +9,23 @@ export interface RawNode {
   text?: string;
 }
 
-export type Path = Array<string | number>;
+export type Path = (string | number)[];
 
 export default class VNode {
   id: number;
+
   container: Container;
+
   children: VNode[];
+
   mounted = false;
+
   type: string | symbol;
+
   props?: any;
+
   parent: VNode | null = null;
+
   text?: string;
 
   constructor({
@@ -42,12 +49,12 @@ export default class VNode {
   appendChild(node: VNode) {
     node.parent = this;
     this.children.push(node);
-    if (this.isMounted()) {
+    if (this.nodeIsMounted()) {
       this.container.requestUpdate(
         [...this.path(), 'children'],
         this.children.length - 1,
         0,
-        node.toJSON()
+        node.toJSON(),
       );
     }
   }
@@ -55,7 +62,7 @@ export default class VNode {
   removeChild(node: VNode) {
     const start = this.children.indexOf(node);
     this.children.splice(start, 1);
-    if (this.isMounted()) {
+    if (this.nodeIsMounted()) {
       this.container.requestUpdate([...this.path(), 'children'], start, 1);
     }
   }
@@ -64,24 +71,26 @@ export default class VNode {
     newNode.parent = this;
     const start = this.children.indexOf(referenceNode);
     this.children.splice(start, 0, newNode);
-    if (this.isMounted()) {
+    if (this.nodeIsMounted()) {
       this.container.requestUpdate(
         [...this.path(), 'children'],
         start,
         0,
-        newNode.toJSON()
+        newNode.toJSON(),
       );
     }
   }
 
   update() {
-    // root 不会更新，所以肯定有 parent
-    this.container.requestUpdate(
-      [...this.parent!.path(), 'children'],
-      this.parent!.children.indexOf(this),
-      1,
-      this.toJSON()
-    );
+    if (this.parent) {
+      // root 不会更新，所以肯定有 parent
+      this.container.requestUpdate(
+        [...this.parent.path(), 'children'],
+        this.parent.children.indexOf(this),
+        1,
+        this.toJSON(),
+      );
+    }
   }
 
   path(): Path {
@@ -95,8 +104,8 @@ export default class VNode {
     ];
   }
 
-  isMounted(): boolean {
-    return this.parent ? this.parent.isMounted() : this.mounted;
+  nodeIsMounted(): boolean {
+    return this.parent ? this.parent.nodeIsMounted() : this.mounted;
   }
 
   toJSON(): RawNode {

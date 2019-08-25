@@ -12,15 +12,13 @@ import {
   useOptionMenuClick,
   usePopMenuClick,
   usePullIntercept,
-} from '../../../src';
-import { View, PageProps } from '../../../src/adapters/alipay';
+} from '../..';
+import { View, PageProps } from '../../adapters/alipay';
 import Page from './helpers/Page';
 
 describe('page', () => {
   it('create page config', () => {
-    const Foo = () => {
-      return <View>foo</View>;
-    };
+    const Foo = () => <View>foo</View>;
     const page = Page(createPageConfig(Foo));
     page.load();
     expect(page.config.wrapper).not.toBeNull();
@@ -150,45 +148,45 @@ describe('page', () => {
         log.push('componentWillUnmount');
       }
 
-      onShow() {
+      onShow = () => {
         log.push('onShow');
-      }
+      };
 
-      onHide() {
+      onHide = () => {
         log.push('onHide');
-      }
+      };
 
-      onPullDownRefresh() {
+      onPullDownRefresh = () => {
         log.push('onPullDownRefresh');
-      }
+      };
 
-      onReachBottom() {
+      onReachBottom = () => {
         log.push('onReachBottom');
-      }
+      };
 
-      onPageScroll() {
+      onPageScroll = () => {
         log.push('onPageScroll');
-      }
+      };
 
-      onShareAppMessage() {
+      onShareAppMessage = () => {
         log.push('onShareAppMessage');
-      }
+      };
 
-      onTitleClick() {
+      onTitleClick = () => {
         log.push('onTitleClick');
-      }
+      };
 
-      onOptionMenuClick() {
+      onOptionMenuClick = () => {
         log.push('onOptionMenuClick');
-      }
+      };
 
-      onPopMenuClick() {
+      onPopMenuClick = () => {
         log.push('onPopMenuClick');
-      }
+      };
 
-      onPullIntercept() {
+      onPullIntercept = () => {
         log.push('onPullIntercept');
-      }
+      };
 
       render() {
         return <View>foo</View>;

@@ -14,7 +14,9 @@ interface SpliceUpdate {
 
 export default class Container {
   context: any;
+
   root: VNode;
+
   updateQueue: SpliceUpdate[] = [];
 
   constructor(context: any) {
@@ -63,7 +65,7 @@ export default class Container {
       if (process.env.REMAX_DEBUG) {
         console.log(
           `setData => 回调时间：${new Date().getTime() - startTime}ms`,
-          action
+          action,
         );
       }
     });

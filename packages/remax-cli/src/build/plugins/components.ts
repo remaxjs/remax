@@ -39,6 +39,7 @@ export default (adapter: Adapter) => () => ({
             const propName = get(e, 'name.name') as string;
             return propName;
           }
+          return e;
         });
 
         const componentName = componentPath.node.imported.name;

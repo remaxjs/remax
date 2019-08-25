@@ -4,13 +4,15 @@ import { addNamed } from '@babel/helper-module-imports';
 
 function pageConfigExpression(
   path: NodePath<t.ExportDefaultDeclaration>,
-  id: t.Identifier
+  id: t.Identifier,
 ) {
   const createId = addNamed(path, 'createPageConfig', 'remax');
   path.insertAfter(
     t.exportDefaultDeclaration(
-      t.callExpression(t.identifier('Page'), [t.callExpression(createId, [id])])
-    )
+      t.callExpression(t.identifier('Page'), [
+        t.callExpression(createId, [id]),
+      ]),
+    ),
   );
 }
 
@@ -23,7 +25,7 @@ export default () => ({
         path.replaceWith(
           t.variableDeclaration('const', [
             t.variableDeclarator(pageId, declaration),
-          ])
+          ]),
         );
         pageConfigExpression(path, pageId);
         path.stop();

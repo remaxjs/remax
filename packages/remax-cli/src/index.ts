@@ -9,7 +9,7 @@ export function run(args: any, context?: any) {
       'build',
       '编译项目',
       () => {},
-      (argv: any) => build(argv, context)
+      (argv: any) => build(argv, context),
     )
     .option('watch', {
       describe: '监听文件变化',
