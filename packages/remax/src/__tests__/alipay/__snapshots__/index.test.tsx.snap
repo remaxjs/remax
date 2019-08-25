@@ -181,6 +181,31 @@ Object {
 }
 `;
 
+exports[`remax render renders empty style 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "text": "hello",
+          "type": Symbol(text),
+        },
+      ],
+      "id": 2,
+      "props": Object {
+        "style": "",
+      },
+      "text": undefined,
+      "type": "view",
+    },
+  ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
+}
+`;
+
 exports[`remax render renders style 1`] = `
 Object {
   "children": Array [

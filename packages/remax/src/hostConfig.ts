@@ -46,7 +46,7 @@ export default {
     return rootHostContext;
   },
 
-  shouldSetTextContent(type: any, props: any) {
+  shouldSetTextContent() {
     return false;
   },
 
@@ -58,12 +58,7 @@ export default {
     return childHostContext;
   },
 
-  createInstance: (
-    type: string,
-    newProps: any,
-    container: Container,
-    _currentHostContext: any
-  ) => {
+  createInstance(type: string, newProps: any, container: Container) {
     const id = generate();
     const props = processProps(newProps, container, id);
     return new VNode({

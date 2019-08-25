@@ -8,7 +8,7 @@ const Platform = {
   current: currentPlatform,
   isAlipay: is('alipay'),
   isH5: is('h5'),
-  isWechat: is('wechat')
+  isWechat: is('wechat'),
 };
 
 export default Platform;

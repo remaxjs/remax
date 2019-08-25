@@ -41,7 +41,7 @@ export default class Container {
       items,
     };
     if (this.updateQueue.length === 0) {
-      Promise.resolve().then(() => this.applyUpdate());
+      setTimeout(() => this.applyUpdate());
     }
     this.updateQueue.push(update);
   }

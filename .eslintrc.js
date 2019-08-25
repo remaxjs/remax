@@ -1,23 +1,37 @@
 module.exports = {
   env: {
-    browser: true,
-    commonjs: true,
     es6: true,
     node: true,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'react'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
+  ],
+  globals: {
+    App: true,
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 2018,
-    sourceType: 'module',
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
   rules: {
-    indent: ['error', 2],
-    'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
-    'react/display-name': 0
+    'no-case-declarations': [0],
+    'require-atomic-updates': [0],
+    '@typescript-eslint/explicit-function-return-type': [0],
+    '@typescript-eslint/no-explicit-any': [0],
+    '@typescript-eslint/explicit-member-accessibility': [0],
+    '@typescript-eslint/no-non-null-assertion': [0],
+    'react/jsx-uses-vars': 2,
   },
 };

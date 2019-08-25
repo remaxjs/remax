@@ -54,6 +54,7 @@ interface Params {
  *
  * @see [支付宝小程序]{@link https://docs.alipay.com/mini/api/hr092g}
  */
+// eslint-disable-next-line
 export function showActionSheet(params: Params): Promise<SuccessResult> {
   return Promise.resolve({ index: 0 });
 }

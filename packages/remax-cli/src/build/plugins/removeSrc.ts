@@ -2,6 +2,7 @@ import { OutputAsset, Plugin } from 'rollup';
 import * as path from 'path';
 import { simple } from 'acorn-walk';
 import MagicString from 'magic-string';
+import winPath from '../../winPath';
 
 interface Options {
   sourceMap?: boolean;
@@ -41,6 +42,10 @@ export function getImportSource(node: Node): Node | false {
   return node.source;
 }
 
+function isEmpty(array: any[] | undefined) {
+  return !array || array.length === 0;
+}
+
 export function getRequireSource(node: Node): Node | false {
   if (node.type !== NodeType.CallExpresssion) {
     return false;
@@ -57,10 +62,6 @@ export function getRequireSource(node: Node): Node | false {
   }
 
   return args[0];
-}
-
-function isEmpty(array: any[] | undefined) {
-  return !array || array.length === 0;
 }
 
 function rewrite(input: string) {
@@ -104,9 +105,9 @@ export default function removeSrc(options: Options): Plugin {
                 const distance = req.value
                   .split('/')
                   .filter((d: string) => d === '..').length;
-                const targetDistance = path
-                  .relative(path.dirname(file), 'src')
-                  .split('/').length;
+                const targetDistance = winPath(
+                  path.relative(path.dirname(file), 'src')
+                ).split('/').length;
                 if (isInsideSrc(file, req.value)) {
                   return;
                 }

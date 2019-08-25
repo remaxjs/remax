@@ -74,11 +74,15 @@ export default function getEntries(
 
   entries.pages = pages.reduce(
     (ret: Array<{ path: string; file: string }>, page: string) => {
+      const file = searchFile(path.join(options.cwd, 'src', page));
+      if (!file) {
+        throw new Error(`Could not resolve page module (${page}).`);
+      }
       return [
         ...ret,
         {
           path: page,
-          file: searchFile(path.join(options.cwd, 'src', page)),
+          file,
         },
       ].filter(page => page && page.file);
     },
@@ -88,11 +92,15 @@ export default function getEntries(
   subpackages.forEach((pack: { pages: string[]; root: string }) => {
     entries.pages = entries.pages.concat(
       pack.pages.reduce((ret: Array<{ path: string; file: string }>, page) => {
+        const file = searchFile(path.join(options.cwd, 'src', pack.root, page));
+        if (!file) {
+          throw new Error(`Could not resolve page module (${page}).`);
+        }
         return [
           ...ret,
           {
             path: page,
-            file: searchFile(path.join(options.cwd, 'src', pack.root, page)),
+            file,
           },
         ].filter(page => page && page.file);
       }, [])

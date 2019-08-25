@@ -28,6 +28,7 @@ interface Params {
  *
  * @see [支付宝小程序]{@link https://docs.alipay.com/mini/api/xwq8e6}
  */
+// eslint-disable-next-line
 export function setNavigationBar(params: Params) {
   return Promise.resolve();
 }

@@ -1,56 +1,18 @@
-import React, { Props, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import propsAlias from './propsAlias';
 
 export { default as Input } from './Input';
 export { default as Textarea } from './Textarea';
 export { default as Video } from './Video';
+export { default as Swiper } from './Swiper';
 
-export type HostComponent =
-  | 'ad'
-  | 'audio'
-  | 'view'
-  | 'scroll-view'
-  | 'swiper'
-  | 'swiper-item'
-  | 'movable-view'
-  | 'movable-area'
-  | 'cover-view'
-  | 'cover-image'
-  | 'icon'
-  | 'text'
-  | 'rich-text'
-  | 'progress'
-  | 'button'
-  | 'checkbox-group'
-  | 'checkbox'
-  | 'editor'
-  | 'form'
-  | 'label'
-  | 'picker'
-  | 'picker-view'
-  | 'radio-group'
-  | 'radio'
-  | 'slider'
-  | 'switch'
-  | 'navigator'
-  | 'image'
-  | 'camera'
-  | 'live-player'
-  | 'live-pusher'
-  | 'map'
-  | 'canvas'
-  | 'open-data'
-  | 'web-view'
-  | 'functional-page-navigator'
-  | 'official-account';
-
-interface IProps {
+interface Props {
   [s: string]: any;
 }
 
-function factoryComponent(component: HostComponent) {
+function factoryComponent(component: string) {
   // props 类型存在问题
-  return forwardRef(<T>(props: Props<T> & IProps, ref: any) => {
+  return forwardRef(<T>(props: React.Props<T> & Props, ref: any) => {
     const { children = [] } = props;
     return React.createElement(
       component,
@@ -62,7 +24,6 @@ function factoryComponent(component: HostComponent) {
 
 export const View = factoryComponent('view');
 export const ScrollView = factoryComponent('scroll-view');
-export const Swiper = factoryComponent('swiper');
 export const SwiperItem = factoryComponent('swiper-item');
 export const MovableView = factoryComponent('movable-view');
 export const MovableArea = factoryComponent('movable-area');
@@ -79,6 +40,7 @@ export const Form = factoryComponent('form');
 export const Label = factoryComponent('label');
 export const Picker = factoryComponent('picker');
 export const PickerView = factoryComponent('picker-view');
+export const PickerViewColumn = factoryComponent('picker-view-column');
 export const RadioGroup = factoryComponent('radio-group');
 export const Radio = factoryComponent('radio');
 export const Slider = factoryComponent('slider');

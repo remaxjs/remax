@@ -19,6 +19,7 @@ interface Parmas {
  *
  * @see [支付宝小程序]{@link https://docs.alipay.com/mini/api/bm69kb}
  */
+// eslint-disable-next-line
 export function showLoading(params: Parmas) {
   return Promise.resolve();
 }

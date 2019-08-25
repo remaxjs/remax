@@ -34,6 +34,7 @@ interface Params {
  *
  * @see [支付宝小程序]{@link https://docs.alipay.com/mini/api/nzf540}
  */
+// eslint-disable-next-line
 export function prompt(params: Params) {
   return Promise.resolve();
 }

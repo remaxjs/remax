@@ -24,7 +24,6 @@ export default (adapter: Adapter) => () => ({
           return;
         }
         const componentPath = get(binding, 'path') as NodePath;
-        let notBaseComponent = true;
         if (
           !componentPath ||
           !t.isImportSpecifier(componentPath.node) ||
@@ -47,6 +46,10 @@ export default (adapter: Adapter) => () => ({
         const id = kebabCase(componentName);
 
         if (id === 'swiper-item') {
+          return;
+        }
+
+        if (id === 'picker-view-column') {
           return;
         }
 

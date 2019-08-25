@@ -12,6 +12,6 @@ export default function removeSrc(): Plugin {
           delete bundle[file];
         }
       });
-    }
+    },
   };
 }

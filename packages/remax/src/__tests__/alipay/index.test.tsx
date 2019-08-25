@@ -5,7 +5,9 @@ import { reset } from '../../instanceId';
 import Container from '../../Container';
 
 const p = {
+  // eslint-disable-next-line
   setData() {},
+  // eslint-disable-next-line
   $spliceData() {},
 };
 
@@ -79,6 +81,13 @@ describe('remax render', () => {
     const Page = () => (
       <View style={{ width: '100px', height: '100px' }}>hello</View>
     );
+    const container = new Container(p);
+    render(<Page />, container);
+    expect(container.root).toMatchSnapshot();
+  });
+
+  it('renders empty style', () => {
+    const Page = () => <View style={undefined}>hello</View>;
     const container = new Container(p);
     render(<Page />, container);
     expect(container.root).toMatchSnapshot();

@@ -9,6 +9,7 @@ import readManifest from '../../readManifest';
 import getEntries from '../../getEntries';
 import { Adapter } from '../adapters';
 import { Context } from '../../types';
+import winPath from '../../winPath';
 
 async function createTemplate(pageFile: string, adapter: Adapter) {
   const fileName = `${path.dirname(pageFile)}/${path.basename(
@@ -16,13 +17,17 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
     path.extname(pageFile)
   )}${adapter.extensions.template}`;
   const code: string = await ejs.renderFile(adapter.templates.page, {
-    baseTemplate: path.relative(
-      path.dirname(pageFile),
-      `base${adapter.extensions.template}`
+    baseTemplate: winPath(
+      path.relative(
+        path.dirname(pageFile),
+        `base${adapter.extensions.template}`
+      )
     ),
-    jsHelper: path.relative(
-      path.dirname(pageFile),
-      `helper${adapter.extensions.jsHelper}`
+    jsHelper: winPath(
+      path.relative(
+        path.dirname(pageFile),
+        `helper${adapter.extensions.jsHelper}`
+      )
     ),
   });
 
@@ -54,10 +59,16 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
       depth: options.UNSAFE_wechatTemplateDepth,
     },
     {
-      rmWhitespace: true,
+      // uglify
+      rmWhitespace: process.env.NODE_ENV === 'production',
     }
   );
-  code = code.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
+
+  // uglify
+  if (process.env.NODE_ENV === 'production') {
+    code = code.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
+  }
+
   return {
     fileName: `base${adapter.extensions.template}`,
     isAsset: true as true,
@@ -103,6 +114,7 @@ function createPageManifest(
   if (context) {
     const pageConfig = context.pages.find((p: any) => p.path === page.path);
     if (pageConfig) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { path, ...config } = pageConfig;
       return {
         fileName: manifestFile,
