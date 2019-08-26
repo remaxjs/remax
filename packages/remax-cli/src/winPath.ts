@@ -1,5 +1,3 @@
 import slash from 'slash2';
 
-export default function(path: string): string {
-  return slash(path);
-}
+export default (path: string): string => slash(path);
