@@ -92,7 +92,7 @@ export default function rollupConfig(
 
   Object.keys(process.env).forEach(k => {
     if (k.startsWith('REMAX_') || k.startsWith('APP_')) {
-      envReplacement[k] = JSON.stringify(process.env[k]);
+      envReplacement[`process.env.${k}`] = JSON.stringify(process.env[k]);
     }
   });
 
