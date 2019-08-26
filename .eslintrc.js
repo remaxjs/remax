@@ -7,6 +7,7 @@ module.exports = {
     'prefer-destructuring': 0,
     'import/no-extraneous-dependencies': 1,
     'import/no-unresolved': 1,
+    'consistent-return': 0,
   },
   globals: {
     ...strictEslint.globals,

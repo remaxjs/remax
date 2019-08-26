@@ -91,13 +91,13 @@ function createAppManifest(
   };
 }
 
-const createPageManifest = (
+function createPageManifest(
   options: RemaxOptions,
   file: string,
   target: string,
   page: any,
   context?: Context,
-) => {
+) {
   const configFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.config.js');
   const manifestFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.json');
   const configFilePath = path.resolve(
@@ -123,8 +123,7 @@ const createPageManifest = (
       };
     }
   }
-  return undefined;
-};
+}
 
 function isRemaxEntry(chunk: any): chunk is OutputChunk {
   if (!chunk.isEntry) {
