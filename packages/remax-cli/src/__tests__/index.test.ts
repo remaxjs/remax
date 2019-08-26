@@ -15,24 +15,21 @@ async function build(app: string) {
     {} as any,
   );
   const bundle = await rollup.rollup(rollupOptions);
-  if (rollupOptions.output) {
-    const result = await bundle.generate(rollupOptions.output);
-    return result.output
-      .filter(c => !/(node_modules|_virtual)/.test(c.fileName))
-      .map(c => {
-        let code = '';
-        if (c.code) {
-          code = c.code.toString();
-        } else {
-          code = (c as rollup.OutputAsset).source.toString();
-        }
-        return {
-          fileName: c.fileName,
-          code,
-        };
-      });
-  }
-  return undefined;
+  const result = await bundle.generate(rollupOptions.output!);
+  return result.output
+    .filter(c => !/(node_modules|_virtual)/.test(c.fileName))
+    .map(c => {
+      let code = '';
+      if (c.code) {
+        code = c.code.toString();
+      } else {
+        code = (c as rollup.OutputAsset).source.toString();
+      }
+      return {
+        fileName: c.fileName,
+        code,
+      };
+    });
 }
 
 describe('build', () => {
