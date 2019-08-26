@@ -1,5 +1,6 @@
 import { RollupOptions, RollupWarning } from 'rollup';
 import path from 'path';
+import fs from 'fs';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
@@ -29,31 +30,41 @@ import removeESModuleFlag from './plugins/removeESModuleFlag';
 import adapters, { Adapter } from './adapters';
 import { Context } from '../types';
 
+function resolvePath(dir: string) {
+  return path.join(process.cwd(), dir);
+}
+
 export default function rollupConfig(
   options: RemaxOptions,
   argv: any,
   adapter: Adapter,
   context?: Context
 ) {
-  const babelConfig = {
-    presets: [
-      require.resolve('@babel/preset-typescript'),
-      require.resolve('@babel/preset-env'),
-    ],
-    plugins: [
-      require.resolve('@babel/plugin-proposal-class-properties'),
-      require.resolve('@babel/plugin-proposal-object-rest-spread'),
-      require.resolve('@babel/plugin-syntax-jsx'),
-      [
-        require.resolve('@babel/plugin-proposal-decorators'),
-        {
-          decoratorsBeforeExport: true,
-        },
-      ],
-    ],
-  };
+  const userBabelConfigPath =
+    (fs.existsSync(resolvePath('.babelrc')) && resolvePath('.babelrc')) ||
+    (fs.existsSync(resolvePath('.babelrc.js')) && resolvePath('.babelrc.js')) ||
+    false;
+  const babelConfig = userBabelConfigPath
+    ? require(userBabelConfigPath)
+    : {
+        presets: [
+          require.resolve('@babel/preset-typescript'),
+          require.resolve('@babel/preset-env'),
+        ],
+        plugins: [
+          require.resolve('@babel/plugin-proposal-class-properties'),
+          require.resolve('@babel/plugin-proposal-object-rest-spread'),
+          require.resolve('@babel/plugin-syntax-jsx'),
+          [
+            require.resolve('@babel/plugin-proposal-decorators'),
+            {
+              decoratorsBeforeExport: true,
+            },
+          ],
+        ],
+      };
 
-  if (adapter.name !== 'alipay') {
+  if (!userBabelConfigPath && adapter.name !== 'alipay') {
     babelConfig.plugins.unshift(
       require.resolve('babel-plugin-transform-async-to-promises')
     );
@@ -119,19 +130,19 @@ export default function rollupConfig(
       include: entries.pages.map(p => p.file),
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [page, ...babelConfig.plugins],
-      presets: babelConfig.presets,
+      presets: babelConfig.presets || [],
     }),
     babel({
       include: entries.app,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [app, ...babelConfig.plugins],
-      presets: babelConfig.presets,
+      presets: babelConfig.presets || [],
     }),
     babel({
       babelrc: false,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [components(adapter), ...babelConfig.plugins],
-      presets: babelConfig.presets.concat([
+      presets: (babelConfig.presets || []).concat([
         require.resolve('@babel/preset-react'),
       ]),
     }),
