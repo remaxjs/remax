@@ -5,3 +5,6 @@ export interface Context {
   app: any;
   pages: Array<{ path: string; [key: string]: any }>;
 }
+export interface Env {
+  [key: string]: string;
+}
