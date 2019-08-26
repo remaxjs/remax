@@ -1,5 +1,10 @@
 import factory from './factory';
 
-const MovableArea = factory('movable-area');
+export interface MovableAreaProps {
+  width: number;
+  height: number;
+}
+
+const MovableArea = factory<MovableAreaProps>('movable-area');
 
 export default MovableArea;
