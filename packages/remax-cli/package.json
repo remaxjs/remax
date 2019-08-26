@@ -27,6 +27,7 @@
     "@meck/rollup-plugin-postcss": "^2.0.3",
     "@remax/postcss-px2units": "^0.2.0",
     "acorn-walk": "^7.0.0",
+    "chokidar": "^2.1.8",
     "commander": "^2.19.0",
     "ejs": "^2.6.1",
     "lodash": "^4.17.11",
