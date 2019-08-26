@@ -19,6 +19,8 @@
   </a>
 </p>
 
+[《为什么要用 React 来构建小程序》](https://zhuanlan.zhihu.com/p/79788488)
+
 Remax 将 React 运行在小程序环境中，让你可以使用完整的 React 进行开发。
 
 - **真正的 React** - 不同于静态编译的方案，在 Remax 中使用 React 没有任何限制，包括 React Hooks。你可以把 Remax 理解为针对小程序的 React Native。
