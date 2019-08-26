@@ -83,16 +83,14 @@ export default function rollupConfig(
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
   const envReplacement: Env = {
-    'process.env.NODE_ENV': JSON.stringify(
-      process.env.NODE_ENV || 'development'
-    ),
-    'process.env.REMAX_PLATFORM': JSON.stringify(argv.target),
-    'process.env.REMAX_DEBUG': JSON.stringify(process.env.REMAX_DEBUG),
+    NODE_ENV: process.env.NODE_ENV || 'development',
+    REMAX_PLATFORM: argv.target,
+    REMAX_DEBUG: process.env.REMAX_DEBUG,
   };
 
   Object.keys(process.env).forEach(k => {
     if (k.startsWith('REMAX_') || k.startsWith('APP_')) {
-      envReplacement[`process.env.${k}`] = JSON.stringify(process.env[k]);
+      envReplacement[`${k}`] = process.env[k];
     }
   });
 
@@ -166,6 +164,11 @@ export default function rollupConfig(
       plugins: [pxToUnits()],
     }),
     json({}),
+    replace({
+      values: {
+        'process.env': JSON.stringify(envReplacement),
+      },
+    }),
     resolve({
       dedupe: [
         'react',
@@ -179,7 +182,6 @@ export default function rollupConfig(
         moduleDirectory: 'node_modules',
       },
     }),
-    replace(envReplacement),
     rename({
       include: 'src/**',
       map: input => {
