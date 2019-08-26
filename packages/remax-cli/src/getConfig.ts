@@ -11,7 +11,7 @@ export interface RemaxOptions {
   alias?: any;
 }
 
-interface CliOptions {
+export interface CliOptions {
   target: string;
 }
 
