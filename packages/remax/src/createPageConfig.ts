@@ -54,7 +54,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       const callbacks = this.lifecycleCallback[lifecycle] || [];
       let result;
       callbacks.forEach((callback: any) => {
-        result = callback.call(null, ...args);
+        result = callback(...args);
       });
       if (result) {
         return result;
