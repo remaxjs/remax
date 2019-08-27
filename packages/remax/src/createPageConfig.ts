@@ -50,11 +50,11 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       };
     },
 
-    callLifecycle(lifecycle: Lifecycle) {
+    callLifecycle(lifecycle: Lifecycle, ...args: any[]) {
       const callbacks = this.lifecycleCallback[lifecycle] || [];
       let result;
       callbacks.forEach((callback: any) => {
-        result = callback();
+        result = callback.call(null, ...args);
       });
       if (result) {
         return result;
@@ -62,7 +62,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
 
       const callback = callbackName(lifecycle);
       if (this.wrapper[callback]) {
-        return this.wrapper[callback]();
+        return this.wrapper[callback](...args);
       }
     },
 
@@ -86,8 +86,8 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       return this.callLifecycle(Lifecycle.pageScroll);
     },
 
-    onShareAppMessage() {
-      return this.callLifecycle(Lifecycle.shareAppMessage);
+    onShareAppMessage(options: any) {
+      return this.callLifecycle(Lifecycle.shareAppMessage, options);
     },
 
     onTitleClick() {
