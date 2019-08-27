@@ -46,7 +46,11 @@ class Page {
   }
 
   shareAppMessage() {
-    this.config.onShareAppMessage();
+    this.config.onShareAppMessage({
+      from: 'menu',
+      target: undefined,
+      webViewUrl: 'https://www.alipay.com',
+    });
   }
 
   titleClick() {

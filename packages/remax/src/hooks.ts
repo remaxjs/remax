@@ -31,10 +31,14 @@ export function usePageScroll(callback: Callback) {
   }, []);
 }
 
-export function useShareAppMessage(callback: Callback) {
-  useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.shareAppMessage, callback);
-  }, []);
+export function useShareAppMessage(
+  callback: (o: {
+    from: 'button' | 'menu';
+    target: object | undefined;
+    webViewUrl: string;
+  }) => any
+) {
+  registerLifecycle(Lifecycle.shareAppMessage, callback);
 }
 
 export function useTitleClick(callback: Callback) {

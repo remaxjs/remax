@@ -2,7 +2,7 @@ import capitalize from './utils/capitalize';
 
 declare const getCurrentPages: any;
 
-export type Callback = () => any;
+export type Callback = (...args: any[]) => any;
 
 export enum Lifecycle {
   show = 'show',
@@ -25,7 +25,7 @@ export function callbackName(name: string) {
   return 'on' + capitalize(name);
 }
 
-export function registerLifecycle(method: Lifecycle, callback: () => void) {
+export function registerLifecycle(method: Lifecycle, callback: Callback) {
   const pages = getCurrentPages();
   const currentPage = pages[pages.length - 1];
   return currentPage.registerLifecycle(method, callback);
