@@ -27,7 +27,7 @@ import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';
 import adapters, { Adapter } from './adapters';
-import { Context } from '../types';
+import { Context, Env } from '../types';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -78,6 +78,18 @@ export default function rollupConfig(
     },
     {} as any
   );
+
+  const envReplacement: Env = {
+    NODE_ENV: process.env.NODE_ENV || 'development',
+    REMAX_PLATFORM: argv.target,
+    REMAX_DEBUG: process.env.REMAX_DEBUG,
+  };
+
+  Object.keys(process.env).forEach(k => {
+    if (k.startsWith('REMAX_APP_')) {
+      envReplacement[`${k}`] = process.env[k];
+    }
+  });
 
   const plugins = [
     clean({
@@ -149,6 +161,11 @@ export default function rollupConfig(
       plugins: [pxToUnits()],
     }),
     json({}),
+    replace({
+      values: {
+        'process.env': JSON.stringify(envReplacement),
+      },
+    }),
     resolve({
       dedupe: [
         'react',
@@ -161,13 +178,6 @@ export default function rollupConfig(
       customResolveOptions: {
         moduleDirectory: 'node_modules',
       },
-    }),
-    replace({
-      'process.env.NODE_ENV': JSON.stringify(
-        process.env.NODE_ENV || 'development'
-      ),
-      'process.env.REMAX_PLATFORM': JSON.stringify(argv.target),
-      'process.env.REMAX_DEBUG': JSON.stringify(process.env.REMAX_DEBUG),
     }),
     rename({
       include: 'src/**',
