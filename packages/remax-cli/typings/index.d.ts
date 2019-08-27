@@ -5,6 +5,7 @@ declare module 'rollup-plugin-node-resolve';
 declare module 'rollup-plugin-progress';
 declare module 'rollup-plugin-delete';
 declare module 'rollup-plugin-alias';
+declare module 'rollup-plugin-inject';
 declare module 'rollup-plugin-url';
 declare module 'rollup-plugin-typescript';
 declare module '@remax/postcss-px2units';
