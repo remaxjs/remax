@@ -86,6 +86,13 @@ describe('remax render', () => {
     expect(container.root).toMatchSnapshot();
   });
 
+  it('renders empty style', () => {
+    const Page = () => <View style={undefined}>hello</View>;
+    const container = new Container(p);
+    render(<Page />, container);
+    expect(container.root).toMatchSnapshot();
+  });
+
   it('renders conditional fragment correctly', () => {
     class Page extends React.Component {
       state = {

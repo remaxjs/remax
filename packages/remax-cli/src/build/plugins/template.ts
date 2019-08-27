@@ -59,10 +59,16 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
       depth: options.UNSAFE_wechatTemplateDepth,
     },
     {
-      rmWhitespace: true,
+      // uglify
+      rmWhitespace: process.env.NODE_ENV === 'production',
     }
   );
-  code = code.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
+
+  // uglify
+  if (process.env.NODE_ENV === 'production') {
+    code = code.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
+  }
+
   return {
     fileName: `base${adapter.extensions.template}`,
     isAsset: true as true,

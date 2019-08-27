@@ -28,5 +28,5 @@ export function callbackName(name: string) {
 export function registerLifecycle(method: Lifecycle, callback: () => void) {
   const pages = getCurrentPages();
   const currentPage = pages[pages.length - 1];
-  currentPage.registerLifecycle(method, callback);
+  return currentPage.registerLifecycle(method, callback);
 }

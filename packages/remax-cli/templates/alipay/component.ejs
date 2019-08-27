@@ -1,29 +1,31 @@
 <% camelCased = function(str) { return str.replace(/-([a-z0-9])/g, function (g) { return g[1].toUpperCase(); })}%>
 
-<%
-  const events = [
-    'tap'
-  ];
-  props = props.concat(events.map(item => `bind${item}`));
-%>
-<block a:if="{{item.type === '<%= type %>'}}">
-  <<%=id%>
-    <% for(let key of props) { %>
-        <%=key%>="{{item.props.<%=camelCased(key)%>}}"
-    <% } %>
-  >
+<template name="REMAX_TPL_1_<%=id%>">
+  <<%=id%> <% for(let key of props) { %> <%=key%>="{{item.props.<%=camelCased(key)%>}}" <% } %>>
     <% if (id === 'swiper') { %>
-      <block a:for="{{item.children}}" a:key="{{item.id}}">
-        <swiper-item key="{{item.props.key}}" >
-          <block a:for="{{item.children}}">
-            <template is="REMAX_TPL_1" data="{{item}}"/>
-          </block>
-        </swiper-item>
-      </block>
+    <block a:for="{{item.children}}" a:key="{{item.id}}">
+      <swiper-item key="{{item.props.key}}">
+        <block a:for="{{item.children}}" a:key="{{item.id}}">
+          <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+        </block>
+      </swiper-item>
+    </block>
+    <% } else if (id === 'picker') { %>
+    <view>
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item.children[0]}}" />
+    </view>
+    <% } else if (id === 'picker-view') { %>
+    <block a:for="{{item.children}}" a:key="{{item.id}}">
+      <picker-view-column>
+        <view a:for="{{item.children}}">
+          <template is="REMAX_TPL_1_CONTAINER" data="{{item}}" />
+        </view>
+      </picker-view-column>
+    </block>
     <% } else { %>
-      <block a:for="{{item.children}}" a:key="{{item.id}}">
-        <template is="REMAX_TPL_1" data="{{item}}"/>
-      </block>
+    <block a:for="{{item.children}}" a:key="{{item.id}}">
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+    </block>
     <% } %>
   </<%=id%>>
-</block>
+</template>

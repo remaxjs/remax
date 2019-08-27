@@ -7,11 +7,11 @@ import url from 'rollup-plugin-url';
 import json from 'rollup-plugin-json';
 import postcss from '@meck/rollup-plugin-postcss';
 import progress from 'rollup-plugin-progress';
-import clear from 'rollup-plugin-clear';
+import clean from 'rollup-plugin-delete';
 import alias from 'rollup-plugin-alias';
 import copy from 'rollup-plugin-copy';
 import stub from './plugins/stub';
-import pxToUnits from 'postcss-px2units';
+import pxToUnits from '@remax/postcss-px2units';
 import getEntries from '../getEntries';
 import getCssModuleConfig from '../getCssModuleConfig';
 import template from './plugins/template';
@@ -80,6 +80,9 @@ export default function rollupConfig(
   );
 
   const plugins = [
+    clean({
+      targets: ['dist/*', '!.tea'],
+    }),
     copy({
       targets: [
         {
@@ -179,7 +182,7 @@ export default function rollupConfig(
           .replace(/\.less$/, '.less.js')
           .replace(/\.sass$/, '.sass.js')
           .replace(/\.scss$/, '.scss.js')
-          .replace(/\..styl$/, '.styl.js')
+          .replace(/\.styl$/, '.styl.js')
           // typescript
           .replace(/\.ts$/, '.js')
           .replace(/\.tsx$/, '.js')
@@ -220,14 +223,6 @@ export default function rollupConfig(
 
   if (options.progress) {
     plugins.push(progress());
-  }
-
-  if (!argv.watch) {
-    plugins.unshift(
-      clear({
-        targets: options.output,
-      })
-    );
   }
 
   const config: RollupOptions = {
