@@ -1,4 +1,5 @@
 declare module 'scheduler';
-declare var my: any;
-declare var wx: any;
-declare var getApp: any;
+declare let my: any;
+declare let wx: any;
+declare let tt: any;
+declare let getApp: any;
