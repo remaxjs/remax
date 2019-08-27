@@ -50,7 +50,8 @@ describe('page', () => {
           log.push('usePageScroll');
         });
 
-        useShareAppMessage(() => {
+        useShareAppMessage(object => {
+          log.push(object.from);
           log.push('useShareAppMessage');
         });
 
@@ -90,6 +91,7 @@ describe('page', () => {
         'usePullIntercept',
         'useReachBottom',
         'usePageScroll',
+        'menu',
         'useShareAppMessage',
         'useTitleClick',
         'useOptionMenuClick',
@@ -170,7 +172,8 @@ describe('page', () => {
         log.push('onPageScroll');
       }
 
-      onShareAppMessage() {
+      onShareAppMessage(object: any) {
+        log.push(object.from);
         log.push('onShareAppMessage');
       }
 
@@ -216,6 +219,7 @@ describe('page', () => {
       'onPullIntercept',
       'onReachBottom',
       'onPageScroll',
+      'menu',
       'onShareAppMessage',
       'onTitleClick',
       'onOptionMenuClick',

@@ -1,22 +1,20 @@
 <template name="REMAX_TPL">
   <block a:for="{{tree.root.children}}" a:key="{{item.id}}">
-    <template is="REMAX_TPL_1" data="{{item}}"/>
+    <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
   </block>
 </template>
 
-<template name="REMAX_TPL_1">
-  <block>
-    <block a:if="{{item && item.text}}">
-      <!-- string -->
-      {{item.text}}
-    </block>
-
-    <% for (let component of components) { %>
-      <%- include('./component.ejs', {
+<% for (let component of components) { %>
+<%- include('./component.ejs', {
         type: component.type,
         props: component.props,
         id: component.id,
       }) %>
-    <% } %>
-  </block>
+<% } %>
+<template name="REMAX_TPL_1_plain-text">
+  <block>{{item.text}}</block>
+</template>
+<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
+<template name="REMAX_TPL_1_CONTAINER">
+  <template is="{{'REMAX_TPL_1_' + item.type}}" data="{{item: item}}" />
 </template>
