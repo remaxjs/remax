@@ -1,5 +1,8 @@
 import factory from './factory';
 
-const CoverView = factory('cover-view');
+export interface CoverViewProps {
+  onTap?: (e: any) => void;
+}
+const CoverView = factory<CoverViewProps>('cover-view');
 
 export default CoverView;

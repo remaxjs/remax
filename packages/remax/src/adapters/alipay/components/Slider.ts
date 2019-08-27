@@ -1,5 +1,22 @@
 import factory from './factory';
 
-const Slider = factory('slider');
+export interface SliderProps {
+  id?: string;
+  name?: string;
+  min?: number;
+  max?: number;
+  step?: number;
+  disabled?: boolean;
+  value?: number;
+  showValue?: boolean;
+  activeColor?: string;
+  backgroundColor?: string;
+  trackSize?: number;
+  handleSize?: number;
+  handleColor?: string;
+  onChange?: (e: any) => void;
+  onChanging?: (e: any) => void;
+}
+const Slider = factory<SliderProps>('slider');
 
 export default Slider;

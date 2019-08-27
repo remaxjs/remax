@@ -1,5 +1,6 @@
 import factory from './factory';
 
-const SwiperItem = factory('swiper-item');
+export interface SwiperItemProps {}
+const SwiperItem = factory<SwiperItemProps>('swiper-item');
 
 export default SwiperItem;

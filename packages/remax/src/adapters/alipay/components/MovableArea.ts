@@ -1,5 +1,6 @@
 import factory from './factory';
 
-const MovableArea = factory('movable-area');
+export interface MovableAreaPProps {}
+const MovableArea = factory<MovableAreaPProps>('movable-area');
 
 export default MovableArea;

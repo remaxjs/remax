@@ -1,5 +1,8 @@
 import factory from './factory';
 
-const MovableView = factory('movable-view');
+export interface MovableViewProps {
+  onTap?: (e: any) => void;
+}
+const MovableView = factory<MovableViewProps>('movable-view');
 
 export default MovableView;

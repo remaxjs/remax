@@ -1,5 +1,11 @@
 import factory from './factory';
 
-const CheckboxGroup = factory('checkbox-group');
+export interface CheckboxGroupProps {
+  id?: string;
+  name?: string;
+  onChange?: (e: any) => void;
+}
+
+const CheckboxGroup = factory<CheckboxGroupProps>('checkbox-group');
 
 export default CheckboxGroup;

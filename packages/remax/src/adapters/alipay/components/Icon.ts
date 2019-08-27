@@ -1,5 +1,9 @@
 import factory from './factory';
-
-const Icon = factory('icon');
+export interface IconProps {
+  id?: string;
+  size?: number;
+  color?: string;
+}
+const Icon = factory<IconProps>('icon');
 
 export default Icon;
