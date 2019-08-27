@@ -1,63 +1,40 @@
-import React, { forwardRef } from 'react';
-import propsAlias from './propsAlias';
-
+export { default as View } from './View';
 export { default as Input } from './Input';
 export { default as Textarea } from './Textarea';
 export { default as Video } from './Video';
 export { default as Swiper } from './Swiper';
-
-interface Props {
-  [s: string]: any;
-}
-
-function factoryComponent(component: string) {
-  // props 类型存在问题
-  return forwardRef(<T>(props: React.Props<T> & Props, ref: any) => {
-    const { children = [] } = props;
-    return React.createElement(
-      component,
-      propsAlias({ ...props, ref }),
-      children
-    );
-  });
-}
-
-export const View = factoryComponent('view');
-export const ScrollView = factoryComponent('scroll-view');
-export const SwiperItem = factoryComponent('swiper-item');
-export const MovableView = factoryComponent('movable-view');
-export const MovableArea = factoryComponent('movable-area');
-export const CoverView = factoryComponent('cover-view');
-export const CoverImage = factoryComponent('cover-image');
-export const Icon = factoryComponent('icon');
-export const Text = factoryComponent('text');
-export const RichText = factoryComponent('rich-text');
-export const Progress = factoryComponent('progress');
-export const Button = factoryComponent('button');
-export const CheckboxGroup = factoryComponent('checkbox-group');
-export const Checkbox = factoryComponent('checkbox');
-export const Form = factoryComponent('form');
-export const Label = factoryComponent('label');
-export const Picker = factoryComponent('picker');
-export const PickerView = factoryComponent('picker-view');
-export const PickerViewColumn = factoryComponent('picker-view-column');
-export const RadioGroup = factoryComponent('radio-group');
-export const Radio = factoryComponent('radio');
-export const Slider = factoryComponent('slider');
-export const Switch = factoryComponent('switch');
-export const Navigator = factoryComponent('navigator');
-export const Image = factoryComponent('image');
-export const Camera = factoryComponent('camera');
-export const LivePlayer = factoryComponent('live-player');
-export const LivePusher = factoryComponent('live-pusher');
-export const Map = factoryComponent('map');
-export const Canvas = factoryComponent('canvas');
-export const OpenData = factoryComponent('open-data');
-export const OfficialAccount = factoryComponent('official-account');
-export const Editor = factoryComponent('editor');
-export const Audio = factoryComponent('audio');
-export const Ad = factoryComponent('ad');
-export const WebView = factoryComponent('web-view');
-export const FunctionalPageNavigator = factoryComponent(
-  'functional-page-navigator'
-);
+export { default as ScrollView } from './ScrollView';
+export { default as SwiperItem } from './SwiperItem';
+export { default as MovableView } from './MovableView';
+export { default as MovableArea } from './MovableArea';
+export { default as CoverView } from './CoverView';
+export { default as CoverImage } from './CoverImage';
+export { default as Icon } from './Icon';
+export { default as Text } from './Text';
+export { default as RichText } from './RichText';
+export { default as Progress } from './Progress';
+export { default as Button } from './Button';
+export { default as CheckboxGroup } from './CheckboxGroup';
+export { default as Checkbox } from './Checkbox';
+export { default as Form } from './Form';
+export { default as Label } from './Label';
+export { default as Picker } from './Picker';
+export { default as PickerView } from './PickerView';
+export { default as PickerViewColumn } from './PickerViewColumn';
+export { default as RadioGroup } from './RadioGroup';
+export { default as Radio } from './Radio';
+export { default as Slider } from './Slider';
+export { default as Switch } from './Switch';
+export { default as Navigator } from './Navigator';
+export { default as Image } from './Image';
+export { default as LivePlayer } from './LivePlayer';
+export { default as LivePusher } from './LivePusher';
+export { default as Map } from './Map';
+export { default as Canvas } from './Canvas';
+export { default as OpenData } from './OpenData';
+export { default as OfficialAccount } from './OfficialAccount';
+export { default as Editor } from './Editor';
+export { default as Audio } from './Audio';
+export { default as Ad } from './Ad';
+export { default as WebView } from './WebView';
+export { default as FunctionalPageNavigator } from './FunctionalPageNavigator';
