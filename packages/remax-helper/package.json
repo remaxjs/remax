@@ -1,0 +1,20 @@
+{
+  "name": "remax-helper",
+  "version": "1.0.4",
+  "description": "",
+  "main": "./lib/index.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc",
+    "test": "jest"
+  },
+  "author": "Caihuanyu <eterlf41@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "remax": "^1.0.4",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.2.2"
+  }
+}
