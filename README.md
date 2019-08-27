@@ -41,16 +41,6 @@ Remax 将 React 运行在小程序环境中，让你可以使用完整的 React 
 
 <img src="https://user-images.githubusercontent.com/465125/62678119-1e628a80-b9e3-11e9-9c71-4fd7a2a730ea.jpg" width="180" />
 
-## Roadmap
-
-- 支付宝小程序
-- 微信小程序
-- 🚧 [支付宝小程序组件库](https://github.com/ant-mini-program/mini-antui)
-- 🚧 [WeUI](https://github.com/Tencent/weui)
-- 🚧 集成 [umi](https://github.com/umijs/umi)，可以编译到 Web
-- 🤔 React Developer Tools
-- 🤔 其他小程序
-
 ## 协议
 
 [MIT](LICENSE)
