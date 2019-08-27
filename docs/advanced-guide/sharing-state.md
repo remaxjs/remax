@@ -10,28 +10,10 @@ order: 43
 ```js
 // app.js
 
-export default class App {
-  data: {
+export default class App {  
+  data = {
     name: 'remax'
   }
-}
-
-// pages/A/index.js
-
-import { navigateTo, View } from 'remax/wechat';
-
-const app = getApp();
-
-export default () => {
-  const gotoB = () => {
-    app.data.name = 'B';
-
-    navigateTo({
-      url: 'pages/B/index'
-    })
-  }
-
-  return <View onClick={gotoB}>goto B</View>;
 }
 
 // pages/A/index.js
