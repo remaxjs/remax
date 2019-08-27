@@ -11,10 +11,8 @@ order: 43
 // app.js
 
 export default class App {  
-  construction () {
-    this.data = {
-      name: 'remax'
-    }
+  data = {
+    name: 'remax'
   }
 }
 
