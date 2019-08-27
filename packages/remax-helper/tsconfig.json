@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "lib": ["es2015", "dom"],
+    "declaration": true,
+    "outDir": "lib"
+  },
+  "include": ["src/**/*", "typings/**/*"],
+  "exclude": ["__tests__/**/*"]
+}
