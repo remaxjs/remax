@@ -18,6 +18,8 @@ export interface Adapter {
 
   getNativePropName: (key: string) => string;
 
+  getIcons: (config: any) => string[];
+
   moduleFormat: 'cjs' | 'esm';
 }
 

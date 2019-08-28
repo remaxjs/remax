@@ -217,7 +217,7 @@ export default function rollupConfig(
   }
 
   const config: RollupOptions = {
-    input: [entries.app, ...entries.pages.map(p => p.file)],
+    input: [entries.app, ...entries.pages.map(p => p.file), ...entries.images],
     output: {
       dir: options.output,
       format: adapter.moduleFormat,
