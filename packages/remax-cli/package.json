@@ -30,7 +30,7 @@
     "commander": "^2.19.0",
     "ejs": "^2.6.1",
     "lodash": "^4.17.11",
-    "regenerator-runtime": "0.11.1",
+    "@remax/regenerator-runtime": "0.11.1",
     "rollup": "^1.16.0",
     "rollup-plugin-alias": "^1.5.2",
     "rollup-plugin-babel": "^4.3.2",
