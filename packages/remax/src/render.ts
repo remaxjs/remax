@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ReactReconciler from 'react-reconciler';
 import hostConfig from './hostConfig';
+import Container from './Container';
 
 const ReactReconcilerInst = ReactReconciler(hostConfig as any);
 
@@ -14,7 +15,7 @@ function getPublicRootInstance(container: any) {
 
 export default function render(
   rootElement: React.ReactElement | null,
-  container: any
+  container: Container
 ) {
   // Create a root Container if it doesnt exist
   if (!container._rootContainer) {
