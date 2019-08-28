@@ -7,8 +7,7 @@ export interface NavigatorProps {
     | 'redirect'
     | 'switchTab'
     | 'navigateBack'
-    | 'reLaunch'
-    | undefined;
+    | 'reLaunch';
   hoverClass?: string;
   hoverStartTime?: number;
   hoverStayTime?: number;
