@@ -38,7 +38,9 @@ export function useShareAppMessage(
     webViewUrl: string;
   }) => any
 ) {
-  registerLifecycle(Lifecycle.shareAppMessage, callback);
+  useLayoutEffect(() => {
+    return registerLifecycle(Lifecycle.shareAppMessage, callback);
+  }, []);
 }
 
 export function useTitleClick(callback: Callback) {

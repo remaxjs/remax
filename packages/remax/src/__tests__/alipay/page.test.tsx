@@ -124,6 +124,10 @@ describe('page', () => {
           log.push('onShow');
         });
 
+        useShareAppMessage(() => {
+          log.push('onShareAppMessage');
+        });
+
         React.useImperativeHandle(ref, () => ({
           forceUpdate,
         }));
@@ -133,7 +137,8 @@ describe('page', () => {
       const page = Page(createPageConfig(() => <Foo ref={foo} />));
       page.load();
       foo.current.forceUpdate();
-      expect(log).toEqual(['onShow']);
+      page.shareAppMessage();
+      expect(log).toEqual(['onShow', 'onShareAppMessage']);
     });
   });
 
