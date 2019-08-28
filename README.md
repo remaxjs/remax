@@ -14,7 +14,7 @@
   <a href="https://www.npmjs.com/package/remax">
     <img alt="npm" src="https://img.shields.io/npm/v/remax?style=flat-square" />
   </a>
-  <a href="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*7kzfTayV-YMAAAAAAAAAAABkARQnAQ">
+  <a href="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*p5g2TpRS_78AAAAAAAAAAABkARQnAQ">
     <img alt="wechat" src="https://img.shields.io/badge/交流-微信群-brightgreen?style=flat-square" />
   </a>
 </p>
