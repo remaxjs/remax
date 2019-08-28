@@ -2,7 +2,7 @@ import factory from './factory';
 
 export interface ButtonProps {
   id?: string;
-  type?: 'primary' | 'default' | 'warn' | undefined;
+  type?: 'primary' | 'default' | 'warn';
   plain?: boolean;
   disabled?: boolean;
   loading?: boolean;
