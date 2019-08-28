@@ -16,20 +16,26 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
     pageFile,
     path.extname(pageFile)
   )}${adapter.extensions.template}`;
-  const code: string = await ejs.renderFile(adapter.templates.page, {
+
+  const options: { [props: string]: any } = {
     baseTemplate: winPath(
       path.relative(
         path.dirname(pageFile),
         `base${adapter.extensions.template}`
       )
     ),
-    jsHelper: winPath(
+  };
+
+  if (adapter.extensions.jsHelper) {
+    options.jsHelper = winPath(
       path.relative(
         path.dirname(pageFile),
         `helper${adapter.extensions.jsHelper}`
       )
-    ),
-  });
+    );
+  }
+
+  const code: string = await ejs.renderFile(adapter.templates.page, options);
 
   return {
     fileName,
@@ -167,8 +173,10 @@ export default function template(
       const template = await createBaseTemplate(adapter, options);
       bundle[template.fileName] = template;
 
-      const helperFile = await createHelperFile(adapter);
-      bundle[helperFile.fileName] = helperFile;
+      if (adapter.templates.jsHelper) {
+        const helperFile = await createHelperFile(adapter);
+        bundle[helperFile.fileName] = helperFile;
+      }
 
       const entries = getEntries(options, adapter, context);
       const { pages } = entries;

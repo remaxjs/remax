@@ -59,7 +59,15 @@ export default class Container {
       })),
     };
 
-    this.context.setData({ action }, () => {
+    let tree: typeof action | { root: RawNode } = action;
+
+    if (process.env.REMAX_PLATFORM === 'toutiao') {
+      tree = {
+        root: this.root.toJSON(),
+      };
+    }
+
+    this.context.setData({ action: tree }, () => {
       if (process.env.REMAX_DEBUG) {
         console.log(
           `setData => 回调时间：${new Date().getTime() - startTime}ms`,
