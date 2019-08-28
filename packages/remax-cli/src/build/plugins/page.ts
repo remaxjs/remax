@@ -32,9 +32,7 @@ export default () => ({
         t.isClassDeclaration(path.node.declaration)
       ) {
         const declaration = path.node.declaration;
-        const pageId =
-          declaration.id ||
-          path.scope.generateUidIdentifierBasedOnNode(path.node);
+        const pageId = path.scope.generateUidIdentifierBasedOnNode(path.node);
         declaration.id = pageId;
         path.replaceWith(declaration);
         pageConfigExpression(path, pageId);
