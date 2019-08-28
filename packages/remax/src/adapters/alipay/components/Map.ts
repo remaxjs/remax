@@ -7,7 +7,7 @@ interface MarkersPprops {
   longitude: number;
   title?: string;
   iconPath: string;
-  rotate?: Number;
+  rotate?: number;
   alpha?: number;
   width?: number;
   height?: number;
