@@ -1,5 +1,15 @@
 import factory from './factory';
 
-const RichText = factory('rich-text');
+export interface RichTextNode {
+  type?: string;
+  name: string;
+  attrs?: any;
+  children?: RichTextNode;
+}
+
+export interface RichTextProps {
+  nodes?: RichTextNode[];
+}
+const RichText = factory<RichTextProps>('rich-text');
 
 export default RichText;
