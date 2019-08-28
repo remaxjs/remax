@@ -1,18 +1,31 @@
 {
   "name": "remax-cli",
   "version": "1.0.7",
-  "description": "",
+  "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "./lib/index.js",
+  "bin": {
+    "remax": "./bin/remax"
+  },
+  "keywords": [
+    "react",
+    "miniapp",
+    "mini-program",
+    "wechat"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/remaxjs/remax/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remaxjs/remax.git"
+  },
+  "homepage": "https://remaxjs.org",
   "scripts": {
     "watch": "tsc -w",
     "build": "tsc",
     "test": "jest"
   },
-  "bin": {
-    "remax": "./bin/remax"
-  },
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.2.2",
     "@babel/helper-module-imports": "^7.0.0",
