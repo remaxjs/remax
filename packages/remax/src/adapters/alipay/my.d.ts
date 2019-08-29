@@ -1,10 +1,12 @@
-export interface CallbackType<T = {}> {
+import promisify from '../../utils/promisify';
+
+interface CallbackType<T = {}> {
   success?: (e: T) => void;
   fail?: (e: { error: number; status: number }) => void;
   complete?: (e: T) => void;
 }
 
-export interface MiniAppRequest<U>
+interface MiniAppRequest<U>
   extends CallbackType<{
     data: U;
     status: number;
@@ -16,6 +18,39 @@ export interface MiniAppRequest<U>
   data?: { [key: string]: unknown };
   timeout?: number;
   dataType?: 'json' | 'text' | 'base64' | undefined;
+}
+
+interface BadgeType {
+  index: number;
+  type: string;
+  text: string;
+}
+interface ContactType {
+  realName: string;
+  mobile: string;
+  email: string;
+  avatar: string;
+  userId: string;
+}
+
+interface ContactsDicArrayType {
+  userId: string;
+  avatar: string;
+  mobile: string;
+  realName: string;
+  displayName: string;
+}
+
+interface FileListType {
+  size: number;
+  createTime: number;
+  apFilePath: string;
+}
+
+interface DescType {
+  style: 'normal ' | 'italic ' | 'oblique' | undefined;
+  weight: string;
+  variant: string;
 }
 
 interface MyType {
@@ -35,15 +70,15 @@ interface MyType {
   reLaunch: (option: { url: string } & CallbackType) => void;
   setNavigationBar: (
     option: {
-      title: string;
-      image: string;
-      backgroundColor: string;
-      borderBottomColor: string;
-      reset: boolean;
+      title?: string;
+      image?: string;
+      backgroundColor?: string;
+      borderBottomColor?: string;
+      reset?: boolean;
     } & CallbackType
   ) => void;
   showNavigationBarLoading: (option: CallbackType) => void;
-  hideTabBar: (option: { animation: boolean } & CallbackType) => void;
+  hideTabBar: (option: { animation?: boolean } & CallbackType) => void;
   hideTabBarRedDot: (option: { index: number } & CallbackType) => void;
   removeTabBarBadge: (option: { index: number } & CallbackType) => void;
   setTabBarBadge: (
@@ -65,34 +100,34 @@ interface MyType {
       borderStyle: string;
     } & CallbackType
   ) => void;
-  showTabBar: (option: { animation: boolean } & CallbackType) => void;
-  showTabBarRedDot: (option: { number: boolean } & CallbackType) => void;
+  showTabBar: (option: { animation?: boolean } & CallbackType) => void;
+  showTabBarRedDot: (option: { index: number } & CallbackType) => void;
   confirm: (
     option: {
-      title: string;
-      content: string;
-      confirmButtonText: string;
-      cancelButtonText: string;
-    } & CallbackType<{ confirm: string }>
+      title?: string;
+      content?: string;
+      confirmButtonText?: string;
+      cancelButtonText?: string;
+    } & CallbackType<{ confirm: boolean }>
   ) => void;
   hideToast: (option: CallbackType) => void;
   prompt: (
     option: {
-      title: string;
+      title?: string;
       message: string;
-      placeholder: string;
-      align: string;
-      okButtonText: string;
-      cancelButtonText: string;
+      placeholder?: string;
+      align?: string;
+      okButtonText?: string;
+      cancelButtonText?: string;
     } & CallbackType<{ ok: boolean; inputValue: string }>
   ) => void;
   showActionSheet: (
     option: {
-      title: string;
+      title?: string;
       items: string[];
-      cancelButtonText: string;
-      destructiveBtnIndex: number;
-      badges: object[];
+      cancelButtonText?: string;
+      destructiveBtnIndex?: number;
+      badges?: BadgeType[];
     } & CallbackType<{
       index: number;
       type: string;
@@ -103,16 +138,16 @@ interface MyType {
   startPullDownRefresh: (option: CallbackType) => void;
   stopPullDownRefresh: (option: CallbackType) => void;
   chooseAlipayContact: (
-    option: { count: number } & CallbackType<{ contacts: object[] }>
+    option: { count?: number } & CallbackType<{ contacts: ContactType[] }>
   ) => void;
   chooseContact: (
     option: {
       chooseType: string;
-      includeMobileContactMode: string;
-      includeMe: boolean;
-      multiChooseMax: number;
-      multiChooseMaxTips: string;
-    } & CallbackType<{ contactsDicArray: object[] }>
+      includeMobileContactMode?: string;
+      includeMe?: boolean;
+      multiChooseMax?: number;
+      multiChooseMaxTips?: string;
+    } & CallbackType<{ contactsDicArray: ContactsDicArrayType[] }>
   ) => void;
   choosePhoneContact: (
     option: CallbackType<{ name: string; mobile: string }>
@@ -120,10 +155,10 @@ interface MyType {
 
   chooseCity: (
     option: {
-      showLocatedCity: boolean;
-      showHotCities: boolean;
-      cities: object[];
-      hotCities: object[];
+      showLocatedCity?: boolean;
+      showHotCities?: boolean;
+      cities?: object[];
+      hotCities?: object[];
     } & CallbackType<{
       city: string;
       adCode: string;
@@ -132,23 +167,23 @@ interface MyType {
   ) => void;
   datePicker: (
     option: {
-      format: string;
-      currentDate: string;
-      startDate: string;
-      endDate: string;
+      format?: string;
+      currentDate?: string;
+      startDate?: string;
+      endDate?: string;
     } & CallbackType<{
       date: string;
     }>
   ) => void;
   createAnimation: (option: {
-    duration: number;
-    timeFunction: string;
-    delay: number;
-    transformOrigin: string;
+    duration?: number;
+    timeFunction?: string;
+    delay?: number;
+    transformOrigin?: string;
   }) => void;
 
   createCanvasContext: (option: { canvasId: string }) => void;
-  // createMapContext: (option: { mapId: string; this: string }) => void;
+  createMapContext: (option: { mapId: string; this: any }) => void;
   hideKeyboard: () => void;
   pageScrollTo: (option: { scrollTop: number }) => void;
   createIntersectionObserver: (
@@ -158,16 +193,16 @@ interface MyType {
       selectAll: boolean;
     } & CallbackType
   ) => void;
-  createSelectorQuery: (option: { params: object }) => void;
+  createSelectorQuery: (option: { params: unknown }) => void;
   optionsSelect: (
     option: {
-      title: string;
+      title?: string;
       optionsOne: string[];
-      optionsTwo: string[];
-      selectedOneIndex: number;
-      selectedTwoIndex: number;
-      positiveString: string;
-      negativeString: string;
+      optionsTwo?: string[];
+      selectedOneIndex?: number;
+      selectedTwoIndex?: number;
+      positiveString?: string;
+      negativeString?: string;
     } & CallbackType<{
       selectedOneIndex: number;
       selectedOneOption: string;
@@ -177,13 +212,13 @@ interface MyType {
   ) => void;
   multiLevelSelect: (
     option: {
-      title: string;
+      title?: string;
       list: any;
       name: string;
-      subList: object[];
+      subList?: { name: string; [key: string]: any }[];
     } & CallbackType<{
       success: boolean;
-      result: object[];
+      result: { name: string; [key: string]: any }[];
     }>
   ) => void;
   setBackgroundColor: (option: {
@@ -194,25 +229,25 @@ interface MyType {
   setBackgroundTextStyle: (
     option: { textStyle: string } & CallbackType
   ) => void;
-  setCanPullDown: (option: { canPullDown: boolean } & CallbackType) => void;
-  setOptionMenu: (option: { icon: string } & CallbackType) => void;
+  setCanPullDown: (option: { canPullDown: boolean }) => void;
+  setOptionMenu: (option: { icon: string }) => void;
   loadFontFace: (
-    option: { family: string; source: string; desc: object } & CallbackType
+    option: { family: string; source: string; desc?: DescType } & CallbackType
   ) => void;
   chooseImage: (
     option: {
-      count: number;
-      sizeType: string[];
-      sourceType: string[];
+      count?: number;
+      sizeType?: string[];
+      sourceType?: string[];
     } & CallbackType<{ apFilePaths: string[] }>
   ) => void;
   compressImage: (
-    option: { apFilePaths: string[]; compressLevel: number } & CallbackType<{
+    option: { apFilePaths: string[]; compressLevel?: number } & CallbackType<{
       apFilePaths: string[];
     }>
   ) => void;
   getImageInfo: (
-    option: { src: string } & CallbackType<{
+    option: { src?: string } & CallbackType<{
       width: number;
       height: number;
       path: string;
@@ -221,13 +256,13 @@ interface MyType {
     }>
   ) => void;
   previewImage: (
-    option: { icon: any[]; current: number } & CallbackType
+    option: { urls: any[]; current?: number } & CallbackType
   ) => void;
   saveImage: (option: { url: string } & CallbackType) => void;
   clearStorage: () => void;
   clearStorageSync: () => void;
   getStorage: (
-    option: { key: string } & CallbackType<{ data: object | string }>
+    option: { key: string } & CallbackType<{ data: unknown | string }>
   ) => void;
   getStorageInfo: (
     option: CallbackType<{
@@ -244,7 +279,7 @@ interface MyType {
     }>
   ) => void;
   getStorageSync: (
-    option: { key: string } & CallbackType<{ data: object | string }>
+    option: { key: string } & CallbackType<{ data: unknown | string }>
   ) => void;
   removeStorage: (option: { key: string } & CallbackType) => void;
   removeStorageSync: (option: { key: string } & CallbackType) => void;
@@ -254,6 +289,221 @@ interface MyType {
   setStorageSync: (
     option: { key: string; data: object | string } & CallbackType
   ) => void;
+  getFileInfo: (
+    option: { apFilePath: string; digestAlgorithm?: string } & CallbackType<{
+      size: number;
+      digest: string;
+    }>
+  ) => void;
+  getSavedFileInfo: (
+    option: { apFilePath: string } & CallbackType<{
+      size: number;
+      createTime: number;
+    }>
+  ) => void;
+  getSavedFileList: (
+    option: CallbackType<{ fileList: FileListType[] }>
+  ) => void;
+  removeSavedFile: (option: { apFilePath: string } & CallbackType) => void;
+  saveFile: (
+    option: { apFilePath: string } & CallbackType<{ apFilePath: string }>
+  ) => void;
+  chooseLocation: (
+    option: CallbackType<{
+      name: string;
+      address: string;
+      latitude: number;
+      longitude: number;
+    }>
+  ) => void;
+  getLocation: (
+    option: { cacheTimeout?: number; type?: number } & CallbackType<{
+      longitude: string;
+      latitude: string;
+      accuracy: string;
+      horizontalAccuracy: string;
+      country: string;
+      countryCode: string;
+      province: string;
+      city: string;
+      cityAdcode: string;
+      district: string;
+      districtAdcode: string;
+      streetNumber: object;
+      pois: any[];
+    }>
+  ) => void;
+  openLocation: (
+    option: {
+      longitude: string;
+      latitude: string;
+      name: string;
+      address: string;
+      scale?: number;
+    } & CallbackType
+  ) => void;
+  closeSocket: (option: CallbackType) => void;
+
+  uploadFile: (
+    option: {
+      url: string;
+      filePath: string;
+      fileName: string;
+      fileType: string;
+      header?: HeadersInit;
+    } & CallbackType<{
+      data: string;
+      statusCode: string;
+      header: HeadersInit;
+    }>
+  ) => void;
+  canIUse: () => void;
+  SDKVersion: () => void;
+  getSystemInfo: any;
+  getSystemInfoSync: any;
+  getNetworkTypy: any;
+  offNetworkStatusChange: () => void;
+  onNetworkStatusChange: any;
+  getClipboard: (option: CallbackType<{ text: string }>) => void;
+  setClipboard: (option: { text: string }) => void;
+  watchShake: () => void;
+  vibrate: () => void;
+  vibrateLong: () => void;
+  vibrateShort: () => void;
+  onAccelerometerChange: (option: { x: number; y: number; z: number }) => void;
+  offAccelerometerChange: () => void;
+  onGyroscopeChange: (option: { x: number; y: number; z: number }) => void;
+  offGyroscopeChange: () => void;
+  onCompassChange: (option: { direction: number }) => void;
+  offCompassChange: () => void;
+
+  makePhoneCall: (option: { number: string }) => void;
+  getServerTime: (option: CallbackType<{ time: string }>) => void;
+  onUserCaptureScreen: () => void;
+  offUserCaptureScreen: () => void;
+  getScreenBrightness: (option: CallbackType) => void;
+  setScreenBrightness: (option: { brightness: number } & CallbackType) => void;
+  setKeepScreenOn: (option: { keepScreenOn: boolean } & CallbackType) => void;
+  getSetting: (option: CallbackType<{ authSetting: any }>) => void;
+  openSetting: (option: CallbackType<{ authSetting: any }>) => void;
+  addPhoneContact: (
+    option: {
+      photoFilePath?: string;
+      nickName?: string;
+      lastName?: string;
+      middleName?: string;
+      firstName?: string;
+      remark?: string;
+      mobilePhoneNumber?: string;
+      alipayAccount?: string;
+      addressCountry?: string;
+      addressState?: string;
+      addressCity?: string;
+      addressStreet?: string;
+      addressPostalCode?: string;
+      organization?: string;
+      title?: string;
+      workFaxNumber?: string;
+      workPhoneNumber?: string;
+      hostNumber?: string;
+      email?: string;
+      url?: string;
+      workAddressCountry?: string;
+      workAddressState?: string;
+      workAddressCity?: string;
+      workAddressStreet?: string;
+      workAddressPostalCode?: string;
+      homeFaxNumber?: string;
+      homePhoneNumber?: string;
+      homeAddressCountry?: string;
+      homeAddressState?: string;
+      homeAddressCity?: string;
+      homeAddressStreet?: string;
+      homeAddressPostalCode?: string;
+    } & CallbackType
+  ) => void;
+
+  showAuthGuide: (option: { authType: string }) => void;
+  scan: (
+    option: { type?: string; hideAlbum?: boolean } & CallbackType<{
+      code: string;
+      qrCode: string;
+      barCode: string;
+    }>
+  ) => void;
+  onMemoryWarning: (option: { level: number }) => void;
+  offMemoryWarning: () => void;
+  getBatteryInfo: (
+    option: CallbackType<{ level: number; isCharging: boolean }>
+  ) => void;
+  etBatteryInfoSync: (
+    option: CallbackType<{ level: number; isCharging: boolean }>
+  ) => void;
+  connectBLEDevice: (option: { deviceId: string } & CallbackType) => void;
+  disconnectBLEDevice: (option: { deviceId: string } & CallbackType) => void;
+  getBLEDeviceCharacteristics: (
+    option: { deviceId: string; serviceId: string } & CallbackType<{
+      characteristics: any[];
+    }>
+  ) => void;
+  getBLEDeviceServices: (
+    option: { deviceId: string; serviceId: string } & CallbackType<{
+      characteristics: any[];
+    }>
+  ) => void;
+  notifyBLECharacteristicValueChange: any;
+  offBLECharacteristicValueChange: any;
+  offBLEConnectionStateChanged: () => void;
+  onBLECharacteristicValueChange: any;
+  onBLEConnectionStateChanged: any;
+  writeBLECharacteristicValue: any;
+  closeBluetoothAdapter: (option: CallbackType) => void;
+  getBluetoothAdapterState: (
+    option: CallbackType<{ discovering: boolean; available: boolean }>
+  ) => void;
+  getBluetoothDevices: any;
+  getConnectedBluetoothDevices: any;
+  offBluetoothAdapterStateChange: any;
+  offBluetoothDeviceFound: any;
+  onBluetoothDeviceFound: any;
+  onBluetoothAdapterStateChange: any;
+  openBluetoothAdapter: any;
+  startBluetoothDevicesDiscovery: any;
+  stopBluetoothDevicesDiscovery: any;
+  getBeacons: any;
+  onBeaconServiceChange: any;
+  onBeaconUpdate: any;
+  startBeaconDiscovery: any;
+  stopBeaconDiscovery: any;
+  rsa: any;
+  hideShareMenu: any;
+  showSharePanel: any;
+  hideAddToDesktopMenu: () => void;
+  hideAllAddToDesktopMenu: () => void;
+  hideAllFavoriteMenu: () => void;
+  hideFavoriteMenu: () => void;
+  getRunScene: any;
+  reportAnalytics: any;
+  getUpdateManager: any;
+  getOpenUserInfo: any;
+  getPhoneNumber: any;
+  tradePay: any;
+  openCardDetail: any;
+  openCardList: any;
+  openKBVoucherDetail: any;
+  openMerchantCardList: any;
+  openMerchantTicketList: any;
+  openMerchantVoucherList: any;
+  openTicketDetail: any;
+  openTicketList: any;
+  openVoucherDetail: any;
+  openVoucherList: any;
+  addCardAuth: any;
+  textRiskIdentification: any;
+  navigateBackMiniProgram: any;
+  navigateToMiniProgram: any;
+  createWebViewContext: any;
+  getRunData: any;
   showToast: (
     option: {
       type: 'success' | 'fail' | 'exception' | 'none';
@@ -282,5 +532,6 @@ interface MyType {
   };
   [key: string]: any;
 }
+
 
 export default MyType;
