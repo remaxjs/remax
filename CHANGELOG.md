@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/remaxjs/remax/compare/v1.0.8...v1.0.9) (2019-08-29)
+
+### Bug Fixes
+
+- 修复 async/await 报错 ([e1912a2](https://github.com/remaxjs/remax/commit/e1912a2))
+
 ## [1.0.8](https://github.com/remaxjs/remax/compare/v1.0.7...v1.0.8) (2019-08-28)
 
 ### Bug Fixes
