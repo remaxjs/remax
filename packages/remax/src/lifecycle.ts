@@ -15,6 +15,11 @@ export enum Lifecycle {
   optionMenuClick = 'optionMenuClick',
   popMenuClick = 'popMenuClick',
   pullIntercept = 'pullIntercept',
+  back = 'back',
+  keyboardHeight = 'keyboardHeight',
+  tabItemTap = 'tabItemTap',
+  beforeTabItemTap = 'beforeTabItemTap',
+  resize = 'resize',
 }
 
 export function hookName(name: string) {
@@ -22,6 +27,9 @@ export function hookName(name: string) {
 }
 
 export function callbackName(name: string) {
+  if (name.startsWith('before')) {
+    return capitalize(name);
+  }
   return 'on' + capitalize(name);
 }
 

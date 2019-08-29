@@ -38,3 +38,20 @@ export function getNativePropName(prop: string) {
 
   return prop;
 }
+
+export function getIcons(config: any) {
+  if (!config.tabBar) {
+    return [];
+  }
+
+  const tabs: { icon: string; activeIcon: string }[] = config.tabBar.items;
+
+  if (tabs) {
+    return tabs.reduce<string[]>(
+      (images, tab) => [...images, tab.icon, tab.activeIcon],
+      []
+    );
+  }
+
+  return [];
+}

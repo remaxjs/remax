@@ -211,7 +211,7 @@ export default function rollupConfig(
     }),
     inject({
       exclude: 'node_modules/**',
-      regeneratorRuntime: 'regenerator-runtime',
+      regeneratorRuntime: '@remax/regenerator-runtime',
     }),
     rename({
       matchAll: true,
@@ -235,7 +235,7 @@ export default function rollupConfig(
   }
 
   const config: RollupOptions = {
-    input: [entries.app, ...entries.pages.map(p => p.file)],
+    input: [entries.app, ...entries.pages.map(p => p.file), ...entries.images],
     output: {
       dir: options.output,
       format: adapter.moduleFormat,

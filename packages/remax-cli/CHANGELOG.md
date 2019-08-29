@@ -10,6 +10,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - 支持在运行时访问 REMAX*APP* 开头的环境变量 ([b8fb287](https://github.com/remaxjs/remax/commit/b8fb287))
 - 支持字节跳动小程序 ([d7adadc](https://github.com/remaxjs/remax/commit/d7adadc))
 
+## [1.0.9](https://github.com/remaxjs/remax/compare/v1.0.8...v1.0.9) (2019-08-29)
+
+### Bug Fixes
+
+- 修复 async/await 报错 ([e1912a2](https://github.com/remaxjs/remax/commit/e1912a2))
+
+## [1.0.8](https://github.com/remaxjs/remax/compare/v1.0.7...v1.0.8) (2019-08-28)
+
+### Bug Fixes
+
+- 修复 tabBar 配置 iconPath 无效的问题 ([b1efe2f](https://github.com/remaxjs/remax/commit/b1efe2f)), closes [#150](https://github.com/remaxjs/remax/issues/150)
+- 修复页面组件不能命名为 Page 的问题 ([9237dac](https://github.com/remaxjs/remax/commit/9237dac)), closes [#158](https://github.com/remaxjs/remax/issues/158)
+
+## [1.0.7](https://github.com/remaxjs/remax/compare/v1.0.6...v1.0.7) (2019-08-28)
+
+### Bug Fixes
+
+- 修正 async/await 报错问题 ([423f30d](https://github.com/remaxjs/remax/commit/423f30d))
+
 ## [1.0.6](https://github.com/remaxjs/remax/compare/v1.0.5...v1.0.6) (2019-08-28)
 
 **Note:** Version bump only for package remax-cli
