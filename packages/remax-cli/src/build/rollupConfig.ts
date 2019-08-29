@@ -193,7 +193,7 @@ export default function rollupConfig(
     }),
     inject({
       exclude: 'node_modules/**',
-      regeneratorRuntime: 'regenerator-runtime',
+      regeneratorRuntime: '@remax/regenerator-runtime',
     }),
     rename({
       matchAll: true,
