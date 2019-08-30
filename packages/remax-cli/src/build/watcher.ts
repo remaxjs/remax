@@ -9,9 +9,9 @@ import build from './index';
 let isBundleRunning = false;
 let isFirstRunWatcher = true;
 
-const rollupWatchFiles = ['src/**', 'app.js'];
+const rollupWatchFiles = ['src/**'];
 // 配置重新build的路径
-const extraFiles = ['src/app.config.js'];
+const extraFiles = ['src/**/*.config.js', 'src/native', 'src/native/**'];
 // chokidar config
 const chokidarConfig = {
   usePolling: true,
