@@ -3,34 +3,45 @@ import createPageWrapper from './createPageWrapper';
 import render from './render';
 import { Lifecycle, callbackName } from './lifecycle';
 import Container from './Container';
+import { createPortal } from './ReactPortal';
+
+let idCounter = 0;
 
 export default function createPageConfig(Page: React.ComponentType<any>) {
+  const app = getApp();
+  const id = idCounter;
+  idCounter += 1;
+
   return {
+    pageId: 'page_' + id,
+
     data: {
       action: {},
     },
 
-    wrapper: null as any,
+    wrapperRef: React.createRef<any>(),
 
     lifecycleCallback: {} as any,
 
     onLoad(this: any, query: any) {
       const PageWrapper = createPageWrapper(Page, query);
       this.container = new Container(this);
-
-      this.wrapper = render(
-        React.createElement(PageWrapper, { page: this }),
-        this.container
+      this.element = createPortal(
+        React.createElement(PageWrapper, {
+          page: this,
+          ref: this.wrapperRef,
+        }),
+        this.container,
+        this.pageId
       );
+
+      app._mount(this);
     },
 
     onUnload(this: any) {
       this.unloaded = true;
-      if (this.requestUpdate) {
-        this.requestUpdate.clear();
-      }
-      render(null, this.container);
-      this.wrapper = null;
+      this.container.clearUpdate();
+      app._unmount(this);
     },
 
     /**
@@ -61,8 +72,8 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       }
 
       const callback = callbackName(lifecycle);
-      if (this.wrapper[callback]) {
-        return this.wrapper[callback](...args);
+      if (this.wrapperRef.current && this.wrapperRef.current[callback]) {
+        return this.wrapperRef.current[callback](...args);
       }
     },
 
