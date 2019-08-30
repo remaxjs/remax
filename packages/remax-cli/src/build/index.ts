@@ -26,6 +26,7 @@ export default async (argv: any, context?: Context) => {
 
   let targetConfig;
   try {
+    if (!argv.target) throw new Error(`${argv.target} is empty`);
     targetConfig = require(`./adapters/${argv.target}`);
   } catch (e) {
     console.log(e);
