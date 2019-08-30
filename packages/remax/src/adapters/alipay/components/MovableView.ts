@@ -1,6 +1,8 @@
+import * as React from 'react';
 import factory from './factory';
 
 export interface MovableViewProps {
+  style?: React.CSSProperties;
   width: number;
   height: number;
   direction?: 'all' | 'vertical' | 'horizontal' | 'none';

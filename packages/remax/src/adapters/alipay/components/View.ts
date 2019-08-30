@@ -13,6 +13,7 @@ export interface ViewProps {
   animation?: any;
   hoverStopPropagation?: boolean;
   onTap?: (e: any) => void;
+  onClick?: (e: any) => void;
   onTouchStart?: (e: any) => void;
   onTouchMove?: (e: any) => void;
   onTouchEnd?: (e: any) => void;

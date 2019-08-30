@@ -18,6 +18,7 @@ export interface ButtonProps {
   appParameter?: string;
   publicId?: string;
   onTap?: (e: any) => void;
+  onClick?: (e: any) => void;
 }
 export const Button = factory<ButtonProps>('button');
 
