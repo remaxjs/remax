@@ -9,6 +9,7 @@ function getCssModuleConfig(cssModule: boolean | RegExp) {
 
   return {
     globalModulePaths: [new RegExp(regStr)],
+    generateScopedName: '[hash:base64:4]',
   };
 }
 

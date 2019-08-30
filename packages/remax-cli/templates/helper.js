@@ -1,29 +1,72 @@
 var tree = {
-  root: {
-    children: [],
+  r: {
+    c: [],
   },
 };
 
 function reduce(action) {
+  // console.log(JSON.stringify(action));
+  action.type
   switch (action.type) {
+    // splice
     case 'splice':
-      for (var i = 0; i < action.payload.length; i += 1) {
-        var value = get(tree, action.payload[i].path);
-        if (action.payload[i].item) {
+      // action.payload
+      var payload = action.payload;
+      for (var i = 0; i < payload.length; i += 1) {
+        var path = payload[i][0];
+        var start = payload[i][1];
+        var deleteCount = payload[i][2];
+        var payloadItem = payload[i][3];
+        // payload.path
+        var value = get(tree, path);
+        // payload.item
+        // if (payload[i].ie) {
+          var item = getItem(payloadItem)
+          if (item) {
           value.splice(
-            action.payload[i].start,
-            action.payload[i].deleteCount,
-            action.payload[i].item
+            // payload.start
+            start,
+            // payload.deleteCount
+            deleteCount,
+            // payload.item
+            item
           );
-        } else {
-          value.splice(action.payload[i].start, action.payload[i].deleteCount);
-        }
-        set(tree, action.payload[i].path, value);
+          } else {
+          value.splice(
+            // payload.start
+            start,
+            // payload.deleteCount
+            deleteCount,
+          );
+          }
+        // } else {
+        //   value.splice(payload[i].s, payload[i].d);
+        // }
+        set(tree, path, value);
       }
       return tree;
     default:
       return tree;
   }
+}
+
+function getItem(item) {
+  if (!item) {
+    return undefined;
+  }
+          var newItem = {
+            i: item[0],
+            t: item[1],
+            p: item[2],
+            c: item[3] ? item[3].map(function(i) {
+              var newI = getItem(i);
+
+              return newI;
+            }) : [],
+            te: item[4] || undefined,
+          }
+
+          return newItem;
 }
 
 function getKey(key) {
@@ -75,7 +118,8 @@ function get(obj, path) {
     var currentPath = path[i];
     nextObj = nextObj[currentPath];
     if (nextObj === void 0) {
-      if (currentPath === 'children') {
+      // children
+      if (currentPath === 'c') {
         nextObj = [];
       } else {
         nextObj = {};

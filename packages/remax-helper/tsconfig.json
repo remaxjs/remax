@@ -4,7 +4,7 @@
     "module": "esnext",
     "lib": ["es2015", "dom"],
     "declaration": true,
-    "outDir": "lib"
+    "outDir": "source"
   },
   "include": ["src/**/*", "typings/**/*"],
   "exclude": ["__tests__/**/*"]

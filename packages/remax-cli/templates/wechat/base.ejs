@@ -1,5 +1,6 @@
 <template name="REMAX_TPL">
-  <block wx:for="{{tree.root.children}}" wx:key="{{id}}">
+  <!-- c: children  -->
+  <block wx:for="{{tree.r.c}}" wx:key="{{i}}">
     <template is="REMAX_TPL_1_CONTAINER" data="{{i: item}}" />
   </block>
 </template>
@@ -20,13 +21,16 @@
         props: component.props,
         id: component.id,
         templateId: id,
+        map: compressedKeyMap
       }) %>
 <% } %>
-<template name="REMAX_TPL_<%=id%>_plain-text" data="{{i: i}}">
-  <block>{{i.text}}</block>
+<!--  te: text -->
+<template name="REMAX_TPL_<%=id%>_pt">
+  <block>{{i.te}}</block>
 </template>
 <!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
-<template name="REMAX_TPL_<%=id%>_CONTAINER" data="{{i: i}}">
-  <template is="{{'REMAX_TPL_<%=id%>_' + i.type}}" data="{{i: i}}" />
+<template name="REMAX_TPL_<%=id%>_CONTAINER">
+  <!--  t: type -->
+  <template is="{{'REMAX_TPL_<%=id%>_' + i.t}}" data="{{i: i}}" />
 </template>
 <% } %>

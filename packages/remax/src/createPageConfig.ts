@@ -7,6 +7,7 @@ import Container from './Container';
 export default function createPageConfig(Page: React.ComponentType<any>) {
   return {
     data: {
+      r: {},
       action: {},
     },
 

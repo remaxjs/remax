@@ -1,4 +1,5 @@
 import VNode, { Path, RawNode } from './VNode';
+import { compressSpliceAction } from 'remax-helper/source';
 import { generate } from './instanceId';
 
 function stringPath(path: Path) {
@@ -49,16 +50,7 @@ export default class Container {
   applyUpdate() {
     const startTime = new Date().getTime();
 
-    const action = {
-      type: 'splice',
-      payload: this.updateQueue.map(update => ({
-        path: stringPath(update.path),
-        start: update.start,
-        deleteCount: update.deleteCount,
-        item: update.items[0],
-      })),
-    };
-
+    const action = compressSpliceAction(this.updateQueue);
     this.context.setData({ action }, () => {
       if (process.env.REMAX_DEBUG) {
         console.log(

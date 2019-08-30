@@ -3,9 +3,12 @@
   "version": "1.0.4",
   "description": "",
   "main": "./lib/index.js",
+  "source": "./source/index.js",
   "scripts": {
     "watch": "tsc -w",
-    "build": "tsc",
+    "build": "yarn build:source && yarn build:node",
+    "build:source": "tsc",
+    "build:node": "tsc --module commonjs --outDir lib",
     "test": "jest"
   },
   "author": "Caihuanyu <eterlf41@gmail.com>",

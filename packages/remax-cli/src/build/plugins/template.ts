@@ -2,6 +2,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { parse } from 'acorn';
 import { Plugin, OutputChunk } from 'rollup';
+import { compressedKeyMap } from 'remax-helper/lib';
 import { getComponents } from './components';
 import ejs from 'ejs';
 import { RemaxOptions } from '../../getConfig';
@@ -57,6 +58,8 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
     {
       components,
       depth: options.UNSAFE_wechatTemplateDepth,
+      // 压缩后的 key 对照表
+      compressedKeyMap,
     },
     {
       // uglify

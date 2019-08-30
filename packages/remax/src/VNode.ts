@@ -3,7 +3,7 @@ import Container from './Container';
 
 export interface RawNode {
   id?: number;
-  type: string | symbol;
+  type: string;
   props?: any;
   children?: RawNode[];
   text?: string;
@@ -16,7 +16,7 @@ export default class VNode {
   container: Container;
   children: VNode[];
   mounted = false;
-  type: string | symbol;
+  type: string;
   props?: any;
   parent: VNode | null = null;
   text?: string;
@@ -28,7 +28,7 @@ export default class VNode {
     container,
   }: {
     id: number;
-    type: string | symbol;
+    type: string;
     props?: any;
     container: any;
   }) {
@@ -102,6 +102,7 @@ export default class VNode {
   toJSON(): RawNode {
     if (this.type === TYPE_TEXT) {
       return {
+        id: this.id,
         type: this.type,
         text: this.text,
       };

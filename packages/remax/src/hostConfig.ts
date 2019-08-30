@@ -1,6 +1,6 @@
 import * as scheduler from 'scheduler';
 import shallowequal from 'shallowequal';
-import { REMAX_METHOD, TYPE_TEXT } from './constants';
+import { TYPE_TEXT } from './constants';
 import { generate } from './instanceId';
 import VNode from './VNode';
 import Container from './Container';
@@ -20,7 +20,7 @@ function processProps(newProps: any, rootContext: Container, id: number) {
   const props: any = {};
   for (const propKey of Object.keys(newProps)) {
     if (typeof newProps[propKey] === 'function') {
-      const contextKey = `${REMAX_METHOD}_${id}_${propKey}`;
+      const contextKey = `${id}${propKey}`;
       rootContext.createCallback(contextKey, newProps[propKey]);
       props[propKey] = contextKey;
     } else if (propKey === 'children') {
