@@ -18,6 +18,7 @@ export default class Container {
   root: VNode;
   updateQueue: SpliceUpdate[] = [];
   _rootContainer?: FiberRoot;
+  updateTimer?: number | null;
 
   constructor(context: any) {
     this.context = context;
@@ -43,7 +44,7 @@ export default class Container {
       items,
     };
     if (this.updateQueue.length === 0) {
-      setTimeout(() => this.applyUpdate());
+      this.updateTimer = setTimeout(() => this.applyUpdate());
     }
     this.updateQueue.push(update);
   }
@@ -78,6 +79,13 @@ export default class Container {
       }
     });
     this.updateQueue = [];
+  }
+
+  clearUpdate() {
+    if (this.updateTimer) {
+      clearTimeout(this.updateTimer);
+      this.updateTimer = null;
+    }
   }
 
   createCallback(name: string, fn: Function) {

@@ -1,4 +1,6 @@
 declare module 'scheduler';
-declare let my: any;
-declare let tt: any;
-declare let getApp: any;
+declare module 'is-class';
+declare const my: any;
+declare const tt: any;
+declare const getApp: any;
+declare const getCurrentPages: any;
