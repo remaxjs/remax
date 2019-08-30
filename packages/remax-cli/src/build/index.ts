@@ -28,7 +28,6 @@ export default async (argv: any, context?: Context) => {
   try {
     targetConfig = require(`./adapters/${argv.target}`);
   } catch (e) {
-    console.log(e);
     throw new Error(`Target ${argv.target} is not supported yet.`);
   }
 
