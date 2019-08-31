@@ -10,5 +10,5 @@ export default function factory<P = any>(component: string) {
       children
     );
   };
-  return forwardRef<{}, P>(Component);
+  return forwardRef<{}, React.PropsWithChildren<P>>(Component);
 }
