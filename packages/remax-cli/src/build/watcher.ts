@@ -11,7 +11,12 @@ let isFirstRunWatcher = true;
 
 const rollupWatchFiles = ['src/**'];
 // 配置重新build的路径
-const extraFiles = ['src/**/*.config.js', 'src/native', 'src/native/**'];
+const extraFiles = [
+  'src/app.config.js',
+  'src/**/*.config.js',
+  'src/native',
+  'src/native/**',
+];
 // chokidar config
 const chokidarConfig = {
   usePolling: true,
