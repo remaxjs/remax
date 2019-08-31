@@ -68,9 +68,6 @@ export default function rollupConfig(
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
   const plugins = [
-    clean({
-      targets: ['dist/*', '!.tea'],
-    }),
     copy({
       targets: [
         {
@@ -215,6 +212,14 @@ export default function rollupConfig(
 
   if (options.progress) {
     plugins.push(progress());
+  }
+
+  if (process.env.NODE_ENV === 'production') {
+    plugins.unshift(
+      clean({
+        targets: ['dist/*', '!.tea'],
+      })
+    );
   }
 
   const config: RollupOptions = {
