@@ -1,5 +1,5 @@
 import router from 'umi/router';
-import * as API from '../../../../api';
+import * as API from '../../types';
 
 export const navigateTo: typeof API.navigateTo = params => {
   return new Promise(resolve => {

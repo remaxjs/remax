@@ -1,6 +1,6 @@
 import { ActionSheet } from 'antd-mobile';
 import 'antd-mobile/lib/action-sheet/style';
-import * as API from '../../../../api';
+import * as API from '../../types';
 
 export const showActionSheet: typeof API.showActionSheet = params => {
   return new Promise(resolve => {

@@ -24,6 +24,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "miniprogram-api-typings": "^2.8.1",
     "react-reconciler": "0.20.4",
     "scheduler": "0.13.6",
     "shallowequal": "^1.1.0"
