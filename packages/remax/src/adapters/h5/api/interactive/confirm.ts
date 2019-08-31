@@ -1,6 +1,6 @@
 import { Modal } from 'antd-mobile';
 import 'antd-mobile/lib/modal/style';
-import * as API from '../../../../api';
+import * as API from '../../types';
 
 export const confirm: typeof API.confirm = params => {
   return new Promise(resolve => {

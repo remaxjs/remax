@@ -1,4 +1,3 @@
-// TODO promise 化补充完整
 import 'miniprogram-api-typings';
 import promisify from '../../utils/promisify';
 

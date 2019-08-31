@@ -1,4 +1,4 @@
-import * as API from '../../../../api';
+import * as API from '../../types';
 
 export const setNavigationBar: typeof API.setNavigationBar = params => {
   return new Promise(resolve => {
