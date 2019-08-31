@@ -53,7 +53,7 @@ export default (adapter: Adapter) => () => ({
           return;
         }
 
-        if (id === 'picker-view-column') {
+        if (adapter.name === 'alipay' && id === 'picker-view-column') {
           return;
         }
 
