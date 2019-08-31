@@ -6,6 +6,7 @@ import babel from 'rollup-plugin-babel';
 import url from 'rollup-plugin-url';
 import json from 'rollup-plugin-json';
 import postcss from '@meck/rollup-plugin-postcss';
+import postcssUrl from './plugins/postcssUrl';
 import progress from 'rollup-plugin-progress';
 import clean from 'rollup-plugin-delete';
 import alias from 'rollup-plugin-alias';
@@ -133,7 +134,7 @@ export default function rollupConfig(
     postcss({
       extract: true,
       modules: cssModuleConfig,
-      plugins: [pxToUnits()],
+      plugins: [pxToUnits(), postcssUrl(options)],
     }),
     json({}),
     resolve({
