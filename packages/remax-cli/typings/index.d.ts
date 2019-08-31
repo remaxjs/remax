@@ -8,6 +8,8 @@ declare module 'rollup-plugin-alias';
 declare module 'rollup-plugin-inject';
 declare module 'rollup-plugin-url';
 declare module 'rollup-plugin-typescript';
+declare module 'postcss-url';
+declare module 'mkdirp';
 declare module '@remax/postcss-px2units';
 declare module '@babel/helper-module-imports';
 declare module 'acorn-walk';
