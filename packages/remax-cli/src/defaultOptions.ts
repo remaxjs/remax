@@ -6,6 +6,7 @@ const defaultOptions: RemaxOptions = {
   progress: true,
   output: 'dist',
   UNSAFE_wechatTemplateDepth: 20,
+  copy: [],
 };
 
 export default defaultOptions;

@@ -2,6 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import defaultOptions from './defaultOptions';
 
+interface CopyOptions {
+  src: string | Array<string>;
+  dest: string | Array<string>;
+}
+
 export interface RemaxOptions {
   cssModules: boolean | RegExp;
   cwd: string;
@@ -9,6 +14,7 @@ export interface RemaxOptions {
   output: string;
   UNSAFE_wechatTemplateDepth: number;
   alias?: any;
+  copy?: Array<CopyOptions>;
 }
 
 export interface CliOptions {

@@ -71,9 +71,10 @@ export default function rollupConfig(
     copy({
       targets: [
         {
-          src: ['src/native/*'],
-          dest: 'dist',
+          src: ['src/native/*', 'project.config.json'],
+          dest: options.output,
         },
+        ...options.copy!,
       ],
       copyOnce: true,
     }),
