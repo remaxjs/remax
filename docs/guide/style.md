@@ -32,18 +32,16 @@ Remax 会自动把 `px` 转换成小程序 `rpx`：
 
 如果你不想转换 `px` ，就写成 `PX`，如：
 
-```
+```css
 .view {
   height: 16PX:
 }
 ```
 
-Remax 同时也支持 [Css Modules](https://github.com/css-modules/css-modules)
-
-所有以 `module.css|less` 结尾的文件都将按照 **Css Modules** 处理。如：
+Remax 同时也支持 [Css Modules](https://github.com/css-modules/css-modules)，只需在 `remax.config.js` 设置 `cssModules` 为 `true`:
 
 ```css
-/* index.module.css */
+/* index.css */
 
 .view {
   display: flex;
@@ -51,14 +49,12 @@ Remax 同时也支持 [Css Modules](https://github.com/css-modules/css-modules)
 ```
 
 ```js
-import styles from './index.module.css';
+import './index.css';
 
 export default function() {
-  return <View className={styles.view}> view </View>;
+  return <View styleName="view"> view </View>;
 }
 ```
-
-你也可以通过 `remax.config.js` 配置不同的 Css Modules 匹配规则，关于 Remax 配置请参考 [指南 - 配置](/guide/config)
 
 ## 小程序自定义组件样式
 

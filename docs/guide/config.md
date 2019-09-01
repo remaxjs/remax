@@ -10,8 +10,8 @@ order: 22
 ```js
 // remax.config.js 默认配置
 module.exports = {
-  // boolean | RegExp 开启或关闭 css modules，支持传入正则表达式配置开启的文件命名格式
-  cssModules: /\.module\.(less|scss|css)$/,
+  // 为 true 则开启 css modules
+  cssModules: false,
   // 配置项目路径，默认当前路径
   cwd: process.cwd(),
   // 是否显示 build 进度，默认显示
