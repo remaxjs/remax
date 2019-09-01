@@ -37,7 +37,9 @@ export default function rollupConfig(
   adapter: Adapter,
   context?: Context
 ) {
-  const babelConfig = {
+  const cssModuleConfig = getCssModuleConfig(options.cssModules);
+
+  const babelConfig: any = {
     presets: [
       require.resolve('@babel/preset-typescript'),
       require.resolve('@babel/preset-env'),
@@ -55,6 +57,26 @@ export default function rollupConfig(
     ],
   };
 
+  if (cssModuleConfig.cssModule) {
+    babelConfig.plugins.push([
+      require.resolve('babel-plugin-react-css-modules'),
+      {
+        filetypes: {
+          '.less': {
+            syntax: 'postcss-less',
+          },
+          '.scss': {
+            syntax: 'postcss-scss',
+          },
+          '.styl': {
+            syntax: 'sugarss',
+          },
+        },
+        generateScopedName: cssModuleConfig.generateScopedName,
+      },
+    ]);
+  }
+
   const stubModules: string[] = [];
 
   adapters.forEach(name => {
@@ -65,7 +87,6 @@ export default function rollupConfig(
   });
 
   const entries = getEntries(options, adapter, context);
-  const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
   const plugins = [
     copy({
@@ -163,11 +184,6 @@ export default function rollupConfig(
 
         input = input
           .replace(/^demo\/src\//, '')
-          // stlye
-          .replace(/\.less$/, '.less.js')
-          .replace(/\.sass$/, '.sass.js')
-          .replace(/\.scss$/, '.scss.js')
-          .replace(/\.styl$/, '.styl.js')
           // typescript
           .replace(/\.ts$/, '.js')
           .replace(/\.tsx$/, '.js')
@@ -178,15 +194,12 @@ export default function rollupConfig(
           .replace(/\.jpeg$/, '.jpeg.js')
           .replace(/\.jpg$/, '.jpg.js');
 
-        // 不启用 css module 的 css 文件以及 app.css
-        if (
-          cssModuleConfig.globalModulePaths.some(reg => reg.test(input)) ||
-          input.indexOf('app.css') !== -1
-        ) {
+        // app.css
+        if (input.includes('app.css')) {
           return input.replace(/\.css/, adapter.extensions.style);
         }
 
-        return input.replace(/\.css/, '.css.js');
+        return input;
       },
     }),
     inject({

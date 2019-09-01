@@ -29,6 +29,7 @@ const alias: { [prop: string]: string } = {
   activeColor: 'activeColor',
   backgroundColor: 'backgroundColor',
   onClick: 'bindtap',
+  styleName: 'class',
 };
 
 export function getNativePropName(prop: string) {

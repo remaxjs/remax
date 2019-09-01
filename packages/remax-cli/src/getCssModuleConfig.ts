@@ -1,15 +1,7 @@
-function getCssModuleConfig(cssModule: boolean | RegExp) {
-  let regStr = cssModule.toString();
-
-  if (typeof cssModule === 'boolean') {
-    regStr = cssModule ? '^(?!.*.*)' : '(.*)';
-  } else {
-    regStr = '^(?!.*' + cssModule.toString().replace(/^\/|\/$/g, '') + ')';
-  }
-
+export default function getCssModuleConfig(cssModule: boolean) {
   return {
-    globalModulePaths: [new RegExp(regStr)],
+    cssModule,
+    globalModulePaths: [cssModule ? /^(?!.*.*)/ : /.*/],
+    generateScopedName: '[name]_[local]__[hash:base64:5]',
   };
 }
-
-export default getCssModuleConfig;
