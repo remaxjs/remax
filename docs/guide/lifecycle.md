@@ -37,3 +37,5 @@ export default () => {
   return <View>view</View>;
 };
 ```
+
+另外，小程序的 `onLoad` 事件对应 React 的 `componentDidMount` 事件，`onUnload` 对应 `componentWillUnmount` 事件。
