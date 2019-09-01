@@ -18,6 +18,8 @@ module.exports = {
   progress: true,
   // build 目录，默认 dist
   output: 'dist',
+  // copy 文件配置
+  copy: [],
 };
 ```
 
@@ -32,6 +34,21 @@ import Button from '@/components/Button';
 
 // 相当于
 import Button from 'project_cwd/src/components/Button';
+```
+
+### 文件 copy 配置
+
+Remax 支持拷贝文件或者目录，**数组类型**，每一项都必须包含 src 、dest 的配置，分别代表来源和需要拷贝到的目录，支持 glob 模式。
+
+```js
+module.exports = {
+  copy: [
+    {
+      src: 'path/to/your/directory',
+      dest: 'dist',
+    },
+  ],
+};
 ```
 
 ### 文件引用
