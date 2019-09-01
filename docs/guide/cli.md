@@ -18,6 +18,8 @@ Usage: remax-cli <command> [options]
   --target, -t  目标平台, 如 wechat, alipay                        [字符串] [必需]
 ```
 
+## 配置
+
 ## 使用环境变量
 
 `remax-cli` 支持在编译时读取在当前环境中的环境变量并提供给当前项目使用。在项目中，可以通过 `process.env` 访问所有名称以 `REMAX_APP_` 开头的环境变量。
