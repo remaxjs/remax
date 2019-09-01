@@ -13,7 +13,11 @@ export interface RemaxOptions {
   };
 }
 
-export default function getConfig(): RemaxOptions {
+export interface CliOptions {
+  target: string;
+}
+
+export default function getConfig(cli: CliOptions): RemaxOptions {
   const configPath: string = path.join(process.cwd(), './remax.config.js');
   if (fs.existsSync(configPath)) {
     // eslint-disable-next-line

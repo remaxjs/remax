@@ -69,10 +69,9 @@ function rewrite(input: string) {
 }
 
 function isInsideSrc(file: string, req: string) {
-  return path
-    .resolve(path.dirname(file), req)
-    .replace(process.cwd(), '')
-    .startsWith('/src/');
+  return winPath(
+    path.resolve(path.dirname(file), req).replace(process.cwd(), '')
+  ).startsWith('/src/');
 }
 
 export default function removeSrc(options: Options): Plugin {

@@ -25,7 +25,7 @@ export interface InputProps {
   adjustPosition?: boolean;
   placeholder?: string;
   placeholderStyle?: CSSProperties;
-  placeholderClass?: string;
+  placeholderClassName?: string;
   disabled?: boolean;
   cursorSpacing?: number;
   onInput?: (...params: any) => void;

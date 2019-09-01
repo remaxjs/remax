@@ -1,10 +1,11 @@
 import plainStyle from '../../../utils/plainStyle';
 
 const alias: { [prop: string]: string } = {
-  className: 'class',
   activeColor: 'activeColor',
   backgroundColor: 'backgroundColor',
-  onClick: 'bindtap',
+  enable3D: 'enable-3D',
+  hTouchMove: 'htouchmove',
+  vTouchMove: 'vtouchmove',
 };
 
 function getAlias(prop: string) {
@@ -14,11 +15,26 @@ function getAlias(prop: string) {
     return aliasProp;
   }
 
+  if (prop.endsWith('className')) {
+    return prop.replace('className', 'class');
+  }
+
   if (prop.startsWith('on')) {
-    return prop.toLowerCase().replace('on', 'bind');
+    return prop
+      .toLowerCase()
+      .replace('on', 'bind')
+      .replace('click', 'tap');
   }
 
   return prop;
+}
+
+function getValue(prop: string, value: any): any {
+  if (prop.endsWith('style') && prop !== 'layer-style') {
+    return plainStyle(value);
+  }
+
+  return value;
 }
 
 export interface GenericProps {
@@ -29,11 +45,7 @@ export default function propsAlias<T>(props: GenericProps) {
   const aliasProps: GenericProps = {};
 
   Object.keys(props).forEach(prop => {
-    if (prop === 'style') {
-      aliasProps.style = plainStyle(props.style!);
-    } else {
-      aliasProps[getAlias(prop)] = props[prop];
-    }
+    aliasProps[getAlias(prop)] = getValue(prop, props[prop]);
   });
 
   return aliasProps;

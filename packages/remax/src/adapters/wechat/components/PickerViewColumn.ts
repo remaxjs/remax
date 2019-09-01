@@ -1,5 +1,9 @@
 import factory from './factory';
 
-const PickerViewColumn = factory('picker-view-column');
+const PickerViewColumn = factory<PickerViewColumnProps>('picker-view-column');
+
+export interface PickerViewColumnProps {
+  id?: string;
+}
 
 export default PickerViewColumn;

@@ -12,8 +12,8 @@ export interface SwiperProps {
   current?: number;
   duration?: number;
   interval?: number;
-  circular?: number;
-  vertical?: number;
+  circular?: boolean;
+  vertical?: boolean;
   previousMargin?: string;
   nextMargin?: string;
   acceleration?: boolean;

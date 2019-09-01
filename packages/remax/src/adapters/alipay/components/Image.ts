@@ -11,6 +11,7 @@ export interface ImageProps {
   onLoad?: (e: any) => void;
   onError?: (e: any) => void;
   onTap?: (e: any) => void;
+  onClick?: (e: any) => void;
   catchTap?: (e: any) => void;
 }
 const Image = factory<ImageProps>('image');

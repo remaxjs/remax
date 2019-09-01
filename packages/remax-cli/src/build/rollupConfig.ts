@@ -6,6 +6,7 @@ import babel from 'rollup-plugin-babel';
 import url from 'rollup-plugin-url';
 import json from 'rollup-plugin-json';
 import postcss from '@meck/rollup-plugin-postcss';
+import postcssUrl from './plugins/postcssUrl';
 import progress from 'rollup-plugin-progress';
 import clean from 'rollup-plugin-delete';
 import alias from 'rollup-plugin-alias';
@@ -87,9 +88,6 @@ export default function rollupConfig(
   });
 
   const plugins = [
-    clean({
-      targets: ['dist/*', '!.tea'],
-    }),
     copy({
       targets: [
         {
@@ -153,7 +151,7 @@ export default function rollupConfig(
     postcss({
       extract: true,
       modules: cssModuleConfig,
-      plugins: [pxToUnits()],
+      plugins: [pxToUnits(), postcssUrl(options)],
     }),
     json({}),
     replace({
@@ -232,6 +230,14 @@ export default function rollupConfig(
 
   if (options.progress) {
     plugins.push(progress());
+  }
+
+  if (process.env.NODE_ENV === 'production') {
+    plugins.unshift(
+      clean({
+        targets: ['dist/*', '!.tea'],
+      })
+    );
   }
 
   const config: RollupOptions = {

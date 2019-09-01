@@ -22,6 +22,7 @@ export function run(args: any, context?: any) {
       alias: 't',
       type: 'string',
       required: true,
+      requiresArg: true,
     })
     .showHelpOnFail(false)
     .parse(args);

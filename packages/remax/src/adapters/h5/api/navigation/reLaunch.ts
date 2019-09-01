@@ -1,4 +1,4 @@
-import * as API from '../../../../api';
+import * as API from '../../types';
 
 export const reLaunch: typeof API.reLaunch = params => {
   return new Promise(resolve => {
