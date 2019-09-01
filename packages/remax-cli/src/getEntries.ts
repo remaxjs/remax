@@ -25,7 +25,7 @@ interface Entries {
 }
 
 function searchFile(file: string, ext?: string) {
-  const exts = [ext, 'ts', 'tsx', 'js'].filter(e => e);
+  const exts = [ext, 'ts', 'tsx', 'js', 'jsx'].filter(e => e);
 
   for (const e of exts) {
     const extFile = file + '.' + e;
