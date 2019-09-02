@@ -1,6 +1,6 @@
 {
   "name": "remax-cli",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "./lib/index.js",
   "bin": {
@@ -78,7 +78,7 @@
     "@types/through2": "^2.0.34",
     "jest": "^24.8.0",
     "react": "^16.8.6",
-    "remax": "^1.0.11",
+    "remax": "^1.0.12",
     "ts-jest": "^24.0.2",
     "typescript": "^3.2.2"
   }
