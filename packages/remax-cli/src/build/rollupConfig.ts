@@ -201,6 +201,11 @@ export default function rollupConfig(
           input
             .replace(/node_modules/g, 'npm')
             .replace(/\.js_commonjs-proxy$/, '.js_commonjs-proxy.js')
+            // 支付宝小程序不允许目录带 @
+            .replace(
+              /@(.+?)\/(.+)$/,
+              (match, group1, group2) => `_${group1}/${group2}`
+            )
         );
       },
     }),
