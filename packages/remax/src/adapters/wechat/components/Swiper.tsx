@@ -19,10 +19,10 @@ export interface SwiperProps {
   displayMultipleItems?: number; // 1 否 同时显示的滑块数量 1.9.0
   skipHiddenItemLayout?: boolean; // false 否 是否跳过未显示的滑块布局，设为 true 可优化复杂情况下的滑动性能，但会丢失隐藏状态滑块的布局信息 1.9.0
   easingFunction?: string; // "default" 否 指定 swiper 切换缓动动画类型 2.6.5
-  onClick?: (event: any) => void;
-  onChange?: (event: any) => void; // 否 current 改变时会触发 change 事件，event.detail = {current, source} 1.0.0
-  onTransition?: (event: any) => void; // 否 swiper-item 的位置发生改变时会触发 transition 事件，event.detail = {dx: dx, dy: dy} 2.4.3
-  onAnimationFinish?: (event: any) => void; // 否 动画结束时会触发 animationfinish 事件，event.detail 同上 1.9.0
+  onClick?: (event: any) => any;
+  onChange?: (event: any) => any; // 否 current 改变时会触发 change 事件，event.detail = {current, source} 1.0.0
+  onTransition?: (event: any) => any; // 否 swiper-item 的位置发生改变时会触发 transition 事件，event.detail = {dx: dx, dy: dy} 2.4.3
+  onAnimationFinish?: (event: any) => any; // 否 动画结束时会触发 animationfinish 事件，event.detail 同上 1.9.0
   animation?: Record<string, any>[];
 }
 

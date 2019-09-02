@@ -21,11 +21,11 @@ export interface LivePusherProps {
   devicePosition?: string; // front 否 前置或后置，值为front, back 2.3.0
   backgroundMute?: boolean; // false 否 进入后台时是否静音 1.7.0
   mirror?: boolean; // false 否 设置推流画面是否镜像，产生的效果在 live-player 反应到 2.7.0
-  onStateChange?: (event: any) => void; //  否 状态变化事件，detail = {code} 1.7.0
-  onNetStatus?: (event: any) => void; //  否 网络状态通知，detail = {info} 1.9.0
-  onError?: (event: any) => void; //  否 渲染错误事件，detail = {errMsg, errCode} 1.7.4
-  onBgmStart?: (event: any) => void; //  否 背景音开始播放时触发 2.4.0
-  onBgmProgress?: (event: any) => void; //  否 背景音进度变化时触发，detail = {progress, duration} 2.4.0
-  onBgmComplete?: (event: any) => void; //  否 背景音播放完成时触发 2.4.0
+  onStateChange?: (event: any) => any; //  否 状态变化事件，detail = {code} 1.7.0
+  onNetStatus?: (event: any) => any; //  否 网络状态通知，detail = {info} 1.9.0
+  onError?: (event: any) => any; //  否 渲染错误事件，detail = {errMsg, errCode} 1.7.4
+  onBgmStart?: (event: any) => any; //  否 背景音开始播放时触发 2.4.0
+  onBgmProgress?: (event: any) => any; //  否 背景音进度变化时触发，detail = {progress, duration} 2.4.0
+  onBgmComplete?: (event: any) => any; //  否 背景音播放完成时触发 2.4.0
 }
 export default LivePusher;

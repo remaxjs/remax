@@ -11,7 +11,7 @@ export interface IconProps {
   size?: number | string; // 23 否 icon的大小 1.0.0
   color?: string; //  否 icon的颜色，同css的color 1.0.0
   animation?: Record<string, any>[];
-  onClick?: (event: any) => void;
+  onClick?: (event: any) => any;
 }
 
 export default Icon;
