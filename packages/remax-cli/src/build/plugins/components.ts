@@ -13,6 +13,24 @@ interface Component {
 
 const components: { [id: string]: Component } = {};
 
+function shouldRegisterAllProps(
+  adapter: Adapter,
+  node: t.JSXElement,
+  componentName: string
+) {
+  if (adapter.name === 'alipay') {
+    return true;
+  }
+
+  if (
+    node.openingElement.attributes.find(a => a.type === 'JSXSpreadAttribute')
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
 export default (adapter: Adapter) => () => ({
   visitor: {
     JSXElement(path: NodePath) {
@@ -36,25 +54,21 @@ export default (adapter: Adapter) => () => ({
         const componentName = componentPath.node.imported.name;
         const id = kebabCase(componentName);
 
-        let usedProps = adapter.hostComponents(id).props;
-
-        const usedAllProps = node.openingElement.attributes.find(
-          attr => attr.type === 'JSXSpreadAttribute'
-        );
-
-        if (!usedAllProps) {
-          usedProps = node.openingElement.attributes.map(e => {
-            const propName = get(e, 'name.name') as string;
-            return propName;
-          });
-        }
-
         if (id === 'swiper-item') {
           return;
         }
 
         if (adapter.name === 'alipay' && id === 'picker-view-column') {
           return;
+        }
+
+        let usedProps = adapter.hostComponents(id).props;
+
+        if (!shouldRegisterAllProps(adapter, node, componentName)) {
+          usedProps = node.openingElement.attributes.map(e => {
+            const propName = get(e, 'name.name') as string;
+            return propName;
+          });
         }
 
         const props = usedProps
