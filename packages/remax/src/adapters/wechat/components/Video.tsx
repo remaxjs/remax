@@ -32,7 +32,7 @@ export interface VideoProps {
   autoPauseIfOpenNative?: boolean; // 当跳转到其它微信原生页面时，是否自动暂停本页面的视频 2.5.0
   vslideGesture?: boolean; // 在非全屏模式下，是否开启亮度与音量调节手势（同 page-gesture） 2.6.2
   vslideGestureInFullscreen?: boolean; // 在全屏模式下，是否开启亮度与音量调节手势 2.6.2
-  onClick?: (event: any) => void;
+  onClick?: (event: any) => any;
   onPlay?: (event: any) => any; // 当开始/继续播放时触发play事件 1.0.0
   onPause?: (event: any) => any; // 当暂停播放时触发 pause 事件 1.0.0
   onEnded?: (event: any) => any; // 当播放到末尾时触发 ended 事件 1.0.0

@@ -25,13 +25,13 @@ export interface ButtonProps {
   sendMessageImg?: string; // 截图 否 会话内消息卡片图片，open-type="contact"时有效 1.5.0
   appParameter?: string; //  否 打开 APP 时，向 APP 传递的参数，open-type=launchApp时有效 1.9.5
   showMessageCard?: boolean; // false 否 是否显示会话内消息卡片，设置此参数为 true，用户进入客服会话会在右下角显示"可能要发送的小程序"提示，用户点击后可以快速发送小程序消息，open-type="contact"时有效 1.5.0
-  onClick?: (event: any) => void;
-  onGetUserinfo?: () => void; // 否 用户点击该按钮时，会返回获取到的用户信息，回调的detail数据与wx.getUserInfo返回的一致，open-type="getUserInfo"时有效 1.3.0
-  onContact?: () => void; // 否 客服消息回调，open-type="contact"时有效 1.5.0
-  onGetPhonenumber?: () => void; // 否 获取用户手机号回调，open-type=getPhoneNumber时有效 1.2.0
-  onError?: () => void; // 否 当使用开放能力时，发生错误的回调，open-type=launchApp时有效 1.9.5
-  onOpenSetting?: () => void; //  否 在打开授权设置页后回调，open-type=openSetting时有效 2.0.7
-  onLaunchApp?: () => void; //  否 打开 APP 成功的回调，open-type=launchApp时有效 2.4.4
+  onClick?: (event: any) => any;
+  onGetUserInfo?: (event: any) => any; // 否 用户点击该按钮时，会返回获取到的用户信息，回调的detail数据与wx.getUserInfo返回的一致，open-type="getUserInfo"时有效 1.3.0
+  onContact?: (event: any) => any; // 否 客服消息回调，open-type="contact"时有效 1.5.0
+  onGetPhoneNumber?: (event: any) => any; // 否 获取用户手机号回调，open-type=getPhoneNumber时有效 1.2.0
+  onError?: (event: any) => any; // 否 当使用开放能力时，发生错误的回调，open-type=launchApp时有效 1.9.5
+  onOpenSetting?: (event: any) => any; //  否 在打开授权设置页后回调，open-type=openSetting时有效 2.0.7
+  onLaunchApp?: (event: any) => any; //  否 打开 APP 成功的回调，open-type=launchApp时有效 2.4.4
   animation?: Record<string, any>[];
 }
 

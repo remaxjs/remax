@@ -32,8 +32,8 @@ export interface InputProps {
   onClick?: (...params: any) => void;
   onFocus?: (...params: any) => void;
   onBlur?: (...params: any) => void;
-  onConfirm?: () => void;
-  onKeyboardHeightChange?: () => void;
+  onConfirm?: (event: any) => any;
+  onKeyboardHeightChange?: (event: any) => any;
   animation?: Record<string, any>[];
 }
 

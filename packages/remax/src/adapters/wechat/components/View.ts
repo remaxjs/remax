@@ -12,16 +12,16 @@ export interface ViewProps {
   hoverStartTime?: number; // 50 否 按住后多久出现点击态，单位毫秒 1.0.0
   hoverStayTime?: number; // 400 否 手指松开后点击态保留时间，单位毫秒 1.0.0
   disableScroll?: boolean;
-  onClick?: (event: any) => void;
-  onTouchStart?: (event: any) => void;
-  onTouchMove?: (event: any) => void;
-  onTouchEnd?: (event: any) => void;
-  onTouchCancel?: (event: any) => void;
-  onLongClick?: (event: any) => void;
-  onTransitionEnd?: (event: any) => void;
-  onAnimationIteration?: (event: any) => void;
-  onAnimationStart?: (event: any) => void;
-  onAnimationEnd?: (event: any) => void;
+  onClick?: (event: any) => any;
+  onTouchStart?: (event: any) => any;
+  onTouchMove?: (event: any) => any;
+  onTouchEnd?: (event: any) => any;
+  onTouchCancel?: (event: any) => any;
+  onLongClick?: (event: any) => any;
+  onTransitionEnd?: (event: any) => any;
+  onAnimationIteration?: (event: any) => any;
+  onAnimationStart?: (event: any) => any;
+  onAnimationEnd?: (event: any) => any;
   animation?: Record<string, any>[];
 }
 

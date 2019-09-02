@@ -9,7 +9,7 @@ export interface LabelProps {
   style?: CSSProperties;
   for?: string; //  否 绑定控件的 id 1.0.0
   animation?: Record<string, any>[];
-  onClick?: (event: any) => void;
+  onClick?: (event: any) => any;
 }
 
 export default Label;

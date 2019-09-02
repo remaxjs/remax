@@ -17,10 +17,10 @@ export interface ScrollViewProps {
   scrollWithAnimation?: boolean; // false 否 在设置滚动条位置时使用动画过渡 1.0.0
   enableBackToTop?: boolean; // false 否 iOS点击顶部状态栏、安卓双击标题栏时，滚动条返回顶部，只支持竖向 1.0.0
   enableFlex?: boolean; // false 否 启用 flexbox 布局。开启后，当前节点声明了 display: flex 就会成为 flex container，并作用于其孩子节点。 2.7.3
-  onScrollToUpper?: (event: any) => void; //  否 滚动到顶部/左边时触发 1.0.0
+  onScrollToUpper?: (event: any) => any; //  否 滚动到顶部/左边时触发 1.0.0
   onScrollToLower?: (evnt: any) => void; //  否 滚动到底部/右边时触发 1.0.0
-  onScroll?: (event: any) => void; //  否 滚动时触发，event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY} 1.0.0
-  onClick?: (event: any) => void;
+  onScroll?: (event: any) => any; //  否 滚动时触发，event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY} 1.0.0
+  onClick?: (event: any) => any;
   animation?: Record<string, any>[];
 }
 
