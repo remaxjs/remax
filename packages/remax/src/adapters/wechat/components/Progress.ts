@@ -17,8 +17,8 @@ export interface ProgressProps {
   backgroundColor?: string; // #EBEBEB 否 未选择的进度条的颜色 1.0.0
   active?: boolean; // false 否 进度条从左往右的动画 1.0.0
   activeMode?: string; // backwards 否 backwards: 动画从头播；forwards：动画从上次结束点接着播 1.7.0
-  onClick?: (event: any) => void;
-  onActiveEnd?: (event: any) => void; //  否 动画完成事件 2.4.1
+  onClick?: (event: any) => any;
+  onActiveEnd?: (event: any) => any; //  否 动画完成事件 2.4.1
   animation?: Record<string, any>[];
 }
 

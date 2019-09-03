@@ -15,9 +15,9 @@ export interface LivePlayerProps {
   soundMode?: string; // speaker 否 声音输出方式 1.9.90
   autoPauseIfNavigate?: boolean; // true 否 当跳转到其它小程序页面时，是否自动暂停本页面的实时音视频播放 2.5.0
   autoPauseIfOpenNative?: boolean; // true 否 当跳转到其它微信原生页面时，是否自动暂停本页面的实时音视频播放 2.5.0
-  onStateChange?: (event: any) => void; //  否 播放状态变化事件，detail = {code} 1.7.0
-  onFullScreenChange?: (event: any) => void; //  否 全屏变化事件，detail = {direction, fullScreen} 1.7.0
-  onNetStatus?: (event: any) => void; //  否 网络状态通知，detail = {info} 1.9.0
+  onStateChange?: (event: any) => any; //  否 播放状态变化事件，detail = {code} 1.7.0
+  onFullScreenChange?: (event: any) => any; //  否 全屏变化事件，detail = {direction, fullScreen} 1.7.0
+  onNetStatus?: (event: any) => any; //  否 网络状态通知，detail = {info} 1.9.0
 }
 
 export default LivePlayer;

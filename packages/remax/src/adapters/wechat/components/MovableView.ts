@@ -20,11 +20,11 @@ export interface MovableViewProps {
   scaleMax?: number; // 10 否 定义缩放倍数最大值 1.9.90
   scaleValue?: number; // 1 否 定义缩放倍数，取值范围为 0.5 - 10 1.9.90
   animation?: boolean; // true 否 是否使用动画 2.1.0
-  onClick?: (event: any) => void;
-  onChange?: (event: any) => void; //  否 拖动过程中触发的事件，event.detail = {x, y, source} 1.9.90
-  onScale?: (event: any) => void; //  否 缩放过程中触发的事件，event.detail = {x, y, scale}，x和y字段在2.1.0之后支持 1.9.90
-  hTouchMove?: (event: any) => void; //  否 初次手指触摸后移动为横向的移动时触发，如果catch此事件，则意味着touchmove事件也被catch 1.9.90
-  vTouchMove?: (event: any) => void; //  否 初次手指触摸后移动为纵向的移动时触发，如果catch此事件，则意味着touchmove事件也被catch 1.9.90
+  onClick?: (event: any) => any;
+  onChange?: (event: any) => any; //  否 拖动过程中触发的事件，event.detail = {x, y, source} 1.9.90
+  onScale?: (event: any) => any; //  否 缩放过程中触发的事件，event.detail = {x, y, scale}，x和y字段在2.1.0之后支持 1.9.90
+  hTouchMove?: (event: any) => any; //  否 初次手指触摸后移动为横向的移动时触发，如果catch此事件，则意味着touchmove事件也被catch 1.9.90
+  vTouchMove?: (event: any) => any; //  否 初次手指触摸后移动为纵向的移动时触发，如果catch此事件，则意味着touchmove事件也被catch 1.9.90
 }
 
 export default MovableView;

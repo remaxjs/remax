@@ -1,8 +1,10 @@
+import * as React from 'react';
 import factory from './factory';
 
 export interface ButtonProps {
   id?: string;
   className?: string;
+  style?: React.CSSProperties;
   size?: 'default' | 'mini';
   type?: 'primary' | 'default' | 'warn';
   plain?: boolean;

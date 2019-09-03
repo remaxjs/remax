@@ -12,7 +12,7 @@ export interface CheckboxGroupProps {
   checked?: boolean; // false 否 当前是否选中，可用来设置默认选中 1.0.0
   color?: string; // #09BB07 否 checkbox的颜色，同css的color 1.0.0
   animation?: Record<string, any>[];
-  onClick?: (event: any) => void;
+  onClick?: (event: any) => any;
 }
 
 export default CheckboxGroup;

@@ -17,9 +17,9 @@ export interface SliderProps {
   blockSize?: number; // 28 否 滑块的大小，取值范围为 12 - 28 1.9.0
   blockColor?: string; // #ffffff 否 滑块的颜色 1.9.0
   showValue?: boolean; // false 否 是否显示当前 value 1.0.0
-  onChange?: (event: any) => void; //  否 完成一次拖动后触发的事件，event.detail = {value} 1.0.0
-  onChanging?: (event: any) => void; //  否 拖动过程中触发的事件，event.detail = {value} 1.7.0
-  onClick?: (event: any) => void;
+  onChange?: (event: any) => any; //  否 完成一次拖动后触发的事件，event.detail = {value} 1.0.0
+  onChanging?: (event: any) => any; //  否 拖动过程中触发的事件，event.detail = {value} 1.7.0
+  onClick?: (event: any) => any;
   animation?: Record<string, any>[];
 }
 

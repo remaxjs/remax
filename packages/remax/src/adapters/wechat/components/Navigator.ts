@@ -16,9 +16,9 @@ export interface NavigatorProps {
   hoverStopPropagation?: boolean; // false 否 指定是否阻止本节点的祖先节点出现点击态 1.5.0
   hoverStartTime?: number; // 50 否 按住后多久出现点击态，单位毫秒 1.0.0
   hoverStayTime?: number; // 600 否 手指松开后点击态保留时间，单位毫秒 1.0.0
-  onSuccess?: (event: any) => void; //  否 当target="miniProgram"时有效，跳转小程序成功 2.0.7
-  onFail?: (event: any) => void; //  否 当target="miniProgram"时有效，跳转小程序失败 2.0.7
-  onComplete?: (event: any) => void; //  否 当target="miniProgram"时有效，跳转小程序完成 2.0.7
+  onSuccess?: (event: any) => any; //  否 当target="miniProgram"时有效，跳转小程序成功 2.0.7
+  onFail?: (event: any) => any; //  否 当target="miniProgram"时有效，跳转小程序失败 2.0.7
+  onComplete?: (event: any) => any; //  否 当target="miniProgram"时有效，跳转小程序完成 2.0.7
 }
 
 export default Navigator;

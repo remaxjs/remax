@@ -11,7 +11,7 @@ export interface RadioProps {
   checked?: boolean; // false 否 当前是否选中 1.0.0
   disabled: boolean; // false 否 是否禁用 1.0.0
   color?: string; // #09BB07 否 radio的颜色，同css的color 1.0.0
-  onClick?: (event: any) => void;
+  onClick?: (event: any) => any;
   animation?: Record<string, any>[];
 }
 
