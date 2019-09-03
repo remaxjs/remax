@@ -22,3 +22,43 @@ export const templates = {
 };
 
 export const moduleFormat = 'cjs';
+
+// TODO: alias 方法在 remax 和 remax-cli 都重复定义了，想办法 DRY
+const alias: { [prop: string]: string } = {
+  className: 'class',
+  activeColor: 'activeColor',
+  backgroundColor: 'backgroundColor',
+  onClick: 'bindtap',
+};
+
+export function getNativePropName(prop: string) {
+  const aliasProp = alias[prop];
+
+  if (aliasProp) {
+    return aliasProp;
+  }
+
+  if (prop.startsWith('on')) {
+    return prop.toLowerCase().replace('on', 'bind');
+  }
+
+  return prop;
+}
+
+export function getIcons(config: any) {
+  if (!config.tabBar) {
+    return [];
+  }
+
+  const tabs: { iconPath: string; selectedIconPath: string }[] =
+    config.tabBar.list;
+
+  if (tabs) {
+    return tabs.reduce<string[]>(
+      (images, tab) => [...images, tab.iconPath, tab.selectedIconPath],
+      []
+    );
+  }
+
+  return [];
+}

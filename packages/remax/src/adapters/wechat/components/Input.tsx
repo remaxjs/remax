@@ -25,15 +25,15 @@ export interface InputProps {
   adjustPosition?: boolean;
   placeholder?: string;
   placeholderStyle?: CSSProperties;
-  placeholderClass?: string;
+  placeholderClassName?: string;
   disabled?: boolean;
   cursorSpacing?: number;
   onInput?: (...params: any) => void;
   onClick?: (...params: any) => void;
   onFocus?: (...params: any) => void;
   onBlur?: (...params: any) => void;
-  onConfirm?: () => void;
-  onKeyboardHeightChange?: () => void;
+  onConfirm?: (event: any) => any;
+  onKeyboardHeightChange?: (event: any) => any;
   animation?: Record<string, any>[];
 }
 

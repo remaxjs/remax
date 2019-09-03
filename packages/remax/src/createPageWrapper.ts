@@ -27,16 +27,16 @@ export default function createPageWrapper(
 
       Object.keys(Lifecycle).forEach(phase => {
         const callback = callbackName(phase);
-        (this as any)[callback] = () => {
-          return this.callLifecycle(phase);
+        (this as any)[callback] = (...args: any[]) => {
+          return this.callLifecycle(phase, ...args);
         };
       });
     }
 
-    callLifecycle(phase: string) {
+    callLifecycle(phase: string, ...args: any[]) {
       const callback = callbackName(phase);
       if (this.instance && typeof this.instance[callback] === 'function') {
-        return this.instance[callback]();
+        return this.instance[callback](...args);
       }
     }
 

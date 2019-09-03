@@ -1,5 +1,5 @@
 import { Toast } from 'antd-mobile';
-import * as API from '../../../../api';
+import * as API from '../../types';
 
 export const hideToast: typeof API.hideToast = params => {
   return new Promise(resolve => {

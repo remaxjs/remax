@@ -6,9 +6,11 @@ import babel from 'rollup-plugin-babel';
 import url from 'rollup-plugin-url';
 import json from 'rollup-plugin-json';
 import postcss from '@meck/rollup-plugin-postcss';
+import postcssUrl from './plugins/postcssUrl';
 import progress from 'rollup-plugin-progress';
 import clean from 'rollup-plugin-delete';
 import alias from 'rollup-plugin-alias';
+import inject from 'rollup-plugin-inject';
 import copy from 'rollup-plugin-copy';
 import stub from './plugins/stub';
 import pxToUnits from '@remax/postcss-px2units';
@@ -53,12 +55,6 @@ export default function rollupConfig(
     ],
   };
 
-  if (adapter.name !== 'alipay') {
-    babelConfig.plugins.unshift(
-      require.resolve('babel-plugin-transform-async-to-promises')
-    );
-  }
-
   const stubModules: string[] = [];
 
   adapters.forEach(name => {
@@ -72,9 +68,6 @@ export default function rollupConfig(
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
   const plugins = [
-    clean({
-      targets: ['dist/*', '!.tea'],
-    }),
     copy({
       targets: [
         {
@@ -138,7 +131,7 @@ export default function rollupConfig(
     postcss({
       extract: true,
       modules: cssModuleConfig,
-      plugins: [pxToUnits()],
+      plugins: [pxToUnits(), postcssUrl(options)],
     }),
     json({}),
     resolve({
@@ -196,6 +189,10 @@ export default function rollupConfig(
         return input.replace(/\.css/, '.css.js');
       },
     }),
+    inject({
+      exclude: 'node_modules/**',
+      regeneratorRuntime: '@remax/regenerator-runtime',
+    }),
     rename({
       matchAll: true,
       map: input => {
@@ -204,6 +201,11 @@ export default function rollupConfig(
           input
             .replace(/node_modules/g, 'npm')
             .replace(/\.js_commonjs-proxy$/, '.js_commonjs-proxy.js')
+            // 支付宝小程序不允许目录带 @
+            .replace(
+              /@(.+?)\/(.+)$/,
+              (match, group1, group2) => `_${group1}/${group2}`
+            )
         );
       },
     }),
@@ -217,8 +219,16 @@ export default function rollupConfig(
     plugins.push(progress());
   }
 
+  if (process.env.NODE_ENV === 'production') {
+    plugins.unshift(
+      clean({
+        targets: ['dist/*', '!.tea'],
+      })
+    );
+  }
+
   const config: RollupOptions = {
-    input: [entries.app, ...entries.pages.map(p => p.file)],
+    input: [entries.app, ...entries.pages.map(p => p.file), ...entries.images],
     output: {
       dir: options.output,
       format: adapter.moduleFormat,

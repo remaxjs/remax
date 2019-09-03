@@ -50,11 +50,11 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       };
     },
 
-    callLifecycle(lifecycle: Lifecycle) {
+    callLifecycle(lifecycle: Lifecycle, ...args: any[]) {
       const callbacks = this.lifecycleCallback[lifecycle] || [];
       let result;
       callbacks.forEach((callback: any) => {
-        result = callback();
+        result = callback(...args);
       });
       if (result) {
         return result;
@@ -62,7 +62,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
 
       const callback = callbackName(lifecycle);
       if (this.wrapper[callback]) {
-        return this.wrapper[callback]();
+        return this.wrapper[callback](...args);
       }
     },
 
@@ -74,8 +74,8 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       return this.callLifecycle(Lifecycle.hide);
     },
 
-    onPullDownRefresh() {
-      return this.callLifecycle(Lifecycle.pullDownRefresh);
+    onPullDownRefresh(e: any) {
+      return this.callLifecycle(Lifecycle.pullDownRefresh, e);
     },
 
     onReachBottom() {
@@ -86,8 +86,8 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       return this.callLifecycle(Lifecycle.pageScroll);
     },
 
-    onShareAppMessage() {
-      return this.callLifecycle(Lifecycle.shareAppMessage);
+    onShareAppMessage(options: any) {
+      return this.callLifecycle(Lifecycle.shareAppMessage, options);
     },
 
     onTitleClick() {
@@ -98,12 +98,37 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       return this.callLifecycle(Lifecycle.optionMenuClick);
     },
 
-    onPopMenuClick() {
-      return this.callLifecycle(Lifecycle.popMenuClick);
+    onPopMenuClick(e: any) {
+      return this.callLifecycle(Lifecycle.popMenuClick, e);
     },
 
     onPullIntercept() {
       return this.callLifecycle(Lifecycle.pullIntercept);
+    },
+
+    events: {
+      // 页面返回时触发
+      onBack(this: any) {
+        return this.callLifecycle(Lifecycle.back);
+      },
+
+      // 键盘高度变化时触发
+      onKeyboardHeight(this: any, e: any) {
+        return this.callLifecycle(Lifecycle.keyboardHeight, e);
+      },
+
+      onTabItemTap(this: any, e: any) {
+        return this.callLifecycle(Lifecycle.keyboardHeight, e);
+      },
+
+      // 点击但切换tabItem前触发
+      beforeTabItemTap(this: any) {
+        return this.callLifecycle(Lifecycle.beforeTabItemTap);
+      },
+
+      onResize(this: any, e: any) {
+        return this.callLifecycle(Lifecycle.keyboardHeight, e);
+      },
     },
 
     /**

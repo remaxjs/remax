@@ -1,30 +1,30 @@
 {
   "name": "remax",
-  "version": "1.0.4",
-  "description": "Runtime of remax",
+  "version": "1.0.14",
+  "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "lib/index.js",
-  "scripts": {
-    "watch": "tsc -w",
-    "build": "tsc",
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/remaxjs/remax.git"
-  },
   "keywords": [
     "react",
     "miniapp",
     "mini-program",
     "wechat"
   ],
-  "author": "code.falling@gmail.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/remaxjs/remax/issues"
   },
-  "homepage": "https://github.com/remaxjs/remax#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remaxjs/remax.git"
+  },
+  "homepage": "https://remaxjs.org",
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc",
+    "test": "jest"
+  },
   "dependencies": {
+    "miniprogram-api-typings": "^2.8.1",
     "react-reconciler": "0.20.4",
     "scheduler": "0.13.6",
     "shallowequal": "^1.1.0"

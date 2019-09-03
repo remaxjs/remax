@@ -69,14 +69,14 @@ export function View(props) {
       // 封装微信端的 View 组件逻辑，处理微信端的样式
       ...
 
-      return <AlipayView {...props} />;
+      return <WechatView {...props} />;
     }
 
     case 'alipay': {
       // 封装支付宝端的 View 组件逻辑，处理支付宝端的样式
       ...
 
-      return <WechatView {...props} />;
+      return <AlipayView {...props} />;
     }
   }
 }
@@ -128,7 +128,7 @@ export function navigateTo(...params) {
       // 封装支付宝端的 navigateTO 逻辑
       ...
 
-      return wechatNavigateTo(...params);
+      return alipayNavigateTo(...params);
     }
   }
 }

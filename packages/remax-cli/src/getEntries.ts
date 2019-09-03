@@ -11,16 +11,21 @@ interface AppConfig {
     root: string;
     pages: string[];
   }[];
+  tabBar?: {
+    items: { icon: string; activeIcon: string }[];
+    list: { iconPath: string; selectedIconPath: string }[];
+  };
 }
 
 interface Entries {
   pageConfigPath: string[];
   app: string;
   pages: Array<{ path: string; file: string }>;
+  images: string[];
 }
 
 function searchFile(file: string, ext?: string) {
-  const exts = [ext, 'ts', 'tsx', 'js'].filter(e => e);
+  const exts = [ext, 'ts', 'tsx', 'js', 'jsx'].filter(e => e);
 
   for (const e of exts) {
     const extFile = file + '.' + e;
@@ -38,11 +43,12 @@ function searchFile(file: string, ext?: string) {
 
 export default function getEntries(
   options: RemaxOptions,
-  adpater: Adapter,
+  adapter: Adapter,
   context?: Context
 ): Entries {
   let pages: any = [];
   let subpackages: any = [];
+  let images: string[] = [];
 
   if (!context) {
     const appConfigPath: string = path.join(
@@ -53,9 +59,11 @@ export default function getEntries(
     if (!fs.existsSync(appConfigPath)) {
       throw new Error(`${appConfigPath} is not found`);
     }
-    const appConfig: AppConfig = readManifest(appConfigPath, adpater.name);
+    const appConfig: AppConfig = readManifest(appConfigPath, adapter.name);
     pages = appConfig.pages;
     subpackages = appConfig.subpackages || [];
+    images = adapter.getIcons(appConfig);
+
     if (!pages || pages.length === 0) {
       throw new Error(
         'app.config.js `pages` field should not be undefined or empty object'
@@ -70,6 +78,7 @@ export default function getEntries(
     pageConfigPath: [],
     app: searchFile(path.join(options.cwd, 'src', 'app')),
     pages: [],
+    images: [],
   };
 
   entries.pages = pages.reduce(
@@ -98,6 +107,12 @@ export default function getEntries(
       }, [])
     );
   });
+
+  entries.images = images
+    .filter(i => i)
+    .reduce<string[]>((paths, image) => {
+      return [...paths, path.join(options.cwd, 'src', image)];
+    }, []);
 
   return entries;
 }

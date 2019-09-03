@@ -1,5 +1,6 @@
 import VNode, { Path, RawNode } from './VNode';
 import { generate } from './instanceId';
+import { FiberRoot } from 'react-reconciler';
 
 function stringPath(path: Path) {
   return path.join('.');
@@ -16,6 +17,7 @@ export default class Container {
   context: any;
   root: VNode;
   updateQueue: SpliceUpdate[] = [];
+  _rootContainer?: FiberRoot;
 
   constructor(context: any) {
     this.context = context;

@@ -1,7 +1,7 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { get } from 'dot-prop';
-import { kebabCase, unionBy } from 'lodash';
+import { kebabCase } from 'lodash';
 import { Adapter } from '../adapters';
 
 interface Component {
@@ -11,7 +11,25 @@ interface Component {
   children?: Component[];
 }
 
-const components: Component[] = [];
+const components: { [id: string]: Component } = {};
+
+function shouldRegisterAllProps(
+  adapter: Adapter,
+  node: t.JSXElement,
+  componentName: string
+) {
+  if (adapter.name === 'alipay') {
+    return true;
+  }
+
+  if (
+    node.openingElement.attributes.find(a => a.type === 'JSXSpreadAttribute')
+  ) {
+    return true;
+  }
+
+  return false;
+}
 
 export default (adapter: Adapter) => () => ({
   visitor: {
@@ -33,32 +51,44 @@ export default (adapter: Adapter) => () => ({
           return;
         }
 
-        // 基础组件
-        node.openingElement.attributes.map(e => {
-          if (t.isJSXAttribute(e)) {
-            const propName = get(e, 'name.name') as string;
-            return propName;
-          }
-        });
-
         const componentName = componentPath.node.imported.name;
-
         const id = kebabCase(componentName);
 
         if (id === 'swiper-item') {
           return;
         }
 
-        if (id === 'picker-view-column') {
+        if (adapter.name === 'alipay' && id === 'picker-view-column') {
           return;
         }
 
-        const { props } = adapter.hostComponents(id);
+        let usedProps = adapter.hostComponents(id).props;
 
-        components.push({
-          type: kebabCase(componentName),
-          id,
-          props,
+        if (!shouldRegisterAllProps(adapter, node, componentName)) {
+          usedProps = node.openingElement.attributes.map(e => {
+            const propName = get(e, 'name.name') as string;
+            return propName;
+          });
+        }
+
+        const props = usedProps
+          .filter(prop => !!prop)
+          .map(prop => adapter.getNativePropName(prop as string));
+
+        if (!components[id]) {
+          components[id] = {
+            type: kebabCase(componentName),
+            id,
+            props,
+          };
+        }
+
+        props.forEach(prop => {
+          if (components[id].props.findIndex(item => item === prop) !== -1) {
+            return;
+          }
+
+          components[id].props.push(prop);
         });
       }
     },
@@ -66,5 +96,5 @@ export default (adapter: Adapter) => () => ({
 });
 
 export function getComponents() {
-  return unionBy(components, 'type');
+  return Object.values(components);
 }
