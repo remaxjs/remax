@@ -9,7 +9,7 @@ order: 0
 
 ```js
 export default class App extends React.Component {
-  return() {
+  render() {
     return this.props.children;
   }
 }
@@ -76,7 +76,7 @@ export default class App extends React.Component {
     console.log('onShow', options);
   }
 
-  return() {
+  render() {
     return this.props.children;
   }
 }
