@@ -16,7 +16,6 @@
 <%var id = i; %>
 <% for (let component of components) { %>
 <%- include('./component.ejs', {
-        type: component.type,
         props: component.props,
         id: component.id,
         templateId: id,
