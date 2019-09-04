@@ -1,4 +1,5 @@
-import 'miniprogram-api-typings';
+/// <reference path="../../../node_modules/miniprogram-api-typings/index.d.ts" />
+
 import promisify, { optionalPromisify } from '../../utils/promisify';
 
 export const getAppStub = getApp;
