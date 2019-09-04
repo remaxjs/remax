@@ -159,11 +159,6 @@ export default function rollupConfig(
 
         input = input
           .replace(/^demo\/src\//, '')
-          // stlye
-          .replace(/\.less$/, '.less.js')
-          .replace(/\.sass$/, '.sass.js')
-          .replace(/\.scss$/, '.scss.js')
-          .replace(/\.styl$/, '.styl.js')
           // typescript
           .replace(/\.ts$/, '.js')
           .replace(/\.tsx$/, '.js')
@@ -195,6 +190,13 @@ export default function rollupConfig(
         return (
           input &&
           input
+            // npm 包可能会有 jsx
+            .replace(/\.jsx$/, '.js')
+            // npm 包里可能会有 css
+            .replace(/\.less$/, '.less.js')
+            .replace(/\.sass$/, '.sass.js')
+            .replace(/\.scss$/, '.scss.js')
+            .replace(/\.styl$/, '.styl.js')
             .replace(/node_modules/g, 'npm')
             .replace(/\.js_commonjs-proxy$/, '.js_commonjs-proxy.js')
             // 支付宝小程序不允许目录带 @
