@@ -13,7 +13,7 @@ export interface SwitchProps {
   color?: string; // #04BE02 否 switch 的颜色，同 css 的 color 1.0.0
   onClick?: (event: any) => any;
   onChange?: (event: any) => any; //  否 checked 改变时触发 change 事件，event.detail={ value} 1.0.0
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 export default Switch;

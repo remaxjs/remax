@@ -11,7 +11,7 @@ export interface PickerProps {
   disabled?: boolean; // false 否 是否禁用 1.0.0
   onClick?: (event: any) => any;
   onCancel?: (event: any) => any; //  否 取消选择时触发 1.9.90
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 export default Picker;

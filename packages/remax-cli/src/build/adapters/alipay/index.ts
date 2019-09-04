@@ -44,7 +44,7 @@ export function getIcons(config: any) {
     return [];
   }
 
-  const tabs: { icon: string; activeIcon: string }[] = config.tabBar.items;
+  const tabs: Array<{ icon: string; activeIcon: string }> = config.tabBar.items;
 
   if (tabs) {
     return tabs.reduce<string[]>(

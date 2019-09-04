@@ -21,7 +21,7 @@ export interface ScrollViewProps {
   onScrollToLower?: (evnt: any) => void; //  否 滚动到底部/右边时触发 1.0.0
   onScroll?: (event: any) => any; //  否 滚动时触发，event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY} 1.0.0
   onClick?: (event: any) => any;
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 export default ScrollView;

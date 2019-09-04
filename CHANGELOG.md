@@ -21,6 +21,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - 支持在运行时访问 REMAX*APP* 开头的环境变量 ([b8fb287](https://github.com/remaxjs/remax/commit/b8fb287))
 - 支持字节跳动小程序 ([d7adadc](https://github.com/remaxjs/remax/commit/d7adadc))
 
+## [1.0.15](https://github.com/remaxjs/remax/compare/v1.0.14...v1.0.15) (2019-09-04)
+
+### Bug Fixes
+
+- 修复 npm 中带有非 js 后缀文件时支付宝小程序无法上传的问题 ([e53e0b9](https://github.com/remaxjs/remax/commit/e53e0b9))
+- 支付宝 css 背景图片支持相对路径写法 ([#198](https://github.com/remaxjs/remax/issues/198)) ([8f01e64](https://github.com/remaxjs/remax/commit/8f01e64))
+
 ## [1.0.14](https://github.com/remaxjs/remax/compare/v1.0.13...v1.0.14) (2019-09-03)
 
 ### Bug Fixes

@@ -34,7 +34,7 @@ export interface InputProps {
   onBlur?: (...params: any) => void;
   onConfirm?: (event: any) => any;
   onKeyboardHeightChange?: (event: any) => any;
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 function useInnerFocus(

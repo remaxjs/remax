@@ -7,6 +7,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.1.0-alpha.0](https://github.com/remaxjs/remax/compare/v1.0.6...v1.1.0-alpha.0) (2019-08-28)
 
+## [1.0.15](https://github.com/remaxjs/remax/compare/v1.0.14...v1.0.15) (2019-09-04)
+
 **Note:** Version bump only for package umi-plugin-remax
 
 ## [1.0.14](https://github.com/remaxjs/remax/compare/v1.0.13...v1.0.14) (2019-09-03)

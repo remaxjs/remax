@@ -7,13 +7,13 @@ import { Context } from './types';
 
 interface AppConfig {
   pages: string[];
-  subpackages: {
+  subpackages: Array<{
     root: string;
     pages: string[];
-  }[];
+  }>;
   tabBar?: {
-    items: { icon: string; activeIcon: string }[];
-    list: { iconPath: string; selectedIconPath: string }[];
+    items: Array<{ icon: string; activeIcon: string }>;
+    list: Array<{ iconPath: string; selectedIconPath: string }>;
   };
 }
 

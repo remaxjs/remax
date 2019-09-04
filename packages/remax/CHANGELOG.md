@@ -19,6 +19,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - 支持字节跳动小程序 ([d7adadc](https://github.com/remaxjs/remax/commit/d7adadc))
 
+## [1.0.15](https://github.com/remaxjs/remax/compare/v1.0.14...v1.0.15) (2019-09-04)
+
+**Note:** Version bump only for package remax
+
 ## [1.0.14](https://github.com/remaxjs/remax/compare/v1.0.13...v1.0.14) (2019-09-03)
 
 ### Bug Fixes

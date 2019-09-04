@@ -20,7 +20,7 @@ export interface SliderProps {
   onChange?: (event: any) => any; //  否 完成一次拖动后触发的事件，event.detail = {value} 1.0.0
   onChanging?: (event: any) => any; //  否 拖动过程中触发的事件，event.detail = {value} 1.7.0
   onClick?: (event: any) => any;
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 export default Slider;

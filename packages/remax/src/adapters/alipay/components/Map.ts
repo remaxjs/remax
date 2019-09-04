@@ -24,10 +24,10 @@ export interface MapMarker {
 }
 
 export interface MapPolyline {
-  points: {
+  points: Array<{
     latitude: number;
     longitude: number;
-  }[];
+  }>;
   color?: string;
   dottedLine?: boolean;
   iconWidth?: number;
@@ -61,10 +61,10 @@ export interface MapControl {
 }
 
 export interface MapPolygon {
-  points: {
+  points: Array<{
     latitude: number;
     longitude: number;
-  }[];
+  }>;
   color?: string;
   fillColor?: string;
   width?: number;
@@ -105,21 +105,21 @@ export interface Map extends MapCoordinate {
   controls?: MapControl[];
   polygon?: MapPolygon[];
   showLocation?: boolean;
-  includePoints?: Required<MapCoordinate>[];
+  includePoints?: Array<Required<MapCoordinate>>;
   includePadding?: { left: number; right: number; top: number; bottom: number };
-  groundOverlays?: {
-    'include-points': Required<MapCoordinate>[];
+  groundOverlays?: Array<{
+    'include-points': Array<Required<MapCoordinate>>;
     image: string;
     alpha?: number;
     zIndex?: number;
-  }[];
-  tileOverlay?: {
+  }>;
+  tileOverlay?: Array<{
     url: string;
     type: number;
     tileWidth: number;
     tileHeight: number;
     zIndex?: number;
-  }[];
+  }>;
   setting?: MapSetting;
   onMarkerTap?: (e: any) => void;
   onCalloutTap?: (e: any) => void;

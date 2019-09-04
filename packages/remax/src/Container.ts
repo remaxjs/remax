@@ -35,6 +35,7 @@ export default class Container {
     path: Path,
     start: number,
     deleteCount: number,
+    immediately: boolean,
     ...items: RawNode[]
   ) {
     const update: SpliceUpdate = {
@@ -43,10 +44,15 @@ export default class Container {
       deleteCount,
       items,
     };
-    if (this.updateQueue.length === 0) {
-      this.updateTimer = setTimeout(() => this.applyUpdate());
+    if (immediately) {
+      this.updateQueue.push(update);
+      this.applyUpdate();
+    } else {
+      if (this.updateQueue.length === 0) {
+        this.updateTimer = setTimeout(() => this.applyUpdate());
+      }
+      this.updateQueue.push(update);
     }
-    this.updateQueue.push(update);
   }
 
   applyUpdate() {
@@ -93,14 +99,14 @@ export default class Container {
   }
 
   appendChild(child: VNode) {
-    this.root.appendChild(child);
+    this.root.appendChild(child, true);
   }
 
   removeChild(child: VNode) {
-    this.root.removeChild(child);
+    this.root.removeChild(child, true);
   }
 
   insertBefore(child: VNode, beforeChild: VNode) {
-    this.root.insertBefore(child, beforeChild);
+    this.root.insertBefore(child, beforeChild, true);
   }
 }

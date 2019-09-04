@@ -12,7 +12,7 @@ export interface RadioProps {
   disabled: boolean; // false 否 是否禁用 1.0.0
   color?: string; // #09BB07 否 radio的颜色，同css的color 1.0.0
   onClick?: (event: any) => any;
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 export default Radio;

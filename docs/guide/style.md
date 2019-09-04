@@ -3,11 +3,11 @@ title: 样式
 order: 24
 ---
 
-Remax 默认支持 css/less/sass/stylus，安装你需要的样式，即可使用。如：
+Remax 默认支持 css/less/sass/stylus，安装你需要的样式处理器，即可使用。如：
 
 ```bash
-  npm install less   # less 用户
-  npm install node-sass   # sass 用户
+  npm install less --save  # less 用户
+  npm install node-sass --save  # sass 用户
 ```
 
 ```js
