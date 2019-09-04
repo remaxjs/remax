@@ -34,7 +34,7 @@ export interface TextareaProps {
   onBlur?: (...params: any) => void;
   onConfirm?: () => void;
   onKeyboardHeightChange?: () => void;
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 function useInnerFocus(

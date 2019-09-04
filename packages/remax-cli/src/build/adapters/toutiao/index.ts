@@ -48,7 +48,7 @@ export function getIcons(config: any) {
     return [];
   }
 
-  const tabs: { iconPath: string; selectedIconPath: string }[] =
+  const tabs: Array<{ iconPath: string; selectedIconPath: string }> =
     config.tabBar.list;
 
   if (tabs) {
