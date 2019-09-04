@@ -23,13 +23,12 @@ import removeSrc from './plugins/removeSrc';
 import removeConfig from './plugins/removeConfig';
 import rename from './plugins/rename';
 import replace from 'rollup-plugin-replace';
-import * as React from 'react';
-import * as scheduler from 'scheduler';
 import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';
 import adapters, { Adapter } from './adapters';
 import { Context } from '../types';
+import namedExports from 'named-exports-db';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -100,10 +99,7 @@ export default function rollupConfig(
     }),
     commonjs({
       include: /node_modules/,
-      namedExports: {
-        react: Object.keys(React).filter(k => k !== 'default'),
-        scheduler: Object.keys(scheduler).filter(k => k !== 'default'),
-      },
+      namedExports,
     }),
     stub({
       modules: stubModules,

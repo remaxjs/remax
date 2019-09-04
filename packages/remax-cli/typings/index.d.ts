@@ -15,3 +15,4 @@ declare module '@babel/helper-module-imports';
 declare module 'acorn-walk';
 declare module 'scheduler';
 declare module 'slash2';
+declare module 'named-exports-db';
