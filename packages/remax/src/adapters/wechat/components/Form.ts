@@ -12,7 +12,7 @@ export interface FormProps {
   onClick?: (event: any) => any;
   onSubmit?: (event: any) => any; //  否 携带 form 中的数据触发 submit 事件，event.detail = {value : {'name': 'value'} , formId: ''} 1.0.0
   onReset?: (event: any) => any; //  否 表单重置时会触发 reset 事件 1.0.0
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 export default Form;

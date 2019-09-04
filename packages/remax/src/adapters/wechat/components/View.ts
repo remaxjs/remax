@@ -22,7 +22,7 @@ export interface ViewProps {
   onAnimationIteration?: (event: any) => any;
   onAnimationStart?: (event: any) => any;
   onAnimationEnd?: (event: any) => any;
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 export default View;

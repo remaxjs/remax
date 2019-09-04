@@ -32,7 +32,7 @@ export interface ButtonProps {
   onError?: (event: any) => any; // 否 当使用开放能力时，发生错误的回调，open-type=launchApp时有效 1.9.5
   onOpenSetting?: (event: any) => any; //  否 在打开授权设置页后回调，open-type=openSetting时有效 2.0.7
   onLaunchApp?: (event: any) => any; //  否 打开 APP 成功的回调，open-type=launchApp时有效 2.4.4
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 export default Button;

@@ -13,7 +13,7 @@ export interface ImageProps {
   showMenuByLongpress?: boolean; // false 否 开启长按图片显示识别小程序码菜单 2.7.0
   onError?: (event: any) => any; //  否 当错误发生时触发，，event.detail = {errMsg} 1.0.0
   onLoad?: (event: any) => any; //  否 当图片载入完毕时触发，event.detail = {height, width} 1.0.0
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
   onClick?: (event: any) => any;
 }
 
