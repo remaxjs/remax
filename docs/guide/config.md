@@ -57,7 +57,7 @@ module.exports = {
   // 配置路径别名
   alias: {
     // 自动将 @components 指向 src/components
-    '@components': 'components',
+    '@components': './src/components',
   },
 };
 ```

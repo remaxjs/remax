@@ -67,8 +67,9 @@ export default function rollupConfig(
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
   const aliasConfig = Object.entries(options.alias || {}).reduce(
     (config, [key, value]) => {
-      config[key] = path.resolve(options.cwd, 'src', value);
-
+      config[key] = value.match(/^(\.|[^/])/)
+        ? path.resolve(options.cwd, value)
+        : value;
       return config;
     },
     {} as any
