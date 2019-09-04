@@ -1,6 +1,5 @@
 import * as React from 'react';
 import createPageWrapper from './createPageWrapper';
-import render from './render';
 import { Lifecycle, callbackName } from './lifecycle';
 import Container from './Container';
 import { createPortal } from './ReactPortal';
@@ -8,7 +7,7 @@ import { createPortal } from './ReactPortal';
 let idCounter = 0;
 
 export default function createPageConfig(Page: React.ComponentType<any>) {
-  const app = getApp();
+  const app = getApp() as any;
   const id = idCounter;
   idCounter += 1;
 

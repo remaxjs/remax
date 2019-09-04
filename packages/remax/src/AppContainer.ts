@@ -40,14 +40,14 @@ export default class AppContainer {
   }
 
   appendChild(child: VNode) {
-    this.root.appendChild(child);
+    this.root.appendChild(child, true);
   }
 
   removeChild(child: VNode) {
-    this.root.removeChild(child);
+    this.root.removeChild(child, true);
   }
 
   insertBefore(child: VNode, beforeChild: VNode) {
-    this.root.insertBefore(child, beforeChild);
+    this.root.insertBefore(child, beforeChild, true);
   }
 }
