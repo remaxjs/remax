@@ -2,8 +2,6 @@ import plainStyle from '../../../utils/plainStyle';
 
 const alias: { [prop: string]: string } = {
   className: 'class',
-  activeColor: 'activeColor',
-  backgroundColor: 'backgroundColor',
   onClick: 'bindtap',
 };
 

@@ -1,5 +1,12 @@
 import factory from './factory';
 
-const PickerView = factory('picker-view');
+export interface PickerViewProps {
+  value?: number[];
+  indicatorStyle: string;
+  maskStyle?: string;
+  onChange?: (e: any) => void;
+}
+
+const PickerView = factory<PickerViewProps>('picker-view');
 
 export default PickerView;

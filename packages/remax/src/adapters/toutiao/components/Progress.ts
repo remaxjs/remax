@@ -1,5 +1,15 @@
 import factory from './factory';
 
-const Progress = factory('progress');
+export interface ProgressProps {
+  percent?: number;
+  strokeWidth?: number;
+  color?: string;
+  activeColor?: string;
+  backgroundColor?: string;
+  active?: boolean;
+  activeMode?: string;
+}
+
+const Progress = factory<ProgressProps>('progress');
 
 export default Progress;

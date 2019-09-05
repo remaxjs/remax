@@ -1,5 +1,9 @@
 import factory from './factory';
 
-const RadioGroup = factory('radio-group');
+export interface RadioGroupProps {
+  onChange?: (e: any) => void;
+}
+
+const RadioGroup = factory<RadioGroupProps>('radio-group');
 
 export default RadioGroup;

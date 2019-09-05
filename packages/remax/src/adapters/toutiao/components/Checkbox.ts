@@ -1,5 +1,12 @@
 import factory from './factory';
 
-const Checkbox = factory('checkbox');
+export interface CheckboxProps {
+  value?: string;
+  disabled?: boolean;
+  checked?: boolean;
+  color?: string;
+}
+
+const Checkbox = factory<CheckboxProps>('checkbox');
 
 export default Checkbox;
