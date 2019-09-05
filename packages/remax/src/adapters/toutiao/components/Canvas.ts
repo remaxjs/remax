@@ -1,5 +1,9 @@
 import factory from './factory';
 
-const Canvas = factory('canvas');
+export interface CanvasProps {
+  cavasId: string;
+}
+
+const Canvas = factory<CanvasProps>('canvas');
 
 export default Canvas;

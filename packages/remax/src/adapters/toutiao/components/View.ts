@@ -1,5 +1,12 @@
 import factory from './factory';
 
-const View = factory('view');
+export interface ViewProps {
+  hoverClass?: string;
+  hoverStartTime?: number;
+  hoverStayTime?: number;
+  hoverStopPropagation?: boolean;
+}
+
+const View = factory<ViewProps>('view');
 
 export default View;

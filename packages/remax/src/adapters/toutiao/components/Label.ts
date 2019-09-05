@@ -1,5 +1,9 @@
 import factory from './factory';
 
-const Label = factory('label');
+export interface LabelProps {
+  for?: string;
+}
+
+const Label = factory<LabelProps>('label');
 
 export default Label;
