@@ -4,7 +4,7 @@ import hostConfig from './hostConfig';
 import Container from './Container';
 import AppContainer from './AppContainer';
 
-const ReactReconcilerInst = ReactReconciler(hostConfig as any);
+export const ReactReconcilerInst = ReactReconciler(hostConfig as any);
 
 function getPublicRootInstance(container: any) {
   const containerFiber = container.current;
