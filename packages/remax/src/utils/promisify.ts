@@ -3,7 +3,7 @@ export interface PromisifyArgs<SuccessArg, FailArg> {
   fail?: (args: FailArg) => void;
 }
 
-function promisify<Arg, SuccessArg, FailArg>(
+function promisify<Arg = any, SuccessArg = any, FailArg = any>(
   api: (arg: Arg & PromisifyArgs<SuccessArg, FailArg>) => void
 ) {
   return (arg: Arg & PromisifyArgs<SuccessArg, FailArg>) => {
@@ -27,7 +27,7 @@ function promisify<Arg, SuccessArg, FailArg>(
   };
 }
 
-export function optionalPromisify<Arg, SuccessArg, FailArg>(
+export function optionalPromisify<Arg = any, SuccessArg = any, FailArg = any>(
   api: (arg?: Arg & PromisifyArgs<SuccessArg, FailArg>) => void
 ) {
   return (arg?: Arg & PromisifyArgs<SuccessArg, FailArg>) => {
