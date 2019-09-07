@@ -7,6 +7,7 @@ export type Callback = (...args: any[]) => any;
 export enum Lifecycle {
   show = 'show',
   hide = 'hide',
+  ready = 'ready',
   pullDownRefresh = 'pullDownRefresh',
   reachBottom = 'reachBottom',
   pageScroll = 'pageScroll',

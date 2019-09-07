@@ -7,6 +7,12 @@ export function useShow(callback: Callback) {
   });
 }
 
+export function useReady(callback: Callback) {
+  useLayoutEffect(() => {
+    return registerLifecycle(Lifecycle.ready, callback);
+  });
+}
+
 export function useHide(callback: Callback) {
   useLayoutEffect(() => {
     return registerLifecycle(Lifecycle.hide, callback);
