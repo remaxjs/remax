@@ -29,6 +29,7 @@ import removeESModuleFlag from './plugins/removeESModuleFlag';
 import adapters, { Adapter } from './adapters';
 import { Context, Env } from '../types';
 import namedExports from 'named-exports-db';
+import fixRegeneratorRuntime from './plugins/fixRegeneratorRuntime';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -201,7 +202,7 @@ export default function rollupConfig(
     }),
     inject({
       exclude: 'node_modules/**',
-      regeneratorRuntime: '@remax/regenerator-runtime',
+      regeneratorRuntime: 'regenerator-runtime',
     }),
     rename({
       matchAll: true,
@@ -229,6 +230,7 @@ export default function rollupConfig(
     removeSrc({}),
     removeConfig(),
     removeESModuleFlag(),
+    fixRegeneratorRuntime(),
     template(options, adapter, context),
   ];
 
