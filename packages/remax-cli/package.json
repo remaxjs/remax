@@ -46,6 +46,7 @@
     "chokidar": "^2.1.8",
     "command-exists": "^1.2.8",
     "commander": "^2.19.0",
+    "dot-prop": "^5.1.0",
     "ejs": "^2.6.1",
     "lodash": "^4.17.11",
     "mkdirp": "^0.5.1",
