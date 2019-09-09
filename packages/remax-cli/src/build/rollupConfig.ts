@@ -30,6 +30,8 @@ import adapters, { Adapter } from './adapters';
 import { Context, Env } from '../types';
 import namedExports from 'named-exports-db';
 import fixRegeneratorRuntime from './plugins/fixRegeneratorRuntime';
+import nativeComponents from './plugins/nativeComponents/index';
+import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -111,9 +113,39 @@ export default function rollupConfig(
       sourceDir: path.resolve(options.cwd, options.rootDir),
       include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
     }),
+    resolve({
+      dedupe: [
+        'react',
+        'object-assign',
+        'prop-types',
+        'scheduler',
+        'react-reconciler',
+      ],
+      extensions: [
+        '.mjs',
+        '.js',
+        '.jsx',
+        '.json',
+        '.ts',
+        '.tsx',
+        // adapter.extensions.jsHelper,
+      ],
+      customResolveOptions: {
+        moduleDirectory: 'node_modules',
+      },
+    }),
     commonjs({
       include: /node_modules/,
       namedExports,
+      extensions: [
+        '.mjs',
+        '.js',
+        '.jsx',
+        '.json',
+        '.ts',
+        '.tsx',
+        adapter.extensions.jsHelper || '',
+      ],
     }),
     stub({
       modules: stubModules,
@@ -122,7 +154,7 @@ export default function rollupConfig(
       babelrc: false,
       include: entries.pages.map(p => p.file),
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [page],
+      plugins: [nativeComponentsBabelPlugin(options, adapter), page],
       presets: [[require.resolve('babel-preset-remax'), { react: false }]],
     }),
     babel({
@@ -134,7 +166,10 @@ export default function rollupConfig(
     }),
     babel({
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [components(adapter)],
+      plugins: [
+        nativeComponentsBabelPlugin(options, adapter),
+        components(adapter),
+      ],
       presets: [require.resolve('babel-preset-remax')],
     }),
     postcss({
@@ -150,19 +185,7 @@ export default function rollupConfig(
         return acc;
       }, {}),
     }),
-    resolve({
-      dedupe: [
-        'react',
-        'object-assign',
-        'prop-types',
-        'scheduler',
-        'react-reconciler',
-      ],
-      extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
-      customResolveOptions: {
-        moduleDirectory: 'node_modules',
-      },
-    }),
+    nativeComponents(options, adapter),
     rename({
       include: `${options.rootDir}/**`,
       map: input => {

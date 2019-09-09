@@ -1,5 +1,6 @@
 import * as path from 'path';
 import { kebabCase } from 'lodash';
+import { Alias } from '..';
 
 export const name = 'wechat';
 
@@ -11,6 +12,8 @@ export const extensions = {
   template: '.wxml',
   style: '.wxss',
   jsHelper: '.wxs',
+  jsTag: 'wxs',
+  moduleName: 'module',
 };
 
 const templateBaseDir = path.join(__dirname, '../../../../templates');
@@ -25,9 +28,10 @@ export const templates = {
 export const moduleFormat = 'cjs';
 
 // TODO: alias 方法在 remax 和 remax-cli 都重复定义了，想办法 DRY
-const alias: { [prop: string]: string } = {
+const alias: Alias = {
   activeColor: 'activeColor',
   backgroundColor: 'backgroundColor',
+  className: 'class',
   onClick: 'bindtap',
   catchClick: 'catchtap',
   enable3D: 'enable-3D',
@@ -35,8 +39,12 @@ const alias: { [prop: string]: string } = {
   vTouchMove: 'vtouchmove',
 };
 
-export function getNativePropName(prop: string) {
-  const aliasProp = alias[prop];
+const nativeAlias: Alias = {
+  className: 'class',
+};
+
+export function getNativePropName(prop: string, isNative = false) {
+  const aliasProp = isNative ? nativeAlias[prop] : alias[prop];
 
   if (aliasProp) {
     return aliasProp;
