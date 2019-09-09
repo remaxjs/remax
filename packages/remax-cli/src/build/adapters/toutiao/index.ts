@@ -1,4 +1,5 @@
 import * as path from 'path';
+import { Alias } from '..';
 
 export const name = 'toutiao';
 
@@ -22,15 +23,18 @@ export const templates = {
 export const moduleFormat = 'cjs';
 
 // TODO: alias 方法在 remax 和 remax-cli 都重复定义了，想办法 DRY
-const alias: { [prop: string]: string } = {
+const alias: Alias = {
   className: 'class',
-  activeColor: 'activeColor',
-  backgroundColor: 'backgroundColor',
   onClick: 'bindtap',
 };
 
-export function getNativePropName(prop: string) {
-  const aliasProp = alias[prop];
+const nativeAlias: Alias = {
+  className: 'class',
+  onClick: 'bindclick',
+};
+
+export function getNativePropName(prop: string, isNative = false) {
+  const aliasProp = isNative ? nativeAlias[prop] : alias[prop];
 
   if (aliasProp) {
     return aliasProp;
