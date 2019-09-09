@@ -13,7 +13,7 @@
 </wxs>
 
 <% for (var i = 1; i <= depth; i++) { %>
-<%var id = i; %>
+<% var id = i; %>
 <% for (let component of components) { %>
 <%- include('./component.ejs', {
         props: component.props,
