@@ -10,6 +10,7 @@ import getEntries from '../../getEntries';
 import { Adapter } from '../adapters';
 import { Context } from '../../types';
 import winPath from '../../winPath';
+import { getNativeComponents } from './nativeComponents/babelPlugin';
 
 async function createTemplate(pageFile: string, adapter: Adapter) {
   const fileName = `${path.dirname(pageFile)}/${path.basename(
@@ -17,7 +18,7 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
     path.extname(pageFile)
   )}${adapter.extensions.template}`;
 
-  const options: { [props: string]: any } = {
+  const renderOptions: { [props: string]: any } = {
     baseTemplate: winPath(
       path.relative(
         path.dirname(pageFile),
@@ -27,7 +28,7 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
   };
 
   if (adapter.extensions.jsHelper) {
-    options.jsHelper = winPath(
+    renderOptions.jsHelper = winPath(
       path.relative(
         path.dirname(pageFile),
         `helper${adapter.extensions.jsHelper}`
@@ -35,7 +36,14 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
     );
   }
 
-  const code: string = await ejs.renderFile(adapter.templates.page, options);
+  const components = getComponents(adapter);
+  const nativeComponents = Object.values(getNativeComponents());
+
+  const code: string = await ejs.renderFile(adapter.templates.page, {
+    ...renderOptions,
+    nativeComponents,
+    components,
+  });
 
   return {
     fileName,
@@ -44,6 +52,10 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
 }
 
 async function createHelperFile(adapter: Adapter) {
+  if (!adapter.templates.jsHelper) {
+    return null;
+  }
+
   const code: string = await ejs.renderFile(adapter.templates.jsHelper, {
     target: adapter.name,
   });
@@ -56,10 +68,13 @@ async function createHelperFile(adapter: Adapter) {
 
 async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
   const components = getComponents(adapter);
+  const nativeComponents = Object.values(getNativeComponents());
+
   let code: string = await ejs.renderFile(
     adapter.templates.base,
     {
       components,
+      nativeComponents,
       depth: options.UNSAFE_wechatTemplateDepth,
     },
     {
@@ -93,6 +108,21 @@ function createAppManifest(
   };
 }
 
+function createPageUsingComponents(configFilePath: string) {
+  const nativeComponents = getNativeComponents();
+  const usingComponents: { [key: string]: string } = {};
+  for (const [key, value] of Object.entries(nativeComponents)) {
+    usingComponents[value.id] = path
+      .relative(
+        path.dirname(configFilePath),
+        key.replace(/node_modules/, 'src/npm')
+      )
+      .replace(/\.js$/, '');
+  }
+
+  return usingComponents;
+}
+
 function createPageManifest(
   options: RemaxOptions,
   file: string,
@@ -106,23 +136,30 @@ function createPageManifest(
     options.cwd,
     path.join('src', configFile)
   );
-  if (fs.existsSync(configFilePath)) {
-    return {
-      fileName: manifestFile,
-      source: JSON.stringify(readManifest(configFilePath, target), null, 2),
-    };
-  }
+  const usingComponents = createPageUsingComponents(configFilePath);
+  const config = readManifest(configFilePath, target);
+  config.usingComponents = usingComponents;
+
   if (context) {
     const pageConfig = context.pages.find((p: any) => p.path === page.path);
     if (pageConfig) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { path, ...config } = pageConfig;
+      config.usingComponents = {
+        ...(config.usingComponents || {}),
+        ...usingComponents,
+      };
       return {
         fileName: manifestFile,
         source: JSON.stringify(config, null, 2),
       };
     }
   }
+
+  return {
+    fileName: manifestFile,
+    source: JSON.stringify(config, null, 2),
+  };
 }
 
 function isRemaxEntry(chunk: any): chunk is OutputChunk {
@@ -164,10 +201,15 @@ export default function template(
       // app.json
       const manifest = createAppManifest(options, adapter.name, context);
       const template = await createBaseTemplate(adapter, options);
-      templateAssets.push(template, manifest);
 
-      if (adapter.templates.jsHelper) {
-        const helperFile = await createHelperFile(adapter);
+      templateAssets.push(manifest);
+
+      if (template) {
+        templateAssets.push(template);
+      }
+
+      const helperFile = await createHelperFile(adapter);
+      if (helperFile) {
         templateAssets.push(helperFile);
       }
 
@@ -184,7 +226,7 @@ export default function template(
             if (page) {
               const template = await createTemplate(file, adapter);
               templateAssets.push(template);
-              const config = await createPageManifest(
+              const config = createPageManifest(
                 options,
                 file,
                 adapter.name,

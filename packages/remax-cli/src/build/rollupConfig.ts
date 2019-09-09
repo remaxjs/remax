@@ -30,6 +30,8 @@ import adapters, { Adapter } from './adapters';
 import { Context, Env } from '../types';
 import namedExports from 'named-exports-db';
 import fixRegeneratorRuntime from './plugins/fixRegeneratorRuntime';
+import nativeComponents from './plugins/nativeComponents/index';
+import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -120,9 +122,39 @@ export default function rollupConfig(
       sourceDir: path.resolve(options.cwd, 'src'),
       include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
     }),
+    resolve({
+      dedupe: [
+        'react',
+        'object-assign',
+        'prop-types',
+        'scheduler',
+        'react-reconciler',
+      ],
+      extensions: [
+        '.mjs',
+        '.js',
+        '.jsx',
+        '.json',
+        '.ts',
+        '.tsx',
+        // adapter.extensions.jsHelper,
+      ],
+      customResolveOptions: {
+        moduleDirectory: 'node_modules',
+      },
+    }),
     commonjs({
       include: /node_modules/,
       namedExports,
+      extensions: [
+        '.mjs',
+        '.js',
+        '.jsx',
+        '.json',
+        '.ts',
+        '.tsx',
+        adapter.extensions.jsHelper || '',
+      ],
     }),
     stub({
       modules: stubModules,
@@ -130,19 +162,31 @@ export default function rollupConfig(
     babel({
       include: entries.pages.map(p => p.file),
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [page, ...babelConfig.plugins],
+      plugins: [
+        nativeComponentsBabelPlugin(options, adapter),
+        page,
+        ...babelConfig.plugins,
+      ],
       presets: babelConfig.presets,
     }),
     babel({
       include: entries.app,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [app, ...babelConfig.plugins],
+      plugins: [
+        // nativeComponentsBabelPlugin(options, adapter),
+        app,
+        ...babelConfig.plugins,
+      ],
       presets: babelConfig.presets,
     }),
     babel({
       babelrc: false,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [components(adapter), ...babelConfig.plugins],
+      plugins: [
+        nativeComponentsBabelPlugin(options, adapter),
+        components(adapter),
+        ...babelConfig.plugins,
+      ],
       presets: babelConfig.presets.concat([
         require.resolve('@babel/preset-react'),
       ]),
@@ -158,19 +202,7 @@ export default function rollupConfig(
         'process.env': JSON.stringify(envReplacement),
       },
     }),
-    resolve({
-      dedupe: [
-        'react',
-        'object-assign',
-        'prop-types',
-        'scheduler',
-        'react-reconciler',
-      ],
-      extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
-      customResolveOptions: {
-        moduleDirectory: 'node_modules',
-      },
-    }),
+    nativeComponents(options, adapter),
     rename({
       include: 'src/**',
       map: input => {

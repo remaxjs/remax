@@ -84,7 +84,9 @@ function registerComponent(
     });
   }
 
-  const props = usedProps.filter(prop => !!prop).map(adapter.getNativePropName);
+  const props = usedProps
+    .filter(prop => !!prop)
+    .map(prop => adapter.getNativePropName(prop));
 
   const component = {
     id: componentName,

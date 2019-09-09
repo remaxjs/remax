@@ -27,7 +27,7 @@ enum NodeType {
 const PREFIX_SRC_PATTERN = /^src\//;
 const PARENT_DIR_PATTERN = /^\.\.\//;
 
-function isAsset(module: any): module is OutputAsset {
+export function isAsset(module: any): module is OutputAsset {
   return !!module && module.isAsset;
 }
 
