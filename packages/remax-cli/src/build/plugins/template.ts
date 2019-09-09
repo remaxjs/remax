@@ -40,6 +40,7 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
   return {
     fileName,
     isAsset: true as true,
+    type: 'asset',
     source: code,
   };
 }
@@ -52,6 +53,7 @@ async function createHelperFile(adapter: Adapter) {
   return {
     fileName: `helper${adapter.extensions.jsHelper}`,
     isAsset: true as true,
+    type: 'asset',
     source: code,
   };
 }
@@ -78,6 +80,7 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
   return {
     fileName: `base${adapter.extensions.template}`,
     isAsset: true as true,
+    type: 'asset',
     source: code,
   };
 }
@@ -93,6 +96,7 @@ function createAppManifest(
   return {
     fileName: 'app.json',
     isAsset: true as true,
+    type: 'asset',
     source: JSON.stringify(config, null, 2),
   };
 }
@@ -114,6 +118,7 @@ function createPageManifest(
     return {
       fileName: manifestFile,
       isAsset: true as true,
+      type: 'asset',
       source: JSON.stringify(readManifest(configFilePath, target), null, 2),
     };
   }
@@ -125,6 +130,7 @@ function createPageManifest(
       return {
         fileName: manifestFile,
         isAsset: true as true,
+        type: 'asset',
         source: JSON.stringify(config, null, 2),
       };
     }
