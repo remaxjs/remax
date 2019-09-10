@@ -16,4 +16,4 @@ declare module 'acorn-walk';
 declare module 'scheduler';
 declare module 'slash2';
 declare module 'named-exports-db';
-declare module 'acorn-jsx';
+declare module 'esm';
