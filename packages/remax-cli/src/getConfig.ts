@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import esm from 'esm';
 import defaultOptions from './defaultOptions';
 import { PluginImpl, RollupOptions } from 'rollup';
 
@@ -25,6 +26,13 @@ export interface RemaxOptions {
 export interface CliOptions {
   target: string;
 }
+
+// eslint-disable-next-line
+require = esm(module, {
+  cjs: {
+    dedefault: true,
+  },
+});
 
 export default function getConfig(): RemaxOptions {
   const configPath: string = path.join(process.cwd(), './remax.config.js');
