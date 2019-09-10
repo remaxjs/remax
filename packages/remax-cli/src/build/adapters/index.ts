@@ -10,9 +10,9 @@ export interface Adapter {
   };
 
   templates: {
-    base: string;
     component: string;
     page: string;
+    base?: string;
     jsHelper?: string;
   };
 
