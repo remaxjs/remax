@@ -1,5 +1,4 @@
 import * as path from 'path';
-import * as fs from 'fs';
 import { parse } from 'acorn';
 import { Plugin, OutputChunk } from 'rollup';
 import { getComponents } from './components';
@@ -67,6 +66,11 @@ async function createHelperFile(adapter: Adapter) {
 }
 
 async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
+  // 支付宝小程序在 base.axml 使用不了原生小程序
+  if (!adapter.templates.base) {
+    return null;
+  }
+
   const components = getComponents(adapter);
   const nativeComponents = Object.values(getNativeComponents());
 
@@ -138,7 +142,10 @@ function createPageManifest(
   );
   const usingComponents = createPageUsingComponents(configFilePath);
   const config = readManifest(configFilePath, target);
-  config.usingComponents = usingComponents;
+  config.usingComponents = {
+    ...(config.usingComponents || {}),
+    ...usingComponents,
+  };
 
   if (context) {
     const pageConfig = context.pages.find((p: any) => p.path === page.path);
