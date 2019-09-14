@@ -26,10 +26,10 @@ export default async function build(app: string, target: string) {
     .filter(c => !/(node_modules|_virtual|npm)/.test(c.fileName))
     .map(c => {
       let code = '';
-      if (c.type === 'chunk' && c.code) {
+      if (c.type === 'chunk') {
         code = c.code.toString();
       } else {
-        code = (c as rollup.OutputAsset).source.toString();
+        code = c.source.toString();
       }
       return {
         fileName: c.fileName,
