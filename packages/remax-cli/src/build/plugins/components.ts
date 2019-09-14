@@ -1,4 +1,7 @@
 import * as t from '@babel/types';
+import * as PATH from 'path';
+import winPath from '../../winPath';
+import fs from 'fs';
 import { NodePath } from '@babel/traverse';
 import { get } from 'dot-prop';
 import { kebabCase } from 'lodash';
@@ -135,7 +138,24 @@ export default (adapter: Adapter) => () => ({
   },
 });
 
-export function getComponents() {
+function getAlipayComponents(adapter: Adapter) {
+  const DIR_PATH = winPath(
+    PATH.resolve(__dirname, '../adapters/alipay/hostComponents')
+  );
+  const files = fs.readdirSync(DIR_PATH);
+  files.forEach(file => {
+    const name = PATH.basename(file).replace(PATH.extname(file), '');
+    registerComponent(name, components, adapter);
+  });
+
+  return Object.values(components);
+}
+
+export function getComponents(adapter: Adapter) {
+  if (adapter.name === 'alipay') {
+    return getAlipayComponents(adapter);
+  }
+
   const data = Object.values(components);
 
   Object.values(importedComponents).forEach(c => {

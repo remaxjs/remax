@@ -33,6 +33,7 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
 
   return {
     fileName,
+    type: 'asset' as 'asset',
     isAsset: true as true,
     source: code,
   };
@@ -45,13 +46,14 @@ async function createHelperFile(adapter: Adapter) {
 
   return {
     fileName: `helper${adapter.extensions.jsHelper}`,
+    type: 'asset' as 'asset',
     isAsset: true as true,
     source: code,
   };
 }
 
 async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
-  const components = getComponents();
+  const components = getComponents(adapter);
   let code: string = await ejs.renderFile(
     adapter.templates.base,
     {
@@ -71,6 +73,7 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
 
   return {
     fileName: `base${adapter.extensions.template}`,
+    type: 'asset' as 'asset',
     isAsset: true as true,
     source: code,
   };
@@ -86,6 +89,7 @@ function createAppManifest(
     : readManifest(path.resolve(options.cwd, 'src/app.config.js'), target);
   return {
     fileName: 'app.json',
+    type: 'asset' as 'asset',
     isAsset: true as true,
     source: JSON.stringify(config, null, 2),
   };
@@ -108,6 +112,7 @@ function createPageManifest(
     return {
       fileName: manifestFile,
       isAsset: true as true,
+      type: 'asset' as 'asset',
       source: JSON.stringify(readManifest(configFilePath, target), null, 2),
     };
   }
@@ -119,6 +124,7 @@ function createPageManifest(
       return {
         fileName: manifestFile,
         isAsset: true as true,
+        type: 'asset' as 'asset',
         source: JSON.stringify(config, null, 2),
       };
     }
