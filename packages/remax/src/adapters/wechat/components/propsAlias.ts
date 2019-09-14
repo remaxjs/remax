@@ -10,7 +10,7 @@ const alias: { [prop: string]: string } = {
   vTouchMove: 'vtouchmove',
 };
 
-function getAlias(prop: string) {
+export function getAlias(prop: string, isNative = false) {
   const aliasProp = alias[prop];
 
   if (aliasProp) {
@@ -22,7 +22,11 @@ function getAlias(prop: string) {
   }
 
   if (prop.startsWith('on') || prop.startsWith('catch')) {
-    return prop.toLowerCase().replace('on', 'bind');
+    prop = prop.toLowerCase().replace('on', 'bind');
+
+    if (!isNative) {
+      prop = prop.replace('click', 'tap');
+    }
   }
 
   return prop;
@@ -40,11 +44,11 @@ export interface GenericProps {
   [key: string]: any;
 }
 
-export default function propsAlias<T>(props: GenericProps) {
+export default function propsAlias<T>(props: GenericProps, isNative = false) {
   const aliasProps: GenericProps = {};
 
   Object.keys(props).forEach(prop => {
-    aliasProps[getAlias(prop)] = getValue(prop, props[prop]);
+    aliasProps[getAlias(prop, isNative)] = getValue(prop, props[prop]);
   });
 
   return aliasProps;

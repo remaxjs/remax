@@ -1,9 +1,17 @@
 import * as rollup from 'rollup';
+import esm from 'esm';
 import rollupConfig from './rollupConfig';
 import getConfig from '../getConfig';
 import { Context } from '../types';
 import runWatcher from './watcher';
 import { output } from './utils/output';
+
+// eslint-disable-next-line
+require = esm(module, {
+  cjs: {
+    dedefault: true,
+  },
+});
 
 export default async (argv: any, context?: Context) => {
   const options = {

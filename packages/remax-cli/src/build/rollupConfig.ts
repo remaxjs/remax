@@ -137,15 +137,7 @@ export default function rollupConfig(
         'scheduler',
         'react-reconciler',
       ],
-      extensions: [
-        '.mjs',
-        '.js',
-        '.jsx',
-        '.json',
-        '.ts',
-        '.tsx',
-        // adapter.extensions.jsHelper,
-      ],
+      extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
       customResolveOptions: {
         moduleDirectory: 'node_modules',
       },
@@ -162,6 +154,7 @@ export default function rollupConfig(
         '.tsx',
         adapter.extensions.jsHelper || '',
       ],
+      ignoreGlobal: false,
     }),
     stub({
       modules: stubModules,
@@ -180,7 +173,7 @@ export default function rollupConfig(
       include: entries.app,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [
-        // nativeComponentsBabelPlugin(options, adapter),
+        nativeComponentsBabelPlugin(options, adapter),
         app,
         ...babelConfig.plugins,
       ],
@@ -211,7 +204,6 @@ export default function rollupConfig(
         return acc;
       }, {}),
     }),
-    nativeComponents(options, adapter),
     rename({
       include: `${options.rootDir}/**`,
       map: input => {
@@ -270,6 +262,7 @@ export default function rollupConfig(
     removeESModuleFlag(),
     fixRegeneratorRuntime(),
     template(options, adapter, context),
+    nativeComponents(options, adapter),
   ];
 
   if (options.progress) {
@@ -291,6 +284,7 @@ export default function rollupConfig(
       format: adapter.moduleFormat,
       exports: 'named',
       sourcemap: false,
+      extend: true,
     },
     preserveModules: true,
     preserveSymlinks: true,

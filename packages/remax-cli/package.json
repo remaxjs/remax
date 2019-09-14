@@ -52,6 +52,7 @@
     "named-exports-db": "^0.0.1",
     "postcss-url": "^8.0.0",
     "rollup": "^1.21.3",
+    "remax": "^1.1.0-alpha.5",
     "rollup-plugin-alias": "^1.5.2",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-clear": "^2.0.7",

@@ -1,5 +1,7 @@
 import * as path from 'path';
-import { Alias } from '..';
+export {
+  default as getNativePropName,
+} from 'remax/lib/adapters/wechat/components/propsAlias';
 
 export const name = 'wechat';
 
@@ -25,40 +27,6 @@ export const templates = {
 };
 
 export const moduleFormat = 'cjs';
-
-// TODO: alias 方法在 remax 和 remax-cli 都重复定义了，想办法 DRY
-const alias: Alias = {
-  activeColor: 'activeColor',
-  backgroundColor: 'backgroundColor',
-  className: 'class',
-  onClick: 'bindtap',
-  catchClick: 'catchtap',
-  enable3D: 'enable-3D',
-  hTouchMove: 'htouchmove',
-  vTouchMove: 'vtouchmove',
-};
-
-const nativeAlias: Alias = {
-  className: 'class',
-};
-
-export function getNativePropName(prop: string, isNative = false) {
-  const aliasProp = isNative ? nativeAlias[prop] : alias[prop];
-
-  if (aliasProp) {
-    return aliasProp;
-  }
-
-  if (prop.endsWith('className')) {
-    return prop.replace('className', 'class');
-  }
-
-  if (prop.startsWith('on') || prop.startsWith('catch')) {
-    return prop.toLowerCase().replace('on', 'bind');
-  }
-
-  return prop;
-}
 
 export function getIcons(config: any) {
   if (!config.tabBar) {
