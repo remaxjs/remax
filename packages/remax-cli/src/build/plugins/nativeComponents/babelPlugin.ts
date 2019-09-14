@@ -6,7 +6,6 @@ import template from '@babel/template';
 import * as path from 'path';
 import * as htmlparser2 from 'htmlparser2';
 import * as fs from 'fs';
-import shortid from 'shortid';
 import { Adapter } from '../../adapters';
 import { isNativeComponent, pushArray } from './util';
 import { RemaxOptions } from '../../../getConfig';
@@ -153,8 +152,8 @@ export default (options: RemaxOptions, adapter: Adapter) => () => ({
 
         if (!nativeComponents[sourcePath]) {
           nativeComponents[sourcePath] = {
-            type: id,
-            id: `${id}-${++nativeId}`,
+            type: 'native',
+            id: `${id}-${nativeId++}`,
             props,
           };
         }
@@ -186,12 +185,18 @@ export default (options: RemaxOptions, adapter: Adapter) => () => ({
         .map(key => `import '${key}';`)
         .join('');
 
-      const importStr = `import React from 'react'; ${imports}`;
+      const importStr = `import React from 'react';
+        import propsAlias from 'remax/lib/adapters/${adapter.name}/components/propsAlias'
+        ${imports}`;
       let exportStr = 'export default {};';
 
       if (nativeComponents[sourcePath]) {
-        exportStr = `export default (props) => {
-          return React.createElement('${nativeComponents[sourcePath].id}', props, props.children);
+        exportStr = `export default ({children, ...props}) => {
+          return React.createElement(
+            '${nativeComponents[sourcePath].id}',
+            propsAlias(props, true),
+            children
+          );
         };`;
       }
 

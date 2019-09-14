@@ -1,6 +1,4 @@
 import * as path from 'path';
-import { kebabCase } from 'lodash';
-import { Alias } from '..';
 
 export const name = 'wechat';
 
@@ -26,42 +24,6 @@ export const templates = {
 };
 
 export const moduleFormat = 'cjs';
-
-// TODO: alias 方法在 remax 和 remax-cli 都重复定义了，想办法 DRY
-const alias: Alias = {
-  activeColor: 'activeColor',
-  backgroundColor: 'backgroundColor',
-  className: 'class',
-  onClick: 'bindtap',
-  catchClick: 'catchtap',
-  enable3D: 'enable-3D',
-  hTouchMove: 'htouchmove',
-  vTouchMove: 'vtouchmove',
-};
-
-const nativeAlias: Alias = {
-  className: 'class',
-};
-
-export function getNativePropName(prop: string, isNative = false) {
-  const aliasProp = isNative ? nativeAlias[prop] : alias[prop];
-
-  if (aliasProp) {
-    return aliasProp;
-  }
-
-  if (prop.startsWith('on') || prop.startsWith('catch')) {
-    return prop.toLowerCase().replace('on', 'bind');
-  }
-
-  if (prop.endsWith('className') || prop.endsWith('ClassName')) {
-    return kebabCase(
-      prop.replace('className', 'class').replace('ClassName', 'Class')
-    );
-  }
-
-  return kebabCase(prop);
-}
 
 export function getIcons(config: any) {
   if (!config.tabBar) {

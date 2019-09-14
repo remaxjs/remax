@@ -1,5 +1,7 @@
 import * as path from 'path';
-import { Alias } from '..';
+export {
+  getAlias as getNativePropName,
+} from 'remax/lib/adapters/toutiao/components/propsAlias';
 
 export const name = 'toutiao';
 
@@ -21,31 +23,6 @@ export const templates = {
 };
 
 export const moduleFormat = 'cjs';
-
-// TODO: alias 方法在 remax 和 remax-cli 都重复定义了，想办法 DRY
-const alias: Alias = {
-  className: 'class',
-  onClick: 'bindtap',
-};
-
-const nativeAlias: Alias = {
-  className: 'class',
-  onClick: 'bindclick',
-};
-
-export function getNativePropName(prop: string, isNative = false) {
-  const aliasProp = isNative ? nativeAlias[prop] : alias[prop];
-
-  if (aliasProp) {
-    return aliasProp;
-  }
-
-  if (prop.startsWith('on')) {
-    return prop.toLowerCase().replace('on', 'bind');
-  }
-
-  return prop;
-}
 
 export function getIcons(config: any) {
   if (!config.tabBar) {
