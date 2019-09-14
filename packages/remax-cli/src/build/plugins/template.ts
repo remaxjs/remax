@@ -45,6 +45,7 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
   });
 
   return {
+    type: 'asset',
     fileName,
     source: code,
   };
@@ -60,6 +61,7 @@ async function createHelperFile(adapter: Adapter) {
   });
 
   return {
+    type: 'asset',
     fileName: `helper${adapter.extensions.jsHelper}`,
     source: code,
   };
@@ -93,6 +95,7 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
   }
 
   return {
+    type: 'asset',
     fileName: `base${adapter.extensions.template}`,
     source: code,
   };
@@ -107,6 +110,7 @@ function createAppManifest(
     ? { ...context.app, pages: context.pages.map(p => p.path) }
     : readManifest(path.resolve(options.cwd, 'src/app.config.js'), target);
   return {
+    type: 'asset',
     fileName: 'app.json',
     source: JSON.stringify(config, null, 2),
   };
@@ -164,6 +168,7 @@ function createPageManifest(
   }
 
   return {
+    type: 'asset',
     fileName: manifestFile,
     source: JSON.stringify(config, null, 2),
   };

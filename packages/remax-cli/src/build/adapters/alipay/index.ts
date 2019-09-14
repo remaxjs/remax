@@ -1,5 +1,7 @@
 import * as path from 'path';
-import { Alias } from '..';
+export {
+  getAlias as getNativePropName,
+} from 'remax/lib/adapters/alipay/components/propsAlias';
 
 export const name = 'alipay';
 
@@ -24,26 +26,6 @@ export const templates = {
 };
 
 export const moduleFormat = 'esm';
-
-// TODO: remax 和 remax-cli 重复定义了，要 DRY
-const alias: Alias = {
-  className: 'class',
-  onClick: 'onTap',
-};
-
-const nativeAlias: Alias = {
-  className: 'class',
-};
-
-export function getNativePropName(prop: string, isNative = false) {
-  const aliasProp = isNative ? nativeAlias[prop] : alias[prop];
-
-  if (aliasProp) {
-    return aliasProp;
-  }
-
-  return prop;
-}
 
 export function getIcons(config: any) {
   if (!config.tabBar) {

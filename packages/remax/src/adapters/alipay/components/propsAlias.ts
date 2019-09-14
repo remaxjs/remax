@@ -5,8 +5,12 @@ const alias: any = {
   onClick: 'onTap',
 };
 
-function getAlias(prop: string) {
-  const aliasProp = alias[prop];
+const nativeAlias: any = {
+  className: 'class',
+};
+
+export function getAlias(prop: string, isNative = false) {
+  const aliasProp = isNative ? nativeAlias[prop] : alias[prop];
 
   if (aliasProp) {
     return aliasProp;
@@ -19,14 +23,14 @@ export interface GenericProps {
   [key: string]: any;
 }
 
-export default function propsAlias<T>(props: GenericProps) {
+export default function propsAlias<T>(props: GenericProps, isNative = false) {
   const aliasProps: GenericProps = {};
 
   Object.keys(props).forEach(prop => {
     if (prop === 'style') {
       aliasProps.style = plainStyle(props.style!);
     } else {
-      aliasProps[getAlias(prop)] = props[prop];
+      aliasProps[getAlias(prop, isNative)] = props[prop];
     }
   });
 

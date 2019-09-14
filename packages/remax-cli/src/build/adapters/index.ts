@@ -25,8 +25,4 @@ export interface Adapter {
   moduleFormat: 'cjs' | 'esm';
 }
 
-export interface Alias {
-  [key: string]: string;
-}
-
 export default ['alipay', 'wechat', 'toutiao', 'h5'];
