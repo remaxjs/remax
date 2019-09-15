@@ -95,6 +95,7 @@ export default function rollupConfig(
       limit: 0,
       fileName: '[dirname][name][extname]',
       publicPath: '/',
+      sourceDir: path.resolve(options.cwd, 'src'),
       include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
     }),
     commonjs({
