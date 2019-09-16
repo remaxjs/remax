@@ -84,6 +84,10 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       return this.callLifecycle(Lifecycle.hide);
     },
 
+    onReady() {
+      return this.callLifecycle(Lifecycle.ready);
+    },
+
     onPullDownRefresh(e: any) {
       return this.callLifecycle(Lifecycle.pullDownRefresh, e);
     },

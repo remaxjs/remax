@@ -39,7 +39,6 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
 
   return {
     fileName,
-    isAsset: true as true,
     source: code,
   };
 }
@@ -51,13 +50,12 @@ async function createHelperFile(adapter: Adapter) {
 
   return {
     fileName: `helper${adapter.extensions.jsHelper}`,
-    isAsset: true as true,
     source: code,
   };
 }
 
 async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
-  const components = getComponents();
+  const components = getComponents(adapter);
   let code: string = await ejs.renderFile(
     adapter.templates.base,
     {
@@ -77,7 +75,6 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
 
   return {
     fileName: `base${adapter.extensions.template}`,
-    isAsset: true as true,
     source: code,
   };
 }
@@ -92,7 +89,6 @@ function createAppManifest(
     : readManifest(path.resolve(options.cwd, 'src/app.config.js'), target);
   return {
     fileName: 'app.json',
-    isAsset: true as true,
     source: JSON.stringify(config, null, 2),
   };
 }
@@ -113,7 +109,6 @@ function createPageManifest(
   if (fs.existsSync(configFilePath)) {
     return {
       fileName: manifestFile,
-      isAsset: true as true,
       source: JSON.stringify(readManifest(configFilePath, target), null, 2),
     };
   }
@@ -124,7 +119,6 @@ function createPageManifest(
       const { path, ...config } = pageConfig;
       return {
         fileName: manifestFile,
-        isAsset: true as true,
         source: JSON.stringify(config, null, 2),
       };
     }
@@ -165,17 +159,16 @@ export default function template(
 ): Plugin {
   return {
     name: 'template',
-    generateBundle: async (_, bundle) => {
+    async generateBundle(_, bundle) {
+      const templateAssets = [];
       // app.json
       const manifest = createAppManifest(options, adapter.name, context);
-      bundle[manifest.fileName] = manifest;
-
       const template = await createBaseTemplate(adapter, options);
-      bundle[template.fileName] = template;
+      templateAssets.push(template, manifest);
 
       if (adapter.templates.jsHelper) {
         const helperFile = await createHelperFile(adapter);
-        bundle[helperFile.fileName] = helperFile;
+        templateAssets.push(helperFile);
       }
 
       const entries = getEntries(options, adapter, context);
@@ -190,7 +183,7 @@ export default function template(
             const page = pages.find(p => p.file === filePath);
             if (page) {
               const template = await createTemplate(file, adapter);
-              bundle[template.fileName] = template;
+              templateAssets.push(template);
               const config = await createPageManifest(
                 options,
                 file,
@@ -200,12 +193,19 @@ export default function template(
               );
 
               if (config) {
-                bundle[config.fileName] = config;
+                templateAssets.push(config);
               }
             }
           }
         }),
       ]);
+
+      templateAssets.forEach(file => {
+        this.emitFile({
+          type: 'asset',
+          ...file,
+        });
+      });
     },
   };
 }
