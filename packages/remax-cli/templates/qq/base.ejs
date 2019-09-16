@@ -1,16 +1,16 @@
 <template name="REMAX_TPL">
-  <block wx:for="{{tree.root.children}}" wx:key="{{id}}">
+  <block qq:for="{{tree.root.children}}" qq:key="{{id}}">
     <template is="REMAX_TPL_1_CONTAINER" data="{{i: item}}" />
   </block>
 </template>
 
-<wxs module="_h">
+<qs module="_h">
   module.exports = {
   v: function(value) {
   return value !== undefined ? value : '';
   }
   };
-</wxs>
+</qs>
 
 <% for (var i = 1; i <= depth; i++) { %>
 <%var id = i; %>
