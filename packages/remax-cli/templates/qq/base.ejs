@@ -1,0 +1,32 @@
+<template name="REMAX_TPL">
+  <block wx:for="{{tree.root.children}}" wx:key="{{id}}">
+    <template is="REMAX_TPL_1_CONTAINER" data="{{i: item}}" />
+  </block>
+</template>
+
+<wxs module="_h">
+  module.exports = {
+  v: function(value) {
+  return value !== undefined ? value : '';
+  }
+  };
+</wxs>
+
+<% for (var i = 1; i <= depth; i++) { %>
+<%var id = i; %>
+<% for (let component of components) { %>
+<%- include('./component.ejs', {
+        type: component.type,
+        props: component.props,
+        id: component.id,
+        templateId: id,
+      }) %>
+<% } %>
+<template name="REMAX_TPL_<%=id%>_plain-text" data="{{i: i}}">
+  <block>{{i.text}}</block>
+</template>
+<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
+<template name="REMAX_TPL_<%=id%>_CONTAINER" data="{{i: i}}">
+  <template is="{{'REMAX_TPL_<%=id%>_' + i.type}}" data="{{i: i}}" />
+</template>
+<% } %>
