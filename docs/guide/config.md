@@ -20,6 +20,27 @@ module.exports = {
   output: 'dist',
   // 配置路径别名
   alias: {},
+  postcss: {
+    options: {
+      use: [
+        [
+          'less',
+          {
+            paths: [
+              // 可方便解析 node_modules 中样式文件
+              path.resolve(__dirname, 'node_modules'),
+              // 可作为全局样式目录
+              path.resolve(__dirname, 'src/assets/styles'),
+            ],
+          },
+        ],
+        // 其他样式文件配置，比如sass, stylus, 如果有多种样式文件，则也需要添加对应配置
+        ['stylus', {}],
+      ],
+    },
+    // 其他postcss 插件, 会和默认的插件进行拼接
+    plugins: [],
+  },
 };
 ```
 
