@@ -76,6 +76,13 @@ export default function rollupConfig(
     {} as any
   );
 
+  // 获取 postcss 配置
+  const postcssConfig = {
+    options: {},
+    plugins: [],
+    ...options.postcss,
+  };
+
   const envReplacement: Env = {
     NODE_ENV: process.env.NODE_ENV || 'development',
     REMAX_PLATFORM: argv.target,
@@ -149,8 +156,9 @@ export default function rollupConfig(
     }),
     postcss({
       extract: true,
+      ...postcssConfig.options,
       modules: cssModuleConfig,
-      plugins: [pxToUnits(), postcssUrl(options)],
+      plugins: [pxToUnits(), postcssUrl(options)].concat(postcssConfig.plugins),
     }),
     json({}),
     replace({
