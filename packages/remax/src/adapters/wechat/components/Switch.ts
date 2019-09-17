@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const Switch = factory<SwitchProps>('switch');
 
 export interface SwitchProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

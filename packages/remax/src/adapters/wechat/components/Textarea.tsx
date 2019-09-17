@@ -7,6 +7,7 @@ import React, {
 import propsAlias from './propsAlias';
 
 export interface TextareaProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   autoFocus?: boolean;
   className?: string;

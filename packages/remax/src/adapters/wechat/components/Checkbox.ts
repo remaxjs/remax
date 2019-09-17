@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const Checkbox = factory<CheckboxProps>('checkbox');
 
 export interface CheckboxProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

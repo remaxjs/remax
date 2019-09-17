@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const RichText = factory<RichTextProps>('rich-text');
 
 export interface RichTextProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

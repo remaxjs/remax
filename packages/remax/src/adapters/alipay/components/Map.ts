@@ -2,6 +2,7 @@ import * as React from 'react';
 import factory from './factory';
 
 export interface MapMarker {
+  readonly dataset?: DOMStringMap;
   id?: number;
   latitude: number;
   longitude: number;
@@ -24,6 +25,7 @@ export interface MapMarker {
 }
 
 export interface MapPolyline {
+  readonly dataset?: DOMStringMap;
   points: Array<{
     latitude: number;
     longitude: number;
@@ -38,6 +40,7 @@ export interface MapPolyline {
 }
 
 export interface MapCircle {
+  readonly dataset?: DOMStringMap;
   latitude: number;
   longitude: number;
   color?: string;
@@ -47,6 +50,7 @@ export interface MapCircle {
 }
 
 export interface MapPosition {
+  readonly dataset?: DOMStringMap;
   left?: number;
   top?: number;
   width?: number;
@@ -54,6 +58,7 @@ export interface MapPosition {
 }
 
 export interface MapControl {
+  readonly dataset?: DOMStringMap;
   id?: number;
   position: MapPosition;
   iconPath: string;
@@ -61,6 +66,7 @@ export interface MapControl {
 }
 
 export interface MapPolygon {
+  readonly dataset?: DOMStringMap;
   points: Array<{
     latitude: number;
     longitude: number;
@@ -71,11 +77,13 @@ export interface MapPolygon {
 }
 
 export interface MapCoordinate {
+  readonly dataset?: DOMStringMap;
   latitude?: number;
   longitude?: number;
 }
 
 export interface MapSetting {
+  readonly dataset?: DOMStringMap;
   // 手势
   gestureEnable?: number;
   // 比例尺
@@ -96,6 +104,7 @@ export interface MapSetting {
 }
 
 export interface Map extends MapCoordinate {
+  readonly dataset?: DOMStringMap;
   style?: React.CSSProperties;
   className?: string;
   scale?: number;

@@ -1,6 +1,7 @@
 import factory from './factory';
 
 export interface SwiperItemProps {
+  readonly dataset?: DOMStringMap;
   key: string;
 }
 

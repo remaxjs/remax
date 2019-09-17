@@ -3,6 +3,7 @@ import factory from './factory';
 const Navigator = factory<NavigatorProps>('navigator');
 
 export interface NavigatorProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   target?: string; // self 否 在哪个目标上发生跳转，默认当前小程序 2.0.7
   url?: string; //  否 当前小程序内的跳转链接 1.0.0

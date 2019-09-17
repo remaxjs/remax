@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const Button = factory<ButtonProps>('button');
 
 export interface ButtonProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

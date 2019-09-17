@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const Label = factory<LabelProps>('label');
 
 export interface LabelProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

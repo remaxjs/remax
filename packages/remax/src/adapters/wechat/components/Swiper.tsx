@@ -2,6 +2,7 @@ import React, { FunctionComponent, forwardRef, CSSProperties } from 'react';
 import propsAlias from './propsAlias';
 
 export interface SwiperProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

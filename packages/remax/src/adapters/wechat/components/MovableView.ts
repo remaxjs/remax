@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const MovableView = factory<MovableViewProps>('movable-view');
 
 export interface MovableViewProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

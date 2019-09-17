@@ -3,6 +3,8 @@ import plainStyle from '../../../utils/plainStyle';
 const alias: { [prop: string]: string } = {
   activeColor: 'activeColor',
   backgroundColor: 'backgroundColor',
+  onClick: 'bindtap',
+  catchClick: 'catchtap',
   enable3D: 'enable-3D',
   hTouchMove: 'htouchmove',
   vTouchMove: 'vtouchmove',
@@ -19,11 +21,8 @@ function getAlias(prop: string) {
     return prop.replace('className', 'class');
   }
 
-  if (prop.startsWith('on')) {
-    return prop
-      .toLowerCase()
-      .replace('on', 'bind')
-      .replace('click', 'tap');
+  if (prop.startsWith('on') || prop.startsWith('catch')) {
+    return prop.toLowerCase().replace('on', 'bind');
   }
 
   return prop;

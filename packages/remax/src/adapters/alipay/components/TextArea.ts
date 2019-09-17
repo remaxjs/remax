@@ -2,6 +2,7 @@ import factory from './factory';
 import * as React from 'react';
 
 export interface TextareaProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   name?: string;

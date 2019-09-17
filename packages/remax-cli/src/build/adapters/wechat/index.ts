@@ -25,10 +25,13 @@ export const moduleFormat = 'cjs';
 
 // TODO: alias 方法在 remax 和 remax-cli 都重复定义了，想办法 DRY
 const alias: { [prop: string]: string } = {
-  className: 'class',
   activeColor: 'activeColor',
   backgroundColor: 'backgroundColor',
   onClick: 'bindtap',
+  catchClick: 'catchtap',
+  enable3D: 'enable-3D',
+  hTouchMove: 'htouchmove',
+  vTouchMove: 'vtouchmove',
 };
 
 export function getNativePropName(prop: string) {
@@ -38,7 +41,11 @@ export function getNativePropName(prop: string) {
     return aliasProp;
   }
 
-  if (prop.startsWith('on')) {
+  if (prop.endsWith('className')) {
+    return prop.replace('className', 'class');
+  }
+
+  if (prop.startsWith('on') || prop.startsWith('catch')) {
     return prop.toLowerCase().replace('on', 'bind');
   }
 

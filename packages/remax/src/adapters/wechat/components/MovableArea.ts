@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const MovableArea = factory<MovableAreaProps>('movable-area');
 
 export interface MovableAreaProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

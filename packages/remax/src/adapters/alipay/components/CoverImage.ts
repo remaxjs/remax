@@ -2,6 +2,7 @@ import * as React from 'react';
 import factory from './factory';
 
 export interface CoverImageProps {
+  readonly dataset?: DOMStringMap;
   className?: string;
   style?: React.CSSProperties;
   src?: string;

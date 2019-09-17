@@ -27,6 +27,7 @@ export const moduleFormat = 'esm';
 const alias: any = {
   className: 'class',
   onClick: 'onTap',
+  catchClick: 'catchTap',
 };
 
 export function getNativePropName(prop: string) {

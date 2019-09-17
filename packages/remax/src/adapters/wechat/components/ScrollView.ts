@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const ScrollView = factory('scroll-view');
 
 export interface ScrollViewProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

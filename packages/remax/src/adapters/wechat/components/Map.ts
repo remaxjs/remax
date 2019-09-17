@@ -3,6 +3,7 @@ import factory from './factory';
 const Map = factory<MapProps>('map');
 
 export interface MapProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   longitude: number; //  是 中心经度 1.0.0
   latitude: number; //  是 中心纬度 1.0.0

@@ -41,10 +41,6 @@ function addToComponentCollection(
 }
 
 function shouldRegisterAllProps(adapter: Adapter, node: t.JSXElement) {
-  if (adapter.name === 'alipay') {
-    return true;
-  }
-
   if (
     node.openingElement.attributes.find(a => a.type === 'JSXSpreadAttribute')
   ) {
@@ -77,7 +73,16 @@ function registerComponent(
   }
 
   let usedProps = adapter.hostComponents(componentName).props;
-  if (node && !shouldRegisterAllProps(adapter, node)) {
+  if (node && adapter.name === 'alipay') {
+    // 支付宝在使用全部props的基础上，还加入用户定义的prop，用于收集 dataset, catch 事件等props
+    node.openingElement.attributes.forEach(e => {
+      const propName = get(e, 'name.name') as string;
+
+      if (!usedProps.find(prop => prop === propName)) {
+        usedProps.push(propName);
+      }
+    });
+  } else if (node && !shouldRegisterAllProps(adapter, node)) {
     usedProps = node.openingElement.attributes.map(e => {
       const propName = get(e, 'name.name') as string;
       return propName;

@@ -3,6 +3,7 @@ import factory from './factory';
 const OpenData = factory<OpenDataProps>('open-data');
 
 export interface OpenDataProps {
+  readonly dataset?: DOMStringMap;
   type?: string; //  否 开放数据类型 1.4.0
   openGid?: string; //  否 当 type="groupName" 时生效, 群id 1.4.0
   lang?: string; // en 否 当 type="user*" 时生效，以哪种语言展示 userInfo 1.4.0

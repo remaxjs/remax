@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const CheckboxGroup = factory<CheckboxGroupProps>('checkbox-group');
 
 export interface CheckboxGroupProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;
