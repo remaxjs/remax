@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const Radio = factory<RadioProps>('radio');
 
 export interface RadioProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

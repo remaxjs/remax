@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const CoverView = factory<CoverViewProps>('cover-view');
 
 export interface CoverViewProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

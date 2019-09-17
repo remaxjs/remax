@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const Icon = factory<IconProps>('icon');
 
 export interface IconProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const Image = factory<ImageProps>('image');
 
 export interface ImageProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

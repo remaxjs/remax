@@ -1,6 +1,7 @@
 import factory from './factory';
 
 export interface ProgressProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   percent?: number;

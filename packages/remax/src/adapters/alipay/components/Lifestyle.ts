@@ -1,6 +1,7 @@
 import factory from './factory';
 
 export interface LifestyleProps {
+  readonly dataset?: DOMStringMap;
   publicId: string;
   onFollow?: (e: any) => void;
 }

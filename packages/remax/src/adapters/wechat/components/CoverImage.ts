@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const CoverImage = factory<CoverImageProps>('cover-image');
 
 export interface CoverImageProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

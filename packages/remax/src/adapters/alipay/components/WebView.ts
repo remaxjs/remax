@@ -1,6 +1,7 @@
 import factory from './factory';
 
 export interface WebViewProps {
+  readonly dataset?: DOMStringMap;
   src?: string;
   onMessage?: (e: any) => void;
 }

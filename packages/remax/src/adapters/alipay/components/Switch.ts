@@ -1,6 +1,7 @@
 import factory from './factory';
 
 export interface SwitchProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   name?: string;

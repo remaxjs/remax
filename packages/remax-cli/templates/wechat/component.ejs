@@ -1,7 +1,7 @@
 <% camelCased = function(str) { return str.replace(/-([a-z0-9])/g, function (g) { return g[1].toUpperCase(); })}%>
 
 <template name="REMAX_TPL_<%=templateId%>_<%=id%>">
-  <<%=id%> <% for(let key of props) { %> <%=key%>="{{_h.v(i.props.<%=camelCased(key)%>)}}" <% } %>>
+  <<%=id%> <% for(let key of props) { %> <%=key%>="{{_h.v(i.props['<%=key%>'])}}" <% } %>>
     <% if (id === 'swiper') { %>
     <block wx:for="{{i.children}}" wx:key="{{id}}">
       <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">

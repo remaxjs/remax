@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const Text = factory<TextProps>('text');
 
 export interface TextProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

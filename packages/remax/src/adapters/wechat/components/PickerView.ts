@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const PickerView = factory<PickerProps>('picker-view');
 
 export interface PickerProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

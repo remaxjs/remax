@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const Form = factory<FormProps>('form');
 
 export interface FormProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

@@ -1,6 +1,7 @@
 import factory from './factory';
 
 export interface LifestyleProps {
+  readonly dataset?: DOMStringMap;
   tntInstId: string;
   scene: string;
   size?: string | number;

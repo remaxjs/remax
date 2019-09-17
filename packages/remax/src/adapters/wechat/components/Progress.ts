@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const Progress = factory<ProgressProps>('progress');
 
 export interface ProgressProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

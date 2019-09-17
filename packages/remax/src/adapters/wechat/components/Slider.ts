@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const Slider = factory<SliderProps>('slider');
 
 export interface SliderProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

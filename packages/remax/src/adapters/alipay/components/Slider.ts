@@ -1,6 +1,7 @@
 import factory from './factory';
 
 export interface SliderProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   name?: string;

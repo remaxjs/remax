@@ -2,6 +2,7 @@ import React, { FunctionComponent, forwardRef, CSSProperties } from 'react';
 import propsAlias from './propsAlias';
 
 export interface VideoProps {
+  readonly dataset?: DOMStringMap;
   src: string; // 要播放视频的资源地址，支持云文件ID（2.3.0） 1.0.0
   id?: string;
   className?: string;

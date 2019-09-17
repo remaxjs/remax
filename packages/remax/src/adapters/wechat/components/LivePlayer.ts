@@ -3,6 +3,7 @@ import factory from './factory';
 const LivePlayer = factory<LivePlayerProps>('live-player');
 
 export interface LivePlayerProps {
+  readonly dataset?: DOMStringMap;
   src?: string; //  否 音视频地址。目前仅支持 flv, rtmp 格式 1.7.0
   mode?: string; // live 否 模式 1.7.0
   autoplay?: boolean; // false 否 自动播放 1.7.0

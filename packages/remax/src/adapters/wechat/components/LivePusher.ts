@@ -3,6 +3,7 @@ import factory from './factory';
 const LivePusher = factory<LivePusherProps>('live-pusher');
 
 export interface LivePusherProps {
+  readonly dataset?: DOMStringMap;
   url?: string; //  否 推流地址。目前仅支持 flv, rtmp 格式 1.7.0
   mode?: string; // RTC 否 SD（标清）, HD（高清）, FHD（超清）, RTC（实时通话） 1.7.0
   autopush?: boolean; // false 否 自动推流 1.7.0

@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const View = factory<ViewProps>('view');
 
 export interface ViewProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;
