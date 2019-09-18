@@ -169,7 +169,7 @@ export default function template(
       const { pages } = entries;
 
       const files = Object.keys(bundle);
-      await Promise.all([
+      await Promise.all(
         files.map(async file => {
           const chunk = bundle[file];
           if (isRemaxEntry(chunk)) {
@@ -191,8 +191,8 @@ export default function template(
               }
             }
           }
-        }),
-      ]);
+        })
+      );
 
       templateAssets.forEach(file => {
         this.emitFile({
