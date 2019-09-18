@@ -26,7 +26,7 @@ export default (options: RemaxOptions) =>
           });
         }
       });
-      if (!/^\//.test(asset.url)) {
+      if (!/^\//.test(asset.url) && !/^\w+:\/\//.test(asset.url)) {
         return `/${path.relative(
           path.resolve(options.cwd, 'src'),
           asset.absolutePath
