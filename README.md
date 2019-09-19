@@ -8,6 +8,9 @@
 </p>
 
 <p align="center">
+  <a href="https://travis-ci.org/remaxjs/remax">	
+    <img src="https://img.shields.io/travis/remaxjs/remax/master?style=flat-square" alt="Travis CI build status" />
+  </a>
   <a href="https://www.npmjs.com/package/remax">
     <img alt="npm" src="https://img.shields.io/npm/v/remax?style=flat-square" />
   </a>
