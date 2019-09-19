@@ -33,7 +33,7 @@ export interface ImageProps {
   mode?:
     | 'scaleToFill'
     | 'aspectFit'
-    | 'aspectFit'
+    | 'aspectFill'
     | 'widthFix'
     | 'top'
     | 'bottom'
