@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import defaultOptions from './defaultOptions';
+import { PluginImpl } from 'rollup';
 
 export interface RemaxOptions {
   cssModules: boolean | RegExp;
@@ -10,6 +11,12 @@ export interface RemaxOptions {
   UNSAFE_wechatTemplateDepth: number;
   alias?: {
     [key: string]: string;
+  };
+  postcss?: {
+    options?: {
+      [key: string]: any;
+    };
+    plugins?: PluginImpl[];
   };
 }
 
