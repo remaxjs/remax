@@ -280,3 +280,4 @@ export const createSelectorQuery = wx.createSelectorQuery;
 export const createIntersectionObserver = wx.createIntersectionObserver;
 export const createRewardedVideoAd = wx.createRewardedVideoAd;
 export const createInterstitialAd = wx.createInterstitialAd;
+export const cloud = wx.cloud;
