@@ -1,4 +1,5 @@
 import { RollupOptions, RollupWarning } from 'rollup';
+import builtins from 'rollup-plugin-node-builtins';
 import path from 'path';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
@@ -67,6 +68,7 @@ export default function rollupConfig(
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
   const plugins = [
+    builtins(),
     copy({
       targets: [
         {

@@ -1,4 +1,5 @@
 declare module 'rollup-plugin-babel';
+declare module 'rollup-plugin-node-builtins';
 declare module '@meck/rollup-plugin-postcss';
 declare module 'rollup-plugin-json';
 declare module 'rollup-plugin-node-resolve';
