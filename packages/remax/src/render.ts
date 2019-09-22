@@ -6,7 +6,7 @@ import AppContainer from './AppContainer';
 
 export const ReactReconcilerInst = ReactReconciler(hostConfig as any);
 
-function getPublicRootInstance(container: any) {
+function getPublicRootInstance(container: ReactReconciler.FiberRoot) {
   const containerFiber = container.current;
   if (!containerFiber.child) {
     return null;

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovableView render correctly 1`] = `
+<movable-view
+  height={10}
+  width={10}
+/>
+`;
