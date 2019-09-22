@@ -20,6 +20,8 @@ export default class App extends React.Component {
 > 注意
 >
 > 在 Remax 中使用 `getApp` 是获取不到 `src/app.js` 中定义的 `App` 组件的。 我们建议你忘记 `getApp`， 改用 `Context` 来共享状态。
+>
+> App 组件中必须渲染 `props.children`，且不支持写原生组件。
 
 ### 应用配置
 
