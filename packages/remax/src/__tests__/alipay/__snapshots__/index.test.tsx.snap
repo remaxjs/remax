@@ -108,7 +108,7 @@ Object {
           "type": "plain-text",
         },
       ],
-      "id": 2,
+      "id": 3,
       "props": Object {
         "class": "foo",
       },
@@ -116,7 +116,7 @@ Object {
       "type": "view",
     },
   ],
-  "id": 0,
+  "id": 1,
   "props": undefined,
   "text": undefined,
   "type": "root",

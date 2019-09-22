@@ -27,8 +27,9 @@ import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';
 import adapters, { Adapter } from './adapters';
-import { Context } from '../types';
+import { Context, Env } from '../types';
 import namedExports from 'named-exports-db';
+import fixRegeneratorRuntime from './plugins/fixRegeneratorRuntime';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -65,6 +66,34 @@ export default function rollupConfig(
 
   const entries = getEntries(options, adapter, context);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
+  const aliasConfig = Object.entries(options.alias || {}).reduce(
+    (config, [key, value]) => {
+      config[key] = value.match(/^(\.|[^/])/)
+        ? path.resolve(options.cwd, value)
+        : value;
+      return config;
+    },
+    {} as any
+  );
+
+  // 获取 postcss 配置
+  const postcssConfig = {
+    options: {},
+    plugins: [],
+    ...options.postcss,
+  };
+
+  const envReplacement: Env = {
+    NODE_ENV: process.env.NODE_ENV || 'development',
+    REMAX_PLATFORM: argv.target,
+    REMAX_DEBUG: process.env.REMAX_DEBUG,
+  };
+
+  Object.keys(process.env).forEach(k => {
+    if (k.startsWith('REMAX_APP_')) {
+      envReplacement[`${k}`] = process.env[k];
+    }
+  });
 
   const plugins = [
     copy({
@@ -89,7 +118,7 @@ export default function rollupConfig(
         '/index.tsx',
       ],
       '@': path.resolve(options.cwd, 'src'),
-      ...options.alias,
+      ...aliasConfig,
     }),
     url({
       limit: 0,
@@ -127,10 +156,16 @@ export default function rollupConfig(
     }),
     postcss({
       extract: true,
+      ...postcssConfig.options,
       modules: cssModuleConfig,
-      plugins: [pxToUnits(), postcssUrl(options)],
+      plugins: [pxToUnits(), postcssUrl(options)].concat(postcssConfig.plugins),
     }),
     json({}),
+    replace({
+      values: {
+        'process.env': JSON.stringify(envReplacement),
+      },
+    }),
     resolve({
       dedupe: [
         'react',
@@ -143,13 +178,6 @@ export default function rollupConfig(
       customResolveOptions: {
         moduleDirectory: 'node_modules',
       },
-    }),
-    replace({
-      'process.env.NODE_ENV': JSON.stringify(
-        process.env.NODE_ENV || 'development'
-      ),
-      'process.env.REMAX_PLATFORM': JSON.stringify(argv.target),
-      'process.env.REMAX_DEBUG': JSON.stringify(process.env.REMAX_DEBUG),
     }),
     rename({
       include: 'src/**',
@@ -183,7 +211,7 @@ export default function rollupConfig(
     }),
     inject({
       exclude: 'node_modules/**',
-      regeneratorRuntime: '@remax/regenerator-runtime',
+      regeneratorRuntime: 'regenerator-runtime',
     }),
     rename({
       matchAll: true,
@@ -208,6 +236,7 @@ export default function rollupConfig(
     removeSrc({}),
     removeConfig(),
     removeESModuleFlag(),
+    fixRegeneratorRuntime(),
     template(options, adapter, context),
   ];
 

@@ -18,6 +18,7 @@ export default class Container {
   root: VNode;
   updateQueue: SpliceUpdate[] = [];
   _rootContainer?: FiberRoot;
+  updateTimer?: number | null;
 
   constructor(context: any) {
     this.context = context;
@@ -48,7 +49,7 @@ export default class Container {
       this.applyUpdate();
     } else {
       if (this.updateQueue.length === 0) {
-        setTimeout(() => this.applyUpdate());
+        this.updateTimer = setTimeout(() => this.applyUpdate());
       }
       this.updateQueue.push(update);
     }
@@ -67,7 +68,15 @@ export default class Container {
       })),
     };
 
-    this.context.setData({ action }, () => {
+    let tree: typeof action | { root: RawNode } = action;
+
+    if (process.env.REMAX_PLATFORM === 'toutiao') {
+      tree = {
+        root: this.root.toJSON(),
+      };
+    }
+
+    this.context.setData({ action: tree }, () => {
       if (process.env.REMAX_DEBUG) {
         console.log(
           `setData => 回调时间：${new Date().getTime() - startTime}ms`,
@@ -76,6 +85,13 @@ export default class Container {
       }
     });
     this.updateQueue = [];
+  }
+
+  clearUpdate() {
+    if (this.updateTimer) {
+      clearTimeout(this.updateTimer);
+      this.updateTimer = null;
+    }
   }
 
   createCallback(name: string, fn: Function) {

@@ -157,6 +157,24 @@ pre {
   font-weight: 400;
 }
 
+.mainWrapper blockquote {
+  background-color: rgba(255, 229, 100, 0.3);
+  border-left-color: #ffe564;
+  border-left-width: 9px;
+  border-left-style: solid;
+  padding: 20px 45px 20px 26px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.mainWrapper blockquote p:first-of-type {
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 /* Header section ends here */
 .headerNav {
   font-family: 'Roboto';

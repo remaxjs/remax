@@ -1,7 +1,5 @@
 import capitalize from './utils/capitalize';
 
-declare const getCurrentPages: any;
-
 export type Callback = (...args: any[]) => any;
 
 export enum Lifecycle {

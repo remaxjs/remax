@@ -16,20 +16,26 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
     pageFile,
     path.extname(pageFile)
   )}${adapter.extensions.template}`;
-  const code: string = await ejs.renderFile(adapter.templates.page, {
+
+  const options: { [props: string]: any } = {
     baseTemplate: winPath(
       path.relative(
         path.dirname(pageFile),
         `base${adapter.extensions.template}`
       )
     ),
-    jsHelper: winPath(
+  };
+
+  if (adapter.extensions.jsHelper) {
+    options.jsHelper = winPath(
       path.relative(
         path.dirname(pageFile),
         `helper${adapter.extensions.jsHelper}`
       )
-    ),
-  });
+    );
+  }
+
+  const code: string = await ejs.renderFile(adapter.templates.page, options);
 
   return {
     fileName,
