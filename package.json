@@ -6,6 +6,7 @@
     "watch": "lerna run watch --parallel",
     "build": "lerna run build --ignore website",
     "test": "lerna run --scope remax --stream test",
+    "test:cov": "lerna run --scope remax --stream test -- --collect-coverage",
     "clean": "lerna clean",
     "readme:copy": "lerna exec 'cp ../../README.md' . --scope remax --scope remax-cli",
     "readme:clean": "lerna exec 'rm README.md' --scope remax --scope remax-cli",
