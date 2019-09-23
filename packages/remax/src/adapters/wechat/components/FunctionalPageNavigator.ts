@@ -5,6 +5,7 @@ const FunctionalPageNavigator = factory<FunctionalPageNavigatorProps>(
 );
 
 export interface FunctionalPageNavigatorProps {
+  readonly dataset?: DOMStringMap;
   version?: string; // release 否 跳转到的小程序版本，线上版本必须设置为 release 2.1.0
   name?: string; //  否 要跳转到的功能页 2.1.0
   args?: object; //  否 功能页参数，参数格式与具体功能页相关 2.1.0

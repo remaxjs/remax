@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const Progress = factory<ProgressProps>('progress');
 
 export interface ProgressProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;
@@ -19,7 +20,7 @@ export interface ProgressProps {
   activeMode?: string; // backwards 否 backwards: 动画从头播；forwards：动画从上次结束点接着播 1.7.0
   onClick?: (event: any) => any;
   onActiveEnd?: (event: any) => any; //  否 动画完成事件 2.4.1
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 export default Progress;

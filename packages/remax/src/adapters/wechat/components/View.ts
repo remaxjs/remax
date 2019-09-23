@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const View = factory<ViewProps>('view');
 
 export interface ViewProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;
@@ -22,7 +23,7 @@ export interface ViewProps {
   onAnimationIteration?: (event: any) => any;
   onAnimationStart?: (event: any) => any;
   onAnimationEnd?: (event: any) => any;
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 export default View;

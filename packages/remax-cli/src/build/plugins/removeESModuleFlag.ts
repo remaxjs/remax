@@ -1,27 +1,14 @@
 import { Plugin } from 'rollup';
 import { simple } from 'acorn-walk';
 import MagicString from 'magic-string';
-import { createFilter } from 'rollup-pluginutils';
 
-const files = [
-  /node_modules\/scheduler\/cjs\/scheduler-tracing.development.js$/,
-  /node_modules\/scheduler\/cjs\/scheduler-tracing.production.min.js$/,
-  /node_modules\/scheduler\/cjs\/scheduler.development.js/,
-  /node_modules\/scheduler\/cjs\/scheduler.production.min.js/,
-];
-
+// __esModule 标示会影响  webpack 编译出来的模块
 export default function removeESModuleFlag(): Plugin {
   return {
     name: 'remove-esmodule-flag',
-    transform(code, id) {
-      const filter = createFilter(files);
-      if (!filter(id)) {
-        return null;
-      }
-
+    transform(code) {
       const magicString = new MagicString(code);
       const ast = this.parse(code, {
-        ecmaVersion: 6,
         sourceType: 'module',
       });
 

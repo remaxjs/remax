@@ -2,6 +2,7 @@ import React, { FunctionComponent, forwardRef, CSSProperties } from 'react';
 import propsAlias from './propsAlias';
 
 export interface SwiperProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;
@@ -23,7 +24,7 @@ export interface SwiperProps {
   onChange?: (event: any) => any; // 否 current 改变时会触发 change 事件，event.detail = {current, source} 1.0.0
   onTransition?: (event: any) => any; // 否 swiper-item 的位置发生改变时会触发 transition 事件，event.detail = {dx: dx, dy: dy} 2.4.3
   onAnimationFinish?: (event: any) => any; // 否 动画结束时会触发 animationfinish 事件，event.detail 同上 1.9.0
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 const SwiperRender: FunctionComponent<SwiperProps> = (props, ref) => {

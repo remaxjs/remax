@@ -2,6 +2,7 @@ import * as React from 'react';
 import factory from './factory';
 
 export interface TextProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: React.CSSProperties;

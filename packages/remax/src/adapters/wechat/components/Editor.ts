@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const Editor = factory<EditorProps>('editor');
 
 export interface EditorProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;

@@ -1,6 +1,7 @@
 import factory from './factory';
 
 export interface CheckboxProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   value?: string;

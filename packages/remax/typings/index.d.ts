@@ -1,2 +1,4 @@
 declare module 'scheduler';
-declare let my: any;
+declare const tt: any;
+declare const getCurrentPages: any;
+declare const getApp: any;

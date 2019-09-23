@@ -2,13 +2,14 @@ import React, { FunctionComponent, forwardRef, CSSProperties } from 'react';
 import propsAlias from './propsAlias';
 
 export interface VideoProps {
+  readonly dataset?: DOMStringMap;
   src: string; // 要播放视频的资源地址，支持云文件ID（2.3.0） 1.0.0
   id?: string;
   className?: string;
   style?: CSSProperties;
   duration?: number; // 指定视频时长 1.1.0
   controls?: boolean; // 是否显示默认播放控件（播放/暂停按钮、播放进度、时间） 1.0.0
-  danmuList?: Array<object>; // 弹幕列表 1.0.0
+  danmuList?: object[]; // 弹幕列表 1.0.0
   danmuBtn?: boolean; // 是否显示弹幕按钮，只在初始化时有效，不能动态变更 1.0.0
   enableDanmu?: boolean; // 是否展示弹幕，只在初始化时有效，不能动态变更 1.0.0
   autoplay?: boolean; // 是否自动播放 1.0.0
@@ -41,7 +42,7 @@ export interface VideoProps {
   onWaiting?: (event: any) => any; // 视频出现缓冲时触发 1.7.0
   onError?: (event: any) => any; // 视频播放出错时触发 1.7.0
   onProgress?: (event: any) => any;
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 const VideoRender: FunctionComponent<VideoProps> = (props, ref) => {

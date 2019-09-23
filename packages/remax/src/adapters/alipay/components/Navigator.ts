@@ -1,6 +1,7 @@
 import factory from './factory';
 
 export interface NavigatorProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   openType?:

@@ -1,27 +1,46 @@
 import * as t from '@babel/types';
+import * as PATH from 'path';
+import winPath from '../../winPath';
+import fs from 'fs';
 import { NodePath } from '@babel/traverse';
 import { get } from 'dot-prop';
 import { kebabCase } from 'lodash';
 import { Adapter } from '../adapters';
 
 interface Component {
-  type: string;
   id: string;
   props: string[];
-  children?: Component[];
 }
 
-const components: { [id: string]: Component } = {};
+interface ComponentCollection {
+  [id: string]: Component;
+}
 
-function shouldRegisterAllProps(
-  adapter: Adapter,
-  node: t.JSXElement,
-  componentName: string
+const components: ComponentCollection = {};
+const importedComponents: ComponentCollection = {};
+
+function addToComponentCollection(
+  component: Component,
+  componentCollection: ComponentCollection
 ) {
-  if (adapter.name === 'alipay') {
-    return true;
+  if (!componentCollection[component.id]) {
+    componentCollection[component.id] = component;
   }
 
+  component.props.forEach(prop => {
+    if (
+      componentCollection[component.id].props.findIndex(
+        item => item === prop
+      ) !== -1
+    ) {
+      return;
+    }
+
+    componentCollection[component.id].props.push(prop);
+  });
+}
+
+function shouldRegisterAllProps(adapter: Adapter, node: t.JSXElement) {
   if (
     node.openingElement.attributes.find(a => a.type === 'JSXSpreadAttribute')
   ) {
@@ -31,8 +50,72 @@ function shouldRegisterAllProps(
   return false;
 }
 
+function registerComponent(
+  componentName: string,
+  componentCollection: ComponentCollection,
+  adapter: Adapter,
+  node?: t.JSXElement
+) {
+  if (componentName === 'swiper-item') {
+    return;
+  }
+
+  if (adapter.name === 'alipay' && componentName === 'picker-view-column') {
+    return;
+  }
+
+  try {
+    if (!adapter.hostComponents(componentName)) {
+      return;
+    }
+  } catch (error) {
+    return;
+  }
+
+  let usedProps = adapter.hostComponents(componentName).props;
+  if (node && adapter.name === 'alipay') {
+    // 支付宝在使用全部props的基础上，还加入用户定义的prop，用于收集 dataset, catch 事件等props
+    node.openingElement.attributes.forEach(e => {
+      const propName = get(e, 'name.name') as string;
+
+      if (!usedProps.find(prop => prop === propName)) {
+        usedProps.push(propName);
+      }
+    });
+  } else if (node && !shouldRegisterAllProps(adapter, node)) {
+    usedProps = node.openingElement.attributes.map(e => {
+      const propName = get(e, 'name.name') as string;
+      return propName;
+    });
+  }
+
+  const props = usedProps.filter(prop => !!prop).map(adapter.getNativePropName);
+
+  const component = {
+    id: componentName,
+    props,
+  };
+
+  addToComponentCollection(component, componentCollection);
+}
+
 export default (adapter: Adapter) => () => ({
   visitor: {
+    ImportDeclaration(path: NodePath) {
+      const node = path.node as t.ImportDeclaration;
+
+      if (!node.source.value.startsWith('remax/')) {
+        return;
+      }
+
+      node.specifiers.forEach(specifier => {
+        if (t.isImportSpecifier(specifier)) {
+          const componentName = specifier.imported.name;
+          const id = kebabCase(componentName);
+          registerComponent(id, importedComponents, adapter);
+        }
+      });
+    },
     JSXElement(path: NodePath) {
       const node = path.node as t.JSXElement;
       if (t.isJSXIdentifier(node.openingElement.name)) {
@@ -54,47 +137,37 @@ export default (adapter: Adapter) => () => ({
         const componentName = componentPath.node.imported.name;
         const id = kebabCase(componentName);
 
-        if (id === 'swiper-item') {
-          return;
-        }
-
-        if (adapter.name === 'alipay' && id === 'picker-view-column') {
-          return;
-        }
-
-        let usedProps = adapter.hostComponents(id).props;
-
-        if (!shouldRegisterAllProps(adapter, node, componentName)) {
-          usedProps = node.openingElement.attributes.map(e => {
-            const propName = get(e, 'name.name') as string;
-            return propName;
-          });
-        }
-
-        const props = usedProps
-          .filter(prop => !!prop)
-          .map(prop => adapter.getNativePropName(prop as string));
-
-        if (!components[id]) {
-          components[id] = {
-            type: kebabCase(componentName),
-            id,
-            props,
-          };
-        }
-
-        props.forEach(prop => {
-          if (components[id].props.findIndex(item => item === prop) !== -1) {
-            return;
-          }
-
-          components[id].props.push(prop);
-        });
+        registerComponent(id, components, adapter, node);
       }
     },
   },
 });
 
-export function getComponents() {
+function getAlipayComponents(adapter: Adapter) {
+  const DIR_PATH = winPath(
+    PATH.resolve(__dirname, '../adapters/alipay/hostComponents')
+  );
+  const files = fs.readdirSync(DIR_PATH);
+  files.forEach(file => {
+    const name = PATH.basename(file).replace(PATH.extname(file), '');
+    registerComponent(name, components, adapter);
+  });
+
   return Object.values(components);
+}
+
+export function getComponents(adapter: Adapter) {
+  if (adapter.name === 'alipay') {
+    return getAlipayComponents(adapter);
+  }
+
+  const data = Object.values(components);
+
+  Object.values(importedComponents).forEach(c => {
+    if (!components[c.id]) {
+      data.push(c);
+    }
+  });
+
+  return data;
 }

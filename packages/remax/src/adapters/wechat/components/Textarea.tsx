@@ -7,6 +7,7 @@ import React, {
 import propsAlias from './propsAlias';
 
 export interface TextareaProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   autoFocus?: boolean;
   className?: string;
@@ -34,7 +35,7 @@ export interface TextareaProps {
   onBlur?: (...params: any) => void;
   onConfirm?: (event: any) => any;
   onKeyboardHeightChange?: (event: any) => any;
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 function useInnerFocus(

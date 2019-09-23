@@ -3,18 +3,19 @@ import factory from './factory';
 const Map = factory<MapProps>('map');
 
 export interface MapProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   longitude: number; //  是 中心经度 1.0.0
   latitude: number; //  是 中心纬度 1.0.0
   scale?: number; // 16 否 缩放级别，取值范围为3-20 1.0.0
-  markers?: Array<any>; //  否 标记点 1.0.0
-  covers?: Array<any>; //  否 即将移除，请使用 markers 1.0.0
-  polyline?: Array<any>; //  否 路线 1.0.0
-  circles?: Array<any>; //  否 圆 1.0.0
-  controls?: Array<any>; //  否 控件（即将废弃，建议使用 cover-view 代替） 1.0.0
-  includePoints?: Array<any>; //  否 缩放视野以包含所有给定的坐标点 1.0.0
+  markers?: any[]; //  否 标记点 1.0.0
+  covers?: any[]; //  否 即将移除，请使用 markers 1.0.0
+  polyline?: any[]; //  否 路线 1.0.0
+  circles?: any[]; //  否 圆 1.0.0
+  controls?: any[]; //  否 控件（即将废弃，建议使用 cover-view 代替） 1.0.0
+  includePoints?: any[]; //  否 缩放视野以包含所有给定的坐标点 1.0.0
   showLocation?: boolean; // false 否 显示带有方向的当前定位点 1.0.0
-  polygons?: Array<any>; //  否 多边形 2.3.0
+  polygons?: any[]; //  否 多边形 2.3.0
   subkey?: string; //  否 个性化地图使用的key 2.3.0
   layerStyle?: number; // 1 否 个性化地图配置的 style，不支持动态修改
   rotate?: number; // 0 否 旋转角度，范围 0 ~ 360, 地图正北和设备 y 轴角度的夹角 2.5.0

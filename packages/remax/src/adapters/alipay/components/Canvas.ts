@@ -2,6 +2,7 @@ import * as React from 'react';
 import factory from './factory';
 
 export interface CanvasProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   style?: React.CSSProperties;
   className?: string;

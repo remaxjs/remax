@@ -18,6 +18,7 @@ export default class Container {
   root: VNode;
   updateQueue: SpliceUpdate[] = [];
   _rootContainer?: FiberRoot;
+  updateTimer?: number | null;
 
   constructor(context: any) {
     this.context = context;
@@ -34,6 +35,7 @@ export default class Container {
     path: Path,
     start: number,
     deleteCount: number,
+    immediately: boolean,
     ...items: RawNode[]
   ) {
     const update: SpliceUpdate = {
@@ -42,10 +44,15 @@ export default class Container {
       deleteCount,
       items,
     };
-    if (this.updateQueue.length === 0) {
-      setTimeout(() => this.applyUpdate());
+    if (immediately) {
+      this.updateQueue.push(update);
+      this.applyUpdate();
+    } else {
+      if (this.updateQueue.length === 0) {
+        this.updateTimer = setTimeout(() => this.applyUpdate());
+      }
+      this.updateQueue.push(update);
     }
-    this.updateQueue.push(update);
   }
 
   applyUpdate() {
@@ -61,7 +68,15 @@ export default class Container {
       })),
     };
 
-    this.context.setData({ action }, () => {
+    let tree: typeof action | { root: RawNode } = action;
+
+    if (process.env.REMAX_PLATFORM === 'toutiao') {
+      tree = {
+        root: this.root.toJSON(),
+      };
+    }
+
+    this.context.setData({ action: tree }, () => {
       if (process.env.REMAX_DEBUG) {
         console.log(
           `setData => 回调时间：${new Date().getTime() - startTime}ms`,
@@ -72,19 +87,26 @@ export default class Container {
     this.updateQueue = [];
   }
 
+  clearUpdate() {
+    if (this.updateTimer) {
+      clearTimeout(this.updateTimer);
+      this.updateTimer = null;
+    }
+  }
+
   createCallback(name: string, fn: Function) {
     this.context[name] = fn;
   }
 
   appendChild(child: VNode) {
-    this.root.appendChild(child);
+    this.root.appendChild(child, true);
   }
 
   removeChild(child: VNode) {
-    this.root.removeChild(child);
+    this.root.removeChild(child, true);
   }
 
   insertBefore(child: VNode, beforeChild: VNode) {
-    this.root.insertBefore(child, beforeChild);
+    this.root.insertBefore(child, beforeChild, true);
   }
 }

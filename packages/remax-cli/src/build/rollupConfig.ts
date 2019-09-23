@@ -23,13 +23,13 @@ import removeSrc from './plugins/removeSrc';
 import removeConfig from './plugins/removeConfig';
 import rename from './plugins/rename';
 import replace from 'rollup-plugin-replace';
-import * as React from 'react';
-import * as scheduler from 'scheduler';
 import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';
 import adapters, { Adapter } from './adapters';
-import { Context } from '../types';
+import { Context, Env } from '../types';
+import namedExports from 'named-exports-db';
+import fixRegeneratorRuntime from './plugins/fixRegeneratorRuntime';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -66,6 +66,34 @@ export default function rollupConfig(
 
   const entries = getEntries(options, adapter, context);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
+  const aliasConfig = Object.entries(options.alias || {}).reduce(
+    (config, [key, value]) => {
+      config[key] = value.match(/^(\.|[^/])/)
+        ? path.resolve(options.cwd, value)
+        : value;
+      return config;
+    },
+    {} as any
+  );
+
+  // 获取 postcss 配置
+  const postcssConfig = {
+    options: {},
+    plugins: [],
+    ...options.postcss,
+  };
+
+  const envReplacement: Env = {
+    NODE_ENV: process.env.NODE_ENV || 'development',
+    REMAX_PLATFORM: argv.target,
+    REMAX_DEBUG: process.env.REMAX_DEBUG,
+  };
+
+  Object.keys(process.env).forEach(k => {
+    if (k.startsWith('REMAX_APP_')) {
+      envReplacement[`${k}`] = process.env[k];
+    }
+  });
 
   const plugins = [
     copy({
@@ -90,20 +118,18 @@ export default function rollupConfig(
         '/index.tsx',
       ],
       '@': path.resolve(options.cwd, 'src'),
-      ...options.alias,
+      ...aliasConfig,
     }),
     url({
       limit: 0,
       fileName: '[dirname][name][extname]',
       publicPath: '/',
+      sourceDir: path.resolve(options.cwd, 'src'),
       include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
     }),
     commonjs({
       include: /node_modules/,
-      namedExports: {
-        react: Object.keys(React).filter(k => k !== 'default'),
-        scheduler: Object.keys(scheduler).filter(k => k !== 'default'),
-      },
+      namedExports,
     }),
     stub({
       modules: stubModules,
@@ -130,10 +156,17 @@ export default function rollupConfig(
     }),
     postcss({
       extract: true,
+      ...postcssConfig.options,
       modules: cssModuleConfig,
-      plugins: [pxToUnits(), postcssUrl(options)],
+      plugins: [pxToUnits(), postcssUrl(options)].concat(postcssConfig.plugins),
     }),
     json({}),
+    replace({
+      values: Object.keys(envReplacement).reduce((acc: any, key) => {
+        acc[`process.env.${key}`] = JSON.stringify(envReplacement[key]);
+        return acc;
+      }, {}),
+    }),
     resolve({
       dedupe: [
         'react',
@@ -147,13 +180,6 @@ export default function rollupConfig(
         moduleDirectory: 'node_modules',
       },
     }),
-    replace({
-      'process.env.NODE_ENV': JSON.stringify(
-        process.env.NODE_ENV || 'development'
-      ),
-      'process.env.REMAX_PLATFORM': JSON.stringify(argv.target),
-      'process.env.REMAX_DEBUG': JSON.stringify(process.env.REMAX_DEBUG),
-    }),
     rename({
       include: 'src/**',
       map: input => {
@@ -163,11 +189,6 @@ export default function rollupConfig(
 
         input = input
           .replace(/^demo\/src\//, '')
-          // stlye
-          .replace(/\.less$/, '.less.js')
-          .replace(/\.sass$/, '.sass.js')
-          .replace(/\.scss$/, '.scss.js')
-          .replace(/\.styl$/, '.styl.js')
           // typescript
           .replace(/\.ts$/, '.js')
           .replace(/\.tsx$/, '.js')
@@ -191,7 +212,7 @@ export default function rollupConfig(
     }),
     inject({
       exclude: 'node_modules/**',
-      regeneratorRuntime: '@remax/regenerator-runtime',
+      regeneratorRuntime: 'regenerator-runtime',
     }),
     rename({
       matchAll: true,
@@ -199,19 +220,24 @@ export default function rollupConfig(
         return (
           input &&
           input
+            // npm 包可能会有 jsx
+            .replace(/\.jsx$/, '.js')
+            // npm 包里可能会有 css
+            .replace(/\.less$/, '.less.js')
+            .replace(/\.sass$/, '.sass.js')
+            .replace(/\.scss$/, '.scss.js')
+            .replace(/\.styl$/, '.styl.js')
             .replace(/node_modules/g, 'npm')
             .replace(/\.js_commonjs-proxy$/, '.js_commonjs-proxy.js')
             // 支付宝小程序不允许目录带 @
-            .replace(
-              /@(.+?)\/(.+)$/,
-              (match, group1, group2) => `_${group1}/${group2}`
-            )
+            .replace(/@/g, '_')
         );
       },
     }),
     removeSrc({}),
     removeConfig(),
     removeESModuleFlag(),
+    fixRegeneratorRuntime(),
     template(options, adapter, context),
   ];
 

@@ -42,6 +42,18 @@ export function getImportSource(node: Node): Node | false {
   return node.source;
 }
 
+function getExportSource(node: Node): Node | false {
+  if (
+    node.type !== NodeType.ExportNamedDeclaration ||
+    !node.source ||
+    node.source.type !== NodeType.Literal
+  ) {
+    return false;
+  }
+
+  return node.source;
+}
+
 function isEmpty(array: any[] | undefined) {
   return !array || array.length === 0;
 }
@@ -98,7 +110,10 @@ export default function removeSrc(options: Options): Plugin {
             });
 
             const extract = (node: Node) => {
-              const req = getRequireSource(node) || getImportSource(node);
+              const req =
+                getRequireSource(node) ||
+                getImportSource(node) ||
+                getExportSource(node);
               if (req) {
                 const { start, end } = req;
                 const distance = req.value
@@ -125,6 +140,7 @@ export default function removeSrc(options: Options): Plugin {
             simple(ast, {
               ImportDeclaration: extract,
               CallExpression: extract,
+              ExportNamedDeclaration: extract,
             });
 
             if (sourceMaps) {

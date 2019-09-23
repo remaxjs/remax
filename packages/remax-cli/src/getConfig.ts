@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import defaultOptions from './defaultOptions';
+import { PluginImpl } from 'rollup';
 
 export interface RemaxOptions {
   cssModules: boolean | RegExp;
@@ -8,26 +9,26 @@ export interface RemaxOptions {
   progress: boolean;
   output: string;
   UNSAFE_wechatTemplateDepth: number;
-  alias?: any;
+  alias?: {
+    [key: string]: string;
+  };
+  postcss?: {
+    options?: {
+      [key: string]: any;
+    };
+    plugins?: PluginImpl[];
+  };
 }
 
 export interface CliOptions {
   target: string;
 }
 
-export default function getConfig(cli: CliOptions): RemaxOptions {
+export default function getConfig(): RemaxOptions {
   const configPath: string = path.join(process.cwd(), './remax.config.js');
   if (fs.existsSync(configPath)) {
     // eslint-disable-next-line
     const options = require(configPath);
-
-    // options 为 fucntion
-    if (typeof options == 'function') {
-      return {
-        ...defaultOptions,
-        ...options(cli),
-      };
-    }
 
     return {
       ...defaultOptions,

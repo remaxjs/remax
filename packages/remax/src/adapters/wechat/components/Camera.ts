@@ -3,6 +3,7 @@ import factory from './factory';
 const Camera = factory<CameraProps>('camera');
 
 export interface CameraProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   mode?: string; // normal 否 应用模式，只在初始化时有效，不能动态变更 2.1.0
   devicePosition?: string; // back 否 摄像头朝向 1.0.0

@@ -1,5 +1,6 @@
 import factory from './factory';
 export interface IconProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className: string;
   type:

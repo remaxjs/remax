@@ -109,19 +109,19 @@ export default {
   },
 
   appendInitialChild: (parent: VNode, child: VNode) => {
-    parent.appendChild(child);
+    parent.appendChild(child, false);
   },
 
   appendChild(parent: VNode, child: VNode) {
-    parent.appendChild(child);
+    parent.appendChild(child, false);
   },
 
   insertBefore(parent: VNode, child: VNode, beforeChild: VNode) {
-    parent.insertBefore(child, beforeChild);
+    parent.insertBefore(child, beforeChild, false);
   },
 
   removeChild(parent: VNode, child: VNode) {
-    parent.removeChild(child);
+    parent.removeChild(child, false);
   },
 
   finalizeInitialChildren: () => {

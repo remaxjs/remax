@@ -6,6 +6,7 @@ import { RemaxOptions } from '../../getConfig';
 
 interface Asset {
   url: string;
+  absolutePath: string;
 }
 
 export default (options: RemaxOptions) =>
@@ -25,6 +26,12 @@ export default (options: RemaxOptions) =>
           });
         }
       });
+      if (!/^\//.test(asset.url) && !/^\w+:\/\//.test(asset.url)) {
+        return `/${path.relative(
+          path.resolve(options.cwd, 'src'),
+          asset.absolutePath
+        )}`;
+      }
       return asset.url;
     },
     basePath: path.resolve(options.cwd, 'src'),

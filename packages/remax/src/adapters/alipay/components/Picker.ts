@@ -1,6 +1,7 @@
 import factory from './factory';
 
 export interface PickerProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   range?: string[] | any[];

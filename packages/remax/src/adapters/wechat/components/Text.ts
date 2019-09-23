@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 const Text = factory<TextProps>('text');
 
 export interface TextProps {
+  readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
   style?: CSSProperties;
@@ -11,7 +12,7 @@ export interface TextProps {
   space?: string; //  否 显示连续空格 1.4.0
   decode?: boolean; // false 否 是否解码 1.4.0
   onClick?: (event: any) => any;
-  animation?: Record<string, any>[];
+  animation?: Array<Record<string, any>>;
 }
 
 export default Text;
