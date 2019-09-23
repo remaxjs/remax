@@ -1,4 +1,3 @@
-/// <reference path="../../../node_modules/mini-types/types/index.d.ts" />
 // TODO promise 化补充完整
 import promisify from '../../utils/promisify';
 
