@@ -9,7 +9,6 @@ export default function removeESModuleFlag(): Plugin {
     transform(code) {
       const magicString = new MagicString(code);
       const ast = this.parse(code, {
-        ecmaVersion: 6,
         sourceType: 'module',
       });
 
