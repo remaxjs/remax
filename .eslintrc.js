@@ -35,5 +35,6 @@ module.exports = {
     '@typescript-eslint/triple-slash-reference': [0],
     'react/jsx-uses-vars': 2,
     '@typescript-eslint/array-type': [2, { default: 'array-simple' }],
+    '@typescript-eslint/no-var-requires': [0],
   },
 };

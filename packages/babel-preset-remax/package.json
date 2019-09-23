@@ -1,0 +1,38 @@
+{
+  "name": "babel-preset-remax",
+  "version": "1.0.1",
+  "description": "remax babel preset",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "Caihuanyu <eterlf41@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/remaxjs/remax/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remaxjs/remax.git"
+  },
+  "dependencies": {
+    "@babel/helper-plugin-utils": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/plugin-syntax-jsx": "^7.2.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "typescript": "^3.6.3"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.0.0-0"
+  }
+}
