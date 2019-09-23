@@ -35,7 +35,7 @@ Remax 将 React 运行在小程序环境中，让你可以使用完整的 React 
 
 ## 示例
 
-- [Todo Demo](https://github.com/remaxjs/todo-demo)
+https://github.com/remaxjs/examples
 
 ## 谁在使用
 
