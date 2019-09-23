@@ -162,9 +162,10 @@ export default function rollupConfig(
     }),
     json({}),
     replace({
-      values: {
-        'process.env': JSON.stringify(envReplacement),
-      },
+      values: Object.keys(envReplacement).reduce((acc: any, key) => {
+        acc[`process.env.${key}`] = JSON.stringify(envReplacement[key]);
+        return acc;
+      }, {}),
     }),
     resolve({
       dedupe: [
