@@ -1,6 +1,6 @@
 {
   "name": "umi-plugin-remax",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "lib/index.js",
   "keywords": [
@@ -27,7 +27,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "remax-cli": "^1.1.0",
+    "remax-cli": "^1.1.1",
     "umi-types": "^0.3.17"
   }
 }
