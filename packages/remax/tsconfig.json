@@ -2,23 +2,11 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "module": "esnext",
-    "lib": [
-      "es2015",
-      "dom"
-    ],
+    "lib": ["es2015", "dom"],
     "declaration": true,
     "jsx": "react",
-    "outDir": "lib",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./node_modules/@remax"
-    ]
+    "outDir": "lib"
   },
-  "include": [
-    "src/**/*",
-    "typings/**/*"
-  ],
-  "exclude": [
-    "__tests__/**/*"
-  ]
+  "include": ["src/**/*", "typings/**/*"],
+  "exclude": ["__tests__/**/*"]
 }
