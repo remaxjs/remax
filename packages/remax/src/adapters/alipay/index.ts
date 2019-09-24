@@ -1,5 +1,3 @@
-import '@remax/mini-types';
-
 export { default as render } from '../../render';
 export { default as createAppConfig } from '../../createAppConfig';
 export { default as createPageConfig } from '../../createPageConfig';
