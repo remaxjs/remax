@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url> <loc>https://remaxjs.org/guide</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remaxjs.org/faq</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remaxjs.org/guide/api</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/advanced-guide</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/faq</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/guide</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/quick-start</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remaxjs.org/guide/cli</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remaxjs.org/guide/platform</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remaxjs.org/guide/config</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remaxjs.org/guide/component</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remaxjs.org/guide/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remaxjs.org/quick-start/alipay</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remaxjs.org/guide/style</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remaxjs.org/guide/typescript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remaxjs.org/quick-start/wechat</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/advanced-guide/cross-platform</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/advanced-guide/native</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/advanced-guide/sharing-state</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/guide/api</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/guide/cli</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/guide/component</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/guide/config</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/guide/framework</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/guide/platform</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/guide/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/guide/style</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/guide/typescript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/quick-start/alipay</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/quick-start/wechat</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
