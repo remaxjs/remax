@@ -12,7 +12,12 @@ const config = {
     githubUrl: 'https://github.com/remaxjs/remax',
     helpUrl: '',
     tweetText: '',
-    links: [{ text: '', link: '' }],
+    links: [
+      {
+        text: '开发博客',
+        link: 'https://zhuanlan.zhihu.com/remaxjs',
+      },
+    ],
   },
   sidebar: {
     forcedNavOrder: [''],
