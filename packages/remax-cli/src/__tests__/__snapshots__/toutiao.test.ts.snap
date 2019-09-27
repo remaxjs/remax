@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toutiao build simple app 1`] = `
+Array [
+  Object {
+    "code": "'use strict';
+
+App({});
+",
+    "fileName": "__tests__/fixtures/simple/src/app.js",
+  },
+  Object {
+    "code": "'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var index$2 = require('../../../../../../npm/react/index.js');
+require('../../../../../../npm/remax/lib/render.js');
+require('../../../../../../npm/remax/lib/createAppConfig.js');
+var createPageConfig = require('../../../../../../npm/remax/lib/createPageConfig.js');
+require('../../../../../../npm/remax/lib/index.js');
+var View = require('../../../../../../npm/remax/lib/adapters/toutiao/components/View.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Input.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Textarea.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Video.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Swiper.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/ScrollView.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/SwiperItem.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Icon.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Text.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/RichText.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Progress.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Button.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/CheckboxGroup.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Checkbox.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Form.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Label.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Picker.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/PickerView.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/PickerViewColumn.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/RadioGroup.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Radio.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Slider.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Switch.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Navigator.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Image.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/Canvas.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/components/WebView.js');
+require('../../../../../../npm/remax/lib/adapters/toutiao/api.js');
+
+var _page = function _page() {
+  return index$2.createElement(View.default, null, \\"foo\\");
+};
+
+var index = Page(createPageConfig.default(_page));
+
+exports.default = index;
+",
+    "fileName": "__tests__/fixtures/simple/src/pages/toutiao/index.js",
+  },
+  Object {
+    "code": "<template name=\\"REMAX_TPL\\">
+  <block tt:for=\\"{{tree.root.children}}\\" tt:key=\\"{{id}}\\">
+    <template is=\\"{{'REMAX_TPL_' + item.type}}\\" data=\\"{{i: item}}\\" />
+  </block>
+</template>
+
+
+  
+
+<template name=\\"REMAX_TPL_view\\">
+  <view >
+    
+      <block tt:for=\\"{{i.children}}\\" tt:key=\\"{{id}}\\">
+        <template is=\\"{{'REMAX_TPL_' + item.type}}\\" data=\\"{{i: item}}\\" />
+      </block>
+    
+  </view>
+</template>
+
+
+<template name=\\"REMAX_TPL_plain-text\\" data=\\"{{i: i}}\\">
+  <block>{{i.text}}</block>
+</template>
+",
+    "fileName": "base.ttml",
+  },
+  Object {
+    "code": "{
+  \\"pages\\": [
+    \\"pages/toutiao/index\\"
+  ],
+  \\"window\\": {
+    \\"navigationBarTitleText\\": \\"Toutiao Todo App\\",
+    \\"navigationBarBackgroundColor\\": \\"#323239\\"
+  }
+}",
+    "fileName": "app.json",
+  },
+  Object {
+    "code": "<import src=\\"../../../../../../base.ttml\\"/>
+<template is=\\"REMAX_TPL\\" data=\\"{{tree: action}}\\" />
+",
+    "fileName": "__tests__/fixtures/simple/src/pages/toutiao/index.ttml",
+  },
+]
+`;

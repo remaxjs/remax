@@ -6,6 +6,6 @@ describe('config', () => {
 
   it('use cli options', () => {
     const result = getConfig();
-    expect(result.output).toEqual('dist/wechat');
+    expect(result.output).toEqual('dist');
   });
 });

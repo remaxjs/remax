@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Video render correctly 1`] = `
+<video
+  autoPauseIfNavigate={true}
+  autoPauseIfOpenNative={true}
+  autoplay={false}
+  controls={true}
+  danmuBtn={false}
+  enableDanmu={false}
+  enablePlayGesture={false}
+  enableProgressGesture={true}
+  initialTime={0}
+  loop={false}
+  muted={false}
+  objectFit="contain"
+  pageGesture={false}
+  playBtnPosition="bottom"
+  showCenterPlayBtn={true}
+  showFullscreenBtn={true}
+  showMuteBtn={false}
+  showPlayBtn={true}
+  showProgress={true}
+  src="video-src"
+  vslideGesture={false}
+  vslideGestureInFullscreen={true}
+/>
+`;

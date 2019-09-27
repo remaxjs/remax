@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input render correctly 1`] = `
+<input
+  bindblur={[Function]}
+  bindfocus={[Function]}
+  bindinput={[Function]}
+  bindtap={[Function]}
+  focus={false}
+  maxlength={140}
+  selectionEnd={999}
+  selectionStart={999}
+  type="text"
+  value=""
+/>
+`;
