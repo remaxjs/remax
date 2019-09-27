@@ -32,8 +32,10 @@ export function callbackName(name: string) {
   return 'on' + capitalize(name);
 }
 
-export function registerLifecycle(method: Lifecycle, callback: Callback) {
-  const pages = getCurrentPages();
-  const currentPage = pages[pages.length - 1];
-  return currentPage.registerLifecycle(method, callback);
+export function registerLifecycle(
+  page: any,
+  method: Lifecycle,
+  callback: Callback
+) {
+  return page.registerLifecycle(method, callback);
 }

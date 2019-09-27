@@ -1,39 +1,46 @@
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useContext } from 'react';
 import { registerLifecycle, Lifecycle, Callback } from './lifecycle';
+import PageInstanceContext from './PageInstanceContext';
 
 export function useShow(callback: Callback) {
+  const pageInstance = useContext(PageInstanceContext);
   useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.show, callback);
+    return registerLifecycle(pageInstance, Lifecycle.show, callback);
   });
 }
 
 export function useReady(callback: Callback) {
+  const pageInstance = useContext(PageInstanceContext);
   useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.ready, callback);
+    return registerLifecycle(pageInstance, Lifecycle.ready, callback);
   });
 }
 
 export function useHide(callback: Callback) {
+  const pageInstance = useContext(PageInstanceContext);
   useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.hide, callback);
+    return registerLifecycle(pageInstance, Lifecycle.hide, callback);
   });
 }
 
 export function usePullDownRefresh(callback: Callback) {
+  const pageInstance = useContext(PageInstanceContext);
   useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.pullDownRefresh, callback);
+    return registerLifecycle(pageInstance, Lifecycle.pullDownRefresh, callback);
   });
 }
 
 export function useReachBottom(callback: Callback) {
+  const pageInstance = useContext(PageInstanceContext);
   useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.reachBottom, callback);
+    return registerLifecycle(pageInstance, Lifecycle.reachBottom, callback);
   });
 }
 
 export function usePageScroll(callback: Callback) {
+  const pageInstance = useContext(PageInstanceContext);
   useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.pageScroll, callback);
+    return registerLifecycle(pageInstance, Lifecycle.pageScroll, callback);
   });
 }
 
@@ -44,31 +51,36 @@ export function useShareAppMessage(
     webViewUrl: string;
   }) => any
 ) {
+  const pageInstance = useContext(PageInstanceContext);
   useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.shareAppMessage, callback);
+    return registerLifecycle(pageInstance, Lifecycle.shareAppMessage, callback);
   });
 }
 
 export function useTitleClick(callback: Callback) {
+  const pageInstance = useContext(PageInstanceContext);
   useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.titleClick, callback);
+    return registerLifecycle(pageInstance, Lifecycle.titleClick, callback);
   });
 }
 
 export function useOptionMenuClick(callback: Callback) {
+  const pageInstance = useContext(PageInstanceContext);
   useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.optionMenuClick, callback);
+    return registerLifecycle(pageInstance, Lifecycle.optionMenuClick, callback);
   });
 }
 
 export function usePopMenuClick(callback: Callback) {
+  const pageInstance = useContext(PageInstanceContext);
   useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.popMenuClick, callback);
+    return registerLifecycle(pageInstance, Lifecycle.popMenuClick, callback);
   });
 }
 
 export function usePullIntercept(callback: Callback) {
+  const pageInstance = useContext(PageInstanceContext);
   useLayoutEffect(() => {
-    return registerLifecycle(Lifecycle.pullIntercept, callback);
+    return registerLifecycle(pageInstance, Lifecycle.pullIntercept, callback);
   });
 }
