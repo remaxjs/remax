@@ -14,8 +14,8 @@ App({});
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+var index$2 = require('../../../../../../npm/react/index.js');
 require('../../../../../../npm/remax/lib/render.js');
-var index$1 = require('../../../../../../npm/react/index.js');
 require('../../../../../../npm/remax/lib/createAppConfig.js');
 var createPageConfig = require('../../../../../../npm/remax/lib/createPageConfig.js');
 require('../../../../../../npm/remax/lib/index.js');
@@ -49,7 +49,7 @@ require('../../../../../../npm/remax/lib/adapters/toutiao/components/WebView.js'
 require('../../../../../../npm/remax/lib/adapters/toutiao/api.js');
 
 var _page = function _page() {
-  return index$1.createElement(View.default, null, \\"foo\\");
+  return index$2.createElement(View.default, null, \\"foo\\");
 };
 
 var index = Page(createPageConfig.default(_page));

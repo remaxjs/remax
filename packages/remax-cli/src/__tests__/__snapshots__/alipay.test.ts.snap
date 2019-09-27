@@ -8,8 +8,8 @@ Array [
     "fileName": "__tests__/fixtures/simple/src/app.js",
   },
   Object {
-    "code": "import '../../../../../../npm/remax/lib/render.js';
-import { createElement as react_24 } from '../../../../../../npm/react/index.js';
+    "code": "import { createElement as react_24 } from '../../../../../../npm/react/index.js';
+import '../../../../../../npm/remax/lib/render.js';
 import '../../../../../../npm/remax/lib/createAppConfig.js';
 import createPageConfig from '../../../../../../npm/remax/lib/createPageConfig.js';
 import '../../../../../../npm/remax/lib/index.js';
