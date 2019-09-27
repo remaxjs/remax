@@ -40,7 +40,7 @@ function set(obj, path, value) {
   }
 
   if (path.length === 1) {
-    obj[currentPath] = value;
+    obj[path[0]] = value;
   }
 
   var nextObj = obj;

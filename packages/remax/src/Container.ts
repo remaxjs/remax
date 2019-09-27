@@ -18,7 +18,7 @@ export default class Container {
   root: VNode;
   updateQueue: SpliceUpdate[] = [];
   _rootContainer?: FiberRoot;
-  updateTimer?: number | null;
+  stopUpdate?: boolean;
 
   constructor(context: any) {
     this.context = context;
@@ -49,13 +49,17 @@ export default class Container {
       this.applyUpdate();
     } else {
       if (this.updateQueue.length === 0) {
-        this.updateTimer = setTimeout(() => this.applyUpdate());
+        Promise.resolve().then(() => this.applyUpdate());
       }
       this.updateQueue.push(update);
     }
   }
 
   applyUpdate() {
+    if (this.stopUpdate) {
+      return;
+    }
+
     const startTime = new Date().getTime();
 
     const action = {
@@ -88,10 +92,7 @@ export default class Container {
   }
 
   clearUpdate() {
-    if (this.updateTimer) {
-      clearTimeout(this.updateTimer);
-      this.updateTimer = null;
-    }
+    this.stopUpdate = true;
   }
 
   createCallback(name: string, fn: Function) {

@@ -8,9 +8,9 @@
 <template name="REMAX_TPL_1_<%=id%>">
   <<%=id%> <% for(let key of props) { %> <%=key%>="{{item.props['<%=camelCased(key)%>']}}" <% } %>>
     <% if (id === 'swiper') { %>
-    <block a:for="{{item.children}}" a:key="{{item.id}}">
+    <block a:for="{{item.children}}" key="{{item.id}}">
       <swiper-item key="{{item.props.key}}">
-        <block a:for="{{item.children}}" a:key="{{item.id}}">
+        <block a:for="{{item.children}}" key="{{item.id}}">
           <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
         </block>
       </swiper-item>
@@ -20,7 +20,7 @@
       <template is="REMAX_TPL_1_CONTAINER" data="{{item: item.children[0]}}" />
     </view>
     <% } else if (id === 'picker-view') { %>
-    <block a:for="{{item.children}}" a:key="{{item.id}}">
+    <block a:for="{{item.children}}" key="{{item.id}}">
       <picker-view-column>
         <view a:for="{{item.children}}">
           <template is="REMAX_TPL_1_CONTAINER" data="{{item}}" />
@@ -28,7 +28,7 @@
       </picker-view-column>
     </block>
     <% } else { %>
-    <block a:for="{{item.children}}" a:key="{{item.id}}">
+    <block a:for="{{item.children}}" key="{{item.id}}">
       <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
     </block>
     <% } %>

@@ -1,5 +1,5 @@
 <template name="REMAX_TPL">
-  <block a:for="{{tree.root.children}}" a:key="{{item.id}}">
+  <block a:for="{{tree.root.children}}" key="{{item.id}}">
     <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
   </block>
 </template>
