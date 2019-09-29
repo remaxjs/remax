@@ -26,7 +26,7 @@ export default async (argv: any, context?: Context) => {
   );
 
   if (argv.watch) {
-    runWatcher(rollupOptions, argv, context);
+    runWatcher(options, rollupOptions, argv, context);
   } else {
     try {
       output('🚀 开始 build...', 'blue');

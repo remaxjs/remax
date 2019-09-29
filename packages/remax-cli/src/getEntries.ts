@@ -53,7 +53,7 @@ export default function getEntries(
   if (!context) {
     const appConfigPath: string = path.join(
       options.cwd,
-      'src',
+      options.rootDir,
       'app.config.js'
     );
     if (!fs.existsSync(appConfigPath)) {
@@ -76,7 +76,7 @@ export default function getEntries(
 
   const entries: Entries = {
     pageConfigPath: [],
-    app: searchFile(path.join(options.cwd, 'src', 'app')),
+    app: searchFile(path.join(options.cwd, options.rootDir, 'app')),
     pages: [],
     images: [],
   };
@@ -87,7 +87,7 @@ export default function getEntries(
         ...ret,
         {
           path: page,
-          file: searchFile(path.join(options.cwd, 'src', page)),
+          file: searchFile(path.join(options.cwd, options.rootDir, page)),
         },
       ].filter(page => page && page.file);
     },
@@ -101,7 +101,9 @@ export default function getEntries(
           ...ret,
           {
             path: page,
-            file: searchFile(path.join(options.cwd, 'src', pack.root, page)),
+            file: searchFile(
+              path.join(options.cwd, options.rootDir, pack.root, page)
+            ),
           },
         ].filter(page => page && page.file);
       }, [])
@@ -111,7 +113,7 @@ export default function getEntries(
   entries.images = images
     .filter(i => i)
     .reduce<string[]>((paths, image) => {
-      return [...paths, path.join(options.cwd, 'src', image)];
+      return [...paths, path.join(options.cwd, options.rootDir, image)];
     }, []);
 
   return entries;

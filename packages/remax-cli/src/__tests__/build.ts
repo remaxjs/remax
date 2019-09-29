@@ -1,8 +1,13 @@
 import * as path from 'path';
 import * as rollup from 'rollup';
 import rollupConfig from '../build/rollupConfig';
+import { RemaxOptions } from '../getConfig';
 
-export default async function build(app: string, target: string) {
+export default async function build(
+  app: string,
+  target: string,
+  options?: Partial<RemaxOptions>
+) {
   // eslint-disable-next-line
   const adapter = require('../build/adapters/' + target);
   const rollupOptions = rollupConfig(
@@ -10,8 +15,10 @@ export default async function build(app: string, target: string) {
       cssModules: false,
       cwd: path.resolve(__dirname, `./fixtures/${app}`),
       progress: false,
+      rootDir: 'src',
       output: 'dist',
       UNSAFE_wechatTemplateDepth: 20,
+      ...options,
     },
     false,
     adapter

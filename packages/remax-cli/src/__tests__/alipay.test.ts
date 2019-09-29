@@ -11,4 +11,13 @@ describe('alipay', () => {
     },
     JEST_BUILD_TIMEOUT
   );
+
+  it(
+    'change root dir',
+    async () => {
+      const result = await build('root-dir', 'alipay', { rootDir: 'source' });
+      expect(result).toMatchSnapshot();
+    },
+    JEST_BUILD_TIMEOUT
+  );
 });

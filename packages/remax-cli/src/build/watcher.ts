@@ -2,21 +2,13 @@ import chokidar from 'chokidar';
 import { RollupOptions, watch, RollupWatcher } from 'rollup';
 import { output } from './utils/output';
 import { checkChokidar } from './utils/checkChokidar';
-import { CliOptions } from '../getConfig';
+import { CliOptions, RemaxOptions } from '../getConfig';
 import { Context } from '../types';
 import build from './index';
 
 let isBundleRunning = false;
 let isFirstRunWatcher = true;
 
-const rollupWatchFiles = ['src/**'];
-// 配置重新build的路径
-const extraFiles = [
-  'src/app.config.js',
-  'src/**/*.config.js',
-  'src/native',
-  'src/native/**',
-];
 // chokidar config
 const chokidarConfig = {
   usePolling: true,
@@ -26,6 +18,7 @@ let extraFilesWatcher: RollupWatcher | null;
 let watcher: RollupWatcher | null;
 
 export default function runWather(
+  remaxOptions: RemaxOptions,
   rollupOptions: RollupOptions,
   cli: CliOptions,
   context?: Context
@@ -33,6 +26,15 @@ export default function runWather(
   if (isBundleRunning) {
     return;
   }
+
+  const rollupWatchFiles = [`${remaxOptions.rootDir}/**`];
+  // 配置重新build的路径
+  const extraFiles = [
+    `${remaxOptions.rootDir}/app.config.js`,
+    `${remaxOptions.rootDir}/**/*.config.js`,
+    `${remaxOptions.rootDir}/native`,
+    `${remaxOptions.rootDir}/native/**`,
+  ];
 
   isBundleRunning = true;
 

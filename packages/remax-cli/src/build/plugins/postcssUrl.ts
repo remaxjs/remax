@@ -12,7 +12,7 @@ interface Asset {
 export default (options: RemaxOptions) =>
   url({
     url: function(asset: Asset) {
-      const srcPath = path.join(options.cwd, 'src', asset.url);
+      const srcPath = path.join(options.cwd, options.rootDir, asset.url);
       const destPath = path.join(options.cwd, options.output, asset.url);
 
       fs.exists(srcPath, exists => {
@@ -28,12 +28,12 @@ export default (options: RemaxOptions) =>
       });
       if (!/^\//.test(asset.url) && !/^\w+:\/\//.test(asset.url)) {
         return `/${path.relative(
-          path.resolve(options.cwd, 'src'),
+          path.resolve(options.cwd, options.rootDir),
           asset.absolutePath
         )}`;
       }
       return asset.url;
     },
-    basePath: path.resolve(options.cwd, 'src'),
+    basePath: path.resolve(options.cwd, options.rootDir),
     assetsPath: path.resolve(options.cwd, options.output),
   });
