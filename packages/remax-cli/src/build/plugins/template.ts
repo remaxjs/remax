@@ -42,6 +42,7 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
     ...renderOptions,
     nativeComponents,
     components,
+    adapter,
   });
 
   return {
