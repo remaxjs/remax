@@ -86,7 +86,10 @@ function createAppManifest(
 ) {
   const config = context
     ? { ...context.app, pages: context.pages.map(p => p.path) }
-    : readManifest(path.resolve(options.cwd, 'src/app.config.js'), target);
+    : readManifest(
+        path.resolve(options.cwd, `${options.rootDir}/app.config.js`),
+        target
+      );
   return {
     fileName: 'app.json',
     source: JSON.stringify(config, null, 2),
@@ -104,7 +107,7 @@ function createPageManifest(
   const manifestFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.json');
   const configFilePath = path.resolve(
     options.cwd,
-    path.join('src', configFile)
+    path.join(options.rootDir, configFile)
   );
   if (fs.existsSync(configFilePath)) {
     return {

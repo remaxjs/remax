@@ -99,7 +99,7 @@ export default function rollupConfig(
     copy({
       targets: [
         {
-          src: ['src/native/*'],
+          src: [`${options.rootDir}/native/*`],
           dest: 'dist',
         },
       ],
@@ -117,14 +117,14 @@ export default function rollupConfig(
         '/index.ts',
         '/index.tsx',
       ],
-      '@': path.resolve(options.cwd, 'src'),
+      '@': path.resolve(options.cwd, options.rootDir),
       ...aliasConfig,
     }),
     url({
       limit: 0,
       fileName: '[dirname][name][extname]',
       publicPath: '/',
-      sourceDir: path.resolve(options.cwd, 'src'),
+      sourceDir: path.resolve(options.cwd, options.rootDir),
       include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
     }),
     commonjs({
@@ -181,14 +181,13 @@ export default function rollupConfig(
       },
     }),
     rename({
-      include: 'src/**',
+      include: `${options.rootDir}/**`,
       map: input => {
         if (!input) {
           return input;
         }
 
         input = input
-          .replace(/^demo\/src\//, '')
           // typescript
           .replace(/\.ts$/, '.js')
           .replace(/\.tsx$/, '.js')
@@ -234,7 +233,7 @@ export default function rollupConfig(
         );
       },
     }),
-    removeSrc({}),
+    removeSrc(options),
     removeConfig(),
     removeESModuleFlag(),
     fixRegeneratorRuntime(),
