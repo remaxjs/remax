@@ -1,6 +1,6 @@
 import * as path from 'path';
 export {
-  default as getNativePropName,
+  getAlias as getNativePropName,
 } from 'remax/lib/adapters/alipay/components/propsAlias';
 
 export const name = 'alipay';
