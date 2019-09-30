@@ -1,1 +1,1 @@
-export * from './lib/adapters/wechat';
+export * from './esm/adapters/wechat';

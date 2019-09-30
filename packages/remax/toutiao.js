@@ -1,1 +1,1 @@
-export * from './lib/adapters/toutiao';
+export * from './esm/adapters/toutiao';
