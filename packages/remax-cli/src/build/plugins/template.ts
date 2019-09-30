@@ -83,6 +83,7 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
       components,
       nativeComponents,
       depth: options.UNSAFE_wechatTemplateDepth,
+      adapter,
     },
     {
       // uglify
