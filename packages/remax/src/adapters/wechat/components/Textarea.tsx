@@ -47,7 +47,7 @@ function useInnerFocus(
     ...params: any
   ) => {
     if (innerFocus !== focus) {
-      setInnerFocus(true);
+      setInnerFocus(focus);
     }
 
     if (typeof func === 'function') {
