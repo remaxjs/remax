@@ -37,24 +37,6 @@ export default function rollupConfig(
   adapter: Adapter,
   context?: Context
 ) {
-  const babelConfig = {
-    presets: [
-      require.resolve('@babel/preset-typescript'),
-      require.resolve('@babel/preset-env'),
-    ],
-    plugins: [
-      require.resolve('@babel/plugin-proposal-class-properties'),
-      require.resolve('@babel/plugin-proposal-object-rest-spread'),
-      require.resolve('@babel/plugin-syntax-jsx'),
-      [
-        require.resolve('@babel/plugin-proposal-decorators'),
-        {
-          decoratorsBeforeExport: true,
-        },
-      ],
-    ],
-  };
-
   const stubModules: string[] = [];
 
   adapters.forEach(name => {
@@ -135,24 +117,23 @@ export default function rollupConfig(
       modules: stubModules,
     }),
     babel({
+      babelrc: false,
       include: entries.pages.map(p => p.file),
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [page, ...babelConfig.plugins],
-      presets: babelConfig.presets,
-    }),
-    babel({
-      include: entries.app,
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [app, ...babelConfig.plugins],
-      presets: babelConfig.presets,
+      plugins: [page],
+      presets: [[require.resolve('babel-preset-remax'), { react: false }]],
     }),
     babel({
       babelrc: false,
+      include: entries.app,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [components(adapter), ...babelConfig.plugins],
-      presets: babelConfig.presets.concat([
-        require.resolve('@babel/preset-react'),
-      ]),
+      plugins: [app],
+      presets: [[require.resolve('babel-preset-remax'), { react: false }]],
+    }),
+    babel({
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      plugins: [components(adapter)],
+      presets: [require.resolve('babel-preset-remax')],
     }),
     postcss({
       extract: true,

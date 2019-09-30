@@ -1,4 +1,3 @@
-import * as path from 'path';
 import build, { JEST_BUILD_TIMEOUT } from './build';
 
 describe('alipay', () => {
@@ -16,6 +15,15 @@ describe('alipay', () => {
     'change root dir',
     async () => {
       const result = await build('root-dir', 'alipay', { rootDir: 'source' });
+      expect(result).toMatchSnapshot();
+    },
+    JEST_BUILD_TIMEOUT
+  );
+
+  it(
+    'use custom babelrc',
+    async () => {
+      const result = await build('babelrc', 'alipay');
       expect(result).toMatchSnapshot();
     },
     JEST_BUILD_TIMEOUT

@@ -60,6 +60,17 @@ module.exports = {
 
 _关于 css modules 和样式更多信息，请参考 [指南 - 样式](/guide/style)_
 
+### babel 配置
+
+Remax 支持直接在项目根目录创建 .babelrc 文件来自定义 babel 配置，例如：
+
+```js
+// .babelrc
+{
+  "plugins": ["loop-optimizer"],
+}
+```
+
 ### 路径别名
 
 Remax 支持路径别名配置， 默认配置 `@/` 对应 `src/`，例如：

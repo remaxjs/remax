@@ -1,4 +1,3 @@
-import * as path from 'path';
 import build, { JEST_BUILD_TIMEOUT } from './build';
 
 describe('wechat', () => {
