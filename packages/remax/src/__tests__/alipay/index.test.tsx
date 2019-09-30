@@ -86,6 +86,15 @@ describe('remax render', () => {
     expect(container.root).toMatchSnapshot();
   });
 
+  it('renders vendor prefix style', () => {
+    const Page = () => (
+      <View style={{ WebkitLineClamp: 2, height: '100px' }}>hello</View>
+    );
+    const container = new Container(p);
+    render(<Page />, container);
+    expect(container.root).toMatchSnapshot();
+  });
+
   it('renders empty style', () => {
     const Page = () => <View style={undefined}>hello</View>;
     const container = new Container(p);
