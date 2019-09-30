@@ -43,6 +43,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - 修复内联样式 vendor prefix 解析错误的问题 ([1e7997d](https://github.com/remaxjs/remax/commit/1e7997d)), closes [#259](https://github.com/remaxjs/remax/issues/259)
 
+# [1.2.0-alpha.0](https://github.com/remaxjs/remax/compare/v1.1.2...v1.2.0-alpha.0) (2019-09-30)
+
+**Note:** Version bump only for package remax
+
 ## [1.1.2](https://github.com/remaxjs/remax/compare/v1.1.1...v1.1.2) (2019-09-27)
 
 ### Bug Fixes
