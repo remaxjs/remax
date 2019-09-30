@@ -117,19 +117,20 @@ export default function rollupConfig(
       modules: stubModules,
     }),
     babel({
+      babelrc: false,
       include: entries.pages.map(p => p.file),
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [page],
       presets: [[require.resolve('babel-preset-remax'), { react: false }]],
     }),
     babel({
+      babelrc: false,
       include: entries.app,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [app],
       presets: [[require.resolve('babel-preset-remax'), { react: false }]],
     }),
     babel({
-      babelrc: false,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
       plugins: [components(adapter)],
       presets: [require.resolve('babel-preset-remax')],
