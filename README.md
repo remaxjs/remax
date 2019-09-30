@@ -11,6 +11,9 @@
   <a href="https://travis-ci.org/remaxjs/remax">
     <img src="https://img.shields.io/travis/remaxjs/remax/master?style=flat-square" alt="Travis CI build status" />
   </a>
+  <a href="https://codecov.io/gh/remaxjs/remax">
+    <img src="https://img.shields.io/codecov/c/github/remaxjs/remax/master.svg?style=flat-square" alt="Codecov" />
+  </a>
   <a href="https://www.npmjs.com/package/remax">
     <img alt="npm" src="https://img.shields.io/npm/v/remax?style=flat-square" />
   </a>
@@ -36,7 +39,6 @@ Remax 将 React 运行在小程序环境中，让你可以使用完整的 React 
 ## 示例
 
 https://github.com/remaxjs/examples
-
 
 ## 贡献者
 
