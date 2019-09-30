@@ -1,4 +1,5 @@
 import * as path from 'path';
+import { kebabCase } from 'lodash';
 
 export const name = 'wechat';
 
@@ -41,15 +42,17 @@ export function getNativePropName(prop: string) {
     return aliasProp;
   }
 
-  if (prop.endsWith('className')) {
-    return prop.replace('className', 'class');
-  }
-
   if (prop.startsWith('on') || prop.startsWith('catch')) {
     return prop.toLowerCase().replace('on', 'bind');
   }
 
-  return prop;
+  if (prop.endsWith('className') || prop.endsWith('ClassName')) {
+    return kebabCase(
+      prop.replace('className', 'class').replace('ClassName', 'Class')
+    );
+  }
+
+  return kebabCase(prop);
 }
 
 export function getIcons(config: any) {
