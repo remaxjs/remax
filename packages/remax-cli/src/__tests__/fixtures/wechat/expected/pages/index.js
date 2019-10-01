@@ -4,6 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
+var _rollupPluginBabelHelpers = require('../_virtual/_rollupPluginBabelHelpers.js');
 require('../npm/remax/esm/render.js');
 var React = require('react');
 var React__default = _interopDefault(React);
@@ -22,7 +23,7 @@ require('../npm/remax/esm/adapters/wechat/components/MovableArea.js');
 require('../npm/remax/esm/adapters/wechat/components/CoverView.js');
 require('../npm/remax/esm/adapters/wechat/components/CoverImage.js');
 require('../npm/remax/esm/adapters/wechat/components/Icon.js');
-require('../npm/remax/esm/adapters/wechat/components/Text.js');
+var Text = require('../npm/remax/esm/adapters/wechat/components/Text.js');
 require('../npm/remax/esm/adapters/wechat/components/RichText.js');
 require('../npm/remax/esm/adapters/wechat/components/Progress.js');
 require('../npm/remax/esm/adapters/wechat/components/Button.js');
@@ -53,7 +54,18 @@ require('../npm/remax/esm/adapters/wechat/components/FunctionalPageNavigator.js'
 require('../npm/remax/esm/adapters/wechat/api.js');
 
 var _page = function _page() {
-  return React.createElement(View.default, null, "foo");
+  var props = {};
+  var TextElement = React.cloneElement(React.createElement(Text.default, null));
+
+  function handleClick() {}
+
+  function handleTouchStart() {}
+
+  return React.createElement(View.default, null, React.createElement(View.default, _rollupPluginBabelHelpers.extends({
+    onClick: handleClick,
+    onTouchStart: handleTouchStart,
+    id: "view"
+  }, props), "foo"), TextElement);
 };
 
 var index = Page(createPageConfig.default(_page));

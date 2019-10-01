@@ -4,6 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
+var _rollupPluginBabelHelpers = require('../_virtual/_rollupPluginBabelHelpers.js');
 require('../npm/remax/esm/render.js');
 var React = require('react');
 var React__default = _interopDefault(React);
@@ -18,7 +19,7 @@ require('../npm/remax/esm/adapters/toutiao/components/Swiper.js');
 require('../npm/remax/esm/adapters/toutiao/components/ScrollView.js');
 require('../npm/remax/esm/adapters/toutiao/components/SwiperItem.js');
 require('../npm/remax/esm/adapters/toutiao/components/Icon.js');
-require('../npm/remax/esm/adapters/toutiao/components/Text.js');
+var Text = require('../npm/remax/esm/adapters/toutiao/components/Text.js');
 require('../npm/remax/esm/adapters/toutiao/components/RichText.js');
 require('../npm/remax/esm/adapters/toutiao/components/Progress.js');
 require('../npm/remax/esm/adapters/toutiao/components/Button.js');
@@ -40,7 +41,18 @@ require('../npm/remax/esm/adapters/toutiao/components/WebView.js');
 require('../npm/remax/esm/adapters/toutiao/api.js');
 
 var _page = function _page() {
-  return React.createElement(View.default, null, "foo");
+  var props = {};
+  var TextElement = React.cloneElement(React.createElement(Text.default, null));
+
+  function handleClick() {}
+
+  function handleTouchStart() {}
+
+  return React.createElement(View.default, null, React.createElement(View.default, _rollupPluginBabelHelpers.extends({
+    onClick: handleClick,
+    onTouchStart: handleTouchStart,
+    id: "view"
+  }, props), "foo"), TextElement);
 };
 
 var index = Page(createPageConfig.default(_page));

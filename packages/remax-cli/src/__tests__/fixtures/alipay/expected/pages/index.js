@@ -1,5 +1,6 @@
+import { extends as _extends } from '../_virtual/_rollupPluginBabelHelpers.js';
 import '../npm/remax/esm/render.js';
-import { createElement } from 'react';
+import { cloneElement, createElement } from 'react';
 import '../npm/remax/esm/createAppConfig.js';
 import createPageConfig from '../npm/remax/esm/createPageConfig.js';
 import '../npm/remax/esm/index.js';
@@ -12,7 +13,7 @@ import '../npm/remax/esm/adapters/alipay/components/MovableArea.js';
 import '../npm/remax/esm/adapters/alipay/components/CoverView.js';
 import '../npm/remax/esm/adapters/alipay/components/CoverImage.js';
 import '../npm/remax/esm/adapters/alipay/components/Icon.js';
-import '../npm/remax/esm/adapters/alipay/components/Text.js';
+import Text from '../npm/remax/esm/adapters/alipay/components/Text.js';
 import '../npm/remax/esm/adapters/alipay/components/RichText.js';
 import '../npm/remax/esm/adapters/alipay/components/Progress.js';
 import '../npm/remax/esm/adapters/alipay/components/Button.js';
@@ -39,7 +40,18 @@ import '../npm/remax/esm/adapters/alipay/components/ContactButton.js';
 import '../npm/remax/esm/adapters/alipay/api.js';
 
 var _page = function _page() {
-  return createElement(View, null, "foo");
+  var props = {};
+  var TextElement = cloneElement(createElement(Text, null));
+
+  function handleClick() {}
+
+  function handleTouchStart() {}
+
+  return createElement(View, null, createElement(View, _extends({
+    onClick: handleClick,
+    onTouchStart: handleTouchStart,
+    id: "view"
+  }, props), "foo"), TextElement);
 };
 
 var index = Page(createPageConfig(_page));
