@@ -1,4 +1,25 @@
 import * as React from 'react';
-import { View } from 'remax/toutiao';
+import { View, Text } from 'remax/toutiao';
 
-export default () => <View>foo</View>;
+export default () => {
+  const props = {};
+  const TextElement = React.cloneElement(<Text />);
+
+  function handleClick() {}
+
+  function handleTouchStart() {}
+
+  return (
+    <View>
+      <View
+        onClick={handleClick}
+        onTouchStart={handleTouchStart}
+        id="view"
+        {...props}
+      >
+        foo
+      </View>
+      {TextElement}
+    </View>
+  );
+};

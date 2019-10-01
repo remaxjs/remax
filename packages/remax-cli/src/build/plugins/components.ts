@@ -15,8 +15,8 @@ interface ComponentCollection {
   [id: string]: Component;
 }
 
-const components: ComponentCollection = {};
-const importedComponents: ComponentCollection = {};
+let components: ComponentCollection = {};
+let importedComponents: ComponentCollection = {};
 
 function addToComponentCollection(
   component: Component,
@@ -63,6 +63,7 @@ function registerComponent(
     return;
   }
 
+  /* istanbul ignore next */
   try {
     if (!adapter.hostComponents(componentName)) {
       return;
@@ -87,6 +88,7 @@ function registerComponent(
     });
   } else if (node && !shouldRegisterAllProps(node)) {
     usedProps = node.openingElement.attributes.map(attr => {
+      /* istanbul ignore next */
       if (t.isJSXSpreadAttribute(attr)) {
         return '';
       }
@@ -127,10 +129,14 @@ export default (adapter: Adapter) => () => ({
       if (t.isJSXIdentifier(node.openingElement.name)) {
         const tagName = node.openingElement.name.name;
         const binding = path.scope.getBinding(tagName);
+
+        /* istanbul ignore next */
         if (!binding) {
           return;
         }
+
         const componentPath = binding.path as NodePath;
+
         if (
           !componentPath ||
           !t.isImportSpecifier(componentPath.node) ||
@@ -160,6 +166,11 @@ function getAlipayComponents(adapter: Adapter) {
   });
 
   return Object.values(components);
+}
+
+export function clear() {
+  components = {};
+  importedComponents = {};
 }
 
 export function getComponents(adapter: Adapter) {

@@ -221,6 +221,7 @@ export default function rollupConfig(
     template(options, adapter, context),
   ];
 
+  /* istanbul ignore next */
   if (options.progress) {
     plugins.push(progress());
   }
@@ -244,6 +245,7 @@ export default function rollupConfig(
     },
     preserveModules: true,
     preserveSymlinks: true,
+    /* istanbul ignore next */
     onwarn(warning, warn) {
       if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
       if ((warning as RollupWarning).code === 'CIRCULAR_DEPENDENCY') return;
