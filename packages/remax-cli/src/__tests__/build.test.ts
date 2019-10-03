@@ -25,4 +25,5 @@ describe('build', () => {
   runTest('customRootDir');
   runTest('babelrc');
   runTest('cssUrl');
+  runTest('nativeComponent');
 });

@@ -1,0 +1,5 @@
+<view>
+  <slot name="header" />
+  <slot />
+  <slot name="footer" />
+</view>

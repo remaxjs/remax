@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "foo-0": "../components/foo/index"
+  }
+}
