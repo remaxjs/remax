@@ -1,7 +1,7 @@
 import * as path from 'path';
 export {
   getAlias as getNativePropName,
-} from 'remax/lib/adapters/toutiao/components/propsAlias';
+} from 'remax/cjs/adapters/toutiao/components/propsAlias';
 
 export const name = 'toutiao';
 
