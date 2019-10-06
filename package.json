@@ -14,7 +14,7 @@
     "postpack": "npm run readme:clean",
     "prepublishOnly": "npm run lint && npm run test && lerna exec -- rm -rf lib && lerna run build",
     "postinstall": "lerna bootstrap && opencollective-postinstall",
-    "lint": "eslint 'packages/*/src/**/*.{ts,tsx}'",
+    "lint": "eslint \"packages/*/src/**/*.{ts,tsx}\"",
     "release": "lerna publish --force-publish --create-release=github",
     "site:build": "lerna run --scope website --stream build",
     "site:deploy": "lerna run --scope website --stream deploy",

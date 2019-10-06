@@ -5,6 +5,8 @@ import * as sander from 'sander';
 import readdir from 'fs-readdir-recursive';
 import diff from 'jest-diff';
 import { sortBy } from 'lodash';
+import slash from 'slash2';
+import * as eol from 'eol';
 
 type Received = Array<{
   fileName: string;
@@ -15,7 +17,15 @@ expect.extend({
   toMatchOutput(received: Received, output) {
     const { isNot } = this;
     const snapshotState = (this as any).snapshotState;
-    received = sortBy(received, ['fileName']);
+    const actual = sortBy(received, ['fileName'])
+      .reduce((acc: string[], f) => {
+        acc.push(
+          f.fileName,
+          ...eol.split(f.code).map(l => l + ` // ${f.fileName}`)
+        );
+        return acc;
+      }, [])
+      .join(eol.auto.toString());
 
     const options = {
       // Options for jest-diff
@@ -29,16 +39,26 @@ expect.extend({
     if (fs.existsSync(output)) {
       const expected = sortBy(
         readdir(output).map(fileName => ({
-          fileName,
-          code: sander.readFileSync(path.join(output, fileName)).toString(),
+          fileName: slash(fileName),
+          code: eol.lf(
+            sander.readFileSync(path.join(output, fileName)).toString()
+          ),
         })),
         'fileName'
-      );
+      )
+        .reduce((acc: string[], f) => {
+          acc.push(
+            f.fileName,
+            ...eol.split(f.code).map(l => l + ` // ${f.fileName}`)
+          );
+          return acc;
+        }, [])
+        .join(eol.auto.toString());
 
       if (isNot) {
         // The matcher is being used with `.not`
 
-        if (!this.equals(received, expected)) {
+        if (!this.equals(actual, expected)) {
           // The value of `pass` is reversed when used with `.not`
           return { pass: false, message: () => '' };
         } else {
@@ -53,7 +73,7 @@ expect.extend({
           };
         }
       } else {
-        if (this.equals(received, expected)) {
+        if (this.equals(actual, expected)) {
           return { pass: true, message: () => '' };
         } else {
           if (snapshotState._updateSnapshot === 'all') {
@@ -75,7 +95,7 @@ expect.extend({
                   "doesn't match"
                 )} the output ${output}.\n\n${diff(
                   expected,
-                  received,
+                  actual,
                   options.diff
                 )}`,
             };
