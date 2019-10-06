@@ -118,7 +118,7 @@ describe('page', () => {
       const log: string[] = [];
       const foo = React.createRef<any>();
       const Foo = React.forwardRef((props, ref) => {
-        const [_, forceUpdate] = React.useState(0);
+        const forceUpdate = React.useState(0)[1];
 
         useShow(() => {
           log.push('onShow');

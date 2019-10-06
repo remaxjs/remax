@@ -36,5 +36,6 @@ module.exports = {
     'react/jsx-uses-vars': 2,
     '@typescript-eslint/array-type': [2, { default: 'array-simple' }],
     '@typescript-eslint/no-var-requires': [0],
+    '@typescript-eslint/no-unused-vars': [0],
   },
 };
