@@ -7,5 +7,6 @@ module.exports = {
     'ts-jest': {
       isolatedModules: true,
     },
-  }
+  },
+  setupFilesAfterEnv: ['./tests/setup.ts'],
 };

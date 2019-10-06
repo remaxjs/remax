@@ -4,6 +4,8 @@
     "module": "commonjs",
     "target": "ES2017",
     "declaration": true,
-    "outDir": "lib"
-  }
+    "outDir": "lib",
+    "rootDirs": ["src", "tests"]
+  },
+  "exclude": ["tests"]
 }

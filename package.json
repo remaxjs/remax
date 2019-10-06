@@ -41,17 +41,6 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write",
-      "git add"
-    ],
-    "*.{md,js,jsx}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "devDependencies": {
     "lint-staged": ">=8"
   },

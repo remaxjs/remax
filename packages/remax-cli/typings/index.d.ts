@@ -16,3 +16,11 @@ declare module 'acorn-walk';
 declare module 'scheduler';
 declare module 'slash2';
 declare module 'named-exports-db';
+declare module 'esm';
+declare module 'sander';
+
+declare namespace jest {
+  interface Matchers<R> {
+    toMatchOutput: (output: string) => R;
+  }
+}
