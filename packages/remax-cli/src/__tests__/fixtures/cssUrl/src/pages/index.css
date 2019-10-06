@@ -1,0 +1,11 @@
+.a {
+  background-image: url("https://example.com/cat.png");
+}
+
+.b {
+  background-image: url("/assets/cat.png");
+}
+
+.c {
+  background-image: url("../assets/cat.png");
+}
