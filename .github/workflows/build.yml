@@ -26,6 +26,11 @@ jobs:
     - name: build
       run: yarn build
     - name: test
-      run: yarn test
+      run: yarn test:cov
       env:
         CI: true
+    - name: Upload coverage to Codecov
+      if: success() && runner.os == 'Linux'
+      run: curl -s https://codecov.io/bash | bash -s -- -t $CODECOV_TOKEN
+      env:
+        CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
