@@ -9,7 +9,6 @@ import postcss from '@remax/rollup-plugin-postcss';
 import postcssUrl from './plugins/postcssUrl';
 import progress from 'rollup-plugin-progress';
 import clean from 'rollup-plugin-delete';
-import alias from 'rollup-plugin-alias';
 import inject from 'rollup-plugin-inject';
 import copy from 'rollup-plugin-copy';
 import stub from './plugins/stub';
@@ -32,6 +31,7 @@ import namedExports from 'named-exports-db';
 import fixRegeneratorRuntime from './plugins/fixRegeneratorRuntime';
 import nativeComponents from './plugins/nativeComponents/index';
 import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin';
+import alias from './plugins/alias';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -52,15 +52,6 @@ export default function rollupConfig(
 
   const entries = getEntries(options, adapter, context);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
-  const aliasConfig = Object.entries(options.alias || {}).reduce(
-    (config, [key, value]) => {
-      config[key] = value.match(/^(\.|[^/])/)
-        ? path.resolve(options.cwd, value)
-        : value;
-      return config;
-    },
-    {} as any
-  );
 
   // 获取 postcss 配置
   const postcssConfig = {
@@ -91,21 +82,7 @@ export default function rollupConfig(
       ],
       copyOnce: true,
     }),
-    alias({
-      resolve: [
-        '',
-        '.ts',
-        '.js',
-        '.tsx',
-        '.jsx',
-        '/index.js',
-        '/index.jsx',
-        '/index.ts',
-        '/index.tsx',
-      ],
-      '@': path.resolve(options.cwd, options.rootDir),
-      ...aliasConfig,
-    }),
+    alias(options),
     url({
       limit: 0,
       fileName: '[dirname][name][extname]',

@@ -1,0 +1,4 @@
+<import-sjs name="h" from="./index.sjs"/>
+
+<view>{{h.hello()}}</view>
+<e />

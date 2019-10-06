@@ -6,9 +6,11 @@ import template from '@babel/template';
 import * as path from 'path';
 import * as htmlparser2 from 'htmlparser2';
 import * as fs from 'fs';
+import resolve from 'resolve';
 import { Adapter } from '../../adapters';
 import { isNativeComponent, pushArray } from './util';
 import { RemaxOptions } from '../../../getConfig';
+import alias from '../alias';
 
 interface Component {
   type: string;
@@ -108,32 +110,10 @@ export default (options: RemaxOptions, adapter: Adapter) => () => ({
 
         const source = componentPath.parent.source.value;
 
-        let sourcePath = path.join(
-          path.dirname(importer),
-          componentPath.parent.source.value
-        );
-
-        const extname = path.extname(sourcePath);
-
-        if (!extname) {
-          sourcePath = path.join(sourcePath, 'index.js');
-        } else if (extname !== '.js') {
-          return;
-        }
-
-        // node_module native components
-        if (!fs.existsSync(sourcePath)) {
-          sourcePath = path.join(
-            options.cwd,
-            'node_modules',
-            source,
-            'index.js'
-          );
-        }
-
-        if (!fs.existsSync(sourcePath)) {
-          return;
-        }
+        let sourcePath = alias(options).resolveId(source, importer) || source;
+        sourcePath = resolve.sync(sourcePath, {
+          basedir: path.dirname(importer),
+        });
 
         if (!isNativeComponent(sourcePath)) {
           return;
