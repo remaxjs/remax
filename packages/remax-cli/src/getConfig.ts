@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import defaultOptions from './defaultOptions';
-import { PluginImpl } from 'rollup';
+import { PluginImpl, RollupOptions } from 'rollup';
 
 export interface RemaxOptions {
   cssModules: boolean | RegExp;
@@ -19,6 +19,7 @@ export interface RemaxOptions {
     };
     plugins?: PluginImpl[];
   };
+  rollupOptions?: RollupOptions;
 }
 
 export interface CliOptions {
