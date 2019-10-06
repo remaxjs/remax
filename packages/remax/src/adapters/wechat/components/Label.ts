@@ -8,7 +8,8 @@ export interface LabelProps {
   id?: string;
   className?: string;
   style?: CSSProperties;
-  for?: string; //  否 绑定控件的 id 1.0.0
+  /** 绑定控件的 id 1.0.0 */
+  for?: string;
   animation?: Array<Record<string, any>>;
   onClick?: (event: any) => any;
 }

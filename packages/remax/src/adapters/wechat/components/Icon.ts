@@ -8,9 +8,21 @@ export interface IconProps {
   id?: string;
   className?: string;
   style?: CSSProperties;
-  type: string; //  是 icon的类型，有效值：success, success_no_circle, info, warn, waiting, cancel, download, search, clear 1.0.0
-  size?: number | string; // 23 否 icon的大小 1.0.0
-  color?: string; //  否 icon的颜色，同css的color 1.0.0
+  /** icon的类型 1.0.0  */
+  type:
+    | 'success'
+    | 'success_no_circle'
+    | 'info'
+    | 'warn'
+    | 'waiting'
+    | 'cancel'
+    | 'download'
+    | 'search'
+    | 'clear';
+  /** (default: 23) icon的大小 1.0.0  */
+  size?: number | string;
+  /** icon的颜色，同css的color 1.0.0  */
+  color?: string;
   animation?: Array<Record<string, any>>;
   onClick?: (event: any) => any;
 }
