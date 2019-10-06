@@ -3,8 +3,7 @@ import * as PATH from 'path';
 import winPath from '../../winPath';
 import fs from 'fs';
 import { NodePath } from '@babel/traverse';
-import { get } from 'dot-prop';
-import { kebabCase } from 'lodash';
+import { kebabCase, get } from 'lodash';
 import { Adapter } from '../adapters';
 
 interface Component {

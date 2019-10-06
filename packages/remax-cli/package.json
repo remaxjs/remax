@@ -70,7 +70,6 @@
     "@babel/traverse": "^7.4.5",
     "@babel/types": "^7.4.4",
     "@types/babel__traverse": "^7.0.7",
-    "@types/dot-prop": "^5.0.1",
     "@types/ejs": "^2.6.1",
     "@types/fs-readdir-recursive": "^1.0.0",
     "@types/gulp": "^4.0.6",
