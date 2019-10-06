@@ -1,25 +1,28 @@
 <a href="https://remaxjs.org">
-  <img src="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*7BLVSL14gvoAAAAAAAAAAABkARQnAQ" width="882" />
+	<img src="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*7BLVSL14gvoAAAAAAAAAAABkARQnAQ" width="882" />
 </a>
 
 <p align="center">
-  <span>Learn once, write anywhere</span><br/>
-  <strong>使用真正的 React 构建小程序</strong>
+	<span>Learn once, write anywhere</span><br/>
+	<strong>使用真正的 React 构建小程序</strong>
 </p>
 
 <p align="center">
-  <a href="https://travis-ci.org/remaxjs/remax">
-    <img src="https://img.shields.io/travis/remaxjs/remax/master?style=flat-square" alt="Travis CI build status" />
-  </a>
-  <a href="https://codecov.io/gh/remaxjs/remax">
-    <img src="https://img.shields.io/codecov/c/github/remaxjs/remax/master.svg?style=flat-square" alt="Codecov" />
-  </a>
-  <a href="https://www.npmjs.com/package/remax">
-    <img alt="npm" src="https://img.shields.io/npm/v/remax?style=flat-square" />
-  </a>
-  <a href="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*wWA6TbZvURYAAAAAAAAAAABkARQnAQ">
-    <img alt="dingding" src="https://img.shields.io/badge/交流-钉钉群-brightgreen?style=flat-square" />
-  </a>
+	<a href="https://travis-ci.org/remaxjs/remax">
+		<img src="https://img.shields.io/travis/remaxjs/remax/master?style=flat-square" alt="Travis CI build status" />
+	</a>
+	<a href="https://github.com/remaxjs/remax/actions?workflow=Node+CI">
+		<img src="https://github.com/remaxjs/remax/workflows/Node%20CI/badge.svg" alt="CI build status" />
+	</a>
+	<a href="https://codecov.io/gh/remaxjs/remax">
+		<img src="https://img.shields.io/codecov/c/github/remaxjs/remax/master.svg?style=flat-square" alt="Codecov" />
+	</a>
+	<a href="https://www.npmjs.com/package/remax">
+		<img alt="npm" src="https://img.shields.io/npm/v/remax?style=flat-square" />
+	</a>
+	<a href="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*wWA6TbZvURYAAAAAAAAAAABkARQnAQ">
+		<img alt="dingding" src="https://img.shields.io/badge/交流-钉钉群-brightgreen?style=flat-square" />
+	</a>
 </p>
 
 [《为什么要用 React 来构建小程序》](https://zhuanlan.zhihu.com/p/79788488)
