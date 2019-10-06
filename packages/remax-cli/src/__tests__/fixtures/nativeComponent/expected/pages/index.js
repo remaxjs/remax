@@ -38,11 +38,14 @@ import '../npm/remax/esm/adapters/alipay/components/WebView.js';
 import '../npm/remax/esm/adapters/alipay/components/Lifestyle.js';
 import '../npm/remax/esm/adapters/alipay/components/ContactButton.js';
 import '../npm/remax/esm/adapters/alipay/api.js';
-import Foo from '../components/foo/index.js';
-import Bar from '../components/bar/index.js';
+import A from '../components/a/index.js';
+import B from '../components/b/index.js';
+import C from '../components/c/index.js';
+import D from '../components/d/index.js';
+import Complex from '../components/complex/index.js';
 
 var _page = function _page() {
-  return createElement(View, null, createElement(Foo, null), createElement(Bar, null));
+  return createElement(View, null, createElement(A, null), createElement(B, null), createElement(C, null), createElement(D, null), createElement(Complex, null));
 };
 
 var index = Page(createPageConfig(_page));
