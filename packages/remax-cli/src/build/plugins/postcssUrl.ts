@@ -9,8 +9,8 @@ interface Asset {
   absolutePath: string;
 }
 
-export default (options: RemaxOptions) =>
-  url({
+export default function postcssUrl(options: RemaxOptions) {
+  return url({
     url: function(asset: Asset) {
       const srcPath = path.join(options.cwd, options.rootDir, asset.url);
       const destPath = path.join(options.cwd, options.output, asset.url);
@@ -37,3 +37,4 @@ export default (options: RemaxOptions) =>
     basePath: path.resolve(options.cwd, options.rootDir),
     assetsPath: path.resolve(options.cwd, options.output),
   });
+}

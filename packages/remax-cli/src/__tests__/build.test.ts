@@ -6,4 +6,5 @@ describe('build', () => {
   runTest('toutiao', 'toutiao');
   runTest('customRootDir');
   runTest('babelrc');
+  runTest('cssUrl');
 });
