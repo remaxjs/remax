@@ -13,19 +13,25 @@ type Received = Array<{
   code: string;
 }>;
 
+function buildText(files: Received) {
+  return sortBy(files, ['fileName'])
+    .reduce((acc: string[], f) => {
+      acc.push(
+        `file: ${f.fileName}`,
+        Array(80).join('-'),
+        ...eol.split(f.code).map(l => l + ` // ${f.fileName}`),
+        Array(80).join('-')
+      );
+      return acc;
+    }, [])
+    .join(eol.auto.toString());
+}
+
 expect.extend({
   toMatchOutput(received: Received, output) {
     const { isNot } = this;
     const snapshotState = (this as any).snapshotState;
-    const actual = sortBy(received, ['fileName'])
-      .reduce((acc: string[], f) => {
-        acc.push(
-          f.fileName,
-          ...eol.split(f.code).map(l => l + ` // ${f.fileName}`)
-        );
-        return acc;
-      }, [])
-      .join(eol.auto.toString());
+    const actual = buildText(received);
 
     const options = {
       // Options for jest-diff
@@ -37,23 +43,14 @@ expect.extend({
     };
 
     if (fs.existsSync(output)) {
-      const expected = sortBy(
+      const expected = buildText(
         readdir(output).map(fileName => ({
           fileName: slash(fileName),
           code: eol.lf(
             sander.readFileSync(path.join(output, fileName)).toString()
           ),
-        })),
-        'fileName'
-      )
-        .reduce((acc: string[], f) => {
-          acc.push(
-            f.fileName,
-            ...eol.split(f.code).map(l => l + ` // ${f.fileName}`)
-          );
-          return acc;
-        }, [])
-        .join(eol.auto.toString());
+        }))
+      );
 
       if (isNot) {
         // The matcher is being used with `.not`
