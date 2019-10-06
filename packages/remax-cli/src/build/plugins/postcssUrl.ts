@@ -3,6 +3,7 @@ import mkdirp from 'mkdirp';
 import path from 'path';
 import url from 'postcss-url';
 import { RemaxOptions } from '../../getConfig';
+import winPath from '../../winPath';
 
 interface Asset {
   url: string;
@@ -27,10 +28,12 @@ export default function postcssUrl(options: RemaxOptions) {
         }
       });
       if (!/^\//.test(asset.url) && !/^\w+:\/\//.test(asset.url)) {
-        return `/${path.relative(
-          path.resolve(options.cwd, options.rootDir),
-          asset.absolutePath
-        )}`;
+        return winPath(
+          `/${path.relative(
+            path.resolve(options.cwd, options.rootDir),
+            asset.absolutePath
+          )}`
+        );
       }
       return asset.url;
     },
