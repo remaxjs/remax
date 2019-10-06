@@ -29,5 +29,8 @@
   "dependencies": {
     "remax-cli": "^1.1.3",
     "umi-types": "^0.3.17"
+  },
+  "devDependencies": {
+    "typescript": "^3.6.3"
   }
 }
