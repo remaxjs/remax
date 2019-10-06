@@ -4,6 +4,7 @@
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "noUnusedLocals": true
   }
 }
