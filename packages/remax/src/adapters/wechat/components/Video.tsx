@@ -1,13 +1,10 @@
-import React, { FunctionComponent, forwardRef, CSSProperties } from 'react';
+import React, { FunctionComponent, forwardRef } from 'react';
 import propsAlias from './propsAlias';
+import { BaseProps } from './baseTyping';
 
-export interface VideoProps {
-  readonly dataset?: DOMStringMap;
+export interface VideoProps extends BaseProps {
   /** 要播放视频的资源地址，支持云文件ID（2.3.0） 1.0.0 */
   src: string;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
   /** 指定视频时长 1.1.0 */
   duration?: number;
   /** 是否显示默认播放控件（播放/暂停按钮、播放进度、时间） 1.0.0 */
@@ -60,7 +57,6 @@ export interface VideoProps {
   vslideGesture?: boolean;
   /** 在全屏模式下，是否开启亮度与音量调节手势 2.6.2 */
   vslideGestureInFullscreen?: boolean;
-  onClick?: (event: any) => any;
   /** 当开始/继续播放时触发play事件 1.0.0 */
   onPlay?: (event: any) => any;
   /** 当暂停播放时触发 pause 事件 1.0.0 */
@@ -76,7 +72,6 @@ export interface VideoProps {
   /** 视频播放出错时触发 1.7.0 */
   onError?: (event: any) => any;
   onProgress?: (event: any) => any;
-  animation?: Array<Record<string, any>>;
 }
 
 const VideoRender: FunctionComponent<VideoProps> = (props, ref) => {

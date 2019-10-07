@@ -1,13 +1,9 @@
 import factory from './factory';
-import { CSSProperties } from 'react';
+import { BaseProps } from './baseTyping';
 
 const Slider = factory<SliderProps>('slider');
 
-export interface SliderProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
+export interface SliderProps extends BaseProps {
   /** (default: 0) 最小值 1.0.0 */
   min?: number;
   /** (default: 100) 最大值 1.0.0 */
@@ -32,8 +28,6 @@ export interface SliderProps {
   onChange?: (event: any) => any;
   /** 拖动过程中触发的事件，event.detail = {value} 1.7.0 */
   onChanging?: (event: any) => any;
-  onClick?: (event: any) => any;
-  animation?: Array<Record<string, any>>;
 }
 
 export default Slider;

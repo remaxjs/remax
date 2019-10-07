@@ -1,11 +1,8 @@
-import React, { FunctionComponent, forwardRef, CSSProperties } from 'react';
+import React, { FunctionComponent, forwardRef } from 'react';
 import propsAlias from './propsAlias';
+import { BaseProps } from './baseTyping';
 
-export interface SwiperProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
+export interface SwiperProps extends BaseProps {
   /** (default: false) 是否显示面板指示点 1.0.0  */
   indicatorDots?: boolean;
   /** (default: rgba(0, 0, 0, .3)) 指示点颜色 1.1.0  */
@@ -39,14 +36,12 @@ export interface SwiperProps {
     | 'easeInCubic'
     | 'easeOutCubic'
     | 'easeInOutCubic';
-  onClick?: (event: any) => any;
   /** current 改变时会触发 change 事件，event.detail = {current, source} 1.0.0 */
   onChange?: (event: any) => any;
   /** swiper-item 的位置发生改变时会触发 transition 事件，event.detail = {dx: dx, dy: dy} 2.4.3 */
   onTransition?: (event: any) => any;
   /** 动画结束时会触发 animationfinish 事件，event.detail 同上 1.9.0 */
   onAnimationFinish?: (event: any) => any;
-  animation?: Array<Record<string, any>>;
 }
 
 const SwiperRender: FunctionComponent<SwiperProps> = (props, ref) => {

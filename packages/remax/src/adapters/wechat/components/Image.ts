@@ -1,13 +1,9 @@
 import factory from './factory';
-import { CSSProperties } from 'react';
+import { BaseProps } from './baseTyping';
 
 const Image = factory<ImageProps>('image');
 
-export interface ImageProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
+export interface ImageProps extends BaseProps {
   /**
    * 1.0.0
    * 图片资源地址
@@ -64,8 +60,6 @@ export interface ImageProps {
    * 当图片载入完毕时触发，event.detail = {height, width}
    */
   onLoad?: (event: any) => any;
-  animation?: Array<Record<string, any>>;
-  onClick?: (event: any) => any;
 }
 
 export default Image;

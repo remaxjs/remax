@@ -1,9 +1,9 @@
 import factory from './factory';
+import { BaseProps } from './baseTyping';
 
 const WebView = factory<WebViewProps>('web-view');
 
-export interface WebViewProps {
-  readonly dataset?: DOMStringMap;
+export interface WebViewProps extends BaseProps {
   /** webview 指向网页的链接。可打开关联的公众号的文章，其它网页需登录小程序管理后台配置业务域名。 1.6.4  */
   src?: string;
   /** 网页向小程序 postMessage 时，会在特定时机（小程序后退、组件销毁、分享）触发并收到消息。e.detail = { data }，data是多次 postMessage 的参数组成的数组 1.6.4  */

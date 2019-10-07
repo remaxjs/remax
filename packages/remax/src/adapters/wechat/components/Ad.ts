@@ -1,9 +1,9 @@
 import factory from './factory';
+import { BaseProps } from './baseTyping';
 
 const Ad = factory<AdProps>('ad');
 
-export interface AdProps {
-  readonly dataset?: DOMStringMap;
+export interface AdProps extends BaseProps {
   /** 广告单元id，可在小程序管理后台的流量主模块新建 1.9.94; */
   unitId: string;
   /** 广告自动刷新的间隔时间，单位为秒，参数值必须大于等于30（该参数不传入时 Banner 广告不会自动刷新） 2.3.1 */

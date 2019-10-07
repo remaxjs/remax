@@ -1,13 +1,9 @@
 import factory from './factory';
-import { CSSProperties } from 'react';
+import { BaseProps } from './baseTyping';
 
 const ScrollView = factory('scroll-view');
 
-export interface ScrollViewProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
+export interface ScrollViewProps extends BaseProps {
   /** (default: false) 允许横向滚动 1.0.0 */
   scrollX?: boolean;
   /** (default: false) 允许纵向滚动 1.0.0 */
@@ -34,8 +30,6 @@ export interface ScrollViewProps {
   onScrollToLower?: (evnt: any) => void;
   /** 滚动时触发，event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY} 1.0.0 */
   onScroll?: (event: any) => any;
-  onClick?: (event: any) => any;
-  animation?: Array<Record<string, any>>;
 }
 
 export default ScrollView;

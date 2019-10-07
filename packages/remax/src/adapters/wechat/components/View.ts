@@ -1,13 +1,9 @@
 import factory from './factory';
-import { CSSProperties } from 'react';
+import { BaseProps } from './baseTyping';
 
 const View = factory<ViewProps>('view');
 
-export interface ViewProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
+export interface ViewProps extends BaseProps {
   /** 指定按下去的样式类。当为 "none" 时，没有点击态效果 1.0.0  */
   hoverClass?: string;
   /** 指定是否阻止本节点的祖先节点出现点击态 1.5.0  */
@@ -17,7 +13,6 @@ export interface ViewProps {
   /** (default: 400) 手指松开后点击态保留时间，单位毫秒 1.0.0  */
   hoverStayTime?: number;
   disableScroll?: boolean;
-  onClick?: (event: any) => any;
   onTouchStart?: (event: any) => any;
   onTouchMove?: (event: any) => any;
   onTouchEnd?: (event: any) => any;
@@ -27,7 +22,6 @@ export interface ViewProps {
   onAnimationIteration?: (event: any) => any;
   onAnimationStart?: (event: any) => any;
   onAnimationEnd?: (event: any) => any;
-  animation?: Array<Record<string, any>>;
 }
 
 export default View;

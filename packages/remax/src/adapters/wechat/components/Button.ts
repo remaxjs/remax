@@ -1,13 +1,9 @@
 import factory from './factory';
-import { CSSProperties } from 'react';
+import { BaseProps } from './baseTyping';
 
 const Button = factory<ButtonProps>('button');
 
-export interface ButtonProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
+export interface ButtonProps extends BaseProps {
   /**
    * 1.0.0
    * default	默认大小
@@ -119,7 +115,6 @@ export interface ButtonProps {
    * 用户点击后可以快速发送小程序消息，open-type="contact"时有效
    */
   showMessageCard?: boolean;
-  onClick?: (event: any) => any;
   /**
    * 1.3.0
    * 用户点击该按钮时，会返回获取到的用户信息，回调的detail数据与wx.getUserInfo返回的一致，
@@ -151,7 +146,6 @@ export interface ButtonProps {
    * 打开 APP 成功的回调，open-type=launchApp时有效
    */
   onLaunchApp?: (event: any) => any;
-  animation?: Array<Record<string, any>>;
 }
 
 export default Button;

@@ -1,11 +1,11 @@
 import factory from './factory';
+import { BaseProps } from './baseTyping';
 
 const FunctionalPageNavigator = factory<FunctionalPageNavigatorProps>(
   'functional-page-navigator'
 );
 
-export interface FunctionalPageNavigatorProps {
-  readonly dataset?: DOMStringMap;
+export interface FunctionalPageNavigatorProps extends BaseProps {
   /** (default: release) 跳转到的小程序版本，线上版本必须设置为 release 2.1.0  */
   version?: 'develop' | 'trial' | 'release';
   /** 要跳转到的功能页 2.1.0  */

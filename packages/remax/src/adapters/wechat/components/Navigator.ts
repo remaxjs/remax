@@ -1,10 +1,9 @@
 import factory from './factory';
+import { BaseProps } from './baseTyping';
 
 const Navigator = factory<NavigatorProps>('navigator');
 
-export interface NavigatorProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
+export interface NavigatorProps extends BaseProps {
   /** (default: self) 在哪个目标上发生跳转，默认当前小程序 2.0.7 */
   target?: 'self' | 'miniProgram';
   /** 当前小程序内的跳转链接 1.0.0 */

@@ -1,9 +1,9 @@
 import factory from './factory';
+import { BaseProps } from './baseTyping';
 
 const LivePusher = factory<LivePusherProps>('live-pusher');
 
-export interface LivePusherProps {
-  readonly dataset?: DOMStringMap;
+export interface LivePusherProps extends BaseProps {
   /** 推流地址。目前仅支持 flv, rtmp 格式 1.7.0  */
   url?: string;
   /** (default: RTC) SD（标清）, HD（高清）, FHD（超清）, RTC（实时通话） 1.7.0  */

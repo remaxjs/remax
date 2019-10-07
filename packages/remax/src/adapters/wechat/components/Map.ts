@@ -1,10 +1,9 @@
 import factory from './factory';
+import { BaseProps } from './baseTyping';
 
 const Map = factory<MapProps>('map');
 
-export interface MapProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
+export interface MapProps extends BaseProps {
   /** 中心经度 1.0.0 */
   longitude: number;
   /** 中心纬度 1.0.0 */
@@ -53,8 +52,6 @@ export interface MapProps {
   enableSatellite?: boolean;
   /** (default: false) 是否开启实时路况 2.7.0 */
   enableTraffic?: boolean;
-  /** 点击地图时触发 1.0.0 */
-  onClick?: (event: any) => any;
   /** 点击标记点时触发，e.detail = {markerId} 1.0.0 */
   onMarkerClick?: (event: any) => any;
   /** 点击控件时触发，e.detail = {controlId} 1.0.0 */

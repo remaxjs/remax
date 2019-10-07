@@ -3,6 +3,7 @@ import { CSSProperties } from 'react';
 
 const MovableView = factory<MovableViewProps>('movable-view');
 
+// can't extends from BaseProps, bacause this MovableViewProps overwrite animation to boolean
 export interface MovableViewProps {
   readonly dataset?: DOMStringMap;
   id?: string;
@@ -35,6 +36,7 @@ export interface MovableViewProps {
   /** (default: true) 是否使用动画 2.1.0 */
   animation?: boolean;
   onClick?: (event: any) => any;
+  catchClick?: (event: any) => any;
   /** 拖动过程中触发的事件，event.detail = {x, y, source} 1.9.90 */
   onChange?: (event: any) => any;
   /** 缩放过程中触发的事件，event.detail = {x, y, scale}，x和y字段在2.1.0之后支持 1.9.90 */

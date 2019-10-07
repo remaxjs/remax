@@ -1,13 +1,9 @@
 import factory from './factory';
-import { CSSProperties } from 'react';
+import { BaseProps } from './baseTyping';
 
 const Icon = factory<IconProps>('icon');
 
-export interface IconProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
+export interface IconProps extends BaseProps {
   /** icon的类型 1.0.0  */
   type:
     | 'success'
@@ -23,8 +19,6 @@ export interface IconProps {
   size?: number | string;
   /** icon的颜色，同css的color 1.0.0  */
   color?: string;
-  animation?: Array<Record<string, any>>;
-  onClick?: (event: any) => any;
 }
 
 export default Icon;

@@ -5,12 +5,9 @@ import React, {
   forwardRef,
 } from 'react';
 import propsAlias from './propsAlias';
+import { BaseProps } from './baseTyping';
 
-export interface TextareaProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
+export interface TextareaProps extends BaseProps {
   name?: string;
   value: any;
   placeholder?: string;
@@ -40,12 +37,10 @@ export interface TextareaProps {
   holdKeyboard?: boolean;
 
   onInput?: (...params: any) => void;
-  onClick?: (...params: any) => void;
   onFocus?: (...params: any) => void;
   onBlur?: (...params: any) => void;
   onConfirm?: (event: any) => any;
   onKeyboardHeightChange?: (event: any) => any;
-  animation?: Array<Record<string, any>>;
 }
 
 function useInnerFocus(

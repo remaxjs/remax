@@ -1,13 +1,9 @@
 import factory from './factory';
-import { CSSProperties } from 'react';
+import { BaseProps } from './baseTyping';
 
 const Checkbox = factory<CheckboxProps>('checkbox');
 
-export interface CheckboxProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
+export interface CheckboxProps extends BaseProps {
   /** checkbox标识，选中时触发checkbox-group的 change 事件，并携带 checkbox 的 value 1.0.0  */
   value?: string;
   /** 是否禁用 1.0.0  */
@@ -16,8 +12,6 @@ export interface CheckboxProps {
   checked?: boolean;
   /** (default: #09BB07) checkbox的颜色，同css的color 1.0.0  */
   color?: string;
-  animation?: Array<Record<string, any>>;
-  onClick?: (event: any) => any;
 }
 
 export default Checkbox;

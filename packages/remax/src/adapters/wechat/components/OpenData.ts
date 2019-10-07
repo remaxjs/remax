@@ -1,9 +1,9 @@
 import factory from './factory';
+import { BaseProps } from './baseTyping';
 
 const OpenData = factory<OpenDataProps>('open-data');
 
-export interface OpenDataProps {
-  readonly dataset?: DOMStringMap;
+export interface OpenDataProps extends BaseProps {
   /** 开放数据类型 1.4.0 */
   type?:
     | 'groupName'

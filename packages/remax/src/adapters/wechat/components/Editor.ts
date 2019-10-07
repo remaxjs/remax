@@ -1,13 +1,9 @@
 import factory from './factory';
-import { CSSProperties } from 'react';
+import { BaseProps } from './baseTyping';
 
 const Editor = factory<EditorProps>('editor');
 
-export interface EditorProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
+export interface EditorProps extends BaseProps {
   /** 设置编辑器为只读 2.7.0  */
   readOnly?: boolean;
   /** 提示信息 2.7.0  */
@@ -18,7 +14,6 @@ export interface EditorProps {
   showImgToolbar?: boolean;
   /** 点击图片时显示修改尺寸控件 2.7.0  */
   showImgResize?: boolean;
-  onClick?: (event: any) => any;
   /** 编辑器初始化完成时触发 2.7.0  */
   onReady?: (event: any) => any;
   /** 编辑器聚焦时触发，event.detail = {html, text, delta} 2.7.0  */

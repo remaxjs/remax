@@ -1,13 +1,9 @@
 import factory from './factory';
-import { CSSProperties } from 'react';
+import { BaseProps } from './baseTyping';
 
 const Progress = factory<ProgressProps>('progress');
 
-export interface ProgressProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
+export interface ProgressProps extends BaseProps {
   /** 百分比0~100 1.0.0 */
   percent?: number;
   /** 在进度条右侧显示百分比 1.0.0 */
@@ -28,10 +24,8 @@ export interface ProgressProps {
   active?: boolean;
   /** (default: backwards) backwards: 动画从头播；forwards：动画从上次结束点接着播 1.7.0 */
   activeMode?: 'backwards' | 'forwards';
-  onClick?: (event: any) => any;
   /** 动画完成事件 2.4.1 */
   onActiveEnd?: (event: any) => any;
-  animation?: Array<Record<string, any>>;
 }
 
 export default Progress;
