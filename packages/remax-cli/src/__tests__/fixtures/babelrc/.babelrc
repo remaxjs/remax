@@ -1,4 +1,0 @@
-{
-  "plugins": ["loop-optimizer"],
-  "presets": ["remax"]
-}
