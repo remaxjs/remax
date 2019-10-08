@@ -1,30 +1,47 @@
-import React, { FunctionComponent, forwardRef, CSSProperties } from 'react';
+import React, { FunctionComponent, forwardRef } from 'react';
 import propsAlias from './propsAlias';
+import { BaseProps } from './baseTyping';
 
-export interface SwiperProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
-  indicatorDots?: boolean; // false 否 是否显示面板指示点 1.0.0
-  indicatorColor?: string; // rgba(0, 0, 0, .3) 否 指示点颜色 1.1.0
-  indicatorActiveColor?: string; // #000000 否 当前选中的指示点颜色 1.1.0
-  autoplay?: boolean; // false 否 是否自动切换 1.0.0
-  current?: number; // 0 否 当前所在滑块的 index 1.0.0
-  interval?: number; // 5000 否 自动切换时间间隔 1.0.0
-  duration?: number; // 500 否 滑动动画时长 1.0.0
-  circular?: boolean; // false 否 是否采用衔接滑动 1.0.0
-  vertical?: boolean; // false 否 滑动方向是否为纵向 1.0.0
-  previousMargin?: string; // "0px" 否 前边距，可用于露出前一项的一小部分，接受 px 和 rpx 值 1.9.0
-  nextMargin?: string; // "0px" 否 后边距，可用于露出后一项的一小部分，接受 px 和 rpx 值 1.9.0
-  displayMultipleItems?: number; // 1 否 同时显示的滑块数量 1.9.0
-  skipHiddenItemLayout?: boolean; // false 否 是否跳过未显示的滑块布局，设为 true 可优化复杂情况下的滑动性能，但会丢失隐藏状态滑块的布局信息 1.9.0
-  easingFunction?: string; // "default" 否 指定 swiper 切换缓动动画类型 2.6.5
-  onClick?: (event: any) => any;
-  onChange?: (event: any) => any; // 否 current 改变时会触发 change 事件，event.detail = {current, source} 1.0.0
-  onTransition?: (event: any) => any; // 否 swiper-item 的位置发生改变时会触发 transition 事件，event.detail = {dx: dx, dy: dy} 2.4.3
-  onAnimationFinish?: (event: any) => any; // 否 动画结束时会触发 animationfinish 事件，event.detail 同上 1.9.0
-  animation?: Array<Record<string, any>>;
+export interface SwiperProps extends BaseProps {
+  /** (default: false) 是否显示面板指示点 1.0.0  */
+  indicatorDots?: boolean;
+  /** (default: rgba(0, 0, 0, .3)) 指示点颜色 1.1.0  */
+  indicatorColor?: string;
+  /** (default: #000000) 当前选中的指示点颜色 1.1.0  */
+  indicatorActiveColor?: string;
+  /** (default: false) 是否自动切换 1.0.0  */
+  autoplay?: boolean;
+  /** (default: 0) 当前所在滑块的 index 1.0.0  */
+  current?: number;
+  /** (default: 5000) 自动切换时间间隔 1.0.0  */
+  interval?: number;
+  /** (default: 500) 滑动动画时长 1.0.0  */
+  duration?: number;
+  /** (default: false) 是否采用衔接滑动 1.0.0  */
+  circular?: boolean;
+  /** (default: false) 滑动方向是否为纵向 1.0.0  */
+  vertical?: boolean;
+  /** 前边距，可用于露出前一项的一小部分，接受 px 和 rpx 值 1.9.0  */
+  previousMargin?: string;
+  /** 后边距，可用于露出后一项的一小部分，接受 px 和 rpx 值 1.9.0  */
+  nextMargin?: string;
+  /** (default: 1) 同时显示的滑块数量 1.9.0  */
+  displayMultipleItems?: number;
+  /** (default: false) 是否跳过未显示的滑块布局，设为 true 可优化复杂情况下的滑动性能，但会丢失隐藏状态滑块的布局信息 1.9.0  */
+  skipHiddenItemLayout?: boolean;
+  /** 指定 swiper 切换缓动动画类型 2.6.5  */
+  easingFunction?:
+    | 'default'
+    | 'linear'
+    | 'easeInCubic'
+    | 'easeOutCubic'
+    | 'easeInOutCubic';
+  /** current 改变时会触发 change 事件，event.detail = {current, source} 1.0.0 */
+  onChange?: (event: any) => any;
+  /** swiper-item 的位置发生改变时会触发 transition 事件，event.detail = {dx: dx, dy: dy} 2.4.3 */
+  onTransition?: (event: any) => any;
+  /** 动画结束时会触发 animationfinish 事件，event.detail 同上 1.9.0 */
+  onAnimationFinish?: (event: any) => any;
 }
 
 const SwiperRender: FunctionComponent<SwiperProps> = (props, ref) => {
@@ -49,7 +66,9 @@ const SwiperRender: FunctionComponent<SwiperProps> = (props, ref) => {
   return React.createElement('swiper', swiperProps, children);
 };
 
-const Swiper = forwardRef(SwiperRender);
+const Swiper = forwardRef<{}, React.PropsWithChildren<SwiperProps>>(
+  SwiperRender
+);
 
 Swiper.defaultProps = {
   indicatorDots: false,

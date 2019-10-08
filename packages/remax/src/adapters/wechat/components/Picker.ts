@@ -1,13 +1,9 @@
 import factory from './factory';
-import { CSSProperties } from 'react';
+import { BaseProps } from './baseTyping';
 
 const Picker = factory<PickerProps>('picker');
 
-export interface PickerProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
+export interface PickerProps extends BaseProps {
   /**
    * 1.0.0
    * 选择器类型
@@ -24,7 +20,6 @@ export interface PickerProps {
    * 是否禁用
    */
   disabled?: boolean;
-  onClick?: (event: any) => any;
   /**
    * 1.9.90
    * 取消选择时触发
@@ -70,7 +65,6 @@ export interface PickerProps {
    * 可为每一列的顶部添加一个自定义的项
    */
   customItem?: string;
-  animation?: Array<Record<string, any>>;
 }
 
 export default Picker;

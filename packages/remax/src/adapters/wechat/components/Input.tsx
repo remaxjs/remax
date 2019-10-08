@@ -5,16 +5,14 @@ import React, {
   forwardRef,
 } from 'react';
 import propsAlias from './propsAlias';
+import { BaseProps } from './baseTyping';
 
-export interface InputProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
+export interface InputProps extends BaseProps {
   /**
    * 1.0.0
    * (即将废弃，请直接使用 focus )自动聚焦，拉起键盘
    */
   autoFocus?: boolean;
-  className?: string;
   /**
    * 1.0.0
    * 获取焦点
@@ -119,7 +117,6 @@ export interface InputProps {
    * 2.1.0 起支持，处理函数可以直接 return 一个字符串，将替换输入框的内容。
    */
   onInput?: (...params: any) => void;
-  onClick?: (...params: any) => void;
   /**
    * 1.0.0
    * 输入框聚焦时触发，event.detail = { value, height }，height 为键盘高度，在基础库 1.9.90 起支持
@@ -140,7 +137,6 @@ export interface InputProps {
    * 键盘高度发生变化的时候触发此事件，event.detail = {height: height, duration: duration}
    */
   onKeyboardHeightChange?: (event: any) => any;
-  animation?: Array<Record<string, any>>;
 }
 
 function useInnerFocus(
