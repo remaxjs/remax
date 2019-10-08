@@ -18,6 +18,11 @@ interface ComponentCollection {
 let components: ComponentCollection = {};
 let importedComponents: ComponentCollection = {};
 
+function clear() {
+  components = {};
+  importedComponents = {};
+}
+
 function addToComponentCollection(
   component: Component,
   componentCollection: ComponentCollection
@@ -107,53 +112,57 @@ function registerComponent(
   addToComponentCollection(component, componentCollection);
 }
 
-export default (adapter: Adapter) => () => ({
-  visitor: {
-    ImportDeclaration(path: NodePath) {
-      const node = path.node as t.ImportDeclaration;
+export default (adapter: Adapter) => {
+  clear();
 
-      if (!node.source.value.startsWith('remax/')) {
-        return;
-      }
+  return () => ({
+    visitor: {
+      ImportDeclaration(path: NodePath) {
+        const node = path.node as t.ImportDeclaration;
 
-      node.specifiers.forEach(specifier => {
-        if (t.isImportSpecifier(specifier)) {
-          const componentName = specifier.imported.name;
+        if (!node.source.value.startsWith('remax/')) {
+          return;
+        }
+
+        node.specifiers.forEach(specifier => {
+          if (t.isImportSpecifier(specifier)) {
+            const componentName = specifier.imported.name;
+            const id = kebabCase(componentName);
+            registerComponent(id, importedComponents, adapter);
+          }
+        });
+      },
+      JSXElement(path: NodePath) {
+        const node = path.node as t.JSXElement;
+        if (t.isJSXIdentifier(node.openingElement.name)) {
+          const tagName = node.openingElement.name.name;
+          const binding = path.scope.getBinding(tagName);
+
+          /* istanbul ignore next */
+          if (!binding) {
+            return;
+          }
+
+          const componentPath = binding.path as NodePath;
+
+          if (
+            !componentPath ||
+            !t.isImportSpecifier(componentPath.node) ||
+            !t.isImportDeclaration(componentPath.parent) ||
+            !componentPath.parent.source.value.startsWith('remax/')
+          ) {
+            return;
+          }
+
+          const componentName = componentPath.node.imported.name;
           const id = kebabCase(componentName);
-          registerComponent(id, importedComponents, adapter);
+
+          registerComponent(id, components, adapter, node);
         }
-      });
+      },
     },
-    JSXElement(path: NodePath) {
-      const node = path.node as t.JSXElement;
-      if (t.isJSXIdentifier(node.openingElement.name)) {
-        const tagName = node.openingElement.name.name;
-        const binding = path.scope.getBinding(tagName);
-
-        /* istanbul ignore next */
-        if (!binding) {
-          return;
-        }
-
-        const componentPath = binding.path as NodePath;
-
-        if (
-          !componentPath ||
-          !t.isImportSpecifier(componentPath.node) ||
-          !t.isImportDeclaration(componentPath.parent) ||
-          !componentPath.parent.source.value.startsWith('remax/')
-        ) {
-          return;
-        }
-
-        const componentName = componentPath.node.imported.name;
-        const id = kebabCase(componentName);
-
-        registerComponent(id, components, adapter, node);
-      }
-    },
-  },
-});
+  });
+};
 
 function getAlipayComponents(adapter: Adapter) {
   const DIR_PATH = winPath(
@@ -166,11 +175,6 @@ function getAlipayComponents(adapter: Adapter) {
   });
 
   return Object.values(components);
-}
-
-export function clear() {
-  components = {};
-  importedComponents = {};
 }
 
 export function getComponents(adapter: Adapter) {
