@@ -19,7 +19,7 @@ function buildText(files: Received) {
       acc.push(
         `file: ${f.fileName}`,
         Array(80).join('-'),
-        ...eol.split(f.code).map(l => l + ` // ${f.fileName}`),
+        ...eol.split(f.code).map(l => `${f.fileName}: ${l}`),
         Array(80).join('-')
       );
       return acc;
