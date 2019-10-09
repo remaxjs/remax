@@ -1,7 +1,11 @@
 import * as path from 'path';
 import build, { JEST_BUILD_TIMEOUT } from './build';
 
-export default function runTest(app: string, target = 'alipay') {
+export default function runTest(
+  app: string,
+  target = 'alipay',
+  outputPath?: string
+) {
   it(
     `build ${app}`,
     async () => {
@@ -9,7 +13,7 @@ export default function runTest(app: string, target = 'alipay') {
 
       const result = await build(app, target);
       expect(result).toMatchOutput(
-        path.resolve(__dirname, `../fixtures/${app}/expected`)
+        outputPath || path.resolve(__dirname, `../fixtures/${app}/expected`)
       );
     },
     JEST_BUILD_TIMEOUT

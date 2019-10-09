@@ -7,7 +7,6 @@ export default async function build(app: string, target: string) {
   const cwd = path.resolve(__dirname, `../fixtures/${app}`);
   process.chdir(cwd);
   const config = getConfig();
-  // eslint-disable-next-line
   const adapter = require('../../build/adapters/' + target);
   const rollupOptions = rollupConfig(
     {

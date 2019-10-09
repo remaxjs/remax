@@ -1,7 +1,7 @@
 module.exports = {
   pages: ['pages/index'],
   window: {
-    defaultTitle: 'Todo App',
-    titleBarColor: '#323239',
+    navigationBarBackgroundColor: '#323239',
+    navigationBarTitleText: 'Wechat App',
   },
 };
