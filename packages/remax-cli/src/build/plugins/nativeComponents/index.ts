@@ -12,6 +12,7 @@ import jsHelper, { getJsHelpers } from './jsHelper';
 import { isNativeComponent } from './util';
 import { getNativeComponents, getUsingComponents } from './babelPlugin';
 import { isAsset } from '../removeSrc';
+import winPath from '../../../winPath';
 
 export default (options: RemaxOptions, adapter: Adapter): Plugin => {
   return {
@@ -41,10 +42,12 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
       ];
 
       files.forEach(id => {
-        const bundleFileName = path
-          .relative(options.cwd, id)
-          .replace(/node_modules/, 'npm')
-          .replace(/src\//, '');
+        const bundleFileName = winPath(
+          path
+            .relative(options.cwd, id)
+            .replace(/node_modules/, 'npm')
+            .replace(/src\//, '')
+        );
 
         this.emitFile({
           fileName: bundleFileName,
