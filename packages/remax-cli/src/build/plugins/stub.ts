@@ -1,5 +1,6 @@
 import MagicString from 'magic-string';
 import { Plugin } from 'rollup';
+import winPath from '../../winPath';
 
 interface Options {
   modules?: string[];
@@ -12,7 +13,11 @@ export default function stub(options: Options = {}): Plugin {
 
     transform(code: string, id: string) {
       if (options.modules) {
-        if (options.modules.every(module => id.indexOf(module) === -1)) {
+        if (
+          options.modules.every(
+            module => winPath(id).indexOf(winPath(module)) === -1
+          )
+        ) {
           return null;
         }
       }
