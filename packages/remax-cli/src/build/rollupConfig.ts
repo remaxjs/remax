@@ -41,8 +41,10 @@ export default function rollupConfig(
 
   adapters.forEach(name => {
     if (adapter.name !== name) {
-      const packageName = `remax/cjs/adapters/${name}`;
-      stubModules.push(packageName);
+      const esmPackage = `remax/esm/adapters/${name}`;
+      const cjsPackage = `remax/cjs/adapters/${name}`;
+      stubModules.push(esmPackage);
+      stubModules.push(cjsPackage);
     }
   });
 
