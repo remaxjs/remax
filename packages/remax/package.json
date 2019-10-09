@@ -20,7 +20,9 @@
   },
   "homepage": "https://remaxjs.org",
   "scripts": {
-    "watch": "tsc -w",
+    "watch": "concurrently \"npm:watch:*\"",
+    "watch:esm": "npm run build:esm -- -w",
+    "watch:cjs": "npm run build:cjs -- -w",
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
     "build:cjs": "tsc --module CommonJS --outDir cjs",
@@ -41,6 +43,7 @@
     "@types/react-reconciler": "^0.18.0",
     "@types/react-test-renderer": "^16.9.0",
     "@types/shallowequal": "^1.1.1",
+    "concurrently": "^5.0.0",
     "jest": "^24.8.0",
     "object-path-immutable": "^3.1.1",
     "react": "^16.8.6",
