@@ -7,7 +7,7 @@ export default function runTest(
   outputPath?: string
 ) {
   it(
-    `build ${app}`,
+    `build ${app} target ${target}`,
     async () => {
       process.env['REMAX_APP_TEST_VAL'] = `${app} test`;
 
