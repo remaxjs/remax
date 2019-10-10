@@ -1,4 +1,4 @@
 import 'react';
-import '../npm/remax/cjs/adapters/alipay/components/propsAlias.js';
+import '../npm/remax/esm/adapters/alipay/components/propsAlias.js';
 
 Component({});

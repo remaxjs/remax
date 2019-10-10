@@ -1,6 +1,6 @@
 import { objectWithoutProperties as _objectWithoutProperties } from '../../_virtual/_rollupPluginBabelHelpers.js';
 import React__default from 'react';
-import propsAlias from '../npm/remax/cjs/adapters/alipay/components/propsAlias.js';
+import propsAlias from '../npm/remax/esm/adapters/alipay/components/propsAlias.js';
 import '../e/index.js';
 
 Component({});
