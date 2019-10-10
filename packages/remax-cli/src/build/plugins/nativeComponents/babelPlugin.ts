@@ -166,7 +166,7 @@ export default (options: RemaxOptions, adapter: Adapter) => () => ({
         .join('');
 
       const importStr = `import React from 'react';
-        import propsAlias from 'remax/cjs/adapters/${adapter.name}/components/propsAlias'
+        import propsAlias from 'remax/esm/adapters/${adapter.name}/components/propsAlias'
         ${imports}`;
       let exportStr = 'export default {};';
 
