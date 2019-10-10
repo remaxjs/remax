@@ -1,6 +1,7 @@
 import factory from './factory';
 
 export interface ViewProps {
+  slot?: string;
   hoverClass?: string;
   hoverStartTime?: number;
   hoverStayTime?: number;

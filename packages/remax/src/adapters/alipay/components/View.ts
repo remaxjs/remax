@@ -13,6 +13,7 @@ export interface ViewProps {
   hidden?: boolean;
   animation?: any;
   hoverStopPropagation?: boolean;
+  slot?: string;
   onTap?: (e: any) => void;
   onClick?: (e: any) => void;
   onTouchStart?: (e: any) => void;
