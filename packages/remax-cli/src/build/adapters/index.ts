@@ -6,7 +6,7 @@ export interface Adapter {
     style: string;
     jsHelper?: string;
     jsTag?: string;
-    moduleName?: string;
+    srcName?: string;
   };
 
   templates: {

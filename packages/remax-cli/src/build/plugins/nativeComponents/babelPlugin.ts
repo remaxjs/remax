@@ -53,6 +53,11 @@ const collectUsingComponents = (sourcePath: string) => {
 };
 
 const collectJsHelper = (sourcePath: string, adapter: Adapter) => {
+  const { jsTag, srcName } = adapter.extensions;
+  if (!jsTag || !srcName) {
+    return [];
+  }
+
   const templateContent = fs
     .readFileSync(sourcePath.replace(/\.js$/, adapter.extensions.template))
     .toString();
@@ -60,12 +65,8 @@ const collectJsHelper = (sourcePath: string, adapter: Adapter) => {
   const jsHelperPaths: string[] = [];
 
   parser._cbs.onopentag = (name, attrs) => {
-    if (name === adapter.extensions.jsTag && attrs.src) {
-      const moduleName = adapter.extensions.moduleName;
-      if (!moduleName) {
-        return;
-      }
-      const jsHelperPath = path.join(path.dirname(sourcePath), attrs.src);
+    if (name === jsTag && attrs[srcName]) {
+      const jsHelperPath = path.join(path.dirname(sourcePath), attrs[srcName]);
 
       if (!fs.existsSync(jsHelperPath)) {
         return;

@@ -14,7 +14,7 @@ export const extensions = {
   style: '.wxss',
   jsHelper: '.wxs',
   jsTag: 'wxs',
-  moduleName: 'module',
+  srcName: 'src',
 };
 
 const templateBaseDir = path.join(__dirname, '../../../../templates');

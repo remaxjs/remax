@@ -3,12 +3,13 @@ import * as path from 'path';
 import { Plugin } from 'rollup';
 import { readFileSync } from 'fs';
 import MagicString from 'magic-string';
+import { get } from 'lodash';
 import { RemaxOptions } from '../../../getConfig';
 import { Adapter } from '../../adapters';
 import style, { getcssPaths } from './style';
 import json, { getjsonPaths } from './json';
 import template, { getTemplatePaths } from './tempate';
-import { getJsHelpers } from './jsHelper';
+import jsHelper, { getJsHelpers } from './jsHelper';
 import { isNativeComponent } from './util';
 import { getNativeComponents, getUsingComponents } from './babelPlugin';
 import { isAsset } from '../removeSrc';
@@ -18,6 +19,12 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
   return {
     name: 'nativeComponents',
     transform(_, id) {
+      const extname = path.extname(id);
+
+      if (extname === adapter.extensions.jsHelper) {
+        jsHelper(id);
+        return null;
+      }
       if (isNativeComponent(id)) {
         style(id, adapter);
         json(id);
@@ -56,13 +63,10 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
           return;
         }
 
-        let id = module.facadeModuleId;
-
-        if (!id) {
-          return;
-        }
-
-        id = id.replace(/npm/, 'node_modules');
+        const id = Object.keys(module.modules)[0].replace(
+          /npm/,
+          'node_modules'
+        );
 
         const nativeComponents = getNativeComponents();
         const usingComponents = getUsingComponents();
@@ -76,23 +80,29 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
           });
 
           const extract = (node: any) => {
-            const params = node.expression && node.expression.arguments;
-            if (!params || !params[0] || !params[0].value) {
+            const importPath =
+              get(node, 'source.value') ||
+              get(node, 'expression.arguments[0].value');
+            if (!importPath) {
               return;
             }
 
-            const usingComponentPath = path.join(
+            const componentPath = path.join(
               path.dirname(id as string),
-              params[0].value
+              importPath
             );
 
-            if (usingComponents.includes(usingComponentPath)) {
+            if (
+              usingComponents.includes(componentPath) ||
+              nativeComponents[componentPath]
+            ) {
               magicString.remove(node.start, node.end);
             }
           };
 
           simple(ast, {
             ExpressionStatement: extract,
+            ImportDeclaration: extract,
           });
 
           module.map = magicString.generateMap();

@@ -3,16 +3,10 @@ import fs from 'fs';
 import path from 'path';
 import { Adapter } from '../../adapters';
 import { pushArray } from './util';
-import jsHelper from './jsHelper';
-import winPath from '../../../winPath';
 
 const parser = new htmlparser2.Parser({});
 
 const templatePaths: string[] = [];
-
-function helperPath(from: string, to: string) {
-  return winPath(path.resolve(path.dirname(from), to));
-}
 
 function walk(filePath: string) {
   if (!fs.existsSync(filePath)) {
@@ -26,12 +20,6 @@ function walk(filePath: string) {
   parser._cbs.onopentag = (name, attrs) => {
     if (name === 'import' && attrs.src) {
       walk(path.join(filePath, attrs.src));
-    } else if (name === 'import-sjs') {
-      // alipay sjs
-      jsHelper(helperPath(filePath, attrs.from));
-    } else if (name === 'wxs') {
-      // wechat wxs
-      jsHelper(helperPath(filePath, attrs.src));
     }
   };
 

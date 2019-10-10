@@ -14,7 +14,7 @@ export const extensions = {
   style: '.acss',
   jsHelper: '.sjs',
   jsTag: 'import-sjs',
-  moduleName: 'name',
+  srcName: 'from',
 };
 
 const templateBaseDir = path.join(__dirname, '../../../../templates');
