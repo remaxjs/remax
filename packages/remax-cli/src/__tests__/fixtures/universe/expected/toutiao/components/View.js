@@ -11,6 +11,7 @@ var Platform = require('../npm/remax/esm/Platform.js');
 require('../npm/remax/esm/index.js');
 var index$1 = require('../npm/remax/esm/adapters/alipay/components/index.js');
 var index$2 = require('../npm/remax/esm/adapters/wechat/components/index.js');
+require('../npm/remax/esm/adapters/toutiao/components/propsAlias.js');
 var View$1 = require('../npm/remax/esm/adapters/toutiao/components/View.js');
 require('../npm/remax/esm/adapters/toutiao/components/Input.js');
 require('../npm/remax/esm/adapters/toutiao/components/Textarea.js');

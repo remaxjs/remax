@@ -1,4 +1,7 @@
 import * as path from 'path';
+export {
+  getAlias as getNativePropName,
+} from 'remax/cjs/adapters/alipay/components/propsAlias';
 
 export const name = 'wechat';
 
