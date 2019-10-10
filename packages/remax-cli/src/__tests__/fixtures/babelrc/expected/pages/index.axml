@@ -10,19 +10,6 @@
 
   
 
-<template name="REMAX_TPL_1_view">
-  <view  disable-scroll="{{item.props['disable-scroll']}}"  hover-class="{{item.props['hover-class']}}"  hover-start-time="{{item.props['hover-start-time']}}"  hover-stay-time="{{item.props['hover-stay-time']}}"  hidden="{{item.props['hidden']}}"  class="{{item.props['class']}}"  style="{{item.props['style']}}"  animation="{{item.props['animation']}}"  hover-stop-propagation="{{item.props['hover-stop-propagation']}}"  onTap="{{item.props['onTap']}}"  onTouchStart="{{item.props['onTouchStart']}}"  onTouchMove="{{item.props['onTouchMove']}}"  onTouchEnd="{{item.props['onTouchEnd']}}"  onTouchCancel="{{item.props['onTouchCancel']}}"  onLongTap="{{item.props['onLongTap']}}"  onTransitionEnd="{{item.props['onTransitionEnd']}}"  onAnimationIteration="{{item.props['onAnimationIteration']}}"  onAnimationStart="{{item.props['onAnimationStart']}}"  onAnimationEnd="{{item.props['onAnimationEnd']}}"  onAppear="{{item.props['onAppear']}}"  onDisappear="{{item.props['onDisappear']}}"  onFirstAppear="{{item.props['onFirstAppear']}}"  onTap="{{item.props['onTap']}}"  id="{{item.props['id']}}" >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
-  </view>
-</template>
-
-  
-  
-
 <template name="REMAX_TPL_1_button">
   <button  class="{{item.props['class']}}"  size="{{item.props['size']}}"  type="{{item.props['type']}}"  plain="{{item.props['plain']}}"  disabled="{{item.props['disabled']}}"  loading="{{item.props['loading']}}"  hover-class="{{item.props['hover-class']}}"  hover-start-time="{{item.props['hover-start-time']}}"  hover-stay-time="{{item.props['hover-stay-time']}}"  hover-stop-propagation="{{item.props['hover-stop-propagation']}}"  form-type="{{item.props['form-type']}}"  open-type="{{item.props['open-type']}}"  scope="{{item.props['scope']}}"  onTap="{{item.props['onTap']}}"  app-parameter="{{item.props['app-parameter']}}"  public-id="{{item.props['public-id']}}" >
     
@@ -49,19 +36,6 @@
   
   
 
-<template name="REMAX_TPL_1_checkbox-group">
-  <checkbox-group  class="{{item.props['class']}}"  style="{{item.props['style']}}"  name="{{item.props['name']}}"  onChange="{{item.props['onChange']}}" >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
-  </checkbox-group>
-</template>
-
-  
-  
-
 <template name="REMAX_TPL_1_checkbox">
   <checkbox  class="{{item.props['class']}}"  style="{{item.props['style']}}"  value="{{item.props['value']}}"  checked="{{item.props['checked']}}"  disabled="{{item.props['disabled']}}"  onChange="{{item.props['onChange']}}"  color="{{item.props['color']}}" >
     
@@ -70,6 +44,19 @@
     </block>
     
   </checkbox>
+</template>
+
+  
+  
+
+<template name="REMAX_TPL_1_checkbox-group">
+  <checkbox-group  class="{{item.props['class']}}"  style="{{item.props['style']}}"  name="{{item.props['name']}}"  onChange="{{item.props['onChange']}}" >
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+    </block>
+    
+  </checkbox-group>
 </template>
 
   
@@ -244,6 +231,19 @@
   
   
 
+<template name="REMAX_TPL_1_picker">
+  <picker  class="{{item.props['class']}}"  style="{{item.props['style']}}"  range="{{item.props['range']}}"  range-key="{{item.props['range-key']}}"  value="{{item.props['value']}}"  onChange="{{item.props['onChange']}}"  disabled="{{item.props['disabled']}}" >
+    
+    <view>
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item.children[0]}}" />
+    </view>
+    
+  </picker>
+</template>
+
+  
+  
+
 <template name="REMAX_TPL_1_picker-view">
   <picker-view  class="{{item.props['class']}}"  style="{{item.props['style']}}"  value="{{item.props['value']}}"  indicator-style="{{item.props['indicator-style']}}"  indicator-class="{{item.props['indicator-class']}}"  mask-style="{{item.props['mask-style']}}"  mask-class="{{item.props['mask-class']}}"  onChange="{{item.props['onChange']}}" >
     
@@ -256,19 +256,6 @@
     </block>
     
   </picker-view>
-</template>
-
-  
-  
-
-<template name="REMAX_TPL_1_picker">
-  <picker  class="{{item.props['class']}}"  style="{{item.props['style']}}"  range="{{item.props['range']}}"  range-key="{{item.props['range-key']}}"  value="{{item.props['value']}}"  onChange="{{item.props['onChange']}}"  disabled="{{item.props['disabled']}}" >
-    
-    <view>
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item.children[0]}}" />
-    </view>
-    
-  </picker>
 </template>
 
   
@@ -287,19 +274,6 @@
   
   
 
-<template name="REMAX_TPL_1_radio-group">
-  <radio-group  class="{{item.props['class']}}"  style="{{item.props['style']}}"  onChange="{{item.props['onChange']}}"  name="{{item.props['name']}}" >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
-  </radio-group>
-</template>
-
-  
-  
-
 <template name="REMAX_TPL_1_radio">
   <radio  class="{{item.props['class']}}"  style="{{item.props['style']}}"  value="{{item.props['value']}}"  checked="{{item.props['checked']}}"  disabled="{{item.props['disabled']}}"  color="{{item.props['color']}}" >
     
@@ -308,6 +282,19 @@
     </block>
     
   </radio>
+</template>
+
+  
+  
+
+<template name="REMAX_TPL_1_radio-group">
+  <radio-group  class="{{item.props['class']}}"  style="{{item.props['style']}}"  onChange="{{item.props['onChange']}}"  name="{{item.props['name']}}" >
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+    </block>
+    
+  </radio-group>
 </template>
 
   
@@ -403,6 +390,19 @@
     </block>
     
   </textarea>
+</template>
+
+  
+  
+
+<template name="REMAX_TPL_1_view">
+  <view  disable-scroll="{{item.props['disable-scroll']}}"  hover-class="{{item.props['hover-class']}}"  hover-start-time="{{item.props['hover-start-time']}}"  hover-stay-time="{{item.props['hover-stay-time']}}"  hidden="{{item.props['hidden']}}"  class="{{item.props['class']}}"  style="{{item.props['style']}}"  animation="{{item.props['animation']}}"  hover-stop-propagation="{{item.props['hover-stop-propagation']}}"  onTap="{{item.props['onTap']}}"  onTouchStart="{{item.props['onTouchStart']}}"  onTouchMove="{{item.props['onTouchMove']}}"  onTouchEnd="{{item.props['onTouchEnd']}}"  onTouchCancel="{{item.props['onTouchCancel']}}"  onLongTap="{{item.props['onLongTap']}}"  onTransitionEnd="{{item.props['onTransitionEnd']}}"  onAnimationIteration="{{item.props['onAnimationIteration']}}"  onAnimationStart="{{item.props['onAnimationStart']}}"  onAnimationEnd="{{item.props['onAnimationEnd']}}"  onAppear="{{item.props['onAppear']}}"  onDisappear="{{item.props['onDisappear']}}"  onFirstAppear="{{item.props['onFirstAppear']}}"  onTap="{{item.props['onTap']}}"  id="{{item.props['id']}}" >
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+    </block>
+    
+  </view>
 </template>
 
   

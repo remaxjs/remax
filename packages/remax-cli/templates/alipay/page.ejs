@@ -7,7 +7,7 @@
   </block>
 </template>
 
-<% for (let component of components.concat(nativeComponents)) { %>
+<% for (let component of components) { %>
   <%- include('./component.ejs', {
           type: component.type,
           props: component.props,

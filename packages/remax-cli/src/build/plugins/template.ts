@@ -1,6 +1,7 @@
 import * as path from 'path';
 import { parse } from 'acorn';
 import { Plugin, OutputChunk } from 'rollup';
+import { sortBy } from 'lodash';
 import { getComponents } from './components';
 import ejs from 'ejs';
 import { RemaxOptions } from '../../getConfig';
@@ -35,12 +36,13 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
     );
   }
 
-  const components = getComponents(adapter);
-  const nativeComponents = Object.values(getNativeComponents());
+  const components = sortBy(
+    getComponents(adapter).concat(Object.values(getNativeComponents())),
+    'id'
+  );
 
   const code: string = await ejs.renderFile(adapter.templates.page, {
     ...renderOptions,
-    nativeComponents,
     components,
     adapter,
   });
@@ -74,14 +76,15 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
     return null;
   }
 
-  const components = getComponents(adapter);
-  const nativeComponents = Object.values(getNativeComponents());
+  const components = sortBy(
+    getComponents(adapter).concat(Object.values(getNativeComponents())),
+    'id'
+  );
 
   let code: string = await ejs.renderFile(
     adapter.templates.base,
     {
       components,
-      nativeComponents,
       depth: options.UNSAFE_wechatTemplateDepth,
       adapter,
     },

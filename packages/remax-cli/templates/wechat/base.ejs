@@ -14,7 +14,7 @@
 
 <% for (var i = 1; i <= depth; i++) { %>
 <% var id = i; %>
-<% for (let component of components.concat(nativeComponents)) { %>
+<% for (let component of components) { %>
 <%- include('./component.ejs', {
 				props: component.props,
 				id: component.id,
