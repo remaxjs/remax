@@ -8,7 +8,7 @@ import { Adapter } from '../../adapters';
 import style, { getcssPaths } from './style';
 import json, { getjsonPaths } from './json';
 import template, { getTemplatePaths } from './tempate';
-import jsHelper, { getJsHelpers } from './jsHelper';
+import { getJsHelpers } from './jsHelper';
 import { isNativeComponent } from './util';
 import { getNativeComponents, getUsingComponents } from './babelPlugin';
 import { isAsset } from '../removeSrc';
@@ -18,13 +18,6 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
   return {
     name: 'nativeComponents',
     transform(_, id) {
-      const extname = path.extname(id);
-
-      if (extname === adapter.extensions.jsHelper) {
-        jsHelper(id);
-        return null;
-      }
-
       if (isNativeComponent(id)) {
         style(id, adapter);
         json(id);

@@ -4,6 +4,6 @@ const jsHelpers: string[] = [];
 
 export const getJsHelpers = () => jsHelpers;
 
-export default (id: string) => {
+export default function jsHelper(id: string) {
   pushArray(jsHelpers, id);
-};
+}
