@@ -34,5 +34,6 @@
   },
   "peerDependencies": {
     "@babel/core": "^7.0.0-0"
-  }
+  },
+  "gitHead": "eab692a104b37f6beb50d4c666be16656c4ad91b"
 }

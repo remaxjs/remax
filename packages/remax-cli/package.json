@@ -93,5 +93,6 @@
     "scheduler": "^0.15.0",
     "ts-jest": "^24.0.2",
     "typescript": "^3.2.2"
-  }
+  },
+  "gitHead": "eab692a104b37f6beb50d4c666be16656c4ad91b"
 }
