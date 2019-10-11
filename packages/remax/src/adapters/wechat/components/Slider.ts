@@ -30,4 +30,9 @@ export interface SliderProps extends BaseProps {
   onChanging?: (event: any) => any;
 }
 
+Slider.defaultProps = {
+  blockSize: 28,
+  step: 1,
+};
+
 export default Slider;
