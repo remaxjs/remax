@@ -10,11 +10,21 @@ export function hostComponents(component: string) {
 }
 
 export const extensions = {
-  template: '.wxml',
+  template: {
+    extension: '.wxml',
+    tag: 'import',
+    src: 'src',
+  },
   style: '.wxss',
-  jsHelper: '.wxs',
-  jsTag: 'wxs',
-  srcName: 'src',
+  jsHelper: {
+    extension: '.wxs',
+    tag: 'wxs',
+    src: 'src',
+  },
+  include: {
+    tag: 'include',
+    src: 'src',
+  },
 };
 
 const templateBaseDir = path.join(__dirname, '../../../../templates');

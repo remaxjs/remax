@@ -38,19 +38,19 @@ const walk = (jsHelperPath: string) => {
   });
 };
 
-const parseTemplate = (filePath: string, adapter: Adapter) => {
+const parseTemplate = (
+  filePath: string,
+  jsHelper: Adapter['extensions']['jsHelper']
+) => {
   const parser = new htmlparser2.Parser({});
 
-  const { jsTag, srcName, jsHelper } = adapter.extensions;
-  if (!jsTag || !srcName || !jsHelper) {
-    return;
-  }
+  const { tag, src } = jsHelper!;
 
   const content = readFile(filePath);
 
   parser._cbs.onopentag = (name, attrs) => {
-    if (name === jsTag && attrs[srcName]) {
-      const jsHelperPath = getPath(filePath, attrs[srcName]);
+    if (name === tag && attrs[src]) {
+      const jsHelperPath = getPath(filePath, attrs[src]);
 
       if (!fs.existsSync(jsHelperPath)) {
         output(`\n🚨 文件 ${jsHelperPath} 不存在`, 'red');
@@ -69,9 +69,14 @@ const parseTemplate = (filePath: string, adapter: Adapter) => {
 };
 
 export default function jsHelper(id: string, adapter: Adapter) {
-  const templatePath = id.replace(/\.js$/, adapter.extensions.template);
+  const { jsHelper, template } = adapter.extensions;
 
-  parseTemplate(templatePath, adapter);
+  if (!jsHelper) {
+    return;
+  }
+  const templatePath = id.replace(/\.js$/, template.extension);
+
+  parseTemplate(templatePath, jsHelper);
 }
 
 export const getJsHelpers = () => jsHelpers;

@@ -10,8 +10,16 @@ export function hostComponents(component: string) {
 }
 
 export const extensions = {
-  template: '.ttml',
+  template: {
+    extension: '.ttml',
+    tag: 'import',
+    src: 'src',
+  },
   style: '.ttss',
+  include: {
+    tag: 'include',
+    src: 'src',
+  },
 };
 
 const templateBaseDir = path.join(__dirname, '../../../../templates');

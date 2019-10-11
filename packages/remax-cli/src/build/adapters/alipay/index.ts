@@ -10,11 +10,21 @@ export function hostComponents(component: string) {
 }
 
 export const extensions = {
-  template: '.axml',
+  template: {
+    extension: '.axml',
+    tag: 'import',
+    src: 'src',
+  },
   style: '.acss',
-  jsHelper: '.sjs',
-  jsTag: 'import-sjs',
-  srcName: 'from',
+  jsHelper: {
+    extension: '.sjs',
+    tag: 'import-sjs',
+    src: 'from',
+  },
+  include: {
+    tag: 'include',
+    src: 'src',
+  },
 };
 
 const templateBaseDir = path.join(__dirname, '../../../../templates');

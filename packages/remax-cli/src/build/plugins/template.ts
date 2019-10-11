@@ -16,13 +16,13 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
   const fileName = `${path.dirname(pageFile)}/${path.basename(
     pageFile,
     path.extname(pageFile)
-  )}${adapter.extensions.template}`;
+  )}${adapter.extensions.template.extension}`;
 
   const renderOptions: { [props: string]: any } = {
     baseTemplate: winPath(
       path.relative(
         path.dirname(pageFile),
-        `base${adapter.extensions.template}`
+        `base${adapter.extensions.template.extension}`
       )
     ),
   };
@@ -31,7 +31,7 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
     renderOptions.jsHelper = winPath(
       path.relative(
         path.dirname(pageFile),
-        `helper${adapter.extensions.jsHelper}`
+        `helper${adapter.extensions.jsHelper.extension}`
       )
     );
   }
@@ -55,7 +55,7 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
 }
 
 async function createHelperFile(adapter: Adapter) {
-  if (!adapter.templates.jsHelper) {
+  if (!adapter.extensions.jsHelper || !adapter.templates.jsHelper) {
     return null;
   }
 
@@ -65,7 +65,7 @@ async function createHelperFile(adapter: Adapter) {
 
   return {
     type: 'asset' as const,
-    fileName: `helper${adapter.extensions.jsHelper}`,
+    fileName: `helper${adapter.extensions.jsHelper.extension}`,
     source: code,
   };
 }
@@ -101,7 +101,7 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
 
   return {
     type: 'asset' as const,
-    fileName: `base${adapter.extensions.template}`,
+    fileName: `base${adapter.extensions.template.extension}`,
     source: code,
   };
 }

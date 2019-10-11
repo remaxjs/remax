@@ -2,11 +2,21 @@ export interface Adapter {
   name: string;
 
   extensions: {
-    template: string;
-    style: string;
-    jsHelper?: string;
-    jsTag?: string;
-    srcName?: string;
+    readonly template: {
+      tag: string;
+      src: string;
+      extension: string;
+    };
+    readonly style: string;
+    readonly jsHelper?: {
+      extension: string;
+      tag: string;
+      src: string;
+    };
+    readonly include: {
+      tag: string;
+      src: string;
+    };
   };
 
   templates: {

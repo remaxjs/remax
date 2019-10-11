@@ -106,15 +106,7 @@ export default function rollupConfig(
     commonjs({
       include: /node_modules/,
       namedExports,
-      extensions: [
-        '.mjs',
-        '.js',
-        '.jsx',
-        '.json',
-        '.ts',
-        '.tsx',
-        adapter.extensions.jsHelper || '',
-      ],
+      extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
       ignoreGlobal: false,
     }),
     stub({
