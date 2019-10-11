@@ -26,7 +26,7 @@
     "build": "tsc",
     "test": "jest",
     "test:debug": "npx --node-arg=--inspect-brk jest -i",
-    "postinstall": "patch-package"
+    "postinstall": "node ./bin/patch-package.js"
   },
   "dependencies": {
     "@babel/core": "^7.2.2",
@@ -44,6 +44,7 @@
     "acorn-walk": "^7.0.0",
     "babel-preset-remax": "^1.2.0-alpha.1",
     "chokidar": "^2.1.8",
+    "command-exists": "^1.2.8",
     "commander": "^2.19.0",
     "ejs": "^2.6.1",
     "lodash": "^4.17.11",
