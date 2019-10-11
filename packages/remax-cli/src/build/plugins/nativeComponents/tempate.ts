@@ -1,14 +1,13 @@
 import * as htmlparser2 from 'htmlparser2';
 import fs from 'fs';
-import path from 'path';
 import { Adapter } from '../../adapters';
-import { pushArray } from './util';
+import { pushArray, getPath } from './util';
 
 const parser = new htmlparser2.Parser({});
 
 const templatePaths: string[] = [];
 
-function walk(filePath: string) {
+export function walk(filePath: string) {
   if (!fs.existsSync(filePath)) {
     return;
   }
@@ -19,7 +18,7 @@ function walk(filePath: string) {
 
   parser._cbs.onopentag = (name, attrs) => {
     if (name === 'import' && attrs.src) {
-      walk(path.join(filePath, attrs.src));
+      walk(getPath(filePath, attrs.src));
     }
   };
 

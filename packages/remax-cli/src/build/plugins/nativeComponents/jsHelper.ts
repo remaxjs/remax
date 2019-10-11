@@ -1,9 +1,77 @@
-import { pushArray } from './util';
+import fs from 'fs';
+import * as babelParser from '@babel/parser';
+import traverse from '@babel/traverse';
+import * as htmlparser2 from 'htmlparser2';
+import { get } from 'lodash';
+import { Adapter } from '../../adapters';
+import { getPath, pushArray, readFile } from './util';
+import { output } from '../../utils/output';
 
 const jsHelpers: string[] = [];
 
-export const getJsHelpers = () => jsHelpers;
+const walk = (jsHelperPath: string) => {
+  const jsHelperContent = readFile(jsHelperPath);
+  const ast = babelParser.parse(jsHelperContent, {
+    sourceType: 'module',
+  });
 
-export default function jsHelper(id: string) {
-  pushArray(jsHelpers, id);
+  const extract = ({ node }: any) => {
+    const importPath =
+      (get(node, 'callee.name') === 'require'
+        ? get(node, 'arguments[0].value')
+        : '') || get(node, 'source.value');
+
+    if (!importPath) {
+      return;
+    }
+
+    const absolutePath = getPath(jsHelperPath, importPath);
+
+    pushArray(jsHelpers, absolutePath);
+
+    walk(absolutePath);
+  };
+
+  traverse(ast, {
+    CallExpression: extract,
+    ImportDeclaration: extract,
+  });
+};
+
+const parseTemplate = (filePath: string, adapter: Adapter) => {
+  const parser = new htmlparser2.Parser({});
+
+  const { jsTag, srcName, jsHelper } = adapter.extensions;
+  if (!jsTag || !srcName || !jsHelper) {
+    return;
+  }
+
+  const content = readFile(filePath);
+
+  parser._cbs.onopentag = (name, attrs) => {
+    if (name === jsTag && attrs[srcName]) {
+      const jsHelperPath = getPath(filePath, attrs[srcName]);
+
+      if (!fs.existsSync(jsHelperPath)) {
+        output(`\n🚨 找不到这个路径的 ${jsHelper} ${jsHelperPath}`, 'red');
+        return;
+      }
+
+      walk(jsHelperPath);
+
+      pushArray(jsHelpers, jsHelperPath);
+    }
+  };
+
+  parser.reset();
+  parser.write(content);
+  parser.end();
+};
+
+export default function jsHelper(id: string, adapter: Adapter) {
+  const templatePath = id.replace(/\.js$/, adapter.extensions.template);
+
+  parseTemplate(templatePath, adapter);
 }
+
+export const getJsHelpers = () => jsHelpers;

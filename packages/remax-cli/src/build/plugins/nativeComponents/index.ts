@@ -19,13 +19,8 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
   return {
     name: 'nativeComponents',
     transform(_, id) {
-      const extname = path.extname(id);
-
-      if (extname === adapter.extensions.jsHelper) {
-        jsHelper(id);
-        return null;
-      }
       if (isNativeComponent(id)) {
+        jsHelper(id, adapter);
         style(id, adapter);
         json(id);
         template(id, adapter);

@@ -4,7 +4,6 @@ import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
 import template from '@babel/template';
 import * as path from 'path';
-import * as htmlparser2 from 'htmlparser2';
 import * as fs from 'fs';
 import resolve from 'resolve';
 import { Adapter } from '../../adapters';
@@ -28,10 +27,7 @@ let nativeId = 0;
 
 const nativeComponents: NativeComponents = {};
 
-const parser = new htmlparser2.Parser({});
-
 const usingComponents: string[] = [];
-const jsHelpers: string[] = [];
 
 const collectUsingComponents = (sourcePath: string) => {
   const components: { [key: string]: string } =
@@ -50,38 +46,6 @@ const collectUsingComponents = (sourcePath: string) => {
   });
 
   return componentPaths;
-};
-
-const collectJsHelper = (sourcePath: string, adapter: Adapter) => {
-  const { jsTag, srcName } = adapter.extensions;
-  if (!jsTag || !srcName) {
-    return [];
-  }
-
-  const templateContent = fs
-    .readFileSync(sourcePath.replace(/\.js$/, adapter.extensions.template))
-    .toString();
-
-  const jsHelperPaths: string[] = [];
-
-  parser._cbs.onopentag = (name, attrs) => {
-    if (name === jsTag && attrs[srcName]) {
-      const jsHelperPath = path.join(path.dirname(sourcePath), attrs[srcName]);
-
-      if (!fs.existsSync(jsHelperPath)) {
-        return;
-      }
-
-      jsHelperPaths.push(jsHelperPath);
-      pushArray(jsHelpers, jsHelperPath);
-    }
-  };
-
-  parser.reset();
-  parser.write(templateContent);
-  parser.end();
-
-  return jsHelperPaths;
 };
 
 const getKebabCaseName = (sourcePath: string) =>
@@ -157,11 +121,9 @@ export default (options: RemaxOptions, adapter: Adapter) => () => ({
         return;
       }
 
-      const jsHelpers = collectJsHelper(sourcePath, adapter);
       const usingComponents = collectUsingComponents(sourcePath);
 
-      const imports = jsHelpers
-        .concat(usingComponents)
+      const imports = usingComponents
         .filter(source => source !== sourcePath)
         .map(key => `import '${key}';`)
         .join('');
