@@ -1,5 +1,7 @@
+import msg from './msg.sjs';
+
 function hello() {
-  return 'hello';
+  return msg.text;
 }
 
 export default {
