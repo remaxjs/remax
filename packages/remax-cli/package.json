@@ -1,6 +1,6 @@
 {
   "name": "remax-cli",
-  "version": "1.2.0-alpha.1",
+  "version": "1.2.0-alpha.2",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "./lib/index.js",
   "bin": {
@@ -42,7 +42,7 @@
     "@remax/postcss-px2units": "^0.2.0",
     "@remax/rollup-plugin-postcss": "^2.0.4",
     "acorn-walk": "^7.0.0",
-    "babel-preset-remax": "^1.2.0-alpha.1",
+    "babel-preset-remax": "^1.2.0-alpha.2",
     "chokidar": "^2.1.8",
     "command-exists": "^1.2.8",
     "commander": "^2.19.0",
@@ -88,7 +88,7 @@
     "postinstall-postinstall": "^2.0.0",
     "react": "^16.8.6",
     "react-reconciler": "^0.21.0",
-    "remax": "^1.2.0-alpha.1",
+    "remax": "^1.2.0-alpha.2",
     "sander": "^0.6.0",
     "scheduler": "^0.15.0",
     "ts-jest": "^24.0.2",
