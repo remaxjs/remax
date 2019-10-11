@@ -2,6 +2,7 @@ import * as htmlparser2 from 'htmlparser2';
 import fs from 'fs';
 import { Adapter } from '../../adapters';
 import { pushArray, getPath } from './util';
+import { output } from '../../utils/output';
 
 const parser = new htmlparser2.Parser({});
 
@@ -9,6 +10,7 @@ const templatePaths: string[] = [];
 
 export function walk(filePath: string) {
   if (!fs.existsSync(filePath)) {
+    output(`\n🚨 文件 ${filePath} 不存在`, 'red');
     return;
   }
 

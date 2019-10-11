@@ -2,6 +2,7 @@ import { Adapter } from '../../adapters';
 import { existsSync, readFileSync } from 'fs';
 import postcss from 'postcss';
 import { pushArray, getPath } from './util';
+import { output } from '../../utils/output';
 
 const cssPaths: string[] = [];
 
@@ -21,9 +22,10 @@ export const walk = (filePath: string) => {
 
   ast.nodes.forEach(node => {
     if (node.type === 'atrule' && node.name === 'import') {
-      const file = getPath(filePath, node.params.replace(/'/g, ''));
+      const file = getPath(filePath, node.params.replace(/'|"/g, ''));
 
       if (!existsSync(file)) {
+        output(`\n🚨 文件 ${file} 不存在`, 'red');
         return;
       }
 

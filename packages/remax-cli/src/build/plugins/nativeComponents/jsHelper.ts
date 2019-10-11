@@ -53,7 +53,7 @@ const parseTemplate = (filePath: string, adapter: Adapter) => {
       const jsHelperPath = getPath(filePath, attrs[srcName]);
 
       if (!fs.existsSync(jsHelperPath)) {
-        output(`\n🚨 找不到这个路径的 ${jsHelper} ${jsHelperPath}`, 'red');
+        output(`\n🚨 文件 ${jsHelperPath} 不存在`, 'red');
         return;
       }
 
