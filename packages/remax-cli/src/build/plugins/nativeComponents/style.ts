@@ -1,8 +1,7 @@
 import { Adapter } from '../../adapters';
 import { existsSync, readFileSync } from 'fs';
 import postcss from 'postcss';
-import path from 'path';
-import { pushArray } from './util';
+import { pushArray, getPath } from './util';
 
 const cssPaths: string[] = [];
 
@@ -22,10 +21,7 @@ export const walk = (filePath: string) => {
 
   ast.nodes.forEach(node => {
     if (node.type === 'atrule' && node.name === 'import') {
-      const file = path.join(
-        path.dirname(filePath),
-        node.params.replace(/'/g, '')
-      );
+      const file = getPath(filePath, node.params.replace(/'/g, ''));
 
       if (!existsSync(file)) {
         return;

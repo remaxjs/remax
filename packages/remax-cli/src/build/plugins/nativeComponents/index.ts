@@ -10,7 +10,7 @@ import style, { getcssPaths } from './style';
 import json, { getjsonPaths } from './json';
 import template, { getTemplatePaths } from './tempate';
 import jsHelper, { getJsHelpers } from './jsHelper';
-import { isNativeComponent } from './util';
+import { isNativeComponent, getPath } from './util';
 import { getNativeComponents, getUsingComponents } from './babelPlugin';
 import { isAsset } from '../removeSrc';
 import winPath from '../../../winPath';
@@ -38,11 +38,8 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
 
       files.forEach(id => {
         const bundleFileName = winPath(
-          path
-            .relative(options.cwd, id)
-            .replace(/node_modules/, 'npm')
-            .replace(/src\//, '')
-        );
+          path.relative(options.cwd, id).replace(/node_modules/, 'npm')
+        ).replace(/src\//, '');
 
         this.emitFile({
           fileName: bundleFileName,
@@ -82,10 +79,7 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
               return;
             }
 
-            const componentPath = path.join(
-              path.dirname(id as string),
-              importPath
-            );
+            const componentPath = getPath(id, importPath);
 
             if (
               usingComponents.includes(componentPath) ||

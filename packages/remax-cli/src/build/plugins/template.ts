@@ -128,12 +128,14 @@ function createPageUsingComponents(configFilePath: string) {
   const nativeComponents = getNativeComponents();
   const usingComponents: { [key: string]: string } = {};
   for (const [key, value] of Object.entries(nativeComponents)) {
-    usingComponents[value.id] = path
-      .relative(
-        path.dirname(configFilePath),
-        key.replace(/node_modules/, 'src/npm')
-      )
-      .replace(/\.js$/, '');
+    usingComponents[value.id] = winPath(
+      path
+        .relative(
+          path.dirname(configFilePath),
+          key.replace(/node_modules/, 'src/npm')
+        )
+        .replace(/\.js$/, '')
+    );
   }
 
   return usingComponents;

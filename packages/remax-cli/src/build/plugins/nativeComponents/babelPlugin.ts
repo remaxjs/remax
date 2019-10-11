@@ -7,7 +7,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import resolve from 'resolve';
 import { Adapter } from '../../adapters';
-import { isNativeComponent, pushArray } from './util';
+import { isNativeComponent, pushArray, getPath } from './util';
 import { RemaxOptions } from '../../../getConfig';
 import alias from '../alias';
 
@@ -36,7 +36,7 @@ const collectUsingComponents = (sourcePath: string) => {
   const componentPaths = Object.values(components);
 
   componentPaths.forEach((value: string) => {
-    const componentPath = path.join(path.dirname(sourcePath), value) + '.js';
+    const componentPath = getPath(sourcePath, value) + '.js';
 
     if (!fs.existsSync(componentPath)) {
       return;
