@@ -1,8 +1,8 @@
 const commandExistsSync = require('command-exists').sync;
 if (commandExistsSync('patch-package')) {
-  var spawn = require('child_process').spawn
+  const exec = require('child_process').exec
 
-  const cmd = spawn('patch-package');
+  const cmd = exec('patch-package');
   cmd.stdout.on('data', function (data) {
     console.log(data.toString());
   });
