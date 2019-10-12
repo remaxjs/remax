@@ -2,7 +2,6 @@ import { get } from 'dot-prop';
 import kebabCase from 'lodash/kebabCase';
 import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
-import template from '@babel/template';
 import * as path from 'path';
 import resolve from 'resolve';
 import { Adapter } from '../../adapters';
@@ -14,8 +13,6 @@ interface Component {
   type: string;
   id: string;
   props: string[];
-  children?: Component[];
-  importer?: string;
 }
 
 interface NativeComponents {
@@ -89,38 +86,6 @@ export default (options: RemaxOptions, adapter: Adapter) => () => ({
           nativeComponents[sourcePath].props.push(prop);
         });
       }
-    },
-    Program(nodePath: NodePath<t.Program>, state: any) {
-      const sourcePath = state.file.opts.filename;
-
-      if (!nativeComponents[sourcePath]) {
-        return;
-      }
-
-      const importStr = `import React from 'react';
-        import propsAlias from 'remax/esm/adapters/${adapter.name}/components/propsAlias';`;
-      const exportStr = `export default ({children, ...props}) => {
-        return React.createElement(
-          '${nativeComponents[sourcePath].id}',
-          propsAlias(props, true),
-          children
-        );
-      };`;
-
-      const importTemplate = template.ast(importStr);
-      const exportTemplate = template.ast(exportStr);
-
-      nodePath.node.body = nodePath.node.body.filter(node => {
-        return !t.isExportDefaultDeclaration(node);
-      });
-
-      if (Array.isArray(importTemplate)) {
-        nodePath.node.body = [...importTemplate, ...nodePath.node.body];
-      } else {
-        nodePath.node.body = [importTemplate, ...nodePath.node.body];
-      }
-
-      nodePath.node.body.push(exportTemplate as t.ExportDefaultDeclaration);
     },
   },
 });
