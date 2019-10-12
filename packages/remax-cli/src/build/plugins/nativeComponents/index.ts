@@ -11,6 +11,13 @@ import { isNativeComponent } from './util';
 import winPath from '../../../winPath';
 import usingComponents from './usingComponents';
 
+const getFiles = () => [
+  ...getcssPaths(),
+  ...getjsonPaths(),
+  ...getTemplatePaths(),
+  ...getJsHelpers(),
+];
+
 export default (options: RemaxOptions, adapter: Adapter): Plugin => {
   return {
     name: 'nativeComponents',
@@ -21,19 +28,16 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
         json(id);
         template(id, adapter);
         usingComponents(id, options, this);
+
+        getFiles().forEach(file => {
+          this.addWatchFile(file);
+        });
       }
 
       return null;
     },
     generateBundle() {
-      const files = [
-        ...getcssPaths(),
-        ...getjsonPaths(),
-        ...getTemplatePaths(),
-        ...getJsHelpers(),
-      ];
-
-      files.forEach(id => {
+      getFiles().forEach(id => {
         const bundleFileName = winPath(
           path.relative(options.cwd, id).replace(/node_modules/, 'npm')
         ).replace(/src\//, '');
