@@ -9,8 +9,8 @@ Remax 允许你在 React 组件中引用小程序的自定义组件。
 
 ```js
 import React from 'react';
-import Badge from 'mini-antui/es/badge'; // 直接当成 React 组件引用，无需申明 useComponents
 import { View } from 'remax/alipay';
+import Badge from 'mini-antui/es/badge'; // 直接当成 React 组件引用，无需申明 useComponents
 
 export default () => (
   <View>
@@ -28,6 +28,36 @@ export default () => (
 **错误：**
 
 ```js
+import React from 'react';
+import Button from 'vant-weapp/dist/button';
+import { View } from 'remax/wechat';
+
+export default () => (
+  <Button>Remax</Button>;
+);
+```
+
+**正确：**
+
+```js
+import React from 'react';
+import Button from 'vant-weapp/dist/button';
+import { View } from 'remax/wechat';
+
+export default () => (
+  <Button>
+    <View>Remax</View>
+  </Button>;
+);
+```
+
+**错误：**
+
+```js
+import React from 'react';
+import { View } from 'remax/alipay';
+import Badge from 'mini-antui/es/badge';
+
 export default () => (
   <View>
     <Badge>
@@ -40,6 +70,10 @@ export default () => (
 **正确：**
 
 ```js
+import React from 'react';
+import { View } from 'remax/alipay';
+import Badge from 'mini-antui/es/badge';
+
 export default () => (
   <View>
     <Badge>
