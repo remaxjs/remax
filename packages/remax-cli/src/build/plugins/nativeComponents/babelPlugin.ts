@@ -4,10 +4,9 @@ import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
 import template from '@babel/template';
 import * as path from 'path';
-import * as fs from 'fs';
 import resolve from 'resolve';
 import { Adapter } from '../../adapters';
-import { isNativeComponent, pushArray, getPath } from './util';
+import { isNativeComponent } from './util';
 import { RemaxOptions } from '../../../getConfig';
 import alias from '../alias';
 
@@ -26,27 +25,6 @@ interface NativeComponents {
 let nativeId = 0;
 
 const nativeComponents: NativeComponents = {};
-
-const usingComponents: string[] = [];
-
-const collectUsingComponents = (sourcePath: string) => {
-  const components: { [key: string]: string } =
-    require(sourcePath.replace(/\.js$/, '.json')).usingComponents || {};
-
-  const componentPaths = Object.values(components);
-
-  componentPaths.forEach((value: string) => {
-    const componentPath = getPath(sourcePath, value) + '.js';
-
-    if (!fs.existsSync(componentPath)) {
-      return;
-    }
-
-    pushArray(usingComponents, componentPath);
-  });
-
-  return componentPaths;
-};
 
 const getKebabCaseName = (sourcePath: string) =>
   kebabCase(path.basename(path.dirname(sourcePath)));
@@ -115,33 +93,19 @@ export default (options: RemaxOptions, adapter: Adapter) => () => ({
     Program(nodePath: NodePath<t.Program>, state: any) {
       const sourcePath = state.file.opts.filename;
 
-      const isNative = isNativeComponent(sourcePath);
-
-      if (!isNative) {
+      if (!nativeComponents[sourcePath]) {
         return;
       }
 
-      const usingComponents = collectUsingComponents(sourcePath);
-
-      const imports = usingComponents
-        .filter(source => source !== sourcePath)
-        .map(key => `import '${key}';`)
-        .join('');
-
       const importStr = `import React from 'react';
-        import propsAlias from 'remax/esm/adapters/${adapter.name}/components/propsAlias'
-        ${imports}`;
-      let exportStr = 'export default {};';
-
-      if (nativeComponents[sourcePath]) {
-        exportStr = `export default ({children, ...props}) => {
-          return React.createElement(
-            '${nativeComponents[sourcePath].id}',
-            propsAlias(props, true),
-            children
-          );
-        };`;
-      }
+        import propsAlias from 'remax/esm/adapters/${adapter.name}/components/propsAlias';`;
+      const exportStr = `export default ({children, ...props}) => {
+        return React.createElement(
+          '${nativeComponents[sourcePath].id}',
+          propsAlias(props, true),
+          children
+        );
+      };`;
 
       const importTemplate = template.ast(importStr);
       const exportTemplate = template.ast(exportStr);
@@ -163,8 +127,4 @@ export default (options: RemaxOptions, adapter: Adapter) => () => ({
 
 export function getNativeComponents() {
   return nativeComponents;
-}
-
-export function getUsingComponents() {
-  return usingComponents;
 }

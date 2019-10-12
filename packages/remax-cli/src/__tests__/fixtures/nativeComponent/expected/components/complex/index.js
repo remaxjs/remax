@@ -2,7 +2,6 @@ import { objectWithoutProperties as _objectWithoutProperties } from '../../_virt
 import React__default from 'react';
 import propsAlias from '../npm/remax/esm/adapters/alipay/components/propsAlias.js';
 
-
 Component({});
 var Complex = (function (_ref) {
   var children = _ref.children,
