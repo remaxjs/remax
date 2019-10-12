@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "name": "remax-website",
+  "builds": [
+    {
+      "src": "website/package.json",
+      "use": "@now/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/website/$1",
+      "continue": true
+    }
+  ]
+}
