@@ -13,7 +13,7 @@
     "prepack": "npm run readme:copy",
     "postpack": "npm run readme:clean",
     "prepublishOnly": "npm run lint && npm run test && lerna exec -- rm -rf lib && lerna run build",
-    "postinstall": "lerna bootstrap && opencollective-postinstall",
+    "postinstall": "lerna bootstrap",
     "lint": "eslint \"packages/*/src/**/*.{ts,tsx}\"",
     "release": "lerna publish --force-publish --create-release=github",
     "site:build": "lerna run --scope website --stream build",
@@ -31,7 +31,6 @@
     "eslint-plugin-react": "^7.14.3",
     "husky": "^3.0.2",
     "lerna": "^3.4.3",
-    "opencollective-postinstall": "^2.0.2",
     "prettier": "^1.18.2",
     "typescript": "^3.5.3"
   },
