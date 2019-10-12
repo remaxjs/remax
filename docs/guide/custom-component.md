@@ -23,33 +23,7 @@ export default () => (
 
 ## 注意事项
 
-对于带有 `slot` 的组件，`slot` 部分的最外层只能用 `View` 组件
-
-**错误：**
-
-```js
-import React from 'react';
-import Button from 'vant-weapp/dist/button';
-import { View } from 'remax/wechat';
-
-export default () => (
-  <Button>Remax</Button>;
-);
-```
-
-**正确：**
-
-```js
-import React from 'react';
-import Button from 'vant-weapp/dist/button';
-import { View } from 'remax/wechat';
-
-export default () => (
-  <Button>
-    <View>Remax</View>
-  </Button>;
-);
-```
+对于带有具名 `slot` 的组件，具名 `slot` 部分的最外层只能用 `View` 组件
 
 **错误：**
 
