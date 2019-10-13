@@ -33,6 +33,7 @@ export interface SliderProps extends BaseProps {
 Slider.defaultProps = {
   blockSize: 28,
   step: 1,
+  max: 100,
 };
 
 export default Slider;
