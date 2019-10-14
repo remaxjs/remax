@@ -9,7 +9,6 @@ import postcss from '@remax/rollup-plugin-postcss';
 import postcssUrl from './plugins/postcssUrl';
 import progress from 'rollup-plugin-progress';
 import clean from 'rollup-plugin-delete';
-import alias from 'rollup-plugin-alias';
 import inject from 'rollup-plugin-inject';
 import copy from 'rollup-plugin-copy';
 import stub from './plugins/stub';
@@ -30,6 +29,9 @@ import adapters, { Adapter } from './adapters';
 import { Context, Env } from '../types';
 import namedExports from 'named-exports-db';
 import fixRegeneratorRuntime from './plugins/fixRegeneratorRuntime';
+import nativeComponents from './plugins/nativeComponents/index';
+import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin';
+import alias from './plugins/alias';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -50,15 +52,6 @@ export default function rollupConfig(
 
   const entries = getEntries(options, adapter, context);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
-  const aliasConfig = Object.entries(options.alias || {}).reduce(
-    (config, [key, value]) => {
-      config[key] = value.match(/^(\.|[^/])/)
-        ? path.resolve(options.cwd, value)
-        : value;
-      return config;
-    },
-    {} as any
-  );
 
   // 获取 postcss 配置
   const postcssConfig = {
@@ -89,21 +82,7 @@ export default function rollupConfig(
       ],
       copyOnce: true,
     }),
-    alias({
-      resolve: [
-        '',
-        '.ts',
-        '.js',
-        '.tsx',
-        '.jsx',
-        '/index.js',
-        '/index.jsx',
-        '/index.ts',
-        '/index.tsx',
-      ],
-      '@': path.resolve(options.cwd, options.rootDir),
-      ...aliasConfig,
-    }),
+    alias(options),
     url({
       limit: 0,
       fileName: '[dirname][name][extname]',
@@ -111,9 +90,24 @@ export default function rollupConfig(
       sourceDir: path.resolve(options.cwd, options.rootDir),
       include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
     }),
+    resolve({
+      dedupe: [
+        'react',
+        'object-assign',
+        'prop-types',
+        'scheduler',
+        'react-reconciler',
+      ],
+      extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
+      customResolveOptions: {
+        moduleDirectory: 'node_modules',
+      },
+    }),
     commonjs({
       include: /node_modules/,
       namedExports,
+      extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
+      ignoreGlobal: false,
     }),
     stub({
       modules: stubModules,
@@ -122,19 +116,22 @@ export default function rollupConfig(
       babelrc: false,
       include: entries.pages.map(p => p.file),
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [page],
+      plugins: [nativeComponentsBabelPlugin(options, adapter), page],
       presets: [[require.resolve('babel-preset-remax'), { react: false }]],
     }),
     babel({
       babelrc: false,
       include: entries.app,
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [app],
+      plugins: [nativeComponentsBabelPlugin(options, adapter), app],
       presets: [[require.resolve('babel-preset-remax'), { react: false }]],
     }),
     babel({
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [components(adapter)],
+      plugins: [
+        nativeComponentsBabelPlugin(options, adapter),
+        components(adapter),
+      ],
       presets: [require.resolve('babel-preset-remax')],
     }),
     postcss({
@@ -149,19 +146,6 @@ export default function rollupConfig(
         acc[`process.env.${key}`] = JSON.stringify(envReplacement[key]);
         return acc;
       }, {}),
-    }),
-    resolve({
-      dedupe: [
-        'react',
-        'object-assign',
-        'prop-types',
-        'scheduler',
-        'react-reconciler',
-      ],
-      extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
-      customResolveOptions: {
-        moduleDirectory: 'node_modules',
-      },
     }),
     rename({
       include: `${options.rootDir}/**`,
@@ -221,6 +205,7 @@ export default function rollupConfig(
     removeESModuleFlag(),
     fixRegeneratorRuntime(),
     template(options, adapter, context),
+    nativeComponents(options, adapter),
   ];
 
   /* istanbul ignore next */
@@ -244,6 +229,7 @@ export default function rollupConfig(
       format: adapter.moduleFormat,
       exports: 'named',
       sourcemap: false,
+      extend: true,
     },
     preserveModules: true,
     preserveSymlinks: true,

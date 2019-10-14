@@ -2,21 +2,33 @@ export interface Adapter {
   name: string;
 
   extensions: {
-    template: string;
-    style: string;
-    jsHelper: string;
+    readonly template: {
+      tag: string;
+      src: string;
+      extension: string;
+    };
+    readonly style: string;
+    readonly jsHelper?: {
+      extension: string;
+      tag: string;
+      src: string;
+    };
+    readonly include: {
+      tag: string;
+      src: string;
+    };
   };
 
   templates: {
-    base: string;
     component: string;
     page: string;
-    jsHelper: string;
+    base?: string;
+    jsHelper?: string;
   };
 
   hostComponents: (component: string) => { props: string[] };
 
-  getNativePropName: (key: string) => string;
+  getNativePropName: (key: string, isNative?: boolean) => string;
 
   getIcons: (config: any) => string[];
 

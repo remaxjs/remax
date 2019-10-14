@@ -1,5 +1,7 @@
 import * as path from 'path';
-import { kebabCase } from 'lodash';
+export {
+  getAlias as getNativePropName,
+} from 'remax/cjs/adapters/wechat/components/propsAlias';
 
 export const name = 'wechat';
 
@@ -8,9 +10,21 @@ export function hostComponents(component: string) {
 }
 
 export const extensions = {
-  template: '.wxml',
+  template: {
+    extension: '.wxml',
+    tag: 'import',
+    src: 'src',
+  },
   style: '.wxss',
-  jsHelper: '.wxs',
+  jsHelper: {
+    extension: '.wxs',
+    tag: 'wxs',
+    src: 'src',
+  },
+  include: {
+    tag: 'include',
+    src: 'src',
+  },
 };
 
 const templateBaseDir = path.join(__dirname, '../../../../templates');
@@ -23,37 +37,6 @@ export const templates = {
 };
 
 export const moduleFormat = 'cjs';
-
-// TODO: alias 方法在 remax 和 remax-cli 都重复定义了，想办法 DRY
-const alias: { [prop: string]: string } = {
-  activeColor: 'activeColor',
-  backgroundColor: 'backgroundColor',
-  onClick: 'bindtap',
-  catchClick: 'catchtap',
-  enable3D: 'enable-3D',
-  hTouchMove: 'htouchmove',
-  vTouchMove: 'vtouchmove',
-};
-
-export function getNativePropName(prop: string) {
-  const aliasProp = alias[prop];
-
-  if (aliasProp) {
-    return aliasProp;
-  }
-
-  if (prop.startsWith('on') || prop.startsWith('catch')) {
-    return prop.toLowerCase().replace('on', 'bind');
-  }
-
-  if (prop.endsWith('className') || prop.endsWith('ClassName')) {
-    return kebabCase(
-      prop.replace('className', 'class').replace('ClassName', 'Class')
-    );
-  }
-
-  return kebabCase(prop);
-}
 
 export function getIcons(config: any) {
   if (!config.tabBar) {

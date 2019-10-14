@@ -1,4 +1,7 @@
 import * as path from 'path';
+export {
+  getAlias as getNativePropName,
+} from 'remax/cjs/adapters/toutiao/components/propsAlias';
 
 export const name = 'toutiao';
 
@@ -7,8 +10,16 @@ export function hostComponents(component: string) {
 }
 
 export const extensions = {
-  template: '.ttml',
+  template: {
+    extension: '.ttml',
+    tag: 'import',
+    src: 'src',
+  },
   style: '.ttss',
+  include: {
+    tag: 'include',
+    src: 'src',
+  },
 };
 
 const templateBaseDir = path.join(__dirname, '../../../../templates');
@@ -20,28 +31,6 @@ export const templates = {
 };
 
 export const moduleFormat = 'cjs';
-
-// TODO: alias 方法在 remax 和 remax-cli 都重复定义了，想办法 DRY
-const alias: { [prop: string]: string } = {
-  className: 'class',
-  activeColor: 'activeColor',
-  backgroundColor: 'backgroundColor',
-  onClick: 'bindtap',
-};
-
-export function getNativePropName(prop: string) {
-  const aliasProp = alias[prop];
-
-  if (aliasProp) {
-    return aliasProp;
-  }
-
-  if (prop.startsWith('on')) {
-    return prop.toLowerCase().replace('on', 'bind');
-  }
-
-  return prop;
-}
 
 export function getIcons(config: any) {
   if (!config.tabBar) {

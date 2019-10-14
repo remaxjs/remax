@@ -33,6 +33,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [1.1.3](https://github.com/remaxjs/remax/compare/v1.1.2...v1.1.3) (2019-09-30)
 
+# [1.2.0-alpha.0](https://github.com/remaxjs/remax/compare/v1.1.2...v1.2.0-alpha.0) (2019-09-30)
+
 **Note:** Version bump only for package website
 
 ## [1.1.2](https://github.com/remaxjs/remax/compare/v1.1.1...v1.1.2) (2019-09-27)

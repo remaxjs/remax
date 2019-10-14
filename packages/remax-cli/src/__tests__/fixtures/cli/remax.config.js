@@ -1,5 +1,5 @@
 module.exports = () => {
   return {
-    output: 'dist/',
+    output: 'dist/'
   };
 };

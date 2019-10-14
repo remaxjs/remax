@@ -4,6 +4,7 @@ import { BaseProps } from './baseTyping';
 const View = factory<ViewProps>('view');
 
 export interface ViewProps extends BaseProps {
+  slot?: string;
   /** 指定按下去的样式类。当为 "none" 时，没有点击态效果 1.0.0  */
   hoverClass?: string;
   /** 指定是否阻止本节点的祖先节点出现点击态 1.5.0  */

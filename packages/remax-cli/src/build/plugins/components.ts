@@ -102,7 +102,9 @@ function registerComponent(
     });
   }
 
-  const props = usedProps.filter(Boolean).map(adapter.getNativePropName);
+  const props = usedProps
+    .filter(Boolean)
+    .map(prop => adapter.getNativePropName(prop));
 
   const component = {
     id: componentName,
