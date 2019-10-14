@@ -8,6 +8,7 @@ import { Adapter } from '../../adapters';
 import { isNativeComponent } from './util';
 import { RemaxOptions } from '../../../getConfig';
 import alias from '../alias';
+import extensions from '../../../extensions';
 
 interface Component {
   type: string;
@@ -52,6 +53,7 @@ export default (options: RemaxOptions, adapter: Adapter) => () => ({
 
         let sourcePath = alias(options).resolveId(source, importer) || source;
         sourcePath = resolve.sync(sourcePath, {
+          extensions,
           basedir: path.dirname(importer),
         });
 

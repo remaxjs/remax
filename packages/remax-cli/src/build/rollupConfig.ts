@@ -32,6 +32,8 @@ import fixRegeneratorRuntime from './plugins/fixRegeneratorRuntime';
 import nativeComponents from './plugins/nativeComponents/index';
 import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin';
 import alias from './plugins/alias';
+import extensions from '../extensions';
+import { without } from 'lodash';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -98,7 +100,7 @@ export default function rollupConfig(
         'scheduler',
         'react-reconciler',
       ],
-      extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
+      extensions,
       customResolveOptions: {
         moduleDirectory: 'node_modules',
       },
@@ -106,7 +108,7 @@ export default function rollupConfig(
     commonjs({
       include: /node_modules/,
       namedExports,
-      extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
+      extensions,
       ignoreGlobal: false,
     }),
     stub({
@@ -115,19 +117,19 @@ export default function rollupConfig(
     babel({
       babelrc: false,
       include: entries.pages.map(p => p.file),
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      extensions: without(extensions, '.json'),
       plugins: [nativeComponentsBabelPlugin(options, adapter), page],
       presets: [[require.resolve('babel-preset-remax'), { react: false }]],
     }),
     babel({
       babelrc: false,
       include: entries.app,
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      extensions: without(extensions, '.json'),
       plugins: [nativeComponentsBabelPlugin(options, adapter), app],
       presets: [[require.resolve('babel-preset-remax'), { react: false }]],
     }),
     babel({
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      extensions: without(extensions, '.json'),
       plugins: [
         nativeComponentsBabelPlugin(options, adapter),
         components(adapter),
