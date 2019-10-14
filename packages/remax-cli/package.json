@@ -42,6 +42,7 @@
     "@babel/types": "^7.4.4",
     "@remax/postcss-px2units": "^0.2.0",
     "@remax/rollup-plugin-postcss": "^2.0.4",
+    "acorn-jsx": "^5.1.0",
     "acorn-walk": "^7.0.0",
     "babel-preset-remax": "^1.2.0-beta.0",
     "chokidar": "^2.1.8",

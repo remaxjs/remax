@@ -18,6 +18,7 @@ declare module 'slash2';
 declare module 'named-exports-db';
 declare module 'esm';
 declare module 'sander';
+declare module 'acorn-jsx';
 
 declare namespace jest {
   interface Matchers<R> {

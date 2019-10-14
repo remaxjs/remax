@@ -34,6 +34,7 @@ import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin'
 import alias from './plugins/alias';
 import extensions from '../extensions';
 import { without } from 'lodash';
+import jsx from 'acorn-jsx';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -235,6 +236,7 @@ export default function rollupConfig(
     },
     preserveModules: true,
     preserveSymlinks: true,
+    acornInjectPlugins: [jsx()],
     /* istanbul ignore next */
     onwarn(warning, warn) {
       if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
