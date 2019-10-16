@@ -44,7 +44,11 @@ function addToComponentCollection(
   });
 }
 
-function shouldRegisterAllProps(node: t.JSXElement) {
+function shouldRegisterAllProps(node?: t.JSXElement) {
+  if (!node) {
+    return false;
+  }
+
   if (
     node.openingElement.attributes.find(a => a.type === 'JSXSpreadAttribute')
   ) {
@@ -78,8 +82,11 @@ function registerComponent(
   }
 
   let usedProps = adapter.hostComponents(componentName).props;
-  if (node && adapter.name === 'alipay') {
-    // 支付宝在使用全部props的基础上，还加入用户定义的prop，用于收集 dataset, catch 事件等props
+  if (adapter.name !== 'alipay' && !shouldRegisterAllProps(node)) {
+    usedProps = [];
+  }
+
+  if (node) {
     node.openingElement.attributes.forEach(attr => {
       if (t.isJSXSpreadAttribute(attr)) {
         return;
@@ -90,15 +97,6 @@ function registerComponent(
       if (!usedProps.find(prop => prop === propName)) {
         usedProps.push(propName);
       }
-    });
-  } else if (node && !shouldRegisterAllProps(node)) {
-    usedProps = node.openingElement.attributes.map(attr => {
-      /* istanbul ignore next */
-      if (t.isJSXSpreadAttribute(attr)) {
-        return '';
-      }
-
-      return attr.name.name as string;
     });
   }
 

@@ -51,7 +51,8 @@ var _page = function _page() {
   return createElement(View, null, createElement(View, _extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
-    id: "view"
+    id: "view",
+    "data-foo": "bar"
   }, props), "foo"), TextElement);
 };
 

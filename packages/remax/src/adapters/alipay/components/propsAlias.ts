@@ -19,6 +19,14 @@ export function getAlias(prop: string, isNative = false) {
   return prop;
 }
 
+function getValue(prop: string, value: any): any {
+  if (prop.toLowerCase().endsWith('style') && prop !== 'layerStyle') {
+    return plainStyle(value);
+  }
+
+  return value;
+}
+
 export interface GenericProps {
   [key: string]: any;
 }
@@ -30,7 +38,7 @@ export default function propsAlias<T>(props: GenericProps, isNative = false) {
     if (prop === 'style') {
       aliasProps.style = plainStyle(props.style!);
     } else {
-      aliasProps[getAlias(prop, isNative)] = props[prop];
+      aliasProps[getAlias(prop, isNative)] = getValue(prop, props[prop]);
     }
   });
 
