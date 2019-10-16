@@ -8,4 +8,16 @@ describe('Input', () => {
 
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });
+
+  it('render placeholderStyle as inline style', () => {
+    const color = '#ffffff';
+
+    const component: TestRenderer.ReactTestRenderer = TestRenderer.create(
+      <Input placeholderStyle={{ color }} />
+    );
+
+    const instance = component.root.findByType('input');
+
+    expect(instance.props.placeholderStyle).toEqual(`color:${color};`);
+  });
 });

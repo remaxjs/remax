@@ -65,7 +65,8 @@ var _page = function _page() {
   return React.createElement(View.default, null, React.createElement(View.default, _rollupPluginBabelHelpers.extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
-    id: "view"
+    id: "view",
+    "data-foo": "bar"
   }, props), "foo"), TextElement);
 };
 

@@ -25,7 +25,7 @@ export function getAlias(prop: string, isNative = false) {
 }
 
 function getValue(prop: string, value: any): any {
-  if (prop.endsWith('style') && prop !== 'layer-style') {
+  if (prop.toLowerCase().endsWith('style') && prop !== 'layerStyle') {
     return plainStyle(value);
   }
 
