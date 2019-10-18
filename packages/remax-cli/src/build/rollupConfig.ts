@@ -80,7 +80,7 @@ export default function rollupConfig(
       targets: [
         {
           src: [`${options.rootDir}/native/*`],
-          dest: 'dist',
+          dest: options.output,
         },
       ],
       copyOnce: true,
