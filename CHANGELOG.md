@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/remaxjs/remax/compare/v1.2.1...v1.2.2) (2019-10-22)
+
+### Bug Fixes
+
+- native 文件 copy 时没有遵从 options.ouput 的配置 ([99fd382](https://github.com/remaxjs/remax/commit/99fd382))
+- **alipay:** 修复 catchClick ([5897266](https://github.com/remaxjs/remax/commit/5897266))
+
 ## [1.2.1](https://github.com/remaxjs/remax/compare/v1.2.0...v1.2.1) (2019-10-16)
 
 ### Bug Fixes
