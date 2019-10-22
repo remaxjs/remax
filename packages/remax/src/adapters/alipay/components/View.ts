@@ -15,7 +15,9 @@ export interface ViewProps {
   hoverStopPropagation?: boolean;
   slot?: string;
   onTap?: (e: any) => void;
+  catchTap?: (e: any) => void;
   onClick?: (e: any) => void;
+  catchClick?: (e: any) => void;
   onTouchStart?: (e: any) => void;
   onTouchMove?: (e: any) => void;
   onTouchEnd?: (e: any) => void;

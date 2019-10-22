@@ -39,8 +39,8 @@ import '../npm/remax/esm/adapters/alipay/components/WebView.js';
 import '../npm/remax/esm/adapters/alipay/components/Lifestyle.js';
 import '../npm/remax/esm/adapters/alipay/components/ContactButton.js';
 import '../npm/remax/esm/adapters/alipay/api.js';
-import { Text as Text$1 } from '../npm/remax/esm/adapters/wechat/components/index.js';
-import { Text as Text$2 } from '../npm/remax/esm/adapters/toutiao/components/index.js';
+import { Text as Text$2 } from '../npm/remax/esm/adapters/wechat/components/index.js';
+import { Text as Text$1 } from '../npm/remax/esm/adapters/toutiao/components/index.js';
 
 function Text() {
   var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -50,10 +50,10 @@ function Text() {
       return createElement(AlipayText, props);
 
     case 'wechat':
-      return createElement(Text$1, props);
+      return createElement(Text$2, props);
 
     case 'toutiao':
-      return createElement(Text$2, props);
+      return createElement(Text$1, props);
   }
 }
 

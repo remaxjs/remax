@@ -3,6 +3,7 @@ import plainStyle from '../../../utils/plainStyle';
 const alias: any = {
   className: 'class',
   onClick: 'onTap',
+  catchClick: 'catchTap',
 };
 
 const nativeAlias: any = {
