@@ -27,7 +27,8 @@ export default function postcssUrl(options: RemaxOptions) {
           });
         }
       });
-      if (!/^\//.test(asset.url) && !/^\w+:\/\//.test(asset.url)) {
+
+      if (/^\.{1,2}\/|^\w+\//.test(asset.url)) {
         return winPath(
           `/${path.relative(
             path.resolve(options.cwd, options.rootDir),
@@ -35,6 +36,7 @@ export default function postcssUrl(options: RemaxOptions) {
           )}`
         );
       }
+
       return asset.url;
     },
     basePath: path.resolve(options.cwd, options.rootDir),
