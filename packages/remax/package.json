@@ -31,6 +31,7 @@
   "dependencies": {
     "@remax/mini-types": "^0.0.5",
     "@remax/miniprogram-api-typings": "^2.8.4",
+    "lodash": "^4.17.15",
     "react-reconciler": "0.20.4",
     "scheduler": "0.13.6",
     "shallowequal": "^1.1.0"
@@ -38,7 +39,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.2.3",
     "@types/jest": "^24.0.15",
-    "@types/lodash.debounce": "^4.0.6",
+    "@types/lodash": "^4.14.144",
     "@types/react": "^16.8.22",
     "@types/react-reconciler": "^0.18.0",
     "@types/react-test-renderer": "^16.9.0",

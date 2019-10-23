@@ -7,13 +7,19 @@ import { Context } from './types';
 
 interface AppConfig {
   pages: string[];
-  subpackages: Array<{
+  subpackages?: Array<{
     root: string;
     pages: string[];
   }>;
   tabBar?: {
     items: Array<{ icon: string; activeIcon: string }>;
     list: Array<{ iconPath: string; selectedIconPath: string }>;
+  };
+  plugins?: {
+    [key: string]: {
+      version: string;
+      provider: string;
+    };
   };
 }
 
@@ -41,6 +47,18 @@ function searchFile(file: string, ext?: string) {
   return '';
 }
 
+export const getAppConfig = (options: RemaxOptions, adapter: Adapter) => {
+  const appConfigPath: string = path.join(
+    options.cwd,
+    options.rootDir,
+    'app.config.js'
+  );
+  if (!fs.existsSync(appConfigPath)) {
+    throw new Error(`${appConfigPath} is not found`);
+  }
+  return readManifest(appConfigPath, adapter.name) as AppConfig;
+};
+
 export default function getEntries(
   options: RemaxOptions,
   adapter: Adapter,
@@ -51,15 +69,7 @@ export default function getEntries(
   let images: string[] = [];
 
   if (!context) {
-    const appConfigPath: string = path.join(
-      options.cwd,
-      options.rootDir,
-      'app.config.js'
-    );
-    if (!fs.existsSync(appConfigPath)) {
-      throw new Error(`${appConfigPath} is not found`);
-    }
-    const appConfig: AppConfig = readManifest(appConfigPath, adapter.name);
+    const appConfig = getAppConfig(options, adapter);
     pages = appConfig.pages;
     subpackages = appConfig.subpackages || [];
     images = adapter.getIcons(appConfig);

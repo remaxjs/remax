@@ -102,7 +102,7 @@ function registerComponent(
 
   const props = usedProps
     .filter(Boolean)
-    .map(prop => adapter.getNativePropName(prop));
+    .map(prop => adapter.getNativePropName(prop, true, true));
 
   const component = {
     id: componentName,

@@ -32,7 +32,7 @@ export interface GenericProps {
   [key: string]: any;
 }
 
-export default function propsAlias<T>(props: GenericProps, isNative = false) {
+export default function propsAlias(props: GenericProps, isNative = false) {
   const aliasProps: GenericProps = {};
 
   Object.keys(props).forEach(prop => {
