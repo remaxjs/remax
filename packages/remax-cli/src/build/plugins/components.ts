@@ -77,6 +77,47 @@ function shouldRegisterAllProps(node?: t.JSXElement) {
   return false;
 }
 
+function registerProps(
+  componentName: string,
+  adapter: Adapter,
+  node?: t.JSXElement
+) {
+  const hostComponent = adapter.hostComponents(componentName);
+
+  /* istanbul ignore next */
+  if (!hostComponent) {
+    return;
+  }
+
+  let usedProps = hostComponent.props.slice();
+
+  if (adapter.name !== 'alipay' && !shouldRegisterAllProps(node)) {
+    usedProps = [];
+  }
+
+  if (node) {
+    node.openingElement.attributes.forEach(attr => {
+      if (t.isJSXSpreadAttribute(attr)) {
+        return;
+      }
+
+      const propName = attr.name.name as string;
+
+      if (!usedProps.includes(propName)) {
+        usedProps.push(propName);
+      }
+    });
+  }
+
+  usedProps.push('data-rid');
+
+  return new Set(
+    usedProps
+      .filter(Boolean)
+      .map(prop => adapter.getNativePropName(prop, false))
+  );
+}
+
 function registerComponent({
   componentName,
   adapter,
@@ -96,39 +137,16 @@ function registerComponent({
     return;
   }
 
-  const hostComponent = adapter.hostComponents(componentName);
+  const props = registerProps(componentName, adapter, node);
 
   /* istanbul ignore next */
-  if (!hostComponent) {
+  if (!props) {
     return;
   }
 
-  let usedProps = hostComponent.props.slice();
-  if (adapter.name !== 'alipay' && !shouldRegisterAllProps(node)) {
-    usedProps = [];
-  }
-
-  if (node) {
-    node.openingElement.attributes.forEach(attr => {
-      if (t.isJSXSpreadAttribute(attr)) {
-        return;
-      }
-
-      const propName = attr.name.name as string;
-
-      if (!usedProps.includes(propName)) {
-        usedProps.push(propName);
-      }
-    });
-  }
-
-  const props = usedProps
-    .filter(Boolean)
-    .map(prop => adapter.getNativePropName(prop, false));
-
   const component = {
     id: componentName,
-    props: new Set(props),
+    props,
     importer,
   };
 

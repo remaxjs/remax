@@ -1,6 +1,6 @@
 ---
 title: 小程序自定义组件
-order: 26
+order: 28
 ---
 
 Remax 允许你在 React 组件中引用小程序的自定义组件。
