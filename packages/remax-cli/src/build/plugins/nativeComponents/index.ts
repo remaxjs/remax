@@ -13,7 +13,7 @@ import jsHelper, { getJsHelpers } from './jsHelper';
 import { isNativeComponent, isPluginComponent, getSourcePath } from './util';
 import winPath from '../../../winPath';
 import usingComponents from './usingComponents';
-import { getNativeComponents, clear } from './babelPlugin';
+import { getImporters } from './babelPlugin';
 
 const getFiles = () => [
   ...getcssPaths(),
@@ -40,12 +40,9 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
       return null;
     },
     transform(code, id) {
-      const components = getNativeComponents();
-      const component = Object.values(components).find(component =>
-        component.importer.includes(id)
-      );
-
-      if (!component) {
+      const importers = getImporters();
+      const importer = importers.get(id);
+      if (!importer) {
         return null;
       }
 
@@ -59,27 +56,30 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
         const source: string = get(node, 'source.value');
         const name: string = get(node, 'specifiers[0].local.name');
         const componentPath = getSourcePath(options, adapter, source, id);
+        const component = importer.get(componentPath);
 
-        if (components[componentPath]) {
-          if (!isPluginComponent(componentPath, options, adapter)) {
-            this.emitFile({
-              id: path.relative(options.cwd, componentPath),
-              type: 'chunk',
-            });
-          }
-
-          magicString.remove(node.start, node.end);
-
-          const exportStr = `var ${name} = function(props) {
-          return React.createElement(
-              '${components[componentPath].id}',
-              propsAlias(props, true),
-              props.children
-            );
-          };`;
-
-          magicString.append(exportStr);
+        if (!component) {
+          return;
         }
+
+        if (!isPluginComponent(componentPath, options, adapter)) {
+          this.emitFile({
+            id: path.relative(options.cwd, componentPath),
+            type: 'chunk',
+          });
+        }
+
+        magicString.remove(node.start, node.end);
+
+        const exportStr = `var ${name} = function(props) {
+        return React.createElement(
+            '${component.hashId}',
+            propsAlias(props, true),
+            props.children
+          );
+        };`;
+
+        magicString.append(exportStr);
       };
 
       simple(ast, {
@@ -93,9 +93,6 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
         code: magicString.toString(),
         map: magicString.generateMap(),
       };
-    },
-    watchChange(id) {
-      clear(id);
     },
     generateBundle() {
       getFiles().forEach(id => {

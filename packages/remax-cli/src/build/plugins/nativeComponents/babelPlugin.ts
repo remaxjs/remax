@@ -1,57 +1,44 @@
 import { get } from 'dot-prop';
-import { kebabCase, union } from 'lodash';
+import { kebabCase } from 'lodash';
 import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
 import * as path from 'path';
 import { Adapter } from '../../adapters';
-import {
-  isNativeComponent,
-  isPluginComponent,
-  getSourcePath,
-  getDeleteComponentPaths,
-} from './util';
+import { isNativeComponent, isPluginComponent, getSourcePath } from './util';
 import { RemaxOptions } from '../../../getConfig';
+import {
+  Importers,
+  addToComponentCollection,
+  convertComponents,
+  Component,
+} from '../components';
 
-export interface Component {
-  type: string;
-  id: string;
-  props: string[];
-  importer: string[];
-}
+const importers: Importers<Component & { hashId: string }> = new Map();
 
-interface NativeComponents {
-  [id: string]: Component;
-}
+export const getKebabCaseName = (sourcePath: string) =>
+  kebabCase(path.basename(path.dirname(sourcePath)));
 
 let nativeId = 0;
 
-let nativeComponents: NativeComponents = {};
+const getHashId = (id: string, sourcePath: string) => {
+  const components = [...importers.values()].find(components =>
+    components.has(sourcePath)
+  );
 
-const getKebabCaseName = (sourcePath: string) =>
-  kebabCase(path.basename(path.dirname(sourcePath)));
-
-export const clear = (id?: string) => {
-  if (id === undefined) {
-    nativeId = 0;
-    nativeComponents = {};
-    return;
+  if (!components) {
+    return `${id}-${nativeId++}`;
   }
 
-  const componentPaths = getDeleteComponentPaths(id, nativeComponents);
-
-  if (!componentPaths.length) {
-    return;
-  }
-
-  for (const path of componentPaths) {
-    delete nativeComponents[path];
-  }
+  return (components.get(sourcePath) as any).hashId;
 };
 
 export default (options: RemaxOptions, adapter: Adapter) => {
-  clear();
+  importers.clear();
 
   return () => ({
+    pre(state: any) {
+      importers.delete(state.opts.filename);
+    },
     visitor: {
       JSXElement(nodePath: NodePath, state: any) {
         const importer = state.file.opts.filename;
@@ -91,33 +78,31 @@ export default (options: RemaxOptions, adapter: Adapter) => {
           });
 
           const props = usedProps
-            .filter(prop => !!prop)
+            .filter(Boolean)
             .map(prop => adapter.getNativePropName(prop, true, true));
 
-          if (!nativeComponents[sourcePath]) {
-            nativeComponents[sourcePath] = {
-              type: 'native',
-              id: `${id}-${nativeId++}`,
-              props,
-              importer: [importer],
-            };
-            return;
-          }
+          const component = {
+            id: sourcePath,
+            props: new Set(props),
+            importer,
+            hashId: getHashId(id, sourcePath),
+          };
 
-          nativeComponents[sourcePath].props = union(
-            nativeComponents[sourcePath].props,
-            props
-          );
-          nativeComponents[sourcePath].importer = union(
-            nativeComponents[sourcePath].importer,
-            [importer]
-          );
+          addToComponentCollection(component, importers);
         }
       },
     },
   });
 };
 
-export function getNativeComponents() {
-  return nativeComponents;
-}
+export const getNativeComponents = () =>
+  convertComponents(importers).map(component => {
+    return {
+      ...component,
+      type: 'native',
+      id: component.hashId,
+      sourcePath: component.id,
+    };
+  });
+
+export const getImporters = () => importers;

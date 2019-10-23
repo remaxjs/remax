@@ -6,7 +6,11 @@ export {
 export const name = 'wechat';
 
 export function hostComponents(component: string) {
-  return require(`./hostComponents/${component}`);
+  try {
+    return require(`./hostComponents/${component}`);
+  } catch (err) {
+    return false;
+  }
 }
 
 export const extensions = {

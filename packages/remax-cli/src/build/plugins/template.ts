@@ -127,17 +127,17 @@ function createAppManifest(
 function createPageUsingComponents(configFilePath: string) {
   const nativeComponents = getNativeComponents();
   const usingComponents: { [key: string]: string } = {};
-  for (const [key, value] of Object.entries(nativeComponents)) {
-    if (key.startsWith('plugin://')) {
-      usingComponents[value.id] = key;
+  for (const { id, sourcePath } of nativeComponents) {
+    if (sourcePath.startsWith('plugin://')) {
+      usingComponents[id] = sourcePath;
       continue;
     }
 
-    usingComponents[value.id] = winPath(
+    usingComponents[id] = winPath(
       path
         .relative(
           path.dirname(configFilePath),
-          key.replace(/node_modules/, 'src/npm')
+          sourcePath.replace(/node_modules/, 'src/npm')
         )
         .replace(/\.js$/, '')
     );

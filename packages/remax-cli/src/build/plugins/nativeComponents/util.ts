@@ -7,7 +7,6 @@ import winPath from '../../../winPath';
 import { RemaxOptions } from '../../../getConfig';
 import { getAppConfig } from '../../../getEntries';
 import { Adapter } from '../../adapters';
-import { Component } from '../components';
 
 export const pushArray = (arr: string[], path: string) => {
   if (arr.includes(path)) {
@@ -81,15 +80,4 @@ export const getPath = (from: string, to: string) => {
 
 export const readFile = (filePath: string) => {
   return fs.readFileSync(filePath).toString();
-};
-
-export const getDeleteComponentPaths = (
-  id: string,
-  components: { [key: string]: Component }
-) => {
-  return Object.keys(components).filter(
-    componentPath =>
-      components[componentPath].importer[0] === id &&
-      components[componentPath].importer.length === 1
-  );
 };
