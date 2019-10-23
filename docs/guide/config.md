@@ -62,14 +62,19 @@ _关于 css modules 和样式更多信息，请参考 [指南 - 样式](/guide/s
 
 ### babel 配置
 
-Remax 支持直接在项目根目录创建 .babelrc 文件来自定义 babel 配置，例如：
+Remax 支持直接在项目根目录创建 babel.config.js 文件来自定义 babel 配置，例如：
 
 ```js
-// .babelrc
+// babel.config.js
 {
   "plugins": ["loop-optimizer"],
+  "presets": ["remax"]
 }
 ```
+
+_由于 babel7 的推荐以及项目目录配置等问题，请使用 [babel.config.js](https://babeljs.io/docs/en/configuration#babelconfigjs) 文件而不是 .babelrc_
+
+_记得安装 `babel-preset-remax`，并将它加入到 presets 配置中_
 
 ### 路径别名
 
