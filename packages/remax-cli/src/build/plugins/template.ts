@@ -128,6 +128,11 @@ function createPageUsingComponents(configFilePath: string) {
   const nativeComponents = getNativeComponents();
   const usingComponents: { [key: string]: string } = {};
   for (const [key, value] of Object.entries(nativeComponents)) {
+    if (key.startsWith('plugin://')) {
+      usingComponents[value.id] = key;
+      continue;
+    }
+
     usingComponents[value.id] = winPath(
       path
         .relative(

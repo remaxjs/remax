@@ -1,19 +1,22 @@
 import { get } from 'dot-prop';
-import kebabCase from 'lodash/kebabCase';
+import { kebabCase, union } from 'lodash';
 import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
 import * as path from 'path';
-import resolve from 'resolve';
 import { Adapter } from '../../adapters';
-import { isNativeComponent } from './util';
+import {
+  isNativeComponent,
+  isPluginComponent,
+  getSourcePath,
+  getDeleteComponentPaths,
+} from './util';
 import { RemaxOptions } from '../../../getConfig';
-import alias from '../alias';
-import extensions from '../../../extensions';
 
-interface Component {
+export interface Component {
   type: string;
   id: string;
   props: string[];
+  importer: string[];
 }
 
 interface NativeComponents {
@@ -22,75 +25,98 @@ interface NativeComponents {
 
 let nativeId = 0;
 
-const nativeComponents: NativeComponents = {};
+let nativeComponents: NativeComponents = {};
 
 const getKebabCaseName = (sourcePath: string) =>
   kebabCase(path.basename(path.dirname(sourcePath)));
 
-export default (options: RemaxOptions, adapter: Adapter) => () => ({
-  visitor: {
-    JSXElement(nodePath: NodePath, state: any) {
-      const importer = state.file.opts.filename;
-      const node = nodePath.node as t.JSXElement;
+export const clear = (id?: string) => {
+  if (id === undefined) {
+    nativeId = 0;
+    nativeComponents = {};
+    return;
+  }
 
-      if (t.isJSXIdentifier(node.openingElement.name)) {
-        const tagName = node.openingElement.name.name;
-        const binding = nodePath.scope.getBinding(tagName);
-        if (!binding) {
-          return;
-        }
-        const componentPath = binding.path;
+  const componentPaths = getDeleteComponentPaths(id, nativeComponents);
 
-        if (
-          !componentPath ||
-          !t.isImportDefaultSpecifier(componentPath.node) ||
-          !t.isImportDeclaration(componentPath.parent)
-        ) {
-          return;
-        }
+  if (!componentPaths.length) {
+    return;
+  }
 
-        const source = componentPath.parent.source.value;
+  for (const path of componentPaths) {
+    delete nativeComponents[path];
+  }
+};
 
-        let sourcePath = alias(options).resolveId(source, importer) || source;
-        sourcePath = resolve.sync(sourcePath, {
-          extensions,
-          basedir: path.dirname(importer),
-        });
+export default (options: RemaxOptions, adapter: Adapter) => {
+  clear();
 
-        if (!isNativeComponent(sourcePath)) {
-          return;
-        }
+  return () => ({
+    visitor: {
+      JSXElement(nodePath: NodePath, state: any) {
+        const importer = state.file.opts.filename;
+        const node = nodePath.node as t.JSXElement;
 
-        const id = getKebabCaseName(sourcePath);
+        if (t.isJSXIdentifier(node.openingElement.name)) {
+          const tagName = node.openingElement.name.name;
+          const binding = nodePath.scope.getBinding(tagName);
+          if (!binding) {
+            return;
+          }
+          const componentPath = binding.path;
 
-        const usedProps = node.openingElement.attributes.map(e => {
-          const propName = get(e, 'name.name') as string;
-          return propName;
-        });
-
-        const props = usedProps
-          .filter(prop => !!prop)
-          .map(prop => adapter.getNativePropName(prop, true));
-
-        if (!nativeComponents[sourcePath]) {
-          nativeComponents[sourcePath] = {
-            type: 'native',
-            id: `${id}-${nativeId++}`,
-            props,
-          };
-        }
-
-        props.forEach(prop => {
-          if (nativeComponents[sourcePath].props.includes(prop)) {
+          if (
+            !componentPath ||
+            !t.isImportDefaultSpecifier(componentPath.node) ||
+            !t.isImportDeclaration(componentPath.parent)
+          ) {
             return;
           }
 
-          nativeComponents[sourcePath].props.push(prop);
-        });
-      }
+          const source = componentPath.parent.source.value;
+          const sourcePath = getSourcePath(options, adapter, source, importer);
+
+          if (
+            !isNativeComponent(sourcePath) &&
+            !isPluginComponent(sourcePath, options, adapter)
+          ) {
+            return;
+          }
+
+          const id = getKebabCaseName(sourcePath);
+
+          const usedProps = node.openingElement.attributes.map(e => {
+            const propName = get(e, 'name.name') as string;
+            return propName;
+          });
+
+          const props = usedProps
+            .filter(prop => !!prop)
+            .map(prop => adapter.getNativePropName(prop, true, true));
+
+          if (!nativeComponents[sourcePath]) {
+            nativeComponents[sourcePath] = {
+              type: 'native',
+              id: `${id}-${nativeId++}`,
+              props,
+              importer: [importer],
+            };
+            return;
+          }
+
+          nativeComponents[sourcePath].props = union(
+            nativeComponents[sourcePath].props,
+            props
+          );
+          nativeComponents[sourcePath].importer = union(
+            nativeComponents[sourcePath].importer,
+            [importer]
+          );
+        }
+      },
     },
-  },
-});
+  });
+};
 
 export function getNativeComponents() {
   return nativeComponents;

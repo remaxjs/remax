@@ -4,6 +4,8 @@
     "b-1": "../components/b/index",
     "c-2": "../components/c/index",
     "d-3": "../components/d/index",
-    "complex-4": "../components/complex/index"
+    "complex-4": "../components/complex/index",
+    "my-plugin-5": "plugin://myPlugin/xx",
+    "my-plugin-6": "plugin://myPlugin/dddd"
   }
 }

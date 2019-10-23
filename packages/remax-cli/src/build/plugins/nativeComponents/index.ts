@@ -1,6 +1,8 @@
+import { get } from 'lodash';
 import MagicString from 'magic-string';
 import * as path from 'path';
 import { Plugin } from 'rollup';
+import { simple } from 'acorn-walk';
 import { readFileSync } from 'fs';
 import { RemaxOptions } from '../../../getConfig';
 import { Adapter } from '../../adapters';
@@ -8,10 +10,10 @@ import style, { getcssPaths } from './style';
 import json, { getjsonPaths } from './json';
 import template, { getTemplatePaths } from './tempate';
 import jsHelper, { getJsHelpers } from './jsHelper';
-import { isNativeComponent, readFile } from './util';
+import { isNativeComponent, isPluginComponent, getSourcePath } from './util';
 import winPath from '../../../winPath';
 import usingComponents from './usingComponents';
-import { getNativeComponents } from './babelPlugin';
+import { getNativeComponents, clear } from './babelPlugin';
 
 const getFiles = () => [
   ...getcssPaths(),
@@ -24,32 +26,6 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
   return {
     name: 'nativeComponents',
     load(id) {
-      const component = getNativeComponents()[id];
-      if (component) {
-        const importStr = `import React from 'react';
-        import propsAlias from 'remax/esm/adapters/${adapter.name}/components/propsAlias';`;
-        const exportStr = `export default ({children, ...props}) => {
-        return React.createElement(
-            '${component.id}',
-            propsAlias(props, true),
-            children
-          );
-        };`;
-
-        const magicString = new MagicString(readFile(id));
-        magicString
-          .prepend(importStr)
-          .append(exportStr)
-          .indent();
-
-        return {
-          code: magicString.toString(),
-          map: magicString.generateMap(),
-        };
-      }
-      return null;
-    },
-    transform(_, id) {
       if (isNativeComponent(id)) {
         jsHelper(id, adapter);
         style(id, adapter);
@@ -61,8 +37,65 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
           this.addWatchFile(file);
         });
       }
-
       return null;
+    },
+    transform(code, id) {
+      const components = getNativeComponents();
+      const component = Object.values(components).find(component =>
+        component.importer.includes(id)
+      );
+
+      if (!component) {
+        return null;
+      }
+
+      const magicString = new MagicString(code);
+      const ast = this.parse(code, {
+        ecmaVersion: 6,
+        sourceType: 'module',
+      });
+
+      const extract = (node: any) => {
+        const source: string = get(node, 'source.value');
+        const name: string = get(node, 'specifiers[0].local.name');
+        const componentPath = getSourcePath(options, adapter, source, id);
+
+        if (components[componentPath]) {
+          if (!isPluginComponent(componentPath, options, adapter)) {
+            this.emitFile({
+              id: path.relative(options.cwd, componentPath),
+              type: 'chunk',
+            });
+          }
+
+          magicString.remove(node.start, node.end);
+
+          const exportStr = `var ${name} = function(props) {
+          return React.createElement(
+              '${components[componentPath].id}',
+              propsAlias(props, true),
+              props.children
+            );
+          };`;
+
+          magicString.append(exportStr);
+        }
+      };
+
+      simple(ast, {
+        ImportDeclaration: extract,
+      });
+
+      const importStr = `import propsAlias from 'remax/esm/adapters/${adapter.name}/components/propsAlias';`;
+      magicString.prepend(importStr);
+
+      return {
+        code: magicString.toString(),
+        map: magicString.generateMap(),
+      };
+    },
+    watchChange(id) {
+      clear(id);
     },
     generateBundle() {
       getFiles().forEach(id => {
