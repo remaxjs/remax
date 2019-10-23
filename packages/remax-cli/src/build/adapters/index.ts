@@ -26,7 +26,7 @@ export interface Adapter {
     jsHelper?: string;
   };
 
-  hostComponents: (component: string) => { props: string[] };
+  hostComponents: (component: string) => { props: string[] } | false;
 
   getNativePropName: (
     key: string,

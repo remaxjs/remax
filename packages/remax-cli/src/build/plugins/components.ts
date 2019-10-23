@@ -3,44 +3,63 @@ import * as PATH from 'path';
 import winPath from '../../winPath';
 import fs from 'fs';
 import { NodePath } from '@babel/traverse';
-import { kebabCase } from 'lodash';
+import { kebabCase, cloneDeep } from 'lodash';
 import { Adapter } from '../adapters';
 
-interface Component {
+export interface Component {
   id: string;
-  props: string[];
+  props: Set<string>;
+  importer: string;
 }
 
-interface ComponentCollection {
-  [id: string]: Component;
-}
+type Components<T> = Map<string, T>;
+export type Importers<T = Component> = Map<string, Components<T>>;
 
-let components: ComponentCollection = {};
-let importedComponents: ComponentCollection = {};
+const importers: Importers = new Map();
 
-function clear() {
-  components = {};
-  importedComponents = {};
-}
-
-function addToComponentCollection(
-  component: Component,
-  componentCollection: ComponentCollection
+export function convertComponents<T extends Component>(
+  importers: Importers<T>
 ) {
-  if (!componentCollection[component.id]) {
-    componentCollection[component.id] = component;
+  const components = [...importers.values()].reduce(
+    (prev, components) => {
+      for (const component of components.values()) {
+        const com = prev.find(com => com.id === component.id);
+        if (com) {
+          com.props = new Set([...com.props, ...component.props]);
+          continue;
+        }
+
+        prev.push(cloneDeep(component));
+      }
+      return prev;
+    },
+    [] as T[]
+  );
+
+  return components.map(c => ({ ...c, props: [...c.props] }));
+}
+
+export function addToComponentCollection<T extends Component>(
+  component: T,
+  importers: Importers
+) {
+  const components = importers.get(component.importer);
+
+  if (!components) {
+    importers.set(component.importer, new Map([[component.id, component]]));
+    return;
   }
 
-  component.props.forEach(prop => {
-    if (
-      componentCollection[component.id].props.findIndex(
-        item => item === prop
-      ) !== -1
-    ) {
-      return;
-    }
+  const com = components.get(component.id);
 
-    componentCollection[component.id].props.push(prop);
+  if (!com) {
+    components.set(component.id, component);
+    return;
+  }
+
+  components.set(component.id, {
+    ...component,
+    props: new Set([...component.props, ...com.props]),
   });
 }
 
@@ -58,12 +77,17 @@ function shouldRegisterAllProps(node?: t.JSXElement) {
   return false;
 }
 
-function registerComponent(
-  componentName: string,
-  componentCollection: ComponentCollection,
-  adapter: Adapter,
-  node?: t.JSXElement
-) {
+function registerComponent({
+  componentName,
+  adapter,
+  node,
+  importer = '',
+}: {
+  componentName: string;
+  adapter: Adapter;
+  node?: t.JSXElement;
+  importer?: string;
+}) {
   if (componentName === 'swiper-item') {
     return;
   }
@@ -72,16 +96,14 @@ function registerComponent(
     return;
   }
 
+  const hostComponent = adapter.hostComponents(componentName);
+
   /* istanbul ignore next */
-  try {
-    if (!adapter.hostComponents(componentName)) {
-      return;
-    }
-  } catch (error) {
+  if (!hostComponent) {
     return;
   }
 
-  let usedProps = adapter.hostComponents(componentName).props.slice();
+  let usedProps = hostComponent.props.slice();
   if (adapter.name !== 'alipay' && !shouldRegisterAllProps(node)) {
     usedProps = [];
   }
@@ -94,7 +116,7 @@ function registerComponent(
 
       const propName = attr.name.name as string;
 
-      if (!usedProps.find(prop => prop === propName)) {
+      if (!usedProps.includes(propName)) {
         usedProps.push(propName);
       }
     });
@@ -102,23 +124,27 @@ function registerComponent(
 
   const props = usedProps
     .filter(Boolean)
-    .map(prop => adapter.getNativePropName(prop, true, true));
+    .map(prop => adapter.getNativePropName(prop, false, true));
 
   const component = {
     id: componentName,
-    props,
+    props: new Set(props),
+    importer,
   };
 
-  addToComponentCollection(component, componentCollection);
+  addToComponentCollection(component, importers);
 }
 
 export default (adapter: Adapter) => {
-  clear();
+  importers.clear();
 
-  return () => ({
+  return {
+    pre(state: any) {
+      importers.delete(state.opts.filename);
+    },
     visitor: {
-      ImportDeclaration(path: NodePath) {
-        const node = path.node as t.ImportDeclaration;
+      ImportDeclaration(path: NodePath<t.ImportDeclaration>, state: any) {
+        const node = path.node;
 
         if (!node.source.value.startsWith('remax/')) {
           return;
@@ -128,11 +154,15 @@ export default (adapter: Adapter) => {
           if (t.isImportSpecifier(specifier)) {
             const componentName = specifier.imported.name;
             const id = kebabCase(componentName);
-            registerComponent(id, importedComponents, adapter);
+            registerComponent({
+              componentName: id,
+              adapter,
+              importer: state.file.opts.filename,
+            });
           }
         });
       },
-      JSXElement(path: NodePath) {
+      JSXElement(path: NodePath, state: any) {
         const node = path.node as t.JSXElement;
         if (t.isJSXIdentifier(node.openingElement.name)) {
           const tagName = node.openingElement.name.name;
@@ -157,11 +187,16 @@ export default (adapter: Adapter) => {
           const componentName = componentPath.node.imported.name;
           const id = kebabCase(componentName);
 
-          registerComponent(id, components, adapter, node);
+          registerComponent({
+            componentName: id,
+            adapter,
+            node,
+            importer: state.file.opts.filename,
+          });
         }
       },
     },
-  });
+  };
 };
 
 function getAlipayComponents(adapter: Adapter) {
@@ -171,10 +206,13 @@ function getAlipayComponents(adapter: Adapter) {
   const files = fs.readdirSync(DIR_PATH);
   files.forEach(file => {
     const name = PATH.basename(file).replace(PATH.extname(file), '');
-    registerComponent(name, components, adapter);
+    registerComponent({
+      componentName: name,
+      adapter,
+    });
   });
 
-  return Object.values(components);
+  return convertComponents(importers);
 }
 
 export function getComponents(adapter: Adapter) {
@@ -182,13 +220,5 @@ export function getComponents(adapter: Adapter) {
     return getAlipayComponents(adapter);
   }
 
-  const data = Object.values(components);
-
-  Object.values(importedComponents).forEach(c => {
-    if (!components[c.id]) {
-      data.push(c);
-    }
-  });
-
-  return data;
+  return convertComponents(importers);
 }
