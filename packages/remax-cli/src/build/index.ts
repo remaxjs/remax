@@ -39,7 +39,7 @@ export default async (argv: any, context?: Context) => {
     try {
       output('🚀 开始 build...', 'blue');
       const bundle = await rollup.rollup(rollupOptions);
-      await bundle.write(rollupOptions.output!);
+      await bundle.write(rollupOptions.output as rollup.OutputOptions);
       output('💡 完成', 'green');
     } catch (error) {
       const name = error.code === 'PLUGIN_ERROR' ? error.plugin : error.code;
