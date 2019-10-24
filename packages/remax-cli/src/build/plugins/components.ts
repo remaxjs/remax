@@ -81,7 +81,7 @@ function registerComponent(
     return;
   }
 
-  let usedProps = adapter.hostComponents(componentName).props;
+  let usedProps = adapter.hostComponents(componentName).props.slice();
   if (adapter.name !== 'alipay' && !shouldRegisterAllProps(node)) {
     usedProps = [];
   }
