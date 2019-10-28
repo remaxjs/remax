@@ -16,8 +16,8 @@
 <url> <loc>https://remaxjs.org/guide/typescript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/guide/style</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/guide/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://remaxjs.org/advanced-guide/sharing-state</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/advanced-guide/native</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/advanced-guide/cross-platform</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/advanced-guide/sharing-state</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
