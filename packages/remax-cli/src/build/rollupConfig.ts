@@ -225,6 +225,7 @@ export default function rollupConfig(
   }
 
   const config: RollupOptions = {
+    treeshake: process.env.NODE_ENV === 'production',
     ...options.rollupOptions,
     input: [entries.app, ...entries.pages.map(p => p.file), ...entries.images],
     output: {
