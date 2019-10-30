@@ -15,6 +15,7 @@ export default async function build(app: string, target: string) {
       progress: false,
       rollupOptions: {
         external: ['react', 'react-reconciler', 'scheduler'],
+        treeshake: true,
       },
       alias: {
         '@': 'src',
