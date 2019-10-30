@@ -42,4 +42,8 @@ export interface NavigatorProps extends BaseProps {
   onComplete?: (event: any) => any;
 }
 
+Navigator.defaultProps = {
+  openType: 'navigate',
+};
+
 export default Navigator;
