@@ -102,7 +102,7 @@ export default () => {
 
 _默认导出的的 React 组件就是当前的页面，关于生命周期的使用方式参考 [指南 - 生命周期](/guide/lifecycle)_
 
-_Remax 针对不同平台有对应的实现，如 `remax/alipay`，`remax/wechat` 等等，开发者可根据需要选择对应的平台。关于跨平台开发解决方案请查看：[高级指南 - 跨平台开发](/advanced-guide/cross-platform)。_
+_Remax 针对不同平台有对应的实现，如 `remax/alipay`，`remax/wechat`，`remax/toutiao` 等等，开发者可根据需要选择对应的平台。关于跨平台开发解决方案请查看：[高级指南 - 跨平台开发](/advanced-guide/cross-platform)。_
 
 `index.module.css` 页面样式文件，关于样式请参考 [指南 - 样式](/guide/style)
 

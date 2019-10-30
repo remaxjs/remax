@@ -1,14 +1,14 @@
 ---
-title: 微信小程序
-order: 3
+title: 字节跳动小程序
+order: 4
 ---
 
-让我们在一分钟内开启一个微信小程序项目吧！
+让我们在一分钟内开启一个字节跳动小程序项目吧！
 
 ## 创建项目
 
 ```bash
-$ npx degit remaxjs/template-wechat my-app
+$ npx degit remaxjs/template-toutiao my-app
 $ cd my-app && npm install
 ```
 
@@ -18,7 +18,7 @@ $ cd my-app && npm install
 $ npm run dev
 ```
 
-打开微信调试器，选中项目 dist 目录，你将看到
+打开头条调试器，选中项目 dist 目录，你将看到
 
 <img src="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*uyGOSLod26MAAAAAAAAAAABkARQnAQ" width="240" />
 
@@ -90,7 +90,7 @@ module.exports = {
 
 ```jsx
 import * as React from 'react';
-import { View, Text } from 'remax/wechat';
+import { View, Text } from 'remax/toutiao';
 import './index.module.css';
 
 export default () => {
