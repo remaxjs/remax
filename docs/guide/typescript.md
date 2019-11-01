@@ -9,7 +9,7 @@ Remax 默认支持用 TypeScript 开发。我们亦提供了 TypeScript 模板�
 
 微信
 
-````bash
+```bash
 $ npx degit remaxjs/template-wechat-typescript my-app
 $ cd my-app
 ```
@@ -19,7 +19,7 @@ $ cd my-app
 ```bash
 $ npx degit remaxjs/template-alipay-typescript my-app
 $ cd my-app
-````
+```
 
 跨平台
 
@@ -28,4 +28,4 @@ $ npx degit remaxjs/template-universe-typescript my-app
 $ cd my-app
 ```
 
-Remax 也将提供组件和 API 的 type 定义。(目前还在完善中)
+Remax 也将提供组件和 API 的 type 定义。

@@ -1,12 +1,11 @@
 import capitalize from './utils/capitalize';
 
-declare const getCurrentPages: any;
-
-export type Callback = () => any;
+export type Callback = (...args: any[]) => any;
 
 export enum Lifecycle {
   show = 'show',
   hide = 'hide',
+  ready = 'ready',
   pullDownRefresh = 'pullDownRefresh',
   reachBottom = 'reachBottom',
   pageScroll = 'pageScroll',
@@ -15,6 +14,11 @@ export enum Lifecycle {
   optionMenuClick = 'optionMenuClick',
   popMenuClick = 'popMenuClick',
   pullIntercept = 'pullIntercept',
+  back = 'back',
+  keyboardHeight = 'keyboardHeight',
+  tabItemTap = 'tabItemTap',
+  beforeTabItemTap = 'beforeTabItemTap',
+  resize = 'resize',
 }
 
 export function hookName(name: string) {
@@ -22,11 +26,16 @@ export function hookName(name: string) {
 }
 
 export function callbackName(name: string) {
+  if (name.startsWith('before')) {
+    return capitalize(name);
+  }
   return 'on' + capitalize(name);
 }
 
-export function registerLifecycle(method: Lifecycle, callback: () => void) {
-  const pages = getCurrentPages();
-  const currentPage = pages[pages.length - 1];
-  return currentPage.registerLifecycle(method, callback);
+export function registerLifecycle(
+  page: any,
+  method: Lifecycle,
+  callback: Callback
+) {
+  return page.registerLifecycle(method, callback);
 }

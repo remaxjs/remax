@@ -5,6 +5,7 @@ const defaultOptions: RemaxOptions = {
   cwd: process.cwd(),
   progress: true,
   output: 'dist',
+  rootDir: 'src',
   UNSAFE_wechatTemplateDepth: 20,
 };
 

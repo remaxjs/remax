@@ -3,10 +3,15 @@ import plainStyle from '../../../utils/plainStyle';
 const alias: any = {
   className: 'class',
   onClick: 'onTap',
+  catchClick: 'catchTap',
 };
 
-function getAlias(prop: string) {
-  const aliasProp = alias[prop];
+const nativeAlias: any = {
+  className: 'class',
+};
+
+export function getAlias(prop: string, isNative = false) {
+  const aliasProp = isNative ? nativeAlias[prop] : alias[prop];
 
   if (aliasProp) {
     return aliasProp;
@@ -15,18 +20,26 @@ function getAlias(prop: string) {
   return prop;
 }
 
+function getValue(prop: string, value: any): any {
+  if (prop.toLowerCase().endsWith('style') && prop !== 'layerStyle') {
+    return plainStyle(value);
+  }
+
+  return value;
+}
+
 export interface GenericProps {
   [key: string]: any;
 }
 
-export default function propsAlias<T>(props: GenericProps) {
+export default function propsAlias<T>(props: GenericProps, isNative = false) {
   const aliasProps: GenericProps = {};
 
   Object.keys(props).forEach(prop => {
     if (prop === 'style') {
       aliasProps.style = plainStyle(props.style!);
     } else {
-      aliasProps[getAlias(prop)] = props[prop];
+      aliasProps[getAlias(prop, isNative)] = getValue(prop, props[prop]);
     }
   });
 

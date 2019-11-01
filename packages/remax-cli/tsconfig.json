@@ -2,8 +2,10 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
-    "lib": ["es2015"],
+    "target": "ES2017",
     "declaration": true,
-    "outDir": "lib"
-  }
+    "outDir": "lib",
+    "rootDirs": ["src", "tests"]
+  },
+  "exclude": ["tests", "lib", "**/__tests__"]
 }

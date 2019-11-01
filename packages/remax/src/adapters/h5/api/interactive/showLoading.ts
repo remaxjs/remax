@@ -1,6 +1,6 @@
 import { Toast } from 'antd-mobile';
 import 'antd-mobile/lib/toast/style';
-import * as API from '../../../../api';
+import * as API from '../../types';
 
 export const showLoading: typeof API.showLoading = params => {
   return new Promise(resolve => {

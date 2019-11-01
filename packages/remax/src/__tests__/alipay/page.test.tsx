@@ -50,7 +50,8 @@ describe('page', () => {
           log.push('usePageScroll');
         });
 
-        useShareAppMessage(() => {
+        useShareAppMessage(object => {
+          log.push(object.from);
           log.push('useShareAppMessage');
         });
 
@@ -90,6 +91,7 @@ describe('page', () => {
         'usePullIntercept',
         'useReachBottom',
         'usePageScroll',
+        'menu',
         'useShareAppMessage',
         'useTitleClick',
         'useOptionMenuClick',
@@ -116,10 +118,14 @@ describe('page', () => {
       const log: string[] = [];
       const foo = React.createRef<any>();
       const Foo = React.forwardRef((props, ref) => {
-        const [_, forceUpdate] = React.useState(0);
+        const forceUpdate = React.useState(0)[1];
 
         useShow(() => {
           log.push('onShow');
+        });
+
+        useShareAppMessage(() => {
+          log.push('onShareAppMessage');
         });
 
         React.useImperativeHandle(ref, () => ({
@@ -131,7 +137,8 @@ describe('page', () => {
       const page = Page(createPageConfig(() => <Foo ref={foo} />));
       page.load();
       foo.current.forceUpdate();
-      expect(log).toEqual(['onShow']);
+      page.shareAppMessage();
+      expect(log).toEqual(['onShow', 'onShareAppMessage']);
     });
   });
 
@@ -170,7 +177,8 @@ describe('page', () => {
         log.push('onPageScroll');
       }
 
-      onShareAppMessage() {
+      onShareAppMessage(object: any) {
+        log.push(object.from);
         log.push('onShareAppMessage');
       }
 
@@ -216,6 +224,7 @@ describe('page', () => {
       'onPullIntercept',
       'onReachBottom',
       'onPageScroll',
+      'menu',
       'onShareAppMessage',
       'onTitleClick',
       'onOptionMenuClick',

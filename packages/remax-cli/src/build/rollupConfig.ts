@@ -5,10 +5,11 @@ import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import url from 'rollup-plugin-url';
 import json from 'rollup-plugin-json';
-import postcss from '@meck/rollup-plugin-postcss';
+import postcss from '@remax/rollup-plugin-postcss';
+import postcssUrl from './plugins/postcssUrl';
 import progress from 'rollup-plugin-progress';
 import clean from 'rollup-plugin-delete';
-import alias from 'rollup-plugin-alias';
+import inject from 'rollup-plugin-inject';
 import copy from 'rollup-plugin-copy';
 import stub from './plugins/stub';
 import pxToUnits from '@remax/postcss-px2units';
@@ -21,13 +22,19 @@ import removeSrc from './plugins/removeSrc';
 import removeConfig from './plugins/removeConfig';
 import rename from './plugins/rename';
 import replace from 'rollup-plugin-replace';
-import * as React from 'react';
-import * as scheduler from 'scheduler';
 import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';
 import adapters, { Adapter } from './adapters';
-import { Context } from '../types';
+import { Context, Env } from '../types';
+import namedExports from 'named-exports-db';
+import fixRegeneratorRuntime from './plugins/fixRegeneratorRuntime';
+import nativeComponents from './plugins/nativeComponents/index';
+import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin';
+import alias from './plugins/alias';
+import extensions from '../extensions';
+import { without } from 'lodash';
+import jsx from 'acorn-jsx';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -35,112 +42,57 @@ export default function rollupConfig(
   adapter: Adapter,
   context?: Context
 ) {
-  const babelConfig = {
-    presets: [
-      require.resolve('@babel/preset-typescript'),
-      require.resolve('@babel/preset-env'),
-    ],
-    plugins: [
-      require.resolve('@babel/plugin-proposal-class-properties'),
-      require.resolve('@babel/plugin-proposal-object-rest-spread'),
-      require.resolve('@babel/plugin-syntax-jsx'),
-      [
-        require.resolve('@babel/plugin-proposal-decorators'),
-        {
-          decoratorsBeforeExport: true,
-        },
-      ],
-    ],
-  };
-
-  if (adapter.name !== 'alipay') {
-    babelConfig.plugins.unshift(
-      require.resolve('babel-plugin-transform-async-to-promises')
-    );
-  }
-
   const stubModules: string[] = [];
 
   adapters.forEach(name => {
     if (adapter.name !== name) {
-      const packageName = `remax/lib/adapters/${name}`;
-      stubModules.push(packageName);
+      const esmPackage = `remax/esm/adapters/${name}`;
+      const cjsPackage = `remax/cjs/adapters/${name}`;
+      stubModules.push(esmPackage);
+      stubModules.push(cjsPackage);
     }
   });
 
   const entries = getEntries(options, adapter, context);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
+  // 获取 postcss 配置
+  const postcssConfig = {
+    options: {},
+    plugins: [],
+    ...options.postcss,
+  };
+
+  const envReplacement: Env = {
+    NODE_ENV: process.env.NODE_ENV || 'development',
+    REMAX_PLATFORM: argv.target,
+    REMAX_DEBUG: process.env.REMAX_DEBUG,
+  };
+
+  Object.keys(process.env).forEach(k => {
+    if (k.startsWith('REMAX_APP_')) {
+      envReplacement[`${k}`] = process.env[k];
+    }
+  });
+
   const plugins = [
-    clean({
-      targets: ['dist/*', '!.tea'],
-    }),
     copy({
       targets: [
         {
-          src: ['src/native/*'],
-          dest: 'dist',
+          src: [`${options.rootDir}/native/*`],
+          dest: options.output,
         },
       ],
       copyOnce: true,
     }),
-    alias({
-      resolve: [
-        '',
-        '.ts',
-        '.js',
-        '.tsx',
-        '.jsx',
-        '/index.js',
-        '/index.jsx',
-        '/index.ts',
-        '/index.tsx',
-      ],
-      '@': path.resolve(options.cwd, 'src'),
-      ...options.alias,
-    }),
+    alias(options),
     url({
       limit: 0,
       fileName: '[dirname][name][extname]',
       publicPath: '/',
+      sourceDir: path.resolve(options.cwd, options.rootDir),
       include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
     }),
-    commonjs({
-      include: /node_modules/,
-      namedExports: {
-        react: Object.keys(React).filter(k => k !== 'default'),
-        scheduler: Object.keys(scheduler).filter(k => k !== 'default'),
-      },
-    }),
-    stub({
-      modules: stubModules,
-    }),
-    babel({
-      include: entries.pages.map(p => p.file),
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [page, ...babelConfig.plugins],
-      presets: babelConfig.presets,
-    }),
-    babel({
-      include: entries.app,
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [app, ...babelConfig.plugins],
-      presets: babelConfig.presets,
-    }),
-    babel({
-      babelrc: false,
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      plugins: [components(adapter), ...babelConfig.plugins],
-      presets: babelConfig.presets.concat([
-        require.resolve('@babel/preset-react'),
-      ]),
-    }),
-    postcss({
-      extract: true,
-      modules: cssModuleConfig,
-      plugins: [pxToUnits()],
-    }),
-    json({}),
     resolve({
       dedupe: [
         'react',
@@ -149,32 +101,63 @@ export default function rollupConfig(
         'scheduler',
         'react-reconciler',
       ],
-      extensions: ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'],
+      extensions,
       customResolveOptions: {
         moduleDirectory: 'node_modules',
       },
     }),
+    commonjs({
+      include: /node_modules/,
+      namedExports,
+      extensions,
+      ignoreGlobal: false,
+    }),
+    stub({
+      modules: stubModules,
+    }),
+    babel({
+      babelrc: false,
+      include: entries.pages.map(p => p.file),
+      extensions: without(extensions, '.json'),
+      plugins: [nativeComponentsBabelPlugin(options, adapter), page],
+      presets: [[require.resolve('babel-preset-remax'), { react: false }]],
+    }),
+    babel({
+      babelrc: false,
+      include: entries.app,
+      extensions: without(extensions, '.json'),
+      plugins: [nativeComponentsBabelPlugin(options, adapter), app],
+      presets: [[require.resolve('babel-preset-remax'), { react: false }]],
+    }),
+    babel({
+      extensions: without(extensions, '.json'),
+      plugins: [
+        nativeComponentsBabelPlugin(options, adapter),
+        components(adapter),
+      ],
+      presets: [require.resolve('babel-preset-remax')],
+    }),
+    postcss({
+      extract: true,
+      ...postcssConfig.options,
+      modules: cssModuleConfig,
+      plugins: [pxToUnits(), postcssUrl(options)].concat(postcssConfig.plugins),
+    }),
+    json({}),
     replace({
-      'process.env.NODE_ENV': JSON.stringify(
-        process.env.NODE_ENV || 'development'
-      ),
-      'process.env.REMAX_PLATFORM': JSON.stringify(argv.target),
-      'process.env.REMAX_DEBUG': JSON.stringify(process.env.REMAX_DEBUG),
+      values: Object.keys(envReplacement).reduce((acc: any, key) => {
+        acc[`process.env.${key}`] = JSON.stringify(envReplacement[key]);
+        return acc;
+      }, {}),
     }),
     rename({
-      include: 'src/**',
+      include: `${options.rootDir}/**`,
       map: input => {
         if (!input) {
           return input;
         }
 
         input = input
-          .replace(/^demo\/src\//, '')
-          // stlye
-          .replace(/\.less$/, '.less.js')
-          .replace(/\.sass$/, '.sass.js')
-          .replace(/\.scss$/, '.scss.js')
-          .replace(/\.styl$/, '.styl.js')
           // typescript
           .replace(/\.ts$/, '.js')
           .replace(/\.tsx$/, '.js')
@@ -196,37 +179,65 @@ export default function rollupConfig(
         return input.replace(/\.css/, '.css.js');
       },
     }),
+    inject({
+      exclude: 'node_modules/**',
+      regeneratorRuntime: 'regenerator-runtime',
+    }),
     rename({
       matchAll: true,
       map: input => {
         return (
           input &&
           input
+            // npm 包可能会有 jsx
+            .replace(/\.jsx$/, '.js')
+            // npm 包里可能会有 css
+            .replace(/\.less$/, '.less.js')
+            .replace(/\.sass$/, '.sass.js')
+            .replace(/\.scss$/, '.scss.js')
+            .replace(/\.styl$/, '.styl.js')
             .replace(/node_modules/g, 'npm')
             .replace(/\.js_commonjs-proxy$/, '.js_commonjs-proxy.js')
+            // 支付宝小程序不允许目录带 @
+            .replace(/@/g, '_')
         );
       },
     }),
-    removeSrc({}),
+    removeSrc(options),
     removeConfig(),
     removeESModuleFlag(),
+    fixRegeneratorRuntime(),
     template(options, adapter, context),
+    nativeComponents(options, adapter),
   ];
 
+  /* istanbul ignore next */
   if (options.progress) {
     plugins.push(progress());
   }
 
+  if (process.env.NODE_ENV === 'production') {
+    plugins.unshift(
+      clean({
+        targets: ['dist/*', '!.tea'],
+      })
+    );
+  }
+
   const config: RollupOptions = {
-    input: [entries.app, ...entries.pages.map(p => p.file)],
+    ...options.rollupOptions,
+    input: [entries.app, ...entries.pages.map(p => p.file), ...entries.images],
     output: {
       dir: options.output,
       format: adapter.moduleFormat,
       exports: 'named',
       sourcemap: false,
+      extend: true,
     },
     preserveModules: true,
     preserveSymlinks: true,
+    acornInjectPlugins: [jsx()],
+    /* istanbul ignore next */
     onwarn(warning, warn) {
       if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
       if ((warning as RollupWarning).code === 'CIRCULAR_DEPENDENCY') return;

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import isClassComponent from './utils/isClassComponent';
 import { Lifecycle, Callback, callbackName } from './lifecycle';
+import PageInstanceContext from './PageInstanceContext';
 
 export interface PageProps<Q = {}> {
   location: {
@@ -13,7 +14,10 @@ export default function createPageWrapper(
   query: object
 ) {
   return class PageWrapper extends React.Component<{ page: any }> {
-    instance: any = null;
+    // 小程序 Page 实例
+    pageInstance: any = null;
+    // 页面组件的实例
+    pageComponentInstance: any = null;
 
     callbacks = new Map<
       string,
@@ -25,18 +29,29 @@ export default function createPageWrapper(
     constructor(props: any) {
       super(props);
 
+      this.bindPageInstance();
+
       Object.keys(Lifecycle).forEach(phase => {
         const callback = callbackName(phase);
-        (this as any)[callback] = () => {
-          return this.callLifecycle(phase);
+        (this as any)[callback] = (...args: any[]) => {
+          return this.callLifecycle(phase, ...args);
         };
       });
     }
 
-    callLifecycle(phase: string) {
+    // 绑定小程序的 Page 实例
+    bindPageInstance() {
+      const pages = getCurrentPages();
+      this.pageInstance = pages[pages.length - 1];
+    }
+
+    callLifecycle(phase: string, ...args: any[]) {
       const callback = callbackName(phase);
-      if (this.instance && typeof this.instance[callback] === 'function') {
-        return this.instance[callback]();
+      if (
+        this.pageComponentInstance &&
+        typeof this.pageComponentInstance[callback] === 'function'
+      ) {
+        return this.pageComponentInstance[callback](...args);
       }
     }
 
@@ -48,10 +63,14 @@ export default function createPageWrapper(
       };
 
       if (isClassComponent(Page)) {
-        props.ref = (node: any) => (this.instance = node);
+        props.ref = (node: any) => (this.pageComponentInstance = node);
       }
 
-      return React.createElement(Page, props);
+      return React.createElement(
+        PageInstanceContext.Provider,
+        { value: this.pageInstance },
+        React.createElement(Page, props)
+      );
     }
   };
 }

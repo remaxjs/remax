@@ -1,1 +1,1 @@
-export * from './lib/adapters/alipay';
+export * from './esm/adapters/alipay';

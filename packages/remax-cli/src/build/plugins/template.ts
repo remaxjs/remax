@@ -1,7 +1,7 @@
 import * as path from 'path';
-import * as fs from 'fs';
 import { parse } from 'acorn';
 import { Plugin, OutputChunk, OutputAsset } from 'rollup';
+import { sortBy } from 'lodash';
 import { getComponents } from './components';
 import ejs from 'ejs';
 import { RemaxOptions } from '../../getConfig';
@@ -10,53 +10,83 @@ import getEntries from '../../getEntries';
 import { Adapter } from '../adapters';
 import { Context } from '../../types';
 import winPath from '../../winPath';
+import { getNativeComponents } from './nativeComponents/babelPlugin';
 
 async function createTemplate(pageFile: string, adapter: Adapter) {
   const fileName = `${path.dirname(pageFile)}/${path.basename(
     pageFile,
     path.extname(pageFile)
-  )}${adapter.extensions.template}`;
-  const code: string = await ejs.renderFile(adapter.templates.page, {
+  )}${adapter.extensions.template.extension}`;
+
+  const renderOptions: { [props: string]: any } = {
     baseTemplate: winPath(
       path.relative(
         path.dirname(pageFile),
-        `base${adapter.extensions.template}`
+        `base${adapter.extensions.template.extension}`
       )
     ),
-    jsHelper: winPath(
+  };
+
+  if (adapter.extensions.jsHelper) {
+    renderOptions.jsHelper = winPath(
       path.relative(
         path.dirname(pageFile),
-        `helper${adapter.extensions.jsHelper}`
+        `helper${adapter.extensions.jsHelper.extension}`
       )
-    ),
+    );
+  }
+
+  const components = sortBy(
+    getComponents(adapter).concat(Object.values(getNativeComponents())),
+    'id'
+  );
+
+  const code: string = await ejs.renderFile(adapter.templates.page, {
+    ...renderOptions,
+    components,
+    adapter,
   });
 
   return {
+    type: 'asset' as const,
     fileName,
-    isAsset: true as true,
     source: code,
   } as OutputAsset;
 }
 
 async function createHelperFile(adapter: Adapter) {
+  if (!adapter.extensions.jsHelper || !adapter.templates.jsHelper) {
+    return null;
+  }
+
   const code: string = await ejs.renderFile(adapter.templates.jsHelper, {
     target: adapter.name,
   });
 
   return {
-    fileName: `helper${adapter.extensions.jsHelper}`,
-    isAsset: true as true,
+    type: 'asset' as const,
+    fileName: `helper${adapter.extensions.jsHelper.extension}`,
     source: code,
   } as OutputAsset;
 }
 
 async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
-  const components = getComponents();
+  // 支付宝小程序在 base.axml 使用不了原生小程序
+  if (!adapter.templates.base) {
+    return null;
+  }
+
+  const components = sortBy(
+    getComponents(adapter).concat(Object.values(getNativeComponents())),
+    'id'
+  );
+
   let code: string = await ejs.renderFile(
     adapter.templates.base,
     {
       components,
       depth: options.UNSAFE_wechatTemplateDepth,
+      adapter,
     },
     {
       // uglify
@@ -70,8 +100,8 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
   }
 
   return {
-    fileName: `base${adapter.extensions.template}`,
-    isAsset: true as true,
+    type: 'asset' as const,
+    fileName: `base${adapter.extensions.template.extension}`,
     source: code,
   } as OutputAsset;
 }
@@ -83,12 +113,32 @@ function createAppManifest(
 ) {
   const config = context
     ? { ...context.app, pages: context.pages.map(p => p.path) }
-    : readManifest(path.resolve(options.cwd, 'src/app.config.js'), target);
+    : readManifest(
+        path.resolve(options.cwd, `${options.rootDir}/app.config.js`),
+        target
+      );
   return {
+    type: 'asset' as const,
     fileName: 'app.json',
-    isAsset: true as true,
     source: JSON.stringify(config, null, 2),
   } as OutputAsset;
+}
+
+function createPageUsingComponents(configFilePath: string) {
+  const nativeComponents = getNativeComponents();
+  const usingComponents: { [key: string]: string } = {};
+  for (const [key, value] of Object.entries(nativeComponents)) {
+    usingComponents[value.id] = winPath(
+      path
+        .relative(
+          path.dirname(configFilePath),
+          key.replace(/node_modules/, 'src/npm')
+        )
+        .replace(/\.js$/, '')
+    );
+  }
+
+  return usingComponents;
 }
 
 function createPageManifest(
@@ -102,7 +152,7 @@ function createPageManifest(
   const manifestFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.json');
   const configFilePath = path.resolve(
     options.cwd,
-    path.join('src', configFile)
+    path.join(options.rootDir, configFile)
   );
   if (fs.existsSync(configFilePath)) {
     return {
@@ -111,18 +161,34 @@ function createPageManifest(
       source: JSON.stringify(readManifest(configFilePath, target), null, 2),
     } as OutputAsset;
   }
+  const usingComponents = createPageUsingComponents(configFilePath);
+  const config = readManifest(configFilePath, target);
+  config.usingComponents = {
+    ...(config.usingComponents || {}),
+    ...usingComponents,
+  };
   if (context) {
     const pageConfig = context.pages.find((p: any) => p.path === page.path);
     if (pageConfig) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { path, ...config } = pageConfig;
+      config.usingComponents = {
+        ...(config.usingComponents || {}),
+        ...usingComponents,
+      };
       return {
+        type: 'asset' as const,
         fileName: manifestFile,
-        isAsset: true as true,
         source: JSON.stringify(config, null, 2),
       } as OutputAsset;
     }
   }
+
+  return {
+    type: 'asset' as const,
+    fileName: manifestFile,
+    source: JSON.stringify(config, null, 2),
+  };
 }
 
 function isRemaxEntry(chunk: any): chunk is OutputChunk {
@@ -159,22 +225,28 @@ export default function template(
 ): Plugin {
   return {
     name: 'template',
-    generateBundle: async (_, bundle) => {
+    async generateBundle(_, bundle) {
+      const templateAssets = [];
       // app.json
       const manifest = createAppManifest(options, adapter.name, context);
-      bundle[manifest.fileName] = manifest;
-
       const template = await createBaseTemplate(adapter, options);
-      bundle[template.fileName] = template;
+
+      templateAssets.push(manifest);
+
+      if (template) {
+        templateAssets.push(template);
+      }
 
       const helperFile = await createHelperFile(adapter);
-      bundle[helperFile.fileName] = helperFile;
+      if (helperFile) {
+        templateAssets.push(helperFile);
+      }
 
       const entries = getEntries(options, adapter, context);
       const { pages } = entries;
 
       const files = Object.keys(bundle);
-      await Promise.all([
+      await Promise.all(
         files.map(async file => {
           const chunk = bundle[file];
           if (isRemaxEntry(chunk)) {
@@ -182,8 +254,8 @@ export default function template(
             const page = pages.find(p => p.file === filePath);
             if (page) {
               const template = await createTemplate(file, adapter);
-              bundle[template.fileName] = template;
-              const config = await createPageManifest(
+              templateAssets.push(template);
+              const config = createPageManifest(
                 options,
                 file,
                 adapter.name,
@@ -192,12 +264,19 @@ export default function template(
               );
 
               if (config) {
-                bundle[config.fileName] = config;
+                templateAssets.push(config);
               }
             }
           }
-        }),
-      ]);
+        })
+      );
+
+      templateAssets.forEach(file => {
+        this.emitFile({
+          type: 'asset',
+          ...file,
+        });
+      });
     },
   };
 }

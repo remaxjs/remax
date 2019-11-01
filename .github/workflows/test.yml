@@ -1,0 +1,34 @@
+name: Build & Test
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+        os: [ubuntu-latest, windows-latest]
+      fail-fast: false
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: install
+      run: yarn install
+    - name: build
+      run: yarn build
+    - name: test
+      run: yarn test:cov
+      env:
+        CI: true
+    - name: Upload coverage to Codecov
+      if: success() && runner.os == 'Linux'
+      run: curl -s https://codecov.io/bash | bash -s -- -t $CODECOV_TOKEN
+      env:
+        CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}

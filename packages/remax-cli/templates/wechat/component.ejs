@@ -1,21 +1,32 @@
 <% camelCased = function(str) { return str.replace(/-([a-z0-9])/g, function (g) { return g[1].toUpperCase(); })}%>
 
-<block wx:if="{{i.type === '<%= type %>'}}">
-  <<%=id%>
-    <% for(let key of props) { %>
-        <%=key%>="{{_h.v(i.props.<%=camelCased(key)%>)}}"
-    <% } %>
-  ><% if (id === 'swiper') { %>
-      <block wx:for="{{i.children}}" wx:key="{{item.id}}">
-        <swiper-item key="{{item.props.key}}" >
+<template name="REMAX_TPL_<%=templateId%>_<%=id%>">
+  <<%=id%> <% for(let key of props) { %> <%=key%>="{{_h.v(i.props.<%=camelCased(key)%>)}}" <% } %>>
+    <% if (id === 'swiper') { %>
+    <block wx:for="{{i.children}}" wx:key="{{id}}">
+      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
+        <block wx:for="{{item.children}}" wx:key="{{id}}">
+          <template is="REMAX_TPL_<%= templateId + 1%>_CONTAINER" data="{{i: item}}" />
+        </block>
+      </swiper-item>
+    </block>
+    <% } else if (type === 'native') { %>
+    <block wx:for="{{i.children}}" wx:key="{{i.id}}">
+      <block wx:if="{{item.props['slot']}}" >
+        <view <% for(let key of adapter.hostComponents('view').props) { %> <%=key%>="{{item.props['<%=camelCased(key)%>']}}" <% } %>>
           <block wx:for="{{item.children}}" wx:key="{{item.id}}">
-            <template is="REMAX_TPL_<%= templateId%>" data="{{ i: item}}"/>
+            <template is="REMAX_TPL_<%= templateId + 1%>_CONTAINER" data="{{i: item}}" />
           </block>
-        </swiper-item>
+        </view>
       </block>
+      <block wx:else>
+        <template is="REMAX_TPL_<%= templateId + 1%>_CONTAINER" data="{{i: item}}" />
+      </block>
+    </block>
     <% } else { %>
-      <block wx:for="{{i.children}}" wx:key="{{item.id}}">
-        <template is="REMAX_TPL_<%= templateId%>" data="{{i: item}}"/></block>
+    <block wx:for="{{i.children}}" wx:key="{{id}}">
+      <template is="REMAX_TPL_<%= templateId + 1%>_CONTAINER" data="{{i: item}}" />
+    </block>
     <% } %>
   </<%=id%>>
-</block>
+</template>

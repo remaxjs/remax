@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "a-0": "../components/a/index",
+    "b-1": "../components/b/index",
+    "c-2": "../components/c/index",
+    "d-3": "../components/d/index",
+    "complex-4": "../components/complex/index"
+  }
+}

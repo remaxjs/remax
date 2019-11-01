@@ -1,4 +1,4 @@
 declare module 'scheduler';
-declare var my: any;
-declare var wx: any;
-declare var getApp: any;
+declare const tt: any;
+declare const getCurrentPages: any;
+declare const getApp: any;

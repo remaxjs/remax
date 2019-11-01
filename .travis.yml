@@ -4,11 +4,13 @@ node_js:
 script:
   - yarn lint
   - yarn build
-  - yarn test
+  - yarn test:cov
   - |
     if [[ $TRAVIS_COMMIT_MESSAGE =~ ^docs ]] ; then
       yarn site:build
     fi
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: pages
   skip_cleanup: true

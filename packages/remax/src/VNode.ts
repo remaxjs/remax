@@ -39,7 +39,7 @@ export default class VNode {
     this.children = [];
   }
 
-  appendChild(node: VNode) {
+  appendChild(node: VNode, immediately: boolean) {
     node.parent = this;
     this.children.push(node);
     if (this.isMounted()) {
@@ -47,20 +47,26 @@ export default class VNode {
         [...this.path(), 'children'],
         this.children.length - 1,
         0,
+        immediately,
         node.toJSON()
       );
     }
   }
 
-  removeChild(node: VNode) {
+  removeChild(node: VNode, immediately: boolean) {
     const start = this.children.indexOf(node);
     this.children.splice(start, 1);
     if (this.isMounted()) {
-      this.container.requestUpdate([...this.path(), 'children'], start, 1);
+      this.container.requestUpdate(
+        [...this.path(), 'children'],
+        start,
+        1,
+        immediately
+      );
     }
   }
 
-  insertBefore(newNode: VNode, referenceNode: VNode) {
+  insertBefore(newNode: VNode, referenceNode: VNode, immediately: boolean) {
     newNode.parent = this;
     const start = this.children.indexOf(referenceNode);
     this.children.splice(start, 0, newNode);
@@ -69,6 +75,7 @@ export default class VNode {
         [...this.path(), 'children'],
         start,
         0,
+        immediately,
         newNode.toJSON()
       );
     }
@@ -80,6 +87,7 @@ export default class VNode {
       [...this.parent!.path(), 'children'],
       this.parent!.children.indexOf(this),
       1,
+      false,
       this.toJSON()
     );
   }

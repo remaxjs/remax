@@ -8,4 +8,5 @@ module.exports = {
       isolatedModules: true,
     },
   },
+  setupFilesAfterEnv: ['./tests/setup.ts'],
 };

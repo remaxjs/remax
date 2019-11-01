@@ -1,4 +1,7 @@
 import * as path from 'path';
+export {
+  getAlias as getNativePropName,
+} from 'remax/cjs/adapters/alipay/components/propsAlias';
 
 export const name = 'alipay';
 
@@ -7,18 +10,46 @@ export function hostComponents(component: string) {
 }
 
 export const extensions = {
-  template: '.axml',
+  template: {
+    extension: '.axml',
+    tag: 'import',
+    src: 'src',
+  },
   style: '.acss',
-  jsHelper: '.sjs',
+  jsHelper: {
+    extension: '.sjs',
+    tag: 'import-sjs',
+    src: 'from',
+  },
+  include: {
+    tag: 'include',
+    src: 'src',
+  },
 };
 
 const templateBaseDir = path.join(__dirname, '../../../../templates');
 
 export const templates = {
-  base: path.join(templateBaseDir, 'alipay/base.ejs'),
   component: path.join(templateBaseDir, 'alipay/component.ejs'),
   page: path.join(templateBaseDir, 'alipay/page.ejs'),
   jsHelper: path.join(templateBaseDir, 'helper.js'),
 };
 
 export const moduleFormat = 'esm';
+
+export function getIcons(config: any) {
+  if (!config.tabBar) {
+    return [];
+  }
+
+  const tabs: Array<{ icon: string; activeIcon: string }> = config.tabBar.items;
+
+  if (tabs) {
+    return tabs.reduce<string[]>(
+      (images, tab) => [...images, tab.icon, tab.activeIcon],
+      []
+    );
+  }
+
+  return [];
+}

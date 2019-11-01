@@ -1,4 +1,7 @@
 import * as path from 'path';
+export {
+  getAlias as getNativePropName,
+} from 'remax/cjs/adapters/wechat/components/propsAlias';
 
 export const name = 'wechat';
 
@@ -7,9 +10,21 @@ export function hostComponents(component: string) {
 }
 
 export const extensions = {
-  template: '.wxml',
+  template: {
+    extension: '.wxml',
+    tag: 'import',
+    src: 'src',
+  },
   style: '.wxss',
-  jsHelper: '.wxs',
+  jsHelper: {
+    extension: '.wxs',
+    tag: 'wxs',
+    src: 'src',
+  },
+  include: {
+    tag: 'include',
+    src: 'src',
+  },
 };
 
 const templateBaseDir = path.join(__dirname, '../../../../templates');
@@ -22,3 +37,21 @@ export const templates = {
 };
 
 export const moduleFormat = 'cjs';
+
+export function getIcons(config: any) {
+  if (!config.tabBar) {
+    return [];
+  }
+
+  const tabs: Array<{ iconPath: string; selectedIconPath: string }> =
+    config.tabBar.list;
+
+  if (tabs) {
+    return tabs.reduce<string[]>(
+      (images, tab) => [...images, tab.iconPath, tab.selectedIconPath],
+      []
+    );
+  }
+
+  return [];
+}

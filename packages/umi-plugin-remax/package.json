@@ -1,32 +1,37 @@
 {
   "name": "umi-plugin-remax",
-  "version": "1.0.4",
-  "description": "> TODO: description",
-  "author": "Meck Zhu <yesmeck@gmail.com>",
-  "homepage": "https://github.com/remaxjs/remax#readme",
-  "license": "MIT",
+  "version": "1.2.2",
+  "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "lib/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
+  "keywords": [
+    "react",
+    "miniapp",
+    "mini-program",
+    "wechat"
+  ],
   "files": [
     "lib"
   ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/remaxjs/remax/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/remaxjs/remax.git"
   },
+  "homepage": "https://remaxjs.org",
   "scripts": {
     "watch": "tsc -w",
     "build": "tsc",
     "test": "jest"
   },
-  "bugs": {
-    "url": "https://github.com/remaxjs/remax/issues"
-  },
   "dependencies": {
-    "remax-cli": "^1.0.4",
+    "remax-cli": "^1.2.2",
     "umi-types": "^0.3.17"
-  }
+  },
+  "devDependencies": {
+    "typescript": "^3.6.3"
+  },
+  "gitHead": "28ef4f50ef3c134c4e661d786ebea4d7c4ea89ed"
 }

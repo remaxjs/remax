@@ -1,1 +1,1 @@
-export * from './lib/adapters/h5';
+export * from './esm/adapters/h5';

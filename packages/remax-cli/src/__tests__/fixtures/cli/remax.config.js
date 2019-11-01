@@ -1,5 +1,5 @@
-module.exports = cli => {
+module.exports = () => {
   return {
-    output: "dist/" + cli.target
+    output: 'dist/'
   };
 };

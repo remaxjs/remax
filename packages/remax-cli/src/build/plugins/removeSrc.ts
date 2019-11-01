@@ -3,10 +3,7 @@ import * as path from 'path';
 import { simple } from 'acorn-walk';
 import MagicString from 'magic-string';
 import winPath from '../../winPath';
-
-interface Options {
-  sourceMap?: boolean;
-}
+import { RemaxOptions } from '../../getConfig';
 
 interface Node {
   start: number;
@@ -24,16 +21,27 @@ enum NodeType {
   ExportAllDeclaration = 'ExportAllDeclaration',
 }
 
-const PREFIX_SRC_PATTERN = /^src\//;
 const PARENT_DIR_PATTERN = /^\.\.\//;
 
-function isAsset(module: any): module is OutputAsset {
+export function isAsset(module: any): module is OutputAsset {
   return !!module && module.isAsset;
 }
 
 export function getImportSource(node: Node): Node | false {
   if (
     node.type !== NodeType.ImportDeclaration ||
+    node.source.type !== NodeType.Literal
+  ) {
+    return false;
+  }
+
+  return node.source;
+}
+
+function getExportSource(node: Node): Node | false {
+  if (
+    node.type !== NodeType.ExportNamedDeclaration ||
+    !node.source ||
     node.source.type !== NodeType.Literal
   ) {
     return false;
@@ -64,19 +72,19 @@ export function getRequireSource(node: Node): Node | false {
   return args[0];
 }
 
-function rewrite(input: string) {
-  return input.replace(PREFIX_SRC_PATTERN, '');
-}
+export default function removeSrc(options: RemaxOptions): Plugin {
+  const PREFIX_SRC_PATTERN = new RegExp(`^${options.rootDir}/`);
 
-function isInsideSrc(file: string, req: string) {
-  return path
-    .resolve(path.dirname(file), req)
-    .replace(process.cwd(), '')
-    .startsWith('/src/');
-}
+  const rewrite = (input: string) => {
+    return input.replace(PREFIX_SRC_PATTERN, '');
+  };
 
-export default function removeSrc(options: Options): Plugin {
-  const sourceMaps = options.sourceMap !== false;
+  const isInsideSrc = (file: string, req: string) => {
+    return winPath(
+      path.resolve(path.dirname(file), req).replace(process.cwd(), '')
+    ).startsWith(`/${options.rootDir}/`);
+  };
+
   return {
     name: 'remove-src',
     generateBundle(_, bundle) {
@@ -99,14 +107,17 @@ export default function removeSrc(options: Options): Plugin {
             });
 
             const extract = (node: Node) => {
-              const req = getRequireSource(node) || getImportSource(node);
+              const req =
+                getRequireSource(node) ||
+                getImportSource(node) ||
+                getExportSource(node);
               if (req) {
                 const { start, end } = req;
                 const distance = req.value
                   .split('/')
                   .filter((d: string) => d === '..').length;
                 const targetDistance = winPath(
-                  path.relative(path.dirname(file), 'src')
+                  path.relative(path.dirname(file), options.rootDir)
                 ).split('/').length;
                 if (isInsideSrc(file, req.value)) {
                   return;
@@ -126,12 +137,8 @@ export default function removeSrc(options: Options): Plugin {
             simple(ast, {
               ImportDeclaration: extract,
               CallExpression: extract,
+              ExportNamedDeclaration: extract,
             });
-
-            if (sourceMaps) {
-              module.map = magicString.generateMap();
-            }
-
             module.code = magicString.toString();
           }
 

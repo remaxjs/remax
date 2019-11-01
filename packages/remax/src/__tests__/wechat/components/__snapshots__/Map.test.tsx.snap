@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map render correctly 1`] = `
+<map
+  latitude={0}
+  longitude={0}
+/>
+`;

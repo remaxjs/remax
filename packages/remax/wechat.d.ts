@@ -1,1 +1,3 @@
-export * from './lib/adapters/wechat';
+import '@remax/miniprogram-api-typings';
+
+export * from './esm/adapters/wechat';

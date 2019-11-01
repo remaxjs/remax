@@ -1,1 +1,3 @@
-export * from './lib/adapters/alipay';
+import '@remax/mini-types';
+
+export * from './esm/adapters/alipay';
