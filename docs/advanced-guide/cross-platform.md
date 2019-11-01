@@ -47,6 +47,15 @@ exports.alipay = {
     titleBarColor: backgroundColor,
   },
 };
+
+// 头条
+exports.toutiao = {
+  pages: ['pages/toutiao/index', ...pages],
+  window: {
+    defaultTitle: 'Toutiao Todo App',
+    titleBarColor: backgroundColor,
+  },
+};
 ```
 
 _如果没有默认导出，Remax 会去读取对应平台的配置信息，通过 config.js，开发者还可以复用多端共用的配置逻辑。_
@@ -61,6 +70,7 @@ _如果没有默认导出，Remax 会去读取对应平台的配置信息，通�
 import * as React from 'react';
 import { View as WechatView, Text as WechatText } from 'remax/wechat';
 import { View as AlipayView, Text as AlipayText } from 'remax/alipay';
+import { View as ToutiaoView, Text as ToutiaoText } from 'remax/toutiao';
 import { Platform } from 'remax';
 
 export function View(props) {
@@ -77,6 +87,13 @@ export function View(props) {
       ...
 
       return <AlipayView {...props} />;
+    }
+
+    case 'toutiao': {
+      // 封装头条端的 View 组件逻辑，处理头条端的样式
+      ...
+
+      return <ToutiaoView {...props} />;
     }
   }
 }
@@ -96,6 +113,13 @@ export function Text(props) {
 
       return <AlipayText {...props} />;
     }
+
+    case 'toutiao': {
+      // 封装头条端的 Text 组件逻辑， 处理支付宝端的样式
+      ...
+
+      return <ToutiaoText {...props} />;
+    }
   }
 }
 ```
@@ -113,6 +137,7 @@ _你可以以一端为标准，抹平多端差异，或者建立自己的组件�
 import * as React from 'react';
 import { navigateTo as wechatNavigateTo } from 'remax/wechat';
 import { navigateTo as alipayNavigateTo } from 'remax/alipay';
+import { navigateTo as toutiaoNavigateTo } from 'remax/alipay';
 import { Platform } from 'remax';
 
 export function navigateTo(...params) {
@@ -125,10 +150,17 @@ export function navigateTo(...params) {
     }
 
     case 'alipay': {
-      // 封装支付宝端的 navigateTO 逻辑
+      // 封装支付宝端的 navigateTo 逻辑
       ...
 
       return alipayNavigateTo(...params);
+    }
+
+    case 'alipay': {
+      // 封装头条端的 navigateTo 逻辑
+      ...
+
+      return toutiaoNavigateTo(...params);
     }
   }
 }
@@ -143,6 +175,11 @@ export function getUserinfo(...params) {
     case 'alipay': {
       ...
       // 封装支付宝端的 getUserinfo 逻辑
+    }
+
+    case 'toutiao': {
+      ...
+      // 封装头条端的 getUserinfo 逻辑
     }
   }
 }
@@ -202,6 +239,7 @@ export default () => {
 ```bash
   npm run build wechat
   npm run build alipay
+  npm run build toutiao
   ...
 ```
 

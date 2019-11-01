@@ -21,7 +21,7 @@ declare module 'sander';
 declare module 'acorn-jsx';
 
 declare namespace jest {
-  interface Matchers<R> {
+  interface Matchers<R, T> {
     toMatchOutput: (output: string) => R;
   }
 }

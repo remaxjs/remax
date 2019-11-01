@@ -2,6 +2,7 @@
 
 exports[`Navigator render correctly 1`] = `
 <navigator
+  openType="navigate"
   url="url"
 />
 `;
