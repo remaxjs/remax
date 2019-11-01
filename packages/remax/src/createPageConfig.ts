@@ -96,8 +96,8 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       return this.callLifecycle(Lifecycle.reachBottom);
     },
 
-    onPageScroll() {
-      return this.callLifecycle(Lifecycle.pageScroll);
+    onPageScroll(e: any) {
+      return this.callLifecycle(Lifecycle.pageScroll, e);
     },
 
     onShareAppMessage(options: any) {
