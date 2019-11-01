@@ -53,7 +53,8 @@ var _page = function _page() {
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
-    "data-foo": "bar"
+    "data-foo": "bar",
+    catchTap: handleClick
   }, props), "foo"), TextElement);
 };
 

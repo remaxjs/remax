@@ -41,7 +41,9 @@ import '../npm/remax/esm/adapters/alipay/components/ContactButton.js';
 import '../npm/remax/esm/adapters/alipay/api.js';
 
 var _page = function _page() {
-  return createElement(View, null, createElement(A, null), createElement(B, null), createElement(C, null), createElement(D, null), createElement(E, null), createElement(Complex, null), createElement(PluginComponent, null), createElement(PluginComponent2, null));
+  return createElement(View, null, createElement(A, {
+    foo: "bar"
+  }), createElement(B, null), createElement(C, null), createElement(D, null), createElement(E, null), createElement(Complex, null), createElement(PluginComponent, null), createElement(PluginComponent2, null));
 };
 
 var index = Page(createPageConfig(_page));var A = function(props) {

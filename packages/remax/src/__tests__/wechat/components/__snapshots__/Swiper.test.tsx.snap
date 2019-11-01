@@ -6,16 +6,16 @@ exports[`Swiper render correctly 1`] = `
   bindchange={[Function]}
   circular={false}
   current={0}
-  displayMultipleItems={1}
+  display-multiple-items={1}
   duration={500}
-  easingFunction="default"
-  indicatorActiveColor="#000000"
-  indicatorColor="rgba(0, 0, 0, .3)"
-  indicatorDots={false}
+  easing-function="default"
+  indicator-active-color="#000000"
+  indicator-color="rgba(0, 0, 0, .3)"
+  indicator-dots={false}
   interval={5000}
-  nextMargin="0px"
-  previousMargin="0px"
-  skipHiddenItemLayout={false}
+  next-margin="0px"
+  previous-margin="0px"
+  skip-hidden-item-layout={false}
   vertical={false}
 />
 `;

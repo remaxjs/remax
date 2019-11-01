@@ -1,3 +1,4 @@
+import kebabCase from 'lodash.kebabcase';
 import plainStyle from '../../../utils/plainStyle';
 
 const alias: any = {
@@ -17,7 +18,11 @@ export function getAlias(prop: string, isNative = false) {
     return aliasProp;
   }
 
-  return prop;
+  if (prop.startsWith('on') || prop.startsWith('catch')) {
+    return prop;
+  }
+
+  return kebabCase(prop);
 }
 
 function getValue(prop: string, value: any): any {

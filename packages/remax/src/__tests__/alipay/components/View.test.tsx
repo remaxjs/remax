@@ -4,8 +4,12 @@ import View from '../../../adapters/alipay/components/View';
 
 describe('View', () => {
   it('render correctly', () => {
+    const callback = () => {};
+
     const testRenderer = TestRenderer.create(
-      <View className="class">view</View>
+      <View onAnimationStart={callback} catchClick={callback} className="class">
+        view
+      </View>
     );
 
     expect(testRenderer.toJSON()).toMatchSnapshot();

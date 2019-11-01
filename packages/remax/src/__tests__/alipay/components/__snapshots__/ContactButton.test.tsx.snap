@@ -3,6 +3,6 @@
 exports[`ContactButton render correctly 1`] = `
 <contact-button
   scene=""
-  tntInstId=""
+  tnt-inst-id=""
 />
 `;

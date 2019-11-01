@@ -28,11 +28,7 @@ export interface Adapter {
 
   hostComponents: (component: string) => { props: string[] } | false;
 
-  getNativePropName: (
-    key: string,
-    isNative?: boolean,
-    isCompile?: boolean
-  ) => string;
+  getNativePropName: (key: string, isNative?: boolean) => string;
 
   getIcons: (config: any) => string[];
 

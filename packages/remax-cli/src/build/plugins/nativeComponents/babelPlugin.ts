@@ -79,7 +79,7 @@ export default (options: RemaxOptions, adapter: Adapter) => {
 
           const props = usedProps
             .filter(Boolean)
-            .map(prop => adapter.getNativePropName(prop, true, true));
+            .map(prop => adapter.getNativePropName(prop, true));
 
           const component = {
             id: sourcePath,

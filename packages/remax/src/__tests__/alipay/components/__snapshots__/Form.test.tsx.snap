@@ -2,6 +2,6 @@
 
 exports[`Form render correctly 1`] = `
 <form
-  reportSubmit={true}
+  report-submit={true}
 />
 `;

@@ -31,14 +31,14 @@
   "dependencies": {
     "@remax/mini-types": "^0.0.5",
     "@remax/miniprogram-api-typings": "^2.8.4",
-    "lodash": "^4.17.15",
+    "lodash.kebabcase": "^4.1.1",
     "react-reconciler": "0.20.4",
     "scheduler": "0.13.6",
     "shallowequal": "^1.1.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
-    "@types/lodash": "^4.14.144",
+    "@types/lodash.kebabcase": "^4.1.6",
     "@types/react": "^16.8.22",
     "@types/react-reconciler": "^0.18.0",
     "@types/react-test-renderer": "^16.9.0",

@@ -1,4 +1,4 @@
-import kebabCase from 'lodash/kebabCase';
+import kebabCase from 'lodash.kebabcase';
 import plainStyle from '../../../utils/plainStyle';
 
 const alias: { [prop: string]: string } = {
@@ -11,7 +11,7 @@ const alias: { [prop: string]: string } = {
   vTouchMove: 'vtouchmove',
 };
 
-export function getAlias(prop: string, isNative = false, isCompile = false) {
+export function getAlias(prop: string, isNative = false) {
   const aliasProp = alias[prop];
 
   if (aliasProp) {
@@ -19,7 +19,7 @@ export function getAlias(prop: string, isNative = false, isCompile = false) {
   }
 
   if (prop.endsWith('className')) {
-    return prop.replace('className', 'class');
+    prop = prop.replace('className', 'class');
   }
 
   if (prop.startsWith('on') || prop.startsWith('catch')) {
@@ -32,7 +32,7 @@ export function getAlias(prop: string, isNative = false, isCompile = false) {
     return prop;
   }
 
-  return isCompile ? kebabCase(prop) : prop;
+  return kebabCase(prop);
 }
 
 function getValue(prop: string, value: any): any {
@@ -47,18 +47,11 @@ export interface GenericProps {
   [key: string]: any;
 }
 
-export default function propsAlias(
-  props: GenericProps,
-  isNative = false,
-  isCompile = false
-) {
+export default function propsAlias(props: GenericProps, isNative = false) {
   const aliasProps: GenericProps = {};
 
   Object.keys(props).forEach(prop => {
-    aliasProps[getAlias(prop, isNative, isCompile)] = getValue(
-      prop,
-      props[prop]
-    );
+    aliasProps[getAlias(prop, isNative)] = getValue(prop, props[prop]);
   });
 
   return aliasProps;

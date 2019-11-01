@@ -18,7 +18,7 @@ describe('Input', () => {
 
     const instance = component.root.findByType('input');
 
-    expect(instance.props.placeholderStyle).toEqual(`color:${color};`);
+    expect(instance.props['placeholder-style']).toEqual(`color:${color};`);
   });
 
   it('focus correctly', () => {

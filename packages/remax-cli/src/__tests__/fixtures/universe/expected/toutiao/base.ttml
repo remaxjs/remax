@@ -5,10 +5,8 @@
 </template>
 
 
-  
-
-<template name="REMAX_TPL_text">
-  <text  id="{{i.props.id}}"  class="{{i.props.class}}"  style="{{i.props.style}}"  selectable="{{i.props.selectable}}"  space="{{i.props.space}}"  decode="{{i.props.decode}}"  bindtap="{{i.props.bindtap}}"  animation="{{i.props.animation}}" >
+  <template name="REMAX_TPL_text">
+  <text  id="{{i.props['id']}}"  class="{{i.props['class']}}"  style="{{i.props['style']}}"  selectable="{{i.props['selectable']}}"  space="{{i.props['space']}}"  decode="{{i.props['decode']}}"  bindtap="{{i.props['bindtap']}}"  animation="{{i.props['animation']}}" >
     
       <block tt:for="{{i.children}}" tt:key="{{id}}">
         <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
@@ -18,10 +16,8 @@
 </template>
 
 
-  
-
-<template name="REMAX_TPL_view">
-  <view  slot="{{i.props.slot}}"  id="{{i.props.id}}"  disable-scroll="{{i.props.disableScroll}}"  hover-class="{{i.props.hoverClass}}"  hover-start-time="{{i.props.hoverStartTime}}"  hover-stay-time="{{i.props.hoverStayTime}}"  hidden="{{i.props.hidden}}"  class="{{i.props.class}}"  style="{{i.props.style}}"  animation="{{i.props.animation}}"  hover-stop-propagation="{{i.props.hoverStopPropagation}}"  bindtap="{{i.props.bindtap}}"  bindtouchstart="{{i.props.bindtouchstart}}"  bindtouchmove="{{i.props.bindtouchmove}}"  bindtouchend="{{i.props.bindtouchend}}"  bindtouchcancel="{{i.props.bindtouchcancel}}"  bindlongtap="{{i.props.bindlongtap}}"  bindtransitionend="{{i.props.bindtransitionend}}"  bindanimationiteration="{{i.props.bindanimationiteration}}"  bindanimationstart="{{i.props.bindanimationstart}}"  bindanimationend="{{i.props.bindanimationend}}" >
+  <template name="REMAX_TPL_view">
+  <view  slot="{{i.props['slot']}}"  id="{{i.props['id']}}"  disable-scroll="{{i.props['disable-scroll']}}"  hover-class="{{i.props['hover-class']}}"  hover-start-time="{{i.props['hover-start-time']}}"  hover-stay-time="{{i.props['hover-stay-time']}}"  hidden="{{i.props['hidden']}}"  class="{{i.props['class']}}"  style="{{i.props['style']}}"  animation="{{i.props['animation']}}"  hover-stop-propagation="{{i.props['hover-stop-propagation']}}"  bindtap="{{i.props['bindtap']}}"  bindtouchstart="{{i.props['bindtouchstart']}}"  bindtouchmove="{{i.props['bindtouchmove']}}"  bindtouchend="{{i.props['bindtouchend']}}"  bindtouchcancel="{{i.props['bindtouchcancel']}}"  bindlongtap="{{i.props['bindlongtap']}}"  bindtransitionend="{{i.props['bindtransitionend']}}"  bindanimationiteration="{{i.props['bindanimationiteration']}}"  bindanimationstart="{{i.props['bindanimationstart']}}"  bindanimationend="{{i.props['bindanimationend']}}" >
     
       <block tt:for="{{i.children}}" tt:key="{{id}}">
         <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
