@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as fs from 'fs';
 import { parse } from 'acorn';
-import { Plugin, OutputChunk } from 'rollup';
+import { Plugin, OutputChunk, OutputAsset } from 'rollup';
 import { getComponents } from './components';
 import ejs from 'ejs';
 import { RemaxOptions } from '../../getConfig';
@@ -35,7 +35,7 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
     fileName,
     isAsset: true as true,
     source: code,
-  };
+  } as OutputAsset;
 }
 
 async function createHelperFile(adapter: Adapter) {
@@ -47,7 +47,7 @@ async function createHelperFile(adapter: Adapter) {
     fileName: `helper${adapter.extensions.jsHelper}`,
     isAsset: true as true,
     source: code,
-  };
+  } as OutputAsset;
 }
 
 async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
@@ -73,7 +73,7 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
     fileName: `base${adapter.extensions.template}`,
     isAsset: true as true,
     source: code,
-  };
+  } as OutputAsset;
 }
 
 function createAppManifest(
@@ -88,7 +88,7 @@ function createAppManifest(
     fileName: 'app.json',
     isAsset: true as true,
     source: JSON.stringify(config, null, 2),
-  };
+  } as OutputAsset;
 }
 
 function createPageManifest(
@@ -109,7 +109,7 @@ function createPageManifest(
       fileName: manifestFile,
       isAsset: true as true,
       source: JSON.stringify(readManifest(configFilePath, target), null, 2),
-    };
+    } as OutputAsset;
   }
   if (context) {
     const pageConfig = context.pages.find((p: any) => p.path === page.path);
@@ -120,7 +120,7 @@ function createPageManifest(
         fileName: manifestFile,
         isAsset: true as true,
         source: JSON.stringify(config, null, 2),
-      };
+      } as OutputAsset;
     }
   }
 }
