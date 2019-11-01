@@ -2,7 +2,7 @@
 
 exports[`Slider render correctly 1`] = `
 <slider
-  blockSize={28}
+  block-size={28}
   max={100}
   step={1}
 />

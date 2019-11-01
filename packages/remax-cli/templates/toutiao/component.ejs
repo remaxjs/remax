@@ -1,7 +1,5 @@
-<% camelCased = function(str) { return str.replace(/-([a-z0-9])/g, function (g) { return g[1].toUpperCase(); })}%>
-
 <template name="REMAX_TPL_<%=id%>">
-  <<%=id%> <% for(let key of props) { %> <%=key%>="{{i.props.<%=camelCased(key)%>}}" <% } %>>
+  <<%=id%> <% for(let key of props) { %> <%=key%>="{{i.props['<%=key%>']}}" <% } %>>
     <% if (id === 'swiper') { %>
       <block tt:for="{{i.children}}" tt:key="{{id}}">
         <swiper-item key="{{item.props.key}}">
@@ -21,7 +19,7 @@
    <% } else if (type === 'native') { %>
     <block tt:for="{{i.children}}" tt:key="{{i.id}}">
       <block tt:if="{{item.props['slot']}}" >
-        <view <% for(let key of adapter.hostComponents('view').props) { %> <%=key%>="{{item.props['<%=camelCased(key)%>']}}" <% } %>>
+        <view <% for(let key of adapter.hostComponents('view').props) { %> <%=key%>="{{item.props['<%=key%>']}}" <% } %>>
           <block tt:for="{{item.children}}" tt:key="{{item.id}}">
             <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
           </block>

@@ -16,6 +16,7 @@ export default () => {
         onTouchStart={handleTouchStart}
         id="view"
         data-foo="bar"
+        catchTap={handleClick}
         {...props}
       >
         foo

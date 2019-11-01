@@ -124,7 +124,7 @@ function registerComponent({
 
   const props = usedProps
     .filter(Boolean)
-    .map(prop => adapter.getNativePropName(prop, false, true));
+    .map(prop => adapter.getNativePropName(prop, false));
 
   const component = {
     id: componentName,

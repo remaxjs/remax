@@ -10,8 +10,8 @@ exports[`TextArea render correctly 1`] = `
   fixed={false}
   focus={false}
   maxlength={-1}
-  selectionEnd={999}
-  selectionStart={999}
+  selection-end={999}
+  selection-start={999}
   value=""
 />
 `;

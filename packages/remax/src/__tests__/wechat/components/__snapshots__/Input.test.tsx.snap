@@ -8,8 +8,8 @@ exports[`Input render correctly 1`] = `
   bindtap={[Function]}
   focus={false}
   maxlength={140}
-  selectionEnd={999}
-  selectionStart={999}
+  selection-end={999}
+  selection-start={999}
   type="text"
   value=""
 />
