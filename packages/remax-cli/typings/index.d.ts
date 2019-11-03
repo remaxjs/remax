@@ -6,7 +6,7 @@ declare module 'rollup-plugin-progress';
 declare module 'rollup-plugin-delete';
 declare module 'rollup-plugin-alias';
 declare module 'rollup-plugin-inject';
-declare module 'rollup-plugin-url';
+declare module '@remax/rollup-plugin-url';
 declare module 'rollup-plugin-typescript';
 declare module 'postcss-url';
 declare module 'mkdirp';
