@@ -3,15 +3,15 @@
 }
 
 .b {
-  background-image: url('/assets/cat.png');
+  background-image: url('/assets/images/cat.png');
 }
 
 .c {
-  background-image: url('../assets/cat.png');
+  background-image: url('/assets/images/cat.png');
 }
 
 .d {
-  background-image: url('assets/cat.png');
+  background-image: url('/pages/assets/images/cat.png');
 }
 
 @font-face {

@@ -3,7 +3,7 @@ import path from 'path';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
-import url from 'rollup-plugin-url';
+import url from '@remax/rollup-plugin-url';
 import json from 'rollup-plugin-json';
 import postcss from '@remax/rollup-plugin-postcss';
 import postcssUrl from './plugins/postcssUrl';
