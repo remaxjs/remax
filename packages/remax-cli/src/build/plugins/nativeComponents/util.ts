@@ -50,6 +50,11 @@ export const getSourcePath = (
 ) => {
   let sourcePath: string = alias(options).resolveId(source, importer) || source;
 
+  // ignore rollup's virtual modules
+  if (sourcePath.startsWith('\0')) {
+    return sourcePath;
+  }
+
   if (!isPluginComponent(sourcePath, options, adapter)) {
     sourcePath = resolve.sync(sourcePath, {
       extensions,
