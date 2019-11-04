@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/remaxjs/remax/compare/v1.2.2...v1.3.0) (2019-11-04)
+
+### Bug Fixes
+
+- **wechat:** 设置 Navigator 组件 openType 默认值为 navigate ([e2fe7cc](https://github.com/remaxjs/remax/commit/e2fe7cc))
+- page lifecye pageScroll callback‘s params is undefined issue ([a36d79d](https://github.com/remaxjs/remax/commit/a36d79d))
+- 修复 css 中 base64 的路径会被修改的问题 ([b6ca1f0](https://github.com/remaxjs/remax/commit/b6ca1f0))
+- 修复 watch 时 rebuild 没有清理掉多余的属性 ([8e52818](https://github.com/remaxjs/remax/commit/8e52818))
+- 修复 windows 下图片引入路径错误的问题 ([#312](https://github.com/remaxjs/remax/issues/312)) ([0b75693](https://github.com/remaxjs/remax/commit/0b75693)), closes [#311](https://github.com/remaxjs/remax/issues/311)
+- 修复每个测试收集到的 props 会串起来的问题 ([31b6201](https://github.com/remaxjs/remax/commit/31b6201))
+
+### Features
+
+- 增加从插件引用组件的功能 ([639391b](https://github.com/remaxjs/remax/commit/639391b))
+
+### Performance Improvements
+
+- **cli:** 关闭 tree shaking 提升开发环境编译速度 ([698dbe2](https://github.com/remaxjs/remax/commit/698dbe2)), closes [#298](https://github.com/remaxjs/remax/issues/298)
+
 ## [1.2.2](https://github.com/remaxjs/remax/compare/v1.2.1...v1.2.2) (2019-10-22)
 
 ### Bug Fixes
