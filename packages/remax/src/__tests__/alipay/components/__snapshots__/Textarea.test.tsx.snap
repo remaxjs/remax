@@ -2,6 +2,6 @@
 
 exports[`TextArea render correctly 1`] = `
 <textarea
-  class="class"
+  className="class"
 />
 `;

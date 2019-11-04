@@ -12,7 +12,6 @@ require('../npm/remax/esm/createAppConfig.js');
 require('../npm/remax/esm/Platform.js');
 var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
 require('../npm/remax/esm/index.js');
-require('../npm/remax/esm/adapters/toutiao/components/propsAlias.js');
 var View = require('../npm/remax/esm/adapters/toutiao/components/View.js');
 require('../npm/remax/esm/adapters/toutiao/components/Input.js');
 require('../npm/remax/esm/adapters/toutiao/components/Textarea.js');

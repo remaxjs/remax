@@ -7,5 +7,4 @@ export const props = [
   'onLoad',
   'onError',
   'onTap',
-  'catchTap',
 ];

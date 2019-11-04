@@ -2,6 +2,6 @@
 
 exports[`Lifestyle render correctly 1`] = `
 <lifestyle
-  public-id=""
+  publicId=""
 />
 `;

@@ -2,8 +2,8 @@
 
 exports[`View render correctly 1`] = `
 <view
-  catchTap={[Function]}
-  class="class"
+  catchClick={[Function]}
+  className="class"
   onAnimationStart={[Function]}
 >
   view

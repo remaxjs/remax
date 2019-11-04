@@ -4,7 +4,6 @@ import React, {
   useState,
   forwardRef,
 } from 'react';
-import propsAlias from './propsAlias';
 import { BaseProps } from './baseTyping';
 
 export interface InputProps extends BaseProps {
@@ -172,7 +171,7 @@ const InputRender: FunctionComponent<InputProps> = (props, ref) => {
   } = props;
   const [innerFocus, handleInnerFocus] = useInnerFocus(focus || autoFocus);
 
-  const inputProps = propsAlias({
+  const inputProps = {
     ...restProps,
     autoFocus,
     focus: innerFocus,
@@ -181,7 +180,7 @@ const InputRender: FunctionComponent<InputProps> = (props, ref) => {
     onFocus: handleInnerFocus(onFocus),
     onBlur: handleInnerFocus(onBlur, false),
     ref,
-  });
+  };
 
   return React.createElement('input', inputProps, children);
 };

@@ -2,6 +2,6 @@
 
 exports[`Image render correctly 1`] = `
 <image
-  class="class"
+  className="class"
 />
 `;

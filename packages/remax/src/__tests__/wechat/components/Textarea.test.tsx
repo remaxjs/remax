@@ -21,13 +21,13 @@ describe('TextArea', () => {
     expect(instance.props.focus).not.toBeTruthy();
 
     TestRenderer.act(() => {
-      instance.props.bindtap();
+      instance.props.onClick();
     });
 
     expect(instance.props.focus).toBeTruthy();
 
     TestRenderer.act(() => {
-      instance.props.bindblur();
+      instance.props.onBlur();
     });
 
     expect(instance.props.focus).not.toBeTruthy();

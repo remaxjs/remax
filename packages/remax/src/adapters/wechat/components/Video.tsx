@@ -1,5 +1,4 @@
 import React, { FunctionComponent, forwardRef } from 'react';
-import propsAlias from './propsAlias';
 import { BaseProps } from './baseTyping';
 
 export interface VideoProps extends BaseProps {
@@ -76,10 +75,10 @@ export interface VideoProps extends BaseProps {
 
 const VideoRender: FunctionComponent<VideoProps> = (props, ref) => {
   const { children, ...restProps } = props;
-  const videoProps = propsAlias({
+  const videoProps = {
     ...restProps,
     ref,
-  });
+  };
 
   return React.createElement('video', videoProps, children);
 };

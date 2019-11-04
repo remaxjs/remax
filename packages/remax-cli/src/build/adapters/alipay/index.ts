@@ -1,7 +1,9 @@
 import * as path from 'path';
-export {
-  getAlias as getNativePropName,
-} from 'remax/cjs/adapters/alipay/components/propsAlias';
+import { getAlias } from 'remax/cjs/propsAlias';
+
+export function getNativePropName(props: any, isNative = false) {
+  return getAlias(props, isNative, 'alipay');
+}
 
 export const name = 'alipay';
 

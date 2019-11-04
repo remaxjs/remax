@@ -2,6 +2,6 @@
 
 exports[`Input render correctly 1`] = `
 <input
-  class="class"
+  className="class"
 />
 `;

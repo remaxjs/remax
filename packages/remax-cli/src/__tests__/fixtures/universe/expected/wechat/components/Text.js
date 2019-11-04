@@ -10,7 +10,6 @@ var Platform = require('../npm/remax/esm/Platform.js');
 require('../npm/remax/esm/createPageConfig.js');
 require('../npm/remax/esm/index.js');
 var index$1 = require('../npm/remax/esm/adapters/alipay/components/index.js');
-require('../npm/remax/esm/adapters/wechat/components/propsAlias.js');
 require('../npm/remax/esm/adapters/wechat/components/View.js');
 require('../npm/remax/esm/adapters/wechat/components/Input.js');
 require('../npm/remax/esm/adapters/wechat/components/Textarea.js');

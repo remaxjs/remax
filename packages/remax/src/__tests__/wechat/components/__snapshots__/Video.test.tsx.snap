@@ -2,27 +2,27 @@
 
 exports[`Video render correctly 1`] = `
 <video
-  auto-pause-if-navigate={true}
-  auto-pause-if-open-native={true}
+  autoPauseIfNavigate={true}
+  autoPauseIfOpenNative={true}
   autoplay={false}
   controls={true}
-  danmu-btn={false}
-  enable-danmu={false}
-  enable-play-gesture={false}
-  enable-progress-gesture={true}
-  initial-time={0}
+  danmuBtn={false}
+  enableDanmu={false}
+  enablePlayGesture={false}
+  enableProgressGesture={true}
+  initialTime={0}
   loop={false}
   muted={false}
-  object-fit="contain"
-  page-gesture={false}
-  play-btn-position="bottom"
-  show-center-play-btn={true}
-  show-fullscreen-btn={true}
-  show-mute-btn={false}
-  show-play-btn={true}
-  show-progress={true}
+  objectFit="contain"
+  pageGesture={false}
+  playBtnPosition="bottom"
+  showCenterPlayBtn={true}
+  showFullscreenBtn={true}
+  showMuteBtn={false}
+  showPlayBtn={true}
+  showProgress={true}
   src="video-src"
-  vslide-gesture={false}
-  vslide-gesture-in-fullscreen={true}
+  vslideGesture={false}
+  vslideGestureInFullscreen={true}
 />
 `;

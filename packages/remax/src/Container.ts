@@ -2,9 +2,20 @@ import VNode, { Path, RawNode } from './VNode';
 import { generate } from './instanceId';
 import { FiberRoot } from 'react-reconciler';
 import Platform from './Platform';
+import propsAlias from './propsAlias';
 
 function stringPath(path: Path) {
   return path.join('.');
+}
+
+function transformRawNode(item: RawNode): RawNode {
+  return {
+    ...item,
+    props: propsAlias(item.props),
+    children: item.children
+      ? item.children.map(transformRawNode)
+      : item.children,
+  };
 }
 
 interface SpliceUpdate {
@@ -43,7 +54,7 @@ export default class Container {
       path,
       start,
       deleteCount,
-      items,
+      items: items.map(transformRawNode),
     };
     if (immediately) {
       this.updateQueue.push(update);
@@ -75,9 +86,9 @@ export default class Container {
 
     let tree: typeof action | { root: RawNode } = action;
 
-    if (process.env.REMAX_PLATFORM === 'toutiao') {
+    if (Platform.isToutiao) {
       tree = {
-        root: this.root.toJSON(),
+        root: transformRawNode(this.root.toJSON()),
       };
     }
 

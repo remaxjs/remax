@@ -2,7 +2,7 @@
 
 exports[`View render correctly 1`] = `
 <view
-  class="class"
+  className="class"
 >
   view
 </view>

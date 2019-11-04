@@ -18,7 +18,9 @@ describe('Input', () => {
 
     const instance = component.root.findByType('input');
 
-    expect(instance.props['placeholder-style']).toEqual(`color:${color};`);
+    expect(instance.props.placeholderStyle).toEqual({
+      color,
+    });
   });
 
   it('focus correctly', () => {
@@ -31,13 +33,13 @@ describe('Input', () => {
     expect(instance.props.focus).not.toBeTruthy();
 
     TestRenderer.act(() => {
-      instance.props.bindtap();
+      instance.props.onClick();
     });
 
     expect(instance.props.focus).toBeTruthy();
 
     TestRenderer.act(() => {
-      instance.props.bindblur();
+      instance.props.onBlur();
     });
 
     expect(instance.props.focus).not.toBeTruthy();
