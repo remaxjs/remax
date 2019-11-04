@@ -10,6 +10,7 @@ order: 20
 - [基础组件](./guide/component)
 - [API](./guide/api)
 - [小程序自定义组件](./guide/custom-component)
+- [小程序插件](./guide/plugin)
 - [平台信息](./guide/platform)
 - [TypeScript](./guide/typescript)
 - [CLI](./guide/cli)
