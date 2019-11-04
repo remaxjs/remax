@@ -9,7 +9,6 @@ export const props = [
   'animation',
   'hover-stop-propagation',
   'onTap',
-  'catchTap',
   'onTouchStart',
   'onTouchMove',
   'onTouchEnd',

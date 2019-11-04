@@ -74,7 +74,7 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
         const exportStr = `var ${name} = function(props) {
         return React.createElement(
             '${component.hashId}',
-            propsAlias(props, true),
+            props,
             props.children
           );
         };`;
@@ -85,9 +85,6 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
       simple(ast, {
         ImportDeclaration: extract,
       });
-
-      const importStr = `import propsAlias from 'remax/esm/adapters/${adapter.name}/components/propsAlias';`;
-      magicString.prepend(importStr);
 
       return {
         code: magicString.toString(),

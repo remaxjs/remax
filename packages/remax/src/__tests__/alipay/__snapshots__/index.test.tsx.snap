@@ -110,7 +110,7 @@ Object {
       ],
       "id": 3,
       "props": Object {
-        "class": "foo",
+        "className": "foo",
       },
       "text": undefined,
       "type": "view",
@@ -193,7 +193,7 @@ Object {
       ],
       "id": 2,
       "props": Object {
-        "style": "",
+        "style": undefined,
       },
       "text": undefined,
       "type": "view",
@@ -218,7 +218,10 @@ Object {
       ],
       "id": 2,
       "props": Object {
-        "style": "width:100rpx;height:100rpx;",
+        "style": Object {
+          "height": "100px",
+          "width": "100px",
+        },
       },
       "text": undefined,
       "type": "view",
@@ -243,7 +246,10 @@ Object {
       ],
       "id": 2,
       "props": Object {
-        "style": "-webkit-line-clamp:2;height:100rpx;",
+        "style": Object {
+          "WebkitLineClamp": 2,
+          "height": "100px",
+        },
       },
       "text": undefined,
       "type": "view",

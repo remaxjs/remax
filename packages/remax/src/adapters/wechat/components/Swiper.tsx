@@ -1,5 +1,4 @@
 import React, { FunctionComponent, forwardRef } from 'react';
-import propsAlias from './propsAlias';
 import { BaseProps } from './baseTyping';
 
 export interface SwiperProps extends BaseProps {
@@ -56,12 +55,12 @@ const SwiperRender: FunctionComponent<SwiperProps> = (props, ref) => {
     }
   }
 
-  const swiperProps = propsAlias({
+  const swiperProps = {
     ...restProps,
     current: current === undefined ? innerCurrent : current,
     onChange: handleChange,
     ref,
-  });
+  };
 
   return React.createElement('swiper', swiperProps, children);
 };

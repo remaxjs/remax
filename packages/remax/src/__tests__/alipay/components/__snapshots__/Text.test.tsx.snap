@@ -2,7 +2,7 @@
 
 exports[`Text render correctly 1`] = `
 <text
-  class="class"
+  className="class"
 >
   text
 </text>

@@ -2,16 +2,16 @@
 
 exports[`TextArea render correctly 1`] = `
 <textarea
-  bindblur={[Function]}
-  bindfocus={[Function]}
-  bindinput={[Function]}
-  bindtap={[Function]}
-  class="class"
+  className="class"
   fixed={false}
   focus={false}
   maxlength={-1}
-  selection-end={999}
-  selection-start={999}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onInput={[Function]}
+  selectionEnd={999}
+  selectionStart={999}
   value=""
 />
 `;

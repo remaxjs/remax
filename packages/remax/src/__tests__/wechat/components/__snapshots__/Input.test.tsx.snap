@@ -2,14 +2,14 @@
 
 exports[`Input render correctly 1`] = `
 <input
-  bindblur={[Function]}
-  bindfocus={[Function]}
-  bindinput={[Function]}
-  bindtap={[Function]}
   focus={false}
   maxlength={140}
-  selection-end={999}
-  selection-start={999}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onInput={[Function]}
+  selectionEnd={999}
+  selectionStart={999}
   type="text"
   value=""
 />

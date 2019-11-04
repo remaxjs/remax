@@ -2,6 +2,6 @@
 
 exports[`Ad render correctly 1`] = `
 <ad
-  unit-id="id"
+  unitId="id"
 />
 `;

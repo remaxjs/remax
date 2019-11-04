@@ -2,7 +2,7 @@
 
 exports[`Icon render correctly 1`] = `
 <icon
-  class="class"
+  className="class"
   type="info"
 />
 `;

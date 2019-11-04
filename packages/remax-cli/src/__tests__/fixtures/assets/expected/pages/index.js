@@ -4,7 +4,6 @@ import '../npm/remax/esm/createAppConfig.js';
 import '../npm/remax/esm/Platform.js';
 import createPageConfig from '../npm/remax/esm/createPageConfig.js';
 import '../npm/remax/esm/index.js';
-import '../npm/remax/esm/adapters/alipay/components/propsAlias.js';
 import View from '../npm/remax/esm/adapters/alipay/components/View.js';
 import '../npm/remax/esm/adapters/alipay/components/ScrollView.js';
 import '../npm/remax/esm/adapters/alipay/components/Swiper.js';
