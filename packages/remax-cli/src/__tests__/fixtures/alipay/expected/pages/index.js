@@ -2,6 +2,7 @@ import { extends as _extends } from '../_virtual/_rollupPluginBabelHelpers.js';
 import '../npm/remax/esm/render.js';
 import { cloneElement, createElement } from 'react';
 import '../npm/remax/esm/createAppConfig.js';
+import '../npm/remax/esm/Platform.js';
 import createPageConfig from '../npm/remax/esm/createPageConfig.js';
 import '../npm/remax/esm/index.js';
 import '../npm/remax/esm/adapters/alipay/components/propsAlias.js';
