@@ -1,6 +1,7 @@
 import VNode, { Path, RawNode } from './VNode';
 import { generate } from './instanceId';
 import { FiberRoot } from 'react-reconciler';
+import Platform from './Platform';
 
 function stringPath(path: Path) {
   return path.join('.');
@@ -93,6 +94,15 @@ export default class Container {
 
   clearUpdate() {
     this.stopUpdate = true;
+
+    /* istanbul ignore next */
+    if (Platform.isWechat) {
+      this.context.setData({
+        action: {
+          type: 'clear',
+        },
+      });
+    }
   }
 
   createCallback(name: string, fn: Function) {

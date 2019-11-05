@@ -9,6 +9,7 @@ require('../npm/remax/esm/render.js');
 var React = require('react');
 var React__default = _interopDefault(React);
 require('../npm/remax/esm/createAppConfig.js');
+require('../npm/remax/esm/Platform.js');
 var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
 require('../npm/remax/esm/index.js');
 require('../npm/remax/esm/adapters/toutiao/components/propsAlias.js');

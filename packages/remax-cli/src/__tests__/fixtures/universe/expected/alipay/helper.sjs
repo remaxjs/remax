@@ -6,6 +6,11 @@ var tree = {
 
 function reduce(action) {
   switch (action.type) {
+    case 'clear': 
+      tree.root = {
+        children: []
+      };
+      return tree;
     case 'splice':
       for (var i = 0; i < action.payload.length; i += 1) {
         var value = get(tree, action.payload[i].path);

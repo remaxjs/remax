@@ -1,8 +1,8 @@
 import '../npm/remax/esm/render.js';
 import { createElement } from 'react';
 import '../npm/remax/esm/createAppConfig.js';
-import '../npm/remax/esm/createPageConfig.js';
 import Platform from '../npm/remax/esm/Platform.js';
+import '../npm/remax/esm/createPageConfig.js';
 import '../npm/remax/esm/index.js';
 import '../npm/remax/esm/adapters/alipay/components/propsAlias.js';
 import AlipayView from '../npm/remax/esm/adapters/alipay/components/View.js';
