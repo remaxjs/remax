@@ -53,8 +53,5 @@
     "typescript": "^3.5.2",
     "umi": "^2.8.11"
   },
-  "optionalDependencies": {
-    "antd-mobile": "^2.2.14"
-  },
   "gitHead": "28ef4f50ef3c134c4e661d786ebea4d7c4ea89ed"
 }
