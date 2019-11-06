@@ -39,4 +39,4 @@ export interface Adapter {
   moduleFormat: 'cjs' | 'esm';
 }
 
-export default ['alipay', 'wechat', 'toutiao', 'h5'];
+export default ['alipay', 'wechat', 'toutiao'];
