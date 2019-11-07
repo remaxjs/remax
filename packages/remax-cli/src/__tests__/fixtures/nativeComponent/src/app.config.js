@@ -2,8 +2,20 @@ module.exports = {
   pages: ['pages/index', 'pages/index2', 'pages/index3', 'pages/index4'],
   plugins: {
     myPlugin: {
-      version: '0.8.1',
-      provider: 'wxbcdf0f04295ab25e',
+      version: '1.0.0',
+      provider: 'wxidxxxxxxxxxxxxxxxx',
     },
   },
+  subPackages: [
+    {
+      root: 'pages',
+      pages: ['subPackage'],
+      plugins: {
+        subPlugin: {
+          version: '1.0.0',
+          provider: 'wxidxxxxxxxxxxxxxxxx',
+        },
+      },
+    },
+  ],
 };

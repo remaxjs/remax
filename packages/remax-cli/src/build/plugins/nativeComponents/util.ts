@@ -25,8 +25,13 @@ export const isPluginComponent = (
     return false;
   }
 
-  const appConfig = getAppConfig(options, adapter);
-  if (!appConfig.plugins) {
+  const { plugins, subpackages = [], subPackages = [] } = getAppConfig(
+    options,
+    adapter
+  );
+  const subs = [...subpackages, ...subPackages];
+
+  if (!plugins && !subs.some(sub => sub.plugins)) {
     return false;
   }
 
@@ -35,7 +40,10 @@ export const isPluginComponent = (
     return false;
   }
 
-  if (appConfig.plugins[pluginName]) {
+  if (
+    (plugins && plugins[pluginName]) ||
+    subs.find(sub => sub.plugins && sub.plugins[pluginName])
+  ) {
     return true;
   }
 

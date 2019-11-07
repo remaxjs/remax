@@ -6,26 +6,30 @@ import { Adapter } from './build/adapters';
 import { Context } from './types';
 import { output } from './build/utils/output';
 
+interface Plugins {
+  [key: string]: {
+    version: string;
+    provider: string;
+  };
+}
+
 interface AppConfig {
   pages: string[];
   subpackages?: Array<{
     root: string;
     pages: string[];
+    plugins?: Plugins;
   }>;
   subPackages?: Array<{
     root: string;
     pages: string[];
+    plugins?: Plugins;
   }>;
   tabBar?: {
     items: Array<{ icon: string; activeIcon: string }>;
     list: Array<{ iconPath: string; selectedIconPath: string }>;
   };
-  plugins?: {
-    [key: string]: {
-      version: string;
-      provider: string;
-    };
-  };
+  plugins?: Plugins;
 }
 
 interface Entries {
