@@ -218,7 +218,7 @@ Object {
       ],
       "id": 2,
       "props": Object {
-        "style": "width:100px;height:100px;",
+        "style": "width:100rpx;height:100rpx;",
       },
       "text": undefined,
       "type": "view",
@@ -243,7 +243,7 @@ Object {
       ],
       "id": 2,
       "props": Object {
-        "style": "-webkit-line-clamp:2;height:100px;",
+        "style": "-webkit-line-clamp:2;height:100rpx;",
       },
       "text": undefined,
       "type": "view",
