@@ -21,7 +21,7 @@ import page from './plugins/page';
 import removeSrc from './plugins/removeSrc';
 import removeConfig from './plugins/removeConfig';
 import rename from './plugins/rename';
-import replace from 'rollup-plugin-replace';
+import replace from '@rollup/plugin-replace';
 import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
 import removeESModuleFlag from './plugins/removeESModuleFlag';

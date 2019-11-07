@@ -19,6 +19,8 @@ export default async function build(app: string, target: string) {
       },
       alias: {
         '@': 'src',
+        '@components': 'src/components',
+        '@c': path.resolve(cwd, 'src/components'),
       },
     },
     false,
