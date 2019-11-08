@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface PickerProps {
   readonly dataset?: DOMStringMap;
@@ -10,6 +10,6 @@ export interface PickerProps {
   disabled?: boolean;
   onChange?: (e: any) => void;
 }
-const Picker = factory<PickerProps>('picker');
+const Picker = createHostComponent<PickerProps>('picker');
 
 export default Picker;

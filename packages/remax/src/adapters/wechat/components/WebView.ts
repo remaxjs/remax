@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const WebView = factory<WebViewProps>('web-view');
+const WebView = createHostComponent<WebViewProps>('web-view');
 
 export interface WebViewProps extends BaseProps {
   /** webview 指向网页的链接。可打开关联的公众号的文章，其它网页需登录小程序管理后台配置业务域名。 1.6.4  */

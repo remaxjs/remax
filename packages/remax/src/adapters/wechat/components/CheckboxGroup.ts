@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const CheckboxGroup = factory<CheckboxGroupProps>('checkbox-group');
+const CheckboxGroup = createHostComponent<CheckboxGroupProps>('checkbox-group');
 
 export interface CheckboxGroupProps extends BaseProps {
   /** checkbox标识，选中时触发checkbox-group的 change 事件，并携带 checkbox 的 value 1.0.0  */

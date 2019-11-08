@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 export interface IconProps {
   readonly dataset?: DOMStringMap;
   id?: string;
@@ -17,6 +17,6 @@ export interface IconProps {
   size?: number;
   color?: string;
 }
-const Icon = factory<IconProps>('icon');
+const Icon = createHostComponent<IconProps>('icon');
 
 export default Icon;

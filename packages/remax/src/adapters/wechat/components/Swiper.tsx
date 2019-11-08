@@ -1,6 +1,8 @@
 import React, { FunctionComponent, forwardRef } from 'react';
 import { BaseProps } from './baseTyping';
-import { addToHostComponent } from './factory';
+import createHostComponent from '../../../createHostComponent';
+
+const hostComponentName = 'swiper';
 
 export interface SwiperProps extends BaseProps {
   /** (default: false) 是否显示面板指示点 1.0.0  */
@@ -63,7 +65,7 @@ const SwiperRender: FunctionComponent<SwiperProps> = (props, ref) => {
     ref,
   };
 
-  return React.createElement('swiper', swiperProps, children);
+  return React.createElement(hostComponentName, swiperProps, children);
 };
 
 const Swiper = forwardRef<{}, React.PropsWithChildren<SwiperProps>>(
@@ -86,6 +88,4 @@ Swiper.defaultProps = {
   easingFunction: 'default',
 };
 
-addToHostComponent('swiper');
-
-export default Swiper;
+export default createHostComponent(hostComponentName, Swiper);

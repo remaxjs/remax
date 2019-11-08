@@ -1,7 +1,9 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const PickerViewColumn = factory<PickerViewColumnProps>('picker-view-column');
+const PickerViewColumn = createHostComponent<PickerViewColumnProps>(
+  'picker-view-column'
+);
 
 export type PickerViewColumnProps = BaseProps;
 

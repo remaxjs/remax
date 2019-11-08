@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const Picker = factory<PickerProps>('picker');
+const Picker = createHostComponent<PickerProps>('picker');
 
 export interface PickerProps extends BaseProps {
   /**

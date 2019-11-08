@@ -1,9 +1,10 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
-export interface SwiperItemProps {
+export interface SwiperItemProps extends BaseProps {
   itemId?: string;
 }
 
-const SwiperItem = factory<SwiperItemProps>('swiper-item');
+const SwiperItem = createHostComponent<SwiperItemProps>('swiper-item');
 
 export default SwiperItem;

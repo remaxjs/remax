@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface SwiperProps {
   readonly dataset?: DOMStringMap;
@@ -25,6 +25,6 @@ export interface SwiperProps {
   onAnimationEnd?: (e: any) => void;
 }
 
-const Swiper = factory<SwiperProps>('swiper');
+const Swiper = createHostComponent<SwiperProps>('swiper');
 
 export default Swiper;

@@ -1,6 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
-export interface ButtonProps {
+export interface ButtonProps extends BaseProps {
   size?: 'default' | 'mini';
   type?: 'primary' | 'default';
   disabled?: boolean;
@@ -15,6 +16,6 @@ export interface ButtonProps {
   onGetphonenumber?: (e: any) => void;
 }
 
-const Button = factory<ButtonProps>('button');
+const Button = createHostComponent<ButtonProps>('button');
 
 export default Button;

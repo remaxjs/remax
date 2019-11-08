@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const Text = factory<TextProps>('text');
+const Text = createHostComponent<TextProps>('text');
 
 export interface TextProps extends BaseProps {
   /** (default: false) 文本是否可选 1.1.0 */

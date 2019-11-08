@@ -1,0 +1,20 @@
+<template name="REMAX_TPL">
+  <block tt:for="{{tree.root.children}}" tt:key="{{id}}">
+    <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+  </block>
+</template>
+
+
+  <template name="REMAX_TPL_foo-bar">
+  <foo-bar  foo="{{i.props['foo']}}"  data-rid="{{i.props['data-rid']}}" >
+    
+    <block tt:for="{{i.children}}" tt:key="{{id}}">
+      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+    </block>
+    
+  </foo-bar>
+</template>
+
+<template name="REMAX_TPL_plain-text" data="{{i: i}}">
+  <block>{{i.text}}</block>
+</template>

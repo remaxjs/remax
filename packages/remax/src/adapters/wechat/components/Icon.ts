@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const Icon = factory<IconProps>('icon');
+const Icon = createHostComponent<IconProps>('icon');
 
 export interface IconProps extends BaseProps {
   /** icon的类型 1.0.0  */

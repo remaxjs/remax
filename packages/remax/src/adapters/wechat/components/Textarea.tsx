@@ -4,8 +4,10 @@ import React, {
   useState,
   forwardRef,
 } from 'react';
-import { addToHostComponent } from './factory';
 import { BaseProps } from './baseTyping';
+import createHostComponent from '../../../createHostComponent';
+
+const hostComponentName = 'textarea';
 
 export interface TextareaProps extends BaseProps {
   name?: string;
@@ -87,7 +89,7 @@ const TextareaRender: FunctionComponent<TextareaProps> = (props, ref) => {
     ref,
   };
 
-  return React.createElement('textarea', inputProps, children);
+  return React.createElement(hostComponentName, inputProps, children);
 };
 
 const Textarea = forwardRef(TextareaRender);
@@ -99,6 +101,4 @@ Textarea.defaultProps = {
   fixed: false,
 };
 
-addToHostComponent('textarea');
-
-export default Textarea;
+export default createHostComponent(hostComponentName, Textarea);

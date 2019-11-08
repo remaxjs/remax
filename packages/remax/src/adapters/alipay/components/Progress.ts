@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface ProgressProps {
   readonly dataset?: DOMStringMap;
@@ -11,6 +11,6 @@ export interface ProgressProps {
   backgroundColor?: string;
   active?: boolean;
 }
-const Progress = factory<ProgressProps>('progress');
+const Progress = createHostComponent<ProgressProps>('progress');
 
 export default Progress;

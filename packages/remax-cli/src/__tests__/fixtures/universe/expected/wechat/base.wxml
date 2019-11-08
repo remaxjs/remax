@@ -25,7 +25,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_1_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -35,7 +34,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_1_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -57,7 +55,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_2_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -67,7 +64,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_2_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -89,7 +85,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_3_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -99,7 +94,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_3_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -121,7 +115,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_4_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -131,7 +124,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_4_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -153,7 +145,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_5_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -163,7 +154,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_5_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -185,7 +175,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_6_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -195,7 +184,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_6_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -217,7 +205,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_7_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -227,7 +214,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_7_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -249,7 +235,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_8_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -259,7 +244,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_8_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -281,7 +265,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_9_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -291,7 +274,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_9_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -313,7 +295,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_10_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -323,7 +304,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_10_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -345,7 +325,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_11_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -355,7 +334,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_11_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -377,7 +355,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_12_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -387,7 +364,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_12_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -409,7 +385,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_13_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -419,7 +394,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_13_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -441,7 +415,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_14_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -451,7 +424,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_14_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -473,7 +445,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_15_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -483,7 +454,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_15_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -505,7 +475,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_16_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -515,7 +484,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_16_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -537,7 +505,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_17_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -547,7 +514,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_17_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -569,7 +535,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_18_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -579,7 +544,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_18_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -601,7 +565,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_19_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -611,7 +574,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_19_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -633,7 +595,6 @@
   </text>
 </template>
 
-
 <template name="REMAX_TPL_20_view">
   <view  slot="{{_h.v(i.props['slot'])}}"  id="{{_h.v(i.props['id'])}}"  disable-scroll="{{_h.v(i.props['disable-scroll'])}}"  hover-class="{{_h.v(i.props['hover-class'])}}"  hover-start-time="{{_h.v(i.props['hover-start-time'])}}"  hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}"  hidden="{{_h.v(i.props['hidden'])}}"  class="{{_h.v(i.props['class'])}}"  style="{{_h.v(i.props['style'])}}"  animation="{{_h.v(i.props['animation'])}}"  hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"  bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"  bindtouchend="{{_h.v(i.props['bindtouchend'])}}"  bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"  bindlongtap="{{_h.v(i.props['bindlongtap'])}}"  bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"  bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}"  bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}"  bindanimationend="{{_h.v(i.props['bindanimationend'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -643,7 +604,6 @@
     
   </view>
 </template>
-
 
 <template name="REMAX_TPL_20_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>

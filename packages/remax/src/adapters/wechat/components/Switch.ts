@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const Switch = factory<SwitchProps>('switch');
+const Switch = createHostComponent<SwitchProps>('switch');
 
 export interface SwitchProps extends BaseProps {
   /** (default: false) 是否选中 1.0.0 */

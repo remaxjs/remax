@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const ScrollView = factory<ScrollViewProps>('scroll-view');
+const ScrollView = createHostComponent<ScrollViewProps>('scroll-view');
 
 export interface ScrollViewProps extends BaseProps {
   /** (default: false) 允许横向滚动 1.0.0 */

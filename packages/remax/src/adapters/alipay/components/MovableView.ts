@@ -1,5 +1,5 @@
 import * as React from 'react';
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface MovableViewProps {
   readonly dataset?: DOMStringMap;
@@ -17,6 +17,6 @@ export interface MovableViewProps {
   onTouchChange?: (e: any) => void;
   onChangeEnd?: (e: any) => void;
 }
-const MovableView = factory<MovableViewProps>('movable-view');
+const MovableView = createHostComponent<MovableViewProps>('movable-view');
 
 export default MovableView;

@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const OpenData = factory<OpenDataProps>('open-data');
+const OpenData = createHostComponent<OpenDataProps>('open-data');
 
 export interface OpenDataProps extends BaseProps {
   /** 开放数据类型 1.4.0 */

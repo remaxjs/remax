@@ -1,12 +1,13 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
-export interface CheckboxProps {
+export interface CheckboxProps extends BaseProps {
   value?: string;
   disabled?: boolean;
   checked?: boolean;
   color?: string;
 }
 
-const Checkbox = factory<CheckboxProps>('checkbox');
+const Checkbox = createHostComponent<CheckboxProps>('checkbox');
 
 export default Checkbox;

@@ -1,6 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
-export interface SliderProps {
+export interface SliderProps extends BaseProps {
   min?: number;
   max?: number;
   step?: number;
@@ -15,6 +16,6 @@ export interface SliderProps {
   onChanging?: (e: any) => void;
 }
 
-const Slider = factory<SliderProps>('slider');
+const Slider = createHostComponent<SliderProps>('slider');
 
 export default Slider;

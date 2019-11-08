@@ -1,6 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
-export interface FormProps {
+export interface FormProps extends BaseProps {
   onSubmit?: (e: any) => void;
   onReset?: (e: any) => void;
   reportSubmit?: boolean;
@@ -8,6 +9,6 @@ export interface FormProps {
   catchreset?: (e: any) => void;
 }
 
-const Form = factory<FormProps>('form');
+const Form = createHostComponent<FormProps>('form');
 
 export default Form;

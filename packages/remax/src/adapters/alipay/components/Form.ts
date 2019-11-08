@@ -1,5 +1,5 @@
 import * as React from 'react';
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface FormProps {
   readonly dataset?: DOMStringMap;
@@ -9,6 +9,6 @@ export interface FormProps {
   onSubmit?: (e: any) => void;
   onReset?: (e: any) => void;
 }
-const Form = factory<FormProps>('form');
+const Form = createHostComponent<FormProps>('form');
 
 export default Form;

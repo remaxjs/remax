@@ -7,6 +7,7 @@ var React = require('react');
 var React__default = _interopDefault(React);
 require('../npm/remax/esm/createAppConfig.js');
 var Platform = require('../npm/remax/esm/Platform.js');
+require('../npm/remax/esm/createHostComponent.js');
 require('../npm/remax/esm/createPageConfig.js');
 require('../npm/remax/esm/index.js');
 var index$1 = require('../npm/remax/esm/adapters/alipay/components/index.js');

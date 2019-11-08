@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface LifestyleProps {
   readonly dataset?: DOMStringMap;
@@ -6,6 +6,6 @@ export interface LifestyleProps {
   onFollow?: (e: any) => void;
 }
 
-const Lifestyle = factory<LifestyleProps>('lifestyle');
+const Lifestyle = createHostComponent<LifestyleProps>('lifestyle');
 
 export default Lifestyle;

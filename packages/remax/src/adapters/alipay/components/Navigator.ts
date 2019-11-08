@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface NavigatorProps {
   readonly dataset?: DOMStringMap;
@@ -16,6 +16,6 @@ export interface NavigatorProps {
   url: string;
 }
 
-const Navigator = factory<NavigatorProps>('navigator');
+const Navigator = createHostComponent<NavigatorProps>('navigator');
 
 export default Navigator;

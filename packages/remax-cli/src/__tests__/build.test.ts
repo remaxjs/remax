@@ -22,6 +22,22 @@ describe('build', () => {
     path.resolve(__dirname, `./fixtures/universe/expected/toutiao`)
   );
 
+  runTest(
+    'createHostComponent',
+    'alipay',
+    path.resolve(__dirname, `./fixtures/createHostComponent/expected/alipay`)
+  );
+  runTest(
+    'createHostComponent',
+    'wechat',
+    path.resolve(__dirname, `./fixtures/createHostComponent/expected/wechat`)
+  );
+  runTest(
+    'createHostComponent',
+    'toutiao',
+    path.resolve(__dirname, `./fixtures/createHostComponent/expected/toutiao`)
+  );
+
   runTest('customRootDir');
   runTest('disablePxToRpx');
   runTest('babelrc');

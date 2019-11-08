@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const CoverImage = factory<CoverImageProps>('cover-image');
+const CoverImage = createHostComponent<CoverImageProps>('cover-image');
 
 export interface CoverImageProps extends BaseProps {
   /** 图标路径，支持临时路径、网络地址（1.6.0起支持）、云文件ID（2.2.3起支持）。暂不支持base64格式。 1.4.0  */

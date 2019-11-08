@@ -1,5 +1,5 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
-const PickerViewColumn = factory('picker-view-column');
+const PickerViewColumn = createHostComponent('picker-view-column');
 
 export default PickerViewColumn;

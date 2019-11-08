@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const Progress = factory<ProgressProps>('progress');
+const Progress = createHostComponent<ProgressProps>('progress');
 
 export interface ProgressProps extends BaseProps {
   /** 百分比0~100 1.0.0 */

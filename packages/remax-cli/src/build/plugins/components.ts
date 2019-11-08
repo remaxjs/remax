@@ -1,7 +1,4 @@
 import * as t from '@babel/types';
-import * as PATH from 'path';
-import winPath from '../../winPath';
-import fs from 'fs';
 import { NodePath } from '@babel/traverse';
 import { kebabCase, cloneDeep } from 'lodash';
 import { Adapter } from '../adapters';
@@ -68,7 +65,11 @@ export function addToComponentCollection<T extends Component>(
   });
 }
 
-function shouldRegisterAllProps(node?: t.JSXElement) {
+function shouldRegisterAllProps(node?: t.JSXElement, force?: boolean) {
+  if (force) {
+    return true;
+  }
+
   if (!node) {
     return false;
   }
@@ -87,16 +88,18 @@ function registerProps(
   adapter: Adapter,
   node?: t.JSXElement
 ) {
-  const hostComponent = adapter.hostComponents(componentName);
+  const hostComponent = adapter.hostComponents.get(componentName);
 
-  /* istanbul ignore next */
   if (!hostComponent) {
     return;
   }
 
   let usedProps = hostComponent.props.slice();
 
-  if (adapter.name !== 'alipay' && !shouldRegisterAllProps(node)) {
+  if (
+    adapter.name !== 'alipay' &&
+    !shouldRegisterAllProps(node, hostComponent.additional)
+  ) {
     usedProps = [];
   }
 
@@ -201,13 +204,13 @@ export default (adapter: Adapter) => {
           if (
             !componentPath ||
             !t.isImportSpecifier(componentPath.node) ||
-            !t.isImportDeclaration(componentPath.parent) ||
-            !componentPath.parent.source.value.startsWith('remax/')
+            !t.isImportDeclaration(componentPath.parent)
           ) {
             return;
           }
 
-          const componentName = componentPath.node.imported.name;
+          const componentName = (componentPath.node as t.ImportSpecifier)
+            .imported.name;
           const id = kebabCase(componentName);
 
           registerComponent({
@@ -223,17 +226,12 @@ export default (adapter: Adapter) => {
 };
 
 function getAlipayComponents(adapter: Adapter) {
-  const DIR_PATH = winPath(
-    PATH.resolve(__dirname, '../adapters/alipay/hostComponents')
-  );
-  const files = fs.readdirSync(DIR_PATH);
-  files.forEach(file => {
-    const name = PATH.basename(file).replace(PATH.extname(file), '');
+  for (const name of adapter.hostComponents.keys()) {
     registerComponent({
       componentName: name,
       adapter,
     });
-  });
+  }
 
   return convertComponents(importers);
 }
@@ -242,6 +240,15 @@ export function getComponents(adapter: Adapter) {
   if (adapter.name === 'alipay') {
     return getAlipayComponents(adapter);
   }
+
+  adapter.hostComponents.forEach((component, componentName) => {
+    if (component.additional) {
+      registerComponent({
+        componentName,
+        adapter,
+      });
+    }
+  });
 
   return convertComponents(importers);
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface ButtonProps {
   readonly dataset?: DOMStringMap;
@@ -25,6 +25,6 @@ export interface ButtonProps {
   onGetAuthorize?: (e: any) => void;
   onError?: (e: any) => void;
 }
-export const Button = factory<ButtonProps>('button');
+export const Button = createHostComponent<ButtonProps>('button');
 
 export default Button;

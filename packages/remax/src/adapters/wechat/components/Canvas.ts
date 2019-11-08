@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const Canvas = factory<CanvasProps>('canvas');
+const Canvas = createHostComponent<CanvasProps>('canvas');
 
 export interface CanvasProps extends BaseProps {
   /** 指定 canvas 类型，当前仅支持 webgl 2.7.0 */

@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface ContactButtonProps {
   readonly dataset?: DOMStringMap;
@@ -10,6 +10,8 @@ export interface ContactButtonProps {
   alipayCardNo?: string;
 }
 
-const ContractButton = factory<ContactButtonProps>('contact-button');
+const ContractButton = createHostComponent<ContactButtonProps>(
+  'contact-button'
+);
 
 export default ContractButton;

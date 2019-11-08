@@ -1,4 +1,5 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
 interface Node {
   name: string;
@@ -6,10 +7,10 @@ interface Node {
   children?: Node[];
 }
 
-export interface RichText {
+export interface RichText extends BaseProps {
   nodes?: Node | string;
 }
 
-const RichText = factory<RichText>('rich-text');
+const RichText = createHostComponent<RichText>('rich-text');
 
 export default RichText;

@@ -1,10 +1,10 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface SwiperItemProps {
   readonly dataset?: DOMStringMap;
   key: string;
 }
 
-const SwiperItem = factory<SwiperItemProps>('swiper-item');
+const SwiperItem = createHostComponent<SwiperItemProps>('swiper-item');
 
 export default SwiperItem;

@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const Editor = factory<EditorProps>('editor');
+const Editor = createHostComponent<EditorProps>('editor');
 
 export interface EditorProps extends BaseProps {
   /** 设置编辑器为只读 2.7.0  */

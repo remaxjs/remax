@@ -1,5 +1,5 @@
 import * as React from 'react';
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface CanvasProps {
   readonly dataset?: DOMStringMap;
@@ -16,6 +16,6 @@ export interface CanvasProps {
   onTouchCancel?: (e: any) => void;
   onLongTap?: (e: any) => void;
 }
-const Canvas = factory<CanvasProps>('canvas');
+const Canvas = createHostComponent<CanvasProps>('canvas');
 
 export default Canvas;

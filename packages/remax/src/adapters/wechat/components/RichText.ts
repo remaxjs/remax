@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const RichText = factory<RichTextProps>('rich-text');
+const RichText = createHostComponent<RichTextProps>('rich-text');
 
 export interface RichTextProps extends BaseProps {
   /** 节点列表/HTML String 1.4.0 */
