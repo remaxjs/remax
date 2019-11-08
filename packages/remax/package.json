@@ -50,8 +50,7 @@
     "react": "^16.8.6",
     "react-test-renderer": "^16.9.0",
     "ts-jest": "^24.0.2",
-    "typescript": "^3.5.2",
-    "umi": "^2.8.11"
+    "typescript": "^3.5.2"
   },
   "gitHead": "28ef4f50ef3c134c4e661d786ebea4d7c4ea89ed"
 }
