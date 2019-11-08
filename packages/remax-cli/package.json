@@ -71,6 +71,7 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.0.3",
     "rollup-plugin-progress": "^1.1.1",
+    "semver": "^6.3.0",
     "slash2": "^2.0.0",
     "yargs": "^13.2.4"
   },
