@@ -28,7 +28,7 @@ const generatorPlace = (
 
 export const checkRemaxVersion = () => {
   try {
-    const cliPackagePath: string = path.join(__dirname, '..', 'package.json');
+    const cliPackagePath: string = require.resolve('../package.json');
     const remaxPackagePath: string = path.join(
       process.cwd(),
       'node_modules',
