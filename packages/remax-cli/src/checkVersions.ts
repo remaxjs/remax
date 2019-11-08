@@ -40,7 +40,7 @@ export const checkRemaxVersion = () => {
       const cliPkgConfig = require(cliPackagePath);
       const remaxVersion = remaxPkgConfig.version;
 
-      if (semver.lt(remaxVersion, cliPkgConfig.version)) {
+      if (semver.neq(remaxVersion, cliPkgConfig.version)) {
         const placeholder =
           '*                                                     *';
         const origin =
