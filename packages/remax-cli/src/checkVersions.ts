@@ -29,38 +29,39 @@ const generatorPlace = (
 export const checkRemaxVersion = () => {
   try {
     const cliPackagePath: string = path.join(__dirname, '..', 'package.json');
-    const remaxPackagePath: string = path.join(process.cwd(), 'package.json');
+    const remaxPackagePath: string = path.join(
+      process.cwd(),
+      'node_modules',
+      'remax',
+      'package.json'
+    );
     if (fs.existsSync(remaxPackagePath)) {
       const remaxPkgConfig = require(remaxPackagePath);
       const cliPkgConfig = require(cliPackagePath);
-      if (remaxPkgConfig.dependencies && remaxPkgConfig.dependencies['remax']) {
-        const remaxVersion = remaxPkgConfig.dependencies['remax'].replace(
-          /^./,
-          ''
-        );
-        if (semver.lt(remaxVersion, cliPkgConfig.version)) {
-          const placeholder =
-            '*                                                     *';
-          const origin =
-            '*                                                               *';
-          const remax = 'remax:    ' + chalk.red(remaxVersion);
-          const remaxCLI = 'remax-cli: ' + chalk.green(cliPkgConfig.version);
-          const longLength =
-            remax.length > remaxCLI.length ? remax.length : remaxCLI.length;
+      const remaxVersion = remaxPkgConfig.version;
 
-          const warning = chalk.yellow(`remax-cli 版本与 remax 版本不匹配`);
-          const upgrade = chalk.yellow(`请升级 remax 版本`);
+      if (semver.lt(remaxVersion, cliPkgConfig.version)) {
+        const placeholder =
+          '*                                                     *';
+        const origin =
+          '*                                                               *';
+        const remax = 'remax:    ' + chalk.red(remaxVersion);
+        const remaxCLI = 'remax-cli: ' + chalk.green(cliPkgConfig.version);
+        const longLength =
+          remax.length > remaxCLI.length ? remax.length : remaxCLI.length;
 
-          console.log(generatorStar(55));
-          console.log(placeholder);
-          console.log('*', `         ${warning}         `, '*');
-          console.log('*', `                 ${upgrade}                 `, '*');
-          console.log(placeholder);
-          console.log(generatorPlace(origin, remax, longLength));
-          console.log(generatorPlace(origin, remaxCLI, longLength));
-          console.log(placeholder);
-          console.log(generatorStar(55));
-        }
+        const warning = chalk.yellow(`remax-cli 版本与 remax 版本不匹配`);
+        const upgrade = chalk.yellow(`请升级 remax 版本`);
+
+        console.log(generatorStar(55));
+        console.log(placeholder);
+        console.log('*', `         ${warning}         `, '*');
+        console.log('*', `                 ${upgrade}                 `, '*');
+        console.log(placeholder);
+        console.log(generatorPlace(origin, remax, longLength));
+        console.log(generatorPlace(origin, remaxCLI, longLength));
+        console.log(placeholder);
+        console.log(generatorStar(55));
       }
     }
   } catch (err) {
