@@ -6,31 +6,7 @@ export interface PromisifyArgs<SuccessArg, FailArg> {
 function promisify<Arg = any, SuccessArg = any, FailArg = any>(
   api: (arg: Arg & PromisifyArgs<SuccessArg, FailArg>) => void
 ) {
-  return (arg: Arg & PromisifyArgs<SuccessArg, FailArg>) => {
-    return new Promise<SuccessArg>((resolve, reject) => {
-      api({
-        ...arg,
-        success: (res: SuccessArg) => {
-          if (arg && typeof arg.success === 'function') {
-            arg.success(res);
-          }
-          resolve(res);
-        },
-        fail: (res: FailArg) => {
-          if (arg && typeof arg.fail === 'function') {
-            arg.fail(res);
-          }
-          reject(res);
-        },
-      });
-    });
-  };
-}
-
-export function optionalPromisify<Arg = any, SuccessArg = any, FailArg = any>(
-  api: (arg?: Arg & PromisifyArgs<SuccessArg, FailArg>) => void
-) {
-  return (arg?: Arg & PromisifyArgs<SuccessArg, FailArg>) => {
+  return (arg: Arg & PromisifyArgs<SuccessArg, FailArg> = {} as Arg) => {
     return new Promise<SuccessArg>((resolve, reject) => {
       const promisifyArg: any = arg || {
         success: (res: SuccessArg) => {
