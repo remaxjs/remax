@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface RadioProps {
   readonly dataset?: DOMStringMap;
@@ -10,6 +10,6 @@ export interface RadioProps {
   color?: string;
 }
 
-const Radio = factory<RadioProps>('radio');
+const Radio = createHostComponent<RadioProps>('radio');
 
 export default Radio;

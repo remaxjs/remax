@@ -1,14 +1,15 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
 type Mode = 'selector' | 'multiSelector' | 'time' | 'date' | 'region';
 
-type PickerPropsMap = {
+interface PickerPropsMap extends BaseProps {
   selector: SelectorProps;
   multiSelector: MutiSelectorProps;
   time: TimeProps;
   date: DateProps;
   region: RegionProps;
-};
+}
 
 interface SelectorProps {
   range?: string[] | any[];
@@ -46,6 +47,6 @@ export type PickerProps<T> = T extends Mode
     } & PickerPropsMap[T]
   : never;
 
-const Picker = factory<PickerProps<Mode>>('picker');
+const Picker = createHostComponent<PickerProps<Mode>>('picker');
 
 export default Picker;

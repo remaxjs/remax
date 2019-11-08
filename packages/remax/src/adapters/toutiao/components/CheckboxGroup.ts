@@ -1,9 +1,10 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
-export interface CheckboxGroupProps {
+export interface CheckboxGroupProps extends BaseProps {
   onChange?: (e: any) => void;
 }
 
-const CheckboxGroup = factory<CheckboxGroupProps>('checkbox-group');
+const CheckboxGroup = createHostComponent<CheckboxGroupProps>('checkbox-group');
 
 export default CheckboxGroup;

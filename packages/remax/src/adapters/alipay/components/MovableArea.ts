@@ -1,5 +1,5 @@
 import * as React from 'react';
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface MovableAreaProps {
   readonly dataset?: DOMStringMap;
@@ -8,6 +8,6 @@ export interface MovableAreaProps {
   height: number;
 }
 
-const MovableArea = factory<MovableAreaProps>('movable-area');
+const MovableArea = createHostComponent<MovableAreaProps>('movable-area');
 
 export default MovableArea;

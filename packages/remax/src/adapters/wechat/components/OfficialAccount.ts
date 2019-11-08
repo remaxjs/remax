@@ -1,7 +1,9 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const OfficialAccount = factory<OfficialAccountProps>('official-account');
+const OfficialAccount = createHostComponent<OfficialAccountProps>(
+  'official-account'
+);
 
 export interface OfficialAccountProps extends BaseProps {
   /** 组件加载成功时触发 */

@@ -22,6 +22,7 @@ function preset(api: any, presetOption: PresetOption) {
   return {
     presets,
     plugins: [
+      require('babel-plugin-macros'),
       require('@babel/plugin-proposal-class-properties'),
       require('@babel/plugin-proposal-object-rest-spread'),
       require('@babel/plugin-syntax-jsx'),

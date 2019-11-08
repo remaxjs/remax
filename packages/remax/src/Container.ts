@@ -3,7 +3,8 @@ import { generate } from './instanceId';
 import { generate as generateActionId } from './actionId';
 import { FiberRoot } from 'react-reconciler';
 import Platform from './Platform';
-import propsAlias, { isHostComponent } from './propsAlias';
+import propsAlias from './propsAlias';
+import { isHostComponent } from './createHostComponent';
 
 function stringPath(path: Path) {
   return path.join('.');

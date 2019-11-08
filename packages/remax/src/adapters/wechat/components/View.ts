@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const View = factory<ViewProps>('view');
+const View = createHostComponent<ViewProps>('view');
 
 export interface ViewProps extends BaseProps {
   slot?: string;

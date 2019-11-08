@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface RadioGroupProps {
   readonly dataset?: DOMStringMap;
@@ -8,6 +8,6 @@ export interface RadioGroupProps {
   onChange?: (e: any) => void;
 }
 
-const RadioGroup = factory<RadioGroupProps>('radio-group');
+const RadioGroup = createHostComponent<RadioGroupProps>('radio-group');
 
 export default RadioGroup;

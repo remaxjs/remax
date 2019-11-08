@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface RichTextNode {
   readonly dataset?: DOMStringMap;
@@ -11,6 +11,6 @@ export interface RichTextNode {
 export interface RichTextProps {
   nodes?: RichTextNode[];
 }
-const RichText = factory<RichTextProps>('rich-text');
+const RichText = createHostComponent<RichTextProps>('rich-text');
 
 export default RichText;

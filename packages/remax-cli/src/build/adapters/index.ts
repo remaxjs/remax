@@ -1,3 +1,5 @@
+import { hostComponents } from 'remax/macro';
+
 export interface Adapter {
   name: string;
 
@@ -26,7 +28,7 @@ export interface Adapter {
     jsHelper?: string;
   };
 
-  hostComponents: (component: string) => { props: string[] } | false;
+  hostComponents: typeof hostComponents;
 
   getNativePropName: (key: string, isNative?: boolean) => string;
 

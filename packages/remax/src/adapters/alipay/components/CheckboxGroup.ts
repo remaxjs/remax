@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface CheckboxGroupProps {
   readonly dataset?: DOMStringMap;
@@ -8,6 +8,6 @@ export interface CheckboxGroupProps {
   onChange?: (e: any) => void;
 }
 
-const CheckboxGroup = factory<CheckboxGroupProps>('checkbox-group');
+const CheckboxGroup = createHostComponent<CheckboxGroupProps>('checkbox-group');
 
 export default CheckboxGroup;

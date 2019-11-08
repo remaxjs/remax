@@ -1,10 +1,11 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
-export interface WebViewProps {
+export interface WebViewProps extends BaseProps {
   src?: string;
   onMessage?: (e: any) => void;
 }
 
-const WebView = factory<WebViewProps>('web-view');
+const WebView = createHostComponent<WebViewProps>('web-view');
 
 export default WebView;

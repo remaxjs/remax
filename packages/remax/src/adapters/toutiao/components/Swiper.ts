@@ -1,6 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
-export interface SwiperProps {
+export interface SwiperProps extends BaseProps {
   indicatorDots?: boolean;
   indicatorColor?: string;
   indicatorActiveColor?: string;
@@ -16,6 +17,6 @@ export interface SwiperProps {
   onTransition?: (e: any) => void;
 }
 
-const Swiper = factory<SwiperProps>('swiper');
+const Swiper = createHostComponent<SwiperProps>('swiper');
 
 export default Swiper;

@@ -1,6 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
-export interface NavigatorProps {
+export interface NavigatorProps extends BaseProps {
   url: string;
   delta?: number;
   openType?: 'navigate' | 'redirect' | 'switchTab' | 'navigateBack';
@@ -10,6 +11,6 @@ export interface NavigatorProps {
   hoverStopPropagation?: boolean;
 }
 
-const Navigator = factory<NavigatorProps>('navigator');
+const Navigator = createHostComponent<NavigatorProps>('navigator');
 
 export default Navigator;

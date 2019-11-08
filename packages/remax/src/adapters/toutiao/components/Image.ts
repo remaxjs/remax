@@ -1,7 +1,8 @@
 import * as React from 'react';
-import factory from './factory';
+import { BaseProps } from './baseTyping';
+import createHostComponent from '../../../createHostComponent';
 
-export interface ImageProps {
+export interface ImageProps extends BaseProps {
   src?: string;
   mode?:
     | 'scaleToFill'
@@ -25,6 +26,6 @@ export interface ImageProps {
   onClick?: (e: any) => void;
   catchTap?: (e: any) => void;
 }
-const Image = factory<ImageProps>('image');
+const Image = createHostComponent<ImageProps>('image');
 
 export default Image;

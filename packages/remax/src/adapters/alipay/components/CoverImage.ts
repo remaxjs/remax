@@ -1,5 +1,5 @@
 import * as React from 'react';
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface CoverImageProps {
   readonly dataset?: DOMStringMap;
@@ -8,6 +8,6 @@ export interface CoverImageProps {
   src?: string;
   onTap?: (e: any) => void;
 }
-const CoverImage = factory<CoverImageProps>('cover-image');
+const CoverImage = createHostComponent<CoverImageProps>('cover-image');
 
 export default CoverImage;

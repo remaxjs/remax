@@ -1,8 +1,8 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { CSSProperties } from 'react';
 import { BaseProps } from './baseTyping';
 
-const PickerView = factory<PickerProps>('picker-view');
+const PickerView = createHostComponent<PickerProps>('picker-view');
 
 export interface PickerProps extends BaseProps {
   /** 数组中的数字依次表示 picker-view 内的 picker-view-column 选择的第几项（下标从 0 开始），数字大于 picker-view-column 可选项长度时，选择最后一项。 1.0.0 */

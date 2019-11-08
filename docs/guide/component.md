@@ -30,3 +30,46 @@ Remax
 ```html
 <view class="view" style="display: flex;" onTap="handleClick"></view>
 ```
+
+## 注册基础组件
+
+如果小程序添加了新的组件，而你所用的 Remax 版本还没提供该组件的支持，Remax 允许你自己创建一个新的基础组件。
+
+假设微信小程序新增了一个 `<foo-bar>` 组件，你可以这么做以让 Remax 提前支持：
+
+```jsx
+import { createHostComponent } from 'remax/macro';
+
+const FooBar = createHostComponent('foo-bar', ['foo']);
+
+function Page() {
+  return <FooBar foo="bar" />;
+}
+```
+
+如果你使用的是 TypeScript，还可以定义 `props` 类型：
+
+```jsx
+import { createHostComponent } from 'remax/macro';
+
+const FooBar = createHostComponent<{ foo: string; }>('foo-bar', ['foo]);
+
+function Page() {
+  return <FooBar foo="bar" />;
+}
+```
+
+> 组件名称和组件属性不能是动态变量，以下写法是错误的。
+
+```jsx
+import { createHostComponent } from 'remax/macro';
+
+const componentName = 'foo-bar';
+const props = ['foo'];
+// 必须直接写明组件名称和组件属性，不可用动态写法或变量传递的形式。
+const FooBar = createHostComponent(componentName, props);
+
+function Page() {
+  return <FooBar foo="bar" />;
+}
+```

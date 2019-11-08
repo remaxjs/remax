@@ -1,11 +1,12 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
-export interface TextProps {
+export interface TextProps extends BaseProps {
   selectable?: boolean;
   space?: string | boolean;
   decode?: boolean;
 }
 
-const Text = factory<TextProps>('text');
+const Text = createHostComponent<TextProps>('text');
 
 export default Text;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface ScrollViewProps {
   readonly dataset?: DOMStringMap;
@@ -26,6 +26,6 @@ export interface ScrollViewProps {
   onTouchCancel?: (e: any) => void;
 }
 
-const ScrollView = factory<ScrollViewProps>('scroll-view');
+const ScrollView = createHostComponent<ScrollViewProps>('scroll-view');
 
 export default ScrollView;

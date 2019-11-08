@@ -6,3 +6,4 @@ export { default as Platform } from '../../Platform';
 export * from '../../hooks';
 export * from './components';
 export * from './api';
+export { default as createHostComponent } from '../../createHostComponent';

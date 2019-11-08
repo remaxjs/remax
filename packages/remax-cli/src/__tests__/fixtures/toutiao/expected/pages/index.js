@@ -2,14 +2,12 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
 var _rollupPluginBabelHelpers = require('../_virtual/_rollupPluginBabelHelpers.js');
 require('../npm/remax/esm/render.js');
 var React = require('react');
-var React__default = _interopDefault(React);
 require('../npm/remax/esm/createAppConfig.js');
 require('../npm/remax/esm/Platform.js');
+require('../npm/remax/esm/createHostComponent.js');
 var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
 require('../npm/remax/esm/index.js');
 var View = require('../npm/remax/esm/adapters/toutiao/components/View.js');

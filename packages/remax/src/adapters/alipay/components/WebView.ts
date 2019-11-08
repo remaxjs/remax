@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface WebViewProps {
   readonly dataset?: DOMStringMap;
@@ -6,6 +6,6 @@ export interface WebViewProps {
   onMessage?: (e: any) => void;
 }
 
-const WebView = factory<WebViewProps>('web-view');
+const WebView = createHostComponent<WebViewProps>('web-view');
 
 export default WebView;

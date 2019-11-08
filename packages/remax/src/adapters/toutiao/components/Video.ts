@@ -1,6 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
-export interface VideoProps {
+export interface VideoProps extends BaseProps {
   src?: string;
   autoplay?: boolean;
   poster?: string;
@@ -12,6 +13,6 @@ export interface VideoProps {
   onFullscreenchange?: (e: any) => void;
 }
 
-const Video = factory<VideoProps>('video');
+const Video = createHostComponent<VideoProps>('video');
 
 export default Video;

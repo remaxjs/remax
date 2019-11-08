@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const Ad = factory<AdProps>('ad');
+const Ad = createHostComponent<AdProps>('ad');
 
 export interface AdProps extends BaseProps {
   /** 广告单元id，可在小程序管理后台的流量主模块新建 1.9.94; */

@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const LivePusher = factory<LivePusherProps>('live-pusher');
+const LivePusher = createHostComponent<LivePusherProps>('live-pusher');
 
 export interface LivePusherProps extends BaseProps {
   /** 推流地址。目前仅支持 flv, rtmp 格式 1.7.0  */

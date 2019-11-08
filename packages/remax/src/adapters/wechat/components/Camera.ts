@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const Camera = factory<CameraProps>('camera');
+const Camera = createHostComponent<CameraProps>('camera');
 
 export interface CameraProps extends BaseProps {
   /** (default: normal) 应用模式，只在初始化时有效，不能动态变更 2.1.0  */

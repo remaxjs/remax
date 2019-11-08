@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface SliderProps {
   readonly dataset?: DOMStringMap;
@@ -19,6 +19,6 @@ export interface SliderProps {
   onChange?: (e: any) => void;
   onChanging?: (e: any) => void;
 }
-const Slider = factory<SliderProps>('slider');
+const Slider = createHostComponent<SliderProps>('slider');
 
 export default Slider;

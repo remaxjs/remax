@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface CheckboxProps {
   readonly dataset?: DOMStringMap;
@@ -10,6 +10,6 @@ export interface CheckboxProps {
   color?: string;
   onChange?: (e: any) => void;
 }
-const Checkbox = factory<CheckboxProps>('checkbox');
+const Checkbox = createHostComponent<CheckboxProps>('checkbox');
 
 export default Checkbox;

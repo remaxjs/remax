@@ -1,4 +1,5 @@
-import propsAlias, { getAlias, isHostComponent } from '../propsAlias';
+import propsAlias, { getAlias } from '../propsAlias';
+import { isHostComponent } from '../createHostComponent';
 import { TYPE_TEXT } from '../constants';
 
 describe('propsAlias', () => {

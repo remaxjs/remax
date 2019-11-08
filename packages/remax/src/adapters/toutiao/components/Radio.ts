@@ -1,12 +1,13 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
-export interface RadioProps {
+export interface RadioProps extends BaseProps {
   value?: string;
   checked?: boolean;
   disabled?: boolean;
   color?: string;
 }
 
-const Radio = factory<RadioProps>('radio');
+const Radio = createHostComponent<RadioProps>('radio');
 
 export default Radio;

@@ -33,6 +33,7 @@
     "@remax/miniprogram-api-typings": "^2.8.4",
     "lodash.kebabcase": "^4.1.1",
     "react-reconciler": "0.20.4",
+    "remax.macro": "^0.0.3",
     "scheduler": "0.13.6",
     "shallowequal": "^1.1.0"
   },

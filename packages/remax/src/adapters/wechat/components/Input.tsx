@@ -5,7 +5,9 @@ import React, {
   forwardRef,
 } from 'react';
 import { BaseProps } from './baseTyping';
-import { addToHostComponent } from './factory';
+import createHostComponent from '../../../createHostComponent';
+
+const hostComponentName = 'input';
 
 export interface InputProps extends BaseProps {
   /**
@@ -183,7 +185,7 @@ const InputRender: FunctionComponent<InputProps> = (props, ref) => {
     ref,
   };
 
-  return React.createElement('input', inputProps, children);
+  return React.createElement(hostComponentName, inputProps, children);
 };
 
 const Input = forwardRef(InputRender);
@@ -195,6 +197,4 @@ Input.defaultProps = {
   selectionStart: 999,
 };
 
-addToHostComponent('input');
-
-export default Input;
+export default createHostComponent(hostComponentName, Input);

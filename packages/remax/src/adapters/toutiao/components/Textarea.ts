@@ -1,6 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
-export interface TextareaProps {
+export interface TextareaProps extends BaseProps {
   value?: string;
   placeholder?: string;
   placeholderStyle?: string;
@@ -19,6 +20,6 @@ export interface TextareaProps {
   onConfirm?: (e: any) => void;
 }
 
-const Textarea = factory<TextareaProps>('textarea');
+const Textarea = createHostComponent<TextareaProps>('textarea');
 
 export default Textarea;

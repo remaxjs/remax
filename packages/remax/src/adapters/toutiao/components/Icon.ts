@@ -1,5 +1,7 @@
-import factory from './factory';
-export interface IconProps {
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
+
+export interface IconProps extends BaseProps {
   type:
     | 'info'
     | 'warn'
@@ -14,6 +16,6 @@ export interface IconProps {
   size?: number;
   color?: string;
 }
-const Icon = factory<IconProps>('icon');
+const Icon = createHostComponent<IconProps>('icon');
 
 export default Icon;

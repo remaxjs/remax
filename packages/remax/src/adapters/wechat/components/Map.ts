@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const Map = factory<MapProps>('map');
+const Map = createHostComponent<MapProps>('map');
 
 export interface MapProps extends BaseProps {
   /** 中心经度 1.0.0 */

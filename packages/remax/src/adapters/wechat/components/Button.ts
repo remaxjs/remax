@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const Button = factory<ButtonProps>('button');
+const Button = createHostComponent<ButtonProps>('button');
 
 export interface ButtonProps extends BaseProps {
   /**

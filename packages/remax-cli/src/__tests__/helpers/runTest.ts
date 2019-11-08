@@ -9,6 +9,9 @@ export default function runTest(
   it(
     `build ${app} target ${target}`,
     async () => {
+      const hostComponents = require(`../../build/adapters/${target}/hostComponents`);
+      hostComponents.default.clear();
+      hostComponents.register();
       process.env['REMAX_APP_TEST_VAL'] = `${app} test`;
 
       const result = await build(app, target);

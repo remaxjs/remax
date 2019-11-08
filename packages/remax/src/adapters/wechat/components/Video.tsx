@@ -1,6 +1,8 @@
 import React, { FunctionComponent, forwardRef } from 'react';
-import { addToHostComponent } from './factory';
 import { BaseProps } from './baseTyping';
+import createHostComponent from '../../../createHostComponent';
+
+const hostComponentName = 'video';
 
 export interface VideoProps extends BaseProps {
   /** 要播放视频的资源地址，支持云文件ID（2.3.0） 1.0.0 */
@@ -81,7 +83,7 @@ const VideoRender: FunctionComponent<VideoProps> = (props, ref) => {
     ref,
   };
 
-  return React.createElement('video', videoProps, children);
+  return React.createElement(hostComponentName, videoProps, children);
 };
 
 /**
@@ -113,6 +115,4 @@ Video.defaultProps = {
   vslideGestureInFullscreen: true,
 };
 
-addToHostComponent('video');
-
-export default Video;
+export default createHostComponent(hostComponentName, Video);

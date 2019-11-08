@@ -1,19 +1,12 @@
 import * as path from 'path';
 import { getAlias } from 'remax/cjs/propsAlias';
+export { default as hostComponents } from './hostComponents';
 
 export function getNativePropName(props: any, isNative = false) {
   return getAlias(props, isNative, 'wechat');
 }
 
 export const name = 'wechat';
-
-export function hostComponents(component: string) {
-  try {
-    return require(`./hostComponents/${component}`);
-  } catch (err) {
-    return false;
-  }
-}
 
 export const extensions = {
   template: {

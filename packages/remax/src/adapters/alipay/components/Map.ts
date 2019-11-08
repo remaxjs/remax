@@ -1,5 +1,5 @@
 import * as React from 'react';
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface MapMarker {
   readonly dataset?: DOMStringMap;
@@ -136,6 +136,6 @@ export interface Map extends MapCoordinate {
   onRegionChange?: (e: any) => void;
   onTap?: (e: any) => void;
 }
-const Map = factory<Map>('map');
+const Map = createHostComponent<Map>('map');
 
 export default Map;

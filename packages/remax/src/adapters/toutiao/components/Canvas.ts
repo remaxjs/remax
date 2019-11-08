@@ -1,9 +1,10 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
+import { BaseProps } from './baseTyping';
 
-export interface CanvasProps {
+export interface CanvasProps extends BaseProps {
   cavasId: string;
 }
 
-const Canvas = factory<CanvasProps>('canvas');
+const Canvas = createHostComponent<CanvasProps>('canvas');
 
 export default Canvas;

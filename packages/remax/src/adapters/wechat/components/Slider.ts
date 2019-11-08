@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const Slider = factory<SliderProps>('slider');
+const Slider = createHostComponent<SliderProps>('slider');
 
 export interface SliderProps extends BaseProps {
   /** (default: 0) 最小值 1.0.0 */

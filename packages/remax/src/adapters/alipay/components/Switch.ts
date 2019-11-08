@@ -1,4 +1,4 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface SwitchProps {
   readonly dataset?: DOMStringMap;
@@ -12,6 +12,6 @@ export interface SwitchProps {
   onChange?: (e: any) => void;
 }
 
-const Switch = factory<SwitchProps>('switch');
+const Switch = createHostComponent<SwitchProps>('switch');
 
 export default Switch;

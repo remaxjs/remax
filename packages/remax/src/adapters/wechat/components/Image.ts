@@ -1,7 +1,7 @@
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from './baseTyping';
 
-const Image = factory<ImageProps>('image');
+const Image = createHostComponent<ImageProps>('image');
 
 export interface ImageProps extends BaseProps {
   /**

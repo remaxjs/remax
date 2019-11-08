@@ -1,5 +1,5 @@
 import * as React from 'react';
-import factory from './factory';
+import createHostComponent from '../../../createHostComponent';
 
 export interface TextProps {
   readonly dataset?: DOMStringMap;
@@ -11,6 +11,6 @@ export interface TextProps {
   decode?: boolean;
   numberOfLines?: number;
 }
-const Text = factory<TextProps>('text');
+const Text = createHostComponent<TextProps>('text');
 
 export default Text;
