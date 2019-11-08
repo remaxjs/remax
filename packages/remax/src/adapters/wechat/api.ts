@@ -1,4 +1,4 @@
-import promisify, { optionalPromisify } from '../../utils/promisify';
+import promisify from '../../utils/promisify';
 
 export const getAppStub = getApp;
 
@@ -6,7 +6,7 @@ export const canIUse = wx.canIUse;
 export const base64ToArrayBuffer = wx.base64ToArrayBuffer;
 export const arrayBufferToBase64 = wx.arrayBufferToBase64;
 export const getSystemInfoSync = wx.getSystemInfoSync;
-export const getSystemInfo = optionalPromisify(wx.getSystemInfo);
+export const getSystemInfo = promisify(wx.getSystemInfo);
 export const getUpdateManager = wx.getUpdateManager;
 export const getLaunchOptionsSync = wx.getLaunchOptionsSync;
 export const onPageNotFound = wx.onPageNotFound;
@@ -26,34 +26,30 @@ export const switchTab = promisify(wx.switchTab);
 export const reLaunch = promisify(wx.reLaunch);
 export const redirectTo = promisify(wx.redirectTo);
 export const navigateTo = promisify(wx.navigateTo);
-export const navigateBack = optionalPromisify(wx.navigateBack);
+export const navigateBack = promisify(wx.navigateBack);
 export const showToast = promisify(wx.showToast);
 export const showModal = promisify(wx.showModal);
 export const showLoading = promisify(wx.showLoading);
 export const showActionSheet = promisify(wx.showActionSheet);
-export const hideToast = optionalPromisify(wx.hideToast);
-export const hideLoading = optionalPromisify(wx.hideLoading);
-export const showNavigationBarLoading = optionalPromisify(
-  wx.showNavigationBarLoading
-);
+export const hideToast = promisify(wx.hideToast);
+export const hideLoading = promisify(wx.hideLoading);
+export const showNavigationBarLoading = promisify(wx.showNavigationBarLoading);
 export const setNavigationBarTitle = promisify(wx.setNavigationBarTitle);
 export const setNavigationBarColor = promisify(wx.setNavigationBarColor);
-export const hideNavigationBarLoading = optionalPromisify(
-  wx.hideNavigationBarLoading
-);
+export const hideNavigationBarLoading = promisify(wx.hideNavigationBarLoading);
 export const setBackgroundTextStyle = promisify(wx.setBackgroundTextStyle);
 export const setBackgroundColor = promisify(wx.setBackgroundColor);
 export const showTabBarRedDot = promisify(wx.showTabBarRedDot);
 export const showTabBar = promisify(wx.showTabBar);
-export const setTabBarStyle = optionalPromisify(wx.setTabBarStyle);
+export const setTabBarStyle = promisify(wx.setTabBarStyle);
 export const setTabBarItem = promisify(wx.setTabBarItem);
 export const setTabBarBadge = promisify(wx.setTabBarBadge);
 export const removeTabBarBadge = promisify(wx.removeTabBarBadge);
 export const hideTabBarRedDot = promisify(wx.hideTabBarRedDot);
 export const hideTabBar = promisify(wx.hideTabBar);
 export const loadFontFace = promisify(wx.loadFontFace);
-export const stopPullDownRefresh = optionalPromisify(wx.stopPullDownRefresh);
-export const startPullDownRefresh = optionalPromisify(wx.startPullDownRefresh);
+export const stopPullDownRefresh = promisify(wx.stopPullDownRefresh);
+export const startPullDownRefresh = promisify(wx.startPullDownRefresh);
 export const pageScrollTo = promisify(wx.pageScrollTo);
 export const createAnimation = wx.createAnimation;
 export const setTopBarText = promisify(wx.setTopBarText);
@@ -73,8 +69,8 @@ export const onSocketMessage = wx.onSocketMessage;
 export const onSocketError = wx.onSocketError;
 export const onSocketClose = wx.onSocketClose;
 export const connectSocket = promisify(wx.connectSocket);
-export const closeSocket = optionalPromisify(wx.closeSocket);
-export const stopLocalServiceDiscovery = optionalPromisify(
+export const closeSocket = promisify(wx.closeSocket);
+export const stopLocalServiceDiscovery = promisify(
   wx.stopLocalServiceDiscovery
 );
 export const startLocalServiceDiscovery = promisify(
@@ -95,10 +91,10 @@ export const removeStorageSync = wx.removeStorageSync;
 export const removeStorage = promisify(wx.removeStorage);
 export const getStorageSync = wx.getStorageSync;
 export const getStorageInfoSync = wx.getStorageInfoSync;
-export const getStorageInfo = optionalPromisify(wx.getStorageInfo);
+export const getStorageInfo = promisify(wx.getStorageInfo);
 export const getStorage = promisify(wx.getStorage);
 export const clearStorageSync = wx.clearStorageSync;
-export const clearStorage = optionalPromisify(wx.clearStorage);
+export const clearStorage = promisify(wx.clearStorage);
 export const createMapContext = wx.createMapContext;
 export const saveImageToPhotosAlbum = promisify(wx.saveImageToPhotosAlbum);
 export const previewImage = promisify(wx.previewImage);
@@ -109,44 +105,42 @@ export const chooseImage = promisify(wx.chooseImage);
 export const saveVideoToPhotosAlbum = promisify(wx.saveVideoToPhotosAlbum);
 export const createVideoContext = wx.createVideoContext;
 export const chooseVideo = promisify(wx.chooseVideo);
-export const stopVoice = optionalPromisify(wx.stopVoice);
+export const stopVoice = promisify(wx.stopVoice);
 export const setInnerAudioOption = promisify(wx.setInnerAudioOption);
 export const playVoice = promisify(wx.playVoice);
-export const pauseVoice = optionalPromisify(wx.pauseVoice);
-export const getAvailableAudioSources = optionalPromisify(
-  wx.getAvailableAudioSources
-);
+export const pauseVoice = promisify(wx.pauseVoice);
+export const getAvailableAudioSources = promisify(wx.getAvailableAudioSources);
 export const createInnerAudioContext = wx.createInnerAudioContext;
 export const createAudioContext = wx.createAudioContext;
-export const stopBackgroundAudio = optionalPromisify(wx.stopBackgroundAudio);
+export const stopBackgroundAudio = promisify(wx.stopBackgroundAudio);
 export const seekBackgroundAudio = promisify(wx.seekBackgroundAudio);
 export const playBackgroundAudio = promisify(wx.playBackgroundAudio);
-export const pauseBackgroundAudio = optionalPromisify(wx.pauseBackgroundAudio);
+export const pauseBackgroundAudio = promisify(wx.pauseBackgroundAudio);
 export const onBackgroundAudioStop = wx.onBackgroundAudioStop;
 export const onBackgroundAudioPlay = wx.onBackgroundAudioPlay;
 export const onBackgroundAudioPause = wx.onBackgroundAudioPause;
-export const getBackgroundAudioPlayerState = optionalPromisify(
+export const getBackgroundAudioPlayerState = promisify(
   wx.getBackgroundAudioPlayerState
 );
 export const getBackgroundAudioManager = wx.getBackgroundAudioManager;
 export const createLivePusherContext = wx.createLivePusherContext;
 export const createLivePlayerContext = wx.createLivePlayerContext;
-export const stopRecord = optionalPromisify(wx.stopRecord);
+export const stopRecord = promisify(wx.stopRecord);
 export const startRecord = promisify(wx.startRecord);
 export const getRecorderManager = wx.getRecorderManager;
 export const createCameraContext = wx.createCameraContext;
-export const stopLocationUpdate = optionalPromisify(wx.stopLocationUpdate);
-export const startLocationUpdateBackground = optionalPromisify(
+export const stopLocationUpdate = promisify(wx.stopLocationUpdate);
+export const startLocationUpdateBackground = promisify(
   wx.startLocationUpdateBackground
 );
-export const startLocationUpdate = optionalPromisify(wx.startLocationUpdate);
+export const startLocationUpdate = promisify(wx.startLocationUpdate);
 export const openLocation = promisify(wx.openLocation);
 export const onLocationChange = wx.onLocationChange;
 export const getLocation = promisify(wx.getLocation);
-export const chooseLocation = optionalPromisify(wx.chooseLocation);
+export const chooseLocation = promisify(wx.chooseLocation);
 export const updateShareMenu = promisify(wx.updateShareMenu);
 export const showShareMenu = promisify(wx.showShareMenu);
-export const hideShareMenu = optionalPromisify(wx.hideShareMenu);
+export const hideShareMenu = promisify(wx.hideShareMenu);
 export const getShareInfo = promisify(wx.getShareInfo);
 export const createOffscreenCanvas = wx.createOffscreenCanvas;
 export const createCanvasContext = wx.createCanvasContext;
@@ -156,12 +150,12 @@ export const canvasGetImageData = promisify(wx.canvasGetImageData);
 export const saveFile = promisify(wx.saveFile);
 export const removeSavedFile = promisify(wx.removeSavedFile);
 export const openDocument = promisify(wx.openDocument);
-export const getSavedFileList = optionalPromisify(wx.getSavedFileList);
+export const getSavedFileList = promisify(wx.getSavedFileList);
 export const getSavedFileInfo = promisify(wx.getSavedFileInfo);
 export const getFileSystemManager = wx.getFileSystemManager;
 export const getFileInfo = promisify(wx.getFileInfo);
-export const login = optionalPromisify(wx.login);
-export const checkSession = optionalPromisify(wx.checkSession);
+export const login = promisify(wx.login);
+export const checkSession = promisify(wx.checkSession);
 export const navigateToMiniProgram = promisify(wx.navigateToMiniProgram);
 export const navigateBackMiniProgram = promisify(wx.navigateBackMiniProgram);
 export const getAccountInfoSync = wx.getAccountInfoSync;
@@ -170,33 +164,33 @@ export const reportMonitor = wx.reportMonitor;
 export const reportAnalytics = wx.reportAnalytics;
 export const requestPayment = promisify(wx.requestPayment);
 export const authorize = promisify(wx.authorize);
-export const openSetting = optionalPromisify(wx.openSetting);
-export const getSetting = optionalPromisify(wx.getSetting);
-export const chooseAddress = optionalPromisify(wx.chooseAddress);
+export const openSetting = promisify(wx.openSetting);
+export const getSetting = promisify(wx.getSetting);
+export const chooseAddress = promisify(wx.chooseAddress);
 export const openCard = promisify(wx.openCard);
 export const addCard = promisify(wx.addCard);
-export const chooseInvoiceTitle = optionalPromisify(wx.chooseInvoiceTitle);
-export const chooseInvoice = optionalPromisify(wx.chooseInvoice);
+export const chooseInvoiceTitle = promisify(wx.chooseInvoiceTitle);
+export const chooseInvoice = promisify(wx.chooseInvoice);
 export const startSoterAuthentication = promisify(wx.startSoterAuthentication);
-export const checkIsSupportSoterAuthentication = optionalPromisify(
+export const checkIsSupportSoterAuthentication = promisify(
   wx.checkIsSupportSoterAuthentication
 );
 export const checkIsSoterEnrolledInDevice = promisify(
   wx.checkIsSoterEnrolledInDevice
 );
-export const getWeRunData = optionalPromisify(wx.getWeRunData);
-export const stopBeaconDiscovery = optionalPromisify(wx.stopBeaconDiscovery);
+export const getWeRunData = promisify(wx.getWeRunData);
+export const stopBeaconDiscovery = promisify(wx.stopBeaconDiscovery);
 export const startBeaconDiscovery = promisify(wx.startBeaconDiscovery);
 export const onBeaconUpdate = wx.onBeaconUpdate;
 export const onBeaconServiceChange = wx.onBeaconServiceChange;
-export const getBeacons = optionalPromisify(wx.getBeacons);
-export const stopWifi = optionalPromisify(wx.stopWifi);
-export const startWifi = optionalPromisify(wx.startWifi);
+export const getBeacons = promisify(wx.getBeacons);
+export const stopWifi = promisify(wx.stopWifi);
+export const startWifi = promisify(wx.startWifi);
 export const setWifiList = promisify(wx.setWifiList);
 export const onWifiConnected = wx.onWifiConnected;
 export const onGetWifiList = wx.onGetWifiList;
-export const getWifiList = optionalPromisify(wx.getWifiList);
-export const getConnectedWifi = optionalPromisify(wx.getConnectedWifi);
+export const getWifiList = promisify(wx.getWifiList);
+export const getConnectedWifi = promisify(wx.getConnectedWifi);
 export const connectWifi = promisify(wx.connectWifi);
 export const addPhoneContact = promisify(wx.addPhoneContact);
 export const writeBLECharacteristicValue = promisify(
@@ -216,7 +210,7 @@ export const getBLEDeviceCharacteristics = promisify(
 );
 export const createBLEConnection = promisify(wx.createBLEConnection);
 export const closeBLEConnection = promisify(wx.closeBLEConnection);
-export const stopBluetoothDevicesDiscovery = optionalPromisify(
+export const stopBluetoothDevicesDiscovery = promisify(
   wx.stopBluetoothDevicesDiscovery
 );
 export const startBluetoothDevicesDiscovery = promisify(
@@ -228,52 +222,48 @@ export const onBluetoothAdapterStateChange = wx.onBluetoothAdapterStateChange;
 export const getConnectedBluetoothDevices = promisify(
   wx.getConnectedBluetoothDevices
 );
-export const getBluetoothDevices = optionalPromisify(wx.getBluetoothDevices);
-export const getBluetoothAdapterState = optionalPromisify(
-  wx.getBluetoothAdapterState
-);
-export const closeBluetoothAdapter = optionalPromisify(
-  wx.closeBluetoothAdapter
-);
+export const getBluetoothDevices = promisify(wx.getBluetoothDevices);
+export const getBluetoothAdapterState = promisify(wx.getBluetoothAdapterState);
+export const closeBluetoothAdapter = promisify(wx.closeBluetoothAdapter);
 export const getBatteryInfoSync = wx.getBatteryInfoSync;
-export const getBatteryInfo = optionalPromisify(wx.getBatteryInfo);
+export const getBatteryInfo = promisify(wx.getBatteryInfo);
 export const setClipboardData = promisify(wx.setClipboardData);
-export const getClipboardData = optionalPromisify(wx.getClipboardData);
-export const stopHCE = optionalPromisify(wx.stopHCE);
+export const getClipboardData = promisify(wx.getClipboardData);
+export const stopHCE = promisify(wx.stopHCE);
 export const startHCE = promisify(wx.startHCE);
 export const sendHCEMessage = promisify(wx.sendHCEMessage);
 export const onHCEMessage = wx.onHCEMessage;
-export const getHCEState = optionalPromisify(wx.getHCEState);
+export const getHCEState = promisify(wx.getHCEState);
 export const onNetworkStatusChange = wx.onNetworkStatusChange;
-export const getNetworkType = optionalPromisify(wx.getNetworkType);
+export const getNetworkType = promisify(wx.getNetworkType);
 export const setScreenBrightness = promisify(wx.setScreenBrightness);
 export const setKeepScreenOn = promisify(wx.setKeepScreenOn);
 export const onUserCaptureScreen = wx.onUserCaptureScreen;
-export const getScreenBrightness = optionalPromisify(wx.getScreenBrightness);
+export const getScreenBrightness = promisify(wx.getScreenBrightness);
 export const makePhoneCall = promisify(wx.makePhoneCall);
-export const stopAccelerometer = optionalPromisify(wx.stopAccelerometer);
+export const stopAccelerometer = promisify(wx.stopAccelerometer);
 export const startAccelerometer = promisify(wx.startAccelerometer);
 export const onAccelerometerChange = wx.onAccelerometerChange;
-export const stopCompass = optionalPromisify(wx.stopCompass);
-export const startCompass = optionalPromisify(wx.startCompass);
+export const stopCompass = promisify(wx.stopCompass);
+export const startCompass = promisify(wx.startCompass);
 export const onCompassChange = wx.onCompassChange;
-export const stopDeviceMotionListening = optionalPromisify(
+export const stopDeviceMotionListening = promisify(
   wx.stopDeviceMotionListening
 );
 export const startDeviceMotionListening = promisify(
   wx.startDeviceMotionListening
 );
 export const onDeviceMotionChange = wx.onDeviceMotionChange;
-export const stopGyroscope = optionalPromisify(wx.stopGyroscope);
+export const stopGyroscope = promisify(wx.stopGyroscope);
 export const startGyroscope = promisify(wx.startGyroscope);
 export const onGyroscopeChange = wx.onGyroscopeChange;
 export const onMemoryWarning = wx.onMemoryWarning;
 export const scanCode = promisify(wx.scanCode);
-export const vibrateShort = optionalPromisify(wx.vibrateShort);
-export const vibrateLong = optionalPromisify(wx.vibrateLong);
+export const vibrateShort = promisify(wx.vibrateShort);
+export const vibrateLong = promisify(wx.vibrateLong);
 export const createWorker = wx.createWorker;
 export const getExtConfigSync = wx.getExtConfigSync;
-export const getExtConfig = optionalPromisify(wx.getExtConfig);
+export const getExtConfig = promisify(wx.getExtConfig);
 export const createSelectorQuery = wx.createSelectorQuery;
 export const createIntersectionObserver = wx.createIntersectionObserver;
 export const createRewardedVideoAd = wx.createRewardedVideoAd;
