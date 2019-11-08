@@ -1,7 +1,9 @@
 import cli from 'yargs';
 import build from './build';
+import { checkRemaxVersion } from './checkVersions';
 
 export function run(args: any, context?: any) {
+  checkRemaxVersion();
   cli
     .scriptName('remax-cli')
     .usage('Usage: $0 <command> [options]')
