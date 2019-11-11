@@ -28,10 +28,10 @@ interface VNode {
 }
 ```
 
-- `id` - 节点 id，这是一个自增的唯一 id，用于标示节点。
+- `id` - 节点 id，这是一个自增的唯一 id，用于标识节点。
 - `container` - 类似 `ReactDOM.render(<App />, document.getElementById('root')` 中的第二个参数，Remax 中会把组件渲染到一个容器中，容器的作用是保存 `VNode` 的引用。
 - `children` - 子节点。
-- `mounted`- 标示节点是否已经显示到视图层上。
+- `mounted`- 标识节点是否已经显示到视图层上。
 - `type` - 节点的类型，也就是小程序中的基础组件，如：`view`、`text`等等。
 - `props` - 节点的属性。
 - `parent` - 父节点。
