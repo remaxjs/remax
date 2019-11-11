@@ -42,7 +42,9 @@ import '../npm/remax/esm/adapters/alipay/api.js';
 var _page = function _page() {
   return createElement(View, null, createElement(A, {
     foo: "bar"
-  }), createElement(B, null), createElement(C, null), createElement(D, null), createElement(E, null), createElement(Complex, null), createElement(PluginComponent, null), createElement(PluginComponent2, null));
+  }), createElement(B, null), createElement(C, null), createElement(D, null), createElement(E, null), createElement(Complex, null), createElement(PluginComponent, null), createElement(PluginComponent2, null), createElement(SlotComponent, null, createElement(View, {
+    slot: "inner"
+  })));
 };
 
 var index = Page(createPageConfig(_page));var A = function(props) {
@@ -90,6 +92,12 @@ var index = Page(createPageConfig(_page));var A = function(props) {
         };var PluginComponent2 = function(props) {
         return createElement(
             'my-plugin-7',
+            props,
+            props.children
+          );
+        };var SlotComponent = function(props) {
+        return createElement(
+            'slot-8',
             props,
             props.children
           );

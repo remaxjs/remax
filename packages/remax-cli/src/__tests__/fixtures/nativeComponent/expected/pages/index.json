@@ -7,6 +7,7 @@
     "e-4": "../components/e/index",
     "complex-5": "../components/complex/index",
     "my-plugin-6": "plugin://myPlugin/xx",
-    "my-plugin-7": "plugin://myPlugin/dddd"
+    "my-plugin-7": "plugin://myPlugin/dddd",
+    "slot-8": "../components/slot/index"
   }
 }
