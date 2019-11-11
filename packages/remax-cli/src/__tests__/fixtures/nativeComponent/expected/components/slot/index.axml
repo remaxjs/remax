@@ -1,0 +1,4 @@
+<view>
+  slot
+  <slot name="inner" />
+</view>
