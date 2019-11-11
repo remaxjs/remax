@@ -7,7 +7,7 @@
 	<strong>使用真正的 React 构建小程序</strong>
 </p>
 
-<p align="center">
+<p class="badges" align="center">
 	<a href="https://travis-ci.org/remaxjs/remax">
 		<img src="https://img.shields.io/travis/remaxjs/remax/master?style=flat-square" alt="Travis CI build status" />
 	</a>

@@ -649,3 +649,7 @@ img {
     padding-left: 0 !important;
   }
 }
+
+.badges a:not(:last-child) {
+  margin-right: 8px;
+}
