@@ -1,4 +1,5 @@
 export const props = [
+  'slot',
   'disable-scroll',
   'hover-class',
   'hover-start-time',
