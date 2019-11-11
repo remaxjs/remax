@@ -23,6 +23,37 @@ export default () => (
 
 ## 注意事项
 
+请按照自定义组件的定义方式声明属性（并非所有组件都采用驼峰的方式命名属性）。
+
+**错误：**
+
+```js
+import React from 'react';
+import { View } from 'remax/alipay';
+import VantIcon from 'vant-weapp/dist/icon';
+
+export default () => (
+  <View>
+    {/** vant-weapp 中 icon 的属性定义为  class-prefix，所以应遵循其命名规则 */}
+    <VantIcon name="close" classPrefix="custom-class-prefix" />
+  </View>
+);
+```
+
+**正确：**
+
+```js
+import React from 'react';
+import { View } from 'remax/alipay';
+import VantIcon from 'vant-weapp/dist/icon';
+
+export default () => (
+  <View>
+    <VantIcon name="close" class-prefix="custom-class-prefix" />
+  </View>
+);
+```
+
 对于带有具名 `slot` 的组件，具名 `slot` 部分的最外层只能用 `View` 组件。
 
 **错误：**
@@ -59,7 +90,6 @@ export default () => (
 
 不能在小程序自定义组件上使用 “Spread Attributes”。
 
-
 **错误：**
 
 ```js
@@ -79,7 +109,7 @@ export default () => {
       </Badge>
     </View>
   );
-}
+};
 ```
 
 **正确：**
@@ -97,5 +127,5 @@ export default () => {
       </Badge>
     </View>
   );
-}
+};
 ```
