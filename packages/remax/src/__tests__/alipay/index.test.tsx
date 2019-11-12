@@ -1,7 +1,8 @@
 import * as React from 'react';
 import './helpers/setupGlobals';
 import { render, View } from '../../../src/adapters/alipay';
-import { reset } from '../../instanceId';
+import { reset as resetInstanceId } from '../../instanceId';
+import { reset as resetActionId } from '../../actionId';
 import Container from '../../Container';
 
 const p = {
@@ -13,7 +14,8 @@ const p = {
 
 describe('remax render', () => {
   afterEach(() => {
-    reset();
+    resetActionId();
+    resetInstanceId();
   });
 
   it('render correctly', () => {
