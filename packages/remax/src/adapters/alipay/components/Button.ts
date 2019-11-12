@@ -17,11 +17,13 @@ export interface ButtonProps {
   hoverStopPropagation?: boolean;
   formType?: 'submit' | 'reset';
   openType?: 'share' | 'getAuthorize' | 'contactShare' | 'lifestyle';
-  scope?: 'phoneNumber';
+  scope?: 'phoneNumber' | 'userInfo';
   appParameter?: string;
   publicId?: string;
   onTap?: (e: any) => void;
   onClick?: (e: any) => void;
+  onGetAuthorize?: (e: any) => void;
+  onError?: (e: any) => void;
 }
 export const Button = factory<ButtonProps>('button');
 
