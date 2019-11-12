@@ -32,12 +32,20 @@ import React from 'react';
 import { View } from 'remax/alipay';
 import VantIcon from 'vant-weapp/dist/icon';
 
-export default () => (
-  <View>
-    {/** vant-weapp 中 icon 的属性定义为  class-prefix，所以应遵循其命名规则 */}
-    <VantIcon name="close" classPrefix="custom-class-prefix" />
-  </View>
-);
+export default () => {
+  const handleClick = () => {};
+
+  return (
+    <View>
+      {/** vant-weapp 中 icon 的属性定义为  class-prefix, bindclick，所以应遵循其命名规则 */}
+      <VantIcon
+        name="close"
+        classPrefix="custom-class-prefix"
+        onClick={handleClick}
+      />
+    </View>
+  );
+};
 ```
 
 **正确：**
@@ -47,11 +55,19 @@ import React from 'react';
 import { View } from 'remax/alipay';
 import VantIcon from 'vant-weapp/dist/icon';
 
-export default () => (
-  <View>
-    <VantIcon name="close" class-prefix="custom-class-prefix" />
-  </View>
-);
+export default () => {
+  const handleClick = () => {};
+
+  return (
+    <View>
+      <VantIcon
+        name="close"
+        class-prefix="custom-class-prefix"
+        bindclick={handleClick}
+      />
+    </View>
+  );
+};
 ```
 
 对于带有具名 `slot` 的组件，具名 `slot` 部分的最外层只能用 `View` 组件。
