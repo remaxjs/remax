@@ -22,7 +22,7 @@
 
 在你报告一个 bug 之前，请先确保已经搜索过已有的 issues。
 
-##  开发
+## 开发
 
 在开始之前推荐你先了解一下[《Remax 实现原理》](https://remaxjs.org/advanced-guide/implementation-notes)
 
