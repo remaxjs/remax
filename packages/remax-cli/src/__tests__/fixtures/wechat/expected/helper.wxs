@@ -2,9 +2,16 @@ var tree = {
   root: {
     children: [],
   },
+  lastActionId: -1
 };
 
 function reduce(action) {
+  if (action.id === tree.lastActionId) {
+    return tree;
+  }
+
+  tree.lastActionId = action.id;
+
   switch (action.type) {
     case 'clear': 
       tree.root = {

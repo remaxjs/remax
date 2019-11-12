@@ -1,5 +1,6 @@
 import VNode, { Path, RawNode } from './VNode';
 import { generate } from './instanceId';
+import { generate as generateActionId } from './actionId';
 import { FiberRoot } from 'react-reconciler';
 import Platform from './Platform';
 import propsAlias from './propsAlias';
@@ -82,6 +83,7 @@ export default class Container {
         deleteCount: update.deleteCount,
         item: update.items[0],
       })),
+      id: generateActionId(),
     };
 
     let tree: typeof action | { root: RawNode } = action;
