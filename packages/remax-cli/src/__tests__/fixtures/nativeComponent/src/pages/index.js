@@ -9,6 +9,7 @@ import Complex from '../components/complex';
 import PluginComponent from 'plugin://myPlugin/xx';
 import PluginComponent2 from 'plugin://myPlugin/dddd';
 import SlotComponent from '../components/slot';
+import ScopedComponent from '../components/@foo/a';
 
 export default () => (
   <View>
@@ -23,5 +24,6 @@ export default () => (
     <SlotComponent>
       <View slot="inner"></View>
     </SlotComponent>
+    <ScopedComponent />
   </View>
 );

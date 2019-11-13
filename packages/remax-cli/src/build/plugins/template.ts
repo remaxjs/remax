@@ -140,6 +140,7 @@ function createPageUsingComponents(configFilePath: string) {
           sourcePath.replace(/node_modules/, 'src/npm')
         )
         .replace(/\.js$/, '')
+        .replace(/@/g, '_')
     );
   }
 

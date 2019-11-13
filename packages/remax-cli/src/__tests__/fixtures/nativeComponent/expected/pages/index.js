@@ -44,7 +44,7 @@ var _page = function _page() {
     foo: "bar"
   }), createElement(B, null), createElement(C, null), createElement(D, null), createElement(E, null), createElement(Complex, null), createElement(PluginComponent, null), createElement(PluginComponent2, null), createElement(SlotComponent, null, createElement(View, {
     slot: "inner"
-  })));
+  })), createElement(ScopedComponent, null));
 };
 
 var index = Page(createPageConfig(_page));var A = function(props) {
@@ -98,6 +98,12 @@ var index = Page(createPageConfig(_page));var A = function(props) {
         };var SlotComponent = function(props) {
         return createElement(
             'slot-8',
+            props,
+            props.children
+          );
+        };var ScopedComponent = function(props) {
+        return createElement(
+            'a-9',
             props,
             props.children
           );
