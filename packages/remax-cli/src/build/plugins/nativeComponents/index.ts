@@ -95,7 +95,9 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
       getFiles().forEach(id => {
         const bundleFileName = winPath(
           path.relative(options.cwd, id).replace(/node_modules/, 'npm')
-        ).replace(/src\//, '');
+        )
+          .replace(/src\//, '')
+          .replace(/@/g, '_');
 
         this.emitFile({
           fileName: bundleFileName,
