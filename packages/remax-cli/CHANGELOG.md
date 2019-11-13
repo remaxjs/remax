@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/remaxjs/remax/compare/v1.4.1...v1.4.2) (2019-11-13)
+
+### Bug Fixes
+
+- **wechat:** 修正 wx:key 的警告 ([4806635](https://github.com/remaxjs/remax/commit/4806635)), closes [#332](https://github.com/remaxjs/remax/issues/332)
+- 修复 node 10.10 打包出现 mkdir 的错误 ([7f4c3e2](https://github.com/remaxjs/remax/commit/7f4c3e2)), closes [#331](https://github.com/remaxjs/remax/issues/331)
+- 修复钉钉小程序使用原生组件渲染错乱的问题 ([e38f578](https://github.com/remaxjs/remax/commit/e38f578)), closes [#316](https://github.com/remaxjs/remax/issues/316)
+- 自定义组件会重复引用的问题 ([9c05961](https://github.com/remaxjs/remax/commit/9c05961)), closes [#342](https://github.com/remaxjs/remax/issues/342)
+- 自定义组件路径带有 @ 时构建错误的问题 ([63c0ddb](https://github.com/remaxjs/remax/commit/63c0ddb))
+
 ## [1.4.1](https://github.com/remaxjs/remax/compare/v1.4.0...v1.4.1) (2019-11-11)
 
 ### Bug Fixes
