@@ -124,10 +124,13 @@ function createAppManifest(
   };
 }
 
-function createPageUsingComponents(configFilePath: string) {
+function createPageUsingComponents(page: any, configFilePath: string) {
   const nativeComponents = getNativeComponents();
   const usingComponents: { [key: string]: string } = {};
-  for (const { id, sourcePath } of nativeComponents) {
+  for (const { id, sourcePath, importer } of nativeComponents) {
+    if (page.file !== importer) {
+      return;
+    }
     if (sourcePath.startsWith('plugin://')) {
       usingComponents[id] = sourcePath;
       continue;
@@ -160,7 +163,7 @@ function createPageManifest(
     options.cwd,
     path.join(options.rootDir, configFile)
   );
-  const usingComponents = createPageUsingComponents(configFilePath);
+  const usingComponents = createPageUsingComponents(page, configFilePath);
   const config = readManifest(configFilePath, target);
   config.usingComponents = {
     ...(config.usingComponents || {}),

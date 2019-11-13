@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/index"
+    "pages/index",
+    "pages/about"
   ],
   "plugins": {
     "myPlugin": {
