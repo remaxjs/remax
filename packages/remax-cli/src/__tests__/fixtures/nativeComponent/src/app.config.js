@@ -1,5 +1,5 @@
 module.exports = {
-  pages: ['pages/index'],
+  pages: ['pages/index', 'pages/about'],
   plugins: {
     myPlugin: {
       version: '0.8.1',
