@@ -9,6 +9,7 @@
     "my-plugin-6": "plugin://myPlugin/xx",
     "my-plugin-7": "plugin://myPlugin/dddd",
     "slot-8": "../components/slot/index",
-    "a-9": "../components/_foo/a/index"
+    "a-9": "../components/_foo/a/index",
+    "src-10": "../components/src/index"
   }
 }
