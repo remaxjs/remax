@@ -1,6 +1,6 @@
 import factory from './factory';
 
-export interface LifestyleProps {
+export interface ContactButtonProps {
   readonly dataset?: DOMStringMap;
   tntInstId: string;
   scene: string;
@@ -10,6 +10,6 @@ export interface LifestyleProps {
   alipayCardNo?: string;
 }
 
-const ContractButton = factory<LifestyleProps>('contact-button');
+const ContractButton = factory<ContactButtonProps>('contact-button');
 
 export default ContractButton;
