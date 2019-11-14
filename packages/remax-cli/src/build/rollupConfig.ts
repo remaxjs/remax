@@ -219,7 +219,7 @@ export default function rollupConfig(
   if (process.env.NODE_ENV === 'production') {
     plugins.unshift(
       clean({
-        targets: ['dist/*', '!.tea'],
+        targets: [path.join(options.output, '*'), '!.tea'],
       })
     );
   }
