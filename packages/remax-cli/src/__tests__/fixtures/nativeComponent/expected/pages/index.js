@@ -39,6 +39,95 @@ import '../npm/remax/esm/adapters/alipay/components/Lifestyle.js';
 import '../npm/remax/esm/adapters/alipay/components/ContactButton.js';
 import '../npm/remax/esm/adapters/alipay/api.js';
 
+var SrcComponent = function(props) {
+  return createElement(
+    'src-10',
+    props,
+    props.children
+  );
+};
+var ScopedComponent = function(props) {
+  return createElement(
+    'a-9',
+    props,
+    props.children
+  );
+};
+var SlotComponent = function(props) {
+  return createElement(
+    'slot-8',
+    props,
+    props.children
+  );
+};
+var PluginComponent2 = function(props) {
+  return createElement(
+    'my-plugin-7',
+    props,
+    props.children
+  );
+};
+var PluginComponent = function(props) {
+  return createElement(
+    'my-plugin-6',
+    props,
+    props.children
+  );
+};
+var Complex = function(props) {
+  return createElement(
+    'complex-5',
+    props,
+    props.children
+  );
+};
+var E = function(props) {
+  return createElement(
+    'e-4',
+    props,
+    props.children
+  );
+};
+var D = function(props) {
+  return createElement(
+    'd-3',
+    props,
+    props.children
+  );
+};
+var C = function(props) {
+  return createElement(
+    'c-2',
+    props,
+    props.children
+  );
+};
+var B = function(props) {
+  return createElement(
+    'b-1',
+    props,
+    props.children
+  );
+};
+var A = function(props) {
+  return createElement(
+    'a-0',
+    props,
+    props.children
+  );
+};
+
+
+
+
+
+
+
+
+
+
+
+
 var _page = function _page() {
   return createElement(View, null, createElement(A, {
     foo: "bar"
@@ -47,72 +136,6 @@ var _page = function _page() {
   })), createElement(ScopedComponent, null), createElement(SrcComponent, null));
 };
 
-var index = Page(createPageConfig(_page));var A = function(props) {
-        return createElement(
-            'a-0',
-            props,
-            props.children
-          );
-        };var B = function(props) {
-        return createElement(
-            'b-1',
-            props,
-            props.children
-          );
-        };var C = function(props) {
-        return createElement(
-            'c-2',
-            props,
-            props.children
-          );
-        };var D = function(props) {
-        return createElement(
-            'd-3',
-            props,
-            props.children
-          );
-        };var E = function(props) {
-        return createElement(
-            'e-4',
-            props,
-            props.children
-          );
-        };var Complex = function(props) {
-        return createElement(
-            'complex-5',
-            props,
-            props.children
-          );
-        };var PluginComponent = function(props) {
-        return createElement(
-            'my-plugin-6',
-            props,
-            props.children
-          );
-        };var PluginComponent2 = function(props) {
-        return createElement(
-            'my-plugin-7',
-            props,
-            props.children
-          );
-        };var SlotComponent = function(props) {
-        return createElement(
-            'slot-8',
-            props,
-            props.children
-          );
-        };var ScopedComponent = function(props) {
-        return createElement(
-            'a-9',
-            props,
-            props.children
-          );
-        };var SrcComponent = function(props) {
-        return createElement(
-            'src-10',
-            props,
-            props.children
-          );
-        };
+var index = Page(createPageConfig(_page));
 
 export default index;

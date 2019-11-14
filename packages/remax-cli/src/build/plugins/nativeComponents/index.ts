@@ -72,14 +72,14 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
         magicString.remove(node.start, node.end);
 
         const exportStr = `var ${name} = function(props) {
-        return React.createElement(
-            '${component.hashId}',
-            props,
-            props.children
-          );
-        };`;
+  return React.createElement(
+    '${component.hashId}',
+    props,
+    props.children
+  );
+};\n`;
 
-        magicString.append(exportStr);
+        magicString.prepend(exportStr);
       };
 
       simple(ast, {
