@@ -129,7 +129,7 @@ function createPageUsingComponents(page: any, configFilePath: string) {
   const usingComponents: { [key: string]: string } = {};
   for (const { id, sourcePath, importer } of nativeComponents) {
     if (page.file !== importer) {
-      continue;
+      return;
     }
     if (sourcePath.startsWith('plugin://')) {
       usingComponents[id] = sourcePath;
