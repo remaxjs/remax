@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.5](https://github.com/remaxjs/remax/compare/v1.4.4...v1.4.5) (2019-11-15)
+
+### Bug Fixes
+
+- build 时无法正确清理自定义 output 目录的问题 ([6545a47](https://github.com/remaxjs/remax/commit/6545a47))
+- 带有 src 目录的 npm 包小程序组件构建错误的问题 ([#356](https://github.com/remaxjs/remax/issues/356)) ([4f3f53e](https://github.com/remaxjs/remax/commit/4f3f53e)), closes [#346](https://github.com/remaxjs/remax/issues/346)
+
 ## [1.4.4](https://github.com/remaxjs/remax/compare/v1.4.3...v1.4.4) (2019-11-14)
 
 ### Bug Fixes
