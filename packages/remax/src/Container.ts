@@ -3,7 +3,7 @@ import { generate } from './instanceId';
 import { generate as generateActionId } from './actionId';
 import { FiberRoot } from 'react-reconciler';
 import Platform from './Platform';
-import propsAlias from './propsAlias';
+import propsAlias, { isHostComponent } from './propsAlias';
 
 function stringPath(path: Path) {
   return path.join('.');
@@ -12,7 +12,7 @@ function stringPath(path: Path) {
 function transformRawNode(item: RawNode): RawNode {
   return {
     ...item,
-    props: propsAlias(item.props),
+    props: propsAlias(item.props, !isHostComponent(item.type)),
     children: item.children
       ? item.children.map(transformRawNode)
       : item.children,

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './helpers/setupGlobals';
-import { render, View } from '../../../src/adapters/alipay';
+import { render, View } from '../../../src/adapters/wechat';
 import { reset as resetInstanceId } from '../../instanceId';
 import { reset as resetActionId } from '../../actionId';
 import Container from '../../Container';
@@ -12,7 +12,7 @@ const p = {
   $spliceData() {},
 };
 
-describe('alipay', () => {
+describe('wechat', () => {
   describe('remax render', () => {
     afterEach(() => {
       resetActionId();

@@ -1,4 +1,5 @@
 import React, { FunctionComponent, forwardRef } from 'react';
+import { addToHostComponent } from './factory';
 import { BaseProps } from './baseTyping';
 
 export interface VideoProps extends BaseProps {
@@ -111,5 +112,7 @@ Video.defaultProps = {
   vslideGesture: false,
   vslideGestureInFullscreen: true,
 };
+
+addToHostComponent('video');
 
 export default Video;

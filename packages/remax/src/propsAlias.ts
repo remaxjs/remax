@@ -1,6 +1,27 @@
+import { TYPE_TEXT } from './constants';
 import kebabCase from 'lodash.kebabcase';
 import Platform from './Platform';
 import plainStyle from './utils/plainStyle';
+import { isHostComponent as isWechatHostComponent } from './adapters/wechat/components/factory';
+import { isHostComponent as isAlipayHostComponent } from './adapters/alipay/components/factory';
+import { isHostComponent as isToutiaoHostComponent } from './adapters/toutiao/components/factory';
+
+export function isHostComponent(name: string) {
+  if (name === TYPE_TEXT) {
+    return true;
+  }
+
+  switch (Platform.current) {
+    case 'wechat':
+      return isWechatHostComponent(name);
+    case 'alipay':
+      return isAlipayHostComponent(name);
+    case 'toutiao':
+      return isToutiaoHostComponent(name);
+  }
+
+  return false;
+}
 
 function functionPropAlias(prop: string, platform?: string) {
   prop = prop.replace(/Click$/, 'Tap');

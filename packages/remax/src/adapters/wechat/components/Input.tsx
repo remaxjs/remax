@@ -5,6 +5,7 @@ import React, {
   forwardRef,
 } from 'react';
 import { BaseProps } from './baseTyping';
+import { addToHostComponent } from './factory';
 
 export interface InputProps extends BaseProps {
   /**
@@ -193,5 +194,7 @@ Input.defaultProps = {
   selectionEnd: 999,
   selectionStart: 999,
 };
+
+addToHostComponent('input');
 
 export default Input;
