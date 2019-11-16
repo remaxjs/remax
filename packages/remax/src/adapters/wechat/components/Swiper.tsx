@@ -1,5 +1,6 @@
 import React, { FunctionComponent, forwardRef } from 'react';
 import { BaseProps } from './baseTyping';
+import { addToHostComponent } from './factory';
 
 export interface SwiperProps extends BaseProps {
   /** (default: false) 是否显示面板指示点 1.0.0  */
@@ -84,5 +85,7 @@ Swiper.defaultProps = {
   skipHiddenItemLayout: false,
   easingFunction: 'default',
 };
+
+addToHostComponent('swiper');
 
 export default Swiper;

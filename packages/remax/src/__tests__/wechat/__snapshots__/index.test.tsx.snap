@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`alipay remax render insert new element 1`] = `
+exports[`wechat remax render insert new element 1`] = `
 Object {
   "children": Array [
     Object {
@@ -43,7 +43,7 @@ Object {
 }
 `;
 
-exports[`alipay remax render insert new element 2`] = `
+exports[`wechat remax render insert new element 2`] = `
 Object {
   "children": Array [
     Object {
@@ -98,7 +98,7 @@ Object {
 }
 `;
 
-exports[`alipay remax render render correctly 1`] = `
+exports[`wechat remax render render correctly 1`] = `
 Object {
   "children": Array [
     Object {
@@ -108,7 +108,7 @@ Object {
           "type": "plain-text",
         },
       ],
-      "id": 3,
+      "id": 2,
       "props": Object {
         "className": "foo",
       },
@@ -116,14 +116,14 @@ Object {
       "type": "view",
     },
   ],
-  "id": 1,
+  "id": 0,
   "props": undefined,
   "text": undefined,
   "type": "root",
 }
 `;
 
-exports[`alipay remax render render native component correctly 1`] = `
+exports[`wechat remax render render native component correctly 1`] = `
 Array [
   Object {
     "id": 0,
@@ -150,7 +150,7 @@ Array [
 ]
 `;
 
-exports[`alipay remax render renders conditional fragment correctly 1`] = `
+exports[`wechat remax render renders conditional fragment correctly 1`] = `
 Object {
   "children": Array [
     Object {
@@ -185,7 +185,7 @@ Object {
 }
 `;
 
-exports[`alipay remax render renders conditional fragment correctly 2`] = `
+exports[`wechat remax render renders conditional fragment correctly 2`] = `
 Object {
   "children": Array [
     Object {
@@ -208,7 +208,7 @@ Object {
 }
 `;
 
-exports[`alipay remax render renders empty style 1`] = `
+exports[`wechat remax render renders empty style 1`] = `
 Object {
   "children": Array [
     Object {
@@ -233,7 +233,7 @@ Object {
 }
 `;
 
-exports[`alipay remax render renders style 1`] = `
+exports[`wechat remax render renders style 1`] = `
 Object {
   "children": Array [
     Object {
@@ -261,7 +261,7 @@ Object {
 }
 `;
 
-exports[`alipay remax render renders vendor prefix style 1`] = `
+exports[`wechat remax render renders vendor prefix style 1`] = `
 Object {
   "children": Array [
     Object {
@@ -289,7 +289,7 @@ Object {
 }
 `;
 
-exports[`alipay remax render umount component 1`] = `
+exports[`wechat remax render umount component 1`] = `
 Object {
   "children": Array [
     Object {
@@ -320,7 +320,7 @@ Object {
 }
 `;
 
-exports[`alipay remax render umount component 2`] = `
+exports[`wechat remax render umount component 2`] = `
 Object {
   "children": Array [
     Object {

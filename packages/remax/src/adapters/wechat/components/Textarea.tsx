@@ -4,6 +4,7 @@ import React, {
   useState,
   forwardRef,
 } from 'react';
+import { addToHostComponent } from './factory';
 import { BaseProps } from './baseTyping';
 
 export interface TextareaProps extends BaseProps {
@@ -97,5 +98,7 @@ Textarea.defaultProps = {
   selectionStart: 999,
   fixed: false,
 };
+
+addToHostComponent('textarea');
 
 export default Textarea;

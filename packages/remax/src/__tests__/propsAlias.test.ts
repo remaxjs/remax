@@ -1,4 +1,5 @@
-import propsAlias, { getAlias } from '../propsAlias';
+import propsAlias, { getAlias, isHostComponent } from '../propsAlias';
+import { TYPE_TEXT } from '../constants';
 
 describe('propsAlias', () => {
   it('transform className prop correctly', () => {
@@ -31,5 +32,35 @@ describe('propsAlias', () => {
         },
       })
     ).toMatchSnapshot();
+  });
+
+  describe('check host components', () => {
+    afterEach(() => {
+      process.env['REMAX_PLATFORM'] = undefined;
+    });
+
+    it('wechat', () => {
+      process.env['REMAX_PLATFORM'] = 'wechat';
+      require('../adapters/wechat/components/Button');
+      expect(isHostComponent(TYPE_TEXT)).toBeTruthy();
+      expect(isHostComponent('button')).toBeTruthy();
+      expect(isHostComponent('foo')).toBeFalsy();
+    });
+
+    it('alipay', () => {
+      process.env['REMAX_PLATFORM'] = 'alipay';
+      require('../adapters/alipay/components/Button');
+      expect(isHostComponent(TYPE_TEXT)).toBeTruthy();
+      expect(isHostComponent('button')).toBeTruthy();
+      expect(isHostComponent('foo')).toBeFalsy();
+    });
+
+    it('toutiao', () => {
+      process.env['REMAX_PLATFORM'] = 'toutiao';
+      require('../adapters/toutiao/components/Button');
+      expect(isHostComponent(TYPE_TEXT)).toBeTruthy();
+      expect(isHostComponent('button')).toBeTruthy();
+      expect(isHostComponent('foo')).toBeFalsy();
+    });
   });
 });
