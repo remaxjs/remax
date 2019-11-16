@@ -2,10 +2,12 @@ import * as path from 'path';
 import getConfig from '../getConfig';
 
 describe('config', () => {
-  process.chdir(path.join(__dirname, 'fixtures/cli'));
+  beforeAll(() => {
+    process.chdir(path.join(__dirname, 'fixtures/config'));
+  });
 
-  it('use cli options', () => {
+  it('override output', () => {
     const result = getConfig();
-    expect(result.output).toEqual('dist');
+    expect(result.output).toEqual('build');
   });
 });

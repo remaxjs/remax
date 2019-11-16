@@ -36,6 +36,8 @@ import extensions from '../extensions';
 import { without } from 'lodash';
 import jsx from 'acorn-jsx';
 
+console.log(getEntries);
+
 export default function rollupConfig(
   options: RemaxOptions,
   argv: any,
@@ -224,9 +226,8 @@ export default function rollupConfig(
     );
   }
 
-  const config: RollupOptions = {
+  let config: RollupOptions = {
     treeshake: process.env.NODE_ENV === 'production',
-    ...options.rollupOptions,
     input: [entries.app, ...entries.pages.map(p => p.file), ...entries.images],
     output: {
       dir: options.output,
@@ -246,6 +247,12 @@ export default function rollupConfig(
     },
     plugins,
   };
+
+  if (typeof options.rollupOptions === 'function') {
+    config = options.rollupOptions(config);
+  } else if (options.rollupOptions) {
+    config = { ...config, ...options.rollupOptions };
+  }
 
   return config;
 }
