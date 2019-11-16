@@ -5,7 +5,8 @@
     "target": "ES2017",
     "declaration": true,
     "outDir": "lib",
-    "rootDirs": ["src", "tests"]
+    "rootDirs": ["src", "tests"],
+    "types": ["@types/jest"]
   },
-  "exclude": ["tests", "lib", "**/__tests__"]
+  "exclude": ["tests", "lib"]
 }
