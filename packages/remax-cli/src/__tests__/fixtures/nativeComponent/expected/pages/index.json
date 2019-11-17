@@ -1,15 +1,15 @@
 {
   "usingComponents": {
     "a-0": "../components/a/index",
-    "b-1": "../components/b/index",
-    "c-2": "../components/c/index",
-    "d-3": "../components/d/index",
-    "e-4": "../components/e/index",
-    "complex-5": "../components/complex/index",
-    "my-plugin-6": "plugin://myPlugin/xx",
-    "my-plugin-7": "plugin://myPlugin/dddd",
-    "slot-8": "../components/slot/index",
-    "a-9": "../components/_foo/a/index",
-    "src-10": "../components/src/index"
+    "a-1": "../components/_foo/a/index",
+    "b-0": "../components/b/index",
+    "c-0": "../components/c/index",
+    "complex-0": "../components/complex/index",
+    "d-0": "../components/d/index",
+    "e-0": "../components/e/index",
+    "my-plugin-0": "plugin://myPlugin/xx",
+    "my-plugin-1": "plugin://myPlugin/dddd",
+    "slot-0": "../components/slot/index",
+    "src-0": "../components/src/index"
   }
 }

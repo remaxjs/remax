@@ -2,8 +2,7 @@ import '../npm/remax/esm/render.js';
 import { createElement } from 'react';
 import '../npm/remax/esm/createAppConfig.js';
 import '../npm/remax/esm/Platform.js';
-import createPageConfig from '../npm/remax/esm/createPageConfig.js';
-import '../npm/remax/esm/index.js';
+import '../npm/remax/esm/createPageConfig.js';
 import View from '../npm/remax/esm/adapters/alipay/components/View.js';
 import '../npm/remax/esm/adapters/alipay/components/ScrollView.js';
 import '../npm/remax/esm/adapters/alipay/components/Swiper.js';
@@ -39,103 +38,24 @@ import '../npm/remax/esm/adapters/alipay/components/Lifestyle.js';
 import '../npm/remax/esm/adapters/alipay/components/ContactButton.js';
 import '../npm/remax/esm/adapters/alipay/api.js';
 
-var SrcComponent = function(props) {
-  return createElement(
-    'src-0',
-    props,
-    props.children
-  );
-};
-var ScopedComponent = function(props) {
-  return createElement(
-    'a-1',
-    props,
-    props.children
-  );
-};
-var SlotComponent = function(props) {
-  return createElement(
-    'slot-0',
-    props,
-    props.children
-  );
-};
-var PluginComponent2 = function(props) {
-  return createElement(
-    'my-plugin-1',
-    props,
-    props.children
-  );
-};
-var PluginComponent = function(props) {
-  return createElement(
-    'my-plugin-0',
-    props,
-    props.children
-  );
-};
-var Complex = function(props) {
-  return createElement(
-    'complex-0',
-    props,
-    props.children
-  );
-};
-var E = function(props) {
-  return createElement(
-    'e-0',
-    props,
-    props.children
-  );
-};
 var D = function(props) {
   return createElement(
-    'd-0',
+    'd-1',
     props,
     props.children
   );
 };
-var C = function(props) {
+var F = function(props) {
   return createElement(
-    'c-0',
-    props,
-    props.children
-  );
-};
-var B = function(props) {
-  return createElement(
-    'b-0',
-    props,
-    props.children
-  );
-};
-var A = function(props) {
-  return createElement(
-    'a-0',
+    'f-0',
     props,
     props.children
   );
 };
 
 
+var Hello = (function () {
+  return createElement(View, null, createElement(F, null), createElement(D, null));
+});
 
-
-
-
-
-
-
-
-
-
-var _page = function _page() {
-  return createElement(View, null, createElement(A, {
-    foo: "bar"
-  }), createElement(B, null), createElement(C, null), createElement(D, null), createElement(E, null), createElement(Complex, null), createElement(PluginComponent, null), createElement(PluginComponent2, null), createElement(SlotComponent, null, createElement(View, {
-    slot: "inner"
-  })), createElement(ScopedComponent, null), createElement(SrcComponent, null));
-};
-
-var index = Page(createPageConfig(_page));
-
-export default index;
+export default Hello;

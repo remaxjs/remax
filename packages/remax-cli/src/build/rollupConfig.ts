@@ -207,8 +207,8 @@ export default function rollupConfig(
     removeConfig(),
     removeESModuleFlag(),
     fixRegeneratorRuntime(),
+    nativeComponents(options, adapter, entries.pages.map(p => p.file)),
     template(options, adapter, context),
-    nativeComponents(options, adapter),
   ];
 
   /* istanbul ignore next */

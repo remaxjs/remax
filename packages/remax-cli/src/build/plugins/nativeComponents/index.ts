@@ -1,7 +1,7 @@
 import { get } from 'lodash';
 import MagicString from 'magic-string';
 import * as path from 'path';
-import { Plugin } from 'rollup';
+import { Plugin, OutputChunk } from 'rollup';
 import { simple } from 'acorn-walk';
 import { readFileSync } from 'fs';
 import { RemaxOptions } from '../../../getConfig';
@@ -14,6 +14,7 @@ import { isNativeComponent, isPluginComponent, getSourcePath } from './util';
 import winPath from '../../../winPath';
 import usingComponents from './usingComponents';
 import { getImporters } from './babelPlugin';
+import { searchFile } from '../../../getEntries';
 
 const getFiles = () => [
   ...getcssPaths(),
@@ -22,7 +23,11 @@ const getFiles = () => [
   ...getJsHelpers(),
 ];
 
-export default (options: RemaxOptions, adapter: Adapter): Plugin => {
+export default (
+  options: RemaxOptions,
+  adapter: Adapter,
+  pages: string[]
+): Plugin => {
   return {
     name: 'nativeComponents',
     load(id) {
@@ -91,7 +96,38 @@ export default (options: RemaxOptions, adapter: Adapter): Plugin => {
         map: magicString.generateMap(),
       };
     },
-    generateBundle() {
+    generateBundle(_, bundle) {
+      const importers = getImporters();
+
+      const collectPages = (page: string, importer: string) => {
+        const nativeImporter = importers.get(
+          searchFile(path.join(options.cwd, importer).replace('.js', ''))
+        );
+
+        if (nativeImporter) {
+          [...nativeImporter.values()].forEach(component => {
+            component.pages = new Set([...component.pages, page]);
+          });
+        }
+
+        importer = winPath(importer)
+          .replace(/node_modules/, 'npm')
+          .replace(/^src\//, '')
+          .replace(/@/g, '_');
+
+        const { imports } = (bundle[importer] as OutputChunk) || {
+          imports: [],
+        };
+
+        for (const file of imports) {
+          collectPages(page, file);
+        }
+      };
+
+      for (const key of pages) {
+        collectPages(key, path.relative(options.cwd, key));
+      }
+
       getFiles().forEach(id => {
         const bundleFileName = winPath(
           path.relative(options.cwd, id).replace(/node_modules/, 'npm')

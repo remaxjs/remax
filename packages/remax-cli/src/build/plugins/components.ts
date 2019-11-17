@@ -10,6 +10,7 @@ export interface Component {
   id: string;
   props: Set<string>;
   importer: string;
+  pages?: Set<string>;
 }
 
 type Components<T> = Map<string, T>;
@@ -26,6 +27,10 @@ export function convertComponents<T extends Component>(
         const com = prev.find(com => com.id === component.id);
         if (com) {
           com.props = new Set([...com.props, ...component.props]);
+
+          if (com.pages && component.pages) {
+            com.pages = new Set([...com.pages, ...component.pages]);
+          }
           continue;
         }
 
