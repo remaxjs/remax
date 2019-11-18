@@ -4,7 +4,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import url from '@remax/rollup-plugin-url';
-import json from 'rollup-plugin-json';
+import json from '@rollup/plugin-json';
 import postcss from '@remax/rollup-plugin-postcss';
 import postcssUrl from './plugins/postcssUrl';
 import progress from 'rollup-plugin-progress';
@@ -143,7 +143,7 @@ export default function rollupConfig(
       modules: cssModuleConfig,
       plugins: [pxToUnits(), postcssUrl(options)].concat(postcssConfig.plugins),
     }),
-    json({}),
+    json(),
     replace({
       values: Object.keys(envReplacement).reduce((acc: any, key) => {
         acc[`process.env.${key}`] = JSON.stringify(envReplacement[key]);
