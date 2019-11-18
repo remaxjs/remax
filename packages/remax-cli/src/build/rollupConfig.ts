@@ -36,7 +36,6 @@ import extensions from '../extensions';
 import { without } from 'lodash';
 import jsx from 'acorn-jsx';
 
-console.log(getEntries);
 
 export default function rollupConfig(
   options: RemaxOptions,
