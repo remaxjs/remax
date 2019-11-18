@@ -117,6 +117,40 @@ import image from './index.png';
 <Image src={image} />;
 ```
 
+### rollup 配置
+
+Remax 支持 rollupOptions 来自定义 rollup 配置。用法如下：
+
+#### 对象
+
+```js
+// remax.config.js
+module.exports = {
+  ...
+  // 混入rollup配置
+  rollupOptions: {}
+};
+```
+
+#### 函数`（推荐）`
+
+```js
+// remax.config.js
+module.exports = {
+  ...
+  // 增加插件
+  rollupOptions(opions) {
+    opions.plugins.push({
+      name: 'mock-plugins',
+      transform(code, id) {
+        return code;
+      },
+    })
+    return opions;
+  },
+};
+```
+
 ## 小程序配置
 
 Remax 用 `config.js` 定义小程序配置文件，以提高灵活性。

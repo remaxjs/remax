@@ -226,7 +226,9 @@ export default function rollupConfig(
 
   const config: RollupOptions = {
     treeshake: process.env.NODE_ENV === 'production',
-    ...options.rollupOptions,
+    ...(typeof options.rollupOptions === 'object'
+      ? options.rollupOptions || {}
+      : {}),
     input: [entries.app, ...entries.pages.map(p => p.file), ...entries.images],
     output: {
       dir: options.output,
@@ -246,6 +248,8 @@ export default function rollupConfig(
     },
     plugins,
   };
-
+  if (typeof options.rollupOptions === 'function') {
+    return options.rollupOptions(config) || config;
+  }
   return config;
 }

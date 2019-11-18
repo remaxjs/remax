@@ -4,6 +4,8 @@ import esm from 'esm';
 import defaultOptions from './defaultOptions';
 import { PluginImpl, RollupOptions } from 'rollup';
 
+type RollupOptionCB = (baseOption: RollupOptions) => RollupOptions;
+
 export interface RemaxOptions {
   cssModules: boolean | RegExp;
   cwd: string;
@@ -20,7 +22,7 @@ export interface RemaxOptions {
     };
     plugins?: PluginImpl[];
   };
-  rollupOptions?: RollupOptions;
+  rollupOptions?: RollupOptions | RollupOptionCB;
 }
 
 export interface CliOptions {
