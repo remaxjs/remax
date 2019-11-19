@@ -20,7 +20,7 @@
 	<a href="https://www.npmjs.com/package/remax">
 		<img alt="npm" src="https://img.shields.io/npm/v/remax?style=flat-square" />
 	</a>
-	<a href="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*wWA6TbZvURYAAAAAAAAAAABkARQnAQ">
+	<a href="https://user-images.githubusercontent.com/465125/69033897-f095d480-0a1a-11ea-9d4e-f14e6839bc1d.JPG">
 		<img alt="dingding" src="https://img.shields.io/badge/交流-钉钉群-brightgreen?style=flat-square" />
 	</a>
 </p>
