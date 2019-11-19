@@ -13,6 +13,7 @@
 <url> <loc>https://remaxjs.org/guide/component</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/guide/config</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/guide/custom-component</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://remaxjs.org/guide/event</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/guide/framework</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/guide/platform</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://remaxjs.org/guide/plugin</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
