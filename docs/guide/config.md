@@ -22,6 +22,8 @@ module.exports = {
   output: 'dist',
   // 配置路径别名
   alias: {},
+  // 是否将 px 转换为 rpx, 默认是 true
+  pxToRpx: true,
   postcss: {
     options: {
       use: [

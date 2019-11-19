@@ -6,6 +6,7 @@ import { PluginImpl, RollupOptions } from 'rollup';
 
 export interface RemaxOptions {
   cssModules: boolean | RegExp;
+  pxToRpx: boolean;
   cwd: string;
   progress: boolean;
   output: string;

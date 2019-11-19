@@ -67,6 +67,7 @@ export default function rollupConfig(
     NODE_ENV: process.env.NODE_ENV || 'development',
     REMAX_PLATFORM: argv.target,
     REMAX_DEBUG: process.env.REMAX_DEBUG,
+    REMAX_PX2RPX: `${options.pxToRpx}`,
   };
 
   Object.keys(process.env).forEach(k => {
@@ -141,7 +142,9 @@ export default function rollupConfig(
       extract: true,
       ...postcssConfig.options,
       modules: cssModuleConfig,
-      plugins: [pxToUnits(), postcssUrl(options)].concat(postcssConfig.plugins),
+      plugins: [options.pxToRpx && pxToUnits(), postcssUrl(options)]
+        .filter(Boolean)
+        .concat(postcssConfig.plugins),
     }),
     json(),
     replace({
