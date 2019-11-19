@@ -58,7 +58,7 @@
     "htmlparser2": "^4.0.0",
     "lodash": "^4.17.11",
     "mkdirp": "^0.5.1",
-    "named-exports-db": "^0.0.1",
+    "named-exports-db": "^0.1.0",
     "postcss-url": "^8.0.0",
     "regenerator-runtime": "^0.13.3",
     "remax": "^1.4.6",
