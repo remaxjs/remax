@@ -1,5 +1,5 @@
 import { get } from 'dot-prop';
-import { kebabCase } from 'lodash';
+import { kebabCase, sortBy } from 'lodash';
 import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
 import * as path from 'path';
@@ -13,23 +13,26 @@ import {
   Component,
 } from '../components';
 
-const importers: Importers<Component & { hashId: string }> = new Map();
+const importers: Importers<
+  Component & { hashId: string; pages: Set<string> }
+> = new Map();
 
 export const getKebabCaseName = (sourcePath: string) =>
   kebabCase(path.basename(path.dirname(sourcePath)));
 
-let nativeId = 0;
+const nativeIds: Map<string, number> = new Map();
 
-const getHashId = (id: string, sourcePath: string) => {
-  const components = [...importers.values()].find(components =>
-    components.has(sourcePath)
-  );
+const getHashId = (id: string) => {
+  const nativeId = nativeIds.get(id);
 
-  if (!components) {
-    return `${id}-${nativeId++}`;
+  if (nativeId === undefined) {
+    nativeIds.set(id, 0);
+    return `${id}-0`;
   }
 
-  return (components.get(sourcePath) as any).hashId;
+  nativeIds.set(id, nativeId + 1);
+
+  return `${id}-${nativeId + 1}`;
 };
 
 export default (options: RemaxOptions, adapter: Adapter) => {
@@ -41,7 +44,7 @@ export default (options: RemaxOptions, adapter: Adapter) => {
     },
     visitor: {
       JSXElement(nodePath: NodePath, state: any) {
-        const importer = state.file.opts.filename;
+        const importer: string = state.file.opts.filename;
         const node = nodePath.node as t.JSXElement;
 
         if (t.isJSXIdentifier(node.openingElement.name)) {
@@ -85,7 +88,8 @@ export default (options: RemaxOptions, adapter: Adapter) => {
             id: sourcePath,
             props: new Set(props),
             importer,
-            hashId: getHashId(id, sourcePath),
+            hashId: getHashId(id),
+            pages: new Set([]),
           };
 
           addToComponentCollection(component, importers);
@@ -96,13 +100,16 @@ export default (options: RemaxOptions, adapter: Adapter) => {
 };
 
 export const getNativeComponents = () =>
-  convertComponents(importers).map(component => {
-    return {
-      ...component,
-      type: 'native',
-      id: component.hashId,
-      sourcePath: component.id,
-    };
-  });
+  sortBy(
+    convertComponents(importers).map(component => {
+      return {
+        ...component,
+        type: 'native',
+        id: component.hashId,
+        sourcePath: component.id,
+      };
+    }),
+    'id'
+  );
 
 export const getImporters = () => importers;

@@ -30,7 +30,7 @@ export const isPluginComponent = (
     return false;
   }
 
-  const [, pluginName] = /^plugin:\/\/(\w+)\//.exec(sourcePath) || [];
+  const [, pluginName = ''] = /^plugin:\/\/(\w+)\//.exec(sourcePath) || [];
   if (!pluginName) {
     return false;
   }

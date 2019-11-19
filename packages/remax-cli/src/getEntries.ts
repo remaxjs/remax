@@ -30,7 +30,7 @@ interface Entries {
   images: string[];
 }
 
-function searchFile(file: string, ext?: string) {
+export function searchFile(file: string, ext?: string) {
   const exts = [ext, 'ts', 'tsx', 'js', 'jsx'].filter(e => e);
 
   for (const e of exts) {
