@@ -1,6 +1,7 @@
 import { TYPE_TEXT } from './constants';
 import kebabCase from 'lodash.kebabcase';
 import Platform from './Platform';
+import * as RuntimeOptions from './RuntimeOptions';
 import plainStyle from './utils/plainStyle';
 import { isHostComponent as isWechatHostComponent } from './adapters/wechat/components/factory';
 import { isHostComponent as isAlipayHostComponent } from './adapters/alipay/components/factory';
@@ -49,9 +50,9 @@ export function getAlias(prop: string, isNative = false, platform?: string) {
   return kebabCase(prop);
 }
 
-function getValue(prop: string, value: any): any {
+function getValue(prop: string, value: any, px2Rpx: boolean): any {
   if (prop.toLowerCase().endsWith('style') && prop !== 'layerStyle') {
-    return plainStyle(value);
+    return plainStyle(value, px2Rpx);
   }
 
   return value;
@@ -64,7 +65,8 @@ export interface GenericProps {
 export default function propsAlias(
   props: GenericProps,
   isNative = false,
-  platform = Platform.current
+  platform = Platform.current,
+  px2Rpx = RuntimeOptions.px2Rpx
 ) {
   if (!props) {
     return props;
@@ -75,7 +77,8 @@ export default function propsAlias(
   Object.keys(props).forEach(prop => {
     aliasProps[getAlias(prop, isNative, platform)] = getValue(
       prop,
-      props[prop]
+      props[prop],
+      px2Rpx
     );
   });
 

@@ -29,14 +29,22 @@ const transformPx = (value: string) => {
   });
 };
 
-const plainStyle = (style: CSSProperties | null | undefined) => {
+const plainStyle = (
+  style: CSSProperties | null | undefined,
+  px2Rpx: boolean
+) => {
   if (!style) {
     return '';
   }
   return Object.keys(style)
     .reduce((acc: string[], key) => {
       const value = (style as any)[key];
-      return [...acc, `${transformReactStyleKey(key)}:${transformPx(value)};`];
+      return [
+        ...acc,
+        `${transformReactStyleKey(key)}:${
+          px2Rpx ? transformPx(value) : value
+        };`,
+      ];
     }, [])
     .join('');
 };
