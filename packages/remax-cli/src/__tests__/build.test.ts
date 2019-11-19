@@ -23,6 +23,7 @@ describe('build', () => {
   );
 
   runTest('customRootDir');
+  runTest('disablePx2Rpx');
   runTest('babelrc');
   runTest('assets');
   runTest('nativeComponent');
