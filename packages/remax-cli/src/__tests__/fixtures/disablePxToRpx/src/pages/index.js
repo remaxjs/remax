@@ -1,5 +1,5 @@
 import * as React from 'react';
 import { View } from 'remax/alipay';
-import styles from './index.module.css';
+import './index.css';
 
-export default () => <View className={styles.foo}>foo</View>;
+export default () => <View className="foo">foo</View>;
