@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/remaxjs/remax/compare/v1.4.7...v1.5.0) (2019-11-19)
+
+### Bug Fixes
+
+- **wechat:** 修复 spread 方式传递 Button 组件参数时 size 无效的问题 ([883d962](https://github.com/remaxjs/remax/commit/883d962)), closes [#375](https://github.com/remaxjs/remax/issues/375)
+- 修复自定义组件重复引用的问题 ([#342](https://github.com/remaxjs/remax/issues/342)) ([#360](https://github.com/remaxjs/remax/issues/360)) ([1d0ec2d](https://github.com/remaxjs/remax/commit/1d0ec2d))
+
+### Features
+
+- rollupOptions 支持函数方式修改配置 ([#359](https://github.com/remaxjs/remax/issues/359)) ([53fbf8b](https://github.com/remaxjs/remax/commit/53fbf8b))
+- 支持在 onClick 回调中使用 stopPropagation 阻止冒泡 ([#292](https://github.com/remaxjs/remax/issues/292)) ([09e006f](https://github.com/remaxjs/remax/commit/09e006f)), closes [#283](https://github.com/remaxjs/remax/issues/283)
+- 新增配置 pxToRpx 用于设置是否转换 px 到 rpx ([dd73e13](https://github.com/remaxjs/remax/commit/dd73e13)), closes [#380](https://github.com/remaxjs/remax/issues/380) [#380](https://github.com/remaxjs/remax/issues/380) [#381](https://github.com/remaxjs/remax/issues/381) [#381](https://github.com/remaxjs/remax/issues/381) [#381](https://github.com/remaxjs/remax/issues/381)
+
 ## [1.4.7](https://github.com/remaxjs/remax/compare/v1.4.6...v1.4.7) (2019-11-19)
 
 **Note:** Version bump only for package root
