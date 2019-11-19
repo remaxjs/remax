@@ -31,7 +31,7 @@ const transformPx = (value: string) => {
 
 const plainStyle = (
   style: CSSProperties | null | undefined,
-  px2Rpx: boolean
+  pxToRpx: boolean
 ) => {
   if (!style) {
     return '';
@@ -42,7 +42,7 @@ const plainStyle = (
       return [
         ...acc,
         `${transformReactStyleKey(key)}:${
-          px2Rpx ? transformPx(value) : value
+          pxToRpx ? transformPx(value) : value
         };`,
       ];
     }, [])

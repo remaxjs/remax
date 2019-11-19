@@ -50,9 +50,9 @@ export function getAlias(prop: string, isNative = false, platform?: string) {
   return kebabCase(prop);
 }
 
-function getValue(prop: string, value: any, px2Rpx: boolean): any {
+function getValue(prop: string, value: any, pxToRpx: boolean): any {
   if (prop.toLowerCase().endsWith('style') && prop !== 'layerStyle') {
-    return plainStyle(value, px2Rpx);
+    return plainStyle(value, pxToRpx);
   }
 
   return value;
@@ -66,7 +66,7 @@ export default function propsAlias(
   props: GenericProps,
   isNative = false,
   platform = Platform.current,
-  px2Rpx = RuntimeOptions.px2Rpx
+  pxToRpx = RuntimeOptions.pxToRpx
 ) {
   if (!props) {
     return props;
@@ -78,7 +78,7 @@ export default function propsAlias(
     aliasProps[getAlias(prop, isNative, platform)] = getValue(
       prop,
       props[prop],
-      px2Rpx
+      pxToRpx
     );
   });
 

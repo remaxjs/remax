@@ -1,3 +1,3 @@
 module.exports = {
-  px2Rpx: false,
+  pxToRpx: false,
 };
