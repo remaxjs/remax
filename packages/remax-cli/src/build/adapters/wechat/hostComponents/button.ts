@@ -17,6 +17,7 @@ export const props = [
   'send-message-title',
   'send-message-path',
   'send-message-img',
+  'size',
   'app-parameter',
   'show-message-card',
   'bindgetuserinfo',
