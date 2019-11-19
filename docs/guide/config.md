@@ -43,6 +43,11 @@ module.exports = {
     // 其他postcss 插件, 会和默认的插件进行拼接
     plugins: [],
   },
+  // 修改 rollup 的配置
+  rollupOptions: (options) => {
+    options.inputs.push('foo.js');
+    return options;
+  }
 };
 ```
 

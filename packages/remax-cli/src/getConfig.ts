@@ -20,7 +20,7 @@ export interface RemaxOptions {
     };
     plugins?: PluginImpl[];
   };
-  rollupOptions?: RollupOptions;
+  rollupOptions?: RollupOptions | ((options: RollupOptions) => RollupOptions);
 }
 
 export interface CliOptions {
