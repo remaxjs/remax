@@ -161,5 +161,36 @@ describe('wechat', () => {
 
       expect(actions).toMatchSnapshot();
     });
+
+    it('create proxy for onClick callback', () => {
+      const view = React.createRef<any>();
+      const handleClick = () => {};
+      const handleAnimationStart = () => {};
+      class Page extends React.Component {
+        render() {
+          return (
+            <View
+              ref={view}
+              onClick={handleClick}
+              onAnimationStart={handleAnimationStart}
+            />
+          );
+        }
+      }
+      const container = new Container(p);
+      render(<Page />, container);
+
+      function findFn(name: string) {
+        const fnKeys = Object.keys(view.current.container.context);
+        const fnKey = fnKeys.find(key => key.indexOf(name) !== -1) || '';
+        return view.current.container.context[fnKey];
+      }
+
+      const newHandleClick = findFn('onClick');
+      const newHandleAnimationStart = findFn('onAnimationStart');
+
+      expect(newHandleClick).not.toBe(handleClick);
+      expect(newHandleAnimationStart).toBe(handleAnimationStart);
+    });
   });
 });

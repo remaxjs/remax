@@ -4,6 +4,7 @@ import { REMAX_METHOD, TYPE_TEXT } from './constants';
 import { generate } from './instanceId';
 import VNode from './VNode';
 import Container from './Container';
+import { createCallbackProxy } from './SyntheticEvent';
 
 /**
  * rootContext Page 实例
@@ -21,14 +22,22 @@ function processProps(newProps: any, rootContext: Container, id: number) {
   for (const propKey of Object.keys(newProps)) {
     if (typeof newProps[propKey] === 'function') {
       const contextKey = `${REMAX_METHOD}_${id}_${propKey}`;
-      rootContext.createCallback(contextKey, newProps[propKey]);
+      rootContext.createCallback(
+        contextKey,
+        createCallbackProxy(propKey, newProps[propKey])
+      );
       props[propKey] = contextKey;
+    } else if (propKey === 'style') {
+      props[propKey] = newProps[propKey] || '';
     } else if (propKey === 'children') {
       // pass
     } else {
       props[propKey] = newProps[propKey];
     }
   }
+
+  props['data-rid'] = id;
+
   return props;
 }
 

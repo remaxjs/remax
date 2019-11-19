@@ -13,7 +13,9 @@ Object {
             },
           ],
           "id": 2,
-          "props": Object {},
+          "props": Object {
+            "data-rid": 2,
+          },
           "text": undefined,
           "type": "view",
         },
@@ -25,13 +27,17 @@ Object {
             },
           ],
           "id": 4,
-          "props": Object {},
+          "props": Object {
+            "data-rid": 4,
+          },
           "text": undefined,
           "type": "view",
         },
       ],
       "id": 5,
-      "props": Object {},
+      "props": Object {
+        "data-rid": 5,
+      },
       "text": undefined,
       "type": "view",
     },
@@ -56,7 +62,9 @@ Object {
             },
           ],
           "id": 2,
-          "props": Object {},
+          "props": Object {
+            "data-rid": 2,
+          },
           "text": undefined,
           "type": "view",
         },
@@ -68,7 +76,9 @@ Object {
             },
           ],
           "id": 7,
-          "props": Object {},
+          "props": Object {
+            "data-rid": 7,
+          },
           "text": undefined,
           "type": "view",
         },
@@ -80,13 +90,17 @@ Object {
             },
           ],
           "id": 4,
-          "props": Object {},
+          "props": Object {
+            "data-rid": 4,
+          },
           "text": undefined,
           "type": "view",
         },
       ],
       "id": 5,
-      "props": Object {},
+      "props": Object {
+        "data-rid": 5,
+      },
       "text": undefined,
       "type": "view",
     },
@@ -111,6 +125,7 @@ Object {
       "id": 3,
       "props": Object {
         "className": "foo",
+        "data-rid": 3,
       },
       "text": undefined,
       "type": "view",
@@ -135,6 +150,7 @@ Array [
           "id": 1,
           "props": Object {
             "class": "class",
+            "data-rid": 1,
             "fooBar": "fooBar",
             "onClick": "$$REMAX_METHOD_1_onClick",
           },
@@ -161,7 +177,9 @@ Object {
         },
       ],
       "id": 2,
-      "props": Object {},
+      "props": Object {
+        "data-rid": 2,
+      },
       "text": undefined,
       "type": "view",
     },
@@ -173,7 +191,9 @@ Object {
         },
       ],
       "id": 4,
-      "props": Object {},
+      "props": Object {
+        "data-rid": 4,
+      },
       "text": undefined,
       "type": "view",
     },
@@ -196,7 +216,9 @@ Object {
         },
       ],
       "id": 2,
-      "props": Object {},
+      "props": Object {
+        "data-rid": 2,
+      },
       "text": undefined,
       "type": "view",
     },
@@ -220,7 +242,8 @@ Object {
       ],
       "id": 2,
       "props": Object {
-        "style": undefined,
+        "data-rid": 2,
+        "style": "",
       },
       "text": undefined,
       "type": "view",
@@ -245,6 +268,7 @@ Object {
       ],
       "id": 2,
       "props": Object {
+        "data-rid": 2,
         "style": Object {
           "height": "100px",
           "width": "100px",
@@ -273,6 +297,7 @@ Object {
       ],
       "id": 2,
       "props": Object {
+        "data-rid": 2,
         "style": Object {
           "WebkitLineClamp": 2,
           "height": "100px",
@@ -302,13 +327,17 @@ Object {
             },
           ],
           "id": 2,
-          "props": Object {},
+          "props": Object {
+            "data-rid": 2,
+          },
           "text": undefined,
           "type": "view",
         },
       ],
       "id": 3,
-      "props": Object {},
+      "props": Object {
+        "data-rid": 3,
+      },
       "text": undefined,
       "type": "view",
     },
@@ -326,7 +355,9 @@ Object {
     Object {
       "children": Array [],
       "id": 3,
-      "props": Object {},
+      "props": Object {
+        "data-rid": 3,
+      },
       "text": undefined,
       "type": "view",
     },
