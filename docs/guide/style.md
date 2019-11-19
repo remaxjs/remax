@@ -38,6 +38,8 @@ Remax 会自动把 `px` 转换成小程序 `rpx`：
 }
 ```
 
+如果整个项目都不想转换 `px` 则可以在配置中将 `pxToRpx` 选项置为 `false`。
+
 Remax 同时也支持 [Css Modules](https://github.com/css-modules/css-modules)
 
 所有以 `module.css|less` 结尾的文件都将按照 **Css Modules** 处理。如：
