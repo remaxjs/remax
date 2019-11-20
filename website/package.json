@@ -12,7 +12,6 @@
     "@mdx-js/mdx": "^1.0.10",
     "@mdx-js/react": "^1.0.6",
     "@playlyfe/gql": "^2.6.1",
-    "@rehooks/local-storage": "^1.7.0",
     "antd": "^3.25.2",
     "dotenv": "^6.2.0",
     "emotion": "^10.0.9",

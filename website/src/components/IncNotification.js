@@ -1,25 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 import fetch from 'isomorphic-fetch';
-import useLocalStorage, { writeStorage } from '@rehooks/local-storage';
 import { notification, Button, Icon } from 'antd';
 
 const HIDE_KEY = 'hide-inc-notification';
 
 const IncNotification = () => {
-  const [hide] = useLocalStorage(HIDE_KEY);
-
   const handleHide = () => {
     notification.close('inc-notification');
-    writeStorage(HIDE_KEY, 1);
+    window.localStorage.setItem(HIDE_KEY, '1');
   };
 
   useEffect(() => {
+    const hide = window.localStorage.getItem(HIDE_KEY);
     if (hide) {
       return;
     }
-    fetch(
-      'https://private-alipayobjects.alipay.com/alipay-rmsdeploy-image/rmsportal/FlPJSPwhzfagtBoHKCbu.png'
-    )
+    fetch('https://private-alipayobjects.alipay.com/alipay-rmsdeploy-image/rmsportal/FlPJSPwhzfagtBoHKCbu.png')
       .then(res => {
         if (res.status === 200) {
           notification.info({
@@ -27,7 +23,7 @@ const IncNotification = () => {
             message: '🐜 内网用户提醒',
             description: (
               <div>
-                <p>发现你是内网用户，请查看 Remax 内部开发指南</p>
+                <p>发现你是内网用户，请查看 Remax 内部开发指南。</p>
                 <div style={{ textAlign: 'right' }}>
                   <Button
                     size="small"

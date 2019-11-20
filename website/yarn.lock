@@ -1833,11 +1833,6 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-"@rehooks/local-storage@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@rehooks/local-storage/-/local-storage-1.7.0.tgz#f6351b61254e07288d0dcfce9aea5602e09b134b"
-  integrity sha512-ETOgR7m3ObSbbL9Ydze8K+aXHmxbx7A5b1sTfDlnZcW8aYPogNBgVFaGcVPMobpqWkAoMK7UqGvYb+KomT5nuA==
-
 "@sindresorhus/is@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
