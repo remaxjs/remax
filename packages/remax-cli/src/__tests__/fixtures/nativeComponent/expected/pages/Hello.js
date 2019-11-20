@@ -40,7 +40,7 @@ import '../npm/remax/esm/adapters/alipay/api.js';
 
 var D = function(props) {
   return createElement(
-    'd-1',
+    'd-0',
     props,
     props.children
   );
