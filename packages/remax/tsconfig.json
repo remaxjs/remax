@@ -5,7 +5,8 @@
     "lib": ["es2015", "dom"],
     "declaration": true,
     "jsx": "react",
-    "outDir": "esm"
+    "outDir": "esm",
+    "types": ["@types/jest", "@types/node"]
   },
   "include": [
     "src/**/*",
@@ -13,5 +14,4 @@
     "./node_modules/@remax/mini-types/types/index.d.ts",
     "./node_modules/@remax/miniprogram-api-typings/index.d.ts"
   ],
-  "exclude": ["__tests__/**/*"]
 }

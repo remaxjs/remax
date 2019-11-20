@@ -9,7 +9,7 @@
 
 
   <template name="REMAX_TPL_1_a-0">
-  <a-0  foo="{{item.props['foo']}}"  title="{{item.props['title']}}" >
+  <a-0  foo="{{item.props['foo']}}"  title="{{item.props['title']}}" ref="{{item.props['__ref']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -51,7 +51,7 @@
 </template>
   
   <template name="REMAX_TPL_1_a-1">
-  <a-1 >
+  <a-1 ref="{{item.props['__ref']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -93,7 +93,7 @@
 </template>
   
   <template name="REMAX_TPL_1_b-0">
-  <b-0 >
+  <b-0 ref="{{item.props['__ref']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -145,7 +145,7 @@
 </template>
   
   <template name="REMAX_TPL_1_c-0">
-  <c-0 >
+  <c-0 ref="{{item.props['__ref']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -217,7 +217,7 @@
 </template>
   
   <template name="REMAX_TPL_1_complex-0">
-  <complex-0 >
+  <complex-0 ref="{{item.props['__ref']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -289,7 +289,7 @@
 </template>
   
   <template name="REMAX_TPL_1_d-0">
-  <d-0 >
+  <d-0 ref="{{item.props['__ref']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -331,7 +331,7 @@
 </template>
   
   <template name="REMAX_TPL_1_e-0">
-  <e-0 >
+  <e-0 ref="{{item.props['__ref']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -373,7 +373,7 @@
 </template>
   
   <template name="REMAX_TPL_1_f-0">
-  <f-0 >
+  <f-0 ref="{{item.props['__ref']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -505,7 +505,7 @@
 </template>
   
   <template name="REMAX_TPL_1_my-plugin-0">
-  <my-plugin-0 >
+  <my-plugin-0 ref="{{item.props['__ref']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -547,7 +547,7 @@
 </template>
   
   <template name="REMAX_TPL_1_my-plugin-1">
-  <my-plugin-1 >
+  <my-plugin-1 ref="{{item.props['__ref']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -683,7 +683,7 @@
 </template>
   
   <template name="REMAX_TPL_1_slot-0">
-  <slot-0 >
+  <slot-0 ref="{{item.props['__ref']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -725,7 +725,7 @@
 </template>
   
   <template name="REMAX_TPL_1_src-0">
-  <src-0 >
+  <src-0 ref="{{item.props['__ref']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">

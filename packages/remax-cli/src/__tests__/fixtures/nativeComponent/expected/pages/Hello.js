@@ -4,6 +4,8 @@ import '../npm/remax/esm/createAppConfig.js';
 import '../npm/remax/esm/Platform.js';
 import '../npm/remax/esm/createHostComponent.js';
 import '../npm/remax/esm/createPageConfig.js';
+import createNativeComponent from '../npm/remax/esm/createNativeComponent.js';
+import '../npm/remax/esm/index.js';
 import View from '../npm/remax/esm/adapters/alipay/components/View.js';
 import '../npm/remax/esm/adapters/alipay/components/ScrollView.js';
 import '../npm/remax/esm/adapters/alipay/components/Swiper.js';
@@ -39,20 +41,8 @@ import '../npm/remax/esm/adapters/alipay/components/Lifestyle.js';
 import '../npm/remax/esm/adapters/alipay/components/ContactButton.js';
 import '../npm/remax/esm/adapters/alipay/api.js';
 
-var D = function(props) {
-  return createElement(
-    'd-0',
-    props,
-    props.children
-  );
-};
-var F = function(props) {
-  return createElement(
-    'f-0',
-    props,
-    props.children
-  );
-};
+var D = createNativeComponent('d-0');
+var F = createNativeComponent('f-0');
 
 
 var Hello = (function () {

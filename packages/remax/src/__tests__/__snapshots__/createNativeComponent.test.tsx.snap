@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createNativeComponent create native component 1`] = `<card />`;
+
+exports[`createNativeComponent rename ref 1`] = `
+<card
+  __ref={[Function]}
+/>
+`;

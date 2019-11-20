@@ -1,5 +1,5 @@
 <template name="REMAX_TPL_1_<%=id%>">
-  <<%=id%> <% for(let key of props) { %> <%=key%>="{{item.props['<%=key%>']}}" <% } %>>
+  <<%=id%> <% for(let key of props) { %> <%=key%>="{{item.props['<%=key%>']}}" <% } %><% if (type === 'native') { %>ref="{{item.props['__ref']}}"<% } %>>
     <% if (id === 'swiper') { %>
     <block a:for="{{item.children}}" key="{{item.id}}">
       <swiper-item key="{{item.props.key}}">

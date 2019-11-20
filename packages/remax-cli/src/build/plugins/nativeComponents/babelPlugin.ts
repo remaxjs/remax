@@ -87,6 +87,8 @@ export default (options: RemaxOptions, adapter: Adapter) => {
 
           const props = usedProps
             .filter(Boolean)
+            // 剔除 ref，在 axml 特殊处理
+            .filter(k => k !== 'ref')
             .map(prop => adapter.getNativePropName(prop, true));
 
           const component = {
