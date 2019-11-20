@@ -101,7 +101,9 @@ export default (
 
       const collectPages = (page: string, importer: string) => {
         const nativeImporter = importers.get(
-          searchFile(path.join(options.cwd, importer).replace('.js', ''))
+          searchFile(
+            path.join(options.cwd, importer).replace(path.extname(importer), '')
+          )
         );
 
         if (nativeImporter) {
