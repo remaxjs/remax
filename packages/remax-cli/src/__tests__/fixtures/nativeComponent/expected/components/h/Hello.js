@@ -1,12 +1,8 @@
 import { createElement } from 'react';
+import createNativeComponent from '../npm/remax/esm/createNativeComponent.js';
+import '../npm/remax/esm/index.js';
 
-var D = function(props) {
-  return createElement(
-    'd-0',
-    props,
-    props.children
-  );
-};
+var D = createNativeComponent('d-0');
 
 var Hello = (function () {
   return createElement(D, null);

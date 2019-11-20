@@ -12,20 +12,23 @@ import SlotComponent from '../components/slot';
 import ScopedComponent from '../components/@foo/a';
 import SrcComponent from '../components/src';
 
-export default () => (
-  <View>
-    <A foo="bar" />
-    <B />
-    <C />
-    <D />
-    <E />
-    <Complex />
-    <PluginComponent />
-    <PluginComponent2 />
-    <SlotComponent>
-      <View slot="inner"></View>
-    </SlotComponent>
-    <ScopedComponent />
-    <SrcComponent />
-  </View>
-);
+export default () => {
+  const b = React.createRef();
+  return (
+    <View>
+      <A foo="bar" />
+      <B ref={b} />
+      <C />
+      <D />
+      <E />
+      <Complex />
+      <PluginComponent />
+      <PluginComponent2 />
+      <SlotComponent>
+        <View slot="inner"></View>
+      </SlotComponent>
+      <ScopedComponent />
+      <SrcComponent />
+    </View>
+  );
+};

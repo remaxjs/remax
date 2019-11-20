@@ -57,6 +57,8 @@ export default (
         sourceType: 'module',
       });
 
+      let helperImported = false;
+
       const extract = (node: any) => {
         const source: string = get(node, 'source.value');
         const name: string = get(node, 'specifiers[0].local.name');
@@ -75,14 +77,14 @@ export default (
         }
 
         magicString.remove(node.start, node.end);
+        if (!helperImported) {
+          magicString.prepend(
+            "import { unstable_createNativeComponent } from 'remax';\n"
+          );
+          helperImported = true;
+        }
 
-        const exportStr = `var ${name} = function(props) {
-  return React.createElement(
-    '${component.hashId}',
-    props,
-    props.children
-  );
-};\n`;
+        const exportStr = `var ${name} = unstable_createNativeComponent('${component.hashId}')\n`;
 
         magicString.prepend(exportStr);
       };

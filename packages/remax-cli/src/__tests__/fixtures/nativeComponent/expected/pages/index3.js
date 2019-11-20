@@ -4,6 +4,7 @@ import '../npm/remax/esm/createAppConfig.js';
 import '../npm/remax/esm/Platform.js';
 import '../npm/remax/esm/createHostComponent.js';
 import createPageConfig from '../npm/remax/esm/createPageConfig.js';
+import createNativeComponent from '../npm/remax/esm/createNativeComponent.js';
 import '../npm/remax/esm/index.js';
 import View from '../npm/remax/esm/adapters/alipay/components/View.js';
 import '../npm/remax/esm/adapters/alipay/components/ScrollView.js';
@@ -41,13 +42,7 @@ import '../npm/remax/esm/adapters/alipay/components/ContactButton.js';
 import '../npm/remax/esm/adapters/alipay/api.js';
 import G from '../components/g/index.js';
 
-var B = function(props) {
-  return createElement(
-    'b-0',
-    props,
-    props.children
-  );
-};
+var B = createNativeComponent('b-0');
 
 
 var _page = function _page() {

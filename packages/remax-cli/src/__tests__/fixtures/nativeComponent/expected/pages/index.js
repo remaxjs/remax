@@ -1,9 +1,10 @@
 import '../npm/remax/esm/render.js';
-import { createElement } from 'react';
+import { createRef, createElement } from 'react';
 import '../npm/remax/esm/createAppConfig.js';
 import '../npm/remax/esm/Platform.js';
 import '../npm/remax/esm/createHostComponent.js';
 import createPageConfig from '../npm/remax/esm/createPageConfig.js';
+import createNativeComponent from '../npm/remax/esm/createNativeComponent.js';
 import '../npm/remax/esm/index.js';
 import View from '../npm/remax/esm/adapters/alipay/components/View.js';
 import '../npm/remax/esm/adapters/alipay/components/ScrollView.js';
@@ -40,83 +41,17 @@ import '../npm/remax/esm/adapters/alipay/components/Lifestyle.js';
 import '../npm/remax/esm/adapters/alipay/components/ContactButton.js';
 import '../npm/remax/esm/adapters/alipay/api.js';
 
-var SrcComponent = function(props) {
-  return createElement(
-    'src-0',
-    props,
-    props.children
-  );
-};
-var ScopedComponent = function(props) {
-  return createElement(
-    'a-1',
-    props,
-    props.children
-  );
-};
-var SlotComponent = function(props) {
-  return createElement(
-    'slot-0',
-    props,
-    props.children
-  );
-};
-var PluginComponent2 = function(props) {
-  return createElement(
-    'my-plugin-1',
-    props,
-    props.children
-  );
-};
-var PluginComponent = function(props) {
-  return createElement(
-    'my-plugin-0',
-    props,
-    props.children
-  );
-};
-var Complex = function(props) {
-  return createElement(
-    'complex-0',
-    props,
-    props.children
-  );
-};
-var E = function(props) {
-  return createElement(
-    'e-0',
-    props,
-    props.children
-  );
-};
-var D = function(props) {
-  return createElement(
-    'd-0',
-    props,
-    props.children
-  );
-};
-var C = function(props) {
-  return createElement(
-    'c-0',
-    props,
-    props.children
-  );
-};
-var B = function(props) {
-  return createElement(
-    'b-0',
-    props,
-    props.children
-  );
-};
-var A = function(props) {
-  return createElement(
-    'a-0',
-    props,
-    props.children
-  );
-};
+var SrcComponent = createNativeComponent('src-0');
+var ScopedComponent = createNativeComponent('a-1');
+var SlotComponent = createNativeComponent('slot-0');
+var PluginComponent2 = createNativeComponent('my-plugin-1');
+var PluginComponent = createNativeComponent('my-plugin-0');
+var Complex = createNativeComponent('complex-0');
+var E = createNativeComponent('e-0');
+var D = createNativeComponent('d-0');
+var C = createNativeComponent('c-0');
+var B = createNativeComponent('b-0');
+var A = createNativeComponent('a-0');
 
 
 
@@ -130,9 +65,12 @@ var A = function(props) {
 
 
 var _page = function _page() {
+  var b = createRef();
   return createElement(View, null, createElement(A, {
     foo: "bar"
-  }), createElement(B, null), createElement(C, null), createElement(D, null), createElement(E, null), createElement(Complex, null), createElement(PluginComponent, null), createElement(PluginComponent2, null), createElement(SlotComponent, null, createElement(View, {
+  }), createElement(B, {
+    ref: b
+  }), createElement(C, null), createElement(D, null), createElement(E, null), createElement(Complex, null), createElement(PluginComponent, null), createElement(PluginComponent2, null), createElement(SlotComponent, null, createElement(View, {
     slot: "inner"
   })), createElement(ScopedComponent, null), createElement(SrcComponent, null));
 };
