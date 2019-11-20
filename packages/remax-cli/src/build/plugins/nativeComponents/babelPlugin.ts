@@ -20,19 +20,24 @@ const importers: Importers<
 export const getKebabCaseName = (sourcePath: string) =>
   kebabCase(path.basename(path.dirname(sourcePath)));
 
-const nativeIds: Map<string, number> = new Map();
+const nativeIds: Map<string, string[]> = new Map();
 
-const getHashId = (id: string) => {
-  const nativeId = nativeIds.get(id);
+const getHashId = (sourcePath: string, id: string) => {
+  const sourcePaths = nativeIds.get(id);
 
-  if (nativeId === undefined) {
-    nativeIds.set(id, 0);
-    return `${id}-0`;
+  if (sourcePaths) {
+    const index = sourcePaths.findIndex(source => source === sourcePath);
+
+    if (index >= 0) {
+      return `${id}-${index}`;
+    }
+
+    sourcePaths.push(sourcePath);
+    return `${id}-${sourcePaths.length - 1}`;
   }
 
-  nativeIds.set(id, nativeId + 1);
-
-  return `${id}-${nativeId + 1}`;
+  nativeIds.set(id, [sourcePath]);
+  return `${id}-0`;
 };
 
 export default (options: RemaxOptions, adapter: Adapter) => {
@@ -43,9 +48,9 @@ export default (options: RemaxOptions, adapter: Adapter) => {
       importers.delete(state.opts.filename);
     },
     visitor: {
-      JSXElement(nodePath: NodePath, state: any) {
+      JSXElement(nodePath: NodePath<t.JSXElement>, state: any) {
         const importer: string = state.file.opts.filename;
-        const node = nodePath.node as t.JSXElement;
+        const node = nodePath.node;
 
         if (t.isJSXIdentifier(node.openingElement.name)) {
           const tagName = node.openingElement.name.name;
@@ -88,7 +93,7 @@ export default (options: RemaxOptions, adapter: Adapter) => {
             id: sourcePath,
             props: new Set(props),
             importer,
-            hashId: getHashId(id),
+            hashId: getHashId(sourcePath, id),
             pages: new Set([]),
           };
 
