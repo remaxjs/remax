@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import fetch from 'isomorphic-fetch';
 import { notification, Button, Icon } from 'antd';
+import trace from './trace';
 
 const HIDE_KEY = 'hide-inc-notification';
 
@@ -15,7 +16,9 @@ const IncNotification = () => {
     if (hide) {
       return;
     }
-    fetch('https://private-alipayobjects.alipay.com/alipay-rmsdeploy-image/rmsportal/FlPJSPwhzfagtBoHKCbu.png')
+    fetch(
+      'https://private-alipayobjects.alipay.com/alipay-rmsdeploy-image/rmsportal/FlPJSPwhzfagtBoHKCbu.png'
+    )
       .then(res => {
         if (res.status === 200) {
           notification.info({
@@ -31,6 +34,11 @@ const IncNotification = () => {
                     style={{ marginRight: 8 }}
                     href="https://ur.alipay.com/1koJMs"
                     target="_blank"
+                    onClick={() => {
+                      trace('event', 'click', {
+                        event_category: 'InnerGuide',
+                      });
+                    }}
                   >
                     <Icon type="thunderbolt" /> 立即查看
                   </Button>
