@@ -12,6 +12,8 @@
     "@mdx-js/mdx": "^1.0.10",
     "@mdx-js/react": "^1.0.6",
     "@playlyfe/gql": "^2.6.1",
+    "@rehooks/local-storage": "^1.7.0",
+    "antd": "^3.25.2",
     "dotenv": "^6.2.0",
     "emotion": "^10.0.9",
     "emotion-server": "^10.0.9",
@@ -24,7 +26,7 @@
     "gatsby-plugin-layout": "^1.0.15",
     "gatsby-plugin-mdx": "^1.0.23",
     "gatsby-plugin-react-helmet": "3.0.12",
-    "gatsby-plugin-sharp": "^2.0.35",
+    "gatsby-plugin-sharp": "^2.3.2",
     "gatsby-plugin-sitemap": "^2.0.12",
     "gatsby-remark-copy-linked-files": "^2.0.11",
     "gatsby-remark-images": "3.0.10",
@@ -32,6 +34,7 @@
     "gatsby-transformer-remark": "^2.6.13",
     "graphql": "^14.2.1",
     "is-absolute-url": "^3.0.3",
+    "isomorphic-fetch": "^2.2.1",
     "lodash.flatten": "^4.4.0",
     "lodash.startcase": "^4.4.0",
     "react": "^16.8.6",
@@ -53,6 +56,8 @@
     "deploy": "gh-pages -d public"
   },
   "devDependencies": {
+    "babel-plugin-import": "^1.12.2",
+    "babel-preset-gatsby": "^0.2.22",
     "gatsby-plugin-remove-trailing-slashes": "^2.0.11",
     "gh-pages": "^2.1.1",
     "prism-react-renderer": "^0.1.6"

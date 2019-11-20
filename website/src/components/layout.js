@@ -5,6 +5,7 @@ import ThemeProvider from './themeProvider';
 import mdxComponents from './mdxComponents';
 import Sidebar from './sidebar';
 import RightSidebar from './rightSidebar';
+import IncNotification from './IncNotification';
 
 const Wrapper = styled('div')`
   display: flex;
@@ -45,6 +46,7 @@ const RightSideBarWidth = styled('div')`
 const Layout = ({ children, location }) => (
   <ThemeProvider location={location}>
     <MDXProvider components={mdxComponents}>
+      <IncNotification />
       <Wrapper>
         <LeftSideBarWidth className={'hidden-xs'}>
           <Sidebar location={location} />
