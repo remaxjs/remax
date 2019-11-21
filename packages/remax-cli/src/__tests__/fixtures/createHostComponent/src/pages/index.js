@@ -4,7 +4,7 @@ import { createHostComponent } from 'remax/macro';
 export default () => {
   const FooBar = createHostComponent('foo-bar', [
     'foo',
-    ['className', 'class'],
+    ['class', 'className'],
   ]);
 
   return (

@@ -53,8 +53,8 @@ function Page() {
 import { createHostComponent } from 'remax/macro';
 
 const FooBar = createHostComponent('foo-bar', [
-  // 支持传入 [alias, prop] 形式的数组来起别名
-  ['className', 'class'],
+  // 支持传入 [prop, alias] 形式的数组来起别名
+  ['class', 'className'],
 ]);
 
 function Page() {

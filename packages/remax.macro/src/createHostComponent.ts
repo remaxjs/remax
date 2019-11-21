@@ -70,7 +70,7 @@ export default function createHostComponent(path: NodePath, state: any) {
   const aliasPair = config[1] as string[][];
   const props = aliasPair.map(prop => prop[0]);
   const alias = aliasPair.reduce<{ [key: string]: string }>((prev, current) => {
-    prev[current[0]] = current[1];
+    prev[current[1]] = current[0];
     return prev;
   }, {});
 
