@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import * as React from 'react';
 import { BaseProps } from './baseTyping';
 import createHostComponent from '../../../createHostComponent';
 
@@ -13,7 +13,7 @@ export interface InputProps extends BaseProps {
   selectionEnd?: number;
   adjustPosition?: boolean;
   placeholder?: string;
-  placeholderStyle?: CSSProperties;
+  placeholderStyle?: React.CSSProperties;
   placeholderClass?: string;
   disabled?: boolean;
   cursorSpacing?: number;

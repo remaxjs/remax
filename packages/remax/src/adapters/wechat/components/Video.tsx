@@ -1,4 +1,4 @@
-import React, { FunctionComponent, forwardRef } from 'react';
+import * as React from 'react';
 import { BaseProps } from './baseTyping';
 import createHostComponent from '../../../createHostComponent';
 
@@ -76,7 +76,7 @@ export interface VideoProps extends BaseProps {
   onProgress?: (event: any) => any;
 }
 
-const VideoRender: FunctionComponent<VideoProps> = (props, ref) => {
+const VideoRender: React.FunctionComponent<VideoProps> = (props, ref) => {
   const { children, ...restProps } = props;
   const videoProps = {
     ...restProps,
@@ -89,7 +89,7 @@ const VideoRender: FunctionComponent<VideoProps> = (props, ref) => {
 /**
  * video 默认宽度 300px、高度 225px，可通过 wxss 设置宽高
  */
-const Video = forwardRef(VideoRender);
+const Video = React.forwardRef(VideoRender);
 
 Video.defaultProps = {
   controls: true,

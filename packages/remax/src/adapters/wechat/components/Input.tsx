@@ -1,9 +1,4 @@
-import React, {
-  CSSProperties,
-  FunctionComponent,
-  useState,
-  forwardRef,
-} from 'react';
+import * as React from 'react';
 import { BaseProps } from './baseTyping';
 import createHostComponent from '../../../createHostComponent';
 
@@ -31,7 +26,6 @@ export interface InputProps extends BaseProps {
    * 输入框的初始内容
    */
   value?: any;
-  style?: CSSProperties;
   /**
    * 1.0.0
    * 是否是密码类型
@@ -97,7 +91,7 @@ export interface InputProps extends BaseProps {
    * 1.0.0
    * 指定 placeholder 的样式
    */
-  placeholderStyle?: CSSProperties;
+  placeholderStyle?: React.CSSProperties;
   /**
    * 1.0.0
    * 指定 placeholder 的样式类
@@ -144,7 +138,7 @@ export interface InputProps extends BaseProps {
 function useInnerFocus(
   initialValue?: boolean
 ): [boolean, typeof handleInnerFocus] {
-  const [innerFocus = false, setInnerFocus] = useState(initialValue);
+  const [innerFocus = false, setInnerFocus] = React.useState(initialValue);
 
   const handleInnerFocus = (func?: Function, focus = true) => (
     ...params: any
@@ -161,7 +155,7 @@ function useInnerFocus(
   return [innerFocus, handleInnerFocus];
 }
 
-const InputRender: FunctionComponent<InputProps> = (props, ref) => {
+const InputRender: React.FunctionComponent<InputProps> = (props, ref) => {
   const {
     autoFocus,
     children,
@@ -188,7 +182,7 @@ const InputRender: FunctionComponent<InputProps> = (props, ref) => {
   return React.createElement(hostComponentName, inputProps, children);
 };
 
-const Input = forwardRef(InputRender);
+const Input = React.forwardRef(InputRender);
 
 Input.defaultProps = {
   type: 'text',
