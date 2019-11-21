@@ -17,7 +17,7 @@ module.exports = {
   // 是否显示 build 进度，默认显示
   progress: true,
   // 指定代码的根目录，默认 src
-  rootDir: 'src,
+  rootDir: 'src',
   // build 目录，默认 dist
   output: 'dist',
   // 配置路径别名
