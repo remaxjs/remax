@@ -59,7 +59,6 @@ jspm_packages/
 
 dist
 
-node_modules
 demo-minitomato
 lib
 
@@ -68,3 +67,5 @@ lib
 
 packages/*/yarn.lock
 packages/*/package-lock.json
+
+!/packages/**/__tests__/fixtures/**/node_modules
