@@ -6,7 +6,8 @@
     "declaration": true,
     "outDir": "lib",
     "rootDirs": ["src", "tests"],
-    "types": ["@types/jest"]
+    "types": ["@types/jest"],
+    "jsx": "preserve"
   },
   "exclude": ["tests", "lib"]
 }
