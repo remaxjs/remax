@@ -122,7 +122,8 @@ export default (
         importer = winPath(importer)
           .replace(/node_modules/, 'npm')
           .replace(/^src\//, '')
-          .replace(/@/g, '_');
+          .replace(/@/g, '_')
+          .replace(path.extname(importer), '.js');
 
         const { imports } = (bundle[importer] as OutputChunk) || {
           imports: [],

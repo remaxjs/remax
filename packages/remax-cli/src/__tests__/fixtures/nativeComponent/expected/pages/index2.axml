@@ -9,7 +9,7 @@
 
 
   <template name="REMAX_TPL_1_a-0">
-  <a-0  foo="{{item.props['foo']}}" >
+  <a-0  foo="{{item.props['foo']}}"  title="{{item.props['title']}}" >
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
