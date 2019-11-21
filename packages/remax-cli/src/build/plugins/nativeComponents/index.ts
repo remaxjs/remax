@@ -98,8 +98,15 @@ export default (
     },
     generateBundle(_, bundle) {
       const importers = getImporters();
+      const collected: Set<string> = new Set();
 
       const collectPages = (page: string, importer: string) => {
+        if (collected.has(importer)) {
+          return;
+        }
+
+        collected.add(importer);
+
         const nativeImporter = importers.get(
           searchFile(
             path.join(options.cwd, importer).replace(path.extname(importer), '')
