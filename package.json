@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "scripts": {
     "watch": "lerna run watch --parallel",
-    "prebuild": "lerna run build --scope remax --scope remax.macro",
+    "prebuild": "lerna run build --scope remax.macro && lerna run build --scope remax",
     "build": "lerna run build --ignore website",
-    "test": "lerna run --scope remax --scope remax-cli --stream test",
+    "test": "lerna run --scope remax --scope remax-cli --scope remax.macro --stream test",
     "test:cov": "lerna run --scope remax --scope remax-cli --stream test -- --collect-coverage",
     "clean": "lerna clean",
     "readme:copy": "lerna exec 'cp ../../README.md' . --scope remax --scope remax-cli",

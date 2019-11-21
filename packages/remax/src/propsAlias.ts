@@ -2,6 +2,7 @@ import kebabCase from 'lodash.kebabcase';
 import Platform from './Platform';
 import * as RuntimeOptions from './RuntimeOptions';
 import plainStyle from './utils/plainStyle';
+import { hostComponents } from 'remax.macro';
 
 function functionPropAlias(prop: string, platform?: string) {
   prop = prop.replace(/Click$/, 'Tap');
@@ -15,7 +16,20 @@ function functionPropAlias(prop: string, platform?: string) {
   return prop;
 }
 
-export function getAlias(prop: string, isNative = false, platform?: string) {
+export function getAlias(
+  prop: string,
+  isNative = false,
+  platform?: string,
+  type?: string
+) {
+  if (!isNative && type) {
+    const hostComponent = hostComponents.get(type);
+
+    if (hostComponent && hostComponent.alias && hostComponent.alias[prop]) {
+      return hostComponent.alias[prop];
+    }
+  }
+
   prop = prop.replace('className', 'class').replace('ClassName', 'Class');
 
   if (isNative) {
@@ -45,7 +59,8 @@ export default function propsAlias(
   props: GenericProps,
   isNative = false,
   platform = Platform.current,
-  pxToRpx = RuntimeOptions.pxToRpx
+  pxToRpx = RuntimeOptions.pxToRpx,
+  type?: string
 ) {
   if (!props) {
     return props;
@@ -54,7 +69,7 @@ export default function propsAlias(
   const aliasProps: GenericProps = {};
 
   Object.keys(props).forEach(prop => {
-    aliasProps[getAlias(prop, isNative, platform)] = getValue(
+    aliasProps[getAlias(prop, isNative, platform, type)] = getValue(
       prop,
       props[prop],
       pxToRpx

@@ -30,7 +30,7 @@ export interface Adapter {
 
   hostComponents: typeof hostComponents;
 
-  getNativePropName: (key: string, isNative?: boolean) => string;
+  getNativePropName: (props: any, isNative?: boolean, type?: string) => string;
 
   getIcons: (config: any) => string[];
 

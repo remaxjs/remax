@@ -13,5 +13,5 @@
     "typings/**/*",
     "./node_modules/@remax/mini-types/types/index.d.ts",
     "./node_modules/@remax/miniprogram-api-typings/index.d.ts"
-  ],
+  ]
 }

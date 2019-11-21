@@ -6,7 +6,7 @@ const FUNCTION_NAME = 'createHostComponent';
 
 export const hostComponents = new Map<
   string,
-  { props: string[]; additional?: boolean }
+  { props: string[]; additional?: boolean; alias?: { [key: string]: string } }
 >();
 
 function getConfig(callExpression: NodePath<t.CallExpression>) {
@@ -14,7 +14,14 @@ function getConfig(callExpression: NodePath<t.CallExpression>) {
   const name = args[0] as t.StringLiteral;
   const props = (args[1] as t.ArrayExpression).elements
     .filter(element => element !== null)
-    .map(element => (element as t.StringLiteral).value);
+    .map(element => {
+      if (t.isStringLiteral(element)) {
+        const value = element.value;
+        return [value, value];
+      } else if (t.isArrayExpression(element)) {
+        return element.elements.map(ele => (ele as t.StringLiteral).value);
+      }
+    });
 
   return [name, props];
 }
@@ -60,10 +67,16 @@ export default function createHostComponent(path: NodePath, state: any) {
   ) as NodePath<t.CallExpression>;
   const config = getConfig(callExpression);
   const name = config[0] as t.StringLiteral;
-  const props = config[1] as string[];
+  const aliasPair = config[1] as string[][];
+  const props = aliasPair.map(prop => prop[0]);
+  const alias = aliasPair.reduce<{ [key: string]: string }>((prev, current) => {
+    prev[current[1]] = current[0];
+    return prev;
+  }, {});
 
   hostComponents.set(name.value, {
     props,
+    alias,
     additional: true,
   });
 
