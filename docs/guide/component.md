@@ -47,6 +47,21 @@ function Page() {
 }
 ```
 
+你也可以给基础组件的属性起别名，使得更贴近 React 风格：
+
+```jsx
+import { createHostComponent } from 'remax/macro';
+
+const FooBar = createHostComponent('foo-bar', [
+  // 支持传入 [alias, prop] 形式的数组来起别名
+  ['className', 'class'],
+]);
+
+function Page() {
+  return <FooBar className="class" />;
+}
+```
+
 如果你使用的是 TypeScript，还可以定义 `props` 类型：
 
 ```jsx

@@ -122,7 +122,7 @@ function registerProps(
   return new Set(
     usedProps
       .filter(Boolean)
-      .map(prop => adapter.getNativePropName(prop, false))
+      .map(prop => adapter.getNativePropName(prop, false, componentName))
   );
 }
 

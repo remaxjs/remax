@@ -1,13 +1,36 @@
+import { hostComponents } from 'remax.macro';
 import propsAlias, { getAlias } from '../propsAlias';
 import { isHostComponent } from '../createHostComponent';
 import { TYPE_TEXT } from '../constants';
 
-describe('propsAlias', () => {
+describe('props alias', () => {
   it('transform className prop correctly', () => {
     expect(getAlias('className')).toBe('class');
     expect(getAlias('placeholderClassName')).toBe('placeholder-class');
     expect(getAlias('className', true)).toBe('class');
     expect(getAlias('placeholderClassName', true)).toBe('placeholderClass');
+
+    expect(
+      propsAlias({
+        className: 'class-name',
+        placeholderClassName: 'placeholder-class-name',
+      })
+    ).toEqual({
+      class: 'class-name',
+      'placeholder-class': 'placeholder-class-name',
+    });
+    expect(
+      propsAlias(
+        {
+          className: 'class-name',
+          placeholderClassName: 'placeholder-class-name',
+        },
+        true
+      )
+    ).toEqual({
+      class: 'class-name',
+      placeholderClass: 'placeholder-class-name',
+    });
   });
 
   it('transform function prop correctly', () => {
@@ -33,6 +56,33 @@ describe('propsAlias', () => {
         },
       })
     ).toMatchSnapshot();
+  });
+
+  it('transform props by component type correctly', () => {
+    expect(getAlias('prop')).toBe('prop');
+
+    hostComponents.set('foo', {
+      props: ['bar', 'camelCase'],
+      alias: {
+        camelCase: 'kebab-case',
+      },
+    });
+
+    expect(
+      propsAlias(
+        {
+          bar: 'bar',
+          camelCase: 'value',
+        },
+        false,
+        undefined,
+        undefined,
+        'foo'
+      )
+    ).toEqual({
+      bar: 'bar',
+      'kebab-case': 'value',
+    });
   });
 
   describe('check host components', () => {
