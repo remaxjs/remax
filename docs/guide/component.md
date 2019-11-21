@@ -47,7 +47,7 @@ function Page() {
 }
 ```
 
-你也可以给基础组件的属性起别名，使得更贴近 React 风格：
+你也可以给基础组件的属性起别名，使其更符合 React 的命名风格：
 
 ```jsx
 import { createHostComponent } from 'remax/macro';
