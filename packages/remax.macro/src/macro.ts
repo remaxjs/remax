@@ -21,7 +21,7 @@ function remax({
 
 export declare function createHostComponent<P = any>(
   name: string,
-  props: string[][]
+  props: Array<string | [string, string]>
 ): React.ComponentType<P>;
 
 export { hostComponents };
