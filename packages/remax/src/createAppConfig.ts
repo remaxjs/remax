@@ -12,52 +12,52 @@ class DefaultAppComponent extends React.Component {
 
 export default function createAppConfig(this: any, App: any) {
   const createConfig = (
-    AppComponent: React.ComponentType = DefaultAppComponent
+    AppComponent: React.ComponentType<any> = DefaultAppComponent
   ) => {
     return {
       _container: new AppContainer(this),
 
       _pages: [] as any[],
 
-      _instance: null as any,
+      _instance: React.createRef<any>(),
 
       onLaunch(options: any) {
-        this._instance = this._render();
+        this._render();
 
-        if (this._instance && this._instance.onLaunch) {
-          this._instance.onLaunch(options);
+        if (this._instance.current && this._instance.current.onLaunch) {
+          this._instance.current.onLaunch(options);
         }
       },
 
       onShow(options: any) {
-        if (this._instance && this._instance.onShow) {
-          this._instance.onShow(options);
+        if (this._instance && this._instance.current.onShow) {
+          this._instance.current.onShow(options);
         }
       },
 
       onHide() {
-        if (this._instance && this._instance.onHide) {
-          this._instance.onHide();
+        if (this._instance && this._instance.current.onHide) {
+          this._instance.current.onHide();
         }
       },
 
       onError(error: any) {
-        if (this._instance && this._instance.onError) {
-          this._instance.onError(error);
+        if (this._instance && this._instance.current.onError) {
+          this._instance.current.onError(error);
         }
       },
 
       // 支付宝
       onShareAppMessage() {
-        if (this._instance && this._instance.onShareAppMessage) {
-          return this._instance.onShareAppMessage();
+        if (this._instance && this._instance.current.onShareAppMessage) {
+          return this._instance.current.onShareAppMessage();
         }
       },
 
       // 微信
       onPageNotFound(options: any) {
-        if (this._instance && this._instance.onPageNotFound) {
-          return this._instance.onPageNotFound(options);
+        if (this._instance && this._instance.current.onPageNotFound) {
+          return this._instance.current.onPageNotFound(options);
         }
       },
 
@@ -75,7 +75,9 @@ export default function createAppConfig(this: any, App: any) {
         return render(
           React.createElement(
             AppComponent,
-            null,
+            {
+              ref: this._instance,
+            },
             this._pages.map(p => p.element)
           ),
           this._container
