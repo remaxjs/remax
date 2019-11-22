@@ -7,4 +7,5 @@ pluginTester({
   plugin,
   fixtures: join(__dirname, 'fixtures'),
   snapshot: true,
+  endOfLine: 'preserve',
 });
