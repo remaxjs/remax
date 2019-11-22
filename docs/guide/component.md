@@ -35,7 +35,7 @@ Remax
 
 如果小程序添加了新的组件，而你所用的 Remax 版本还没提供该组件的支持，Remax 允许你自己创建一个新的基础组件。
 
-假设微信小程序新增了一个 `<foo-bar>` 组件，你可以这么做以让 Remax 提前支持：
+假设小程序新增了一个 `<foo-bar>` 组件，你可以这么做以让 Remax 提前支持：
 
 ```jsx
 import { createHostComponent } from 'remax/macro';
