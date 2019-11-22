@@ -3,11 +3,21 @@ import render from './render';
 import AppContainer from './AppContainer';
 import isClass from './utils/isClass';
 import isClassComponent from './utils/isClassComponent';
+import { ForwardRef } from './ReactIs';
 
 class DefaultAppComponent extends React.Component {
   render() {
     return React.createElement(React.Fragment, null, this.props.children);
   }
+}
+
+enum AppLifecyle {
+  onLaunch = 'onLaunch',
+  onShow = 'onShow',
+  onHide = 'onHide',
+  onError = 'onError',
+  onShareAppMessage = 'onShareAppMessage',
+  onPageNotFound = 'onPageNotFound',
 }
 
 export default function createAppConfig(this: any, App: any) {
@@ -24,40 +34,34 @@ export default function createAppConfig(this: any, App: any) {
       onLaunch(options: any) {
         this._render();
 
-        if (this._instance.current && this._instance.current.onLaunch) {
-          this._instance.current.onLaunch(options);
-        }
+        this.callLifecycle(AppLifecyle.onLaunch, options);
       },
 
       onShow(options: any) {
-        if (this._instance && this._instance.current.onShow) {
-          this._instance.current.onShow(options);
-        }
+        this.callLifecycle(AppLifecyle.onShow, options);
       },
 
       onHide() {
-        if (this._instance && this._instance.current.onHide) {
-          this._instance.current.onHide();
-        }
+        this.callLifecycle(AppLifecyle.onHide);
       },
 
       onError(error: any) {
-        if (this._instance && this._instance.current.onError) {
-          this._instance.current.onError(error);
-        }
+        this.callLifecycle(AppLifecyle.onError, error);
       },
 
       // 支付宝
       onShareAppMessage() {
-        if (this._instance && this._instance.current.onShareAppMessage) {
-          return this._instance.current.onShareAppMessage();
-        }
+        this.callLifecycle(AppLifecyle.onShareAppMessage);
       },
 
       // 微信
       onPageNotFound(options: any) {
-        if (this._instance && this._instance.current.onPageNotFound) {
-          return this._instance.current.onPageNotFound(options);
+        this.callLifecycle(AppLifecyle.onPageNotFound, options);
+      },
+
+      callLifecycle(lifecycle: AppLifecyle, ...args: any[]) {
+        if (this._instance.current && this._instance.current[lifecycle]) {
+          return this._instance.current[lifecycle](...args);
         }
       },
 
@@ -72,12 +76,19 @@ export default function createAppConfig(this: any, App: any) {
       },
 
       _render() {
+        const props: any = {};
+
+        if (
+          isClassComponent(AppComponent) ||
+          (AppComponent as any).$$typeof === ForwardRef
+        ) {
+          props.ref = this._instance;
+        }
+
         return render(
           React.createElement(
             AppComponent,
-            {
-              ref: this._instance,
-            },
+            props,
             this._pages.map(p => p.element)
           ),
           this._container

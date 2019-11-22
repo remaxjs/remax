@@ -26,7 +26,8 @@
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
     "build:cjs": "tsc --module CommonJS --outDir cjs",
-    "test": "jest"
+    "test": "jest",
+    "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },
   "dependencies": {
     "@remax/mini-types": "^0.1.0",
