@@ -64,3 +64,5 @@ export { default as Lifestyle } from './Lifestyle';
 export * from './Lifestyle';
 export { default as ContractButton } from './ContactButton';
 export * from './ContactButton';
+export { default as Video } from './Video';
+export * from './Video';

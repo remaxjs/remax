@@ -198,3 +198,4 @@ export const watchShake = my.watchShake;
 export const writeBLECharacteristicValue = promisify(
   my.writeBLECharacteristicValue
 );
+export const createVideoContext = (my as any).createVideoContext;
