@@ -1,6 +1,6 @@
 import * as React from 'react';
 import createHostComponent from '../../../createHostComponent';
-import { BaseProps } from './baseTyping';
+import { BaseProps } from '../types/component';
 
 const PickerView = createHostComponent<PickerViewProps>('picker-view');
 

@@ -1,5 +1,5 @@
 import createHostComponent from '../../../createHostComponent';
-import { BaseProps } from './baseTyping';
+import { BaseProps } from '../types/component';
 
 export interface IconProps extends BaseProps {
   type:

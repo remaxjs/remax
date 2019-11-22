@@ -46,10 +46,10 @@ module.exports = {
     plugins: [],
   },
   // 修改 rollup 的配置
-  rollupOptions: (options) => {
+  rollupOptions: options => {
     options.inputs.push('foo.js');
     return options;
-  }
+  },
 };
 ```
 
@@ -160,6 +160,19 @@ exports.alipay = {
 这样就可以根据 build 目标平台自动选择配置
 
 `app.config.js` 对应小程序 `app.json`，页面配置为对应页面的 `config.js`，如，`pages/index/index.js` 的页面配置为 `pages/index/index.config.js`
+
+如果需要类型支持，还可以引入 config 的类型文件：
+
+```js
+// app.config.js
+/** @type {import('remax/wechat').AppConfig} */
+const config = {
+ navigationBarTitleText: '标题',
+ ...
+}
+
+module.exports = config;
+```
 
 > 注意
 >
