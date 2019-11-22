@@ -3,3 +3,4 @@ src/
 __tests__
 yarn-error.log
 .DS_Store
+coverage/
