@@ -1,5 +1,5 @@
 /** 页面配置文件 */
-// reference: https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/page.html
+// reference: https://developer.toutiao.com/dev/cn/mini-app/develop/framework/basic-reference/general-configuration#pagejson
 export interface PageConfig {
   /**
    * 默认值：#000000

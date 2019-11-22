@@ -161,17 +161,17 @@ exports.alipay = {
 
 `app.config.js` 对应小程序 `app.json`，页面配置为对应页面的 `config.js`，如，`pages/index/index.js` 的页面配置为 `pages/index/index.config.js`
 
-如果需要类型支持，还可以引入 config 的类型文件：
+config 同样支持 TypeScript：
 
 ```js
-// app.config.js
-/** @type {import('remax/wechat').AppConfig} */
-const config = {
+// app.config.ts
+import { AppConfig } from 'remax/wechat';
+const config: AppConfig = {
  navigationBarTitleText: '标题',
  ...
 }
 
-module.exports = config;
+export default config;
 ```
 
 > 注意
