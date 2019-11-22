@@ -38,6 +38,7 @@ import '../npm/remax/esm/adapters/alipay/components/Canvas.js';
 import '../npm/remax/esm/adapters/alipay/components/WebView.js';
 import '../npm/remax/esm/adapters/alipay/components/Lifestyle.js';
 import '../npm/remax/esm/adapters/alipay/components/ContactButton.js';
+import '../npm/remax/esm/adapters/alipay/components/Video.js';
 import '../npm/remax/esm/adapters/alipay/api.js';
 import { View as View$2 } from '../npm/remax/esm/adapters/wechat/components/index.js';
 import { View as View$1 } from '../npm/remax/esm/adapters/toutiao/components/index.js';

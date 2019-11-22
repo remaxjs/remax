@@ -32,6 +32,7 @@ import * as text from './text';
 import * as textarea from './textarea';
 import * as view from './view';
 import * as webView from './web-view';
+import * as video from './video';
 
 export function register() {
   hostComponents.set('button', button);
@@ -67,6 +68,7 @@ export function register() {
   hostComponents.set('textarea', textarea);
   hostComponents.set('view', view);
   hostComponents.set('web-view', webView);
+  hostComponents.set('video', video);
 }
 
 register();
