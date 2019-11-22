@@ -25,6 +25,7 @@ export interface ButtonProps {
   onGetAuthorize?: (e: any) => void;
   onError?: (e: any) => void;
 }
-export const Button = createHostComponent<ButtonProps>('button');
+
+const Button = createHostComponent<ButtonProps>('button');
 
 export default Button;

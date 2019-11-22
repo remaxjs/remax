@@ -1,14 +1,10 @@
 import createHostComponent from '../../../createHostComponent';
-import { CSSProperties } from 'react';
+import { BaseProps } from './baseTyping';
 
 const MovableView = createHostComponent<MovableViewProps>('movable-view');
 
 // can't extends from BaseProps, bacause this MovableViewProps overwrite animation to boolean
-export interface MovableViewProps {
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: CSSProperties;
+export interface MovableViewProps extends BaseProps {
   /** (default: none) movable-view的移动方向，属性值有all、vertical、horizontal、none 1.2.0 */
   direction?: string;
   /** (default: false) movable-view是否带有惯性 1.2.0 */
@@ -33,8 +29,6 @@ export interface MovableViewProps {
   scaleMax?: number;
   /** (default: 1) 定义缩放倍数，取值范围为 0.5 - 10 1.9.90 */
   scaleValue?: number;
-  /** (default: true) 是否使用动画 2.1.0 */
-  animation?: boolean;
   onClick?: (event: any) => any;
   catchClick?: (event: any) => any;
   /** 拖动过程中触发的事件，event.detail = {x, y, source} 1.9.90 */

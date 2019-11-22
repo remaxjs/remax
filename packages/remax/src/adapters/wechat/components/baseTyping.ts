@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 /** 微信内置组件公共属性 */
 // reference: https://developers.weixin.qq.com/miniprogram/dev/framework/view/component.html
 export interface BaseProps {

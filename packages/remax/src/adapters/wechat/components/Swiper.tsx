@@ -1,4 +1,4 @@
-import React, { FunctionComponent, forwardRef } from 'react';
+import * as React from 'react';
 import { BaseProps } from './baseTyping';
 import createHostComponent from '../../../createHostComponent';
 
@@ -46,7 +46,7 @@ export interface SwiperProps extends BaseProps {
   onAnimationFinish?: (event: any) => any;
 }
 
-const SwiperRender: FunctionComponent<SwiperProps> = (props, ref) => {
+const SwiperRender: React.FunctionComponent<SwiperProps> = (props, ref) => {
   const { children, current, onChange, ...restProps } = props;
   const [innerCurrent, setCurrent] = React.useState(0);
 
@@ -68,7 +68,7 @@ const SwiperRender: FunctionComponent<SwiperProps> = (props, ref) => {
   return React.createElement(hostComponentName, swiperProps, children);
 };
 
-const Swiper = forwardRef<{}, React.PropsWithChildren<SwiperProps>>(
+const Swiper = React.forwardRef<{}, React.PropsWithChildren<SwiperProps>>(
   SwiperRender
 );
 

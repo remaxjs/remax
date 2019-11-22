@@ -1,9 +1,4 @@
-import React, {
-  CSSProperties,
-  FunctionComponent,
-  useState,
-  forwardRef,
-} from 'react';
+import * as React from 'react';
 import { BaseProps } from './baseTyping';
 import createHostComponent from '../../../createHostComponent';
 
@@ -13,7 +8,7 @@ export interface TextareaProps extends BaseProps {
   name?: string;
   value: any;
   placeholder?: string;
-  placeholderStyle?: CSSProperties;
+  placeholderStyle?: React.CSSProperties;
   placeholderClass?: string;
   disabled?: boolean;
   /** 最大输入长度，设置为 -1 的时候不限制最大长度 */
@@ -48,7 +43,7 @@ export interface TextareaProps extends BaseProps {
 function useInnerFocus(
   initialValue?: boolean
 ): [boolean, typeof handleInnerFocus] {
-  const [innerFocus = false, setInnerFocus] = useState(initialValue);
+  const [innerFocus = false, setInnerFocus] = React.useState(initialValue);
 
   const handleInnerFocus = (func?: Function, focus = true) => (
     ...params: any
@@ -65,7 +60,7 @@ function useInnerFocus(
   return [innerFocus, handleInnerFocus];
 }
 
-const TextareaRender: FunctionComponent<TextareaProps> = (props, ref) => {
+const TextareaRender: React.FunctionComponent<TextareaProps> = (props, ref) => {
   const {
     autoFocus,
     children,
@@ -92,7 +87,7 @@ const TextareaRender: FunctionComponent<TextareaProps> = (props, ref) => {
   return React.createElement(hostComponentName, inputProps, children);
 };
 
-const Textarea = forwardRef(TextareaRender);
+const Textarea = React.forwardRef(TextareaRender);
 
 Textarea.defaultProps = {
   maxlength: -1,
