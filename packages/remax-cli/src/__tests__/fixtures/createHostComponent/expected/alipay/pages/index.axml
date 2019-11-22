@@ -78,6 +78,16 @@
   </cover-view>
 </template>
   
+  <template name="REMAX_TPL_1_custom-component">
+  <custom-component  foo="{{item.props['foo']}}"  data-rid="{{item.props['data-rid']}}" >
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+    </block>
+    
+  </custom-component>
+</template>
+  
   <template name="REMAX_TPL_1_foo-bar">
   <foo-bar  foo="{{item.props['foo']}}"  class="{{item.props['class']}}"  data-rid="{{item.props['data-rid']}}" >
     

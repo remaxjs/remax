@@ -27,7 +27,7 @@
     "@babel/preset-env": "^7.6.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.6.0",
-    "babel-plugin-macros": "^2.6.2"
+    "@remax/babel-plugin-macros": "^2.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
