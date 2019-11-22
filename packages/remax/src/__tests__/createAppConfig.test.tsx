@@ -24,4 +24,11 @@ describe('createAppConfig', () => {
     appConfig.onLaunch();
     expect(appConfig._instance.current).toBeInstanceOf(App);
   });
+
+  it('does not pass ref to FC', () => {
+    const FCApp: React.FC = props => props.children as React.ReactElement;
+    const appConfig = createAppConfig(FCApp);
+    appConfig.onLaunch();
+    expect(appConfig._instance.current).toBeNull();
+  });
 });
