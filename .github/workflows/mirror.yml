@@ -10,7 +10,7 @@ jobs:
     - uses: pixta-dev/repository-mirroring-action@v1
       with:
         target_repo_url:
-          git@gitlab.com:<username>/<target_repository_name>.git
+          git@gitee.com:remaxjs/remax.git
         ssh_private_key:
           ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
 
