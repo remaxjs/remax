@@ -6,7 +6,8 @@
     "declaration": true,
     "jsx": "react",
     "outDir": "esm",
-    "types": ["@types/jest", "@types/node"]
+    "types": ["@types/jest", "@types/node"],
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*",
