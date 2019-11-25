@@ -99,7 +99,7 @@
     "react": "^16.8.6",
     "react-reconciler": "^0.21.0",
     "sander": "^0.6.0",
-    "scheduler": "^0.15.0",
+    "scheduler": "^0.18.0",
     "ts-jest": "^24.0.2",
     "typescript": "^3.2.2"
   },
