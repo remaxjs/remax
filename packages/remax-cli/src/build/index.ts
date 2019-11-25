@@ -1,4 +1,7 @@
 import * as rollup from 'rollup';
+import * as path from 'path';
+import * as fs from 'fs';
+import winPath from '../winPath';
 import esm from 'esm';
 import rollupConfig from './rollupConfig';
 import getConfig from '../getConfig';
@@ -19,12 +22,13 @@ export default async (argv: any, context?: Context) => {
     ...(context ? context.config : {}),
   };
 
-  let targetConfig;
-  try {
-    targetConfig = require(`./adapters/${argv.target}`);
-  } catch (e) {
-    throw new Error(`Target ${argv.target} is not supported yet.`);
+  if (
+    !fs.existsSync(winPath(path.join(__dirname, `./adapters/${argv.target}`)))
+  ) {
+    output(`\n🚨平台 ${argv.target} 暂不支持`, 'red');
+    process.exit(1);
   }
+  const targetConfig = require(`./adapters/${argv.target}`);
 
   const rollupOptions: rollup.RollupOptions = rollupConfig(
     options,
