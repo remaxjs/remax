@@ -17,11 +17,15 @@ export default function postcssUrl(options: RemaxOptions) {
       const destPath = path.join(options.cwd, options.output, asset.url);
 
       fs.exists(srcPath, exists => {
-        if (exists) {
-          mkdirp(path.dirname(destPath), () => {
-            fs.copyFileSync(srcPath, destPath);
-          });
+        if (!exists) {
+          return;
         }
+
+        mkdirp(path.dirname(destPath), () => {
+          if (!fs.existsSync(destPath)) {
+            fs.copyFileSync(srcPath, destPath);
+          }
+        });
       });
 
       if (/^\.{1,2}\/|^\w+\//.test(asset.url)) {

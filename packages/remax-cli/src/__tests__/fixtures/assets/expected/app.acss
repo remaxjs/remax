@@ -3,7 +3,7 @@
 }
 
 .b {
-  background-image: url('/assets/images/cat.png');
+  background-image: url('/assets/images/dog.png');
 }
 
 .c {
@@ -11,7 +11,31 @@
 }
 
 .d {
-  background-image: url('/pages/assets/images/cat.png');
+  background-image: url('/pages/assets/images/dog.png');
+}
+
+.e {
+  background-image: url('/pages/assets/images/dog.png');
+}
+
+.f {
+  background-image: url('/pages/assets/images/dog.png');
+}
+
+.g {
+  background-image: url('/pages/assets/images/dog.png');
+}
+
+.h {
+  background-image: url('/pages/assets/images/dog.png');
+}
+
+.i {
+  background-image: url('/pages/assets/images/dog.png');
+}
+
+.j {
+  background-image: url('/pages/assets/images/dog.png');
 }
 
 @font-face {
