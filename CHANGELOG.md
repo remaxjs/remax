@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0-beta.1](https://github.com/remaxjs/remax/compare/v1.6.0-beta.0...v1.6.0-beta.1) (2019-11-25)
+
+### Bug Fixes
+
+- 修复 v1.6.0-beta.0 wechat 平台不支持的错误 ([e16d4df](https://github.com/remaxjs/remax/commit/e16d4df))
+
 # [1.6.0-beta.0](https://github.com/remaxjs/remax/compare/v1.5.2...v1.6.0-beta.0) (2019-11-22)
 
 ### Bug Fixes
