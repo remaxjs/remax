@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, Text } from 'remax/alipay';
+import { FunctionalPageNavigator as UnKnownComponent } from 'remax/wechat';
 
 export default () => {
   const props = {};
@@ -16,11 +17,12 @@ export default () => {
         onTouchStart={handleTouchStart}
         id="view"
         data-foo="bar"
-        catchTap={handleClick}
         {...props}
       >
         foo
       </View>
+      <UnKnownComponent />
+      <UnBindingComponent />
       {TextElement}
     </View>
   );

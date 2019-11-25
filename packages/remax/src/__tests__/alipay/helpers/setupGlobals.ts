@@ -9,3 +9,5 @@ global['getApp'] = () => app;
 global['getCurrentPages'] = () => pages;
 // @ts-ignore
 global['my'] = {};
+
+process.env.REMAX_PLATFORM = 'alipay';

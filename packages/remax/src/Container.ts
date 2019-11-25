@@ -96,6 +96,7 @@ export default class Container {
     }
 
     this.context.setData({ action: tree }, () => {
+      /* istanbul ignore next */
       if (process.env.REMAX_DEBUG) {
         console.log(
           `setData => 回调时间：${new Date().getTime() - startTime}ms`,
@@ -109,7 +110,6 @@ export default class Container {
   clearUpdate() {
     this.stopUpdate = true;
 
-    /* istanbul ignore next */
     if (Platform.isWechat) {
       this.context.setData({
         action: {

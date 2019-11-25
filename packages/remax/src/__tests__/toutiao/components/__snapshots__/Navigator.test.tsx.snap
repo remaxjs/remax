@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigator render correctly 1`] = `
+<navigator
+  url="url"
+/>
+`;

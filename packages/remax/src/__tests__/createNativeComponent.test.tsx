@@ -14,5 +14,8 @@ describe('createNativeComponent', () => {
     const card = React.createRef();
     const testRenderer = TestRenderer.create(<Card ref={card} />);
     expect(testRenderer.toJSON()).toMatchSnapshot();
+
+    testRenderer.root.findByType('card' as any).props.__ref('foo');
+    expect(card.current).toBe('foo');
   });
 });

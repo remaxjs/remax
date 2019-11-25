@@ -45,12 +45,8 @@ export function getIcons(config: any) {
   const tabs: Array<{ iconPath: string; selectedIconPath: string }> =
     config.tabBar.list;
 
-  if (tabs) {
-    return tabs.reduce<string[]>(
-      (images, tab) => [...images, tab.iconPath, tab.selectedIconPath],
-      []
-    );
-  }
-
-  return [];
+  return (tabs || []).reduce<string[]>(
+    (images, tab) => [...images, tab.iconPath, tab.selectedIconPath],
+    []
+  );
 }

@@ -3,8 +3,7 @@ export default class SyntheticEventPool {
   public static SYNTHETIC_TYPES = ['onClick'];
 
   public static isSyntheticType(inputType: string) {
-    /* istanbul ignore next */
-    if (this.DEPRECATED_CATCH_TYPE === inputType.toLowerCase()) {
+    if (this.DEPRECATED_CATCH_TYPE === inputType) {
       console.warn(
         'DEPRECATION: remax 已支持在 onClick 事件中使用 stopPropagation 阻止事件冒泡，请尽量不要使用 catchClick'
       );
@@ -36,7 +35,6 @@ export default class SyntheticEventPool {
   }
 
   public stopPropagation(eventType: string, eventId: string) {
-    /* istanbul ignore next */
     if (!this.state[eventType] || !this.state[eventType][eventId]) {
       return;
     }

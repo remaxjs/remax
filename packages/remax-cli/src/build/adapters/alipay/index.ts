@@ -43,12 +43,8 @@ export function getIcons(config: any) {
 
   const tabs: Array<{ icon: string; activeIcon: string }> = config.tabBar.items;
 
-  if (tabs) {
-    return tabs.reduce<string[]>(
-      (images, tab) => [...images, tab.icon, tab.activeIcon],
-      []
-    );
-  }
-
-  return [];
+  return (tabs || []).reduce<string[]>(
+    (images, tab) => [...images, tab.icon, tab.activeIcon],
+    []
+  );
 }

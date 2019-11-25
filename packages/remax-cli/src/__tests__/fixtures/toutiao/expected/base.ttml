@@ -5,6 +5,16 @@
 </template>
 
 
+  <template name="REMAX_TPL_functional-page-navigator">
+  <functional-page-navigator  data-rid="{{i.props['data-rid']}}" >
+    
+    <block tt:for="{{i.children}}" tt:key="{{id}}">
+      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+    </block>
+    
+  </functional-page-navigator>
+</template>
+
   <template name="REMAX_TPL_text">
   <text  data-rid="{{i.props['data-rid']}}" >
     

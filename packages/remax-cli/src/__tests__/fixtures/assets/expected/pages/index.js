@@ -42,12 +42,12 @@ import '../npm/remax/esm/adapters/alipay/components/Video.js';
 import '../npm/remax/esm/adapters/alipay/api.js';
 import cat from '../assets/images/cat.png.js';
 
-var _page = function _page() {
+function _ref() {
   return createElement(View, null, createElement(Image, {
     src: cat
   }));
-};
+}
 
-var index = Page(createPageConfig(_page));
+var index = Page(createPageConfig(_ref));
 
 export default index;

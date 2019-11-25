@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`View render correctly 1`] = `
+<view
+  className="class"
+>
+  view
+</view>
+`;

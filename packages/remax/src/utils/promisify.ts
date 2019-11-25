@@ -8,14 +8,7 @@ function promisify<Arg = any, SuccessArg = any, FailArg = any>(
 ) {
   return (arg: Arg & PromisifyArgs<SuccessArg, FailArg> = {} as Arg) => {
     return new Promise<SuccessArg>((resolve, reject) => {
-      const promisifyArg: any = arg || {
-        success: (res: SuccessArg) => {
-          resolve(res);
-        },
-        fail: (res: FailArg) => {
-          reject(res);
-        },
-      };
+      const promisifyArg: any = arg;
 
       api({
         ...promisifyArg,

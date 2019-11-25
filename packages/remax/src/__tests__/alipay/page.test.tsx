@@ -2,6 +2,7 @@ import * as React from 'react';
 import './helpers/setupGlobals';
 import createPageConfig from '../../createPageConfig';
 import {
+  useReady,
   useShow,
   useHide,
   usePullDownRefresh,
@@ -30,6 +31,9 @@ describe('page', () => {
     it('works', () => {
       const log: string[] = [];
       const Foo: React.FC<PageProps> = () => {
+        useReady(() => {
+          log.push('useReady');
+        });
         useShow(() => {
           log.push('useShow');
         });
@@ -75,6 +79,7 @@ describe('page', () => {
       };
       const page = Page(createPageConfig(Foo));
       page.load();
+      page.ready();
       page.pullDownRefresh();
       page.pullIntercept();
       page.reachBottom();
@@ -87,6 +92,7 @@ describe('page', () => {
 
       expect(log).toEqual([
         'useShow',
+        'useReady',
         'usePullDownRefresh',
         'usePullIntercept',
         'useReachBottom',

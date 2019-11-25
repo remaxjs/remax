@@ -41,6 +41,7 @@ import '../npm/remax/esm/adapters/alipay/components/Lifestyle.js';
 import '../npm/remax/esm/adapters/alipay/components/ContactButton.js';
 import '../npm/remax/esm/adapters/alipay/components/Video.js';
 import '../npm/remax/esm/adapters/alipay/api.js';
+import { FunctionalPageNavigator } from '../npm/remax/esm/adapters/wechat/components/index.js';
 
 var _page = function _page() {
   var props = {};
@@ -54,9 +55,8 @@ var _page = function _page() {
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
-    "data-foo": "bar",
-    catchTap: handleClick
-  }, props), "foo"), TextElement);
+    "data-foo": "bar"
+  }, props), "foo"), createElement(FunctionalPageNavigator, null), createElement(UnBindingComponent, null), TextElement);
 };
 
 var index = Page(createPageConfig(_page));

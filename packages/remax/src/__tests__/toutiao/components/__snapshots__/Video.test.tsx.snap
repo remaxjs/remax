@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Video render correctly 1`] = `
+<video
+  src="video-src"
+/>
+`;

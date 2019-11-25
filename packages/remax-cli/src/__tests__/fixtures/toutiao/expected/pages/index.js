@@ -38,6 +38,7 @@ require('../npm/remax/esm/adapters/toutiao/components/Image.js');
 require('../npm/remax/esm/adapters/toutiao/components/Canvas.js');
 require('../npm/remax/esm/adapters/toutiao/components/WebView.js');
 require('../npm/remax/esm/adapters/toutiao/api.js');
+var index$2 = require('../npm/remax/esm/adapters/wechat/components/index.js');
 
 var _page = function _page() {
   var props = {};
@@ -52,7 +53,7 @@ var _page = function _page() {
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo"), TextElement);
+  }, props), "foo"), TextElement, React.createElement(index$2.FunctionalPageNavigator, null), React.createElement(UnBindingComponent, null));
 };
 
 var index = Page(createPageConfig.default(_page));

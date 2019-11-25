@@ -21,10 +21,6 @@ export enum Lifecycle {
   resize = 'resize',
 }
 
-export function hookName(name: string) {
-  return 'use' + capitalize(name);
-}
-
 export function callbackName(name: string) {
   if (name.startsWith('before')) {
     return capitalize(name);
