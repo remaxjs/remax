@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextArea render correctly 1`] = `
+<textarea
+  className="class"
+  value=""
+/>
+`;

@@ -14,6 +14,10 @@ const p = {
 
 describe('wechat', () => {
   describe('remax render', () => {
+    beforeEach(() => {
+      process.env.REMAX_PLATFORM = 'wechat';
+    });
+
     afterEach(() => {
       resetActionId();
       resetInstanceId();

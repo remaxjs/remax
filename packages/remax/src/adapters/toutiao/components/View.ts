@@ -7,6 +7,8 @@ export interface ViewProps extends BaseProps {
   hoverStartTime?: number;
   hoverStayTime?: number;
   hoverStopPropagation?: boolean;
+  onClick?: (e: any) => void;
+  onFocus?: (e: any) => void;
 }
 
 const View = createHostComponent<ViewProps>('view');

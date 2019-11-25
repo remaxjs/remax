@@ -51,6 +51,7 @@ require('../npm/remax/esm/adapters/wechat/components/Ad.js');
 require('../npm/remax/esm/adapters/wechat/components/WebView.js');
 require('../npm/remax/esm/adapters/wechat/components/FunctionalPageNavigator.js');
 require('../npm/remax/esm/adapters/wechat/api.js');
+var index$2 = require('../npm/remax/esm/adapters/alipay/components/index.js');
 
 var _page = function _page() {
   var props = {};
@@ -65,7 +66,7 @@ var _page = function _page() {
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo"), TextElement);
+  }, props), "foo"), TextElement, React.createElement(index$2.Lifestyle, null), React.createElement(UnBindingComponent, null));
 };
 
 var index = Page(createPageConfig.default(_page));

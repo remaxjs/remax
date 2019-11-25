@@ -8,10 +8,10 @@ describe('synthetic event', () => {
 
       expect(ontap).not.toBe(newOntap);
 
-      const foo = () => {};
-      const newFoo = createCallbackProxy('foo', foo);
+      const catchTap = () => {};
+      const newCatchTap = createCallbackProxy('catchClick', catchTap);
 
-      expect(foo).toBe(newFoo);
+      expect(catchTap).toBe(newCatchTap);
     });
 
     it('works correctly', () => {
@@ -91,6 +91,43 @@ describe('synthetic event', () => {
         },
       });
 
+      expect(bar).toBeCalledTimes(1);
+    });
+
+    it('do not stop propagation when unexpected event happens', () => {
+      const foo = jest.fn(e => {
+        e.stopPropagation();
+      });
+      const fooProxy = createCallbackProxy('onClick', foo);
+      const bar = jest.fn();
+      const barProxy = createCallbackProxy('onClick', bar);
+
+      fooProxy({
+        target: {
+          dataset: {
+            rid: 999,
+          },
+        },
+        currentTarget: {
+          dataset: {
+            rid: 1,
+          },
+        },
+      });
+      barProxy({
+        target: {
+          dataset: {
+            rid: 999,
+          },
+        },
+        currentTarget: {
+          dataset: {
+            rid: 2,
+          },
+        },
+      });
+
+      expect(foo).toBeCalledTimes(1);
       expect(bar).toBeCalledTimes(1);
     });
 

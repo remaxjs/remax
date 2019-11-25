@@ -24,8 +24,10 @@ describe('Input', () => {
   });
 
   it('focus correctly', () => {
+    const handleFocus = jest.fn();
+
     const component: TestRenderer.ReactTestRenderer = TestRenderer.create(
-      <Input />
+      <Input value="" onFocus={handleFocus} />
     );
 
     const instance = component.root.findByType('input');
@@ -33,10 +35,11 @@ describe('Input', () => {
     expect(instance.props.focus).not.toBeTruthy();
 
     TestRenderer.act(() => {
-      instance.props.onClick();
+      instance.props.onFocus();
     });
 
     expect(instance.props.focus).toBeTruthy();
+    expect(handleFocus).toBeCalled();
 
     TestRenderer.act(() => {
       instance.props.onBlur();

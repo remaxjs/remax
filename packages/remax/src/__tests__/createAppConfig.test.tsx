@@ -31,4 +31,24 @@ describe('createAppConfig', () => {
     appConfig.onLaunch();
     expect(appConfig._instance.current).toBeNull();
   });
+
+  it('backwards compatible, use App as an es6 class', () => {
+    function _classCallCheck(instance: any, Constructor: any) {
+      if (!(instance instanceof Constructor)) {
+        throw new TypeError('Cannot call a class as a function');
+      }
+    }
+
+    const App = (function() {
+      function App(this: any) {
+        _classCallCheck(this, App);
+      }
+
+      App.prototype.foo = 'bar';
+      return App;
+    })();
+
+    const appConfig = createAppConfig(App);
+    expect(appConfig.foo).toBe('bar');
+  });
 });

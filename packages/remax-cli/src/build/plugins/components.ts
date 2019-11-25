@@ -147,7 +147,6 @@ function registerComponent({
 
   const props = registerProps(componentName, adapter, node);
 
-  /* istanbul ignore next */
   if (!props) {
     return;
   }
@@ -194,7 +193,6 @@ export default (adapter: Adapter) => {
           const tagName = node.openingElement.name.name;
           const binding = path.scope.getBinding(tagName);
 
-          /* istanbul ignore next */
           if (!binding) {
             return;
           }

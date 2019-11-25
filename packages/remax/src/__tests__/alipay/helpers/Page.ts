@@ -1,4 +1,4 @@
-import setDataImmutable from './setDataImmutable';
+import setDataImmutable from '../../helpers/setDataImmutable';
 import pages from './pages';
 
 class Page {
@@ -14,6 +14,10 @@ class Page {
 
   setData(data: any) {
     this.config.data = setDataImmutable(this.config.data, data);
+  }
+
+  ready() {
+    this.config.onReady();
   }
 
   load() {

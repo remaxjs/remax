@@ -19,11 +19,7 @@ export default function postcssUrl(options: RemaxOptions) {
       fs.exists(srcPath, exists => {
         if (exists) {
           mkdirp(path.dirname(destPath), () => {
-            fs.copyFile(srcPath, destPath, error => {
-              if (error) {
-                console.error(error);
-              }
-            });
+            fs.copyFileSync(srcPath, destPath);
           });
         }
       });

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, Text } from 'remax/wechat';
+import { Lifestyle as UnknownComponent } from 'remax/alipay';
 
 export default () => {
   const props = {};
@@ -21,6 +22,8 @@ export default () => {
         foo
       </View>
       {TextElement}
+      <UnknownComponent />
+      <UnBindingComponent />
     </View>
   );
 };

@@ -50,8 +50,8 @@ export default function createAppConfig(this: any, App: any) {
       },
 
       // 支付宝
-      onShareAppMessage() {
-        this.callLifecycle(AppLifecyle.onShareAppMessage);
+      onShareAppMessage(options: any) {
+        this.callLifecycle(AppLifecyle.onShareAppMessage, options);
       },
 
       // 微信

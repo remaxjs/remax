@@ -3,6 +3,7 @@ module.exports = {
   testEnvironment: 'node',
   testRegex: '.*\\.test\\.ts$',
   testPathIgnorePatterns: ['/lib/'],
+  coveragePathIgnorePatterns: ['/src/__tests__/'],
   globals: {
     'ts-jest': {
       isolatedModules: true,

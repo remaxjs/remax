@@ -11,6 +11,10 @@ interface AppConfig {
     root: string;
     pages: string[];
   }>;
+  subPackages?: Array<{
+    root: string;
+    pages: string[];
+  }>;
   tabBar?: {
     items: Array<{ icon: string; activeIcon: string }>;
     list: Array<{ iconPath: string; selectedIconPath: string }>;
@@ -30,17 +34,13 @@ interface Entries {
   images: string[];
 }
 
-export function searchFile(file: string, ext?: string) {
-  const exts = [ext, 'ts', 'tsx', 'js', 'jsx'].filter(e => e);
+export function searchFile(file: string) {
+  const exts = ['ts', 'tsx', 'js', 'jsx'];
 
   for (const e of exts) {
     const extFile = file + '.' + e;
     if (fs.existsSync(extFile)) {
       return extFile;
-    }
-
-    if (e === ext) {
-      return '';
     }
   }
 
@@ -71,7 +71,7 @@ export default function getEntries(
   if (!context) {
     const appConfig = getAppConfig(options, adapter);
     pages = appConfig.pages;
-    subpackages = appConfig.subpackages || [];
+    subpackages = appConfig.subpackages || appConfig.subPackages || [];
     images = adapter.getIcons(appConfig);
 
     if (!pages || pages.length === 0) {
@@ -81,7 +81,7 @@ export default function getEntries(
     }
   } else {
     pages = context.pages.map(p => p.path);
-    subpackages = context.app.subpackages || [];
+    subpackages = context.app.subpackages || context.app.subPackages || [];
   }
 
   const entries: Entries = {
