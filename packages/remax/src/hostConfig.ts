@@ -6,10 +6,6 @@ import VNode from './VNode';
 import Container from './Container';
 import { createCallbackProxy } from './SyntheticEvent';
 
-/**
- * rootContext Page 实例
- */
-
 const {
   unstable_scheduleCallback: scheduleDeferredCallback,
   unstable_cancelCallback: cancelDeferredCallback,
