@@ -100,14 +100,20 @@ export default (
     },
     generateBundle(_, bundle) {
       const importers = getImporters();
-      const collected: Set<string> = new Set();
+      const collected: Map<string, Set<string>> = new Map();
 
       const collectPages = (page: string, importer: string) => {
-        if (collected.has(importer)) {
-          return;
-        }
+        const pageCollected = collected.get(page);
 
-        collected.add(importer);
+        if (pageCollected) {
+          if (pageCollected.has(importer)) {
+            return;
+          }
+
+          pageCollected.add(importer);
+        } else {
+          collected.set(page, new Set([importer]));
+        }
 
         const nativeImporter = importers.get(
           searchFile(
