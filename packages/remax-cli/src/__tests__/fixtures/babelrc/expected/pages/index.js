@@ -41,6 +41,17 @@ import '../npm/remax/esm/adapters/alipay/components/ContactButton.js';
 import '../npm/remax/esm/adapters/alipay/components/Video.js';
 import '../npm/remax/esm/adapters/alipay/api.js';
 
+var N;
+
+(function (_N) {
+  var V = _N.V = 1;
+})(N || (N = {})); // eslint-disable-next-line @typescript-eslint/no-namespace
+
+
+(function (_N2) {
+  var W = _N2.W = V;
+})(N || (N = {}));
+
 function timesTwo(arr) {
   var _a = arr;
 
@@ -58,7 +69,7 @@ function timesTwo(arr) {
 }
 
 var _page = function _page() {
-  return createElement(View, null, timesTwo([1, 2, 3]));
+  return createElement(View, null, timesTwo([1, 2, 3]), N.V, N.W);
 };
 
 var index = Page(createPageConfig(_page));
