@@ -4,6 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
+    "pretest": "npm run build",
     "test": "jest",
     "watch": "tsc -w",
     "build": "tsc",
