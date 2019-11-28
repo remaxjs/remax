@@ -35,7 +35,7 @@
     "lodash.kebabcase": "^4.1.1",
     "react-reconciler": "0.20.4",
     "remax.macro": "^1.6.0-beta.2",
-    "scheduler": "0.18.0",
+    "scheduler": "0.13.6",
     "shallowequal": "^1.1.0"
   },
   "devDependencies": {
