@@ -1,5 +1,5 @@
 import runTest from './helpers/runTest';
 
-describe('custom root dir config', () => {
+describe('customize root dir config', () => {
   runTest('customRootDir');
 });

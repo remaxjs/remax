@@ -2,7 +2,7 @@ import { RollupOptions, RollupWarning } from 'rollup';
 import path from 'path';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
-import babel from 'rollup-plugin-babel';
+import babel from './plugins/babel';
 import url from '@remax/rollup-plugin-url';
 import json from '@rollup/plugin-json';
 import postcss from '@remax/rollup-plugin-postcss';
@@ -117,26 +117,24 @@ export default function rollupConfig(
       modules: stubModules,
     }),
     babel({
-      babelrc: false,
       include: entries.pages.map(p => p.file),
       extensions: without(extensions, '.json'),
-      plugins: [nativeComponentsBabelPlugin(options, adapter), page],
-      presets: [[require.resolve('babel-preset-remax'), { react: false }]],
+      usePlugins: [nativeComponentsBabelPlugin(options, adapter), page],
+      reactPreset: false,
     }),
     babel({
-      babelrc: false,
       include: entries.app,
       extensions: without(extensions, '.json'),
-      plugins: [nativeComponentsBabelPlugin(options, adapter), app],
-      presets: [[require.resolve('babel-preset-remax'), { react: false }]],
+      usePlugins: [nativeComponentsBabelPlugin(options, adapter), app],
+      reactPreset: false,
     }),
     babel({
       extensions: without(extensions, '.json'),
-      plugins: [
+      usePlugins: [
         nativeComponentsBabelPlugin(options, adapter),
         components(adapter),
       ],
-      presets: [require.resolve('babel-preset-remax')],
+      reactPreset: true,
     }),
     postcss({
       extract: true,
