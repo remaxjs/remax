@@ -15,6 +15,7 @@ export default function(options: RemaxOptions) {
     },
     [] as any[]
   );
+
   return aliasPlugin({
     resolve: [
       '',
@@ -28,6 +29,10 @@ export default function(options: RemaxOptions) {
       '/index.tsx',
     ],
     entries: [
+      {
+        find: 'react-dom',
+        replacement: path.resolve(options.cwd, 'node_modules', 'remax/esm'),
+      },
       {
         find: '@',
         replacement: path.resolve(options.cwd, options.rootDir),
