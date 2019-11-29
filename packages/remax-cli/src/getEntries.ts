@@ -51,12 +51,10 @@ export const getAppConfig = (options: RemaxOptions, adapter: Adapter) => {
   const appConfigPath: string = path.join(
     options.cwd,
     options.rootDir,
-    'app.config.js'
+    'app.config'
   );
-  if (!fs.existsSync(appConfigPath)) {
-    throw new Error(`${appConfigPath} is not found`);
-  }
-  return readManifest(appConfigPath, adapter.name) as AppConfig;
+
+  return readManifest(appConfigPath, adapter.name, true) as AppConfig;
 };
 
 export default function getEntries(

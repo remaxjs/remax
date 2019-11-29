@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BaseProps } from './baseTyping';
+import { BaseProps } from '../types/component';
 import createHostComponent from '../../../createHostComponent';
 
 const hostComponentName = 'video';

@@ -1,7 +1,8 @@
 import * as path from 'path';
 import getConfig from '../getConfig';
+import readManifest from '../readManifest';
 
-describe('config', () => {
+describe('remax config', () => {
   beforeAll(() => {
     process.chdir(path.join(__dirname, 'fixtures/config'));
   });
@@ -9,5 +10,32 @@ describe('config', () => {
   it('override output', () => {
     const result = getConfig();
     expect(result.output).toEqual('build');
+  });
+});
+
+describe('manifest', () => {
+  it('throw error when file not exists with strict mode enabled', () => {
+    expect(readManifest('', 'alipay')).toEqual({});
+    expect(() => {
+      readManifest('', 'alipay', true);
+    }).toThrow();
+  });
+
+  it('throw error when javascript manifest file contains no config', () => {
+    expect(() => {
+      readManifest(
+        path.join(__dirname, './fixtures/exceptioin/manifest.js/app.config'),
+        'alipay'
+      );
+    }).toThrow();
+  });
+
+  it('throw error when typescript manifest file contains no config', () => {
+    expect(() => {
+      readManifest(
+        path.join(__dirname, './fixtures/exceptioin/manifest.ts/app.config'),
+        'alipay'
+      );
+    }).toThrow();
   });
 });
