@@ -233,4 +233,16 @@ describe('alipay', () => {
     expect(newHandleClick).not.toBe(handleClick);
     expect(newHandleAnimationStart).toBe(handleAnimationStart);
   });
+
+  it('useEffect works', done => {
+    const Page = () => {
+      React.useEffect(() => {
+        done();
+      });
+
+      return <View>app</View>;
+    };
+    const container = new Container(p);
+    render(<Page />, container);
+  });
 });
