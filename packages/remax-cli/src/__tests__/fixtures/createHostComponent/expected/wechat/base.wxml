@@ -38,7 +38,6 @@
 <template name="REMAX_TPL_1_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_1_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_1_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -68,7 +67,6 @@
 <template name="REMAX_TPL_2_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_2_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_2_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -98,7 +96,6 @@
 <template name="REMAX_TPL_3_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_3_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_3_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -128,7 +125,6 @@
 <template name="REMAX_TPL_4_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_4_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_4_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -158,7 +154,6 @@
 <template name="REMAX_TPL_5_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_5_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_5_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -188,7 +183,6 @@
 <template name="REMAX_TPL_6_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_6_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_6_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -218,7 +212,6 @@
 <template name="REMAX_TPL_7_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_7_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_7_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -248,7 +241,6 @@
 <template name="REMAX_TPL_8_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_8_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_8_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -278,7 +270,6 @@
 <template name="REMAX_TPL_9_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_9_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_9_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -308,7 +299,6 @@
 <template name="REMAX_TPL_10_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_10_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_10_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -338,7 +328,6 @@
 <template name="REMAX_TPL_11_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_11_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_11_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -368,7 +357,6 @@
 <template name="REMAX_TPL_12_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_12_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_12_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -398,7 +386,6 @@
 <template name="REMAX_TPL_13_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_13_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_13_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -428,7 +415,6 @@
 <template name="REMAX_TPL_14_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_14_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_14_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -458,7 +444,6 @@
 <template name="REMAX_TPL_15_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_15_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_15_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -488,7 +473,6 @@
 <template name="REMAX_TPL_16_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_16_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_16_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -518,7 +502,6 @@
 <template name="REMAX_TPL_17_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_17_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_17_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -548,7 +531,6 @@
 <template name="REMAX_TPL_18_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_18_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_18_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -578,7 +560,6 @@
 <template name="REMAX_TPL_19_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_19_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_19_' + i.type}}" data="{{i: i}}" />
 </template>
@@ -608,7 +589,6 @@
 <template name="REMAX_TPL_20_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<!--  把动态选择模板的逻辑放入一个模板内，可以提升性能问题 -->
 <template name="REMAX_TPL_20_CONTAINER" data="{{i: i}}">
 	<template is="{{'REMAX_TPL_20_' + i.type}}" data="{{i: i}}" />
 </template>

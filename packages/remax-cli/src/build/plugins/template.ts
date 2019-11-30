@@ -12,7 +12,11 @@ import { Context } from '../../types';
 import winPath from '../../winPath';
 import { getNativeComponents } from './nativeComponents/babelPlugin';
 
-async function createTemplate(pageFile: string, adapter: Adapter) {
+async function createTemplate(
+  pageFile: string,
+  adapter: Adapter,
+  options: RemaxOptions
+) {
   const fileName = `${path.dirname(pageFile)}/${path.basename(
     pageFile,
     path.extname(pageFile)
@@ -41,11 +45,21 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
     'id'
   );
 
-  const code: string = await ejs.renderFile(adapter.templates.page, {
-    ...renderOptions,
-    components,
-    adapter,
-  });
+  let code: string = await ejs.renderFile(
+    adapter.templates.page,
+    {
+      ...renderOptions,
+      components,
+      adapter,
+    },
+    {
+      rmWhitespace: options.compressTemplate,
+    }
+  );
+
+  if (options.compressTemplate) {
+    code = code.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
+  }
 
   return {
     type: 'asset' as const,
@@ -89,13 +103,11 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
       adapter,
     },
     {
-      // uglify
-      rmWhitespace: process.env.NODE_ENV === 'production',
+      rmWhitespace: options.compressTemplate,
     }
   );
 
-  // uglify
-  if (process.env.NODE_ENV === 'production') {
+  if (options.compressTemplate) {
     code = code.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
   }
 
@@ -257,7 +269,7 @@ export default function template(
             const filePath = Object.keys(chunk.modules)[0];
             const page = pages.find(p => p.file === filePath);
             if (page) {
-              const template = await createTemplate(file, adapter);
+              const template = await createTemplate(file, adapter, options);
               templateAssets.push(template);
               const config = createPageManifest(
                 options,
