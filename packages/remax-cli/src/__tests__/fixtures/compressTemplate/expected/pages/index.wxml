@@ -1,0 +1,1 @@
+<wxs src="../helper.wxs" module="helper" /> <import src="../base.wxml"/> <template is="REMAX_TPL" data="{{tree: helper.reduce(action)}}" />
