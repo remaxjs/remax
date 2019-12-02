@@ -9,4 +9,4 @@ order: 43
 
 我们也推荐使用 [unstated](https://github.com/jamiebuilds/unstated)、[constate](https://github.com/diegohaz/constate) 这样的超轻量库。
 
-当然，如果你希望使用 Redux/Dva，我们也提供了 [remax-redux](https://github.com/remaxjs/examples/tree/master/alipay-redux) 和 [remax-dva](https://github.com/remaxjs/examples/tree/master/alipay-dva).
+当然，如果你也可以直接使用 Redux/Dva/Mobx 等社区常用的状态管理方案。
