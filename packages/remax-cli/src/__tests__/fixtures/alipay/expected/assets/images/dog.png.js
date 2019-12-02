@@ -1,3 +1,7 @@
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
 var dog = "/assets/images/dog.png";
 
-export default dog;
+exports.default = dog;

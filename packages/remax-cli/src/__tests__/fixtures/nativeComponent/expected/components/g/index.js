@@ -1,13 +1,17 @@
-import { createElement, Fragment } from 'react';
-import createNativeComponent from '../npm/remax/esm/createNativeComponent.js';
-import '../npm/remax/esm/index.js';
-import H from '../h/index.js';
+'use strict';
 
-var NavBar = createNativeComponent('a-0');
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var React = require('react');
+var createNativeComponent = require('../npm/remax/esm/createNativeComponent.js');
+require('../npm/remax/esm/index.js');
+var index = require('../h/index.js');
+
+var NavBar = createNativeComponent.default('a-0');
 var G = (function () {
-  return createElement(Fragment, null, createElement(NavBar, {
+  return React.createElement(React.Fragment, null, React.createElement(NavBar, {
     title: "Test title"
-  }), createElement(H, null));
+  }), React.createElement(index.default, null));
 });
 
-export default G;
+exports.default = G;

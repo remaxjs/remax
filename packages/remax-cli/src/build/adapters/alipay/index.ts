@@ -34,7 +34,7 @@ export const templates = {
   jsHelper: path.join(templateBaseDir, 'helper.js'),
 };
 
-export const moduleFormat = 'esm';
+export const moduleFormat = 'cjs';
 
 export function getIcons(config: any) {
   if (!config.tabBar) {

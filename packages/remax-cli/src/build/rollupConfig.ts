@@ -24,7 +24,6 @@ import rename from './plugins/rename';
 import replace from '@rollup/plugin-replace';
 import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
-import removeESModuleFlag from './plugins/removeESModuleFlag';
 import adapters, { Adapter } from './adapters';
 import { Context, Env } from '../types';
 import namedExports from 'named-exports-db';
@@ -205,7 +204,6 @@ export default function rollupConfig(
       },
     }),
     removeSrc(options),
-    removeESModuleFlag(),
     fixRegeneratorRuntime(),
     nativeComponents(options, adapter, entries.pages.map(p => p.file)),
     template(options, adapter, context),

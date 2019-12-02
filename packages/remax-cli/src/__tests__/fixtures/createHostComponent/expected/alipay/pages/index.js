@@ -1,20 +1,24 @@
-import { createElement, Fragment } from 'react';
-import createHostComponent from '../npm/remax/esm/createHostComponent.js';
-import createPageConfig from '../npm/remax/esm/createPageConfig.js';
-import '../npm/remax/esm/index.js';
-import CustomComponent from '../npm/custom-component/index.js';
+'use strict';
 
-var FooBar = createHostComponent('foo-bar');
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var React = require('react');
+var createHostComponent = require('../npm/remax/esm/createHostComponent.js');
+var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
+require('../npm/remax/esm/index.js');
+var index$2 = require('../npm/custom-component/index.js');
+
+var FooBar = createHostComponent.default('foo-bar');
 
 var _page = function _page() {
-  return createElement(Fragment, null, createElement(FooBar, {
+  return React.createElement(React.Fragment, null, React.createElement(FooBar, {
     foo: "bar",
     className: "class"
-  }), createElement(CustomComponent, {
+  }), React.createElement(index$2.default, {
     foo: "bar"
   }));
 };
 
-var index = Page(createPageConfig(_page));
+var index = Page(createPageConfig.default(_page));
 
-export default index;
+exports.default = index;
