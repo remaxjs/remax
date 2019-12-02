@@ -6867,10 +6867,10 @@ git-up@4.0.1:
     is-ssh "^1.3.0"
     parse-url "^5.0.0"
 
-github-buttons@^2.2.10:
-  version "2.2.10"
-  resolved "https://registry.yarnpkg.com/github-buttons/-/github-buttons-2.2.10.tgz#7ddf66679b4c23e4c4558fedbba6d8aa48241cd6"
-  integrity sha512-hkcYkzru6yq33FZleeiryFxR62uDdqHJMQeNiUeh03uHpCSGGdpq3V9RKH7+Xa0pjyce+ftNTx4C3CgO/Auw2A==
+github-buttons@^2.3.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/github-buttons/-/github-buttons-2.6.0.tgz#fa3e031451cee7ba05c3254fa67c73fe783104dc"
+  integrity sha512-PPGGL+l9fVc6J6ZtPNRMeVr94+NgFhZTHHz5/nNDGnt7DFeD+QRHKrEBlXNAxupw+gVLfQCUcM+l5SQ2KlqLzA==
 
 github-from-package@0.0.0:
   version "0.0.0"
@@ -12184,11 +12184,11 @@ react-feather@^1.1.6:
   integrity sha512-iCofWhTjX+vQwvDmg7o6vg0XrUg1c41yBDZG+l83nz1FiCsleJoUgd3O+kHpOeWMXuPrRIFfCixvcqyOLGOgIg==
 
 react-github-btn@^1.0.5:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/react-github-btn/-/react-github-btn-1.0.6.tgz#4b5d2de86b2ca791ae113ab424321149966895d8"
-  integrity sha512-E1G8SZpdApiI1/QT0K9/R+nBMjhC/QQtzn9/n8b+VOJx0M34rTjuKJYlJA+G5pP8O0kVLXMBx/H0UkznONOhLg==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-github-btn/-/react-github-btn-1.1.1.tgz#d08f6da1683a7994c54163af240d88ba5efa7057"
+  integrity sha512-haORkaENCh9DD953dle49aI/WWAxGauaA2xjbBgmPPvPY0KMvRslswl6TBTiZ8u6pRhLN4k+mXfaKWYnS/o7BQ==
   dependencies:
-    github-buttons "^2.2.10"
+    github-buttons "^2.3.0"
 
 react-helmet@^5.2.0:
   version "5.2.1"
