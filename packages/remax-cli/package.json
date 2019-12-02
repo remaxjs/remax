@@ -75,7 +75,7 @@
     "rollup-plugin-progress": "^1.1.1",
     "semver": "^6.3.0",
     "slash2": "^2.0.0",
-    "yargs": "^13.2.4"
+    "yargs": "^15.0.2"
   },
   "devDependencies": {
     "@babel/traverse": "^7.4.5",
