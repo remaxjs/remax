@@ -1,13 +1,17 @@
-import { extends as _extends } from '../_virtual/_rollupPluginBabelHelpers.js';
-import { cloneElement, createElement } from 'react';
-import createPageConfig from '../npm/remax/esm/createPageConfig.js';
-import '../npm/remax/esm/index.js';
-import View from '../components/View.js';
-import Text from '../components/Text.js';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var _rollupPluginBabelHelpers = require('../_virtual/_rollupPluginBabelHelpers.js');
+var React = require('react');
+var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
+require('../npm/remax/esm/index.js');
+var View = require('../components/View.js');
+var Text = require('../components/Text.js');
 
 var _page = function _page() {
   var props = {};
-  var TextElement = cloneElement(createElement(Text, null));
+  var TextElement = React.cloneElement(React.createElement(Text.default, null));
 
   var handleClick = function handleClick() {
     return void 0;
@@ -17,13 +21,13 @@ var _page = function _page() {
     return void 0;
   };
 
-  return createElement(View, null, createElement(View, _extends({
+  return React.createElement(View.default, null, React.createElement(View.default, _rollupPluginBabelHelpers.extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view"
   }, props), "foo"), TextElement);
 };
 
-var index = Page(createPageConfig(_page));
+var index = Page(createPageConfig.default(_page));
 
-export default index;
+exports.default = index;

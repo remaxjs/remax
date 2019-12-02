@@ -1,11 +1,15 @@
-import { createElement } from 'react';
-import createNativeComponent from '../npm/remax/esm/createNativeComponent.js';
-import '../npm/remax/esm/index.js';
+'use strict';
 
-var D = createNativeComponent('d-0');
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var React = require('react');
+var createNativeComponent = require('../npm/remax/esm/createNativeComponent.js');
+require('../npm/remax/esm/index.js');
+
+var D = createNativeComponent.default('d-0');
 
 var Hello = (function () {
-  return createElement(D, null);
+  return React.createElement(D, null);
 });
 
-export default Hello;
+exports.default = Hello;

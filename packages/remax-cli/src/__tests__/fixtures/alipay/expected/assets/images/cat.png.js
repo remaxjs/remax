@@ -1,3 +1,7 @@
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
 var cat = "/assets/images/cat.png";
 
-export default cat;
+exports.default = cat;
