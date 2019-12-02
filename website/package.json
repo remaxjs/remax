@@ -13,7 +13,7 @@
     "@mdx-js/react": "^1.0.6",
     "@playlyfe/gql": "^2.6.1",
     "antd": "^3.25.2",
-    "dotenv": "^6.2.0",
+    "dotenv": "^8.2.0",
     "emotion": "^10.0.9",
     "emotion-server": "^10.0.9",
     "emotion-theming": "^10.0.10",
