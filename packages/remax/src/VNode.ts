@@ -41,6 +41,7 @@ export default class VNode {
 
   appendChild(node: VNode, immediately: boolean) {
     node.parent = this;
+    this.children = this.children.filter(child => child.id !== node.id);
     this.children.push(node);
     if (this.isMounted()) {
       this.container.requestUpdate(
@@ -68,6 +69,7 @@ export default class VNode {
 
   insertBefore(newNode: VNode, referenceNode: VNode, immediately: boolean) {
     newNode.parent = this;
+    this.children = this.children.filter(child => child.id !== newNode.id);
     const start = this.children.indexOf(referenceNode);
     this.children.splice(start, 0, newNode);
     if (this.isMounted()) {
