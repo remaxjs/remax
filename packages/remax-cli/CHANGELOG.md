@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/remaxjs/remax/compare/v1.6.0...v1.7.0) (2019-12-02)
+
+### Bug Fixes
+
+- **cli:** 修复多个 CSS 文件引用同一图片时报错的问题 ([#408](https://github.com/remaxjs/remax/issues/408)) ([b4dbbef](https://github.com/remaxjs/remax/commit/b4dbbef)), closes [#407](https://github.com/remaxjs/remax/issues/407)
+
+### Features
+
+- 支持直接使用 react-redux/mobx-react ([#425](https://github.com/remaxjs/remax/issues/425)) ([8b3245a](https://github.com/remaxjs/remax/commit/8b3245a)), closes [#405](https://github.com/remaxjs/remax/issues/405)
+- **babel-preset-remax:** 支持配置 TypeScript preset 参数 ([#420](https://github.com/remaxjs/remax/issues/420)) ([23939e1](https://github.com/remaxjs/remax/commit/23939e1)), closes [#417](https://github.com/remaxjs/remax/issues/417)
+- 支持使用 TypeScript 写应用和页面配置文件 ([#400](https://github.com/remaxjs/remax/issues/400)) ([56a96e5](https://github.com/remaxjs/remax/commit/56a96e5)), closes [#280](https://github.com/remaxjs/remax/issues/280)
+
 # [1.6.0](https://github.com/remaxjs/remax/compare/v1.6.0-beta.3...v1.6.0) (2019-11-29)
 
 ### Bug Fixes

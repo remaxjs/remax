@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/remaxjs/remax/compare/v1.6.0...v1.7.0) (2019-12-02)
+
+### Bug Fixes
+
+- 修复改变元素顺序后，出现元素错乱的问题 ([#439](https://github.com/remaxjs/remax/issues/439)) ([0563194](https://github.com/remaxjs/remax/commit/0563194)), closes [#438](https://github.com/remaxjs/remax/issues/438)
+
+### Features
+
+- 支持使用 TypeScript 写应用和页面配置文件 ([#400](https://github.com/remaxjs/remax/issues/400)) ([56a96e5](https://github.com/remaxjs/remax/commit/56a96e5)), closes [#280](https://github.com/remaxjs/remax/issues/280)
+
 # [1.6.0](https://github.com/remaxjs/remax/compare/v1.6.0-beta.3...v1.6.0) (2019-11-29)
 
 **Note:** Version bump only for package remax
