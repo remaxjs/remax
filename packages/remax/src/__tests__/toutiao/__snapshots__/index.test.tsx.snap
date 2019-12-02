@@ -1,5 +1,194 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`toutiao remax render change elements' order 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "text": "1",
+              "type": "plain-text",
+            },
+          ],
+          "id": 2,
+          "props": Object {
+            "data-rid": 2,
+          },
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "text": "2",
+              "type": "plain-text",
+            },
+          ],
+          "id": 4,
+          "props": Object {
+            "data-rid": 4,
+          },
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "text": "3",
+              "type": "plain-text",
+            },
+          ],
+          "id": 6,
+          "props": Object {
+            "data-rid": 6,
+          },
+          "text": undefined,
+          "type": "view",
+        },
+      ],
+      "id": 7,
+      "props": Object {
+        "data-rid": 7,
+      },
+      "text": undefined,
+      "type": "view",
+    },
+  ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
+}
+`;
+
+exports[`toutiao remax render change elements' order 2`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "text": "2",
+              "type": "plain-text",
+            },
+          ],
+          "id": 4,
+          "props": Object {
+            "data-rid": 4,
+          },
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "text": "1",
+              "type": "plain-text",
+            },
+          ],
+          "id": 2,
+          "props": Object {
+            "data-rid": 2,
+          },
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "text": "3",
+              "type": "plain-text",
+            },
+          ],
+          "id": 6,
+          "props": Object {
+            "data-rid": 6,
+          },
+          "text": undefined,
+          "type": "view",
+        },
+      ],
+      "id": 7,
+      "props": Object {
+        "data-rid": 7,
+      },
+      "text": undefined,
+      "type": "view",
+    },
+  ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
+}
+`;
+
+exports[`toutiao remax render change elements' order 3`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "text": "2",
+              "type": "plain-text",
+            },
+          ],
+          "id": 4,
+          "props": Object {
+            "data-rid": 4,
+          },
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "text": "3",
+              "type": "plain-text",
+            },
+          ],
+          "id": 6,
+          "props": Object {
+            "data-rid": 6,
+          },
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "text": "1",
+              "type": "plain-text",
+            },
+          ],
+          "id": 2,
+          "props": Object {
+            "data-rid": 2,
+          },
+          "text": undefined,
+          "type": "view",
+        },
+      ],
+      "id": 7,
+      "props": Object {
+        "data-rid": 7,
+      },
+      "text": undefined,
+      "type": "view",
+    },
+  ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
+}
+`;
+
 exports[`toutiao remax render insert new element 1`] = `
 Object {
   "children": Array [

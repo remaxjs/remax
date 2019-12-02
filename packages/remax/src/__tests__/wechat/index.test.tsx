@@ -62,6 +62,46 @@ describe('wechat', () => {
       expect(container.root).toMatchSnapshot();
     });
 
+    it("change elements' order", () => {
+      class Page extends React.Component {
+        state = {
+          list: [1, 2, 3],
+        };
+
+        updateA() {
+          this.setState({
+            list: [2, 1, 3],
+          });
+        }
+
+        updateB() {
+          this.setState({
+            list: [2, 3, 1],
+          });
+        }
+
+        render() {
+          const { list } = this.state;
+          return (
+            <View>
+              {list.map(i => (
+                <View key={i}>{i}</View>
+              ))}
+            </View>
+          );
+        }
+      }
+
+      const container = new Container(p);
+      const page = React.createRef<any>();
+      render(<Page ref={page} />, container);
+      expect(container.root).toMatchSnapshot();
+      page.current.updateA();
+      expect(container.root).toMatchSnapshot();
+      page.current.updateB();
+      expect(container.root).toMatchSnapshot();
+    });
+
     it('umount component', () => {
       class Page extends React.Component {
         state = {
