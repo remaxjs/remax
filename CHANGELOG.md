@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/remaxjs/remax/compare/v1.7.0...v1.7.1) (2019-12-03)
+
+### Bug Fixes
+
+- 修复改变元素顺序后，渲染结果出错的问题 ([57632c9](https://github.com/remaxjs/remax/commit/57632c9))
+
 # [1.7.0](https://github.com/remaxjs/remax/compare/v1.6.0...v1.7.0) (2019-12-02)
 
 ### Bug Fixes
