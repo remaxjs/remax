@@ -23,6 +23,7 @@
   "homepage": "https://remaxjs.org",
   "scripts": {
     "watch": "tsc -w",
+    "prebuild": "rm -rf lib",
     "build": "tsc",
     "test": "jest",
     "test:debug": "npx --node-arg=--inspect-brk jest -i",

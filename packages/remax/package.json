@@ -20,9 +20,11 @@
   },
   "homepage": "https://remaxjs.org",
   "scripts": {
+    "clean": "rm -rf esm cjs",
     "watch": "concurrently \"npm:watch:*\"",
     "watch:esm": "npm run build:esm -- -w",
     "watch:cjs": "npm run build:cjs -- -w",
+    "prebuild": "npm run clean",
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
     "build:cjs": "tsc --module CommonJS --outDir cjs",
