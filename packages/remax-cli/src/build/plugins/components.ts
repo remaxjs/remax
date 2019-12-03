@@ -123,6 +123,7 @@ function registerProps(
     usedProps
       .filter(Boolean)
       .map(prop => adapter.getNativePropName(prop, false, componentName))
+      .sort()
   );
 }
 

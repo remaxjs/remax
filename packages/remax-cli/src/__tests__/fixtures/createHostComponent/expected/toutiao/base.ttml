@@ -6,7 +6,7 @@
 
 
   <template name="REMAX_TPL_custom-component">
-  <custom-component  foo="{{i.props['foo']}}"  data-rid="{{i.props['data-rid']}}" >
+  <custom-component  data-rid="{{i.props['data-rid']}}"  foo="{{i.props['foo']}}" >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
       <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
@@ -16,7 +16,7 @@
 </template>
 
   <template name="REMAX_TPL_foo-bar">
-  <foo-bar  foo="{{i.props['foo']}}"  class="{{i.props['class']}}"  data-rid="{{i.props['data-rid']}}" >
+  <foo-bar  class="{{i.props['class']}}"  data-rid="{{i.props['data-rid']}}"  foo="{{i.props['foo']}}" >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
       <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
