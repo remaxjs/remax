@@ -10,6 +10,12 @@ module.exports = function(api) {
           typescript: {
             allowNamespaces: true,
           },
+          'class-properties': {
+            loose: true,
+          },
+          decorators: {
+            legacy: true,
+          },
         },
       ],
     ],

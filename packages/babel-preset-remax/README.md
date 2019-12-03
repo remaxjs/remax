@@ -8,9 +8,17 @@ Babel preset for remax app.
 
 ## Options
 
-### Typescript
+### typescript
 
 configure typescript preset. https://babeljs.io/docs/en/babel-preset-typescript
+
+### decorators
+
+configure babel proposal decorators. https://babeljs.io/docs/en/babel-plugin-proposal-decorators
+
+### class-properties
+
+configure babel proposal class properties. https://babeljs.io/docs/en/babel-plugin-proposal-class-properties
 
 ```js
 {
@@ -20,6 +28,12 @@ configure typescript preset. https://babeljs.io/docs/en/babel-preset-typescript
       {
         typescript: {
           allowNamespaces: true,
+        },
+        'class-properties': {
+          loose: true,
+        },
+        decorators: {
+          legacy: true,
         },
       },
     ],

@@ -2,6 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+var _rollupPluginBabelHelpers = require('../_virtual/_rollupPluginBabelHelpers.js');
 require('../npm/remax/esm/render.js');
 var React = require('react');
 require('../npm/remax/esm/createAppConfig.js');
@@ -45,6 +46,8 @@ require('../npm/remax/esm/adapters/alipay/components/ContactButton.js');
 require('../npm/remax/esm/adapters/alipay/components/Video.js');
 require('../npm/remax/esm/adapters/alipay/api.js');
 
+var _class, _descriptor, _temp;
+
 var N;
 
 (function (_N) {
@@ -72,8 +75,28 @@ function timesTwo(arr) {
   return _r;
 }
 
+function readonly(target, name, descriptor) {
+  descriptor.writable = false;
+  return descriptor;
+}
+
+var C = (_class = (_temp = function C() {
+  _rollupPluginBabelHelpers.classCallCheck(this, C);
+
+  _rollupPluginBabelHelpers.initializerDefineProperty(this, "p", _descriptor, this);
+}, _temp), _descriptor = _rollupPluginBabelHelpers.applyDecoratedDescriptor(_class.prototype, "p", [readonly], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: function initializer() {
+    return 'p';
+  }
+}), _class);
+var c = new C();
+c.p = 'a';
+
 var _page = function _page() {
-  return React.createElement(View.default, null, timesTwo([1, 2, 3]), N.V, N.W);
+  return React.createElement(View.default, null, timesTwo([1, 2, 3]), N.V, N.W, c.p);
 };
 
 var index = Page(createPageConfig.default(_page));
