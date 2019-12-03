@@ -3,6 +3,8 @@ import { declare } from '@babel/helper-plugin-utils';
 interface PresetOption {
   react?: boolean;
   typescript?: any;
+  decorators?: any;
+  'class-properties'?: any;
 }
 
 function preset(api: any, presetOption: PresetOption) {
@@ -14,6 +16,10 @@ function preset(api: any, presetOption: PresetOption) {
     typeof presetOption.typescript === 'undefined'
       ? true
       : presetOption.typescript;
+  const classProperties = presetOption['class-properties'] || {};
+  const decorators = presetOption.decorators || {
+    decoratorsBeforeExport: true,
+  };
 
   const presets = [require('@babel/preset-env')];
 
@@ -32,15 +38,10 @@ function preset(api: any, presetOption: PresetOption) {
     presets,
     plugins: [
       require('@remax/babel-plugin-macros'),
-      require('@babel/plugin-proposal-class-properties'),
       require('@babel/plugin-proposal-object-rest-spread'),
       require('@babel/plugin-syntax-jsx'),
-      [
-        require('@babel/plugin-proposal-decorators'),
-        {
-          decoratorsBeforeExport: true,
-        },
-      ],
+      [require('@babel/plugin-proposal-decorators'), decorators],
+      [require('@babel/plugin-proposal-class-properties'), classProperties],
     ],
   };
 }
