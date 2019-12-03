@@ -242,7 +242,7 @@ export default function rollupConfig(
         output('⚠️ : 检测到循环依赖，如果不影响项目运行，请忽略', 'yellow');
       }
 
-      output('⚠️ :' + warning, 'yellow');
+      output('⚠️ : ' + warning, 'yellow');
     },
     plugins,
   };
