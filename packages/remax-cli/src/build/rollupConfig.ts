@@ -1,4 +1,5 @@
 import { RollupOptions, RollupWarning } from 'rollup';
+import { output } from './utils/output';
 import path from 'path';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
@@ -239,8 +240,11 @@ export default function rollupConfig(
     /* istanbul ignore next */
     onwarn(warning, warn) {
       if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
-      if ((warning as RollupWarning).code === 'CIRCULAR_DEPENDENCY') return;
-      warn(warning);
+      if ((warning as RollupWarning).code === 'CIRCULAR_DEPENDENCY') {
+        output('⚠️ : 检测到循环依赖，如果不影响项目运行，请忽略', 'yellow');
+      }
+
+      output('⚠️ :' + warning, 'yellow');
     },
     plugins,
   };
