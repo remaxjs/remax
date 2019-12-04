@@ -69,3 +69,5 @@ packages/*/yarn.lock
 packages/*/package-lock.json
 
 !/packages/**/__tests__/fixtures/**/node_modules
+
+.history

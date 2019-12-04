@@ -10,7 +10,7 @@ export interface PageProps<Q = {}> {
 }
 
 export default function createPageWrapper(
-  Page: React.ComponentType,
+  Page: any,
   query: object
 ) {
   return class PageWrapper extends React.Component<{ page: any }> {
@@ -62,7 +62,10 @@ export default function createPageWrapper(
         },
       };
 
-      if (isClassComponent(Page)) {
+      if (
+        isClassComponent(Page) ||
+        isClassComponent(Page.WrappedComponent)
+      ) {
         props.ref = (node: any) => (this.pageComponentInstance = node);
       }
 
