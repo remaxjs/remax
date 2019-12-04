@@ -74,6 +74,7 @@
     "rollup-plugin-inject": "^3.0.1",
     "rollup-plugin-node-resolve": "^5.0.3",
     "rollup-plugin-progress": "^1.1.1",
+    "schema-utils": "^2.6.1",
     "semver": "^6.3.0",
     "slash2": "^2.0.0",
     "yargs": "^15.0.2"

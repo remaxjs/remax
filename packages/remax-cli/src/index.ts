@@ -2,6 +2,8 @@ import cli from 'yargs';
 import build from './build';
 import { checkRemaxVersion } from './checkVersions';
 
+export { RemaxConfig } from './getConfig';
+
 export function run(args: any, context?: any) {
   checkRemaxVersion();
   cli
