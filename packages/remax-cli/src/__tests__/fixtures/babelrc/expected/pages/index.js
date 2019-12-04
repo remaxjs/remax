@@ -9,6 +9,7 @@ require('../npm/remax/esm/createAppConfig.js');
 require('../npm/remax/esm/Platform.js');
 require('../npm/remax/esm/createHostComponent.js');
 var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
+var createNativeComponent = require('../npm/remax/esm/createNativeComponent.js');
 require('../npm/remax/esm/index.js');
 var View = require('../npm/remax/esm/adapters/alipay/components/View.js');
 require('../npm/remax/esm/adapters/alipay/components/ScrollView.js');
@@ -45,6 +46,8 @@ require('../npm/remax/esm/adapters/alipay/components/Lifestyle.js');
 require('../npm/remax/esm/adapters/alipay/components/ContactButton.js');
 require('../npm/remax/esm/adapters/alipay/components/Video.js');
 require('../npm/remax/esm/adapters/alipay/api.js');
+
+var A = createNativeComponent.default('a-0');
 
 var _class, _descriptor, _temp;
 
@@ -96,7 +99,7 @@ var c = new C();
 c.p = 'a';
 
 var _page = function _page() {
-  return React.createElement(View.default, null, timesTwo([1, 2, 3]), N.V, N.W, c.p);
+  return React.createElement(View.default, null, timesTwo([1, 2, 3]), N.V, N.W, c.p, React.createElement(A, null));
 };
 
 var index = Page(createPageConfig.default(_page));

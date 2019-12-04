@@ -1,4 +1,5 @@
 import * as React from 'react';
+import A from '@/components/a';
 import { View } from 'remax/alipay';
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -38,5 +39,6 @@ export default () => (
     {N.V}
     {N.W}
     {c.p}
+    <A />
   </View>
 );
