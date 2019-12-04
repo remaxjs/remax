@@ -63,10 +63,7 @@ export default function createPageWrapper(
         },
       };
 
-      if (
-        isClassComponent(Page) ||
-        (Page as any).$$typeof === ForwardRef
-      ) {
+      if (isClassComponent(Page) || (Page as any).$$typeof === ForwardRef) {
         props.ref = (node: any) => (this.pageComponentInstance = node);
       }
 
