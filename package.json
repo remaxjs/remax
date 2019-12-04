@@ -5,7 +5,7 @@
   "scripts": {
     "watch": "lerna run watch --parallel",
     "prebuild": "lerna run build --scope remax.macro && lerna run build --scope remax",
-    "build": "lerna run build --ignore website",
+    "build": "lerna run build --ignore website --ignore remax.macro --ignore remax",
     "test": "lerna run --ignore babel-preset-remax --ignore website --ignore umi-plugin-remax --stream test",
     "test:cov": "lerna run --ignore babel-preset-remax --ignore website --ignore umi-plugin-remax --stream test -- --collect-coverage",
     "clean": "lerna clean",
@@ -15,7 +15,7 @@
     "postpack": "npm run readme:clean",
     "postinstall": "lerna bootstrap",
     "lint": "eslint \"packages/*/src/**/*.{ts,tsx}\"",
-    "prerelease": "npm run lint && npm run test && lerna exec -- rm -rf lib && lerna run build",
+    "prerelease": "./bin/prerelease",
     "release": "lerna publish --force-publish --create-release=github",
     "site:build": "lerna run --scope website --stream build",
     "site:deploy": "lerna run --scope website --stream deploy",

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+[ -z "$GH_TOKEN" ] && printf "\nERROR!! Need to set GH_TOKEN first\n\n" && exit 1;
+
+printf "npm login:\n"
+
+npm whoami && npm run lint && npm run test && lerna run build;

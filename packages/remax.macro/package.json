@@ -7,8 +7,8 @@
     "pretest": "npm run build",
     "test": "jest",
     "watch": "tsc -w",
-    "build": "tsc",
-    "prepack": "rimraf lib && npm run build && npm run test"
+    "prebuild": "rimraf lib",
+    "build": "tsc"
   },
   "keywords": [
     "remax",
