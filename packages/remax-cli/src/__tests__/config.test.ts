@@ -24,7 +24,7 @@ describe('manifest', () => {
   it('throw error when javascript manifest file contains no config', () => {
     expect(() => {
       readManifest(
-        path.join(__dirname, './fixtures/exceptioin/manifest.js/app.config'),
+        path.join(__dirname, './fixtures/exception/manifest.js/app.config'),
         'alipay'
       );
     }).toThrow();
@@ -33,7 +33,7 @@ describe('manifest', () => {
   it('throw error when typescript manifest file contains no config', () => {
     expect(() => {
       readManifest(
-        path.join(__dirname, './fixtures/exceptioin/manifest.ts/app.config'),
+        path.join(__dirname, './fixtures/exception/manifest.ts/app.config'),
         'alipay'
       );
     }).toThrow();
