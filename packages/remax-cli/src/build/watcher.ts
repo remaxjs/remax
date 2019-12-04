@@ -32,6 +32,8 @@ export default function runWather(
   const extraFiles = [
     `${remaxOptions.rootDir}/app.config.js`,
     `${remaxOptions.rootDir}/**/*.config.js`,
+    `${remaxOptions.rootDir}/app.config.ts`,
+    `${remaxOptions.rootDir}/**/*.config.ts`,
     `${remaxOptions.rootDir}/native`,
     `${remaxOptions.rootDir}/native/**`,
   ];
