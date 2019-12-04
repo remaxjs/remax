@@ -12,7 +12,9 @@ export const wechat: WechatPageConfig = {
   navigationBarTitleText: 'Wechat Page',
 };
 
-export const toutiao: ToutiaoPageConfig = {
+const toutiao: ToutiaoPageConfig = {
   navigationBarBackgroundColor: '#323239',
   navigationBarTitleText: 'Toutiao Page',
 };
+
+exports.toutiao = toutiao;

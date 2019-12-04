@@ -1,6 +1,7 @@
 import * as path from 'path';
 import getConfig from '../getConfig';
 import readManifest from '../readManifest';
+import build from './helpers/build';
 
 describe('remax config', () => {
   beforeAll(() => {
@@ -24,7 +25,7 @@ describe('manifest', () => {
   it('throw error when javascript manifest file contains no config', () => {
     expect(() => {
       readManifest(
-        path.join(__dirname, './fixtures/exceptioin/manifest.js/app.config'),
+        path.join(__dirname, './fixtures/exception/manifest.js/app.config'),
         'alipay'
       );
     }).toThrow();
@@ -33,9 +34,13 @@ describe('manifest', () => {
   it('throw error when typescript manifest file contains no config', () => {
     expect(() => {
       readManifest(
-        path.join(__dirname, './fixtures/exceptioin/manifest.ts/app.config'),
+        path.join(__dirname, './fixtures/exception/manifest.ts/app.config'),
         'alipay'
       );
     }).toThrow();
+  });
+
+  it('throw error when missing pages config in app.config', async () => {
+    await expect(build('exception', 'alipay')).rejects.toThrow();
   });
 });

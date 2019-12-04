@@ -17,11 +17,15 @@ function exception(path: string, target: string) {
 
 function readTypescriptManifest(path: string, target: string) {
   require('@babel/register')({
-    presets: ['@babel/preset-typescript'],
+    presets: [
+      ['@babel/preset-env', { modules: 'commonjs' }],
+      '@babel/preset-typescript',
+    ],
     extensions: ['.ts'],
     cache: false,
   });
-  const config = require(path)[target] || require(path);
+  const config =
+    require(path)[target] || require(path).default || require(path);
 
   if (isEmpty(config)) {
     exception(path, target);

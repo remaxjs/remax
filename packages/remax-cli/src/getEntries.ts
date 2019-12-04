@@ -73,9 +73,7 @@ export default function getEntries(
     images = adapter.getIcons(appConfig);
 
     if (!pages || pages.length === 0) {
-      throw new Error(
-        'app.config.js `pages` field should not be undefined or empty object'
-      );
+      throw new Error('app.config.js 并未配置页面参数');
     }
   } else {
     pages = context.pages.map(p => p.path);
