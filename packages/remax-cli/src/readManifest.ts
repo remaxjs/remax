@@ -1,5 +1,4 @@
 import esm from 'esm';
-import { isEmpty } from 'lodash';
 import fs from 'fs';
 
 // eslint-disable-next-line
@@ -24,10 +23,11 @@ function readTypescriptManifest(path: string, target: string) {
     extensions: ['.ts'],
     cache: false,
   });
+  delete require.cache[require.resolve(path)];
   const config =
     require(path)[target] || require(path).default || require(path);
 
-  if (isEmpty(config)) {
+  if (!config) {
     exception(path, target);
   }
 
@@ -38,7 +38,7 @@ function readJavascriptManifest(path: string, target: string) {
   delete require.cache[require.resolve(path)];
   const config = require(path)[target] || require(path);
 
-  if (isEmpty(config)) {
+  if (!config) {
     exception(path, target);
   }
 
