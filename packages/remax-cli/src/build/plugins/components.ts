@@ -18,25 +18,22 @@ const importers: Importers = new Map();
 export function convertComponents<T extends Component>(
   importers: Importers<T>
 ) {
-  const components = [...importers.values()].reduce(
-    (prev, components) => {
-      for (const component of components.values()) {
-        const com = prev.find(com => com.id === component.id);
-        if (com) {
-          com.props = new Set([...com.props, ...component.props]);
+  const components = [...importers.values()].reduce((prev, components) => {
+    for (const component of components.values()) {
+      const com = prev.find(com => com.id === component.id);
+      if (com) {
+        com.props = new Set([...com.props, ...component.props]);
 
-          if (com.pages && component.pages) {
-            com.pages = new Set([...com.pages, ...component.pages]);
-          }
-          continue;
+        if (com.pages && component.pages) {
+          com.pages = new Set([...com.pages, ...component.pages]);
         }
-
-        prev.push(cloneDeep(component));
+        continue;
       }
-      return prev;
-    },
-    [] as T[]
-  );
+
+      prev.push(cloneDeep(component));
+    }
+    return prev;
+  }, [] as T[]);
 
   return components.map(c => ({ ...c, props: [...c.props] }));
 }

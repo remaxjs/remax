@@ -205,7 +205,11 @@ export default function rollupConfig(
     }),
     removeSrc(options),
     fixRegeneratorRuntime(),
-    nativeComponents(options, adapter, entries.pages.map(p => p.file)),
+    nativeComponents(
+      options,
+      adapter,
+      entries.pages.map(p => p.file)
+    ),
     template(options, adapter, context),
   ];
 
