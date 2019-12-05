@@ -9,6 +9,8 @@ export default () => {
   function handleClick() {}
 
   function handleTouchStart() {}
+  const obj = {};
+  const value = 0 ?? 1;
 
   return (
     <View>
@@ -20,6 +22,8 @@ export default () => {
         {...props}
       >
         foo
+        {obj?.a?.b}
+        {value}
       </View>
       <UnKnownComponent />
       <UnBindingComponent />

@@ -48,6 +48,8 @@ require('../npm/remax/esm/adapters/alipay/api.js');
 var index$2 = require('../npm/remax/esm/adapters/wechat/components/index.js');
 
 var _page = function _page() {
+  var _, _obj$a;
+
   var props = {};
   var TextElement = React.cloneElement(React.createElement(Text.default, null));
 
@@ -55,12 +57,14 @@ var _page = function _page() {
 
   function handleTouchStart() {}
 
+  var obj = {};
+  var value = (_ = 0) !== null && _ !== void 0 ? _ : 1;
   return React.createElement(View.default, null, React.createElement(View.default, _rollupPluginBabelHelpers.extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo"), React.createElement(index$2.FunctionalPageNavigator, null), React.createElement(UnBindingComponent, null), TextElement);
+  }, props), "foo", obj === null || obj === void 0 ? void 0 : (_obj$a = obj.a) === null || _obj$a === void 0 ? void 0 : _obj$a.b, value), React.createElement(index$2.FunctionalPageNavigator, null), React.createElement(UnBindingComponent, null), TextElement);
 };
 
 var index = Page(createPageConfig.default(_page));
