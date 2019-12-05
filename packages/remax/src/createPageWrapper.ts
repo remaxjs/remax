@@ -11,12 +11,10 @@ export interface PageProps<Q = {}> {
 }
 
 export default function createPageWrapper(
-  Page: React.ComponentType,
+  Page: React.ComponentType<any>,
   query: object
 ) {
   return class PageWrapper extends React.Component<{ page: any }> {
-    // 小程序 Page 实例
-    pageInstance: any = null;
     // 页面组件的实例
     pageComponentInstance: any = null;
 
@@ -30,20 +28,12 @@ export default function createPageWrapper(
     constructor(props: any) {
       super(props);
 
-      this.bindPageInstance();
-
       Object.keys(Lifecycle).forEach(phase => {
         const callback = callbackName(phase);
         (this as any)[callback] = (...args: any[]) => {
           return this.callLifecycle(phase, ...args);
         };
       });
-    }
-
-    // 绑定小程序的 Page 实例
-    bindPageInstance() {
-      const pages = getCurrentPages();
-      this.pageInstance = pages[pages.length - 1];
     }
 
     callLifecycle(phase: string, ...args: any[]) {
@@ -69,7 +59,7 @@ export default function createPageWrapper(
 
       return React.createElement(
         PageInstanceContext.Provider,
-        { value: this.pageInstance },
+        { value: this.props.page },
         React.createElement(Page, props)
       );
     }
