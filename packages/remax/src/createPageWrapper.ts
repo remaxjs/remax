@@ -2,6 +2,7 @@ import * as React from 'react';
 import isClassComponent from './utils/isClassComponent';
 import { Lifecycle, Callback, callbackName } from './lifecycle';
 import PageInstanceContext from './PageInstanceContext';
+import { ForwardRef } from './ReactIs';
 
 export interface PageProps<Q = {}> {
   location: {
@@ -62,7 +63,7 @@ export default function createPageWrapper(
         },
       };
 
-      if (isClassComponent(Page)) {
+      if (isClassComponent(Page) || (Page as any).$$typeof === ForwardRef) {
         props.ref = (node: any) => (this.pageComponentInstance = node);
       }
 
