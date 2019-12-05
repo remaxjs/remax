@@ -34,15 +34,24 @@ function preset(api: any, presetOption: PresetOption) {
     presets.push(require('@babel/preset-react'));
   }
 
+  const plugins = [
+    require('@remax/babel-plugin-macros'),
+    require('@babel/plugin-proposal-object-rest-spread'),
+    require('@babel/plugin-syntax-jsx'),
+    [require('@babel/plugin-proposal-decorators'), decorators],
+    [require('@babel/plugin-proposal-class-properties'), classProperties],
+  ];
+
+  if (typescript) {
+    plugins.unshift([
+      require('@babel/plugin-transform-typescript'),
+      typeof typescript === 'object' ? typescript : {},
+    ]);
+  }
+
   return {
     presets,
-    plugins: [
-      require('@remax/babel-plugin-macros'),
-      require('@babel/plugin-proposal-object-rest-spread'),
-      require('@babel/plugin-syntax-jsx'),
-      [require('@babel/plugin-proposal-decorators'), decorators],
-      [require('@babel/plugin-proposal-class-properties'), classProperties],
-    ],
+    plugins,
   };
 }
 
