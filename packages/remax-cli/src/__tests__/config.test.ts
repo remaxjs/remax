@@ -4,13 +4,46 @@ import readManifest from '../readManifest';
 import build from './helpers/build';
 
 describe('remax config', () => {
-  beforeAll(() => {
-    process.chdir(path.join(__dirname, 'fixtures/config'));
-  });
-
   it('override output', () => {
+    process.chdir(path.join(__dirname, 'fixtures/config'));
     const result = getConfig();
     expect(result.output).toEqual('build');
+  });
+
+  it('schema validation', () => {
+    process.chdir(path.join(__dirname, 'fixtures/exception/remax.config'));
+
+    expect(() => {
+      getConfig();
+    }).toThrowErrorMatchingInlineSnapshot(`
+"Invalid configuration object. remax has been initialised using a configuration object that does not match the API schema.
+ - configuration has an unknown property 'xxx'. These properties are valid:
+   object { cssModules?, pxToRpx?, cwd?, progress?, compressTemplate?, output?, rootDir?, UNSAFE_wechatTemplateDepth?, alias?, postcss?, rollupOptions? }
+ - configuration.cssModules should be one of these:
+   RegExp | boolean
+   Details:
+    * configuration.cssModules should be an instance of RegExp.
+    * configuration.cssModules should be a boolean.
+ - configuration.pxToRpx should be a boolean.
+ - configuration.cwd should be a string.
+ - configuration.progress should be a boolean.
+ - configuration.compressTemplate should be a boolean.
+ - configuration.output should be a string.
+ - configuration.rootDir should be a string.
+ - configuration.UNSAFE_wechatTemplateDepth should be a number.
+ - configuration.alias should be an object:
+   object { … }
+ - configuration.postcss.options should be an object:
+   object { … }
+ - configuration.postcss.plugins should be an array:
+   [any, ...]
+ - configuration.rollupOptions should be one of these:
+   object { … } | function
+   Details:
+    * configuration.rollupOptions should be an object:
+      object { … }
+    * configuration.rollupOptions should be an instance of function."
+`);
   });
 });
 

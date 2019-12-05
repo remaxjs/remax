@@ -3,6 +3,8 @@ import path from 'path';
 import esm from 'esm';
 import defaultOptions from './defaultOptions';
 import { PluginImpl, RollupOptions } from 'rollup';
+import validateOptions from 'schema-utils';
+import schema from './RemaxOptionsSchema.json';
 
 export interface RemaxOptions {
   cssModules: boolean | RegExp;
@@ -25,28 +27,39 @@ export interface RemaxOptions {
   rollupOptions?: RollupOptions | ((options: RollupOptions) => RollupOptions);
 }
 
+export type RemaxConfig = Partial<RemaxOptions>;
+
 export interface CliOptions {
   target: string;
 }
 
-// eslint-disable-next-line
-require = esm(module, {
-  cjs: {
-    dedefault: true,
-  },
-});
+function readJavascriptConfig(path: string) {
+  // eslint-disable-next-line
+  require = esm(module, {
+    cjs: {
+      dedefault: true,
+    },
+  });
+  delete require.cache[require.resolve(path)];
+  const config = require(path);
+
+  return config || {};
+}
 
 export default function getConfig(): RemaxOptions {
-  const configPath: string = path.join(process.cwd(), './remax.config.js');
-  if (fs.existsSync(configPath)) {
-    delete require.cache[require.resolve(configPath)];
-    // eslint-disable-next-line
-    const options = require(configPath);
+  const configPath: string = path.join(process.cwd(), './remax.config');
+  let options = {};
 
-    return {
-      ...defaultOptions,
-      ...options,
-    };
+  if (fs.existsSync(configPath + '.js')) {
+    options = readJavascriptConfig(configPath + '.js');
   }
-  return defaultOptions;
+
+  validateOptions(schema as any, options, {
+    name: 'remax',
+  });
+
+  return {
+    ...defaultOptions,
+    ...options,
+  };
 }

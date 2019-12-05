@@ -1,19 +1,6 @@
 import esm from 'esm';
 import fs from 'fs';
 
-// eslint-disable-next-line
-require = esm(module, {
-  cjs: {
-    dedefault: true,
-  },
-});
-
-function exception(path: string, target: string) {
-  throw new Error(
-    `${path} 没有导出默认配置或者 ${target} 配置, 请参考 https://remaxjs.org/guide/config 小程序配置`
-  );
-}
-
 function readTypescriptManifest(path: string, target: string) {
   require('@babel/register')({
     presets: [
@@ -23,24 +10,30 @@ function readTypescriptManifest(path: string, target: string) {
     extensions: ['.ts'],
     cache: false,
   });
+  // eslint-disable-next-line
+  require = esm(module, {
+    cjs: {
+      dedefault: true,
+    },
+  });
   delete require.cache[require.resolve(path)];
   const config =
     require(path)[target] || require(path).default || require(path);
-
-  if (!config) {
-    exception(path, target);
-  }
 
   return config;
 }
 
 function readJavascriptManifest(path: string, target: string) {
-  delete require.cache[require.resolve(path)];
-  const config = require(path)[target] || require(path);
+  // eslint-disable-next-line
+  require = esm(module, {
+    cjs: {
+      dedefault: true,
+    },
+  });
 
-  if (!config) {
-    exception(path, target);
-  }
+  delete require.cache[require.resolve(path)];
+  const config =
+    require(path)[target] || require(path).default || require(path);
 
   return config;
 }
