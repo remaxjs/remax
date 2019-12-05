@@ -22,22 +22,22 @@ describe('manifest', () => {
     }).toThrow();
   });
 
-  it('throw error when javascript manifest file contains no config', () => {
-    expect(() => {
+  it('return empty object when javascript manifest file contains no config', () => {
+    expect(
       readManifest(
         path.join(__dirname, './fixtures/exception/manifest.js/app.config'),
         'alipay'
-      );
-    }).toThrow();
+      )
+    ).toMatchObject({});
   });
 
-  it('throw error when typescript manifest file contains no config', () => {
-    expect(() => {
+  it('return empty object when typescript manifest file contains no config', () => {
+    expect(
       readManifest(
         path.join(__dirname, './fixtures/exception/manifest.ts/app.config'),
         'alipay'
-      );
-    }).toThrow();
+      )
+    ).toMatchObject({});
   });
 
   it('throw error when missing pages config in app.config', async () => {
