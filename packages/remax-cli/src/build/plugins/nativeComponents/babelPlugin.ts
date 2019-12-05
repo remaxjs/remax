@@ -13,9 +13,10 @@ import {
   Component,
 } from '../components';
 
-const importers: Importers<
-  Component & { hashId: string; pages: Set<string> }
-> = new Map();
+const importers: Importers<Component & {
+  hashId: string;
+  pages: Set<string>;
+}> = new Map();
 
 export const getKebabCaseName = (sourcePath: string) =>
   kebabCase(path.basename(path.dirname(sourcePath)));
