@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/remaxjs/remax/compare/v1.7.2...v1.8.0) (2019-12-05)
+
+### Bug Fixes
+
+- 修复 ts 的配置文件 watch 时无法更新的问题 ([6d1a040](https://github.com/remaxjs/remax/commit/6d1a040))
+- 修复 ts 的配置文件没有被 watch 的问题 ([a5b009c](https://github.com/remaxjs/remax/commit/a5b009c))
+- 修复 ts 配置文件不支持使用 export default 导出的问题 ([#447](https://github.com/remaxjs/remax/issues/447)) ([2157962](https://github.com/remaxjs/remax/commit/2157962))
+- 修复使用 babel.config.js 配置 preset-remax 时项目出错的问题 ([9f41119](https://github.com/remaxjs/remax/commit/9f41119))
+
+### Features
+
+- babel-preset-remax 增加 decorators 和 class-properties 配置项 ([fe4d243](https://github.com/remaxjs/remax/commit/fe4d243))
+- remax.config.js 支持 compressTemplate 配置 ([fbaa2b4](https://github.com/remaxjs/remax/commit/fbaa2b4)), closes [#416](https://github.com/remaxjs/remax/issues/416)
+
 ## [1.7.2](https://github.com/remaxjs/remax/compare/v1.7.1...v1.7.2) (2019-12-03)
 
 ### Bug Fixes
