@@ -6,7 +6,9 @@ export default () => {
   const props = {};
   const TextElement = React.cloneElement(<Text />);
 
-  function handleClick() {}
+  async function handleClick() {
+    await Promise.resolve();
+  }
 
   function handleTouchStart() {}
 

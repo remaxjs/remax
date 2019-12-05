@@ -44,6 +44,14 @@ function preset(api: any, presetOption: PresetOption) {
       require('@babel/plugin-syntax-jsx'),
       [require('@babel/plugin-proposal-decorators'), decorators],
       [require('@babel/plugin-proposal-class-properties'), classProperties],
+      [
+        require('babel-plugin-auto-import'),
+        {
+          declarations: [
+            { default: 'regeneratorRuntime', path: 'regenerator-runtime' },
+          ],
+        },
+      ],
     ],
   };
 }

@@ -30,7 +30,8 @@
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
     "@babel/preset-typescript": "^7.7.4",
-    "@remax/babel-plugin-macros": "^2.7.1"
+    "@remax/babel-plugin-macros": "^2.7.1",
+    "babel-plugin-auto-import": "^1.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
