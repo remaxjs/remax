@@ -40,9 +40,9 @@ Remax 会自动把 `px` 转换成小程序 `rpx`：
 
 如果整个项目都不想转换 `px` 则可以在配置中将 `pxToRpx` 选项置为 `false`。
 
-Remax 同时也支持 [Css Modules](https://github.com/css-modules/css-modules)
+Remax 同时也支持 [CSS Modules](https://github.com/css-modules/css-modules)
 
-所有以 `module.css|less` 结尾的文件都将按照 **Css Modules** 处理。如：
+所有以 `module.css|less` 结尾的文件都将按照 **CSS Modules** 处理。如：
 
 ```css
 /* index.module.css */
@@ -60,7 +60,7 @@ export default function() {
 }
 ```
 
-你也可以通过 `remax.config.js` 配置不同的 Css Modules 匹配规则，关于 Remax 配置请参考 [指南 - 配置](/guide/config)
+你也可以通过 `remax.config.js` 配置不同的 CSS Modules 匹配规则，关于 Remax 配置请参考 [指南 - 配置](/guide/config)
 
 ## 小程序自定义组件样式
 
