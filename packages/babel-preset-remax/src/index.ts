@@ -39,6 +39,8 @@ function preset(api: any, presetOption: PresetOption) {
     plugins: [
       require('@remax/babel-plugin-macros'),
       require('@babel/plugin-proposal-object-rest-spread'),
+      require('@babel/plugin-proposal-optional-chaining'),
+      require('@babel/plugin-proposal-nullish-coalescing-operator'),
       require('@babel/plugin-syntax-jsx'),
       [require('@babel/plugin-proposal-decorators'), decorators],
       [require('@babel/plugin-proposal-class-properties'), classProperties],

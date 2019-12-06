@@ -8,6 +8,8 @@ export default () => {
 
   const handleClick = () => void 0;
   const handleTouchStart = () => void 0;
+  const obj: any = {};
+  const value = 0 ?? 1;
 
   return (
     <View>
@@ -18,6 +20,8 @@ export default () => {
         {...props}
       >
         foo
+        {obj?.a?.b}
+        {value}
       </View>
       {TextElement}
     </View>
