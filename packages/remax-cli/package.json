@@ -65,7 +65,6 @@
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-copy": "^3.1.0",
     "rollup-plugin-delete": "^1.1.0",
-    "rollup-plugin-inject": "^3.0.1",
     "rollup-plugin-node-resolve": "^5.0.3",
     "rollup-plugin-progress": "^1.1.1",
     "schema-utils": "^2.6.1",

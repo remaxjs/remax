@@ -10,7 +10,6 @@ import postcss from '@remax/rollup-plugin-postcss';
 import postcssUrl from './plugins/postcssUrl';
 import progress from 'rollup-plugin-progress';
 import clean from 'rollup-plugin-delete';
-import inject from 'rollup-plugin-inject';
 import copy from 'rollup-plugin-copy';
 import stub from './plugins/stub';
 import pxToUnits from '@remax/postcss-px2units';
@@ -178,10 +177,6 @@ export default function rollupConfig(
 
         return input.replace(/\.css/, '.css.js');
       },
-    }),
-    inject({
-      exclude: 'node_modules/**',
-      regeneratorRuntime: 'regenerator-runtime',
     }),
     rename({
       matchAll: true,
