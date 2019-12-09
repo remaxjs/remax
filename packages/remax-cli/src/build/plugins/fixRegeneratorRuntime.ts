@@ -13,7 +13,6 @@ export default function fixRegeneratorRuntime(): Plugin {
     transform(code) {
       const magicString = new MagicString(code);
       const ast = this.parse(code, {
-        ecmaVersion: 6,
         sourceType: 'module',
       });
 
