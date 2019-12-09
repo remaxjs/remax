@@ -1,6 +1,6 @@
 import { join } from 'path';
 import pluginTester from 'babel-plugin-tester';
-import plugin from '@remax/babel-plugin-macros';
+import plugin from 'babel-plugin-macros';
 
 pluginTester({
   pluginName: 'remax.macro',
