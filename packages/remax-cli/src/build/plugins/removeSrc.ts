@@ -102,7 +102,6 @@ export default function removeSrc(options: RemaxOptions): Plugin {
           if (module.code) {
             const magicString = new MagicString(module.code);
             const ast = this.parse(module.code, {
-              ecmaVersion: 6,
               sourceType: 'module',
             });
 

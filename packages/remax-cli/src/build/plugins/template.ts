@@ -213,7 +213,6 @@ function isRemaxEntry(chunk: any): chunk is OutputChunk {
   }
 
   const ast: any = parse(chunk.code, {
-    ecmaVersion: 6,
     sourceType: 'module',
   });
 

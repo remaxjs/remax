@@ -53,7 +53,6 @@ export default (
 
       const magicString = new MagicString(code);
       const ast = this.parse(code, {
-        ecmaVersion: 6,
         sourceType: 'module',
       });
 
