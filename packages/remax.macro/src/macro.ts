@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { NodePath } from '@babel/traverse';
-import { createMacro } from '@remax/babel-plugin-macros';
+import { createMacro } from 'babel-plugin-macros';
 import createHostComponentMacro, {
   hostComponents,
 } from './createHostComponent';

@@ -37,7 +37,7 @@ function preset(api: any, presetOption: PresetOption) {
   return {
     presets,
     plugins: [
-      require('@remax/babel-plugin-macros'),
+      require('babel-plugin-macros'),
       require('@babel/plugin-proposal-object-rest-spread'),
       require('@babel/plugin-proposal-optional-chaining'),
       require('@babel/plugin-proposal-nullish-coalescing-operator'),
