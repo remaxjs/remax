@@ -9,6 +9,10 @@ const defaultOptions: RemaxOptions = {
   rootDir: 'src',
   compressTemplate: process.env.NODE_ENV === 'production',
   UNSAFE_wechatTemplateDepth: 20,
+  postcss: {
+    options: {},
+    plugins: [],
+  },
 };
 
 export default defaultOptions;

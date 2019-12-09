@@ -1,7 +1,7 @@
 import fs from 'fs';
 import mkdirp from 'mkdirp';
 import path from 'path';
-import url from 'postcss-url';
+import purl from 'postcss-url';
 import { RemaxOptions } from '../../getConfig';
 import winPath from '../../winPath';
 
@@ -11,34 +11,38 @@ interface Asset {
 }
 
 export default function postcssUrl(options: RemaxOptions) {
-  return url({
-    url: function(asset: Asset) {
-      const srcPath = path.join(options.cwd, options.rootDir, asset.url);
-      const destPath = path.join(options.cwd, options.output, asset.url);
+  function copy(asset: Asset) {
+    const srcPath = path.join(options.cwd, options.rootDir, asset.url);
+    const destPath = path.join(options.cwd, options.output, asset.url);
 
-      fs.exists(srcPath, exists => {
-        if (!exists) {
-          return;
-        }
-
-        mkdirp(path.dirname(destPath), () => {
-          if (!fs.existsSync(destPath)) {
-            fs.copyFileSync(srcPath, destPath);
-          }
-        });
-      });
-
-      if (/^\.{1,2}\/|^\w+\//.test(asset.url)) {
-        return winPath(
-          `/${path.relative(
-            path.resolve(options.cwd, options.rootDir),
-            asset.absolutePath
-          )}`
-        );
+    fs.exists(srcPath, exists => {
+      if (!exists) {
+        return;
       }
+      mkdirp(path.dirname(destPath), () => {
+        if (!fs.existsSync(destPath)) {
+          fs.copyFileSync(srcPath, destPath);
+        }
+      });
+    });
 
-      return asset.url;
-    },
+    if (/^\.{1,2}\/|^\w+\//.test(asset.url)) {
+      return winPath(
+        `/${path.relative(
+          path.resolve(options.cwd, options.rootDir),
+          asset.absolutePath
+        )}`
+      );
+    }
+
+    return asset.url;
+  }
+
+  return purl({
+    ...(options.postcss?.url ?? {}),
+    url: options.postcss?.url?.inline ? 'inline' : copy,
+    maxSize: options.postcss?.url?.maxSize ?? 8,
+    fallback: copy,
     basePath: path.resolve(options.cwd, options.rootDir),
     assetsPath: path.resolve(options.cwd, options.output),
   });

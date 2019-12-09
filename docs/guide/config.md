@@ -44,6 +44,12 @@ module.exports = {
         ['stylus', {}],
       ],
     },
+    url: {
+      // 是否自动将图片转换成 base64
+      inline: false,
+      // 转换图片的最大限制， 单位 KB
+      maxSize: 8,
+    },
     // 其他postcss 插件, 会和默认的插件进行拼接
     plugins: [],
   },

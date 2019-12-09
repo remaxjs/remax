@@ -22,6 +22,13 @@ export interface RemaxOptions {
     options?: {
       [key: string]: any;
     };
+    url?: {
+      inline?: boolean;
+      maxSize?: number;
+      filter?: boolean;
+      useHash?: boolean;
+      hashOptions?: 'method' | 'shrink' | 'append';
+    };
     plugins?: PluginImpl[];
   };
   rollupOptions?: RollupOptions | ((options: RollupOptions) => RollupOptions);
