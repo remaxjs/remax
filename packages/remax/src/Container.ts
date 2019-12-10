@@ -10,7 +10,7 @@ function stringPath(path: Path) {
   return path.join('.');
 }
 
-function normalizeRawNode(item: RawNode): RawNode {
+export function normalizeRawNode(item: RawNode): RawNode {
   return {
     ...item,
     props: propsAlias(item.props, !isHostComponent(item.type)),
@@ -20,7 +20,7 @@ function normalizeRawNode(item: RawNode): RawNode {
   };
 }
 
-interface SpliceUpdate {
+export interface SpliceUpdate {
   path: Path;
   start: number;
   deleteCount: number;
@@ -56,7 +56,7 @@ export default class Container {
       path,
       start,
       deleteCount,
-      items: items.map(normalizeRawNode),
+      items,
     };
     if (immediately) {
       this.updateQueue.push(update);
@@ -76,13 +76,17 @@ export default class Container {
 
     const startTime = new Date().getTime();
 
+    // TODO: [adapter]对 action 的准备工作
     const action = {
       type: 'splice',
       payload: this.updateQueue.map(update => ({
         path: stringPath(update.path),
         start: update.start,
         deleteCount: update.deleteCount,
-        item: update.items[0],
+        item:
+          update.items.length > 0
+            ? normalizeRawNode(update.items[0])
+            : update.items[0],
       })),
       id: generateActionId(),
     };
@@ -95,7 +99,7 @@ export default class Container {
       };
     }
 
-    this.context.setData({ action: tree }, () => {
+    this.dispatch(tree, () => {
       /* istanbul ignore next */
       if (process.env.REMAX_DEBUG) {
         console.log(
@@ -107,16 +111,19 @@ export default class Container {
     this.updateQueue = [];
   }
 
+  // TODO: [adapter]对 update 做 clear
   clearUpdate() {
     this.stopUpdate = true;
 
     if (Platform.isWechat) {
-      this.context.setData({
-        action: {
-          type: 'clear',
-        },
+      this.dispatch({
+        type: 'clear',
       });
     }
+  }
+
+  dispatch(action: any, callback?: Function) {
+    this.context.setData({ action }, callback);
   }
 
   createCallback(name: string, fn: Function) {

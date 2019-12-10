@@ -1,6 +1,4 @@
-type Platform = 'alipay' | 'wechat' | 'toutiao';
-
-const is = (platform: Platform) => process.env.REMAX_PLATFORM === platform;
+const is = (platform: string) => process.env.REMAX_PLATFORM === platform;
 
 const Platform = {
   get current() {
@@ -15,6 +13,7 @@ const Platform = {
   get isToutiao() {
     return is('toutiao');
   },
+  is,
 };
 
 export default Platform;
