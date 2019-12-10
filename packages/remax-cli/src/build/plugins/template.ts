@@ -153,7 +153,9 @@ function createPageUsingComponents(page: any, configFilePath: string) {
       path
         .relative(
           path.dirname(configFilePath),
-          sourcePath.replace(/node_modules/, 'src/npm')
+          sourcePath
+            .replace(/node_modules/, 'src/npm')
+            .replace(/node_modules/g, 'npm')
         )
         .replace(/\.js$/, '')
         .replace(/@/g, '_')

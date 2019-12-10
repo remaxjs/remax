@@ -127,7 +127,7 @@ export default (
         }
 
         importer = winPath(importer)
-          .replace(/node_modules/, 'npm')
+          .replace(/node_modules/g, 'npm')
           .replace(/^src\//, '')
           .replace(/@/g, '_')
           .replace(path.extname(importer), '.js');
@@ -147,7 +147,7 @@ export default (
 
       getFiles().forEach(id => {
         const bundleFileName = winPath(
-          path.relative(options.cwd, id).replace(/node_modules/, 'npm')
+          path.relative(options.cwd, id).replace(/node_modules/g, 'npm')
         )
           .replace(/^src\//, '')
           .replace(/@/g, '_');
