@@ -136,7 +136,11 @@ function createAppManifest(
   };
 }
 
-function createPageUsingComponents(page: any, configFilePath: string) {
+function createPageUsingComponents(
+  page: any,
+  configFilePath: string,
+  options: RemaxOptions
+) {
   const nativeComponents = getNativeComponents();
   const usingComponents: { [key: string]: string } = {};
   for (const { id, sourcePath, pages } of nativeComponents) {
@@ -154,7 +158,7 @@ function createPageUsingComponents(page: any, configFilePath: string) {
         .relative(
           path.dirname(configFilePath),
           sourcePath
-            .replace(/node_modules/, 'src/npm')
+            .replace(/node_modules/, `${options.rootDir}/npm`)
             .replace(/node_modules/g, 'npm')
         )
         .replace(/\.js$/, '')
@@ -178,7 +182,11 @@ function createPageManifest(
     options.cwd,
     path.join(options.rootDir, configFile)
   );
-  const usingComponents = createPageUsingComponents(page, configFilePath);
+  const usingComponents = createPageUsingComponents(
+    page,
+    configFilePath,
+    options
+  );
   const config = readManifest(configFilePath, target);
   config.usingComponents = {
     ...(config.usingComponents || {}),
