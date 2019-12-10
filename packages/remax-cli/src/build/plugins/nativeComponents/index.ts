@@ -128,7 +128,7 @@ export default (
 
         importer = winPath(importer)
           .replace(/node_modules/g, 'npm')
-          .replace(/^src\//, '')
+          .replace(new RegExp(`^${options.rootDir}/`), '')
           .replace(/@/g, '_')
           .replace(path.extname(importer), '.js');
 
