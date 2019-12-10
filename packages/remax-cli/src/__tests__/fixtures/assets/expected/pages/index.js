@@ -44,7 +44,7 @@ require('../npm/remax/esm/adapters/alipay/components/Lifestyle.js');
 require('../npm/remax/esm/adapters/alipay/components/ContactButton.js');
 require('../npm/remax/esm/adapters/alipay/components/Video.js');
 require('../npm/remax/esm/adapters/alipay/api.js');
-var cat = require('../assets/images/cat.png.js');
+var cat = require('../assets/images/cat.jpg.js');
 
 function _ref() {
   return React.createElement(View.default, null, React.createElement(Image.default, {

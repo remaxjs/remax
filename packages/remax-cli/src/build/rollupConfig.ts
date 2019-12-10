@@ -238,10 +238,17 @@ export default function rollupConfig(
     onwarn(warning, warn) {
       if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
       if ((warning as RollupWarning).code === 'CIRCULAR_DEPENDENCY') {
-        output('⚠️ : 检测到循环依赖，如果不影响项目运行，请忽略', 'yellow');
+        output('⚠️ 检测到循环依赖，如果不影响项目运行，请忽略', 'yellow');
       }
 
-      output('⚠️ : ' + warning, 'yellow');
+      if (!warning.message) {
+        output(
+          `⚠️ ${warning.code}:${warning.plugin || ''} ${(warning as any).text}`,
+          'yellow'
+        );
+      } else {
+        output('⚠️ ' + warning.toString(), 'yellow');
+      }
     },
     plugins,
   };

@@ -37,6 +37,8 @@ describe('remax config', () => {
    object { … }
  - configuration.postcss.plugins should be an array:
    [any, ...]
+ - configuration.postcss.url.inline should be a boolean.
+ - configuration.postcss.url.maxSize should be a number.
  - configuration.rollupOptions should be one of these:
    object { … } | function
    Details:

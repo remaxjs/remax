@@ -36,6 +36,17 @@
         },
         "plugins": {
           "type": "array"
+        },
+        "url": {
+          "type": "object",
+          "properties": {
+            "inline": {
+              "type": "boolean"
+            },
+            "maxSize": {
+              "type": "number"
+            }
+          }
         }
       }
     },

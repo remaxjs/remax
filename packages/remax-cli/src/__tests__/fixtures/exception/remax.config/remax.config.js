@@ -12,6 +12,11 @@ module.exports = {
   postcss: {
     option: {},
     plugins: 1,
+    url: {
+      inline: 3,
+      maxSize: '1',
+      hash: true,
+    },
     options: 2,
   },
   rollupOptions: 1,
