@@ -1,10 +1,13 @@
 import chokidar from 'chokidar';
+import * as fs from 'fs';
+import * as path from 'path';
 import { RollupOptions, watch, RollupWatcher } from 'rollup';
-import { output } from './utils/output';
-import { checkChokidar } from './utils/checkChokidar';
-import { CliOptions, RemaxOptions } from '../getConfig';
-import { Context } from '../types';
-import build from './index';
+import { output } from '../utils/output';
+import { checkChokidar } from '../utils/checkChokidar';
+import { CliOptions, RemaxOptions } from '../../getConfig';
+import { Context } from '../../types';
+import { isConfigFile, isInNativeDir } from './helpers';
+import build from '../index';
 
 let isBundleRunning = false;
 let isFirstRunWatcher = true;
@@ -91,8 +94,8 @@ export default function runWather(
     process.removeListener('uncaughtException', close);
 
     if (err) {
-      process.exit(1);
       console.error(err);
+      process.exit(1);
     }
   };
 
@@ -100,14 +103,46 @@ export default function runWather(
   // 监听额外的文件
   extraFilesWatcher = chokidar.watch(extraFiles);
 
-  const reloadWatcher = () => {
+  const reloadWatcher = (eventName: string) => (fileName: string) => {
     if (isFirstRunWatcher || isBundleRunning) return;
-    close();
-    build(cli, context);
+
+    if (isConfigFile(fileName)) {
+      close();
+      build(cli, context);
+    }
+
+    if (isInNativeDir(remaxOptions, fileName)) {
+      const srcPath = path.join(remaxOptions.cwd, fileName);
+      const destPath = path.join(
+        remaxOptions.cwd,
+        remaxOptions.output,
+        fileName.replace(new RegExp(`^${remaxOptions.rootDir}/native`), '')
+      );
+
+      console.log(eventName);
+
+      switch (eventName) {
+        case 'change':
+        case 'add':
+          fs.writeFileSync(destPath, fs.readFileSync(srcPath));
+          break;
+        case 'addDir':
+          fs.mkdirSync(destPath);
+          break;
+        case 'unlinkDir':
+          fs.rmdirSync(destPath);
+          break;
+        case 'unlink':
+          fs.unlinkSync(destPath);
+          break;
+      }
+    }
   };
 
   extraFilesWatcher
-    .on('add', reloadWatcher)
-    .on('unlink', reloadWatcher)
-    .on('change', reloadWatcher);
+    .on('addDir', reloadWatcher('addDir'))
+    .on('add', reloadWatcher('add'))
+    .on('unlink', reloadWatcher('unlink'))
+    .on('unlinkDir', reloadWatcher('unlinkDir'))
+    .on('change', reloadWatcher('change'));
 }
