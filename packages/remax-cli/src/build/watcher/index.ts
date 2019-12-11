@@ -119,8 +119,6 @@ export default function runWather(
         fileName.replace(new RegExp(`^${remaxOptions.rootDir}/native`), '')
       );
 
-      console.log(eventName);
-
       switch (eventName) {
         case 'change':
         case 'add':

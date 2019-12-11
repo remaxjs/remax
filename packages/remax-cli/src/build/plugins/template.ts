@@ -10,6 +10,7 @@ import getEntries from '../../getEntries';
 import { Adapter } from '../adapters';
 import { Context } from '../../types';
 import winPath from '../../winPath';
+import { isConfigFile } from '../watcher/helpers';
 import { getNativeComponents } from './nativeComponents/babelPlugin';
 
 async function createTemplate(
@@ -243,20 +244,31 @@ function isRemaxEntry(chunk: any): chunk is OutputChunk {
   });
 }
 
+function isConfigChanged(id: string) {
+  return !id || isConfigFile(id);
+}
+
 export default function template(
   options: RemaxOptions,
   adapter: Adapter,
   context?: Context
 ): Plugin {
+  let changedId: string;
+
   return {
     name: 'template',
-    async generateBundle(_, bundle) {
+    watchChange(id) {
+      changedId = id;
+    },
+    async generateBundle(_, bundle, isWrite) {
       const templateAssets = [];
       // app.json
-      const manifest = createAppManifest(options, adapter.name, context);
-      const template = await createBaseTemplate(adapter, options);
+      if (isConfigChanged(changedId)) {
+        const manifest = createAppManifest(options, adapter.name, context);
+        templateAssets.push(manifest);
+      }
 
-      templateAssets.push(manifest);
+      const template = await createBaseTemplate(adapter, options);
 
       if (template) {
         templateAssets.push(template);
@@ -280,16 +292,19 @@ export default function template(
             if (page) {
               const template = await createTemplate(file, adapter, options);
               templateAssets.push(template);
-              const config = createPageManifest(
-                options,
-                file,
-                adapter.name,
-                page,
-                context
-              );
 
-              if (config) {
-                templateAssets.push(config);
+              if (isConfigChanged(changedId)) {
+                const config = createPageManifest(
+                  options,
+                  file,
+                  adapter.name,
+                  page,
+                  context
+                );
+
+                if (config) {
+                  templateAssets.push(config);
+                }
               }
             }
           }
