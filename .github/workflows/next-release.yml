@@ -1,0 +1,29 @@
+name: Next Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+          registry-url: https://registry.npmjs.org/
+    - run: git checkout master
+    - run: yarn install
+    - name: test
+      run: yarn test
+    - name: build
+      run: yarn build
+    - name: release
+      run: npm publish --tag next --access public
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
