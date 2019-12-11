@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+FIXTURE="alipay"
+
+cd ../integration-test/ && yarn && yarn build:fixture "$FIXTURE" && FIXTURE="$FIXTURE" yarn test

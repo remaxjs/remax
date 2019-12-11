@@ -15,7 +15,7 @@
     "postpack": "npm run readme:clean",
     "postinstall": "lerna bootstrap",
     "lint": "eslint \"packages/*/src/**/*.{ts,tsx}\"",
-    "prerelease": "./bin/prerelease",
+    "prerelease": "./scripts/prerelease",
     "release": "lerna publish --force-publish --create-release=github",
     "site:build": "lerna run --scope website --stream build",
     "site:deploy": "lerna run --scope website --stream deploy",
