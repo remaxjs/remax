@@ -152,6 +152,14 @@ export default (
           .replace(/^src\//, '')
           .replace(/@/g, '_');
 
+        const source = readFileSync(id);
+
+        if (this.cache.get(bundleFileName)?.toString() === source.toString()) {
+          return;
+        }
+
+        this.cache.set(bundleFileName, source);
+
         this.emitFile({
           fileName: bundleFileName,
           type: 'asset',
