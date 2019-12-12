@@ -145,7 +145,7 @@ const Header = ({ location }) => {
                     </li>
                   ) : null}
                   <li>
-                    <Input id="docsearch" placeholder="搜索" />
+                    <Input.Search id="docsearch" placeholder="搜索" />
                   </li>
                   {headerLinks.map((link, key) => {
                     if (link.link !== '' && link.text !== '') {
