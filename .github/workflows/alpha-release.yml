@@ -18,7 +18,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: git checkout master
       - name: Install
-        run: yarn
+        run: yarn install --ignore-scripts
       - name: Release remax.macro
         run: |
           cd packages/remax.macro
