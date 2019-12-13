@@ -17,10 +17,10 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: git checkout master
-      - run: yarn install
       - name: Release remax.macro
         run: |
           cd packages/remax.macro
+          yarn install
           yarn build
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:
@@ -28,6 +28,7 @@ jobs:
       - name: Release remax
         run: |
           cd packages/remax 
+          yarn install
           yarn add remax.macro@alpha 
           yarn build
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
@@ -36,6 +37,7 @@ jobs:
       - name: Release babel-preset-remax
         run: |
           cd packages/babel-preset-remax 
+          yarn install
           yarn build
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:
@@ -43,6 +45,7 @@ jobs:
       - name: Release remax-cli
         run: |
           cd packages/remax-cli 
+          yarn install
           yarn add babel-preset-remax@alpha remax@alpha 
           yarn build
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
