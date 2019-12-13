@@ -18,20 +18,26 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: git checkout master
       - run: yarn install
-      - name: release remax.macro
+      - name: Release remax.macro
         run: |
           cd packages/remax.macro
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
-      - name: release remax
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - name: Release remax
         run: |
           cd packages/remax 
           yarn add remax.macro@alpha 
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
-      - name: release babel-preset-remax
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - name: Release babel-preset-remax
         run: |
           cd packages/babel-preset-remax 
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
-      - name: release remax-cli
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - name: Release remax-cli
         run: |
           cd packages/remax-cli 
           yarn add babel-preset-remax@alpha remax@alpha 
