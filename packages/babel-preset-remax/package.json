@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-remax",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "description": "remax babel preset",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -30,8 +30,8 @@
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
     "@babel/preset-typescript": "^7.7.4",
-    "babel-plugin-macros": "^2.8.0",
-    "babel-plugin-auto-import": "^1.0.5"
+    "babel-plugin-auto-import": "^1.0.5",
+    "babel-plugin-macros": "^2.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
