@@ -9,7 +9,7 @@ import { Adapter } from '../../adapters';
 import style, { getcssPaths } from './style';
 import json, { getjsonPaths } from './json';
 import template, { getTemplatePaths } from './tempate';
-import jsHelper, { getJsHelpers } from './jsHelper';
+import jsHelper, { getJsHelpers, asModule } from './jsHelper';
 import { isNativeComponent, isPluginComponent, getSourcePath } from './util';
 import winPath from '../../../winPath';
 import usingComponents from './usingComponents';
@@ -47,14 +47,26 @@ export default (
     transform(code, id) {
       const importers = getImporters();
       const importer = importers.get(id);
-      if (!importer) {
-        return null;
-      }
 
-      const magicString = new MagicString(code);
       const ast = this.parse(code, {
         sourceType: 'module',
       });
+      const magicString = new MagicString(code);
+
+      getFiles().forEach(file => {
+        if (file.indexOf(id) !== -1) {
+          simple(ast, {
+            CallExpression: asModule(magicString),
+          });
+        }
+      });
+
+      if (!importer) {
+        return {
+          code: magicString.toString(),
+          map: magicString.generateMap(),
+        };
+      }
 
       let helperImported = false;
 
