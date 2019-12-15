@@ -11,7 +11,11 @@ export default function createNativeComponent(name: string) {
     newProps.__ref =
       typeof ref === 'function'
         ? ref
-        : (e: any) => ((ref as React.MutableRefObject<any>).current = e);
+        : (e: any) => {
+            if (ref) {
+              (ref as React.MutableRefObject<any>).current = e;
+            }
+          };
     return React.createElement(name, newProps, props.children);
   });
 }

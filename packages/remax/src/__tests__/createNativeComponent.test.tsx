@@ -7,6 +7,10 @@ describe('createNativeComponent', () => {
     const Card = createNativeComponent('card');
     const testRenderer = TestRenderer.create(<Card />);
     expect(testRenderer.toJSON()).toMatchSnapshot();
+
+    expect(() => {
+      testRenderer.root.findByType('card' as any).props.__ref('foo');
+    }).not.toThrow();
   });
 
   it('rename ref', () => {
