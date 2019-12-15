@@ -39,6 +39,11 @@ export default async (argv: any, context?: Context) => {
 
   if (argv.watch) {
     runWatcher(options, rollupOptions, argv, context);
+    try {
+      require('remax-stats').run();
+    } catch (e) {
+      // ignore
+    }
   } else {
     try {
       output('🚀 开始 build...', 'blue');
