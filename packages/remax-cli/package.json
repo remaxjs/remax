@@ -76,7 +76,7 @@
   "devDependencies": {
     "@babel/traverse": "^7.7.4",
     "@types/babel__traverse": "^7.0.8",
-    "@types/ejs": "^2.6.1",
+    "@types/ejs": "^3.0.0",
     "@types/fs-readdir-recursive": "^1.0.0",
     "@types/gulp": "^4.0.6",
     "@types/jest": "^24.0.18",
