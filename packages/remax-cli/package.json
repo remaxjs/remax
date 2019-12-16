@@ -45,7 +45,7 @@
     "acorn-jsx": "^5.1.0",
     "acorn-walk": "^7.0.0",
     "babel-preset-remax": "^1.10.2",
-    "chokidar": "^2.1.8",
+    "chokidar": "^3.3.0",
     "command-exists": "^1.2.8",
     "commander": "^2.19.0",
     "dot-prop": "^5.1.0",
