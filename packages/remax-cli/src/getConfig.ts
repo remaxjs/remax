@@ -28,6 +28,7 @@ export interface RemaxOptions {
       filter?: boolean;
       useHash?: boolean;
       hashOptions?: 'method' | 'shrink' | 'append';
+      relativePath: boolean;
     };
     plugins?: PluginImpl[];
   };

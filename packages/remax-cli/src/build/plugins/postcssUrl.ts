@@ -43,7 +43,7 @@ export default function postcssUrl(options: RemaxOptions) {
     url: options.postcss?.url?.inline ? 'inline' : copy,
     maxSize: options.postcss?.url?.maxSize ?? 8,
     fallback: copy,
-    basePath: path.resolve(options.cwd, options.rootDir),
+    basePath: options.postcss?.url?.relativePath ? undefined : path.resolve(options.cwd, options.rootDir),
     assetsPath: path.resolve(options.cwd, options.output),
   });
 }
