@@ -87,9 +87,6 @@ module.exports = {
     [
       'remax',
       {
-        // 是否使用 @babel/preset-react 转换React代码
-        react: true,
-
         // 是否使用 @babel/preset-typescript 转换TS代码
         typescript: true,
 
