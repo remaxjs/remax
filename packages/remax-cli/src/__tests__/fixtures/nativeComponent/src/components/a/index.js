@@ -1,1 +1,3 @@
 Component({});
+
+export default {};
