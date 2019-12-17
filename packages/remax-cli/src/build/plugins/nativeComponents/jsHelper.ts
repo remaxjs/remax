@@ -84,6 +84,13 @@ export const getJsHelpers = () => jsHelpers;
 
 export const asModule = (magicString: MagicString) => (node: any) => {
   if (node?.callee?.name === 'Component') {
-    magicString.append('export default {}');
+    const exportString = 'export default {}';
+    const lastLine = magicString.lastLine();
+
+    if (lastLine.indexOf(exportString) !== -1) {
+      return;
+    }
+
+    magicString.append('\nexport default {}');
   }
 };
