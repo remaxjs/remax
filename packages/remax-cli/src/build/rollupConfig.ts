@@ -28,6 +28,7 @@ import { Context, Env } from '../types';
 import namedExports from 'named-exports-db';
 import fixRegeneratorRuntime from './plugins/fixRegeneratorRuntime';
 import nativeComponents from './plugins/nativeComponents/index';
+import nativeAsReactComponent from './plugins/nativeComponents/asReactComponent';
 import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin';
 import alias from './plugins/alias';
 import extensions from '../extensions';
@@ -105,6 +106,7 @@ export default function rollupConfig(
         moduleDirectory: 'node_modules',
       },
     }),
+    nativeAsReactComponent(),
     commonjs({
       include: /node_modules/,
       namedExports,

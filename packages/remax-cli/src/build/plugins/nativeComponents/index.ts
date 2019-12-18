@@ -41,10 +41,6 @@ export default (
         getFiles().forEach(file => {
           this.addWatchFile(file);
         });
-        let source = readFileSync(id).toString();
-        source = source + '\nexport default {};';
-
-        return source;
       }
 
       return null;
