@@ -92,6 +92,7 @@ export default function rollupConfig(
       sourceDir: path.resolve(options.cwd, options.rootDir),
       include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
     }),
+    json(),
     resolve({
       dedupe: [
         'react',
@@ -142,7 +143,6 @@ export default function rollupConfig(
         .filter(Boolean)
         .concat(postcssConfig.plugins),
     }),
-    json(),
     replace({
       values: Object.keys(envReplacement).reduce((acc: any, key) => {
         acc[`process.env.${key}`] = JSON.stringify(envReplacement[key]);

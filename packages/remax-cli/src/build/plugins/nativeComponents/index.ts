@@ -9,7 +9,7 @@ import { Adapter } from '../../adapters';
 import style, { getcssPaths } from './style';
 import json, { getjsonPaths } from './json';
 import template, { getTemplatePaths } from './tempate';
-import jsHelper, { getJsHelpers, asModule } from './jsHelper';
+import jsHelper, { getJsHelpers } from './jsHelper';
 import { isNativeComponent, isPluginComponent, getSourcePath } from './util';
 import winPath from '../../../winPath';
 import usingComponents from './usingComponents';
@@ -52,14 +52,6 @@ export default (
         sourceType: 'module',
       });
       const magicString = new MagicString(code);
-
-      getFiles().forEach(file => {
-        if (file.indexOf(id) !== -1) {
-          simple(ast, {
-            CallExpression: asModule(magicString),
-          });
-        }
-      });
 
       if (!importer) {
         return {
@@ -175,7 +167,7 @@ export default (
         this.emitFile({
           fileName: bundleFileName,
           type: 'asset',
-          source: readFileSync(id),
+          source,
         });
       });
     },
