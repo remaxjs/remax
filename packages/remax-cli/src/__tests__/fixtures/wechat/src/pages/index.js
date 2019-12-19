@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from 'remax/wechat';
+import { ScrollView, View, Text } from 'remax/wechat';
 import { Lifestyle as UnknownComponent } from 'remax/alipay';
 
 export default () => {
@@ -26,6 +26,7 @@ export default () => {
       {TextElement}
       <UnknownComponent />
       <UnBindingComponent />
+      <ScrollView />
     </View>
   );
 };
