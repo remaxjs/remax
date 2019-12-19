@@ -51,25 +51,7 @@ _在开发阶段我们无需关心打包结果的兼容性及体积，所以 rem
 
 `src` 为源文件目录
 
-`app.js` 即小程序 App 方法，可以在 class 内定义对应的属性
-
-```js
-import './app.css';
-
-class App {
-  onLaunch (options) {
-  },
-  onShow (options) {
-  },
-  onHide () {
-  },
-  onError (msg) {
-    console.log(msg)
-  },
-}
-
-export default App;
-```
+`app.js` 入口文件，具体可参考 [指南 - 框架](/guide/framework)
 
 `app.css` 全局样式文件
 
