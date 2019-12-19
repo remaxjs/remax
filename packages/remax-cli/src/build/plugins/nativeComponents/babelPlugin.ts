@@ -49,6 +49,31 @@ export default (options: RemaxOptions, adapter: Adapter) => {
       importers.delete(state.opts.filename);
     },
     visitor: {
+      ImportDeclaration(path: NodePath<t.ImportDeclaration>, state: any) {
+        const importer: string = state.file.opts.filename;
+        const node = path.node;
+
+        const sourcePath = getSourcePath(
+          options,
+          adapter,
+          node.source.value,
+          importer
+        );
+        if (!isNativeComponent(sourcePath)) {
+          return;
+        }
+
+        const id = getKebabCaseName(sourcePath);
+        const component = {
+          id: sourcePath,
+          props: new Set([]),
+          importer,
+          hashId: getHashId(sourcePath, id),
+          pages: new Set([]),
+        };
+
+        addToComponentCollection(component, importers);
+      },
       JSXElement(nodePath: NodePath<t.JSXElement>, state: any) {
         const importer: string = state.file.opts.filename;
         const node = nodePath.node;

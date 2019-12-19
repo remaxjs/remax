@@ -1,5 +1,4 @@
 import fs from 'fs';
-import MagicString from 'magic-string';
 import * as babelParser from '@babel/parser';
 import traverse from '@babel/traverse';
 import * as htmlparser2 from 'htmlparser2';
@@ -81,9 +80,3 @@ export default function jsHelper(id: string, adapter: Adapter) {
 }
 
 export const getJsHelpers = () => jsHelpers;
-
-export const asModule = (magicString: MagicString) => (node: any) => {
-  if (node?.callee?.name === 'Component') {
-    magicString.append('export default {}');
-  }
-};
