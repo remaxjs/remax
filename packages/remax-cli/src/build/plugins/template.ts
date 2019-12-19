@@ -10,7 +10,6 @@ import getEntries from '../../getEntries';
 import { Adapter } from '../adapters';
 import { Context } from '../../types';
 import winPath from '../../winPath';
-import { isConfigFile } from '../watcher/helpers';
 import { getNativeComponents } from './nativeComponents/babelPlugin';
 
 async function createTemplate(
@@ -244,27 +243,23 @@ function isRemaxEntry(chunk: any): chunk is OutputChunk {
   });
 }
 
-function isConfigChanged(id: string) {
-  return !id || isConfigFile(id);
-}
-
 export default function template(
   options: RemaxOptions,
   adapter: Adapter,
   context?: Context
 ): Plugin {
-  let changedId: string;
-
   return {
     name: 'template',
-    watchChange(id) {
-      changedId = id;
-    },
     async generateBundle(_, bundle, isWrite) {
       const templateAssets = [];
       // app.json
-      if (isConfigChanged(changedId)) {
-        const manifest = createAppManifest(options, adapter.name, context);
+      const manifest = createAppManifest(options, adapter.name, context);
+
+      if (
+        this.cache.get(manifest.fileName)?.toString() !==
+        manifest.source.toString()
+      ) {
+        this.cache.set(manifest.fileName, manifest.source);
         templateAssets.push(manifest);
       }
 
@@ -293,18 +288,23 @@ export default function template(
               const template = await createTemplate(file, adapter, options);
               templateAssets.push(template);
 
-              if (isConfigChanged(changedId)) {
-                const config = createPageManifest(
-                  options,
-                  file,
-                  adapter.name,
-                  page,
-                  context
-                );
+              const config = createPageManifest(
+                options,
+                file,
+                adapter.name,
+                page,
+                context
+              );
 
-                if (config) {
-                  templateAssets.push(config);
+              if (config) {
+                if (
+                  this.cache.get(file)?.toString() === config.source.toString()
+                ) {
+                  return;
                 }
+                this.cache.set(file, config.source);
+
+                templateAssets.push(config);
               }
             }
           }
