@@ -11,7 +11,7 @@ order: 60
 
 关于这个问题，请查看 [高级指南 - 跨平台开发](/advanced-guide/cross-platform)
 
-### 使用高阶组件导致页面的生命周期会无效
+### 使用高阶组件导致页面的生命周期未调用
 
 如果使用了 Redux 的 connect ，请将 connect 的 option.forwardRef 设置为 true[文档](https://react-redux.js.org/api/connect#forwardref-boolean)。其它第三方库的高阶组件的处理方式也类似。原因如下。
 

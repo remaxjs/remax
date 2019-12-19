@@ -112,7 +112,7 @@ module.exports = {
 
 对于 class 组件的页面你可以直接在 class 上监听页面的生命周期。
 
-[生命周期不生效？](/faq)
+[小程序生命周期未调用？](/faq)
 
 ```jsx
 export default class IndexPage extends React.Component {
