@@ -100,6 +100,12 @@ function registerProps(
     usedProps = [];
   }
 
+  if (adapter.name === 'wechat' && componentName === 'scroll-view') {
+    if (!usedProps.includes('onScroll')) {
+      usedProps.push('onScroll');
+    }
+  }
+
   if (node) {
     node.openingElement.attributes.forEach(attr => {
       if (t.isJSXSpreadAttribute(attr)) {

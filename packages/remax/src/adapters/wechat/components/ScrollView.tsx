@@ -1,7 +1,43 @@
+import * as React from 'react';
 import createHostComponent from '../../../createHostComponent';
 import { BaseProps } from '../types/component';
 
-const ScrollView = createHostComponent<ScrollViewProps>('scroll-view');
+const componentName = 'scroll-view';
+
+const ScrollViewRender: React.FunctionComponent<ScrollViewProps> = (
+  props,
+  ref
+) => {
+  const { children, scrollTop, onScroll, ...restProps } = props;
+  const [innerScrollTop, forceUpdateScrollTop] = React.useState(scrollTop);
+  const scrollTopRef = React.useRef(innerScrollTop);
+
+  function handleScroll(event: any) {
+    scrollTopRef.current = event?.detail?.scrollTop;
+
+    if (typeof onScroll === 'function') {
+      onScroll(event);
+    }
+  }
+
+  React.useEffect(() => {
+    scrollTopRef.current = scrollTop;
+    forceUpdateScrollTop(scrollTop);
+  }, [scrollTop]);
+
+  const scrollViewProps = {
+    ...restProps,
+    onScroll: handleScroll,
+    scrollTop: scrollTopRef.current,
+    ref,
+  };
+
+  return React.createElement(componentName, scrollViewProps, children);
+};
+
+const ScrollView = React.forwardRef(ScrollViewRender);
+
+export default createHostComponent<ScrollViewProps>(componentName, ScrollView);
 
 export interface ScrollViewProps extends BaseProps {
   /** (default: false) 允许横向滚动 1.0.0 */
@@ -31,5 +67,3 @@ export interface ScrollViewProps extends BaseProps {
   /** 滚动时触发，event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY} 1.0.0 */
   onScroll?: (event: any) => any;
 }
-
-export default ScrollView;
