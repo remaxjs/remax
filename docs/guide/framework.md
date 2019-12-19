@@ -112,6 +112,8 @@ module.exports = {
 
 对于 class 组件的页面你可以直接在 class 上监听页面的生命周期。
 
+[生命周期不生效？](/faq)
+
 ```jsx
 export default class IndexPage extends React.Component {
   // 页面组件的 didMount 触发时机是在 onLoad 的时候
