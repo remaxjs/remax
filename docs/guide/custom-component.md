@@ -3,7 +3,8 @@ title: 小程序自定义组件
 order: 28
 ---
 
-Remax 允许你在 React 组件中引用小程序的自定义组件。
+Remax 允许你在 React 组件中引用小程序的自定义组件。包括支持原生 UI 组件库，如：[weui](https://github.com/wechat-miniprogram/weui-miniprogram), [min-antui](https://github.com/ant-mini-program/mini-antui)
+等等
 
 以支付宝小程序的 [Badge](https://docs.alipay.com/mini/component-ext/badge) 组件为例：
 
