@@ -2,7 +2,6 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-Component({});
-var NotInJSXComponent = {};
+Component({});var NotInJSXComponent = {};
 
 exports.default = NotInJSXComponent;
