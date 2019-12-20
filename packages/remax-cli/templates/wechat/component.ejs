@@ -4,9 +4,11 @@
       .map(key => `${key}="{{_h.v(i.props['${key}'])}}"`)
       .join(' ')
   } %>
-  <% if (['input', 'textarea'].includes(id) && props.includes('focus')) { %> <%# fix:#395 %>
-    <<%=id%> wx:if="{{i.props.focus}}" <%- propsKeyTpl(props) %> />
-    <<%=id%> wx:else <%- propsKeyTpl(props.filter(key => (key !== 'focus'))) %> />
+  <% if (['input', 'textarea'].includes(id) && props.includes('focus')) { %>
+    <%# 微信的 focus 在某些情况下表现怪异，目前原因未知; 暂时通过区分 focus 来 fix:#395 %>
+    <% const propsString = propsKeyTpl(props.filter(key => (key !== 'focus'))) %>
+    <<%=id%> wx:if="{{i.props.focus}}" focus <%- propsString %> />
+    <<%=id%> wx:else <%- propsString %> />
   <% } else { %>
   <<%=id%> <%- propsKeyTpl(props) %>>
     <% if (id === 'swiper') { %>

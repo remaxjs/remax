@@ -22,15 +22,4 @@ describe('Input', () => {
       color,
     });
   });
-
-  it('focus is false by default', () => {
-    const component: TestRenderer.ReactTestRenderer = TestRenderer.create(
-      <Input value="" />
-    );
-
-    const instance = component.root.findByType('input');
-
-    expect(instance.props.focus).toBeFalsy();
-    expect(instance.props.autoFocus).toBeFalsy();
-  });
 });

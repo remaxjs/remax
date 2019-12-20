@@ -2,8 +2,6 @@
 
 exports[`Input render correctly 1`] = `
 <input
-  autoFocus={false}
-  focus={false}
   maxlength={140}
   selectionEnd={999}
   selectionStart={999}

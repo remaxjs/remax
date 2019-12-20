@@ -10,15 +10,4 @@ describe('TextArea', () => {
 
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });
-
-  it('focus is false by default', () => {
-    const component: TestRenderer.ReactTestRenderer = TestRenderer.create(
-      <Textarea value="" />
-    );
-
-    const instance = component.root.findByType('textarea');
-
-    expect(instance.props.focus).toBeFalsy();
-    expect(instance.props.autoFocus).toBeFalsy();
-  });
 });
