@@ -4,7 +4,7 @@
       .map(key => `${key}="{{_h.v(i.props['${key}'])}}"`)
       .join(' ')
   } %>
-  <% if (['input', 'textarea'].includes(id) && props.includes('focus')) { %>
+  <% if (['input', 'textarea'].includes(id)) { %>
     <%# 微信输入框的 focus 在写死和接收动态值时表现有差异，而在动态接收 focus 的情况下又表现比较怪异;
       具体情况比较复杂，由于微信小程序的 focus 如果是 true，再次设置 focus 是 true 是也能再次主动聚焦的特性，再加上 remax diff 结果有一点冗余的情况，focus 会被多次重复设置触发自动聚焦 bug;
       暂时通过写死 focus 来 fix:#395，如果需要多次主动聚焦，可以绑定 blur 事件设置 focus 为 false;
