@@ -15,28 +15,19 @@ var _page = function _page() {
   var TextElement = React.cloneElement(React.createElement(Text.default, null));
 
   function handleClick() {
-    return _handleClick.apply(this, arguments);
-  }
+    return runtime.default.async(function handleClick$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return runtime.default.awrap(Promise.resolve(1));
 
-  function _handleClick() {
-    _handleClick = _rollupPluginBabelHelpers.asyncToGenerator(
-    /*#__PURE__*/
-    runtime.default.mark(function _callee() {
-      return runtime.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return Promise.resolve(1);
-
-            case 2:
-            case "end":
-              return _context.stop();
-          }
+          case 2:
+          case "end":
+            return _context.stop();
         }
-      }, _callee);
-    }));
-    return _handleClick.apply(this, arguments);
+      }
+    });
   }
 
   function handleTouchStart() {}
