@@ -29,8 +29,25 @@ export default class SyntheticEventPool {
       this.state[eventType] = {
         [eventId]: {
           propagationStopped: false,
+          currentEventId: eventId,
         },
       };
+    }
+  }
+
+  public setLatestEvent(
+    eventType: string,
+    eventId: string,
+    currentEventId: string
+  ) {
+    if (this.state[eventType] && this.state[eventType][eventId]) {
+      this.state[eventType][eventId].currentEventId = currentEventId;
+    }
+  }
+
+  public getLatestEvent(eventType: string, eventId: string) {
+    if (this.state[eventType] && this.state[eventType][eventId]) {
+      return this.state[eventType][eventId].currentEventId;
     }
   }
 
@@ -54,6 +71,7 @@ export default class SyntheticEventPool {
     [eventType: string]: {
       [eventId: string]: {
         propagationStopped: boolean;
+        currentEventId: string;
       };
     };
   };

@@ -8,6 +8,6 @@
       "conventionalCommits": true
     }
   },
-  "version": "1.10.5",
+  "version": "1.10.6",
   "npmClient": "yarn"
 }
