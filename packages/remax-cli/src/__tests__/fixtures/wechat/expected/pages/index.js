@@ -12,8 +12,8 @@ var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
 require('../npm/remax/esm/index.js');
 var runtime = require('../npm/regenerator-runtime/runtime.js');
 var View = require('../npm/remax/esm/adapters/wechat/components/View.js');
-require('../npm/remax/esm/adapters/wechat/components/Input.js');
-require('../npm/remax/esm/adapters/wechat/components/Textarea.js');
+var Input = require('../npm/remax/esm/adapters/wechat/components/Input.js');
+var Textarea = require('../npm/remax/esm/adapters/wechat/components/Textarea.js');
 require('../npm/remax/esm/adapters/wechat/components/Video.js');
 require('../npm/remax/esm/adapters/wechat/components/Swiper.js');
 var ScrollView = require('../npm/remax/esm/adapters/wechat/components/ScrollView.js');
@@ -90,7 +90,7 @@ var _page = function _page() {
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo"), TextElement, React.createElement(index$2.Lifestyle, null), React.createElement(UnBindingComponent, null), React.createElement(ScrollView.default, null));
+  }, props), "foo"), TextElement, React.createElement(index$2.Lifestyle, null), React.createElement(UnBindingComponent, null), React.createElement(ScrollView.default, null), React.createElement(Input.default, null), React.createElement(Textarea.default, null));
 };
 
 var index = Page(createPageConfig.default(_page));

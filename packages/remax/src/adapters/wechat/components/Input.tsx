@@ -135,26 +135,6 @@ export interface InputProps extends BaseProps {
   onKeyboardHeightChange?: (event: any) => any;
 }
 
-function useInnerFocus(
-  initialValue?: boolean
-): [boolean, typeof handleInnerFocus] {
-  const [innerFocus = false, setInnerFocus] = React.useState(initialValue);
-
-  const handleInnerFocus = (func?: Function, focus = true) => (
-    ...params: any
-  ) => {
-    if (innerFocus !== focus) {
-      setInnerFocus(focus);
-    }
-
-    if (typeof func === 'function') {
-      return func(...params);
-    }
-  };
-
-  return [innerFocus, handleInnerFocus];
-}
-
 const InputRender: React.FunctionComponent<InputProps> = (props, ref) => {
   const {
     autoFocus,
@@ -166,12 +146,30 @@ const InputRender: React.FunctionComponent<InputProps> = (props, ref) => {
     onBlur,
     ...restProps
   } = props;
-  const [innerFocus, handleInnerFocus] = useInnerFocus(focus || autoFocus);
+  const [innerFocus = false, forceUpdateFocus] = React.useState(
+    focus ?? autoFocus
+  );
+  const focusRef = React.useRef<boolean | undefined>(innerFocus);
+
+  React.useEffect(() => {
+    forceUpdateFocus(focus ?? autoFocus);
+    focusRef.current = focus ?? autoFocus;
+  }, [focus, autoFocus]);
+
+  const handleInnerFocus = (func?: Function, focus = true) => (
+    ...params: any
+  ) => {
+    focusRef.current = focus;
+
+    if (typeof func === 'function') {
+      return func(...params);
+    }
+  };
 
   const inputProps = {
     ...restProps,
     autoFocus,
-    focus: innerFocus,
+    focus: focusRef.current,
     onInput: handleInnerFocus(onInput),
     onClick: handleInnerFocus(onClick),
     onFocus: handleInnerFocus(onFocus),

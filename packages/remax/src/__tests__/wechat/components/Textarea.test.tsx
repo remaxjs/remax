@@ -13,26 +13,22 @@ describe('TextArea', () => {
 
   it('focus correctly', () => {
     const handleFocus = jest.fn();
+    const handleBlur = jest.fn();
 
     const component: TestRenderer.ReactTestRenderer = TestRenderer.create(
-      <Textarea value="" onFocus={handleFocus} />
+      <Textarea value="" onFocus={handleFocus} onBlur={handleBlur} />
     );
 
     const instance = component.root.findByType('textarea');
 
     expect(instance.props.focus).not.toBeTruthy();
 
-    TestRenderer.act(() => {
-      instance.props.onFocus();
-    });
+    instance.props.onFocus();
 
-    expect(instance.props.focus).toBeTruthy();
     expect(handleFocus).toBeCalled();
 
-    TestRenderer.act(() => {
-      instance.props.onBlur();
-    });
+    instance.props.onBlur();
 
-    expect(instance.props.focus).not.toBeTruthy();
+    expect(handleBlur).toBeCalled();
   });
 });

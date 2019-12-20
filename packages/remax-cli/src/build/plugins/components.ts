@@ -105,6 +105,16 @@ function registerProps(
       usedProps.push('onScroll');
     }
   }
+  if (
+    adapter.name === 'wechat' &&
+    (componentName === 'input' || componentName === 'textarea')
+  ) {
+    ['onClick', 'onInput', 'onFocus', 'onBlur'].forEach(propName => {
+      if (!usedProps.includes(propName)) {
+        usedProps.push(propName);
+      }
+    });
+  }
 
   if (node) {
     node.openingElement.attributes.forEach(attr => {

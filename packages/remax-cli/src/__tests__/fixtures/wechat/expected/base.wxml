@@ -15,6 +15,16 @@
 
 
 
+<template name="REMAX_TPL_1_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_2_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_1_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -33,6 +43,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_1_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_2_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_1_view">
@@ -54,6 +74,16 @@
 
 
 
+<template name="REMAX_TPL_2_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_3_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_2_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -72,6 +102,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_2_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_3_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_2_view">
@@ -93,6 +133,16 @@
 
 
 
+<template name="REMAX_TPL_3_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_4_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_3_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -111,6 +161,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_3_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_4_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_3_view">
@@ -132,6 +192,16 @@
 
 
 
+<template name="REMAX_TPL_4_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_5_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_4_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -150,6 +220,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_4_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_5_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_4_view">
@@ -171,6 +251,16 @@
 
 
 
+<template name="REMAX_TPL_5_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_6_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_5_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -189,6 +279,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_5_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_6_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_5_view">
@@ -210,6 +310,16 @@
 
 
 
+<template name="REMAX_TPL_6_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_7_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_6_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -228,6 +338,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_6_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_7_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_6_view">
@@ -249,6 +369,16 @@
 
 
 
+<template name="REMAX_TPL_7_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_8_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_7_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -267,6 +397,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_7_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_8_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_7_view">
@@ -288,6 +428,16 @@
 
 
 
+<template name="REMAX_TPL_8_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_9_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_8_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -306,6 +456,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_8_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_9_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_8_view">
@@ -327,6 +487,16 @@
 
 
 
+<template name="REMAX_TPL_9_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_10_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_9_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -345,6 +515,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_9_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_10_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_9_view">
@@ -366,6 +546,16 @@
 
 
 
+<template name="REMAX_TPL_10_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_11_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_10_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -384,6 +574,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_10_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_11_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_10_view">
@@ -405,6 +605,16 @@
 
 
 
+<template name="REMAX_TPL_11_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_12_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_11_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -423,6 +633,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_11_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_12_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_11_view">
@@ -444,6 +664,16 @@
 
 
 
+<template name="REMAX_TPL_12_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_13_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_12_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -462,6 +692,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_12_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_13_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_12_view">
@@ -483,6 +723,16 @@
 
 
 
+<template name="REMAX_TPL_13_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_14_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_13_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -501,6 +751,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_13_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_14_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_13_view">
@@ -522,6 +782,16 @@
 
 
 
+<template name="REMAX_TPL_14_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_15_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_14_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -540,6 +810,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_14_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_15_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_14_view">
@@ -561,6 +841,16 @@
 
 
 
+<template name="REMAX_TPL_15_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_16_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_15_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -579,6 +869,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_15_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_16_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_15_view">
@@ -600,6 +900,16 @@
 
 
 
+<template name="REMAX_TPL_16_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_17_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_16_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -618,6 +928,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_16_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_17_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_16_view">
@@ -639,6 +959,16 @@
 
 
 
+<template name="REMAX_TPL_17_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_18_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_17_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -657,6 +987,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_17_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_18_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_17_view">
@@ -678,6 +1018,16 @@
 
 
 
+<template name="REMAX_TPL_18_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_19_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_18_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -696,6 +1046,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_18_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_19_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_18_view">
@@ -717,6 +1077,16 @@
 
 
 
+<template name="REMAX_TPL_19_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_20_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_19_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -735,6 +1105,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_19_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_20_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_19_view">
@@ -756,6 +1136,16 @@
 
 
 
+<template name="REMAX_TPL_20_input">
+  <input  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_21_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </input>
+</template>
+
 <template name="REMAX_TPL_20_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props['bindscroll'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
     
@@ -774,6 +1164,16 @@
     </block>
     
   </text>
+</template>
+
+<template name="REMAX_TPL_20_textarea">
+  <textarea  bindblur="{{_h.v(i.props['bindblur'])}}"  bindfocus="{{_h.v(i.props['bindfocus'])}}"  bindinput="{{_h.v(i.props['bindinput'])}}"  bindtap="{{_h.v(i.props['bindtap'])}}"  data-rid="{{_h.v(i.props['data-rid'])}}" >
+    
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_21_CONTAINER" data="{{i: item}}" />
+    </block>
+    
+  </textarea>
 </template>
 
 <template name="REMAX_TPL_20_view">
