@@ -1,5 +1,14 @@
 <template name="REMAX_TPL_<%=templateId%>_<%=id%>">
-  <<%=id%> <% for(let key of props) { %> <%=key%>="{{_h.v(i.props['<%=key%>'])}}" <% } %>>
+  <% function propsKeyTpl(props) {
+    return props
+      .map(key => `${key}="{{_h.v(i.props['${key}'])}}"`)
+      .join(' ')
+  } %>
+  <% if (['input', 'textarea'].includes(id) && props.includes('focus')) { %> <%# fix:#395 %>
+    <<%=id%> wx:if="{{i.props.focus}}" <%- propsKeyTpl(props) %> />
+    <<%=id%> wx:else <%- propsKeyTpl(props.filter(key => (key !== 'focus'))) %> />
+  <% } else { %>
+  <<%=id%> <%- propsKeyTpl(props) %>>
     <% if (id === 'swiper') { %>
     <block wx:for="{{i.children}}" wx:key="id">
       <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
@@ -28,4 +37,5 @@
     </block>
     <% } %>
   </<%=id%>>
+  <% } %>
 </template>

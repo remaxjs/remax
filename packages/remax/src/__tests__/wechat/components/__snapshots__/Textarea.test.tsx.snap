@@ -2,14 +2,11 @@
 
 exports[`TextArea render correctly 1`] = `
 <textarea
+  autoFocus={false}
   className="class"
   fixed={false}
   focus={false}
   maxlength={-1}
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onInput={[Function]}
   selectionEnd={999}
   selectionStart={999}
   value=""
