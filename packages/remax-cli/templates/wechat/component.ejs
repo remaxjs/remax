@@ -25,7 +25,7 @@
     <%_ } else if (type === 'native') { _%>
     <block wx:for="{{i.children}}" wx:key="id">
       <block wx:if="{{item.props['slot']}}">
-        <view <% for(let key of adapter.hostComponents.get('view').props) { %> <%=key%>="{{item.props['<%=key%>']}}"
+        <view slot="{{item.props['slot']}}" <% for(let key of adapter.hostComponents.get('view').props) { %> <%=key%>="{{item.props['<%=key%>']}}"
           <% } %>>
           <block wx:for="{{item.children}}" wx:key="id">
             <template is="REMAX_TPL_<%= templateId + 1%>_CONTAINER" data="{{i: item}}" />

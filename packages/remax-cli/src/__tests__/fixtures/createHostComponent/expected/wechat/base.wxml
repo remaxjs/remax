@@ -23,6 +23,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_1_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -30,6 +31,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_1_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -48,6 +50,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_2_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -55,6 +58,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_2_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -73,6 +77,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_3_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -80,6 +85,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_3_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -98,6 +104,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_4_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -105,6 +112,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_4_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -123,6 +131,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_5_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -130,6 +139,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_5_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -148,6 +158,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_6_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -155,6 +166,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_6_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -173,6 +185,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_7_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -180,6 +193,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_7_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -198,6 +212,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_8_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -205,6 +220,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_8_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -223,6 +239,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_9_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -230,6 +247,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_9_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -248,6 +266,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_10_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -255,6 +274,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_10_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -273,6 +293,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_11_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -280,6 +301,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_11_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -298,6 +320,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_12_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -305,6 +328,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_12_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -323,6 +347,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_13_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -330,6 +355,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_13_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -348,6 +374,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_14_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -355,6 +382,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_14_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -373,6 +401,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_15_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -380,6 +409,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_15_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -398,6 +428,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_16_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -405,6 +436,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_16_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -423,6 +455,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_17_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -430,6 +463,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_17_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -448,6 +482,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_18_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -455,6 +490,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_18_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -473,6 +509,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_19_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -480,6 +517,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_19_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
@@ -498,6 +536,7 @@
   </custom-component>
 </template>
 
+
 <template name="REMAX_TPL_20_foo-bar">
   <foo-bar class="{{_h.v(i.props['class'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" foo="{{_h.v(i.props['foo'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
@@ -505,6 +544,7 @@
     </block>
   </foo-bar>
 </template>
+
 
 <template name="REMAX_TPL_20_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
