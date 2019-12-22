@@ -15,6 +15,7 @@
   </functional-page-navigator>
 </template>
 
+
   <template name="REMAX_TPL_text">
   <text  data-rid="{{i.props['data-rid']}}" >
     
@@ -25,8 +26,9 @@
   </text>
 </template>
 
+
   <template name="REMAX_TPL_view">
-  <view  animation="{{i.props['animation']}}"  bindanimationend="{{i.props['bindanimationend']}}"  bindanimationiteration="{{i.props['bindanimationiteration']}}"  bindanimationstart="{{i.props['bindanimationstart']}}"  bindlongtap="{{i.props['bindlongtap']}}"  bindtap="{{i.props['bindtap']}}"  bindtouchcancel="{{i.props['bindtouchcancel']}}"  bindtouchend="{{i.props['bindtouchend']}}"  bindtouchmove="{{i.props['bindtouchmove']}}"  bindtouchstart="{{i.props['bindtouchstart']}}"  bindtransitionend="{{i.props['bindtransitionend']}}"  class="{{i.props['class']}}"  data-foo="{{i.props['data-foo']}}"  data-rid="{{i.props['data-rid']}}"  disable-scroll="{{i.props['disable-scroll']}}"  hidden="{{i.props['hidden']}}"  hover-class="{{i.props['hover-class']}}"  hover-start-time="{{i.props['hover-start-time']}}"  hover-stay-time="{{i.props['hover-stay-time']}}"  hover-stop-propagation="{{i.props['hover-stop-propagation']}}"  id="{{i.props['id']}}"  slot="{{i.props['slot']}}"  style="{{i.props['style']}}" >
+  <view  animation="{{i.props['animation']}}"  bindanimationend="{{i.props['bindanimationend']}}"  bindanimationiteration="{{i.props['bindanimationiteration']}}"  bindanimationstart="{{i.props['bindanimationstart']}}"  bindlongtap="{{i.props['bindlongtap']}}"  bindtap="{{i.props['bindtap']}}"  bindtouchcancel="{{i.props['bindtouchcancel']}}"  bindtouchend="{{i.props['bindtouchend']}}"  bindtouchmove="{{i.props['bindtouchmove']}}"  bindtouchstart="{{i.props['bindtouchstart']}}"  bindtransitionend="{{i.props['bindtransitionend']}}"  class="{{i.props['class']}}"  data-foo="{{i.props['data-foo']}}"  data-rid="{{i.props['data-rid']}}"  disable-scroll="{{i.props['disable-scroll']}}"  hidden="{{i.props['hidden']}}"  hover-class="{{i.props['hover-class']}}"  hover-start-time="{{i.props['hover-start-time']}}"  hover-stay-time="{{i.props['hover-stay-time']}}"  hover-stop-propagation="{{i.props['hover-stop-propagation']}}"  id="{{i.props['id']}}"  style="{{i.props['style']}}" >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
       <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
@@ -34,6 +36,7 @@
     
   </view>
 </template>
+
 
 <template name="REMAX_TPL_plain-text" data="{{i: i}}">
   <block>{{i.text}}</block>

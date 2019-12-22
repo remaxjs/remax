@@ -23,7 +23,7 @@
     <% } else if (type === 'native') { %>
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
-        <view <% for(let key of adapter.hostComponents.get('view').props) { %> <%=key%>="{{item.props['<%=key%>']}}"
+        <view slot="{{item.props['slot']}}" <% for(let key of adapter.hostComponents.get('view').props) { %> <%=key%>="{{item.props['<%=key%>']}}"
           <% } %>>
           <block a:for="{{item.children}}" key="{{item.id}}">
             <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
