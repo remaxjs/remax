@@ -12,7 +12,9 @@ export function run(args: any, context?: any) {
     .command<any>(
       'build',
       '编译项目',
-      () => {},
+      () => {
+        // ignore
+      },
       (argv: any) => build(argv, context)
     )
     .option('watch', {

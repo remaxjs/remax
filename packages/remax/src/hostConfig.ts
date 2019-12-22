@@ -55,9 +55,13 @@ export default {
     return false;
   },
 
-  prepareForCommit: () => {},
+  prepareForCommit: () => {
+    // nothing to do
+  },
 
-  resetAfterCommit: () => {},
+  resetAfterCommit: () => {
+    // nothing to do
+  },
 
   getChildHostContext: () => {
     return childHostContext;

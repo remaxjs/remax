@@ -1,8 +1,8 @@
 diff --git a/node_modules/rollup/dist/rollup.js b/node_modules/rollup/dist/rollup.js
-index cbe2a26..3bb350c 100644
+index ba3f32f..4e108c6 100644
 --- a/node_modules/rollup/dist/rollup.js
 +++ b/node_modules/rollup/dist/rollup.js
-@@ -13508,7 +13508,7 @@ function rollup(rawInputOptions) {
+@@ -13517,7 +13517,7 @@ function rollup(rawInputOptions) {
              return __awaiter(this, void 0, void 0, function* () {
                  timeStart('GENERATE', 1);
                  const assetFileNames = outputOptions.assetFileNames || 'assets/[name]-[hash][extname]';
