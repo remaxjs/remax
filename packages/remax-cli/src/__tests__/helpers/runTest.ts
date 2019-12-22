@@ -16,6 +16,7 @@ export default function runTest(
         outputPath || path.resolve(__dirname, `../fixtures/${app}/expected`)
       );
     },
+
     JEST_BUILD_TIMEOUT
   );
 }

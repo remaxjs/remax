@@ -2,8 +2,6 @@ import * as React from 'react';
 import { BaseProps } from '../types/component';
 import createHostComponent from '../../../createHostComponent';
 
-const hostComponentName = 'input';
-
 export interface InputProps extends BaseProps {
   /**
    * 1.0.0
@@ -135,54 +133,7 @@ export interface InputProps extends BaseProps {
   onKeyboardHeightChange?: (event: any) => any;
 }
 
-function useInnerFocus(
-  initialValue?: boolean
-): [boolean, typeof handleInnerFocus] {
-  const [innerFocus = false, setInnerFocus] = React.useState(initialValue);
-
-  const handleInnerFocus = (func?: Function, focus = true) => (
-    ...params: any
-  ) => {
-    if (innerFocus !== focus) {
-      setInnerFocus(focus);
-    }
-
-    if (typeof func === 'function') {
-      return func(...params);
-    }
-  };
-
-  return [innerFocus, handleInnerFocus];
-}
-
-const InputRender: React.FunctionComponent<InputProps> = (props, ref) => {
-  const {
-    autoFocus,
-    children,
-    focus,
-    onInput,
-    onClick,
-    onFocus,
-    onBlur,
-    ...restProps
-  } = props;
-  const [innerFocus, handleInnerFocus] = useInnerFocus(focus || autoFocus);
-
-  const inputProps = {
-    ...restProps,
-    autoFocus,
-    focus: innerFocus,
-    onInput: handleInnerFocus(onInput),
-    onClick: handleInnerFocus(onClick),
-    onFocus: handleInnerFocus(onFocus),
-    onBlur: handleInnerFocus(onBlur, false),
-    ref,
-  };
-
-  return React.createElement(hostComponentName, inputProps, children);
-};
-
-const Input = React.forwardRef(InputRender);
+const Input = createHostComponent<InputProps>('input');
 
 Input.defaultProps = {
   type: 'text',
@@ -191,4 +142,4 @@ Input.defaultProps = {
   selectionStart: 999,
 };
 
-export default createHostComponent(hostComponentName, Input);
+export default Input;

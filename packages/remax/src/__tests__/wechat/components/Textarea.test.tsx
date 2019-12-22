@@ -10,29 +10,4 @@ describe('TextArea', () => {
 
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });
-
-  it('focus correctly', () => {
-    const handleFocus = jest.fn();
-
-    const component: TestRenderer.ReactTestRenderer = TestRenderer.create(
-      <Textarea value="" onFocus={handleFocus} />
-    );
-
-    const instance = component.root.findByType('textarea');
-
-    expect(instance.props.focus).not.toBeTruthy();
-
-    TestRenderer.act(() => {
-      instance.props.onFocus();
-    });
-
-    expect(instance.props.focus).toBeTruthy();
-    expect(handleFocus).toBeCalled();
-
-    TestRenderer.act(() => {
-      instance.props.onBlur();
-    });
-
-    expect(instance.props.focus).not.toBeTruthy();
-  });
 });
