@@ -3,12 +3,12 @@ import { createCallbackProxy } from '../SyntheticEvent';
 describe('synthetic event', () => {
   describe('stop propagation', () => {
     it('only accept onClick', () => {
-      const ontap = () => {};
+      const ontap = () => void 0;
       const newOntap = createCallbackProxy('onClick', ontap);
 
       expect(ontap).not.toBe(newOntap);
 
-      const catchTap = () => {};
+      const catchTap = () => void 0;
       const newCatchTap = createCallbackProxy('catchClick', catchTap);
 
       expect(catchTap).toBe(newCatchTap);

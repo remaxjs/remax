@@ -6,10 +6,12 @@ import { reset as resetActionId } from '../../actionId';
 import Container from '../../Container';
 
 const p = {
-  // eslint-disable-next-line
-  setData() {},
-  // eslint-disable-next-line
-  $spliceData() {},
+  setData() {
+    // mock function
+  },
+  $spliceData() {
+    // mock function
+  },
 };
 
 describe('wechat', () => {
@@ -197,7 +199,7 @@ describe('wechat', () => {
       render(
         <NativeComponent
           fooBar="fooBar"
-          onClick={() => {}}
+          onClick={() => void 0}
           className="class"
         />,
         container
@@ -208,8 +210,8 @@ describe('wechat', () => {
 
     it('create proxy for onClick callback', () => {
       const view = React.createRef<any>();
-      const handleClick = () => {};
-      const handleAnimationStart = () => {};
+      const handleClick = () => void 0;
+      const handleAnimationStart = () => void 0;
       class Page extends React.Component {
         render() {
           return (

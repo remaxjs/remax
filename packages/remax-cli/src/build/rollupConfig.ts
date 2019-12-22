@@ -1,8 +1,8 @@
 import { RollupOptions, RollupWarning } from 'rollup';
 import { output } from './utils/output';
 import path from 'path';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 import babel from './plugins/babel';
 import url from '@remax/rollup-plugin-url';
 import json from '@rollup/plugin-json';
