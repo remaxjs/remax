@@ -55,7 +55,7 @@ module.exports = {
   },
   // 修改 rollup 的配置
   rollupOptions: options => {
-    options.inputs.push('foo.js');
+    options.input.push('foo.js');
     return options;
   },
 };
