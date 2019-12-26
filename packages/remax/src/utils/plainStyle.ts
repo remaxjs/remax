@@ -32,7 +32,7 @@ const transformPx = (value: string) => {
 
   return value.replace(/\b(\d+(\.\d+)?)px\b/g, function(match, x) {
     const targetUnit = 'rpx';
-    const size = x;
+    const size = Number(x);
     return size % 1 === 0 ? size + targetUnit : size.toFixed(2) + targetUnit;
   });
 };
