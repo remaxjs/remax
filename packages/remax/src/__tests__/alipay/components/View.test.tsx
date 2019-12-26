@@ -4,7 +4,7 @@ import View from '../../../adapters/alipay/components/View';
 
 describe('View', () => {
   it('render correctly', () => {
-    const callback = () => {};
+    const callback = () => void 0;
 
     const testRenderer = TestRenderer.create(
       <View onAnimationStart={callback} catchClick={callback} className="class">

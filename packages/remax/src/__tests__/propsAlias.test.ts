@@ -53,6 +53,10 @@ describe('props alias', () => {
         style: {
           color: '#ffffff',
           height: '2px',
+          WebkitFlex: 1,
+          '--color': 'red',
+          '--textColor': 'blue',
+          backgroundColor: 'var(--textColor)',
         },
       })
     ).toMatchSnapshot();

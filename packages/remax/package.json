@@ -1,6 +1,6 @@
 {
   "name": "remax",
-  "version": "1.7.2",
+  "version": "1.10.7",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -35,9 +35,9 @@
     "@remax/mini-types": "^0.1.0",
     "@remax/miniprogram-api-typings": "^2.8.4",
     "lodash.kebabcase": "^4.1.1",
-    "react-reconciler": "0.20.4",
-    "remax.macro": "^1.7.2",
-    "scheduler": "0.13.6",
+    "react-reconciler": "0.24.0",
+    "remax.macro": "^1.10.7",
+    "scheduler": "0.18.0",
     "shallowequal": "^1.1.0"
   },
   "devDependencies": {
@@ -54,7 +54,7 @@
     "react": "^16.8.6",
     "react-test-renderer": "^16.9.0",
     "ts-jest": "^24.0.2",
-    "typescript": "^3.5.2"
+    "typescript": "^3.7.3"
   },
   "gitHead": "28ef4f50ef3c134c4e661d786ebea4d7c4ea89ed"
 }

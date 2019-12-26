@@ -47,6 +47,10 @@ export default class HTML extends React.Component {
             crossOrigin="anonymous"
           ></script>
           {this.props.headComponents}
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
+          />
         </head>
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}
@@ -67,6 +71,10 @@ export default class HTML extends React.Component {
             `,
             }}
           />
+          <script
+            type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"
+          ></script>
         </body>
       </html>
     );

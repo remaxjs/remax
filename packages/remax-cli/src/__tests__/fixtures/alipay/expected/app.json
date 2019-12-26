@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/index"
+    "pages/index",
+    "pages/dont-exist/index"
   ],
   "window": {
     "defaultTitle": "Alipay App",

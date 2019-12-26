@@ -1,12 +1,9 @@
 declare module 'rollup-plugin-babel';
 declare module '@remax/rollup-plugin-postcss';
-declare module 'rollup-plugin-node-resolve';
 declare module 'rollup-plugin-progress';
 declare module 'rollup-plugin-delete';
 declare module '@rollup/plugin-alias';
-declare module 'rollup-plugin-inject';
 declare module '@remax/rollup-plugin-url';
-declare module 'rollup-plugin-typescript';
 declare module 'postcss-url';
 declare module 'mkdirp';
 declare module '@remax/postcss-px2units';

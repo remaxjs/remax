@@ -1,8 +1,8 @@
 import { RollupOptions, RollupWarning } from 'rollup';
 import { output } from './utils/output';
 import path from 'path';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 import babel from './plugins/babel';
 import url from '@remax/rollup-plugin-url';
 import json from '@rollup/plugin-json';
@@ -10,7 +10,6 @@ import postcss from '@remax/rollup-plugin-postcss';
 import postcssUrl from './plugins/postcssUrl';
 import progress from 'rollup-plugin-progress';
 import clean from 'rollup-plugin-delete';
-import inject from 'rollup-plugin-inject';
 import copy from 'rollup-plugin-copy';
 import stub from './plugins/stub';
 import pxToUnits from '@remax/postcss-px2units';
@@ -93,6 +92,7 @@ export default function rollupConfig(
       sourceDir: path.resolve(options.cwd, options.rootDir),
       include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
     }),
+    json(),
     resolve({
       dedupe: [
         'react',
@@ -143,7 +143,6 @@ export default function rollupConfig(
         .filter(Boolean)
         .concat(postcssConfig.plugins),
     }),
-    json(),
     replace({
       values: Object.keys(envReplacement).reduce((acc: any, key) => {
         acc[`process.env.${key}`] = JSON.stringify(envReplacement[key]);
@@ -179,10 +178,6 @@ export default function rollupConfig(
         return input.replace(/\.css/, '.css.js');
       },
     }),
-    inject({
-      exclude: 'node_modules/**',
-      regeneratorRuntime: 'regenerator-runtime',
-    }),
     rename({
       matchAll: true,
       map: input => {
@@ -205,7 +200,11 @@ export default function rollupConfig(
     }),
     removeSrc(options),
     fixRegeneratorRuntime(),
-    nativeComponents(options, adapter, entries.pages.map(p => p.file)),
+    nativeComponents(
+      options,
+      adapter,
+      entries.pages.map(p => p.file)
+    ),
     template(options, adapter, context),
   ];
 
@@ -239,10 +238,17 @@ export default function rollupConfig(
     onwarn(warning, warn) {
       if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
       if ((warning as RollupWarning).code === 'CIRCULAR_DEPENDENCY') {
-        output('⚠️ : 检测到循环依赖，如果不影响项目运行，请忽略', 'yellow');
+        output('⚠️ 检测到循环依赖，如果不影响项目运行，请忽略', 'yellow');
       }
 
-      output('⚠️ : ' + warning, 'yellow');
+      if (!warning.message) {
+        output(
+          `⚠️ ${warning.code}:${warning.plugin || ''} ${(warning as any).text}`,
+          'yellow'
+        );
+      } else {
+        output('⚠️ ' + warning.toString(), 'yellow');
+      }
     },
     plugins,
   };

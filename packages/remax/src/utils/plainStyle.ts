@@ -3,15 +3,23 @@ import { CSSProperties } from 'react';
 const vendorPrefixes = ['webkit', 'moz', 'ms', 'o'];
 
 const transformReactStyleKey = (key: string) => {
+  // css3 var
+  if (key?.startsWith('--')) {
+    return key;
+  }
+
   let styleValue = key.replace(/\.?([A-Z]+)/g, function(_x: any, y: string) {
     return '-' + y.toLowerCase();
   });
 
-  const firstWord = styleValue.split('-').filter(s => s)[0];
-  styleValue = styleValue.replace(/^-/, '');
+  // vendor prefix
+  if (styleValue?.startsWith('-')) {
+    const firstWord = styleValue.split('-').filter(s => s)[0];
+    styleValue = styleValue.replace(/^-/, '');
 
-  if (vendorPrefixes.find(prefix => prefix === firstWord)) {
-    styleValue = '-' + styleValue;
+    if (vendorPrefixes.find(prefix => prefix === firstWord)) {
+      styleValue = '-' + styleValue;
+    }
   }
 
   return styleValue;

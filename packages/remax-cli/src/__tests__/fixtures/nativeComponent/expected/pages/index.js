@@ -46,6 +46,8 @@ require('../npm/remax/esm/adapters/alipay/components/ContactButton.js');
 require('../npm/remax/esm/adapters/alipay/components/Video.js');
 require('../npm/remax/esm/adapters/alipay/api.js');
 
+var CJSComponent = createNativeComponent.default('cjs-0');
+var NotInJSXComponent = createNativeComponent.default('not-in-jsx-0');
 var SrcComponent = createNativeComponent.default('src-0');
 var ScopedComponent = createNativeComponent.default('a-1');
 var SlotComponent = createNativeComponent.default('slot-0');
@@ -69,15 +71,18 @@ var A = createNativeComponent.default('a-0');
 
 
 
+
+
 var _page = function _page() {
   var b = React.createRef();
+  var text = 'not in jsx' + NotInJSXComponent;
   return React.createElement(View.default, null, React.createElement(A, {
     foo: "bar"
   }), React.createElement(B, {
     ref: b
   }), React.createElement(C, null), React.createElement(D, null), React.createElement(E, null), React.createElement(Complex, null), React.createElement(PluginComponent, null), React.createElement(PluginComponent2, null), React.createElement(SlotComponent, null, React.createElement(View.default, {
     slot: "inner"
-  })), React.createElement(ScopedComponent, null), React.createElement(SrcComponent, null));
+  })), React.createElement(ScopedComponent, null), React.createElement(SrcComponent, null), React.createElement(CJSComponent, null), text);
 };
 
 var index = Page(createPageConfig.default(_page));

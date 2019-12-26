@@ -47,15 +47,18 @@ export default (
     transform(code, id) {
       const importers = getImporters();
       const importer = importers.get(id);
-      if (!importer) {
-        return null;
-      }
 
-      const magicString = new MagicString(code);
       const ast = this.parse(code, {
-        ecmaVersion: 6,
         sourceType: 'module',
       });
+      const magicString = new MagicString(code);
+
+      if (!importer) {
+        return {
+          code: magicString.toString(),
+          map: magicString.generateMap(),
+        };
+      }
 
       let helperImported = false;
 
@@ -128,8 +131,8 @@ export default (
         }
 
         importer = winPath(importer)
-          .replace(/node_modules/, 'npm')
-          .replace(/^src\//, '')
+          .replace(/node_modules/g, 'npm')
+          .replace(new RegExp(`^${options.rootDir}/`), '')
           .replace(/@/g, '_')
           .replace(path.extname(importer), '.js');
 
@@ -148,15 +151,23 @@ export default (
 
       getFiles().forEach(id => {
         const bundleFileName = winPath(
-          path.relative(options.cwd, id).replace(/node_modules/, 'npm')
+          path.relative(options.cwd, id).replace(/node_modules/g, 'npm')
         )
           .replace(/^src\//, '')
           .replace(/@/g, '_');
 
+        const source = readFileSync(id);
+
+        if (this.cache.get(bundleFileName)?.toString() === source.toString()) {
+          return;
+        }
+
+        this.cache.set(bundleFileName, source);
+
         this.emitFile({
           fileName: bundleFileName,
           type: 'asset',
-          source: readFileSync(id),
+          source,
         });
       });
     },

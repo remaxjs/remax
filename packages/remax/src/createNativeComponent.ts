@@ -8,12 +8,14 @@ export default function createNativeComponent(name: string) {
       );
     }
     const newProps: any = { ...props };
-    if (ref) {
-      newProps.__ref =
-        typeof ref === 'function'
-          ? ref
-          : (e: any) => ((ref as React.MutableRefObject<any>).current = e);
-    }
+    newProps.__ref =
+      typeof ref === 'function'
+        ? ref
+        : (e: any) => {
+            if (ref) {
+              (ref as React.MutableRefObject<any>).current = e;
+            }
+          };
     return React.createElement(name, newProps, props.children);
   });
 }

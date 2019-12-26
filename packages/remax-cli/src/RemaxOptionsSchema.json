@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "cssModules": {
+      "anyOf": [{ "instanceof": "RegExp" }, { "type": "boolean" }]
+    },
+    "pxToRpx": {
+      "type": "boolean"
+    },
+    "cwd": {
+      "type": "string"
+    },
+    "progress": {
+      "type": "boolean"
+    },
+    "compressTemplate": {
+      "type": "boolean"
+    },
+    "output": {
+      "type": "string"
+    },
+    "rootDir": {
+      "type": "string"
+    },
+    "UNSAFE_wechatTemplateDepth": {
+      "type": "number"
+    },
+    "alias": {
+      "type": "object"
+    },
+    "postcss": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "object"
+        },
+        "plugins": {
+          "type": "array"
+        },
+        "url": {
+          "type": "object",
+          "properties": {
+            "inline": {
+              "type": "boolean"
+            },
+            "maxSize": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "rollupOptions": {
+      "anyOf": [{ "type": "object" }, { "instanceof": "Function" }]
+    }
+  },
+  "additionalProperties": false
+}

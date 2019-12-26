@@ -10,6 +10,7 @@ require('../npm/remax/esm/Platform.js');
 require('../npm/remax/esm/createHostComponent.js');
 var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
 require('../npm/remax/esm/index.js');
+var runtime = require('../npm/regenerator-runtime/runtime.js');
 var View = require('../npm/remax/esm/adapters/alipay/components/View.js');
 require('../npm/remax/esm/adapters/alipay/components/ScrollView.js');
 require('../npm/remax/esm/adapters/alipay/components/Swiper.js');
@@ -48,19 +49,46 @@ require('../npm/remax/esm/adapters/alipay/api.js');
 var index$2 = require('../npm/remax/esm/adapters/wechat/components/index.js');
 
 var _page = function _page() {
+  var _, _obj$a;
+
   var props = {};
   var TextElement = React.cloneElement(React.createElement(Text.default, null));
 
-  function handleClick() {}
+  function handleClick() {
+    return _handleClick.apply(this, arguments);
+  }
+
+  function _handleClick() {
+    _handleClick = _rollupPluginBabelHelpers.asyncToGenerator(
+    /*#__PURE__*/
+    runtime.default.mark(function _callee() {
+      return runtime.default.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return Promise.resolve(1);
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+    return _handleClick.apply(this, arguments);
+  }
 
   function handleTouchStart() {}
 
+  var obj = {};
+  var value = (_ = 0) !== null && _ !== void 0 ? _ : 1;
   return React.createElement(View.default, null, React.createElement(View.default, _rollupPluginBabelHelpers.extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo"), React.createElement(index$2.FunctionalPageNavigator, null), React.createElement(UnBindingComponent, null), TextElement);
+  }, props), "foo", obj === null || obj === void 0 ? void 0 : (_obj$a = obj.a) === null || _obj$a === void 0 ? void 0 : _obj$a.b, value), React.createElement(index$2.FunctionalPageNavigator, null), React.createElement(UnBindingComponent, null), TextElement);
 };
 
 var index = Page(createPageConfig.default(_page));

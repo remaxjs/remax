@@ -9,7 +9,7 @@ module.exports = {
       },
       babelConfig: {
         plugins: [
-          '@remax/babel-plugin-macros',
+          'babel-plugin-macros',
           '@babel/plugin-transform-modules-commonjs',
         ],
       },

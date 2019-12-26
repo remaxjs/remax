@@ -2,12 +2,7 @@
 
 exports[`Input render correctly 1`] = `
 <input
-  focus={false}
   maxlength={140}
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onInput={[Function]}
   selectionEnd={999}
   selectionStart={999}
   type="text"

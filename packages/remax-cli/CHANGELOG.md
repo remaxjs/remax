@@ -3,6 +3,80 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.7](https://github.com/remaxjs/remax/compare/v1.10.6...v1.10.7) (2019-12-22)
+
+### Bug Fixes
+
+- **wechat:** 修复微信平台 ScrollView 设置 scrollTop 表现异常的问题 ([55c440e](https://github.com/remaxjs/remax/commit/55c440e)), closes [#459](https://github.com/remaxjs/remax/issues/459)
+
+## [1.10.6](https://github.com/remaxjs/remax/compare/v1.10.5...v1.10.6) (2019-12-19)
+
+**Note:** Version bump only for package remax-cli
+
+## [1.10.5](https://github.com/remaxjs/remax/compare/v1.10.4...v1.10.5) (2019-12-19)
+
+### Bug Fixes
+
+- 修复原生组件编译文件丢失的问题 ([268ec7e](https://github.com/remaxjs/remax/commit/268ec7e))
+
+## [1.10.4](https://github.com/remaxjs/remax/compare/v1.10.3...v1.10.4) (2019-12-18)
+
+### Bug Fixes
+
+- 修复当原生组件带有导出内容时编译报错的问题 ([c0f88c2](https://github.com/remaxjs/remax/commit/c0f88c2))
+
+## [1.10.3](https://github.com/remaxjs/remax/compare/v1.10.2...v1.10.3) (2019-12-17)
+
+### Bug Fixes
+
+- 修复 watch 编译时原生自定义组件出错的问题 ([d171c1d](https://github.com/remaxjs/remax/commit/d171c1d))
+
+## [1.10.2](https://github.com/remaxjs/remax/compare/v1.10.1...v1.10.2) (2019-12-15)
+
+**Note:** Version bump only for package remax-cli
+
+## [1.10.1](https://github.com/remaxjs/remax/compare/v1.10.0...v1.10.1) (2019-12-15)
+
+**Note:** Version bump only for package remax-cli
+
+# [1.10.0](https://github.com/remaxjs/remax/compare/v1.9.0...v1.10.0) (2019-12-13)
+
+### Bug Fixes
+
+- 修复 options.rootDir 读取错误的问题 ([b43a2cf](https://github.com/remaxjs/remax/commit/b43a2cf))
+- 修复有嵌套的 node_modules 时，自定义组件构建错误的问题 ([04b00ae](https://github.com/remaxjs/remax/commit/04b00ae))
+- 修复未使用 JSX 方式调用自定义组件报错的问题 ([#477](https://github.com/remaxjs/remax/issues/477)) ([1d31284](https://github.com/remaxjs/remax/commit/1d31284)), closes [#326](https://github.com/remaxjs/remax/issues/326)
+- 当配置的页面不存在时有提醒信息 ([#483](https://github.com/remaxjs/remax/issues/483)) ([012a01d](https://github.com/remaxjs/remax/commit/012a01d)), closes [#482](https://github.com/remaxjs/remax/issues/482)
+
+### Features
+
+- 支持对 css 中的图片做 base64 处理 ([#460](https://github.com/remaxjs/remax/issues/460)) ([127fb88](https://github.com/remaxjs/remax/commit/127fb88)), closes [#448](https://github.com/remaxjs/remax/issues/448)
+
+# [1.9.0](https://github.com/remaxjs/remax/compare/v1.8.0...v1.9.0) (2019-12-09)
+
+### Bug Fixes
+
+- 修复 async 语法解析错误的问题 ([#461](https://github.com/remaxjs/remax/issues/461)) ([c45ba2b](https://github.com/remaxjs/remax/commit/c45ba2b))
+- 修复使用依赖 regeneratorRuntime lib 报错的问题 ([#457](https://github.com/remaxjs/remax/issues/457)) ([2a652c2](https://github.com/remaxjs/remax/commit/2a652c2)), closes [#451](https://github.com/remaxjs/remax/issues/451)
+
+### Features
+
+- 支持 typescript 3.7 ([#458](https://github.com/remaxjs/remax/issues/458)) ([2723504](https://github.com/remaxjs/remax/commit/2723504)), closes [#442](https://github.com/remaxjs/remax/issues/442)
+
+# [1.8.0](https://github.com/remaxjs/remax/compare/v1.7.2...v1.8.0) (2019-12-05)
+
+### Bug Fixes
+
+- 修复 ts 的配置文件 watch 时无法更新的问题 ([6d1a040](https://github.com/remaxjs/remax/commit/6d1a040))
+- 修复 ts 的配置文件没有被 watch 的问题 ([a5b009c](https://github.com/remaxjs/remax/commit/a5b009c))
+- 修复 ts 配置文件不支持使用 export default 导出的问题 ([#447](https://github.com/remaxjs/remax/issues/447)) ([2157962](https://github.com/remaxjs/remax/commit/2157962))
+- 修复使用 babel.config.js 配置 preset-remax 时项目出错的问题 ([9f41119](https://github.com/remaxjs/remax/commit/9f41119))
+
+### Features
+
+- babel-preset-remax 增加 decorators 和 class-properties 配置项 ([fe4d243](https://github.com/remaxjs/remax/commit/fe4d243))
+- remax.config.js 支持 compressTemplate 配置 ([fbaa2b4](https://github.com/remaxjs/remax/commit/fbaa2b4)), closes [#416](https://github.com/remaxjs/remax/issues/416)
+
 ## [1.7.2](https://github.com/remaxjs/remax/compare/v1.7.1...v1.7.2) (2019-12-03)
 
 ### Bug Fixes

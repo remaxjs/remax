@@ -2,8 +2,6 @@ import * as React from 'react';
 import { BaseProps } from '../types/component';
 import createHostComponent from '../../../createHostComponent';
 
-const hostComponentName = 'textarea';
-
 export interface TextareaProps extends BaseProps {
   name?: string;
   value: any;
@@ -40,54 +38,7 @@ export interface TextareaProps extends BaseProps {
   onKeyboardHeightChange?: (event: any) => any;
 }
 
-function useInnerFocus(
-  initialValue?: boolean
-): [boolean, typeof handleInnerFocus] {
-  const [innerFocus = false, setInnerFocus] = React.useState(initialValue);
-
-  const handleInnerFocus = (func?: Function, focus = true) => (
-    ...params: any
-  ) => {
-    if (innerFocus !== focus) {
-      setInnerFocus(focus);
-    }
-
-    if (typeof func === 'function') {
-      return func(...params);
-    }
-  };
-
-  return [innerFocus, handleInnerFocus];
-}
-
-const TextareaRender: React.FunctionComponent<TextareaProps> = (props, ref) => {
-  const {
-    autoFocus,
-    children,
-    focus,
-    onInput,
-    onClick,
-    onFocus,
-    onBlur,
-    ...restProps
-  } = props;
-  const [innerFocus, handleInnerFocus] = useInnerFocus(focus || autoFocus);
-
-  const inputProps = {
-    ...restProps,
-    autoFocus,
-    focus: innerFocus,
-    onInput: handleInnerFocus(onInput),
-    onClick: handleInnerFocus(onClick),
-    onFocus: handleInnerFocus(onFocus),
-    onBlur: handleInnerFocus(onBlur, false),
-    ref,
-  };
-
-  return React.createElement(hostComponentName, inputProps, children);
-};
-
-const Textarea = React.forwardRef(TextareaRender);
+const Textarea = createHostComponent<TextareaProps>('textarea');
 
 Textarea.defaultProps = {
   maxlength: -1,
@@ -96,4 +47,4 @@ Textarea.defaultProps = {
   fixed: false,
 };
 
-export default createHostComponent(hostComponentName, Textarea);
+export default Textarea;

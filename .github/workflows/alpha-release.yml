@@ -1,0 +1,55 @@
+name: Alpha Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      - run: git checkout master
+      - name: Install
+        run: yarn install --ignore-scripts
+      - name: Release remax.macro
+        run: |
+          cd packages/remax.macro
+          yarn install
+          yarn build
+          yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - name: Release remax
+        run: |
+          cd packages/remax 
+          yarn install
+          yarn add remax.macro@alpha 
+          yarn build
+          yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - name: Release babel-preset-remax
+        run: |
+          cd packages/babel-preset-remax 
+          yarn install
+          yarn build
+          yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - name: Release remax-cli
+        run: |
+          cd packages/remax-cli 
+          yarn install
+          yarn add babel-preset-remax@alpha remax@alpha 
+          yarn build
+          yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}

@@ -3,7 +3,7 @@
   "private": true,
   "description": "Documentation, built with mdx",
   "author": "Praveen <praveen@hasura.io> (@praveenweb)",
-  "version": "1.7.2",
+  "version": "1.10.7",
   "dependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.0.0",
     "@emotion/core": "^10.0.10",
@@ -24,7 +24,7 @@
     "gatsby-plugin-gtag": "^1.0.10",
     "gatsby-plugin-layout": "^1.0.15",
     "gatsby-plugin-mdx": "^1.0.23",
-    "gatsby-plugin-react-helmet": "3.0.12",
+    "gatsby-plugin-react-helmet": "3.1.18",
     "gatsby-plugin-sharp": "^2.3.2",
     "gatsby-plugin-sitemap": "^2.0.12",
     "gatsby-remark-copy-linked-files": "^2.0.11",
@@ -59,6 +59,6 @@
     "babel-preset-gatsby": "^0.2.22",
     "gatsby-plugin-remove-trailing-slashes": "^2.0.11",
     "gh-pages": "^2.1.1",
-    "prism-react-renderer": "^0.1.6"
+    "prism-react-renderer": "^1.0.2"
   }
 }

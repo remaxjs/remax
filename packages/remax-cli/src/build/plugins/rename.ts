@@ -136,7 +136,6 @@ export default function rename(options: RenameExtensionsOptions): Plugin {
         if (file.code) {
           const magicString = new MagicString(file.code);
           const ast = this.parse(file.code, {
-            ecmaVersion: 6,
             sourceType: 'module',
           });
 

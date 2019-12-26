@@ -10,12 +10,13 @@ require('../npm/remax/esm/Platform.js');
 require('../npm/remax/esm/createHostComponent.js');
 var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
 require('../npm/remax/esm/index.js');
+var runtime = require('../npm/regenerator-runtime/runtime.js');
 var View = require('../npm/remax/esm/adapters/wechat/components/View.js');
 require('../npm/remax/esm/adapters/wechat/components/Input.js');
 require('../npm/remax/esm/adapters/wechat/components/Textarea.js');
 require('../npm/remax/esm/adapters/wechat/components/Video.js');
 require('../npm/remax/esm/adapters/wechat/components/Swiper.js');
-require('../npm/remax/esm/adapters/wechat/components/ScrollView.js');
+var ScrollView = require('../npm/remax/esm/adapters/wechat/components/ScrollView.js');
 require('../npm/remax/esm/adapters/wechat/components/SwiperItem.js');
 require('../npm/remax/esm/adapters/wechat/components/MovableView.js');
 require('../npm/remax/esm/adapters/wechat/components/MovableArea.js');
@@ -57,7 +58,30 @@ var _page = function _page() {
   var props = {};
   var TextElement = React.cloneElement(React.createElement(Text.default, null));
 
-  function handleClick() {}
+  function handleClick() {
+    return _handleClick.apply(this, arguments);
+  }
+
+  function _handleClick() {
+    _handleClick = _rollupPluginBabelHelpers.asyncToGenerator(
+    /*#__PURE__*/
+    runtime.default.mark(function _callee() {
+      return runtime.default.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return Promise.resolve(1);
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+    return _handleClick.apply(this, arguments);
+  }
 
   function handleTouchStart() {}
 
@@ -66,7 +90,7 @@ var _page = function _page() {
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo"), TextElement, React.createElement(index$2.Lifestyle, null), React.createElement(UnBindingComponent, null));
+  }, props), "foo"), TextElement, React.createElement(index$2.Lifestyle, null), React.createElement(UnBindingComponent, null), React.createElement(ScrollView.default, null));
 };
 
 var index = Page(createPageConfig.default(_page));

@@ -31,7 +31,9 @@ export default function render(
     rootElement,
     container._rootContainer,
     null,
-    () => {}
+    () => {
+      // ignore
+    }
   );
 
   return getPublicRootInstance(container._rootContainer);

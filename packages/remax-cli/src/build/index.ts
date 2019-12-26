@@ -9,13 +9,6 @@ import { Context } from '../types';
 import runWatcher from './watcher';
 import { output } from './utils/output';
 
-// eslint-disable-next-line
-require = esm(module, {
-  cjs: {
-    dedefault: true,
-  },
-});
-
 export default async (argv: any, context?: Context) => {
   const options = {
     ...getConfig(),
@@ -25,9 +18,16 @@ export default async (argv: any, context?: Context) => {
   if (
     !fs.existsSync(winPath(path.join(__dirname, `./adapters/${argv.target}`)))
   ) {
-    output(`\n🚨平台 ${argv.target} 暂不支持`, 'red');
+    output(`\n🚨 平台 ${argv.target} 暂不支持`, 'red');
     process.exit(1);
   }
+
+  // eslint-disable-next-line
+  require = esm(module, {
+    cjs: {
+      dedefault: true,
+    },
+  });
   const targetConfig = require(`./adapters/${argv.target}`);
 
   const rollupOptions: rollup.RollupOptions = rollupConfig(
@@ -39,6 +39,11 @@ export default async (argv: any, context?: Context) => {
 
   if (argv.watch) {
     runWatcher(options, rollupOptions, argv, context);
+    try {
+      require('remax-stats').run();
+    } catch (e) {
+      // ignore
+    }
   } else {
     try {
       output('🚀 开始 build...', 'blue');

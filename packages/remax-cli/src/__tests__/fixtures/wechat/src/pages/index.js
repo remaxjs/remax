@@ -1,12 +1,14 @@
 import * as React from 'react';
-import { View, Text } from 'remax/wechat';
+import { ScrollView, View, Text } from 'remax/wechat';
 import { Lifestyle as UnknownComponent } from 'remax/alipay';
 
 export default () => {
   const props = {};
   const TextElement = React.cloneElement(<Text />);
 
-  function handleClick() {}
+  async function handleClick() {
+    await Promise.resolve(1);
+  }
 
   function handleTouchStart() {}
 
@@ -24,6 +26,7 @@ export default () => {
       {TextElement}
       <UnknownComponent />
       <UnBindingComponent />
+      <ScrollView />
     </View>
   );
 };

@@ -3,6 +3,59 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.7](https://github.com/remaxjs/remax/compare/v1.10.6...v1.10.7) (2019-12-22)
+
+### Bug Fixes
+
+- **wechat:** 修复微信平台 ScrollView 设置 scrollTop 表现异常的问题 ([55c440e](https://github.com/remaxjs/remax/commit/55c440e)), closes [#459](https://github.com/remaxjs/remax/issues/459)
+
+## [1.10.6](https://github.com/remaxjs/remax/compare/v1.10.5...v1.10.6) (2019-12-19)
+
+### Bug Fixes
+
+- 修复当点击区域为阻止冒泡元素的子元素时，阻止冒泡失败的问题 ([d032d8d](https://github.com/remaxjs/remax/commit/d032d8d))
+- 修复无法在 inline style 中使用 css3 var 特性的问题 ([e2d0dde](https://github.com/remaxjs/remax/commit/e2d0dde)), closes [#507](https://github.com/remaxjs/remax/issues/507)
+
+## [1.10.5](https://github.com/remaxjs/remax/compare/v1.10.4...v1.10.5) (2019-12-19)
+
+**Note:** Version bump only for package remax
+
+## [1.10.4](https://github.com/remaxjs/remax/compare/v1.10.3...v1.10.4) (2019-12-18)
+
+**Note:** Version bump only for package remax
+
+## [1.10.3](https://github.com/remaxjs/remax/compare/v1.10.2...v1.10.3) (2019-12-17)
+
+**Note:** Version bump only for package remax
+
+## [1.10.2](https://github.com/remaxjs/remax/compare/v1.10.1...v1.10.2) (2019-12-15)
+
+**Note:** Version bump only for package remax
+
+## [1.10.1](https://github.com/remaxjs/remax/compare/v1.10.0...v1.10.1) (2019-12-15)
+
+### Bug Fixes
+
+- 去除没有使用 ref 时原生自定义组件抛出无用的警告 ([89ccaa1](https://github.com/remaxjs/remax/commit/89ccaa1)), closes [#478](https://github.com/remaxjs/remax/issues/478)
+
+# [1.10.0](https://github.com/remaxjs/remax/compare/v1.9.0...v1.10.0) (2019-12-13)
+
+**Note:** Version bump only for package remax
+
+# [1.9.0](https://github.com/remaxjs/remax/compare/v1.8.0...v1.9.0) (2019-12-09)
+
+### Bug Fixes
+
+- 修复使用 redux 时 Class Component 的生命周期函数不触发的问题 ([#454](https://github.com/remaxjs/remax/issues/454)) ([8457c50](https://github.com/remaxjs/remax/commit/8457c50))
+
+### Features
+
+- 支持 typescript 3.7 ([#458](https://github.com/remaxjs/remax/issues/458)) ([2723504](https://github.com/remaxjs/remax/commit/2723504)), closes [#442](https://github.com/remaxjs/remax/issues/442)
+
+# [1.8.0](https://github.com/remaxjs/remax/compare/v1.7.2...v1.8.0) (2019-12-05)
+
+**Note:** Version bump only for package remax
+
 ## [1.7.2](https://github.com/remaxjs/remax/compare/v1.7.1...v1.7.2) (2019-12-03)
 
 **Note:** Version bump only for package remax

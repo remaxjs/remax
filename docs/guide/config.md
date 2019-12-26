@@ -22,6 +22,8 @@ module.exports = {
   output: 'dist',
   // 配置路径别名
   alias: {},
+  // 是否开启 wxml/axml 文件压缩
+  compressTemplate: process.env.NODE_ENV === 'production',
   // 是否将 px 转换为 rpx, 默认是 true
   pxToRpx: true,
   postcss: {
@@ -42,12 +44,18 @@ module.exports = {
         ['stylus', {}],
       ],
     },
+    url: {
+      // 是否自动将图片转换成 base64
+      inline: false,
+      // 转换图片的最大限制， 单位 KB
+      maxSize: 8,
+    },
     // 其他postcss 插件, 会和默认的插件进行拼接
     plugins: [],
   },
   // 修改 rollup 的配置
   rollupOptions: options => {
-    options.inputs.push('foo.js');
+    options.input.push('foo.js');
     return options;
   },
 };
@@ -73,10 +81,29 @@ Remax 支持直接在项目根目录创建 babel.config.js 文件来自定义 ba
 
 ```js
 // babel.config.js
-{
-  "plugins": ["loop-optimizer"],
-  "presets": ["remax"]
-}
+module.exports = {
+  plugins: ['loop-optimizer'],
+  presets: [
+    [
+      'remax',
+      {
+        // 是否使用 @babel/preset-typescript 转换TS代码
+        typescript: true,
+
+        // 例子：下面的 `decorators` 和 `classProperties` 可以使Mobx的装饰器能正常工作
+        // @babel/plugin-proposal-decorators 的选项，详见 https://babeljs.io/docs/en/babel-plugin-proposal-decorators
+        decorators: {
+          legacy: true,
+        },
+
+        // @babel/plugin-proposal-class-properties 的选项，详见 https://babeljs.io/docs/en/babel-plugin-proposal-class-properties
+        classProperties: {
+          loose: true,
+        },
+      },
+    ],
+  ],
+};
 ```
 
 _由于 babel7 的推荐以及项目目录配置等问题，请使用 [babel.config.js](https://babeljs.io/docs/en/configuration#babelconfigjs) 文件而不是 .babelrc_

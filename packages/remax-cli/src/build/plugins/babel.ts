@@ -36,7 +36,7 @@ function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
   if (remaxPresetIndex === -1) {
     presets.unshift(remaxPreset);
   } else {
-    presets[remaxPreset] = remaxPreset;
+    presets[remaxPresetIndex] = remaxPreset;
   }
 
   return presets;

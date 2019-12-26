@@ -8,7 +8,8 @@
     "rootDirs": ["src", "tests"],
     "types": ["@types/jest"],
     "jsx": "preserve",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   },
   "exclude": ["tests", "lib"]
 }

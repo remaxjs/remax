@@ -23,7 +23,6 @@ export default function stub(options: Options = {}): Plugin {
       }
 
       let ast = this.parse(code, {
-        ecmaVersion: 6,
         sourceType: 'module',
       });
 
@@ -66,7 +65,6 @@ export default function stub(options: Options = {}): Plugin {
       code = magicString.toString();
       const map = options.sourceMap ? magicString.generateMap() : null;
       ast = this.parse(code, {
-        ecmaVersion: 6,
         sourceType: 'module',
       });
 

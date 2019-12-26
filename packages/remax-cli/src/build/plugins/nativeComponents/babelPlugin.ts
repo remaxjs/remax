@@ -13,9 +13,10 @@ import {
   Component,
 } from '../components';
 
-const importers: Importers<
-  Component & { hashId: string; pages: Set<string> }
-> = new Map();
+const importers: Importers<Component & {
+  hashId: string;
+  pages: Set<string>;
+}> = new Map();
 
 export const getKebabCaseName = (sourcePath: string) =>
   kebabCase(path.basename(path.dirname(sourcePath)));
@@ -48,6 +49,31 @@ export default (options: RemaxOptions, adapter: Adapter) => {
       importers.delete(state.opts.filename);
     },
     visitor: {
+      ImportDeclaration(path: NodePath<t.ImportDeclaration>, state: any) {
+        const importer: string = state.file.opts.filename;
+        const node = path.node;
+
+        const sourcePath = getSourcePath(
+          options,
+          adapter,
+          node.source.value,
+          importer
+        );
+        if (!isNativeComponent(sourcePath)) {
+          return;
+        }
+
+        const id = getKebabCaseName(sourcePath);
+        const component = {
+          id: sourcePath,
+          props: new Set([]),
+          importer,
+          hashId: getHashId(sourcePath, id),
+          pages: new Set([]),
+        };
+
+        addToComponentCollection(component, importers);
+      },
       JSXElement(nodePath: NodePath<t.JSXElement>, state: any) {
         const importer: string = state.file.opts.filename;
         const node = nodePath.node;

@@ -25,7 +25,7 @@ export function getAlias(
   if (!isNative && type) {
     const hostComponent = hostComponents.get(type);
 
-    if (hostComponent && hostComponent.alias && hostComponent.alias[prop]) {
+    if (hostComponent?.alias?.[prop]) {
       return hostComponent.alias[prop];
     }
   }

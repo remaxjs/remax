@@ -11,9 +11,12 @@ import PluginComponent2 from 'plugin://myPlugin/dddd';
 import SlotComponent from '../components/slot';
 import ScopedComponent from '../components/@foo/a';
 import SrcComponent from '../components/src';
+import NotInJSXComponent from '../components/notInJSX';
+import CJSComponent from '../components/CJS';
 
 export default () => {
   const b = React.createRef();
+  const text = 'not in jsx' + NotInJSXComponent;
   return (
     <View>
       <A foo="bar" />
@@ -29,6 +32,8 @@ export default () => {
       </SlotComponent>
       <ScopedComponent />
       <SrcComponent />
+      <CJSComponent />
+      {text}
     </View>
   );
 };

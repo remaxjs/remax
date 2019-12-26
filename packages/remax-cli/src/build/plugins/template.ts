@@ -12,7 +12,11 @@ import { Context } from '../../types';
 import winPath from '../../winPath';
 import { getNativeComponents } from './nativeComponents/babelPlugin';
 
-async function createTemplate(pageFile: string, adapter: Adapter) {
+async function createTemplate(
+  pageFile: string,
+  adapter: Adapter,
+  options: RemaxOptions
+) {
   const fileName = `${path.dirname(pageFile)}/${path.basename(
     pageFile,
     path.extname(pageFile)
@@ -41,11 +45,21 @@ async function createTemplate(pageFile: string, adapter: Adapter) {
     'id'
   );
 
-  const code: string = await ejs.renderFile(adapter.templates.page, {
-    ...renderOptions,
-    components,
-    adapter,
-  });
+  let code: string = await ejs.renderFile(
+    adapter.templates.page,
+    {
+      ...renderOptions,
+      components,
+      adapter,
+    },
+    {
+      rmWhitespace: options.compressTemplate,
+    }
+  );
+
+  if (options.compressTemplate) {
+    code = code.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
+  }
 
   return {
     type: 'asset' as const,
@@ -89,13 +103,11 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
       adapter,
     },
     {
-      // uglify
-      rmWhitespace: process.env.NODE_ENV === 'production',
+      rmWhitespace: options.compressTemplate,
     }
   );
 
-  // uglify
-  if (process.env.NODE_ENV === 'production') {
+  if (options.compressTemplate) {
     code = code.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
   }
 
@@ -124,7 +136,11 @@ function createAppManifest(
   };
 }
 
-function createPageUsingComponents(page: any, configFilePath: string) {
+function createPageUsingComponents(
+  page: any,
+  configFilePath: string,
+  options: RemaxOptions
+) {
   const nativeComponents = getNativeComponents();
   const usingComponents: { [key: string]: string } = {};
   for (const { id, sourcePath, pages } of nativeComponents) {
@@ -141,7 +157,9 @@ function createPageUsingComponents(page: any, configFilePath: string) {
       path
         .relative(
           path.dirname(configFilePath),
-          sourcePath.replace(/node_modules/, 'src/npm')
+          sourcePath
+            .replace(/node_modules/, `${options.rootDir}/npm`)
+            .replace(/node_modules/g, 'npm')
         )
         .replace(/\.js$/, '')
         .replace(/@/g, '_')
@@ -164,7 +182,11 @@ function createPageManifest(
     options.cwd,
     path.join(options.rootDir, configFile)
   );
-  const usingComponents = createPageUsingComponents(page, configFilePath);
+  const usingComponents = createPageUsingComponents(
+    page,
+    configFilePath,
+    options
+  );
   const config = readManifest(configFilePath, target);
   config.usingComponents = {
     ...(config.usingComponents || {}),
@@ -201,7 +223,6 @@ function isRemaxEntry(chunk: any): chunk is OutputChunk {
   }
 
   const ast: any = parse(chunk.code, {
-    ecmaVersion: 6,
     sourceType: 'module',
   });
 
@@ -229,13 +250,20 @@ export default function template(
 ): Plugin {
   return {
     name: 'template',
-    async generateBundle(_, bundle) {
+    async generateBundle(_, bundle, isWrite) {
       const templateAssets = [];
       // app.json
       const manifest = createAppManifest(options, adapter.name, context);
-      const template = await createBaseTemplate(adapter, options);
 
-      templateAssets.push(manifest);
+      if (
+        this.cache.get(manifest.fileName)?.toString() !==
+        manifest.source.toString()
+      ) {
+        this.cache.set(manifest.fileName, manifest.source);
+        templateAssets.push(manifest);
+      }
+
+      const template = await createBaseTemplate(adapter, options);
 
       if (template) {
         templateAssets.push(template);
@@ -257,8 +285,9 @@ export default function template(
             const filePath = Object.keys(chunk.modules)[0];
             const page = pages.find(p => p.file === filePath);
             if (page) {
-              const template = await createTemplate(file, adapter);
+              const template = await createTemplate(file, adapter, options);
               templateAssets.push(template);
+
               const config = createPageManifest(
                 options,
                 file,
@@ -268,6 +297,13 @@ export default function template(
               );
 
               if (config) {
+                if (
+                  this.cache.get(file)?.toString() === config.source.toString()
+                ) {
+                  return;
+                }
+                this.cache.set(file, config.source);
+
                 templateAssets.push(config);
               }
             }

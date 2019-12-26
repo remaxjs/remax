@@ -4,27 +4,32 @@ import { RemaxOptions } from './getConfig';
 import readManifest from './readManifest';
 import { Adapter } from './build/adapters';
 import { Context } from './types';
+import { output } from './build/utils/output';
+
+interface Plugins {
+  [key: string]: {
+    version: string;
+    provider: string;
+  };
+}
 
 interface AppConfig {
   pages: string[];
   subpackages?: Array<{
     root: string;
     pages: string[];
+    plugins?: Plugins;
   }>;
   subPackages?: Array<{
     root: string;
     pages: string[];
+    plugins?: Plugins;
   }>;
   tabBar?: {
     items: Array<{ icon: string; activeIcon: string }>;
     list: Array<{ iconPath: string; selectedIconPath: string }>;
   };
-  plugins?: {
-    [key: string]: {
-      version: string;
-      provider: string;
-    };
-  };
+  plugins?: Plugins;
 }
 
 interface Entries {
@@ -34,7 +39,7 @@ interface Entries {
   images: string[];
 }
 
-export function searchFile(file: string) {
+export function searchFile(file: string, strict?: boolean) {
   const exts = ['ts', 'tsx', 'js', 'jsx'];
 
   for (const e of exts) {
@@ -42,6 +47,10 @@ export function searchFile(file: string) {
     if (fs.existsSync(extFile)) {
       return extFile;
     }
+  }
+
+  if (strict) {
+    output(`\n🚨 [配置]: ${file} 不存在，请检查你的配置文件`, 'red');
   }
 
   return '';
@@ -82,7 +91,7 @@ export default function getEntries(
 
   const entries: Entries = {
     pageConfigPath: [],
-    app: searchFile(path.join(options.cwd, options.rootDir, 'app')),
+    app: searchFile(path.join(options.cwd, options.rootDir, 'app'), true),
     pages: [],
     images: [],
   };
@@ -93,7 +102,7 @@ export default function getEntries(
         ...ret,
         {
           path: page,
-          file: searchFile(path.join(options.cwd, options.rootDir, page)),
+          file: searchFile(path.join(options.cwd, options.rootDir, page), true),
         },
       ].filter(page => page && page.file);
     },
@@ -108,7 +117,8 @@ export default function getEntries(
           {
             path: page,
             file: searchFile(
-              path.join(options.cwd, options.rootDir, pack.root, page)
+              path.join(options.cwd, options.rootDir, pack.root, page),
+              true
             ),
           },
         ].filter(page => page && page.file);

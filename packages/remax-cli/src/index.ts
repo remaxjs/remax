@@ -2,6 +2,8 @@ import cli from 'yargs';
 import build from './build';
 import { checkRemaxVersion } from './checkVersions';
 
+export { RemaxConfig } from './getConfig';
+
 export function run(args: any, context?: any) {
   checkRemaxVersion();
   cli
@@ -10,7 +12,9 @@ export function run(args: any, context?: any) {
     .command<any>(
       'build',
       '编译项目',
-      () => {},
+      () => {
+        // ignore
+      },
       (argv: any) => build(argv, context)
     )
     .option('watch', {
