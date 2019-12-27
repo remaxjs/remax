@@ -1,4 +1,4 @@
-<import-sjs name="helper" from="../helper.sjs" />
+<import-sjs name="helper" from="./helper.sjs" />
 <template is="REMAX_TPL" data="{{tree: helper.reduce(action)}}" />
 
 <template name="REMAX_TPL">

@@ -33,6 +33,7 @@ export default class Container {
   updateQueue: SpliceUpdate[] = [];
   _rootContainer?: FiberRoot;
   stopUpdate?: boolean;
+  rendered = false;
 
   constructor(context: any) {
     this.context = context;
@@ -77,7 +78,7 @@ export default class Container {
     const startTime = new Date().getTime();
 
     const action = {
-      type: 'splice',
+      type: !this.rendered && Platform.isAlipay ? 'init' : 'splice',
       payload: this.updateQueue.map(update => ({
         path: stringPath(update.path),
         start: update.start,
@@ -104,6 +105,7 @@ export default class Container {
         );
       }
     });
+    this.rendered = true;
     this.updateQueue = [];
   }
 

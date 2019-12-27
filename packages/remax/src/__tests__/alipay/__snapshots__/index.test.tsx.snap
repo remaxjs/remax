@@ -350,7 +350,7 @@ Array [
         "start": 0,
       },
     ],
-    "type": "splice",
+    "type": "init",
   },
 ]
 `;
