@@ -13,7 +13,17 @@ function reduce(action) {
   tree.lastActionId = action.id;
 
   switch (action.type) {
-    case 'clear': 
+    case 'init':
+      tree = {
+        root: {
+          children: [
+            action.payload[0].item,
+          ]
+        },
+        lastActionId: -1,
+      };
+      return tree;
+    case 'clear':
       tree.root = {
         children: []
       };

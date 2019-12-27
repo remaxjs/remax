@@ -32,12 +32,7 @@ async function createTemplate(
   };
 
   if (adapter.extensions.jsHelper) {
-    renderOptions.jsHelper = winPath(
-      path.relative(
-        path.dirname(pageFile),
-        `helper${adapter.extensions.jsHelper.extension}`
-      )
-    );
+    renderOptions.jsHelper = `./helper${adapter.extensions.jsHelper.extension}`;
   }
 
   const components = sortBy(
@@ -68,7 +63,7 @@ async function createTemplate(
   };
 }
 
-async function createHelperFile(adapter: Adapter) {
+async function createHelperFile(pageFile: string, adapter: Adapter) {
   if (!adapter.extensions.jsHelper || !adapter.templates.jsHelper) {
     return null;
   }
@@ -79,7 +74,12 @@ async function createHelperFile(adapter: Adapter) {
 
   return {
     type: 'asset' as const,
-    fileName: `helper${adapter.extensions.jsHelper.extension}`,
+    fileName: winPath(
+      path.join(
+        path.dirname(pageFile),
+        `helper${adapter.extensions.jsHelper.extension}`
+      )
+    ),
     source: code,
   };
 }
@@ -269,11 +269,6 @@ export default function template(
         templateAssets.push(template);
       }
 
-      const helperFile = await createHelperFile(adapter);
-      if (helperFile) {
-        templateAssets.push(helperFile);
-      }
-
       const entries = getEntries(options, adapter, context);
       const { pages } = entries;
 
@@ -295,6 +290,11 @@ export default function template(
                 page,
                 context
               );
+
+              const helperFile = await createHelperFile(file, adapter);
+              if (helperFile) {
+                templateAssets.push(helperFile);
+              }
 
               if (config) {
                 if (

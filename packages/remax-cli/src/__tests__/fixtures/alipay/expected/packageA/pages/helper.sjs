@@ -108,12 +108,8 @@ function get(obj, path) {
   return nextObj;
 }
 
-<% if (target === 'alipay') { %>
+
 export default  {
   reduce
 }
-<% } else { %>
-module.exports = {
-  reduce: reduce,
-};
-<% } %>
+
