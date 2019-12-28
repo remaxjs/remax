@@ -3,8 +3,8 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var React = require('react');
-var createHostComponent = require('../npm/remax/esm/createHostComponent.js');
 var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
+var createHostComponent = require('../npm/remax/esm/createHostComponent.js');
 require('../npm/remax/esm/index.js');
 var index$2 = require('../npm/custom-component/index.js');
 

@@ -2,6 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import semver from 'semver';
 import chalk from 'chalk';
+import winPath from './winPath';
 
 const generatorStar = (count: number, symbol = '*') => {
   let starStr = '';
@@ -29,11 +30,8 @@ const generatorPlace = (
 export const checkRemaxVersion = () => {
   try {
     const cliPackagePath: string = require.resolve('../package.json');
-    const remaxPackagePath: string = path.join(
-      process.cwd(),
-      'node_modules',
-      'remax',
-      'package.json'
+    const remaxPackagePath: string = winPath(
+      path.join(process.cwd(), 'node_modules', 'remax', 'package.json')
     );
     if (fs.existsSync(remaxPackagePath)) {
       const remaxPkgConfig = require(remaxPackagePath);
@@ -62,8 +60,12 @@ export const checkRemaxVersion = () => {
         console.log(generatorPlace(origin, remaxCLI, longLength));
         console.log(placeholder);
         console.log(generatorStar(55));
+
+        return false;
       }
     }
+
+    return true;
   } catch (err) {
     return false;
   }

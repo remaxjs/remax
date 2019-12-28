@@ -1,5 +1,5 @@
+import API from '../../API';
 import rollupConfig from '../../build/rollupConfig';
-import * as alipay from '../../build/adapters/alipay';
 import defaultOptions from '../../defaultOptions';
 
 jest.mock('../../getEntries', () => () => ({
@@ -10,6 +10,7 @@ jest.mock('../../getEntries', () => () => ({
 
 describe('rollupConfig', () => {
   it('override rollup options', () => {
+    API.installAdapterPlugins('alipay');
     const options = rollupConfig(
       {
         ...defaultOptions,
@@ -17,8 +18,7 @@ describe('rollupConfig', () => {
           treeshake: true,
         },
       },
-      {},
-      alipay
+      {}
     );
 
     expect(options.treeshake).toBe(true);
@@ -33,8 +33,7 @@ describe('rollupConfig', () => {
           return options;
         },
       },
-      {},
-      alipay
+      {}
     );
 
     expect(options.input).toEqual(['app.js', 'foo.js']);

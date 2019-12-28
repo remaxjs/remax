@@ -6,57 +6,56 @@ var _rollupPluginBabelHelpers = require('../_virtual/_rollupPluginBabelHelpers.j
 require('../npm/remax/esm/render.js');
 var React = require('react');
 require('../npm/remax/esm/createAppConfig.js');
-require('../npm/remax/esm/Platform.js');
-require('../npm/remax/esm/createHostComponent.js');
 var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
+require('../npm/remax/esm/createHostComponent.js');
 require('../npm/remax/esm/index.js');
 var runtime = require('../npm/regenerator-runtime/runtime.js');
-var View = require('../npm/remax/esm/adapters/wechat/components/View.js');
-require('../npm/remax/esm/adapters/wechat/components/Input.js');
-require('../npm/remax/esm/adapters/wechat/components/Textarea.js');
-require('../npm/remax/esm/adapters/wechat/components/Video.js');
-var Swiper = require('../npm/remax/esm/adapters/wechat/components/Swiper.js');
-var ScrollView = require('../npm/remax/esm/adapters/wechat/components/ScrollView.js');
-require('../npm/remax/esm/adapters/wechat/components/SwiperItem.js');
-require('../npm/remax/esm/adapters/wechat/components/MovableView.js');
-require('../npm/remax/esm/adapters/wechat/components/MovableArea.js');
-require('../npm/remax/esm/adapters/wechat/components/CoverView.js');
-require('../npm/remax/esm/adapters/wechat/components/CoverImage.js');
-require('../npm/remax/esm/adapters/wechat/components/Icon.js');
-var Text = require('../npm/remax/esm/adapters/wechat/components/Text.js');
-require('../npm/remax/esm/adapters/wechat/components/RichText.js');
-require('../npm/remax/esm/adapters/wechat/components/Progress.js');
-require('../npm/remax/esm/adapters/wechat/components/Button.js');
-require('../npm/remax/esm/adapters/wechat/components/CheckboxGroup.js');
-require('../npm/remax/esm/adapters/wechat/components/Checkbox.js');
-require('../npm/remax/esm/adapters/wechat/components/Form.js');
-require('../npm/remax/esm/adapters/wechat/components/Label.js');
-require('../npm/remax/esm/adapters/wechat/components/Picker.js');
-require('../npm/remax/esm/adapters/wechat/components/PickerView.js');
-require('../npm/remax/esm/adapters/wechat/components/PickerViewColumn.js');
-require('../npm/remax/esm/adapters/wechat/components/RadioGroup.js');
-require('../npm/remax/esm/adapters/wechat/components/Radio.js');
-require('../npm/remax/esm/adapters/wechat/components/Slider.js');
-require('../npm/remax/esm/adapters/wechat/components/Switch.js');
-require('../npm/remax/esm/adapters/wechat/components/Navigator.js');
-require('../npm/remax/esm/adapters/wechat/components/Image.js');
-require('../npm/remax/esm/adapters/wechat/components/LivePlayer.js');
-require('../npm/remax/esm/adapters/wechat/components/LivePusher.js');
-require('../npm/remax/esm/adapters/wechat/components/Map.js');
-require('../npm/remax/esm/adapters/wechat/components/Canvas.js');
-require('../npm/remax/esm/adapters/wechat/components/OpenData.js');
-require('../npm/remax/esm/adapters/wechat/components/OfficialAccount.js');
-require('../npm/remax/esm/adapters/wechat/components/Editor.js');
-require('../npm/remax/esm/adapters/wechat/components/Audio.js');
-require('../npm/remax/esm/adapters/wechat/components/Ad.js');
-require('../npm/remax/esm/adapters/wechat/components/WebView.js');
-require('../npm/remax/esm/adapters/wechat/components/FunctionalPageNavigator.js');
-require('../npm/remax/esm/adapters/wechat/api.js');
-var index$2 = require('../npm/remax/esm/adapters/alipay/components/index.js');
+var index$2 = require('../npm/remax/npm/remax-wechat/esm/hostComponents/View/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Input/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Textarea/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Video/index.js');
+var index$6 = require('../npm/remax/npm/remax-wechat/esm/hostComponents/Swiper/index.js');
+var index$7 = require('../npm/remax/npm/remax-wechat/esm/hostComponents/ScrollView/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/SwiperItem/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/MovableView/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/MovableArea/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/CoverView/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/CoverImage/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Icon/index.js');
+var index$e = require('../npm/remax/npm/remax-wechat/esm/hostComponents/Text/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/RichText/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Progress/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Button/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/CheckboxGroup/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Checkbox/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Form/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Label/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Picker/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/PickerView/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/PickerViewColumn/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/RadioGroup/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Radio/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Slider/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Switch/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Navigator/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Image/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/LivePlayer/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/LivePusher/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Map/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Canvas/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/OpenData/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/OfficialAccount/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Editor/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Audio/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Ad/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/WebView/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/FunctionalPageNavigator/index.js');
+require('../npm/remax/npm/remax-wechat/esm/api/index.js');
+var index$H = require('../npm/remax/npm/remax-alipay/esm/hostComponents/index.js');
 
 var _page = function _page() {
   var props = {};
-  var TextElement = React.cloneElement(React.createElement(Text.default, null));
+  var TextElement = React.cloneElement(React.createElement(index$e.default, null));
 
   function handleClick() {
     return _handleClick.apply(this, arguments);
@@ -85,12 +84,12 @@ var _page = function _page() {
 
   function handleTouchStart() {}
 
-  return React.createElement(View.default, null, React.createElement(View.default, _rollupPluginBabelHelpers.extends({
+  return React.createElement(index$2.default, null, React.createElement(index$2.default, _rollupPluginBabelHelpers.extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo"), TextElement, React.createElement(index$2.Lifestyle, null), React.createElement(UnBindingComponent, null), React.createElement(ScrollView.default, null), React.createElement(Swiper.default, null));
+  }, props), "foo"), TextElement, React.createElement(index$H.Lifestyle, null), React.createElement(UnBindingComponent, null), React.createElement(index$7.default, null), React.createElement(index$6.default, null));
 };
 
 var index = Page(createPageConfig.default(_page));

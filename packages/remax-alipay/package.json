@@ -1,0 +1,30 @@
+{
+  "name": "remax-alipay",
+  "version": "0.0.5",
+  "description": "Remax for Alipay",
+  "main": "./cjs/index.js",
+  "esnext": "./esm/index.js",
+  "module": "./esm/index.js",
+  "typings": "./esm/index.d.ts",
+  "scripts": {
+    "prebuild": "rm -rf cjs esm",
+    "build:node": "tsc",
+    "build:runtime": "tsc --module ESNext --outDir esm",
+    "build": "npm run build:node && npm run build:runtime",
+    "test": "jest"
+  },
+  "repository": "git+https://github.com/remaxjs/remax.git",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@remax/mini-types": "^0.1.0",
+    "@types/jest": "^24.0.24",
+    "@types/react": "^16.9.17",
+    "@types/react-test-renderer": "^16.9.1",
+    "jest": "^24.9.0",
+    "react": "^16.12.0",
+    "react-test-renderer": "^16.12.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.4"
+  }
+}

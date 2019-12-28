@@ -1,23 +1,12 @@
 import VNode, { Path, RawNode } from './VNode';
+import API from './API';
 import { generate } from './instanceId';
 import { generate as generateActionId } from './actionId';
 import { FiberRoot } from 'react-reconciler';
-import Platform from './Platform';
 import propsAlias from './propsAlias';
-import { isHostComponent } from './createHostComponent';
 
 function stringPath(path: Path) {
   return path.join('.');
-}
-
-function normalizeRawNode(item: RawNode): RawNode {
-  return {
-    ...item,
-    props: propsAlias(item.props, !isHostComponent(item.type)),
-    children: item.children
-      ? item.children.map(normalizeRawNode)
-      : item.children,
-  };
 }
 
 interface SpliceUpdate {
@@ -46,6 +35,38 @@ export default class Container {
     this.root.mounted = true;
   }
 
+  normalizeRawNode = (item: RawNode): RawNode => {
+    return {
+      ...item,
+      props: propsAlias(item.props, item.type),
+      children: item.children
+        ? item.children.map(this.normalizeRawNode)
+        : item.children,
+    };
+  };
+
+  dispatchAction = (inputAction: { type: string; payload?: any }) => {
+    const startTime = new Date().getTime();
+
+    const action =
+      inputAction.type === 'replace' ? inputAction.payload : inputAction;
+
+    this.context.setData(
+      {
+        action,
+      },
+      /* istanbul ignore next */
+      () => {
+        if (process.env.REMAX_DEBUG) {
+          console.log(
+            `setData => 回调时间：${new Date().getTime() - startTime}ms`,
+            action
+          );
+        }
+      }
+    );
+  };
+
   requestUpdate(
     path: Path,
     start: number,
@@ -57,7 +78,7 @@ export default class Container {
       path,
       start,
       deleteCount,
-      items: items.map(normalizeRawNode),
+      items: items.map(this.normalizeRawNode),
     };
     if (immediately) {
       this.updateQueue.push(update);
@@ -75,10 +96,8 @@ export default class Container {
       return;
     }
 
-    const startTime = new Date().getTime();
-
     const action = {
-      type: !this.rendered && Platform.isAlipay ? 'init' : 'splice',
+      type: 'splice',
       payload: this.updateQueue.map(update => ({
         path: stringPath(update.path),
         start: update.start,
@@ -88,37 +107,20 @@ export default class Container {
       id: generateActionId(),
     };
 
-    let tree: typeof action | { root: RawNode } = action;
-
-    if (Platform.isToutiao) {
-      tree = {
-        root: normalizeRawNode(this.root.toJSON()),
-      };
-    }
-
-    this.context.setData({ action: tree }, () => {
-      /* istanbul ignore next */
-      if (process.env.REMAX_DEBUG) {
-        console.log(
-          `setData => 回调时间：${new Date().getTime() - startTime}ms`,
-          action
-        );
-      }
+    const updateAction = API.onUpdateAction({
+      container: this,
+      action,
     });
-    this.rendered = true;
+
+    this.dispatchAction(updateAction);
+
     this.updateQueue = [];
   }
 
   clearUpdate() {
     this.stopUpdate = true;
 
-    if (Platform.isWechat) {
-      this.context.setData({
-        action: {
-          type: 'clear',
-        },
-      });
-    }
+    API.onUnload({ container: this });
   }
 
   createCallback(name: string, fn: Function) {

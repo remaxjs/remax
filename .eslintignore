@@ -2,3 +2,4 @@ node_modules/
 lib/
 dist/
 **/*.js
+packages/**/templates/*.js

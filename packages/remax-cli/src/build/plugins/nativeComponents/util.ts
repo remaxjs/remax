@@ -6,7 +6,6 @@ import alias from '../alias';
 import winPath from '../../../winPath';
 import { RemaxOptions } from '../../../getConfig';
 import { getAppConfig } from '../../../getEntries';
-import { Adapter } from '../../adapters';
 
 export const pushArray = (arr: string[], path: string) => {
   if (arr.includes(path)) {
@@ -18,17 +17,13 @@ export const pushArray = (arr: string[], path: string) => {
 
 export const isPluginComponent = (
   sourcePath: string,
-  options: RemaxOptions,
-  adapter: Adapter
+  options: RemaxOptions
 ) => {
   if (!sourcePath.startsWith('plugin://')) {
     return false;
   }
 
-  const { plugins, subpackages = [], subPackages = [] } = getAppConfig(
-    options,
-    adapter
-  );
+  const { plugins, subpackages = [], subPackages = [] } = getAppConfig(options);
   const subs = [...subpackages, ...subPackages];
 
   if (!plugins && !subs.some(sub => sub.plugins)) {
@@ -52,7 +47,6 @@ export const isPluginComponent = (
 
 export const getSourcePath = (
   options: RemaxOptions,
-  adapter: Adapter,
   source: string,
   importer: string
 ) => {
@@ -63,7 +57,7 @@ export const getSourcePath = (
     return sourcePath;
   }
 
-  if (!isPluginComponent(sourcePath, options, adapter)) {
+  if (!isPluginComponent(sourcePath, options)) {
     sourcePath = resolve.sync(sourcePath, {
       extensions,
       basedir: path.dirname(importer),

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import API from './API';
 import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName } from './lifecycle';
 import Container from './Container';
@@ -11,7 +12,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
   const id = idCounter;
   idCounter += 1;
 
-  return {
+  const config = {
     pageId: 'page_' + id,
 
     data: {
@@ -149,4 +150,6 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
      * lifecycle end
      */
   };
+
+  return API.extendsPageConfig({ pageConfig: config });
 }

@@ -1,22 +1,39 @@
-import cli from 'yargs';
+import API from './API';
+import getConfig from './getConfig';
+
+export { RemaxNodePluginConfig, RemaxNodePlugin } from './API';
+export { Entries } from './getEntries';
+export { default as logger } from './build/utils/output';
+
+API.installNodePlugins(getConfig());
+
+import yargs from 'yargs';
 import build from './build';
 import { checkRemaxVersion } from './checkVersions';
 
-export { RemaxConfig } from './getConfig';
+export { RemaxConfig, RemaxOptions } from './getConfig';
 
-export function run(args: any, context?: any) {
+export let cli = yargs;
+
+export function run(args: any, context?: any, callback?: yargs.ParseCallback) {
   checkRemaxVersion();
-  cli
+
+  cli = yargs
     .scriptName('remax-cli')
     .usage('Usage: $0 <command> [options]')
     .command<any>(
       'build',
       '编译项目',
+      /* istanbul ignore next */
       () => {
         // ignore
       },
       (argv: any) => build(argv, context)
-    )
+    );
+
+  cli = API.extendsCLI({ cli });
+
+  cli
     .option('watch', {
       describe: '监听文件变化',
       alias: 'w',
@@ -30,6 +47,7 @@ export function run(args: any, context?: any) {
       required: true,
       requiresArg: true,
     })
-    .showHelpOnFail(false)
-    .parse(args);
+    .showHelpOnFail(false);
+
+  return cli.parse(args, callback);
 }

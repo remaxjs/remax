@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "watch": "lerna run watch --parallel",
-    "prebuild": "lerna run build --scope remax.macro && lerna run build --scope remax",
-    "build": "lerna run build --ignore website --ignore remax.macro --ignore remax",
+    "prebuild": "lerna run build --scope remax-alipay && lerna run build --scope remax-wechat && lerna run build --scope remax-toutiao",
+    "build": "lerna run build --scope remax.macro && lerna run build --scope remax && lerna run build --scope babel-preset-remax && lerna run build --scope remax-cli && lerna run build --scope umi-plugin-remax",
     "test": "lerna run --ignore babel-preset-remax --ignore website --ignore umi-plugin-remax --stream test",
     "test:cov": "lerna run --ignore babel-preset-remax --ignore website --ignore umi-plugin-remax --stream test -- --collect-coverage",
     "clean": "lerna clean",

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import API from './API';
 import render from './render';
 import AppContainer from './AppContainer';
 import isClass from './utils/isClass';
@@ -24,7 +25,7 @@ export default function createAppConfig(this: any, App: any) {
   const createConfig = (
     AppComponent: React.ComponentType<any> = DefaultAppComponent
   ) => {
-    return {
+    const config = {
       _container: new AppContainer(this),
 
       _pages: [] as any[],
@@ -95,6 +96,8 @@ export default function createAppConfig(this: any, App: any) {
         );
       },
     };
+
+    return API.extendsAppConfig({ appConfig: config });
   };
 
   // 兼容老的写法

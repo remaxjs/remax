@@ -3,9 +3,14 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var _rollupPluginBabelHelpers = require('./_virtual/_rollupPluginBabelHelpers.js');
+var API = require('../../npm/remax/esm/API.js');
 var React = require('react');
 var createAppConfig = require('../../npm/remax/esm/createAppConfig.js');
 require('../../npm/remax/esm/index.js');
+
+var __REMAX_RUNTIME_PLUGIN_CONFIGS = [require('remax-toutiao/runtime')()];
+
+API.default.installPlugins(__REMAX_RUNTIME_PLUGIN_CONFIGS);
 
 var _ref =
 /*#__PURE__*/

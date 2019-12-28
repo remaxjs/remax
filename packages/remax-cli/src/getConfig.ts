@@ -6,6 +6,8 @@ import { PluginImpl, RollupOptions } from 'rollup';
 import validateOptions from 'schema-utils';
 import schema from './RemaxOptionsSchema.json';
 
+type RemaxPluginConfig = string | string[];
+
 export interface RemaxOptions {
   cssModules: boolean | RegExp;
   pxToRpx: boolean;
@@ -32,6 +34,7 @@ export interface RemaxOptions {
     plugins?: PluginImpl[];
   };
   rollupOptions?: RollupOptions | ((options: RollupOptions) => RollupOptions);
+  plugins: RemaxPluginConfig[];
 }
 
 export type RemaxConfig = Partial<RemaxOptions>;

@@ -60,11 +60,7 @@ export default class SyntheticEventPool {
   }
 
   public isPropagationStopped(eventType: string, eventId: string) {
-    return (
-      this.state[eventType] &&
-      this.state[eventType][eventId] &&
-      this.state[eventType][eventId].propagationStopped
-    );
+    return this.state?.[eventType]?.[eventId]?.propagationStopped;
   }
 
   private state: {

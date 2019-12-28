@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+import API from './API';
 import { RemaxOptions } from './getConfig';
 import readManifest from './readManifest';
-import { Adapter } from './build/adapters';
 import { Context } from './types';
 import { output } from './build/utils/output';
 
@@ -13,7 +13,7 @@ interface Plugins {
   };
 }
 
-interface AppConfig {
+export interface AppConfig {
   pages: string[];
   subpackages?: Array<{
     root: string;
@@ -32,10 +32,9 @@ interface AppConfig {
   plugins?: Plugins;
 }
 
-interface Entries {
-  pageConfigPath: string[];
+export interface Entries {
   app: string;
-  pages: Array<{ path: string; file: string }>;
+  pages: string[];
   images: string[];
 }
 
@@ -56,41 +55,32 @@ export function searchFile(file: string, strict?: boolean) {
   return '';
 }
 
-export const getAppConfig = (options: RemaxOptions, adapter: Adapter) => {
+export const getAppConfig = (options: RemaxOptions) => {
   const appConfigPath: string = path.join(
     options.cwd,
     options.rootDir,
     'app.config'
   );
 
-  return readManifest(appConfigPath, adapter.name, true) as AppConfig;
+  return readManifest(appConfigPath, API.adapter.name, true) as AppConfig;
 };
 
+// TODO: getEntries 处理 context 的逻辑要去掉
 export default function getEntries(
   options: RemaxOptions,
-  adapter: Adapter,
   context?: Context
 ): Entries {
   let pages: any = [];
   let subpackages: any = [];
-  let images: string[] = [];
 
-  if (!context) {
-    const appConfig = getAppConfig(options, adapter);
-    pages = appConfig.pages;
-    subpackages = appConfig.subpackages || appConfig.subPackages || [];
-    images = adapter.getIcons(appConfig);
+  const appConfig = getAppConfig(options);
 
-    if (!pages || pages.length === 0) {
-      throw new Error('app.config.js 并未配置页面参数');
-    }
-  } else {
-    pages = context.pages.map(p => p.path);
-    subpackages = context.app.subpackages || context.app.subPackages || [];
+  if (context) {
+    pages = context?.pages?.map(p => p.path) || [];
+    subpackages = context?.app?.subpackages || context?.app?.subPackages || [];
   }
 
   const entries: Entries = {
-    pageConfigPath: [],
     app: searchFile(path.join(options.cwd, options.rootDir, 'app'), true),
     pages: [],
     images: [],
@@ -100,37 +90,25 @@ export default function getEntries(
     (ret: Array<{ path: string; file: string }>, page: string) => {
       return [
         ...ret,
-        {
-          path: page,
-          file: searchFile(path.join(options.cwd, options.rootDir, page), true),
-        },
-      ].filter(page => page && page.file);
+        searchFile(path.join(options.cwd, options.rootDir, page), true),
+      ].filter(page => !!page);
     },
     []
   );
 
   subpackages.forEach((pack: { pages: string[]; root: string }) => {
     entries.pages = entries.pages.concat(
-      pack.pages.reduce((ret: Array<{ path: string; file: string }>, page) => {
+      pack.pages.reduce((ret: string[], page) => {
         return [
           ...ret,
-          {
-            path: page,
-            file: searchFile(
-              path.join(options.cwd, options.rootDir, pack.root, page),
-              true
-            ),
-          },
-        ].filter(page => page && page.file);
+          searchFile(
+            path.join(options.cwd, options.rootDir, pack.root, page),
+            true
+          ),
+        ].filter(page => !!page);
       }, [])
     );
   });
 
-  entries.images = images
-    .filter(i => i)
-    .reduce<string[]>((paths, image) => {
-      return [...paths, path.join(options.cwd, options.rootDir, image)];
-    }, []);
-
-  return entries;
+  return API.getEntries(entries, appConfig, options);
 }

@@ -1,6 +1,6 @@
-import { Adapter } from '../../adapters';
 import { existsSync, readFileSync } from 'fs';
 import postcss from 'postcss';
+import API from '../../../API';
 import { pushArray, getPath } from './util';
 import { output } from '../../utils/output';
 
@@ -38,8 +38,8 @@ export const getcssPaths = () => {
   return cssPaths;
 };
 
-export default (id: string, adapter: Adapter) => {
-  const filePath = id.replace(/\.js$/, adapter.extensions.style);
+export default (id: string) => {
+  const filePath = id.replace(/\.js$/, API.getMeta().style);
 
   walk(filePath);
 };

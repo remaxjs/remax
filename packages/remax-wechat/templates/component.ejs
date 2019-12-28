@@ -1,0 +1,49 @@
+<template name="REMAX_TPL_<%=templateId%>_<%=id%>">
+  <%_ function propsKeyTpl(props) {
+    return props
+      .map(key => `${key}="{{_h.v(i.props['${key}'])}}"`)
+      .join('\n')
+  } _%>
+  <%_ if (['input', 'textarea'].includes(id)) { _%>
+    <%# 微信输入框的 focus 在写死和接收动态值时表现有差异，而在动态接收 focus 的情况下又表现比较怪异;
+      具体情况比较复杂，由于微信小程序的 focus 如果是 true，再次设置 focus 是 true 是也能再次主动聚焦的特性，再加上 remax diff 结果有一点冗余的情况，focus 会被多次重复设置触发自动聚焦 bug;
+      暂时通过写死 focus 来 fix:#395，如果需要多次主动聚焦，可以绑定 blur 事件设置 focus 为 false;
+    %>
+    <% const propsString = propsKeyTpl(props.filter(key => (key !== 'focus'))) %>
+    <<%=id%> wx:if="{{i.props.focus}}" focus
+      <%- propsString %>
+    />
+    <<%=id%> wx:else <%- propsString %> />
+  <%_ } else { _%>
+  <<%=id%>
+    <%- propsKeyTpl(props) %>>
+    <%_ if (id === 'swiper') { _%>
+    <block wx:for="{{i.children}}" wx:key="id">
+      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
+        <block wx:for="{{item.children}}" wx:key="id">
+          <template is="REMAX_TPL_<%= templateId + 1%>_CONTAINER" data="{{i: item}}" />
+        </block>
+      </swiper-item>
+    </block>
+    <%_ } else if (type === 'native') { _%>
+    <block wx:for="{{i.children}}" wx:key="id">
+      <block wx:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" <% for(let key of viewComponent.props) { %> <%=key%>="{{item.props['<%=key%>']}}"
+          <% } %>>
+          <block wx:for="{{item.children}}" wx:key="id">
+            <template is="REMAX_TPL_<%= templateId + 1%>_CONTAINER" data="{{i: item}}" />
+          </block>
+        </view>
+      </block>
+      <block wx:else>
+        <template is="REMAX_TPL_<%= templateId + 1%>_CONTAINER" data="{{i: item}}" />
+      </block>
+    </block>
+    <%_ } else { _%>
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="REMAX_TPL_<%= templateId + 1%>_CONTAINER" data="{{i: item}}" />
+    </block>
+    <%_ } _%>
+  </<%=id%>>
+  <%_ } _%>
+</template>

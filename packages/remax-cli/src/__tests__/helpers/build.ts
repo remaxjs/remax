@@ -1,13 +1,16 @@
 import * as path from 'path';
 import * as rollup from 'rollup';
+import API from '../../API';
 import rollupConfig from '../../build/rollupConfig';
 import getConfig from '../../getConfig';
 
 export default async function build(app: string, target: string) {
   const cwd = path.resolve(__dirname, `../fixtures/${app}`);
   process.chdir(cwd);
+
+  API.installAdapterPlugins(target);
+
   const config = getConfig();
-  const adapter = require('../../build/adapters/' + target);
   const rollupOptions = rollupConfig(
     {
       ...config,
@@ -23,13 +26,13 @@ export default async function build(app: string, target: string) {
         '@c': path.resolve(cwd, 'src/components'),
       },
     },
-    false,
-    adapter
+    false
   );
   const bundle = await rollup.rollup(rollupOptions);
   const result = await bundle.generate(
     rollupOptions.output! as rollup.OutputOptions
   );
+
   return result.output
     .filter(c => !/(node_modules|_virtual|npm)/.test(c.fileName))
     .map(c => {

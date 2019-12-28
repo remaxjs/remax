@@ -13,3 +13,7 @@ export const output = (
   const message = Array.isArray(content) ? content : [content];
   console.log(`${COLORS[color]}%s${RESET}`, ...message);
 };
+
+export default {
+  error: (message: string) => output(`\n🚨 ${message}`, 'red'),
+};
