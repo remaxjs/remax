@@ -1,8 +1,11 @@
 {
   "packages": [
+    "packages/remax.macro",
+    "packages/remax-alipay",
+    "packages/remax-wechat",
+    "packages/remax-toutiao",
     "packages/remax",
     "packages/remax-cli",
-    "packages/remax.macro",
     "packages/babel-preset-remax"
   ]
 }

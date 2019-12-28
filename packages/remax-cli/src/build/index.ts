@@ -1,8 +1,5 @@
 import * as rollup from 'rollup';
-import * as path from 'path';
-import * as fs from 'fs';
-import winPath from '../winPath';
-import esm from 'esm';
+import API from '../API';
 import rollupConfig from './rollupConfig';
 import getConfig from '../getConfig';
 import { Context } from '../types';
@@ -15,25 +12,11 @@ export default async (argv: any, context?: Context) => {
     ...(context ? context.config : {}),
   };
 
-  if (
-    !fs.existsSync(winPath(path.join(__dirname, `./adapters/${argv.target}`)))
-  ) {
-    output(`\n🚨 平台 ${argv.target} 暂不支持`, 'red');
-    process.exit(1);
-  }
-
-  // eslint-disable-next-line
-  require = esm(module, {
-    cjs: {
-      dedefault: true,
-    },
-  });
-  const targetConfig = require(`./adapters/${argv.target}`);
+  API.installAdapterPlugins(argv.target);
 
   const rollupOptions: rollup.RollupOptions = rollupConfig(
     options,
     argv,
-    targetConfig,
     context
   );
 

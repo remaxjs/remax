@@ -1,22 +1,17 @@
 import * as React from 'react';
-import { TYPE_TEXT } from './constants';
 
-export const hostComponents = new Set();
-
-export function isHostComponent(type: string) {
-  if (type === TYPE_TEXT) {
-    return true;
-  }
-
-  return hostComponents.has(type);
-}
+export const hostComponents: {
+  [key: string]: {
+    alias?: {
+      [key: string]: string;
+    };
+  };
+} = (process.env.REMAX_HOST_COMPONENTS as any) || {};
 
 export default function createHostComponent<P = any>(
   name: string,
   component?: React.ComponentType<P>
 ) {
-  hostComponents.add(name);
-
   if (component) {
     return component;
   }

@@ -1,51 +1,18 @@
-import kebabCase from 'lodash.kebabcase';
-import Platform from './Platform';
 import * as RuntimeOptions from './RuntimeOptions';
 import plainStyle from './utils/plainStyle';
-import { hostComponents } from 'remax.macro';
+import { hostComponents } from './createHostComponent';
 
-function functionPropAlias(prop: string, platform?: string) {
-  prop = prop.replace(/Click$/, 'Tap');
+export function getAlias(prop: string, type: string) {
+  prop = prop.replace('className', 'class');
 
-  if (platform === 'alipay') {
-    return prop;
-  }
+  const hostComponent = hostComponents[type];
 
-  prop = prop.toLowerCase().replace('on', 'bind');
-
-  return prop;
+  return hostComponent?.alias?.[prop] ?? prop;
 }
 
-export function getAlias(
-  prop: string,
-  isNative = false,
-  platform?: string,
-  type?: string
-) {
-  if (!isNative && type) {
-    const hostComponent = hostComponents.get(type);
-
-    if (hostComponent?.alias?.[prop]) {
-      return hostComponent.alias[prop];
-    }
-  }
-
-  prop = prop.replace('className', 'class').replace('ClassName', 'Class');
-
-  if (isNative) {
-    return prop;
-  }
-
-  if (prop.startsWith('on') || prop.startsWith('catch')) {
-    return functionPropAlias(prop, platform);
-  }
-
-  return kebabCase(prop);
-}
-
-function getValue(prop: string, value: any, pxToRpx: boolean): any {
+function getValue(prop: string, value: any): any {
   if (prop.toLowerCase().endsWith('style') && prop !== 'layerStyle') {
-    return plainStyle(value, pxToRpx);
+    return plainStyle(value, RuntimeOptions.pxToRpx);
   }
 
   return value;
@@ -55,13 +22,7 @@ export interface GenericProps {
   [key: string]: any;
 }
 
-export default function propsAlias(
-  props: GenericProps,
-  isNative = false,
-  platform = Platform.current,
-  pxToRpx = RuntimeOptions.pxToRpx,
-  type?: string
-) {
+export default function propsAlias(props: GenericProps, type: string) {
   if (!props) {
     return props;
   }
@@ -69,11 +30,7 @@ export default function propsAlias(
   const aliasProps: GenericProps = {};
 
   Object.keys(props).forEach(prop => {
-    aliasProps[getAlias(prop, isNative, platform, type)] = getValue(
-      prop,
-      props[prop],
-      pxToRpx
-    );
+    aliasProps[getAlias(prop, type)] = getValue(prop, props[prop]);
   });
 
   return aliasProps;

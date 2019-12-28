@@ -5,40 +5,40 @@ Object.defineProperty(exports, '__esModule', { value: true });
 require('../npm/remax/esm/render.js');
 var React = require('react');
 require('../npm/remax/esm/createAppConfig.js');
-var Platform = require('../npm/remax/esm/Platform.js');
 require('../npm/remax/esm/createHostComponent.js');
 require('../npm/remax/esm/createPageConfig.js');
+var Platform = require('../npm/remax/esm/Platform.js');
 require('../npm/remax/esm/index.js');
-var index$1 = require('../npm/remax/esm/adapters/alipay/components/index.js');
-var index$2 = require('../npm/remax/esm/adapters/wechat/components/index.js');
-var View$1 = require('../npm/remax/esm/adapters/toutiao/components/View.js');
-require('../npm/remax/esm/adapters/toutiao/components/Input.js');
-require('../npm/remax/esm/adapters/toutiao/components/Textarea.js');
-require('../npm/remax/esm/adapters/toutiao/components/Video.js');
-require('../npm/remax/esm/adapters/toutiao/components/Swiper.js');
-require('../npm/remax/esm/adapters/toutiao/components/ScrollView.js');
-require('../npm/remax/esm/adapters/toutiao/components/SwiperItem.js');
-require('../npm/remax/esm/adapters/toutiao/components/Icon.js');
-require('../npm/remax/esm/adapters/toutiao/components/Text.js');
-require('../npm/remax/esm/adapters/toutiao/components/RichText.js');
-require('../npm/remax/esm/adapters/toutiao/components/Progress.js');
-require('../npm/remax/esm/adapters/toutiao/components/Button.js');
-require('../npm/remax/esm/adapters/toutiao/components/CheckboxGroup.js');
-require('../npm/remax/esm/adapters/toutiao/components/Checkbox.js');
-require('../npm/remax/esm/adapters/toutiao/components/Form.js');
-require('../npm/remax/esm/adapters/toutiao/components/Label.js');
-require('../npm/remax/esm/adapters/toutiao/components/Picker.js');
-require('../npm/remax/esm/adapters/toutiao/components/PickerView.js');
-require('../npm/remax/esm/adapters/toutiao/components/PickerViewColumn.js');
-require('../npm/remax/esm/adapters/toutiao/components/RadioGroup.js');
-require('../npm/remax/esm/adapters/toutiao/components/Radio.js');
-require('../npm/remax/esm/adapters/toutiao/components/Slider.js');
-require('../npm/remax/esm/adapters/toutiao/components/Switch.js');
-require('../npm/remax/esm/adapters/toutiao/components/Navigator.js');
-require('../npm/remax/esm/adapters/toutiao/components/Image.js');
-require('../npm/remax/esm/adapters/toutiao/components/Canvas.js');
-require('../npm/remax/esm/adapters/toutiao/components/WebView.js');
-require('../npm/remax/esm/adapters/toutiao/api.js');
+var index$1 = require('../npm/remax/npm/remax-alipay/esm/hostComponents/index.js');
+var index$2 = require('../npm/remax/npm/remax-wechat/esm/hostComponents/index.js');
+var index$3 = require('../npm/remax/npm/remax-toutiao/esm/hostComponents/View/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Input/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Textarea/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Video/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Swiper/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/ScrollView/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/SwiperItem/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Icon/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Text/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/RichText/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Progress/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Button/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/CheckboxGroup/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Checkbox/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Form/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Label/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Picker/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/PickerView/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/PickerViewColumn/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/RadioGroup/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Radio/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Slider/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Switch/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Navigator/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Image/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Canvas/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/WebView/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/api/index.js');
 
 function View() {
   var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -48,7 +48,7 @@ function View() {
       return React.createElement(index$1.View, props);
 
     case 'toutiao':
-      return React.createElement(View$1.default, props);
+      return React.createElement(index$3.default, props);
 
     case 'wechat':
     default:

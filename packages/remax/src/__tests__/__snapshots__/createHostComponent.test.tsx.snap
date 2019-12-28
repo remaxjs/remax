@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createHostComponent create correctly 1`] = `
+<custom-component
+  foo="bar"
+/>
+`;
+
+exports[`createHostComponent create with custom render 1`] = `
+<input
+  foo="bar"
+/>
+`;

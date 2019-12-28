@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "lib": ["ES2015", "DOM"],
+    "declaration": true,
+    "jsx": "react",
+    "types": ["@types/jest", "@types/node"],
+    "outDir": "cjs",
+    "downlevelIteration": true
+  },
+  "include": [
+    "src/**/*",
+    "typings/**/*",
+    "./node_modules/@remax/miniprogram-api-typings/index.d.ts"
+  ]
+}

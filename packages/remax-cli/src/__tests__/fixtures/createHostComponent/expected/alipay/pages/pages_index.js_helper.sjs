@@ -17,10 +17,10 @@ function reduce(action) {
       tree = {
         root: {
           children: [
-            action.payload[0].item,
+            action.payload[0].item
           ]
         },
-        lastActionId: -1,
+        lastActionId: -1
       };
       return tree;
     case 'clear':
@@ -108,8 +108,6 @@ function get(obj, path) {
   return nextObj;
 }
 
-
-export default  {
+export default {
   reduce
-}
-
+};

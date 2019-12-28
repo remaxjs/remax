@@ -1,6 +1,6 @@
 {
   "name": "remax",
-  "version": "1.10.9",
+  "version": "1.10.9-6a958b3d.0",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -32,10 +32,11 @@
     "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },
   "dependencies": {
-    "@remax/mini-types": "^0.1.0",
-    "@remax/miniprogram-api-typings": "^2.8.4",
     "lodash.kebabcase": "^4.1.1",
     "react-reconciler": "0.24.0",
+    "remax-alipay": "^0.0.5",
+    "remax-toutiao": "^0.0.4",
+    "remax-wechat": "^0.0.4",
     "remax.macro": "^1.10.9",
     "scheduler": "0.18.0",
     "shallowequal": "^1.1.0"

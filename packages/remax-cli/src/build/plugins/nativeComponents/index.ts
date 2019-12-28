@@ -5,7 +5,6 @@ import { Plugin, OutputChunk } from 'rollup';
 import { simple } from 'acorn-walk';
 import { readFileSync } from 'fs';
 import { RemaxOptions } from '../../../getConfig';
-import { Adapter } from '../../adapters';
 import style, { getcssPaths } from './style';
 import json, { getjsonPaths } from './json';
 import template, { getTemplatePaths } from './tempate';
@@ -23,19 +22,15 @@ const getFiles = () => [
   ...getJsHelpers(),
 ];
 
-export default (
-  options: RemaxOptions,
-  adapter: Adapter,
-  pages: string[]
-): Plugin => {
+export default (options: RemaxOptions, pages: string[]): Plugin => {
   return {
     name: 'nativeComponents',
     load(id) {
       if (isNativeComponent(id)) {
-        jsHelper(id, adapter);
-        style(id, adapter);
+        jsHelper(id);
+        style(id);
         json(id);
-        template(id, adapter);
+        template(id);
         usingComponents(id, options, this);
 
         getFiles().forEach(file => {
@@ -65,14 +60,14 @@ export default (
       const extract = (node: any) => {
         const source: string = get(node, 'source.value');
         const name: string = get(node, 'specifiers[0].local.name');
-        const componentPath = getSourcePath(options, adapter, source, id);
+        const componentPath = getSourcePath(options, source, id);
         const component = importer.get(componentPath);
 
         if (!component) {
           return;
         }
 
-        if (!isPluginComponent(componentPath, options, adapter)) {
+        if (!isPluginComponent(componentPath, options)) {
           this.emitFile({
             id: path.relative(options.cwd, componentPath),
             type: 'chunk',
