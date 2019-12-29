@@ -269,3 +269,4 @@ export const createIntersectionObserver = wx.createIntersectionObserver;
 export const createRewardedVideoAd = wx.createRewardedVideoAd;
 export const createInterstitialAd = wx.createInterstitialAd;
 export const cloud = wx.cloud;
+export const requestSubscribeMessage = promisify(wx.requestSubscribeMessage);
