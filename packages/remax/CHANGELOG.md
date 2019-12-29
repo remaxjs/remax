@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.8](https://github.com/remaxjs/remax/compare/v1.10.7...v1.10.8) (2019-12-29)
+
+### Bug Fixes
+
+- **alipay:** 支付宝添加 getOpenUserInfo API ([d481176](https://github.com/remaxjs/remax/commit/d481176)), closes [#534](https://github.com/remaxjs/remax/issues/534)
+- **wechat:** 微信添加 requestSubscribeMessage API ([e0c93bf](https://github.com/remaxjs/remax/commit/e0c93bf))
+- **wechat:** 修复微信平台 Swiper 受控 current 后表现异常的情况 ([80f1c12](https://github.com/remaxjs/remax/commit/80f1c12)), closes [#535](https://github.com/remaxjs/remax/issues/535)
+- 修复 inline style 带有浮点数报错的问题 ([#530](https://github.com/remaxjs/remax/issues/530)) ([27e07c2](https://github.com/remaxjs/remax/commit/27e07c2))
+- 修复支付宝自定义组件使用 component2 模式报错的问题 ([109f904](https://github.com/remaxjs/remax/commit/109f904))
+
 ## [1.10.7](https://github.com/remaxjs/remax/compare/v1.10.6...v1.10.7) (2019-12-22)
 
 ### Bug Fixes
