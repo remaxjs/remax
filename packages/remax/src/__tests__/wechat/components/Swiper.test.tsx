@@ -13,21 +13,20 @@ describe('Swiper', () => {
     const handleChange = jest.fn();
 
     const component: TestRenderer.ReactTestRenderer = TestRenderer.create(
-      <Swiper onChange={handleChange} />
+      <Swiper onChange={handleChange} current={0} />
     );
 
     const instance = component.root.findByType('swiper' as any);
     expect(instance.props.current).toBe(0);
 
-    TestRenderer.act(() => {
-      instance.props.onChange({
-        detail: {
-          current: 1,
-        },
-      });
-    });
+    const event = {
+      detail: {
+        current: 1,
+      },
+    };
 
-    expect(instance.props.current).toBe(1);
-    expect(handleChange).toBeCalledTimes(1);
+    instance.props.onChange(event);
+
+    expect(handleChange).toBeCalledWith(event);
   });
 });

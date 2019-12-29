@@ -100,9 +100,13 @@ function registerProps(
     usedProps = [];
   }
 
-  if (adapter.name === 'wechat' && componentName === 'scroll-view') {
-    if (!usedProps.includes('onScroll')) {
+  if (adapter.name === 'wechat') {
+    if (componentName === 'scroll-view') {
       usedProps.push('onScroll');
+    }
+
+    if (componentName === 'swiper') {
+      usedProps.push('onChange');
     }
   }
 

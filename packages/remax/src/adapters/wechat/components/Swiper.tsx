@@ -48,19 +48,25 @@ export interface SwiperProps extends BaseProps {
 
 const SwiperRender: React.FunctionComponent<SwiperProps> = (props, ref) => {
   const { children, current, onChange, ...restProps } = props;
-  const [innerCurrent, setCurrent] = React.useState(0);
+  const [innerCurrent, forceUpdateCurrent] = React.useState(current);
+  const currentRef = React.useRef(innerCurrent);
 
   function handleChange(event: any) {
-    setCurrent(event.detail.current);
+    currentRef.current = event?.detail?.current;
 
     if (typeof onChange === 'function') {
       return onChange(event);
     }
   }
 
+  React.useEffect(() => {
+    currentRef.current = current;
+    forceUpdateCurrent(current);
+  }, [current]);
+
   const swiperProps = {
     ...restProps,
-    current: current === undefined ? innerCurrent : current,
+    current: currentRef.current || 0,
     onChange: handleChange,
     ref,
   };
@@ -73,6 +79,7 @@ const Swiper = React.forwardRef<{}, React.PropsWithChildren<SwiperProps>>(
 );
 
 Swiper.defaultProps = {
+  // current: 0,
   indicatorDots: false,
   indicatorColor: 'rgba(0, 0, 0, .3)',
   indicatorActiveColor: '#000000',
