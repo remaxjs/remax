@@ -58,6 +58,11 @@ export default ClazzHOC(IndexPage);
 // export default IndexPage;
 ```
 
+### 编译后小程序提示找不到 xxx 文件路径
+
+1. 尝试删除打包目录，重新 build
+2. 真机中出现此问题，查看编译选项是否开启了代码保护，目前开发模式开启代码保护有出错可能。
+
 ## 注意
 
 ### 微信的限制
