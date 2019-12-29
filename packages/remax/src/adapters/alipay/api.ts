@@ -199,3 +199,4 @@ export const writeBLECharacteristicValue = promisify(
   my.writeBLECharacteristicValue
 );
 export const createVideoContext = my.createVideoContext;
+export const getOpenUserInfo = promisify((my as any).getOpenUserInfo);
