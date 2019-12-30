@@ -9,16 +9,30 @@ describe('ScrollView', () => {
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });
 
-  it('handle scroll', () => {
+  it('handle scroll', async done => {
+    expect.assertions(2);
+
     const event = { detail: { scrollTop: 10 } };
     const handleScroll = jest.fn(event => event);
-    const component = TestRenderer.create(
-      <ScrollView onScroll={handleScroll} />
-    );
+    let component: any;
+
+    TestRenderer.act(() => {
+      component = TestRenderer.create(
+        <ScrollView onScroll={handleScroll} scrollTop={0} />
+      );
+    });
 
     const instance = component.root.findByType('scroll-view' as any);
-    instance.props.onScroll(event);
+
+    TestRenderer.act(() => {
+      instance.props.onScroll(event);
+    });
 
     expect(handleScroll).toBeCalledWith(event);
+
+    setTimeout(() => {
+      expect(instance.props.scrollTop).toBe(10);
+      done();
+    }, 450);
   });
 });

@@ -9,8 +9,9 @@ const ScrollViewRender: React.FunctionComponent<ScrollViewProps> = (
   ref
 ) => {
   const { children, scrollTop, onScroll, ...restProps } = props;
-  const [innerScrollTop, forceUpdateScrollTop] = React.useState(scrollTop);
+  const [innerScrollTop, setScrollTop] = React.useState(scrollTop);
   const scrollTopRef = React.useRef(innerScrollTop);
+  const updateTimerRef = React.useRef<any>();
 
   function handleScroll(event: any) {
     scrollTopRef.current = event?.detail?.scrollTop;
@@ -18,11 +19,16 @@ const ScrollViewRender: React.FunctionComponent<ScrollViewProps> = (
     if (typeof onScroll === 'function') {
       onScroll(event);
     }
+
+    clearTimeout(updateTimerRef.current);
+    updateTimerRef.current = setTimeout(() => {
+      setScrollTop(scrollTopRef.current);
+    }, 400);
   }
 
   React.useEffect(() => {
     scrollTopRef.current = scrollTop;
-    forceUpdateScrollTop(scrollTop);
+    setScrollTop(scrollTop);
   }, [scrollTop]);
 
   const scrollViewProps = {
@@ -38,6 +44,11 @@ const ScrollViewRender: React.FunctionComponent<ScrollViewProps> = (
 const ScrollView = React.forwardRef(ScrollViewRender);
 
 export default createHostComponent<ScrollViewProps>(componentName, ScrollView);
+
+ScrollView.defaultProps = {
+  upperThreshold: 50,
+  lowerThreshold: 50,
+};
 
 export interface ScrollViewProps extends BaseProps {
   /** (default: false) 允许横向滚动 1.0.0 */
