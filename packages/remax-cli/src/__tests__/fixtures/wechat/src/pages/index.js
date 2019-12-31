@@ -28,6 +28,15 @@ export default () => {
       <UnBindingComponent />
       <ScrollView />
       <Swiper />
+      <View>
+        <View>
+          <ScrollView />
+          <Swiper />
+          <Text>
+            <Text>text</Text>
+          </Text>
+        </View>
+      </View>
     </View>
   );
 };

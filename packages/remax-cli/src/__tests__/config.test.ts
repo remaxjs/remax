@@ -30,7 +30,12 @@ describe('remax config', () => {
  - configuration.compressTemplate should be a boolean.
  - configuration.output should be a string.
  - configuration.rootDir should be a string.
- - configuration.UNSAFE_wechatTemplateDepth should be a number.
+ - configuration.UNSAFE_wechatTemplateDepth should be one of these:
+   object { … } | number
+   Details:
+    * configuration.UNSAFE_wechatTemplateDepth should be an object:
+      object { … }
+    * configuration.UNSAFE_wechatTemplateDepth should be a number.
  - configuration.alias should be an object:
    object { … }
  - configuration.postcss.options should be an object:

@@ -23,7 +23,7 @@
       "type": "string"
     },
     "UNSAFE_wechatTemplateDepth": {
-      "type": "number"
+      "anyOf": [{ "type": "object" }, { "type": "number" }]
     },
     "alias": {
       "type": "object"

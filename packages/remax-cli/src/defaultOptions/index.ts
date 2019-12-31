@@ -1,4 +1,5 @@
-import { RemaxOptions } from './getConfig';
+import { RemaxOptions } from '../getConfig';
+import UNSAFE_wechatTemplateDepth from './UNSAFE_wechatTemplateDepth';
 
 const defaultOptions: RemaxOptions = {
   cssModules: /\.module\.(less|scss|css)$/,
@@ -8,7 +9,7 @@ const defaultOptions: RemaxOptions = {
   output: 'dist',
   rootDir: 'src',
   compressTemplate: process.env.NODE_ENV === 'production',
-  UNSAFE_wechatTemplateDepth: 20,
+  UNSAFE_wechatTemplateDepth,
   postcss: {
     options: {},
     plugins: [],

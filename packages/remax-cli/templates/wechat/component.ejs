@@ -18,7 +18,7 @@
     <block wx:for="{{i.children}}" wx:key="id">
       <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
         <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_<%= templateId + 1%>_CONTAINER" data="{{i: item}}" />
+          <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
         </block>
       </swiper-item>
     </block>
@@ -28,17 +28,17 @@
         <view slot="{{item.props['slot']}}" <% for(let key of adapter.hostComponents.get('view').props) { %> <%=key%>="{{item.props['<%=key%>']}}"
           <% } %>>
           <block wx:for="{{item.children}}" wx:key="id">
-            <template is="REMAX_TPL_<%= templateId + 1%>_CONTAINER" data="{{i: item}}" />
+            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
           </block>
         </view>
       </block>
       <block wx:else>
-        <template is="REMAX_TPL_<%= templateId + 1%>_CONTAINER" data="{{i: item}}" />
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </block>
     <%_ } else { _%>
     <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_<%= templateId + 1%>_CONTAINER" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
     </block>
     <%_ } _%>
   </<%=id%>>
