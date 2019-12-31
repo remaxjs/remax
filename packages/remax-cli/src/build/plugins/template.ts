@@ -5,6 +5,7 @@ import { sortBy } from 'lodash';
 import { getComponents } from './components';
 import ejs from 'ejs';
 import { RemaxOptions } from '../../getConfig';
+import { ensureDepth } from '../../defaultOptions/UNSAFE_wechatTemplateDepth';
 import readManifest from '../../readManifest';
 import getEntries from '../../getEntries';
 import { Adapter } from '../adapters';
@@ -99,7 +100,7 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
     adapter.templates.base,
     {
       components,
-      depth: options.UNSAFE_wechatTemplateDepth,
+      depth: ensureDepth(options.UNSAFE_wechatTemplateDepth),
       adapter,
     },
     {

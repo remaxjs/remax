@@ -1,995 +1,364 @@
 <template name="REMAX_TPL">
 	<block wx:for="{{tree.root.children}}" wx:key="id">
-		<template is="REMAX_TPL_1_CONTAINER" data="{{i: item}}" />
+		<template is="REMAX_TPL_1_CONTAINER" data="{{i: item, a: ''}}" />
 	</block>
 </template>
 
 <wxs module="_h">
+	var elements = {};
 	module.exports = {
-	v: function(value) {
-	return value !== undefined ? value : '';
-	}
+		v: function(value) {
+			return value !== undefined ? value : '';
+		},
+		tid: function (type, ancestor) {
+			var items = ancestor.split(',');
+			var depth = 1;
+		
+			for (var i = 0; i < items.length; i++) {
+				if (type === items[i]) {
+					depth = depth + 1;
+				}
+			}
+
+			var id = 'REMAX_TPL_' + depth + '_' + type;
+			return id;
+		}
 	};
 </wxs>
 
-
-
-
-<template name="REMAX_TPL_1_scroll-view">
+		<template name="REMAX_TPL_1_scroll-view">
   <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_2_CONTAINER" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
     </block>
   </scroll-view>
 </template>
 
+		<template name="REMAX_TPL_2_scroll-view">
+  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </scroll-view>
+</template>
 
-<template name="REMAX_TPL_1_swiper">
+		<template name="REMAX_TPL_3_scroll-view">
+  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </scroll-view>
+</template>
+
+		<template name="REMAX_TPL_4_scroll-view">
+  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </scroll-view>
+</template>
+
+		<template name="REMAX_TPL_5_scroll-view">
+  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </scroll-view>
+</template>
+
+		<template name="REMAX_TPL_1_swiper">
   <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
       <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
         <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_2_CONTAINER" data="{{i: item}}" />
+          <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
         </block>
       </swiper-item>
     </block>
   </swiper>
 </template>
 
-
-<template name="REMAX_TPL_1_text">
+		<template name="REMAX_TPL_1_text">
   <text data-rid="{{_h.v(i.props['data-rid'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_2_CONTAINER" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
     </block>
   </text>
 </template>
 
-
-<template name="REMAX_TPL_1_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+		<template name="REMAX_TPL_2_text">
+  <text data-rid="{{_h.v(i.props['data-rid'])}}">
     <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_2_CONTAINER" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </text>
+</template>
+
+		<template name="REMAX_TPL_3_text">
+  <text data-rid="{{_h.v(i.props['data-rid'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </text>
+</template>
+
+		<template name="REMAX_TPL_4_text">
+  <text data-rid="{{_h.v(i.props['data-rid'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </text>
+</template>
+
+		<template name="REMAX_TPL_5_text">
+  <text data-rid="{{_h.v(i.props['data-rid'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </text>
+</template>
+
+		<template name="REMAX_TPL_1_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
     </block>
   </view>
 </template>
 
+		<template name="REMAX_TPL_2_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_3_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_4_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_5_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_6_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_7_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_8_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_9_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_10_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_11_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_12_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_13_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_14_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_15_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_16_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_17_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_18_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_19_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
+
+		<template name="REMAX_TPL_20_view">
+  <view data-rid="{{_h.v(i.props['data-rid'])}}" animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+  </view>
+</template>
 
 <template name="REMAX_TPL_1_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
+
 <template name="REMAX_TPL_1_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_1_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 1}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_2_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_3_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_2_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_3_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_2_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_3_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_2_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_3_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_2_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_2_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_2_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 2}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_3_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_4_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_3_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_4_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_3_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_4_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_3_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_4_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_3_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_3_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_3_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 3}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_4_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_5_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_4_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_5_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_4_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_5_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_4_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_5_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_4_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_4_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_4_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 4}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_5_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_6_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_5_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_6_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_5_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_6_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_5_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_6_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_5_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_5_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_5_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 5}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_6_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_7_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_6_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_7_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_6_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_7_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_6_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_7_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_6_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_6_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_6_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 6}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_7_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_8_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_7_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_8_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_7_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_8_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_7_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_8_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_7_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_7_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_7_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 7}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_8_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_9_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_8_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_9_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_8_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_9_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_8_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_9_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_8_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_8_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_8_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 8}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_9_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_10_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_9_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_10_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_9_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_10_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_9_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_10_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_9_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_9_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_9_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 9}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_10_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_11_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_10_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_11_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_10_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_11_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_10_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_11_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_10_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_10_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_10_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 10}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_11_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_12_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_11_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_12_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_11_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_12_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_11_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_12_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_11_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_11_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_11_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 11}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_12_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_13_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_12_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_13_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_12_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_13_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_12_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_13_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_12_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_12_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_12_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 12}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_13_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_14_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_13_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_14_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_13_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_14_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_13_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_14_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_13_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_13_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_13_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 13}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_14_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_15_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_14_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_15_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_14_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_15_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_14_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_15_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_14_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_14_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_14_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 14}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_15_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_16_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_15_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_16_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_15_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_16_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_15_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_16_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_15_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_15_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_15_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 15}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_16_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_17_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_16_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_17_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_16_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_17_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_16_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_17_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_16_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_16_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_16_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 16}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_17_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_18_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_17_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_18_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_17_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_18_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_17_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_18_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_17_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_17_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_17_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 17}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_18_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_19_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_18_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_19_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_18_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_19_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_18_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_19_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_18_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_18_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_18_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 18}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_19_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_20_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_19_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_20_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_19_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_20_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_19_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_20_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_19_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_19_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_19_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 19}}" />
 </template>
 
-
-
-<template name="REMAX_TPL_20_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_21_CONTAINER" data="{{i: item}}" />
-    </block>
-  </scroll-view>
-</template>
-
-
-<template name="REMAX_TPL_20_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="REMAX_TPL_21_CONTAINER" data="{{i: item}}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
-</template>
-
-
-<template name="REMAX_TPL_20_text">
-  <text data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_21_CONTAINER" data="{{i: item}}" />
-    </block>
-  </text>
-</template>
-
-
-<template name="REMAX_TPL_20_view">
-  <view animation="{{_h.v(i.props['animation'])}}" bindanimationend="{{_h.v(i.props['bindanimationend'])}}" bindanimationiteration="{{_h.v(i.props['bindanimationiteration'])}}" bindanimationstart="{{_h.v(i.props['bindanimationstart'])}}" bindlongtap="{{_h.v(i.props['bindlongtap'])}}" bindtap="{{_h.v(i.props['bindtap'])}}" bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}" bindtouchend="{{_h.v(i.props['bindtouchend'])}}" bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}" bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}" bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}" class="{{_h.v(i.props['class'])}}" data-foo="{{_h.v(i.props['data-foo'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" disable-scroll="{{_h.v(i.props['disable-scroll'])}}" hidden="{{_h.v(i.props['hidden'])}}" hover-class="{{_h.v(i.props['hover-class'])}}" hover-start-time="{{_h.v(i.props['hover-start-time'])}}" hover-stay-time="{{_h.v(i.props['hover-stay-time'])}}" hover-stop-propagation="{{_h.v(i.props['hover-stop-propagation'])}}" id="{{_h.v(i.props['id'])}}" style="{{_h.v(i.props['style'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="REMAX_TPL_21_CONTAINER" data="{{i: item}}" />
-    </block>
-  </view>
-</template>
-
-
-<template name="REMAX_TPL_20_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
-</template>
 <template name="REMAX_TPL_20_CONTAINER" data="{{i: i}}">
-	<template is="{{'REMAX_TPL_20_' + i.type}}" data="{{i: i}}" />
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: 20}}" />
 </template>
 
