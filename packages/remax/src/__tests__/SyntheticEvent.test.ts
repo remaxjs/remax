@@ -326,5 +326,30 @@ describe('synthetic event', () => {
 
       expect(bar).toBeCalledTimes(2);
     });
+
+    it('invoke parent onClick callback every time with stopPropagation called', () => {
+      const foo = jest.fn(e => {
+        e.stopPropagation();
+      });
+      const fooProxy = createCallbackProxy('onClick', foo);
+
+      const event = {
+        target: {
+          dataset: {
+            rid: 1,
+          },
+        },
+        currentTarget: {
+          dataset: {
+            rid: 2,
+          },
+        },
+      };
+
+      fooProxy(event);
+      fooProxy(event);
+
+      expect(foo).toBeCalledTimes(2);
+    });
   });
 });
