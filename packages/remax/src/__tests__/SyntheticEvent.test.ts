@@ -147,43 +147,6 @@ describe('synthetic event', () => {
       expect(bar).toBeCalledTimes(2);
     });
 
-    it('do not stop propagation when unexpected event happens', () => {
-      const foo = jest.fn(e => {
-        e.stopPropagation();
-      });
-      const fooProxy = createCallbackProxy('onClick', foo);
-      const bar = jest.fn();
-      const barProxy = createCallbackProxy('onClick', bar);
-
-      fooProxy({
-        target: {
-          dataset: {
-            rid: 999,
-          },
-        },
-        currentTarget: {
-          dataset: {
-            rid: 1,
-          },
-        },
-      });
-      barProxy({
-        target: {
-          dataset: {
-            rid: 999,
-          },
-        },
-        currentTarget: {
-          dataset: {
-            rid: 2,
-          },
-        },
-      });
-
-      expect(foo).toBeCalledTimes(1);
-      expect(bar).toBeCalledTimes(1);
-    });
-
     it('do not support on the native component without event target', () => {
       const foo = jest.fn(e => {
         expect(e.stopPropagation).toBeUndefined();
