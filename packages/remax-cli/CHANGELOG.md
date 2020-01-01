@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.9](https://github.com/remaxjs/remax/compare/v1.10.8...v1.10.9) (2020-01-01)
+
+### Bug Fixes
+
+- 去除无用的文件生成警告 ([31236be](https://github.com/remaxjs/remax/commit/31236be))
+
+### Performance Improvements
+
+- **wechat:** 缩小微信打包 size ([e0e9798](https://github.com/remaxjs/remax/commit/e0e9798))
+
 ## [1.10.8](https://github.com/remaxjs/remax/compare/v1.10.7...v1.10.8) (2019-12-29)
 
 ### Bug Fixes

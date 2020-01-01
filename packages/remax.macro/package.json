@@ -1,6 +1,6 @@
 {
   "name": "remax.macro",
-  "version": "1.10.8",
+  "version": "1.10.9",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
