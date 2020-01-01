@@ -63,8 +63,18 @@ export default ClazzHOC(IndexPage);
 1. 尝试删除打包目录，重新 build
 2. 真机中出现此问题，查看编译选项是否开启了代码保护，目前开发模式开启代码保护有出错可能。
 
-## 注意
+### 微信嵌套层级
 
-### 微信的限制
+Remax 默认为微信的每个 host 组件定义了嵌套层数。其中 `View` 20 层，其他组件都在 1 ~ 5 层。如果出现形如下图的情况，可以通过配置修改嵌套层数。
 
-由于微信模板无法递归嵌套自身的限制，所以在 Remax 中最好不要实现太过复杂的递归嵌套组件，以免出现不可预期的问题。
+![未找到模板提醒](https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*pExGT4kna-AAAAAAAAAAAABkARQnAQ)
+
+```js
+// remax.config.js
+
+{
+  UNSAFE_wechatTemplateDepth: {
+    button: 2, // 把 button 的嵌套层数修改为 2 层
+  }
+}
+```
