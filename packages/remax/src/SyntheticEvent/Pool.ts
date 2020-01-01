@@ -20,16 +20,20 @@ export default class SyntheticEventPool {
     );
   }
 
-  public initialEventState(eventType: string, eventId?: string) {
+  public initialEventState(
+    eventType: string,
+    eventId?: string,
+    currentEventID?: string
+  ) {
     if (!this.state[eventType]) {
       this.state[eventType] = {};
     }
 
-    if (eventId) {
+    if (eventId && currentEventID) {
       this.state[eventType] = {
         [eventId]: {
           propagationStopped: false,
-          currentEventId: eventId,
+          currentEventId: currentEventID,
         },
       };
     }

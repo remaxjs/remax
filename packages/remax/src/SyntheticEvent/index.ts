@@ -90,7 +90,7 @@ export function createCallbackProxy(
 
     if (isNewEvent(eventType, nativeEvent)) {
       // 新的事件流，初始化 store 数据
-      eventPool.initialEventState(eventType, eventId);
+      eventPool.initialEventState(eventType, eventId, currentEventId);
     } else {
       // 记录当前冒泡到的事件 ID
       eventPool.setLatestEvent(eventType, eventId, currentEventId);
