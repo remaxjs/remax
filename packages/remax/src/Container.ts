@@ -1,15 +1,10 @@
 import VNode, { Path, RawNode } from './VNode';
 import { generate } from './instanceId';
-import { generate as generateActionId } from './actionId';
 import { FiberRoot } from 'react-reconciler';
 import Platform from './Platform';
 import propsAlias from './propsAlias';
 import { isHostComponent } from './createHostComponent';
 import nativeEffector from './nativeEffect';
-
-function stringPath(path: Path) {
-  return path.join('.');
-}
 
 function normalizeRawNode(item: RawNode): RawNode {
   return {
@@ -78,32 +73,31 @@ export default class Container {
 
     const startTime = new Date().getTime();
 
-    const action = {
-      type: !this.rendered && Platform.isAlipay ? 'init' : 'splice',
-      payload: this.updateQueue.map(update => ({
-        path: stringPath(update.path),
-        start: update.start,
-        deleteCount: update.deleteCount,
-        item: update.items[0],
-      })),
-      id: generateActionId(),
+    // const action = {
+    //   type: !this.rendered && Platform.isAlipay ? 'init' : 'splice',
+    //   payload: this.updateQueue.map(update => ({
+    //     path: stringPath(update.path),
+    //     start: update.start,
+    //     deleteCount: update.deleteCount,
+    //     item: update.items[0],
+    //   })),
+    //   id: generateActionId(),
+    // };
+
+    // let tree: typeof action | { root: RawNode } = action;
+
+    // if (Platform.isToutiao) {
+    const tree = {
+      root: normalizeRawNode(this.root.toJSON()),
     };
-
-    let tree: typeof action | { root: RawNode } = action;
-
-    if (Platform.isToutiao) {
-      tree = {
-        root: normalizeRawNode(this.root.toJSON()),
-      };
-    }
+    // }
 
     this.context.setData({ action: tree }, () => {
       nativeEffector.run();
       /* istanbul ignore next */
       if (process.env.REMAX_DEBUG) {
         console.log(
-          `setData => 回调时间：${new Date().getTime() - startTime}ms`,
-          action
+          `setData => 回调时间：${new Date().getTime() - startTime}ms`
         );
       }
     });
