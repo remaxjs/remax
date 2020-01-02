@@ -162,14 +162,14 @@ export default props => {
 };
 ```
 
-对于函数组件，也可以使用 `usePageQuery` hook，如：
+对于函数组件，也可以使用 `useQuery` hook，如：
 
 ```js
-import { usePageQuery } from 'remax';
+import { useQuery } from 'remax';
 
 export default () => {
   // 页面参数
-  const query = usePageQuery();
+  const query = useQuery();
   console.log(query);
 
   return <View>view</View>;

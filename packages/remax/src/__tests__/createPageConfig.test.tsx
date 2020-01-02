@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createPageConfig, createAppConfig } from '..';
-import { usePageQuery } from '../hooks';
+import { useQuery } from '../hooks';
 
 beforeAll(() => {
   // mock mini program getApp api
@@ -24,17 +24,17 @@ function Page<T>(config: T) {
 }
 
 describe('page query hook', () => {
-  it('usePageQuery will get the query from onLoad', () => {
-    const usePageQueryMock = jest.fn(usePageQuery);
+  it('useQuery will get the query from onLoad', () => {
+    const useQueryMock = jest.fn(useQuery);
     const pageQuery = { id: 1 };
     const TestPage = () => {
-      const query = usePageQueryMock();
+      const query = useQueryMock();
       expect(query).toBe(pageQuery);
       return <div>{query.id}</div>;
     };
     const page = Page(createPageConfig(TestPage));
     page.onLoad(pageQuery);
-    expect(usePageQueryMock).toBeCalled();
+    expect(useQueryMock).toBeCalled();
     page.onUnload();
   });
 });
