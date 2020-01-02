@@ -5,6 +5,7 @@ import { FiberRoot } from 'react-reconciler';
 import Platform from './Platform';
 import propsAlias from './propsAlias';
 import { isHostComponent } from './createHostComponent';
+import nativeEffector from './nativeEffect';
 
 function stringPath(path: Path) {
   return path.join('.');
@@ -97,6 +98,7 @@ export default class Container {
     }
 
     this.context.setData({ action: tree }, () => {
+      nativeEffector.run();
       /* istanbul ignore next */
       if (process.env.REMAX_DEBUG) {
         console.log(

@@ -1,6 +1,13 @@
-import { useLayoutEffect, useContext } from 'react';
+import { useLayoutEffect, useContext, DependencyList } from 'react';
 import { registerLifecycle, Lifecycle, Callback } from './lifecycle';
 import PageInstanceContext from './PageInstanceContext';
+import nativeEffect, { Listener } from './nativeEffect';
+
+export function useNativeEffect(listener: Listener, deps?: DependencyList) {
+  useLayoutEffect(() => {
+    return nativeEffect.connect(listener, !!deps);
+  }, deps);
+}
 
 export function useShow(callback: Callback) {
   const pageInstance = useContext(PageInstanceContext);

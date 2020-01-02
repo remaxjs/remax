@@ -163,3 +163,41 @@ export default props => {
 ```
 
 你也可以通过小程序原生的方式获取参数（通常在 `onLoad` 方法里获取），包括场景值也是。
+
+### 小程序渲染 Effect
+
+一般在 React 里，我们通过在 `useEffect` 来进行页面渲染成后需要处理的逻辑。但是在 Remax 中，`useEffect` 只是代表了 Remax 虚拟 DOM 处理完成，并不代表小程序渲染完成。
+为了支持开发者可以触及小程序渲染完成的时机，我们添加了一个新的 hook：`useNativeEffect`。
+
+```jsx
+import * as React from 'react';
+import { useNativeEffect, useShow } from 'remax';
+
+export default () => {
+  const [width, setWidth] = React.useState(width, 0);
+  const [height, setHeight] = React.useState(height, 0);
+
+  useShow(() => {
+    setTimeout(() => {
+      setWidth(100)
+    }, 3000)
+
+    setTimeout(() => {
+      setHeight(100)
+    }, 3000)
+  });
+  useNativeEffect(() => {
+    console.log('width', width, 'height', height);
+    // 只有在 width 变化时，才执行这个逻辑。
+    // 建议一定要写 hooks 依赖，否则所有 setData 回调后，都会在这里执行
+  }, [width])
+
+  ...
+}
+```
+
+在上面的例子中:
+
+- 页面首次渲染成功后，会看到 console 输出 `width 0 height 0`。
+- 3000 ms 后，更新了 width 的值，console 输出 `width 100 height 0`。
+- 3000 ms 后， 更新了 height 的值，console 没有新的输出。
