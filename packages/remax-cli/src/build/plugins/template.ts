@@ -5,12 +5,17 @@ import { sortBy } from 'lodash';
 import { getComponents } from './components';
 import ejs from 'ejs';
 import { RemaxOptions } from '../../getConfig';
+import { ensureDepth } from '../../defaultOptions/UNSAFE_wechatTemplateDepth';
 import readManifest from '../../readManifest';
 import getEntries from '../../getEntries';
 import { Adapter } from '../adapters';
 import { Context } from '../../types';
 import winPath from '../../winPath';
 import { getNativeComponents } from './nativeComponents/babelPlugin';
+
+function pageUID(pagePath: string) {
+  return pagePath.replace('/', '_');
+}
 
 async function createTemplate(
   pageFile: string,
@@ -32,7 +37,9 @@ async function createTemplate(
   };
 
   if (adapter.extensions.jsHelper) {
-    renderOptions.jsHelper = `./helper${adapter.extensions.jsHelper.extension}`;
+    renderOptions.jsHelper = `./${pageUID(pageFile)}_helper${
+      adapter.extensions.jsHelper.extension
+    }`;
   }
 
   const components = sortBy(
@@ -77,7 +84,7 @@ async function createHelperFile(pageFile: string, adapter: Adapter) {
     fileName: winPath(
       path.join(
         path.dirname(pageFile),
-        `helper${adapter.extensions.jsHelper.extension}`
+        `${pageUID(pageFile)}_helper${adapter.extensions.jsHelper.extension}`
       )
     ),
     source: code,
@@ -99,7 +106,7 @@ async function createBaseTemplate(adapter: Adapter, options: RemaxOptions) {
     adapter.templates.base,
     {
       components,
-      depth: options.UNSAFE_wechatTemplateDepth,
+      depth: ensureDepth(options.UNSAFE_wechatTemplateDepth),
       adapter,
     },
     {

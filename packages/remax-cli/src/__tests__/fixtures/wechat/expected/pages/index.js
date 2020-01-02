@@ -90,7 +90,7 @@ var _page = function _page() {
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo"), TextElement, React.createElement(index$2.Lifestyle, null), React.createElement(UnBindingComponent, null), React.createElement(ScrollView.default, null), React.createElement(Swiper.default, null));
+  }, props), "foo"), TextElement, React.createElement(index$2.Lifestyle, null), React.createElement(UnBindingComponent, null), React.createElement(ScrollView.default, null), React.createElement(Swiper.default, null), React.createElement(View.default, null, React.createElement(View.default, null, React.createElement(ScrollView.default, null), React.createElement(Swiper.default, null), React.createElement(Text.default, null, React.createElement(Text.default, null, "text")))));
 };
 
 var index = Page(createPageConfig.default(_page));
