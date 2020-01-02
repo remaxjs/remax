@@ -162,4 +162,16 @@ export default props => {
 };
 ```
 
+对于函数组件，也可以使用 `usePageQuery` hook，如：
+
+```js
+export default () => {
+  // 页面参数
+  const query = usePageQuery();
+  console.log(query);
+
+  return <View>view</View>;
+};
+```
+
 你也可以通过小程序原生的方式获取参数（通常在 `onLoad` 方法里获取），包括场景值也是。
