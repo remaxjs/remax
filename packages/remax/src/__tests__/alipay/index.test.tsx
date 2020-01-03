@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './helpers/setupGlobals';
-import { render, View } from '../../../src/adapters/alipay';
+import { render, View, Input } from '../../../src/adapters/alipay';
 import { reset as resetInstanceId } from '../../instanceId';
 import { reset as resetActionId } from '../../actionId';
 import Container from '../../Container';
@@ -246,5 +246,85 @@ describe('alipay', () => {
     };
     const container = new Container(p);
     render(<Page />, container);
+  });
+
+  it('pure rerender when props changed', done => {
+    let payload: any[] = [];
+    const context = {
+      setData: (data: any) => {
+        payload = data.action.payload;
+      },
+    };
+
+    class Page extends React.Component {
+      state = {
+        value: 'foo',
+      };
+
+      setValue(value: string) {
+        this.setState({ value });
+      }
+
+      render() {
+        return (
+          <View style={{ width: '32px' }}>
+            <Input value={this.state.value} />
+          </View>
+        );
+      }
+    }
+    const container = new Container(context);
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, container);
+
+    expect.assertions(2);
+
+    page.current.setValue('bar');
+
+    setTimeout(() => {
+      expect(payload).toHaveLength(1);
+      expect(payload[0].item.type).toEqual('input');
+      done();
+    }, 5);
+  });
+
+  it('pure rerender when props delete', done => {
+    let payload: any[] = [];
+    const context = {
+      setData: (data: any) => {
+        payload = data.action.payload;
+      },
+    };
+
+    class Page extends React.Component {
+      state = {
+        value: 'foo',
+      };
+
+      setValue(value: string) {
+        this.setState({ value });
+      }
+
+      render() {
+        return (
+          <View style={{ width: '32px' }}>
+            {!this.state.value ? <Input /> : <Input value={this.state.value} />}
+          </View>
+        );
+      }
+    }
+    const container = new Container(context);
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, container);
+
+    expect.assertions(2);
+
+    page.current.setValue(undefined);
+
+    setTimeout(() => {
+      expect(payload).toHaveLength(1);
+      expect(payload[0].item.type).toEqual('input');
+      done();
+    }, 5);
   });
 });
