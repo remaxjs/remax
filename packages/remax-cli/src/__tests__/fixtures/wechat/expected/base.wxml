@@ -26,44 +26,80 @@
 	};
 </wxs>
 
+		<template name="REMAX_TPL_1_input">
+    
+    <input wx:if="{{i.props.focus}}" focus data-rid="{{_h.v(i.props['data-rid'])}}" />
+    <input wx:else data-rid="{{_h.v(i.props['data-rid'])}}" />
+</template>
+
 		<template name="REMAX_TPL_1_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-    </block>
-  </scroll-view>
+    
+    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}" bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+      </block>
+    </scroll-view>
+    <scroll-view wx:else bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+      </block>
+    </scroll-view>
 </template>
 
 		<template name="REMAX_TPL_2_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-    </block>
-  </scroll-view>
+    
+    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}" bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+      </block>
+    </scroll-view>
+    <scroll-view wx:else bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+      </block>
+    </scroll-view>
 </template>
 
 		<template name="REMAX_TPL_3_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-    </block>
-  </scroll-view>
+    
+    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}" bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+      </block>
+    </scroll-view>
+    <scroll-view wx:else bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+      </block>
+    </scroll-view>
 </template>
 
 		<template name="REMAX_TPL_4_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-    </block>
-  </scroll-view>
+    
+    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}" bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+      </block>
+    </scroll-view>
+    <scroll-view wx:else bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+      </block>
+    </scroll-view>
 </template>
 
 		<template name="REMAX_TPL_5_scroll-view">
-  <scroll-view bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-    </block>
-  </scroll-view>
+    
+    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}" bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+      </block>
+    </scroll-view>
+    <scroll-view wx:else bindscroll="{{_h.v(i.props['bindscroll'])}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+      </block>
+    </scroll-view>
 </template>
 
 		<template name="REMAX_TPL_1_swiper">
