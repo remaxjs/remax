@@ -20,6 +20,26 @@
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </<%=id%>>
+  <%_ } else if (id === 'swiper') { _%>
+    <% const propsString = propsKeyTpl(props.filter(key => (key !== 'current'))) %>
+    <<%=id%> wx:if="{{i.props.current !== undefined && i.props.current !== null}}" current="{{i.props.current}}" <%- propsString %> >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
+          <block wx:for="{{item.children}}" wx:key="id">
+            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+          </block>
+        </swiper-item>
+      </block>
+    </<%=id%>>
+    <<%=id%> wx:else <%- propsString %> >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
+          <block wx:for="{{item.children}}" wx:key="id">
+            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+          </block>
+        </swiper-item>
+      </block>
+    </<%=id%>>
   <%_ } else { _%>
   <<%=id%> <%- propsKeyTpl(props) %>>
     <%_ if (id === 'swiper') { _%>

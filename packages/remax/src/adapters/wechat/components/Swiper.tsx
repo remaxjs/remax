@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { BaseProps } from '../types/component';
 import createHostComponent from '../../../createHostComponent';
 
@@ -46,40 +45,9 @@ export interface SwiperProps extends BaseProps {
   onAnimationFinish?: (event: any) => any;
 }
 
-const SwiperRender: React.FunctionComponent<SwiperProps> = (props, ref) => {
-  const { children, current, onChange, ...restProps } = props;
-  const [innerCurrent, forceUpdateCurrent] = React.useState(current);
-  const currentRef = React.useRef(innerCurrent);
-
-  function handleChange(event: any) {
-    currentRef.current = event?.detail?.current;
-
-    if (typeof onChange === 'function') {
-      return onChange(event);
-    }
-  }
-
-  React.useEffect(() => {
-    currentRef.current = current;
-    forceUpdateCurrent(current);
-  }, [current]);
-
-  const swiperProps = {
-    ...restProps,
-    current: currentRef.current || 0,
-    onChange: handleChange,
-    ref,
-  };
-
-  return React.createElement(hostComponentName, swiperProps, children);
-};
-
-const Swiper = React.forwardRef<{}, React.PropsWithChildren<SwiperProps>>(
-  SwiperRender
-);
+const Swiper = createHostComponent(hostComponentName);
 
 Swiper.defaultProps = {
-  // current: 0,
   indicatorDots: false,
   indicatorColor: 'rgba(0, 0, 0, .3)',
   indicatorActiveColor: '#000000',
@@ -95,4 +63,4 @@ Swiper.defaultProps = {
   easingFunction: 'default',
 };
 
-export default createHostComponent(hostComponentName, Swiper);
+export default Swiper;

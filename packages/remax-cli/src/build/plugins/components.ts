@@ -104,10 +104,6 @@ function registerProps(
     if (componentName === 'scroll-view') {
       usedProps.push('onScroll');
     }
-
-    if (componentName === 'swiper') {
-      usedProps.push('onChange');
-    }
   }
 
   if (node) {

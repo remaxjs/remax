@@ -17,7 +17,7 @@ require('../npm/remax/esm/adapters/wechat/components/Textarea.js');
 require('../npm/remax/esm/adapters/wechat/components/Video.js');
 var Swiper = require('../npm/remax/esm/adapters/wechat/components/Swiper.js');
 var ScrollView = require('../npm/remax/esm/adapters/wechat/components/ScrollView.js');
-require('../npm/remax/esm/adapters/wechat/components/SwiperItem.js');
+var SwiperItem = require('../npm/remax/esm/adapters/wechat/components/SwiperItem.js');
 require('../npm/remax/esm/adapters/wechat/components/MovableView.js');
 require('../npm/remax/esm/adapters/wechat/components/MovableArea.js');
 require('../npm/remax/esm/adapters/wechat/components/CoverView.js');
@@ -94,7 +94,9 @@ var _page = function _page() {
     focus: true
   }), React.createElement(ScrollView.default, {
     scrollTop: 0
-  }, React.createElement(View.default, null)), React.createElement(Swiper.default, null), React.createElement(View.default, null, React.createElement(View.default, null, React.createElement(ScrollView.default, null, React.createElement(View.default, null)), React.createElement(Swiper.default, null), React.createElement(Text.default, null, React.createElement(Text.default, null, "text")))));
+  }, React.createElement(View.default, null)), React.createElement(Swiper.default, null, React.createElement(SwiperItem.default, null, "a"), React.createElement(SwiperItem.default, null, "b")), React.createElement(View.default, null, React.createElement(View.default, null, React.createElement(ScrollView.default, null, React.createElement(View.default, null)), React.createElement(Swiper.default, {
+    current: 5
+  }, React.createElement(SwiperItem.default, null, "a"), React.createElement(SwiperItem.default, null, "b")), React.createElement(Text.default, null, React.createElement(Text.default, null, "text")))));
 };
 
 var index = Page(createPageConfig.default(_page));
