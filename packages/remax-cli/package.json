@@ -70,7 +70,7 @@
     "rollup-plugin-delete": "^1.1.0",
     "rollup-plugin-progress": "^1.1.1",
     "schema-utils": "^2.6.1",
-    "semver": "^6.3.0",
+    "semver": "^7.1.1",
     "slash2": "^2.0.0",
     "yargs": "^15.0.2"
   },
