@@ -103,15 +103,25 @@
 </template>
 
 		<template name="REMAX_TPL_1_swiper">
-  <swiper bindchange="{{_h.v(i.props['bindchange'])}}" data-rid="{{_h.v(i.props['data-rid'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-        </block>
-      </swiper-item>
-    </block>
-  </swiper>
+    
+    <swiper wx:if="{{i.props.current !== undefined && i.props.current !== null}}" current="{{i.props.current}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
+          <block wx:for="{{item.children}}" wx:key="id">
+            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+          </block>
+        </swiper-item>
+      </block>
+    </swiper>
+    <swiper wx:else data-rid="{{_h.v(i.props['data-rid'])}}" >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
+          <block wx:for="{{item.children}}" wx:key="id">
+            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+          </block>
+        </swiper-item>
+      </block>
+    </swiper>
 </template>
 
 		<template name="REMAX_TPL_1_text">
