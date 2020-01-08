@@ -162,4 +162,18 @@ export default props => {
 };
 ```
 
+对于函数组件，也可以使用 `useQuery` hook，如：
+
+```js
+import { useQuery } from 'remax';
+
+export default () => {
+  // 页面参数
+  const query = useQuery();
+  console.log(query);
+
+  return <View>view</View>;
+};
+```
+
 你也可以通过小程序原生的方式获取参数（通常在 `onLoad` 方法里获取），包括场景值也是。

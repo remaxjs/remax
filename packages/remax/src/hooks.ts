@@ -84,3 +84,8 @@ export function usePullIntercept(callback: Callback) {
     return registerLifecycle(pageInstance, Lifecycle.pullIntercept, callback);
   });
 }
+
+export function useQuery<Q extends {} = { [name: string]: string }>(): Q {
+  const pageInstance: any = useContext(PageInstanceContext);
+  return pageInstance.query;
+}

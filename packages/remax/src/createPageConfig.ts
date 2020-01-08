@@ -24,6 +24,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
 
     onLoad(this: any, query: any) {
       const PageWrapper = createPageWrapper(Page, query);
+      this.query = query;
       this.container = new Container(this);
       this.element = createPortal(
         React.createElement(PageWrapper, {
