@@ -25,16 +25,17 @@ function Page<T>(config: T) {
 
 describe('page query hook', () => {
   it('useQuery will get the query from onLoad', () => {
-    const useQueryMock = jest.fn(useQuery);
     const pageQuery = { id: 1 };
+    let receivedQuery: any;
     const TestPage = () => {
-      const query = useQueryMock();
-      expect(query).toBe(pageQuery);
+      const query = useQuery();
+      receivedQuery = query;
       return <div>{query.id}</div>;
     };
     const page = Page(createPageConfig(TestPage));
     page.onLoad(pageQuery);
-    expect(useQueryMock).toBeCalled();
+    expect(receivedQuery).toBe(pageQuery);
+    expect(receivedQuery.id).toBe(1);
     page.onUnload();
   });
 });
