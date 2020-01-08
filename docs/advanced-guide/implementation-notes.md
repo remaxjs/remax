@@ -3,7 +3,7 @@ title: Remax 实现原理
 order: 45
 ---
 
-本文将向大家介绍 Remax 的实现原理，Remax 本身分为两个部分，`remax` 和 `reamx-cli`，`remax` 提供运行时，`remax-cli` 提供构建功能，这里主要介绍运行时的部分。
+本文将向大家介绍 Remax 的实现原理，Remax 本身分为两个部分，`remax` 和 `remax-cli`，`remax` 提供运行时，`remax-cli` 提供构建功能，这里主要介绍运行时的部分。
 
 Remax 的运行时本质是一个通过 `react-reconciler` 实现的一个小程序端的渲染器。关于 `react-reconciler` 和 React 渲染器相关的内容推荐观看[这个视频](https://www.youtube.com/watch?v=CGpMlWVcHok)，这里不再赘述。
 
