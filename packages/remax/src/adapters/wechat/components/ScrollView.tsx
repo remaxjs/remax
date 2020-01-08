@@ -37,6 +37,11 @@ const ScrollViewRender: React.FunctionComponent<ScrollViewProps> = (
 
 const ScrollView = React.forwardRef(ScrollViewRender);
 
+ScrollView.defaultProps = {
+  upperThreshold: 50,
+  lowerThreshold: 50,
+};
+
 export default createHostComponent<ScrollViewProps>(componentName, ScrollView);
 
 export interface ScrollViewProps extends BaseProps {

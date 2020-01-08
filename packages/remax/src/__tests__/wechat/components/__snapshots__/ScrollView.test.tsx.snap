@@ -2,6 +2,8 @@
 
 exports[`ScrollView render correctly 1`] = `
 <scroll-view
+  lowerThreshold={50}
   onScroll={[Function]}
+  upperThreshold={50}
 />
 `;
