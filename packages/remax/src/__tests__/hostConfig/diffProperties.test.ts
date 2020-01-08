@@ -24,6 +24,9 @@ describe('diffProperties', () => {
     expect(!!diffProperties({ a: null }, { a: null })).toBeFalsy();
     expect(!!diffProperties({ a: undefined }, { a: undefined })).toBeFalsy();
 
+    expect(!!diffProperties({ autoFocus: true }, {})).toBeTruthy();
+    expect(!!diffProperties({ children: '1' }, {})).toBeTruthy();
+
     const sameFn = () => void 0;
     expect(!!diffProperties({ a: sameFn }, { a: sameFn })).toBeFalsy();
     expect(

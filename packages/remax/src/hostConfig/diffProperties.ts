@@ -1,6 +1,5 @@
 const STYLE = 'style';
 const CHILDREN = 'children';
-const AUTOFOCUS = 'autoFocus';
 
 export default function diffProperties(
   lastRawProps: Record<string, any> | null | undefined,
@@ -33,10 +32,6 @@ export default function diffProperties(
           styleUpdates[styleName] = '';
         }
       }
-    } else if (propKey === CHILDREN) {
-      // Noop. This is handled by the clear text mechanism.
-    } else if (propKey === AUTOFOCUS) {
-      // Noop. It doesn't work on updates anyway.
     } else {
       // For all other deleted properties we add it to the queue. We use
       // the whitelist in the commit phase instead.
