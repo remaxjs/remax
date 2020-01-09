@@ -17,7 +17,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     data: {
       action: {},
       root: {
-        children: [],
+        c: [],
       },
     },
 
