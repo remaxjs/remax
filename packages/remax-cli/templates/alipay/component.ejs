@@ -1,31 +1,31 @@
 <template name="REMAX_TPL_1_<%=id%>">
   <<%=id%> <% for(let key of props) { %> <%=key%>="{{item.props['<%=key%>']}}" <% } %><% if (type === 'native') { %>ref="{{item.props['__ref']}}"<% } %>>
     <% if (id === 'swiper') { %>
-    <block a:for="{{item.children}}" key="{{item.id}}">
+    <block a:for="{{item.c}}" key="{{item.id}}">
       <swiper-item key="{{item.props.key}}">
-        <block a:for="{{item.children}}" key="{{item.id}}">
+        <block a:for="{{item.c}}" key="{{item.id}}">
           <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
         </block>
       </swiper-item>
     </block>
     <% } else if (id === 'picker') { %>
     <view>
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item.children[0]}}" />
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item.c[0]}}" />
     </view>
     <% } else if (id === 'picker-view') { %>
-    <block a:for="{{item.children}}" key="{{item.id}}">
+    <block a:for="{{item.c}}" key="{{item.id}}">
       <picker-view-column>
-        <view a:for="{{item.children}}">
+        <view a:for="{{item.c}}">
           <template is="REMAX_TPL_1_CONTAINER" data="{{item}}" />
         </view>
       </picker-view-column>
     </block>
     <% } else if (type === 'native') { %>
-    <block a:for="{{item.children}}" key="{{item.id}}">
+    <block a:for="{{item.c}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
         <view slot="{{item.props['slot']}}" <% for(let key of adapter.hostComponents.get('view').props) { %> <%=key%>="{{item.props['<%=key%>']}}"
           <% } %>>
-          <block a:for="{{item.children}}" key="{{item.id}}">
+          <block a:for="{{item.c}}" key="{{item.id}}">
             <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
           </block>
         </view>
@@ -35,7 +35,7 @@
       </block>
     </block>
     <% } else { %>
-    <block a:for="{{item.children}}" key="{{item.id}}">
+    <block a:for="{{item.c}}" key="{{item.id}}">
       <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
     </block>
     <% } %>

@@ -7,13 +7,11 @@ import { isHostComponent } from './createHostComponent';
 
 declare const my: any;
 
-function normalizeRawNode(item: RawNode): RawNode {
+function normalizeRawNode(item: RawNode): any {
   return {
     ...item,
     props: propsAlias(item.props, !isHostComponent(item.type)),
-    children: item.children
-      ? item.children.map(normalizeRawNode)
-      : item.children,
+    c: item.children ? item.children.map(normalizeRawNode) : item.children,
   };
 }
 

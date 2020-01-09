@@ -48,7 +48,7 @@ export default class VNode {
     this.children.push(node);
     if (this.isMounted()) {
       this.container.requestUpdate(
-        [...this.path(), 'children'],
+        [...this.path(), 'c'],
         this.children.length - 1,
         0,
         immediately,
@@ -62,7 +62,7 @@ export default class VNode {
     this.children.splice(start, 1);
     if (this.isMounted()) {
       this.container.requestUpdate(
-        [...this.path(), 'children'],
+        [...this.path(), 'c'],
         start,
         1,
         immediately
@@ -80,7 +80,7 @@ export default class VNode {
     this.children.splice(start, 0, newNode);
     if (this.isMounted()) {
       this.container.requestUpdate(
-        [...this.path(), 'children'],
+        [...this.path(), 'c'],
         start,
         0,
         immediately,
@@ -92,7 +92,7 @@ export default class VNode {
   update() {
     // root 不会更新，所以肯定有 parent
     this.container.requestUpdate(
-      [...this.parent!.path(), 'children'],
+      [...this.parent!.path(), 'c'],
       this.parent!.children.indexOf(this),
       1,
       false,
@@ -104,11 +104,7 @@ export default class VNode {
     if (!this.parent) {
       return ['root'];
     }
-    return [
-      ...this.parent.path(),
-      'children',
-      this.parent.children.indexOf(this),
-    ];
+    return [...this.parent.path(), 'c', this.parent.children.indexOf(this)];
   }
 
   isMounted(): boolean {

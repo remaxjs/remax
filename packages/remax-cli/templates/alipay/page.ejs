@@ -2,7 +2,7 @@
 <template is="REMAX_TPL" data="{{tree: { root: root }}}" />
 
 <template name="REMAX_TPL">
-  <block a:for="{{tree.root.children}}" a:key="{{item.id}}">
+  <block a:for="{{tree.root.c}}" a:key="{{item.id}}">
     <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
   </block>
 </template>
