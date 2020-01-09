@@ -1,5 +1,5 @@
 <import-sjs name="helper" from="<%= jsHelper %>" />
-<template is="REMAX_TPL" data="{{tree: helper.reduce(action)}}" />
+<template is="REMAX_TPL" data="{{tree: { root: root }}}" />
 
 <template name="REMAX_TPL">
   <block a:for="{{tree.root.children}}" a:key="{{item.id}}">
