@@ -1,0 +1,44 @@
+<template name="REMAX_TPL">
+	<block s-for="tree.root.children trackBy item.id">
+		<template is="REMAX_TPL_1_CONTAINER" data="{{{ item: item, a: '' }}}" />
+	</block>
+</template>
+
+<import-sjs module="_h">
+	var elements = {};
+	module.exports = {
+		v: function(value) {
+			return value !== undefined ? value : '';
+		},
+		tid: function (type, ancestor) {
+			var items = ancestor.split(',');
+			var depth = 1;
+
+			for (var i = 0; i < items.length; i++) {
+				if (type === items[i]) {
+					depth = depth + 1;
+				}
+			}
+
+			var id = 'REMAX_TPL_' + depth + '_' + type;
+			return id;
+		}
+	};
+</import-sjs>
+<% for (let component of components) { %><% var len = 10; %><% for (var i = 1; i <= len; i++) { %>
+		<%- include('./component.ejs', {
+			props: component.props,
+			id: component.id,
+			templateId: i,
+			type: component.type,
+			viewComponent: viewComponent
+			})
+		%><% } %><% } %>
+<template name="REMAX_TPL_1_plain-text" data="{{{ item: item }}}">
+	<block>{{item.text}}</block>
+</template>
+<% for (var i = 1; i <= 10; i++) { %>
+<template name="REMAX_TPL_<%=i%>_CONTAINER" data="{{{ item: item }}}">
+	<template is="{{_h.tid(item.type, a)}}" data="{{{ item: item, a: a + ',' + item.type, tid: <%=i%> }}}" />
+</template>
+<% } %>

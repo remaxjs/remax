@@ -1,0 +1,39 @@
+<%
+ function generateTextTemplate(props, depth = 0) {
+  if (depth === 10) {
+    return;
+  }
+  const propsString = props
+      .map(key => `${key}="{{item.props['${key}']}}"`)
+      .join('\n');
+  return `
+    <text ${propsString}>
+      <block s-for="item.children trackBy item.id">
+        <block s-for="item.children trackBy item.id">
+          <block s-if="item.type === 'text'">
+            ${generateTextTemplate(props, depth + 1)}
+          </block>
+          <block s-else>{{item.text}}</block>
+        </block>
+      </block>
+    </text>
+  `;
+ }
+%>
+<template name="REMAX_TPL_1_<%=id%>">
+  <<%=id%> <% for(let i=0;i < props.length; i++) { %>
+    <%=props[i]%>="{{item.props['<%=props[i]%>']}}"<% } %><% if (type === 'native') { %>ref="{{item.props['__ref']}}"<% } %>>
+    <% if (id === 'text') { %>
+    <block s-for="item.children trackBy item.id">
+      <block s-if="item.type === 'text'">
+        <%- generateTextTemplate(props) %>
+      </block>
+      <block s-else>{{item.text}}</block>
+    </block>
+    <% } else { %>
+    <block s-for="item.children trackBy item.id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+    <% } %>
+  </<%=id%>>
+</template>

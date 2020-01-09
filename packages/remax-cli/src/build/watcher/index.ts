@@ -1,4 +1,4 @@
-import chokidar from 'chokidar';
+import chokidar, { FSWatcher } from 'chokidar';
 import * as fs from 'fs';
 import * as path from 'path';
 import { RollupOptions, watch, RollupWatcher } from 'rollup';
@@ -17,7 +17,7 @@ const chokidarConfig = {
   usePolling: true,
 };
 
-let extraFilesWatcher: RollupWatcher | null;
+let extraFilesWatcher: FSWatcher | null;
 let watcher: RollupWatcher | null;
 
 export default function runWather(

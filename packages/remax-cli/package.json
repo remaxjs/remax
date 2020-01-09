@@ -98,6 +98,7 @@
     "remax-alipay": "^0.0.5",
     "remax-toutiao": "^0.0.4",
     "remax-wechat": "^0.0.4",
+    "remax-baidu": "^0.0.4",
     "sander": "^0.6.0",
     "scheduler": "^0.15.0",
     "ts-jest": "^24.0.2",
