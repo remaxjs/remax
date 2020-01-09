@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/remaxjs/remax/compare/v1.10.9...v1.11.0) (2020-01-09)
+
+### Bug Fixes
+
+- **wechat:** 修复 ScrollView 非受控使用依然有受控表现的问题 ([e2001bb](https://github.com/remaxjs/remax/commit/e2001bb))
+- **wechat:** 修复 Swiper 非受控时依然有受控表现的问题 ([c4e3c88](https://github.com/remaxjs/remax/commit/c4e3c88))
+
+### Features
+
+- 新增 useQuery，用于在组件中获取页面 query ([3603139](https://github.com/remaxjs/remax/commit/3603139))
+- 引入 unstable_useNativeEffect ([#557](https://github.com/remaxjs/remax/issues/557)) ([be40751](https://github.com/remaxjs/remax/commit/be40751)), closes [#310](https://github.com/remaxjs/remax/issues/310) [#255](https://github.com/remaxjs/remax/issues/255)
+
+### Performance Improvements
+
+- 避免当组件上有 style 属性时可能产生的非必要渲染 ([7ec0be2](https://github.com/remaxjs/remax/commit/7ec0be2)), closes [#531](https://github.com/remaxjs/remax/issues/531)
+
 ## [1.10.9](https://github.com/remaxjs/remax/compare/v1.10.8...v1.10.9) (2020-01-01)
 
 ### Bug Fixes
