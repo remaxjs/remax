@@ -4,6 +4,7 @@ import { generate } from './instanceId';
 import { generate as generateActionId } from './actionId';
 import { FiberRoot } from 'react-reconciler';
 import propsAlias from './propsAlias';
+import nativeEffector from './nativeEffect';
 
 function stringPath(path: Path) {
   return path.join('.');
@@ -57,6 +58,7 @@ export default class Container {
       },
       /* istanbul ignore next */
       () => {
+        nativeEffector.run();
         if (process.env.REMAX_DEBUG) {
           console.log(
             `setData => 回调时间：${new Date().getTime() - startTime}ms`,

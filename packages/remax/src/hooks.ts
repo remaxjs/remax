@@ -1,6 +1,17 @@
-import { useLayoutEffect, useContext } from 'react';
+import { useLayoutEffect, useContext, DependencyList } from 'react';
 import { registerLifecycle, Lifecycle, Callback } from './lifecycle';
 import PageInstanceContext from './PageInstanceContext';
+import nativeEffect, { Listener } from './nativeEffect';
+
+// eslint-disable-next-line @typescript-eslint/camelcase
+export function unstable_useNativeEffect(
+  listener: Listener,
+  deps?: DependencyList
+) {
+  useLayoutEffect(() => {
+    return nativeEffect.connect(listener, !!deps);
+  }, deps);
+}
 
 export function useShow(callback: Callback) {
   const pageInstance = useContext(PageInstanceContext);
@@ -83,4 +94,9 @@ export function usePullIntercept(callback: Callback) {
   useLayoutEffect(() => {
     return registerLifecycle(pageInstance, Lifecycle.pullIntercept, callback);
   });
+}
+
+export function useQuery<Q extends {} = { [name: string]: string }>(): Q {
+  const pageInstance: any = useContext(PageInstanceContext);
+  return pageInstance.query;
 }

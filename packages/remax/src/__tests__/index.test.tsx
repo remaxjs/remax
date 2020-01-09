@@ -6,10 +6,16 @@ import render from '../render';
 import { reset as resetInstanceId } from '../instanceId';
 import { reset as resetActionId } from '../actionId';
 import Container from '../Container';
+// eslint-disable-next-line @typescript-eslint/camelcase
+import { unstable_useNativeEffect } from '../hooks';
 
 const p = {
-  setData() {
-    // mock function
+  setData(state: any, callback: Function) {
+    setTimeout(() => {
+      if (typeof callback === 'function') {
+        callback();
+      }
+    });
   },
   $spliceData() {
     // mock function
@@ -328,5 +334,60 @@ describe('alipay', () => {
       expect(payload[0].item.type).toEqual('input');
       done();
     }, 5);
+  });
+
+  it('unstable_useNativeEffect once works', done => {
+    let count = 0;
+    const Page = () => {
+      const [width, setWidth] = React.useState(0);
+      unstable_useNativeEffect(() => {
+        count += 1;
+
+        setTimeout(() => {
+          if (count === 1) {
+            done();
+          }
+        }, 500);
+      }, []);
+      React.useEffect(() => {
+        setTimeout(() => {
+          setWidth(100);
+        }, 100);
+      }, []);
+
+      return <View>{width}</View>;
+    };
+    const container = new Container(p);
+    render(<Page />, container);
+  });
+
+  it('unstable_useNativeEffect deps works', done => {
+    let count = 0;
+    const Page = () => {
+      const [width, setWidth] = React.useState(0);
+      const [height, setheight] = React.useState(0);
+      unstable_useNativeEffect(() => {
+        count += 1;
+
+        if (count === 2) {
+          done();
+        }
+      }, [width]);
+      React.useEffect(() => {
+        setheight(100);
+        setTimeout(() => {
+          setWidth(100);
+        }, 1000);
+      }, []);
+
+      return (
+        <View>
+          {width}
+          {height}
+        </View>
+      );
+    };
+    const container = new Container(p);
+    render(<Page />, container);
   });
 });
