@@ -84,7 +84,7 @@ export default class Container {
           () => {
             if (index + 1 === length) {
               my.showToast({
-                content: new Date().getTime() + ',' + getApp().testTime,
+                content: '' + (new Date().getTime() - getApp().testTime),
               });
             }
           }
