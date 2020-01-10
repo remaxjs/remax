@@ -70,27 +70,27 @@ export default class Container {
       return;
     }
 
-    // this.context.$batchedUpdates(() => {
-    const length = this.updateQueue.length;
-    this.updateQueue.forEach((update, index) => {
-      this.context.$spliceData(
-        {
-          [update.path.join('.')]: [
-            update.start,
-            update.deleteCount,
-            ...update.items,
-          ],
-        },
-        () => {
-          if (index + 1 === length) {
-            my.showToast({
-              content: new Date().getTime() - getApp().testTime,
-            });
+    this.context.$batchedUpdates(() => {
+      const length = this.updateQueue.length;
+      this.updateQueue.forEach((update, index) => {
+        this.context.$spliceData(
+          {
+            [update.path.join('.')]: [
+              update.start,
+              update.deleteCount,
+              ...update.items,
+            ],
+          },
+          () => {
+            if (index + 1 === length) {
+              my.showToast({
+                content: new Date().getTime() + ',' + getApp().testTime,
+              });
+            }
           }
-        }
-      );
+        );
+      });
     });
-    // });
 
     // let tree: typeof action | { root: RawNode } = action;
 
