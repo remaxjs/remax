@@ -25,7 +25,7 @@
 	</a>
 </p>
 
-[《为什么要用 React 来构建小程序》](https://zhuanlan.zhihu.com/p/79788488)
+[《使用 React 开发小程序》](https://www.yuque.com/seeconf/2020/qsytho)
 
 Remax 将 React 运行在小程序环境中，让你可以使用完整的 React 进行小程序开发。
 
