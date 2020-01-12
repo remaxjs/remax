@@ -1,4 +1,5 @@
 import { RollupOptions, RollupWarning } from 'rollup';
+import API from '../API';
 import { output } from './utils/output';
 import path from 'path';
 import resolve from '@rollup/plugin-node-resolve';
@@ -8,6 +9,7 @@ import url from '@remax/rollup-plugin-url';
 import json from '@rollup/plugin-json';
 import postcss from '@remax/rollup-plugin-postcss';
 import postcssUrl from './plugins/postcssUrl';
+import runtimePlugins from './plugins/remaxRuntimePlugins';
 import progress from 'rollup-plugin-progress';
 import clean from 'rollup-plugin-delete';
 import copy from 'rollup-plugin-copy';
@@ -15,43 +17,42 @@ import stub from './plugins/stub';
 import pxToUnits from '@remax/postcss-px2units';
 import getEntries from '../getEntries';
 import getCssModuleConfig from '../getCssModuleConfig';
-import template from './plugins/template';
-import components from './plugins/components';
 import page from './plugins/page';
 import removeSrc from './plugins/removeSrc';
 import rename from './plugins/rename';
 import replace from '@rollup/plugin-replace';
 import { RemaxOptions } from '../getConfig';
 import app from './plugins/app';
-import adapters, { Adapter } from './adapters';
 import { Context, Env } from '../types';
 import namedExports from 'named-exports-db';
 import fixRegeneratorRuntime from './plugins/fixRegeneratorRuntime';
-import nativeComponents from './plugins/nativeComponents/index';
 import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin';
+import nativeComponents from './plugins/nativeComponents';
+import components from './plugins/components';
+import template from './plugins/template';
 import alias from './plugins/alias';
 import extensions from '../extensions';
 import { without } from 'lodash';
 import jsx from 'acorn-jsx';
+import stringifyHostComponents from './stringifyHostComponents';
 
 export default function rollupConfig(
   options: RemaxOptions,
   argv: any,
-  adapter: Adapter,
   context?: Context
 ) {
   const stubModules: string[] = [];
 
-  adapters.forEach(name => {
-    if (adapter.name !== name) {
-      const esmPackage = `remax/esm/adapters/${name}`;
-      const cjsPackage = `remax/cjs/adapters/${name}`;
+  ['wechat', 'alipay', 'toutiao'].forEach(name => {
+    if (API.adapter.name !== name) {
+      const esmPackage = `${name}/esm`;
+      const cjsPackage = `${name}/cjs`;
       stubModules.push(esmPackage);
       stubModules.push(cjsPackage);
     }
   });
 
-  const entries = getEntries(options, adapter, context);
+  const entries = getEntries(options, context);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
   // 获取 postcss 配置
@@ -66,6 +67,7 @@ export default function rollupConfig(
     REMAX_PLATFORM: argv.target,
     REMAX_DEBUG: process.env.REMAX_DEBUG,
     REMAX_PX2RPX: `${options.pxToRpx}`,
+    REMAX_HOST_COMPONENTS: () => stringifyHostComponents(),
   };
 
   Object.keys(process.env).forEach(k => {
@@ -75,6 +77,10 @@ export default function rollupConfig(
   });
 
   const plugins = [
+    runtimePlugins({
+      entries,
+      options,
+    }),
     copy({
       targets: [
         {
@@ -116,23 +122,20 @@ export default function rollupConfig(
       modules: stubModules,
     }),
     babel({
-      include: entries.pages.map(p => p.file),
+      include: entries.pages,
       extensions: without(extensions, '.json'),
-      usePlugins: [nativeComponentsBabelPlugin(options, adapter), page],
+      usePlugins: [nativeComponentsBabelPlugin(options), page],
       reactPreset: false,
     }),
     babel({
       include: entries.app,
       extensions: without(extensions, '.json'),
-      usePlugins: [nativeComponentsBabelPlugin(options, adapter), app],
+      usePlugins: [nativeComponentsBabelPlugin(options), app],
       reactPreset: false,
     }),
     babel({
       extensions: without(extensions, '.json'),
-      usePlugins: [
-        nativeComponentsBabelPlugin(options, adapter),
-        components(adapter),
-      ],
+      usePlugins: [nativeComponentsBabelPlugin(options), components()],
       reactPreset: true,
     }),
     postcss({
@@ -145,7 +148,11 @@ export default function rollupConfig(
     }),
     replace({
       values: Object.keys(envReplacement).reduce((acc: any, key) => {
-        acc[`process.env.${key}`] = JSON.stringify(envReplacement[key]);
+        if (typeof envReplacement[key] === 'function') {
+          acc[`process.env.${key}`] = envReplacement[key];
+        } else {
+          acc[`process.env.${key}`] = JSON.stringify(envReplacement[key]);
+        }
         return acc;
       }, {}),
     }),
@@ -172,7 +179,7 @@ export default function rollupConfig(
           cssModuleConfig.globalModulePaths.some(reg => reg.test(input)) ||
           input.indexOf('app.css') !== -1
         ) {
-          return input.replace(/\.css/, adapter.extensions.style);
+          return input.replace(/\.css/, API.getMeta().style);
         }
 
         return input.replace(/\.css/, '.css.js');
@@ -200,12 +207,8 @@ export default function rollupConfig(
     }),
     removeSrc(options),
     fixRegeneratorRuntime(),
-    nativeComponents(
-      options,
-      adapter,
-      entries.pages.map(p => p.file)
-    ),
-    template(options, adapter, context),
+    nativeComponents(options, entries.pages),
+    template(options, context),
   ];
 
   /* istanbul ignore next */
@@ -223,10 +226,10 @@ export default function rollupConfig(
 
   let config: RollupOptions = {
     treeshake: process.env.NODE_ENV === 'production',
-    input: [entries.app, ...entries.pages.map(p => p.file), ...entries.images],
+    input: [entries.app, ...entries.pages, ...entries.images],
     output: {
       dir: options.output,
-      format: adapter.moduleFormat,
+      format: 'cjs',
       exports: 'named',
       sourcemap: false,
       extend: true,
@@ -258,6 +261,8 @@ export default function rollupConfig(
   } else if (options.rollupOptions) {
     config = { ...config, ...options.rollupOptions };
   }
+
+  config = API.extendsRollupConfig({ rollupConfig: config });
 
   return config;
 }

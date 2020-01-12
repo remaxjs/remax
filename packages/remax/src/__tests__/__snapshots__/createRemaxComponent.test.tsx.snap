@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`createHostComponent create remax component 1`] = `
-<custom-component
-  foo="bar"
-/>
-`;

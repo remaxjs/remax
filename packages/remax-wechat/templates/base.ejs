@@ -1,0 +1,44 @@
+<template name="REMAX_TPL">
+	<block wx:for="{{tree.root.children}}" wx:key="id">
+		<template is="REMAX_TPL_1_CONTAINER" data="{{i: item, a: ''}}" />
+	</block>
+</template>
+
+<wxs module="_h">
+	var elements = {};
+	module.exports = {
+		v: function(value) {
+			return value !== undefined ? value : '';
+		},
+		tid: function (type, ancestor) {
+			var items = ancestor.split(',');
+			var depth = 1;
+		
+			for (var i = 0; i < items.length; i++) {
+				if (type === items[i]) {
+					depth = depth + 1;
+				}
+			}
+
+			var id = 'REMAX_TPL_' + depth + '_' + type;
+			return id;
+		}
+	};
+</wxs>
+<% for (let component of components) { %><% var len = depth[component.id] || 10; %><% for (var i = 1; i <= len; i++) { %>
+		<%- include('./component.ejs', {
+			props: component.props,
+			id: component.id,
+			templateId: i,
+			type: component.type,
+			viewComponent: viewComponent
+			})
+		%><% } %><% } %>
+<template name="REMAX_TPL_1_plain-text" data="{{i: i}}">
+	<block>{{i.text}}</block>
+</template>
+<% for (var i = 1; i <= depth['view']; i++) { %>
+<template name="REMAX_TPL_<%=i%>_CONTAINER" data="{{i: i}}">
+	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: <%=i%>}}" />
+</template>
+<% } %>

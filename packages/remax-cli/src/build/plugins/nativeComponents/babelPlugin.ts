@@ -3,7 +3,6 @@ import { kebabCase, sortBy } from 'lodash';
 import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
 import * as path from 'path';
-import { Adapter } from '../../adapters';
 import { isNativeComponent, isPluginComponent, getSourcePath } from './util';
 import { RemaxOptions } from '../../../getConfig';
 import {
@@ -41,7 +40,7 @@ const getHashId = (sourcePath: string, id: string) => {
   return `${id}-0`;
 };
 
-export default (options: RemaxOptions, adapter: Adapter) => {
+export default (options: RemaxOptions) => {
   importers.clear();
 
   return () => ({
@@ -53,12 +52,7 @@ export default (options: RemaxOptions, adapter: Adapter) => {
         const importer: string = state.file.opts.filename;
         const node = path.node;
 
-        const sourcePath = getSourcePath(
-          options,
-          adapter,
-          node.source.value,
-          importer
-        );
+        const sourcePath = getSourcePath(options, node.source.value, importer);
         if (!isNativeComponent(sourcePath)) {
           return;
         }
@@ -66,7 +60,7 @@ export default (options: RemaxOptions, adapter: Adapter) => {
         const id = getKebabCaseName(sourcePath);
         const component = {
           id: sourcePath,
-          props: new Set([]),
+          props: [],
           importer,
           hashId: getHashId(sourcePath, id),
           pages: new Set([]),
@@ -95,11 +89,11 @@ export default (options: RemaxOptions, adapter: Adapter) => {
           }
 
           const source = componentPath.parent.source.value;
-          const sourcePath = getSourcePath(options, adapter, source, importer);
+          const sourcePath = getSourcePath(options, source, importer);
 
           if (
             !isNativeComponent(sourcePath) &&
-            !isPluginComponent(sourcePath, options, adapter)
+            !isPluginComponent(sourcePath, options)
           ) {
             return;
           }
@@ -115,11 +109,11 @@ export default (options: RemaxOptions, adapter: Adapter) => {
             .filter(Boolean)
             // 剔除 ref，在 axml 特殊处理
             .filter(k => k !== 'ref')
-            .map(prop => adapter.getNativePropName(prop, true));
+            .map(prop => prop.replace('className', 'class'));
 
           const component = {
             id: sourcePath,
-            props: new Set(props),
+            props: [...new Set(props)].sort(),
             importer,
             hashId: getHashId(sourcePath, id),
             pages: new Set([]),

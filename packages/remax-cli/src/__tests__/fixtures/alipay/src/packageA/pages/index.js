@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from 'remax/wechat';
+import { View, Text } from 'remax-alipay';
 
 export default () => {
   const props = {};

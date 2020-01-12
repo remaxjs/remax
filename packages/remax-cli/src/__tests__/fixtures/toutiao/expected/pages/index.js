@@ -6,44 +6,43 @@ var _rollupPluginBabelHelpers = require('../_virtual/_rollupPluginBabelHelpers.j
 require('../npm/remax/esm/render.js');
 var React = require('react');
 require('../npm/remax/esm/createAppConfig.js');
-require('../npm/remax/esm/Platform.js');
 require('../npm/remax/esm/createHostComponent.js');
 var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
 require('../npm/remax/esm/index.js');
 var runtime = require('../npm/regenerator-runtime/runtime.js');
-var View = require('../npm/remax/esm/adapters/toutiao/components/View.js');
-require('../npm/remax/esm/adapters/toutiao/components/Input.js');
-require('../npm/remax/esm/adapters/toutiao/components/Textarea.js');
-require('../npm/remax/esm/adapters/toutiao/components/Video.js');
-require('../npm/remax/esm/adapters/toutiao/components/Swiper.js');
-require('../npm/remax/esm/adapters/toutiao/components/ScrollView.js');
-require('../npm/remax/esm/adapters/toutiao/components/SwiperItem.js');
-require('../npm/remax/esm/adapters/toutiao/components/Icon.js');
-var Text = require('../npm/remax/esm/adapters/toutiao/components/Text.js');
-require('../npm/remax/esm/adapters/toutiao/components/RichText.js');
-require('../npm/remax/esm/adapters/toutiao/components/Progress.js');
-require('../npm/remax/esm/adapters/toutiao/components/Button.js');
-require('../npm/remax/esm/adapters/toutiao/components/CheckboxGroup.js');
-require('../npm/remax/esm/adapters/toutiao/components/Checkbox.js');
-require('../npm/remax/esm/adapters/toutiao/components/Form.js');
-require('../npm/remax/esm/adapters/toutiao/components/Label.js');
-require('../npm/remax/esm/adapters/toutiao/components/Picker.js');
-require('../npm/remax/esm/adapters/toutiao/components/PickerView.js');
-require('../npm/remax/esm/adapters/toutiao/components/PickerViewColumn.js');
-require('../npm/remax/esm/adapters/toutiao/components/RadioGroup.js');
-require('../npm/remax/esm/adapters/toutiao/components/Radio.js');
-require('../npm/remax/esm/adapters/toutiao/components/Slider.js');
-require('../npm/remax/esm/adapters/toutiao/components/Switch.js');
-require('../npm/remax/esm/adapters/toutiao/components/Navigator.js');
-require('../npm/remax/esm/adapters/toutiao/components/Image.js');
-require('../npm/remax/esm/adapters/toutiao/components/Canvas.js');
-require('../npm/remax/esm/adapters/toutiao/components/WebView.js');
-require('../npm/remax/esm/adapters/toutiao/api.js');
-var index$2 = require('../npm/remax/esm/adapters/wechat/components/index.js');
+var index$2 = require('../npm/remax/npm/remax-toutiao/esm/hostComponents/View/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Input/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Textarea/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Video/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Swiper/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/ScrollView/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/SwiperItem/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Icon/index.js');
+var index$a = require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Text/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/RichText/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Progress/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Button/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/CheckboxGroup/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Checkbox/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Form/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Label/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Picker/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/PickerView/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/PickerViewColumn/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/RadioGroup/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Radio/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Slider/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Switch/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Navigator/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Image/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/Canvas/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/hostComponents/WebView/index.js');
+require('../npm/remax/npm/remax-toutiao/esm/api/index.js');
+var index$u = require('../npm/remax/npm/remax-wechat/esm/hostComponents/index.js');
 
 var _page = function _page() {
   var props = {};
-  var TextElement = React.cloneElement(React.createElement(Text.default, null));
+  var TextElement = React.cloneElement(React.createElement(index$a.default, null));
 
   function handleClick() {
     return _handleClick.apply(this, arguments);
@@ -72,12 +71,12 @@ var _page = function _page() {
 
   function handleTouchStart() {}
 
-  return React.createElement(View.default, null, React.createElement(View.default, _rollupPluginBabelHelpers.extends({
+  return React.createElement(index$2.default, null, React.createElement(index$2.default, _rollupPluginBabelHelpers.extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo"), TextElement, React.createElement(index$2.FunctionalPageNavigator, null), React.createElement(UnBindingComponent, null));
+  }, props), "foo"), TextElement, React.createElement(index$u.FunctionalPageNavigator, null), React.createElement(UnBindingComponent, null));
 };
 
 var index = Page(createPageConfig.default(_page));

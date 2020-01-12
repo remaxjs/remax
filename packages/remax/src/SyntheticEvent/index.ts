@@ -6,6 +6,7 @@
  */
 
 import SyntheticEventPool from './Pool';
+import API from '../API';
 
 const eventPool = new SyntheticEventPool();
 
@@ -27,17 +28,7 @@ function createBaseSyntheticEvent(
  *
  */
 function getEventId(event: any) {
-  if (!event.target) {
-    return;
-  }
-
-  if (event.target.targetDataset && event.target.targetDataset.rid) {
-    return event.target.targetDataset.rid;
-  }
-
-  if (event.target.dataset && event.target.dataset.rid) {
-    return event.target.dataset.rid;
-  }
+  return API.getEventTargetId({ nativeEvent: event });
 }
 
 /**
@@ -45,13 +36,7 @@ function getEventId(event: any) {
  *
  */
 function getCurrentEventId(event: any) {
-  if (event.currentTarget) {
-    return event.currentTarget.dataset?.rid;
-  }
-
-  if (event.target) {
-    return event.target.dataset?.rid;
-  }
+  return API.getEventCurrentTargetId({ nativeEvent: event });
 }
 
 /**

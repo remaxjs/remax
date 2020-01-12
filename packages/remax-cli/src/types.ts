@@ -6,5 +6,5 @@ export interface Context {
   pages: Array<{ path: string; [key: string]: any }>;
 }
 export interface Env {
-  [key: string]: string | undefined;
+  [key: string]: string | Function | undefined;
 }

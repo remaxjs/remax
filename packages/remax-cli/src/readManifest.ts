@@ -10,7 +10,7 @@ function readTypescriptManifest(path: string, target: string) {
     extensions: ['.ts'],
     cache: false,
   });
-  // eslint-disable-next-line
+  // eslint-disable-next-line no-global-assign
   require = esm(module, {
     cjs: {
       dedefault: true,
@@ -24,7 +24,7 @@ function readTypescriptManifest(path: string, target: string) {
 }
 
 function readJavascriptManifest(path: string, target: string) {
-  // eslint-disable-next-line
+  // eslint-disable-next-line no-global-assign
   require = esm(module, {
     cjs: {
       dedefault: true,

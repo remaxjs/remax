@@ -6,6 +6,8 @@ import { PluginImpl, RollupOptions } from 'rollup';
 import validateOptions from 'schema-utils';
 import schema from './RemaxOptionsSchema.json';
 
+type RemaxPluginConfig = string | string[];
+
 export interface RemaxOptions {
   cssModules: boolean | RegExp;
   pxToRpx: boolean;
@@ -32,6 +34,7 @@ export interface RemaxOptions {
     plugins?: PluginImpl[];
   };
   rollupOptions?: RollupOptions | ((options: RollupOptions) => RollupOptions);
+  plugins: RemaxPluginConfig[];
 }
 
 export type RemaxConfig = Partial<RemaxOptions>;
@@ -53,7 +56,7 @@ function readJavascriptConfig(path: string) {
   return config || {};
 }
 
-export default function getConfig(): RemaxOptions {
+export default function getConfig(validate = true): RemaxOptions {
   const configPath: string = path.join(process.cwd(), './remax.config');
   let options = {};
 
@@ -61,9 +64,11 @@ export default function getConfig(): RemaxOptions {
     options = readJavascriptConfig(configPath + '.js');
   }
 
-  validateOptions(schema as any, options, {
-    name: 'remax',
-  });
+  if (validate) {
+    validateOptions(schema as any, options, {
+      name: 'remax',
+    });
+  }
 
   return {
     ...defaultOptions,

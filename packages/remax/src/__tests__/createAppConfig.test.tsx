@@ -51,4 +51,8 @@ describe('createAppConfig', () => {
     const appConfig = createAppConfig(App);
     expect(appConfig.foo).toBe('bar');
   });
+
+  it('use default App', () => {
+    expect(createAppConfig(undefined)).toBeDefined();
+  });
 });
