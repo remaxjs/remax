@@ -50,9 +50,6 @@
         }
       }
     },
-    "plugins": {
-      "type": "array"
-    },
     "rollupOptions": {
       "anyOf": [{ "type": "object" }, { "instanceof": "Function" }]
     }

@@ -11,7 +11,7 @@ var runtime = require('../../npm/remax-alipay/esm/runtime.js');
 
 var __REMAX_RUNTIME_PLUGIN_CONFIGS = [runtime.default()];
 
-API.default.installPlugins(__REMAX_RUNTIME_PLUGIN_CONFIGS);
+API.default.registerPlugins(__REMAX_RUNTIME_PLUGIN_CONFIGS);
 
 var _ref =
 /*#__PURE__*/

@@ -1,13 +1,10 @@
 import API from './API';
-import getConfig from './getConfig';
 export { RemaxNodePlugin, RemaxNodePluginConstructor } from './API';
 export { Entries } from './getEntries';
 export { default as logger } from './build/utils/output';
 import yargs from 'yargs';
 import build from './build';
 import { checkRemaxVersion } from './checkVersions';
-
-API.registerNodePlugins(getConfig());
 
 export { RemaxConfig, RemaxOptions } from './getConfig';
 

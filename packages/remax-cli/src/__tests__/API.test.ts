@@ -6,7 +6,7 @@ import yargs from 'yargs';
 import getConfig from '../getConfig';
 import API from '../API';
 
-const remaxOptions = getConfig();
+const remaxOptions = getConfig(false);
 
 describe('API', () => {
   beforeAll(() => {
