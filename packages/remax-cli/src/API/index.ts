@@ -52,7 +52,7 @@ export type ShouldHostComponentRegister = {
   phase: 'import' | 'jsx' | 'extra';
 };
 
-export interface RemaxNodePluginConfig {
+export interface RemaxNodePlugin {
   meta?: Meta;
   hostComponents?: any;
   /**
@@ -104,10 +104,10 @@ export interface RemaxNodePluginConfig {
   extendsRollupConfig?: (options: ExtendsRollupConfigOptions) => RollupOptions;
 }
 
-export type RemaxNodePlugin = (options?: any) => RemaxNodePluginConfig;
+export type RemaxNodePluginConstructor = (options?: any) => RemaxNodePlugin;
 
 class API {
-  public configs: RemaxNodePluginConfig[] = [];
+  public plugins: RemaxNodePlugin[] = [];
   public adapter = {
     name: '',
     packageName: '',
@@ -132,9 +132,9 @@ class API {
   };
   public extendsCLI(options: ExtendsCLIOptions) {
     let { cli } = options;
-    this.configs.forEach(config => {
-      if (typeof config.extendsCLI === 'function') {
-        cli = config.extendsCLI({ ...options, cli });
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.extendsCLI === 'function') {
+        cli = plugin.extendsCLI({ ...options, cli });
       }
     });
 
@@ -163,8 +163,8 @@ class API {
       },
     };
 
-    this.configs.forEach(config => {
-      meta = merge(meta, config.meta || {});
+    this.plugins.forEach(plugin => {
+      meta = merge(meta, plugin.meta || {});
     });
 
     return meta;
@@ -179,9 +179,9 @@ class API {
     appManifest: AppConfig,
     remaxOptions: RemaxOptions
   ) {
-    this.configs.forEach(config => {
-      if (typeof config.getEntries === 'function') {
-        const currentEntries = config.getEntries({
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.getEntries === 'function') {
+        const currentEntries = plugin.getEntries({
           remaxOptions,
           appManifest,
           getEntryPath: (entryPath: string) => searchFile(entryPath, true),
@@ -203,9 +203,9 @@ class API {
     node?: t.JSXElement | undefined
   ) {
     let nextProps = props;
-    this.configs.forEach(config => {
-      if (typeof config.processProps === 'function') {
-        nextProps = config.processProps({
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.processProps === 'function') {
+        nextProps = plugin.processProps({
           componentName,
           props: nextProps,
           additional,
@@ -222,9 +222,9 @@ class API {
     phase: 'import' | 'jsx' | 'extra',
     additional?: boolean
   ) {
-    return this.configs.reduce((result, config) => {
-      if (typeof config.shouldHostComponentRegister === 'function') {
-        return config.shouldHostComponentRegister({
+    return this.plugins.reduce((result, plugin) => {
+      if (typeof plugin.shouldHostComponentRegister === 'function') {
+        return plugin.shouldHostComponentRegister({
           componentName,
           additional,
           phase,
@@ -237,47 +237,36 @@ class API {
 
   public extendsRollupConfig(options: ExtendsRollupConfigOptions) {
     let { rollupConfig } = options;
-    this.configs.forEach(config => {
-      if (typeof config.extendsRollupConfig === 'function') {
-        rollupConfig = config.extendsRollupConfig({ ...options, rollupConfig });
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.extendsRollupConfig === 'function') {
+        rollupConfig = plugin.extendsRollupConfig({ ...options, rollupConfig });
       }
     });
 
     return rollupConfig;
   }
 
-  public installAdapterPlugins(adapterName: string) {
+  public registerAdapterPlugins(adapterName: string) {
     this.adapter.name = adapterName;
     this.adapter.packageName = 'remax-' + adapterName;
 
     const packagePath = this.adapter.packageName + '/node';
 
     delete require.cache[packagePath];
-    const pluginFn = require(packagePath).default || require(packagePath);
-
-    if (typeof pluginFn === 'function') {
-      const config = pluginFn();
-
-      this.installHostComponents(config.hostComponents);
-
-      this.configs.push(config);
-    }
+    let plugin = require(packagePath).default || require(packagePath);
+    plugin = typeof plugin === 'function' ? plugin() : plugin;
+    this.registerHostComponents(plugin.hostComponents);
+    this.plugins.push(plugin);
   }
 
-  public installNodePlugins(remaxConfig: RemaxOptions) {
-    remaxConfig.plugins.forEach(plugin => {
-      const [name, options] = flatten([plugin]);
-      const pluginFn: RemaxNodePlugin | null = this.getNodePlugin(
-        name,
-        remaxConfig
-      );
-
-      if (typeof pluginFn === 'function') {
-        const config = pluginFn(options);
-
-        this.installHostComponents(config.hostComponents);
-
-        this.configs.push(config);
+  public registerNodePlugins(remaxConfig: RemaxOptions) {
+    remaxConfig.plugins.forEach(pluginFn => {
+      const [name, options] = flatten([pluginFn]);
+      let plugin: any = this.getNodePlugin(name, remaxConfig);
+      if (plugin) {
+        plugin = typeof plugin === 'function' ? plugin(options) : plugin;
+        this.registerHostComponents(plugin.hostComponents);
+        this.plugins.push(plugin);
       }
     });
   }
@@ -304,7 +293,7 @@ class API {
       .concat(this.adapter.packageName + '/runtime');
   }
 
-  private installHostComponents(components?: Map<string, any>) {
+  private registerHostComponents(components?: Map<string, any>) {
     if (!components) {
       return;
     }

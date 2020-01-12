@@ -10,7 +10,7 @@ jest.mock('../../getEntries', () => () => ({
 
 describe('rollupConfig', () => {
   it('override rollup options', () => {
-    API.installAdapterPlugins('alipay');
+    API.registerAdapterPlugins('alipay');
     const options = rollupConfig(
       {
         ...defaultOptions,

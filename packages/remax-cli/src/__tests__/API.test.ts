@@ -10,12 +10,12 @@ const remaxOptions = getConfig();
 
 describe('API', () => {
   beforeAll(() => {
-    API.installNodePlugins(remaxOptions);
-    API.installAdapterPlugins('alipay');
+    API.registerNodePlugins(remaxOptions);
+    API.registerAdapterPlugins('alipay');
   });
 
   it('install plugins in a variety of ways', () => {
-    expect(API.configs).toHaveLength(6);
+    expect(API.plugins).toHaveLength(6);
   });
 
   it('install adapter plugin', () => {

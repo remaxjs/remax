@@ -3,7 +3,7 @@ import Container from '../Container';
 
 describe('API', () => {
   beforeAll(() => {
-    API.installPlugins([
+    API.registerPlugins([
       {
         extendsAppConfig: ({ appConfig }) => ({
           ...appConfig,
@@ -41,7 +41,7 @@ describe('API', () => {
   });
 
   it('install plugins', () => {
-    expect(API.configs).toHaveLength(3);
+    expect(API.plugins).toHaveLength(3);
   });
 
   it('extends app config', () => {
@@ -115,7 +115,7 @@ describe('API', () => {
 
   it('on unload', () => {
     const onUnload = jest.fn();
-    API.installPlugins([
+    API.registerPlugins([
       {
         onUnload,
       },

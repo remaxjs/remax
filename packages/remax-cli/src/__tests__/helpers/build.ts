@@ -8,7 +8,7 @@ export default async function build(app: string, target: string) {
   const cwd = path.resolve(__dirname, `../fixtures/${app}`);
   process.chdir(cwd);
 
-  API.installAdapterPlugins(target);
+  API.registerAdapterPlugins(target);
 
   const config = getConfig();
   const rollupOptions = rollupConfig(

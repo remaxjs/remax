@@ -3,7 +3,7 @@ import API from '../../API';
 
 describe('synthetic event for currentTarget event', () => {
   beforeAll(() => {
-    API.installPlugins([
+    API.registerPlugins([
       {
         getEventTargetId: ({ nativeEvent }) =>
           nativeEvent?.target?.dataset?.rid,

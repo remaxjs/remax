@@ -31,7 +31,7 @@ export default ({ entries, options }: Options): Plugin => ({
       .map((_, index) => `__REMAX_PLUGIN_${index}()`)
       .join(',')}
     ];
-    __REMAX_API.installPlugins(__REMAX_RUNTIME_PLUGIN_CONFIGS);
+    __REMAX_API.registerPlugins(__REMAX_RUNTIME_PLUGIN_CONFIGS);
 `);
 
     return magicString.toString();

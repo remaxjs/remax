@@ -12,7 +12,7 @@ export default async (argv: any, context?: Context) => {
     ...(context ? context.config : {}),
   };
 
-  API.installAdapterPlugins(argv.target);
+  API.registerAdapterPlugins(argv.target);
 
   const rollupOptions: rollup.RollupOptions = rollupConfig(
     options,

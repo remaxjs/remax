@@ -7,7 +7,7 @@ type GetEventCurrentTargetId = { nativeEvent: any };
 type OnUpdateActionOptions = { container: Container; action: any };
 type OnUnloadOptions = { container: Container };
 
-export interface RemaxRuntimePluginConfig {
+export interface RemaxRuntimePlugin {
   /**
    * 扩展原生 app 实例
    * @param options
@@ -55,19 +55,21 @@ export interface RemaxRuntimePluginConfig {
   onUnload?: (options: OnUnloadOptions) => void;
 }
 
-export type RemaxRuntimePlugin = (options?: any) => RemaxRuntimePluginConfig;
+export type RemaxRuntimePluginConstructor = (
+  options?: any
+) => RemaxRuntimePlugin;
 
 class API {
-  public configs: RemaxRuntimePluginConfig[] = [];
+  public plugins: RemaxRuntimePlugin[] = [];
 
-  public installPlugins(pluginConfigs: RemaxRuntimePluginConfig[]) {
-    this.configs = [...this.configs, ...pluginConfigs];
+  public registerPlugins(plugins: RemaxRuntimePlugin[]) {
+    this.plugins = [...this.plugins, ...plugins];
   }
 
   public extendsAppConfig(options: ExtendsAppConfigOptions) {
-    return this.configs.reduce((appConfig, config) => {
-      if (typeof config.extendsAppConfig === 'function') {
-        return config.extendsAppConfig({ appConfig });
+    return this.plugins.reduce((appConfig, plugin) => {
+      if (typeof plugin.extendsAppConfig === 'function') {
+        return plugin.extendsAppConfig({ appConfig });
       }
 
       return appConfig;
@@ -75,9 +77,9 @@ class API {
   }
 
   public extendsPageConfig(options: ExtendsPageConfigOptions) {
-    return this.configs.reduce((pageConfig, config) => {
-      if (typeof config.extendsPageConfig === 'function') {
-        return config.extendsPageConfig({ pageConfig });
+    return this.plugins.reduce((pageConfig, plugin) => {
+      if (typeof plugin.extendsPageConfig === 'function') {
+        return plugin.extendsPageConfig({ pageConfig });
       }
 
       return pageConfig;
@@ -87,9 +89,9 @@ class API {
   public getEventTargetId(options: GetEventTargetId) {
     let id = '';
 
-    this.configs.forEach(config => {
-      if (typeof config.getEventTargetId === 'function') {
-        id = config.getEventTargetId(options);
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.getEventTargetId === 'function') {
+        id = plugin.getEventTargetId(options);
       }
     });
 
@@ -99,9 +101,9 @@ class API {
   public getEventCurrentTargetId(options: GetEventCurrentTargetId) {
     let id = '';
 
-    this.configs.forEach(config => {
-      if (typeof config.getEventCurrentTargetId === 'function') {
-        id = config.getEventCurrentTargetId(options);
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.getEventCurrentTargetId === 'function') {
+        id = plugin.getEventCurrentTargetId(options);
       }
     });
 
@@ -109,9 +111,9 @@ class API {
   }
 
   public onUpdateAction(options: OnUpdateActionOptions) {
-    return this.configs.reduce((action, config) => {
-      if (typeof config.onUpdateAction === 'function') {
-        return config.onUpdateAction({ ...options, action });
+    return this.plugins.reduce((action, plugin) => {
+      if (typeof plugin.onUpdateAction === 'function') {
+        return plugin.onUpdateAction({ ...options, action });
       }
 
       return action;
@@ -119,9 +121,9 @@ class API {
   }
 
   public onUnload(options: OnUnloadOptions) {
-    this.configs.forEach(config => {
-      if (typeof config.onUnload === 'function') {
-        config.onUnload(options);
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.onUnload === 'function') {
+        plugin.onUnload(options);
       }
     });
   }
