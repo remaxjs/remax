@@ -1,5 +1,26 @@
 #!/usr/bin/env sh
 
-FIXTURE="alipay"
+if [[ -z "${REMAX_INTEGRATION_TEST_REPO}" ]]; then
+  echo "请先设置环境变量 REMAX_INTEGRATION_TEST_REPO"
+  exit 1
+fi
 
-cd ../integration-test/ && yarn && yarn build:fixture "$FIXTURE" && FIXTURE="$FIXTURE" yarn test
+TEST_DIR=integration-test
+
+# 构建
+# npm run build
+# clone 集成测试
+if [ -d "$TEST_DIR" ]; then
+  echo "Updating ${TEST_DIR}..."
+  cd $TEST_DIR
+  git pull
+  cd ..
+else
+  echo "Cloing ${TEST_DIR}..."
+  git clone $REMAX_INTEGRATION_TEST_REPO $TEST_DIR
+fi
+cd $TEST_DIR
+tnpm install --by=yarn
+npm link remax remax-cli remax-alipay
+npm run build
+npm run test
