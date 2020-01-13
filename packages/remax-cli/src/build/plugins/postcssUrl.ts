@@ -2,7 +2,7 @@ import fs from 'fs';
 import mkdirp from 'mkdirp';
 import path from 'path';
 import purl from 'postcss-url';
-import { RemaxOptions } from '../../getConfig';
+import { RemaxOptions } from 'remax-types';
 import winPath from '../../winPath';
 
 interface Asset {

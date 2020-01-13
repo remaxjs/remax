@@ -20,7 +20,7 @@ import page from './plugins/page';
 import removeSrc from './plugins/removeSrc';
 import rename from './plugins/rename';
 import replace from '@rollup/plugin-replace';
-import { RemaxOptions } from '../getConfig';
+import { RemaxOptions } from 'remax-types';
 import app from './plugins/app';
 import { Context, Env } from '../types';
 import namedExports from 'named-exports-db';

@@ -1,4 +1,4 @@
-import { RemaxOptions } from './getConfig';
+import { RemaxOptions } from 'remax-types';
 
 export interface Context {
   config: RemaxOptions;

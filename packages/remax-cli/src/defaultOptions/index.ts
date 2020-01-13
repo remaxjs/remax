@@ -1,4 +1,4 @@
-import { RemaxOptions } from '../getConfig';
+import { RemaxOptions } from 'remax-types';
 import UNSAFE_wechatTemplateDepth from './UNSAFE_wechatTemplateDepth';
 
 const defaultOptions: RemaxOptions = {

@@ -3,7 +3,7 @@ import * as path from 'path';
 import { simple } from 'acorn-walk';
 import MagicString from 'magic-string';
 import winPath from '../../winPath';
-import { RemaxOptions } from '../../getConfig';
+import { RemaxOptions } from 'remax-types';
 
 interface Node {
   start: number;

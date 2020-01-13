@@ -32,7 +32,7 @@ describe('node', () => {
       pages: [],
     };
 
-    const remaxOptions = {
+    const remaxOptions: any = {
       cwd: 'cwd',
       rootDir: 'src',
     };
@@ -68,7 +68,7 @@ describe('node', () => {
       },
     };
 
-    const remaxOptions = {
+    const remaxOptions: any = {
       cwd: 'cwd',
       rootDir: 'src',
     };
@@ -88,18 +88,21 @@ describe('node', () => {
     expect(
       node().shouldHostComponentRegister!({
         componentName: 'swiper-item',
+        phase: 'import',
       })
     ).toBeFalsy();
 
     expect(
       node().shouldHostComponentRegister!({
         componentName: 'picker-view-column',
+        phase: 'import',
       })
     ).toBeFalsy();
 
     expect(
       node().shouldHostComponentRegister!({
         componentName: 'view',
+        phase: 'import',
       })
     ).toBeTruthy();
   });

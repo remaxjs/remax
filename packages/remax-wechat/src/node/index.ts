@@ -1,9 +1,10 @@
 import * as path from 'path';
 import hostComponents from '../hostComponents/node';
+import { RemaxNodePluginConstructor, Entries } from 'remax-types';
 
 const EJS_TPL_ROOT = path.join(__dirname, '../../templates');
 
-const plugin: RemaxNodePlugin = () => {
+const plugin: RemaxNodePluginConstructor = () => {
   return {
     meta: {
       template: {
@@ -66,7 +67,7 @@ const plugin: RemaxNodePlugin = () => {
       });
 
       // tabbar 中的图片
-      entries.images = ((tabBar?.list as string[]) || [])
+      entries.images = (tabBar?.list || [])
         .reduce(
           (images: string[], tab: any) => [
             ...images,

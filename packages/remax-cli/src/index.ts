@@ -1,12 +1,17 @@
 import API from './API';
-export { RemaxNodePlugin, RemaxNodePluginConstructor } from './API';
-export { Entries } from './getEntries';
+import {
+  Entries as EntriesType,
+  RemaxOptions as RemaxOptionsType,
+  RemaxConfig as RemaxConfigType,
+} from 'remax-types';
 export { default as logger } from './build/utils/output';
 import yargs from 'yargs';
 import build from './build';
 import { checkRemaxVersion } from './checkVersions';
 
-export { RemaxConfig, RemaxOptions } from './getConfig';
+export type Entries = EntriesType;
+export type RemaxOptions = RemaxOptionsType;
+export type RemaxConfig = RemaxConfigType;
 
 export let cli = yargs;
 

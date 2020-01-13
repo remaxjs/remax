@@ -1,6 +1,6 @@
 import * as path from 'path';
 import aliasPlugin from '@rollup/plugin-alias';
-import { RemaxOptions } from '../../getConfig';
+import { RemaxOptions } from 'remax-types';
 
 export default function(options: RemaxOptions) {
   const aliasConfig = Object.entries(options.alias || {}).reduce(

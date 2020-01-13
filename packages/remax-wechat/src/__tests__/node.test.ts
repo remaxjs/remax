@@ -32,7 +32,7 @@ describe('node', () => {
       pages: [],
     };
 
-    const remaxOptions = {
+    const remaxOptions: any = {
       cwd: 'cwd',
       rootDir: 'src',
     };
@@ -68,7 +68,7 @@ describe('node', () => {
       },
     };
 
-    const remaxOptions = {
+    const remaxOptions: any = {
       cwd: 'cwd',
       rootDir: 'src',
     };
@@ -127,7 +127,7 @@ describe('node', () => {
               },
             ],
           },
-        },
+        } as any,
         props: ['p1'],
         componentName: 'view',
         additional: false,

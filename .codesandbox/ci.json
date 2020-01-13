@@ -1,5 +1,6 @@
 {
   "packages": [
+    "packages/remax-types",
     "packages/remax.macro",
     "packages/remax-alipay",
     "packages/remax-wechat",

@@ -1,42 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import API from './API';
-import { RemaxOptions } from './getConfig';
+import { RemaxOptions, AppConfig, Entries } from 'remax-types';
 import readManifest from './readManifest';
 import { Context } from './types';
 import { output } from './build/utils/output';
-
-interface Plugins {
-  [key: string]: {
-    version: string;
-    provider: string;
-  };
-}
-
-export interface AppConfig {
-  pages: string[];
-  subpackages?: Array<{
-    root: string;
-    pages: string[];
-    plugins?: Plugins;
-  }>;
-  subPackages?: Array<{
-    root: string;
-    pages: string[];
-    plugins?: Plugins;
-  }>;
-  tabBar?: {
-    items: Array<{ icon: string; activeIcon: string }>;
-    list: Array<{ iconPath: string; selectedIconPath: string }>;
-  };
-  plugins?: Plugins;
-}
-
-export interface Entries {
-  app: string;
-  pages: string[];
-  images: string[];
-}
 
 export function searchFile(file: string, strict?: boolean) {
   const exts = ['ts', 'tsx', 'js', 'jsx'];
