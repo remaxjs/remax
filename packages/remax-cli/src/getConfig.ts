@@ -2,11 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import esm from 'esm';
 import defaultOptions from './defaultOptions';
+import { RemaxNodePlugin } from './API';
 import { PluginImpl, RollupOptions } from 'rollup';
 import validateOptions from 'schema-utils';
 import schema from './RemaxOptionsSchema.json';
-
-type RemaxPluginConfig = string | string[];
 
 export interface RemaxOptions {
   cssModules: boolean | RegExp;
@@ -34,7 +33,7 @@ export interface RemaxOptions {
     plugins?: PluginImpl[];
   };
   rollupOptions?: RollupOptions | ((options: RollupOptions) => RollupOptions);
-  plugins: RemaxPluginConfig[];
+  plugins: RemaxNodePlugin[];
 }
 
 export type RemaxConfig = Partial<RemaxOptions>;
