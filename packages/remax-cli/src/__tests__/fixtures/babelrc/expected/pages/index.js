@@ -2,6 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+require('../npm/remax/esm/Platform.js');
 require('../npm/remax/esm/render.js');
 var React = require('react');
 var _rollupPluginBabelHelpers = require('../_virtual/_rollupPluginBabelHelpers.js');

@@ -271,28 +271,6 @@ class API {
     });
   }
 
-  public getRuntimePlugins(remaxConfig: RemaxOptions) {
-    return remaxConfig.plugins
-      .map(plugin => {
-        const [id] = flatten([plugin]);
-        const packageName = id.startsWith('remax-plugin')
-          ? id
-          : 'remax-plugin-' + id;
-
-        return packageName + '/runtime';
-      })
-      .filter(packageName => {
-        const packagePath = path.join(
-          remaxConfig.cwd,
-          'node_modules',
-          packageName
-        );
-
-        return existsSync(packagePath + '.js');
-      })
-      .concat(this.adapter.packageName + '/runtime');
-  }
-
   private registerHostComponents(components?: Map<string, any>) {
     if (!components) {
       return;

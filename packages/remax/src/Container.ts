@@ -1,10 +1,10 @@
 import VNode, { Path, RawNode } from './VNode';
-import API from './API';
 import { generate } from './instanceId';
 import { generate as generateActionId } from './actionId';
 import { FiberRoot } from 'react-reconciler';
 import propsAlias from './propsAlias';
 import nativeEffector from './nativeEffect';
+import Platform from './Platform';
 
 function stringPath(path: Path) {
   return path.join('.');
@@ -98,7 +98,7 @@ export default class Container {
       return;
     }
 
-    const action = {
+    let action: { type: string; payload: any; id?: number } = {
       type: 'splice',
       payload: this.updateQueue.map(update => ({
         path: stringPath(update.path),
@@ -109,12 +109,21 @@ export default class Container {
       id: generateActionId(),
     };
 
-    const updateAction = API.onUpdateAction({
-      container: this,
-      action,
-    });
+    if (Platform.isAlipay && !this.rendered) {
+      action.type = 'init';
+      this.rendered = true;
+    }
 
-    this.dispatchAction(updateAction);
+    if (Platform.isToutiao) {
+      action = {
+        type: 'replace',
+        payload: {
+          root: this.normalizeRawNode(this.root.toJSON()),
+        },
+      };
+    }
+
+    this.dispatchAction(action);
 
     this.updateQueue = [];
   }
@@ -122,7 +131,11 @@ export default class Container {
   clearUpdate() {
     this.stopUpdate = true;
 
-    API.onUnload({ container: this });
+    if (Platform.isWechat) {
+      this.dispatchAction({
+        type: 'clear',
+      });
+    }
   }
 
   createCallback(name: string, fn: Function) {

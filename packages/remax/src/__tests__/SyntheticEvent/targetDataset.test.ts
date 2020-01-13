@@ -1,16 +1,8 @@
 import { createCallbackProxy } from '../../SyntheticEvent';
-import API from '../../API';
 
 describe('synthetic event for targetDataset event', () => {
   beforeAll(() => {
-    API.registerPlugins([
-      {
-        getEventTargetId: ({ nativeEvent }) =>
-          nativeEvent?.target?.targetDataset?.rid,
-        getEventCurrentTargetId: ({ nativeEvent }) =>
-          nativeEvent?.target?.dataset?.rid,
-      },
-    ]);
+    process.env.REMAX_PLATFORM = 'alipay';
   });
   describe('stop propagation', () => {
     it('only accept onClick', () => {
