@@ -16,7 +16,7 @@ const IncNotification = () => {
     if (hide) {
       return;
     }
-    fetch('https://ur.alipay.com/5Szoc0VbaztqBeZqFqtDO8')
+    fetch('https://cdog01.alibaba-inc.com/aliwork/tfscom/TB19ARumfb2gK0jSZK9XXaEgFXa.tfsprivate_140x140')
       .then(res => {
         if (res.status === 200) {
           notification.info({
