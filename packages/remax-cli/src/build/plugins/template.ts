@@ -60,6 +60,8 @@ async function createTemplate(
     }
   );
 
+  // TODO 用 uglify 替代 compressTemplate
+  /* istanbul ignore next */
   if (options.compressTemplate) {
     code = code.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
   }
@@ -118,6 +120,8 @@ async function createBaseTemplate(options: RemaxOptions, meta: Meta) {
     }
   );
 
+  // TODO 用 uglify 替代 compressTemplate
+  /* istanbul ignore next */
   if (options.compressTemplate) {
     code = code.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
   }
