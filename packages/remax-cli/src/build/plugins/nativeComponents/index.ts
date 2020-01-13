@@ -4,7 +4,7 @@ import * as path from 'path';
 import { Plugin, OutputChunk } from 'rollup';
 import { simple } from 'acorn-walk';
 import { readFileSync } from 'fs';
-import { RemaxOptions } from '../../../getConfig';
+import { RemaxOptions } from 'remax-types';
 import style, { getcssPaths } from './style';
 import json, { getjsonPaths } from './json';
 import template, { getTemplatePaths } from './tempate';

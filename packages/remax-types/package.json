@@ -1,0 +1,13 @@
+{
+  "name": "remax-types",
+  "version": "0.0.6",
+  "description": "Remax Types",
+  "typings": "index.d.ts",
+  "author": "Caihuanyu <eterlf41@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/types": "^7.8.0",
+    "@types/yargs": "^15.0.0",
+    "rollup": "^1.29.0"
+  }
+}

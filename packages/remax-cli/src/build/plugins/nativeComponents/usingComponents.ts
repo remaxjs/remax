@@ -3,7 +3,7 @@ import { existsSync } from 'fs';
 import path from 'path';
 import { output } from '../../utils/output';
 import { PluginContext } from 'rollup';
-import { RemaxOptions } from '../../../getConfig';
+import { RemaxOptions } from 'remax-types';
 
 const runWalk = (
   filePath: string,

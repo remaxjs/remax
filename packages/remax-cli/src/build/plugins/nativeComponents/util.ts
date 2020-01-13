@@ -4,7 +4,7 @@ import resolve from 'resolve';
 import extensions from '../../../extensions';
 import alias from '../alias';
 import winPath from '../../../winPath';
-import { RemaxOptions } from '../../../getConfig';
+import { RemaxOptions } from 'remax-types';
 import { getAppConfig } from '../../../getEntries';
 
 export const pushArray = (arr: string[], path: string) => {

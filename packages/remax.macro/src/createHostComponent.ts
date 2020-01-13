@@ -1,13 +1,11 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
+import { HostComponents } from 'remax-types';
 
 const PACKAGE_NAME = 'remax';
 const FUNCTION_NAME = 'createHostComponent';
 
-export const hostComponents = new Map<
-  string,
-  { props: string[]; additional?: boolean; alias?: { [key: string]: string } }
->();
+export const hostComponents: HostComponents = new Map();
 
 function getConfig(callExpression: NodePath<t.CallExpression>) {
   const args = callExpression.node.arguments;

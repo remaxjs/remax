@@ -1,4 +1,4 @@
-import { RemaxOptions } from '../../getConfig';
+import { RemaxOptions } from 'remax-types';
 
 export function isConfigFile(id: string) {
   return /\.config\.(js|ts)$/.test(id);

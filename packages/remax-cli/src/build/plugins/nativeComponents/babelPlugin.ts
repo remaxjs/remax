@@ -4,7 +4,7 @@ import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
 import * as path from 'path';
 import { isNativeComponent, isPluginComponent, getSourcePath } from './util';
-import { RemaxOptions } from '../../../getConfig';
+import { RemaxOptions } from 'remax-types';
 import {
   Importers,
   addToComponentCollection,
