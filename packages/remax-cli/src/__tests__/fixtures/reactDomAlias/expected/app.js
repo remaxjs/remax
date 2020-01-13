@@ -3,11 +3,11 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var _rollupPluginBabelHelpers = require('./_virtual/_rollupPluginBabelHelpers.js');
-require('../../npm/remax/esm/Platform.js');
 require('../../npm/remax/esm/render.js');
 var React = require('react');
 var createAppConfig = require('../../npm/remax/esm/createAppConfig.js');
 require('../../npm/remax/esm/createHostComponent.js');
+require('../../npm/remax/esm/Platform.js');
 require('../../npm/remax/esm/createPageConfig.js');
 require('../../npm/remax/esm/createNativeComponent.js');
 require('../../npm/remax/esm/index.js');

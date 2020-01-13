@@ -6,7 +6,6 @@
  */
 
 import SyntheticEventPool from './Pool';
-import Platform from '../Platform';
 
 const eventPool = new SyntheticEventPool();
 
@@ -28,7 +27,7 @@ function createBaseSyntheticEvent(
  *
  */
 function getEventId(event: any) {
-  if (Platform.isAlipay) {
+  if (event?.target?.targetDataset) {
     return event?.target?.targetDataset?.rid;
   }
 
@@ -40,7 +39,7 @@ function getEventId(event: any) {
  *
  */
 function getCurrentEventId(event: any) {
-  if (Platform.isAlipay) {
+  if (event?.target?.targetDataset) {
     return event?.target?.dataset?.rid;
   }
 

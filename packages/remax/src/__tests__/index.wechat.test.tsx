@@ -17,16 +17,6 @@ const p = {
       }
     });
   },
-  $batchedUpdates(callback: Function) {
-    callback();
-  },
-  $spliceData(state: any, callback: Function) {
-    setTimeout(() => {
-      if (typeof callback === 'function') {
-        callback();
-      }
-    });
-  },
 };
 
 describe('remax render', () => {

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import './helpers/setupGlobals';
 import View from './helpers/View';
-import Input from './helpers/Input';
 import render from '../render';
 import { reset as resetInstanceId } from '../instanceId';
 import { reset as resetActionId } from '../actionId';
@@ -17,19 +16,13 @@ const p = {
       }
     });
   },
-  $batchedUpdates(callback: Function) {
-    callback();
-  },
-  $spliceData(state: any, callback: Function) {
-    setTimeout(() => {
-      if (typeof callback === 'function') {
-        callback();
-      }
-    });
-  },
 };
 
 describe('remax render', () => {
+  beforeAll(() => {
+    process.env.REMAX_PLATFORM = 'toutiao';
+  });
+
   afterEach(() => {
     resetActionId();
     resetInstanceId();
@@ -260,86 +253,6 @@ it('useEffect works', done => {
   };
   const container = new Container(p);
   render(<Page />, container);
-});
-
-it('pure rerender when props changed', done => {
-  let payload: any[] = [];
-  const context = {
-    setData: (data: any) => {
-      payload = data.action.payload;
-    },
-  };
-
-  class Page extends React.Component {
-    state = {
-      value: 'foo',
-    };
-
-    setValue(value: string) {
-      this.setState({ value });
-    }
-
-    render() {
-      return (
-        <View style={{ width: '32px' }}>
-          <Input value={this.state.value} />
-        </View>
-      );
-    }
-  }
-  const container = new Container(context);
-  const page = React.createRef<any>();
-  render(<Page ref={page} />, container);
-
-  expect.assertions(2);
-
-  page.current.setValue('bar');
-
-  setTimeout(() => {
-    expect(payload).toHaveLength(1);
-    expect(payload[0].item.type).toEqual('input');
-    done();
-  }, 5);
-});
-
-it('pure rerender when props delete', done => {
-  let payload: any[] = [];
-  const context = {
-    setData: (data: any) => {
-      payload = data.action.payload;
-    },
-  };
-
-  class Page extends React.Component {
-    state = {
-      value: 'foo',
-    };
-
-    setValue(value: string) {
-      this.setState({ value });
-    }
-
-    render() {
-      return (
-        <View style={{ width: '32px' }}>
-          {!this.state.value ? <Input /> : <Input value={this.state.value} />}
-        </View>
-      );
-    }
-  }
-  const container = new Container(context);
-  const page = React.createRef<any>();
-  render(<Page ref={page} />, container);
-
-  expect.assertions(2);
-
-  page.current.setValue(undefined);
-
-  setTimeout(() => {
-    expect(payload).toHaveLength(1);
-    expect(payload[0].item.type).toEqual('input');
-    done();
-  }, 5);
 });
 
 it('unstable_useNativeEffect once works', done => {

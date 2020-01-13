@@ -46,29 +46,6 @@ export default class Container {
     };
   };
 
-  dispatchAction = (inputAction: { type: string; payload?: any }) => {
-    const startTime = new Date().getTime();
-
-    const action =
-      inputAction.type === 'replace' ? inputAction.payload : inputAction;
-
-    this.context.setData(
-      {
-        action,
-      },
-      /* istanbul ignore next */
-      () => {
-        nativeEffector.run();
-        if (process.env.REMAX_DEBUG) {
-          console.log(
-            `setData => 回调时间：${new Date().getTime() - startTime}ms`,
-            action
-          );
-        }
-      }
-    );
-  };
-
   requestUpdate(
     path: Path,
     start: number,
@@ -98,7 +75,46 @@ export default class Container {
       return;
     }
 
-    let action: { type: string; payload: any; id?: number } = {
+    const startTime = new Date().getTime();
+
+    if (
+      typeof this.context.$batchedUpdates === 'function' &&
+      typeof this.context.$spliceData === 'function'
+    ) {
+      this.context.$batchedUpdates(() => {
+        this.updateQueue.map((update, index) => {
+          let callback = undefined;
+          if (index + 1 === this.updateQueue.length) {
+            callback = () => {
+              nativeEffector.run();
+              /* istanbul ignore next */
+              if (process.env.REMAX_DEBUG) {
+                console.log(
+                  `setData => 回调时间：${new Date().getTime() - startTime}ms`
+                );
+              }
+            };
+          }
+          this.context.$spliceData(
+            {
+              [update.path.join('.')]: [
+                update.start,
+                update.deleteCount,
+                ...update.items,
+              ],
+            },
+            callback
+          );
+        });
+      });
+
+      this.updateQueue = [];
+
+      return;
+    }
+
+    // TODO 统一更新行为
+    let action: any = {
       type: 'splice',
       payload: this.updateQueue.map(update => ({
         path: stringPath(update.path),
@@ -109,21 +125,27 @@ export default class Container {
       id: generateActionId(),
     };
 
-    if (Platform.isAlipay && !this.rendered) {
-      action.type = 'init';
-      this.rendered = true;
-    }
-
     if (Platform.isToutiao) {
       action = {
-        type: 'replace',
-        payload: {
-          root: this.normalizeRawNode(this.root.toJSON()),
-        },
+        root: this.normalizeRawNode(this.root.toJSON()),
       };
     }
 
-    this.dispatchAction(action);
+    this.context.setData(
+      {
+        action,
+      },
+      () => {
+        nativeEffector.run();
+        /* istanbul ignore next */
+        if (process.env.REMAX_DEBUG) {
+          console.log(
+            `setData => 回调时间：${new Date().getTime() - startTime}ms`,
+            action
+          );
+        }
+      }
+    );
 
     this.updateQueue = [];
   }
@@ -132,8 +154,8 @@ export default class Container {
     this.stopUpdate = true;
 
     if (Platform.isWechat) {
-      this.dispatchAction({
-        type: 'clear',
+      this.context.setData({
+        action: { type: 'clear' },
       });
     }
   }
