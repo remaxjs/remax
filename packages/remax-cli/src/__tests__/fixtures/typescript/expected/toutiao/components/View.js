@@ -2,12 +2,12 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+var Platform = require('../npm/remax/esm/Platform.js');
 require('../npm/remax/esm/render.js');
 var React = require('react');
 require('../npm/remax/esm/createAppConfig.js');
 require('../npm/remax/esm/createHostComponent.js');
 require('../npm/remax/esm/createPageConfig.js');
-var Platform = require('../npm/remax/esm/Platform.js');
 require('../npm/remax/esm/index.js');
 var index$1 = require('../npm/remax/npm/remax-alipay/esm/hostComponents/index.js');
 var index$2 = require('../npm/remax/npm/remax-wechat/esm/hostComponents/index.js');

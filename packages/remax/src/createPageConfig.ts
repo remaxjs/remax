@@ -1,5 +1,4 @@
 import * as React from 'react';
-import API from './API';
 import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName } from './lifecycle';
 import Container from './Container';
@@ -152,5 +151,5 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
      */
   };
 
-  return API.extendsPageConfig({ pageConfig: config });
+  return config;
 }

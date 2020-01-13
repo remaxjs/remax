@@ -1,17 +1,6 @@
 import { createCallbackProxy } from '../../SyntheticEvent';
-import API from '../../API';
 
 describe('synthetic event for currentTarget event', () => {
-  beforeAll(() => {
-    API.registerPlugins([
-      {
-        getEventTargetId: ({ nativeEvent }) =>
-          nativeEvent?.target?.dataset?.rid,
-        getEventCurrentTargetId: ({ nativeEvent }) =>
-          nativeEvent?.currentTarget?.dataset?.rid,
-      },
-    ]);
-  });
   describe('stop propagation', () => {
     it('only accept onClick', () => {
       const ontap = () => void 0;

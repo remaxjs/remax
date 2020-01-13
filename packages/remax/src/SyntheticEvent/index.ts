@@ -6,7 +6,7 @@
  */
 
 import SyntheticEventPool from './Pool';
-import API from '../API';
+import Platform from '../Platform';
 
 const eventPool = new SyntheticEventPool();
 
@@ -28,7 +28,11 @@ function createBaseSyntheticEvent(
  *
  */
 function getEventId(event: any) {
-  return API.getEventTargetId({ nativeEvent: event });
+  if (Platform.isAlipay) {
+    return event?.target?.targetDataset?.rid;
+  }
+
+  return event?.target?.dataset?.rid;
 }
 
 /**
@@ -36,7 +40,11 @@ function getEventId(event: any) {
  *
  */
 function getCurrentEventId(event: any) {
-  return API.getEventCurrentTargetId({ nativeEvent: event });
+  if (Platform.isAlipay) {
+    return event?.target?.dataset?.rid;
+  }
+
+  return event?.currentTarget?.dataset?.rid;
 }
 
 /**

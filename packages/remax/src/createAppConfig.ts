@@ -1,5 +1,4 @@
 import * as React from 'react';
-import API from './API';
 import render from './render';
 import AppContainer from './AppContainer';
 import isClass from './utils/isClass';
@@ -97,7 +96,7 @@ export default function createAppConfig(this: any, App: any) {
       },
     };
 
-    return API.extendsAppConfig({ appConfig: config });
+    return config;
   };
 
   // 兼容老的写法

@@ -7,8 +7,6 @@ fi
 
 TEST_DIR=integration-test
 
-# 构建
-# npm run build
 # clone 集成测试
 if [ -d "$TEST_DIR" ]; then
   echo "Updating ${TEST_DIR}..."
@@ -20,7 +18,7 @@ else
   git clone $REMAX_INTEGRATION_TEST_REPO $TEST_DIR
 fi
 cd $TEST_DIR
-tnpm install --by=yarn
-npm link remax remax-cli remax-alipay
-npm run build
-npm run test
+ayarn
+yarn link remax remax-cli remax-alipay
+yarn build
+yarn test

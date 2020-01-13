@@ -107,10 +107,4 @@ describe('API', () => {
       }
     `);
   });
-
-  it('runtime plugins', () => {
-    const plugins = API.getRuntimePlugins(remaxOptions);
-
-    expect(plugins).toHaveLength(1);
-  });
 });
