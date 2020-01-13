@@ -1,9 +1,6 @@
 import { createCallbackProxy } from '../../SyntheticEvent';
 
 describe('synthetic event for targetDataset event', () => {
-  beforeAll(() => {
-    process.env.REMAX_PLATFORM = 'alipay';
-  });
   describe('stop propagation', () => {
     it('only accept onClick', () => {
       const ontap = () => void 0;
@@ -32,6 +29,7 @@ describe('synthetic event for targetDataset event', () => {
           dataset: {
             rid: 1,
           },
+          targetDataset: {},
         },
       });
       barProxy({
@@ -39,6 +37,7 @@ describe('synthetic event for targetDataset event', () => {
           dataset: {
             rid: 2,
           },
+          targetDataset: {},
         },
       });
       expect(foo).toBeCalledTimes(1);

@@ -2,11 +2,11 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-require('../npm/remax/esm/Platform.js');
 require('../npm/remax/esm/render.js');
 var React = require('react');
 require('../npm/remax/esm/createAppConfig.js');
 require('../npm/remax/esm/createHostComponent.js');
+require('../npm/remax/esm/Platform.js');
 var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
 require('../npm/remax/esm/index.js');
 var index$2 = require('../npm/remax/npm/remax-alipay/esm/hostComponents/View/index.js');

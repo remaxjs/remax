@@ -1,8 +1,7 @@
-<import-sjs name="helper" from="./pages_index3.js_helper.sjs" />
-<template is="REMAX_TPL" data="{{tree: helper.reduce(action)}}" />
+<template is="REMAX_TPL" data="{{ root: root }}" />
 
 <template name="REMAX_TPL">
-  <block a:for="{{tree.root.children}}" a:key="{{item.id}}">
+  <block a:for="{{root.children}}" a:key="{{item.id}}">
     <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
   </block>
 </template>

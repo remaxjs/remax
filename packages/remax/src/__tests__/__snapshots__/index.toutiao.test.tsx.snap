@@ -330,11 +330,9 @@ Object {
 exports[`remax render render native component correctly 1`] = `
 Array [
   Object {
-    "id": 0,
-    "payload": Array [
-      Object {
-        "deleteCount": 0,
-        "item": Object {
+    "root": Object {
+      "children": Array [
+        Object {
           "children": Array [],
           "id": 1,
           "props": Object {
@@ -346,11 +344,12 @@ Array [
           "text": undefined,
           "type": "native-component",
         },
-        "path": "root.children",
-        "start": 0,
-      },
-    ],
-    "type": "splice",
+      ],
+      "id": 0,
+      "props": undefined,
+      "text": undefined,
+      "type": "root",
+    },
   },
 ]
 `;
