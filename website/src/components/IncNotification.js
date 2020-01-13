@@ -16,9 +16,7 @@ const IncNotification = () => {
     if (hide) {
       return;
     }
-    fetch(
-      'https://private-alipayobjects.alipay.com/alipay-rmsdeploy-image/rmsportal/FlPJSPwhzfagtBoHKCbu.png'
-    )
+    fetch('https://ur.alipay.com/5Szoc0VbaztqBeZqFqtDO8')
       .then(res => {
         if (res.status === 200) {
           notification.info({
