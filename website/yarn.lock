@@ -1357,15 +1357,15 @@
     core-js "^2.5.7"
 
 "@mdx-js/loader@^1.0.10":
-  version "1.4.4"
-  resolved "https://registry.yarnpkg.com/@mdx-js/loader/-/loader-1.4.4.tgz#d61fbb8814ce709e009520dfa0621efd8d0700c0"
-  integrity sha512-foa9hup6W9L/orIW2uVeN6dvUor9if8Bp9VwFU2j1UK0UjiOl5gz7mG9ZXlBWc+oW6XhY8Xv4BWZqdhEKM57qg==
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/@mdx-js/loader/-/loader-1.5.3.tgz#0bfec6528a17b618763d2d86a5e0c9d351ac19be"
+  integrity sha512-m3bT9b9xY8wU1sQwHhSuFiIwFm0LP7onDpm2rb3xikHzXNY7yfL1/lV9XF4iecSmd86/4I1L6RKE61Dq1jLqjA==
   dependencies:
-    "@mdx-js/mdx" "^1.4.4"
-    "@mdx-js/react" "^1.4.4"
+    "@mdx-js/mdx" "^1.5.3"
+    "@mdx-js/react" "^1.5.3"
     loader-utils "1.2.3"
 
-"@mdx-js/mdx@^1.0.10", "@mdx-js/mdx@^1.4.4":
+"@mdx-js/mdx@^1.0.10", "@mdx-js/mdx@^1.5.3":
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-1.5.3.tgz#d0092d4e177331d4eaa65d60fa1f37e42fb251ea"
   integrity sha512-XxnOvyCQKri52tgaCXbV5NWnZGqgRsRifa/yJrxwWa6QG3vdFiEi/xokBHBf/62RCKRK4+QmbM4dSl0fgWIRNA==
@@ -1389,10 +1389,10 @@
     unist-builder "1.0.4"
     unist-util-visit "2.0.1"
 
-"@mdx-js/react@^1.0.6", "@mdx-js/react@^1.4.4":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.5.1.tgz#e0a9dbdc03826198abd82b29dcee91d661faf8a5"
-  integrity sha512-eF05YysHqtyXerLId0kPKtxmJ3PE60GJJvx1gOguEQndbs94fUeYTVSfBlnXPPAAzvOmVKrZmktIYsBQlVjpOw==
+"@mdx-js/react@^1.0.6", "@mdx-js/react@^1.5.3":
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.5.3.tgz#e58c458c72b4618f9c8e16d76136e62a6d517515"
+  integrity sha512-5bVLUsZybjmeYL8l4Uh/ysE8vMn0Vb0GKzki/LicaDHJvXr/N4Tjj0gT4tk1OzhcC5nGQAQGIyQMW5pvIjp9XQ==
 
 "@mdx-js/util@^1.5.3":
   version "1.5.3"
