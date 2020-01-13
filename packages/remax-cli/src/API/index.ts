@@ -1,12 +1,10 @@
 import yargs from 'yargs';
 import { hostComponents } from 'remax/macro';
 import * as t from '@babel/types';
-import * as path from 'path';
-import { flatten, merge } from 'lodash';
+import { merge } from 'lodash';
 import { RollupOptions } from 'rollup';
 import { RemaxOptions } from '../getConfig';
 import { AppConfig, Entries, searchFile } from '../getEntries';
-import { existsSync } from 'fs';
 
 export type CLI = typeof yargs;
 export type ExtendsCLIOptions = { cli: CLI };
@@ -260,11 +258,8 @@ class API {
   }
 
   public registerNodePlugins(remaxConfig: RemaxOptions) {
-    remaxConfig.plugins.forEach(pluginFn => {
-      const [name, options] = flatten([pluginFn]);
-      let plugin: any = this.getNodePlugin(name, remaxConfig);
+    remaxConfig.plugins.forEach(plugin => {
       if (plugin) {
-        plugin = typeof plugin === 'function' ? plugin(options) : plugin;
         this.registerHostComponents(plugin.hostComponents);
         this.plugins.push(plugin);
       }
@@ -278,27 +273,6 @@ class API {
 
     for (const key of components.keys()) {
       hostComponents.set(key, components.get(key));
-    }
-  }
-
-  private getNodePlugin(id: string | Function, remaxConfig: RemaxOptions) {
-    if (typeof id === 'string') {
-      const packageName = id.startsWith('remax-plugin')
-        ? id
-        : 'remax-plugin-' + id;
-      const packagePath = path.join(
-        remaxConfig.cwd,
-        'node_modules',
-        packageName,
-        'node'
-      );
-
-      if (!existsSync(packagePath + '.js')) {
-        return null;
-      }
-
-      delete require.cache[packagePath];
-      return require(packagePath);
     }
   }
 }
