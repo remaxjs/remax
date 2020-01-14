@@ -26,42 +26,37 @@ export default function stub(options: Options = {}): Plugin {
         sourceType: 'module',
       });
 
-      const magicString = new MagicString(code);
+      const exports: string[] = [];
 
       ast.body.forEach((node: any) => {
         if (node.type === 'ExportDefaultDeclaration') {
-          magicString.overwrite(node.start, node.end, `\nexport default {};`);
+          exports.push(`\nexport default function() {};`);
         } else if (node.type === 'ExportNamedDeclaration') {
           if (node.declaration == null) {
             let content = '';
             node.specifiers.forEach((specifier: any) => {
-              content += `\nexport var ${specifier.exported.name} = undefined;`;
+              content += `\nexport var ${specifier.exported.name} = function() {};`;
             });
-            magicString.overwrite(node.start, node.end, content);
+            exports.push(content);
           } else if (node.declaration.type === 'VariableDeclaration') {
             node.declaration.declarations.forEach((declaration: any) => {
-              magicString.overwrite(
-                node.start,
-                node.end,
-                `\nexport var ${declaration.id.name} = undefined;`
+              exports.push(
+                `\nexport var ${declaration.id.name} = function() {};`
               );
             });
           } else if (node.declaration.type === 'FunctionDeclaration') {
-            magicString.overwrite(
-              node.start,
-              node.end,
-              `\nexport var ${node.declaration.id.name} = undefined;`
+            exports.push(
+              `\nexport var ${node.declaration.id.name} = function() {};`
             );
           } else if (node.declaration.type === 'ClassDeclaration') {
-            magicString.overwrite(
-              node.start,
-              node.end,
-              `\nexport var ${node.declaration.id.name} = undefined;`
+            exports.push(
+              `\nexport var ${node.declaration.id.name} = function() {};`
             );
           }
         }
       });
 
+      const magicString = new MagicString(exports.join(''));
       code = magicString.toString();
       const map = options.sourceMap ? magicString.generateMap() : null;
       ast = this.parse(code, {
