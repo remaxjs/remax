@@ -4,4 +4,4 @@
 
 printf "npm login:\n"
 
-npm whoami && npm run lint && npm run build && npm run test && npm run test:integration-test
+npm whoami && npm run lint && npm run build && npm run test && npm run test:integration
