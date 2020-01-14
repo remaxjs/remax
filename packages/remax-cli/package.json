@@ -86,7 +86,7 @@
     "@types/resolve": "^0.0.8",
     "@types/through2": "^2.0.34",
     "babel-plugin-loop-optimizer": "^1.4.1",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "eol": "^0.9.1",
     "fs-readdir-recursive": "^1.1.0",
     "jest": "^24.8.0",
