@@ -44,10 +44,8 @@ export default function rollupConfig(
 
   ['wechat', 'alipay', 'toutiao'].forEach(name => {
     if (API.adapter.name !== name) {
-      const esmPackage = `${name}/esm`;
-      const cjsPackage = `${name}/cjs`;
-      stubModules.push(esmPackage);
-      stubModules.push(cjsPackage);
+      stubModules.push(`${name}/esm/api`);
+      stubModules.push(`${name}/esm/hostComponents`);
     }
   });
 
