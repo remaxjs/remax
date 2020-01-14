@@ -192,7 +192,9 @@ describe('remax render', () => {
     expect(container.root).toMatchSnapshot();
   });
 
-  it('render native component correctly', () => {
+  it('render native component correctly', done => {
+    expect.assertions(1);
+
     const NativeComponent = ({ fooBar, onClick, className }: any) =>
       React.createElement('native-component', {
         fooBar,
@@ -201,8 +203,7 @@ describe('remax render', () => {
       });
     const actions: any = [];
     const p = {
-      setData: ({ action }: any) => actions.push(action),
-      $spliceData: ({ action }: any) => actions.push(action),
+      $spliceData: (payload: any) => actions.push(payload),
     };
 
     const container = new Container(p);
@@ -215,7 +216,10 @@ describe('remax render', () => {
       container
     );
 
-    expect(actions).toMatchSnapshot();
+    setTimeout(() => {
+      expect(actions).toMatchSnapshot();
+      done();
+    }, 100);
   });
 });
 

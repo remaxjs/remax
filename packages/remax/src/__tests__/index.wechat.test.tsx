@@ -192,7 +192,6 @@ describe('remax render', () => {
     const actions: any = [];
     const p = {
       setData: ({ action }: any) => actions.push(action),
-      $spliceData: ({ action }: any) => actions.push(action),
     };
 
     const container = new Container(p);

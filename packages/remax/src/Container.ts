@@ -77,11 +77,16 @@ export default class Container {
 
     const startTime = new Date().getTime();
 
-    if (
-      typeof this.context.$batchedUpdates === 'function' &&
-      typeof this.context.$spliceData === 'function'
-    ) {
-      this.context.$batchedUpdates(() => {
+    if (typeof this.context.$spliceData === 'function') {
+      let $batchedUpdates = (callback: Function) => {
+        callback();
+      };
+
+      if (typeof this.context.$batchedUpdates === 'function') {
+        $batchedUpdates = this.context.$batchedUpdates;
+      }
+
+      $batchedUpdates(() => {
         this.updateQueue.map((update, index) => {
           let callback = undefined;
           if (index + 1 === this.updateQueue.length) {

@@ -330,27 +330,22 @@ Object {
 exports[`remax render render native component correctly 1`] = `
 Array [
   Object {
-    "id": 0,
-    "payload": Array [
+    "root.children": Array [
+      0,
+      0,
       Object {
-        "deleteCount": 0,
-        "item": Object {
-          "children": Array [],
-          "id": 1,
-          "props": Object {
-            "class": "class",
-            "data-rid": 1,
-            "fooBar": "fooBar",
-            "onClick": "$$REMAX_METHOD_1_onClick",
-          },
-          "text": undefined,
-          "type": "native-component",
+        "children": Array [],
+        "id": 1,
+        "props": Object {
+          "class": "class",
+          "data-rid": 1,
+          "fooBar": "fooBar",
+          "onClick": "$$REMAX_METHOD_1_onClick",
         },
-        "path": "root.children",
-        "start": 0,
+        "text": undefined,
+        "type": "native-component",
       },
     ],
-    "type": "splice",
   },
 ]
 `;
