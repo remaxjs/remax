@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.2](https://github.com/remaxjs/remax/compare/v1.11.1...v1.11.2) (2020-01-15)
+
+### Bug Fixes
+
+- 修复跨平台开发时引入了不相关平台代码的问题 ([4b0cba4](https://github.com/remaxjs/remax/commit/4b0cba4))
+- 修复钉钉白屏问题 ([38e1199](https://github.com/remaxjs/remax/commit/38e1199))
+
 ## [1.11.1](https://github.com/remaxjs/remax/compare/v1.11.0...v1.11.1) (2020-01-14)
 
 ### Performance Improvements
