@@ -1,5 +1,5 @@
 import * as React from 'react';
-import View from '@/components/View';
+import { View } from 'remax/alipay';
 import Nihao from './Nihao';
 
 export default () => (

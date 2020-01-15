@@ -1,0 +1,17 @@
+{
+  "usingComponents": {
+    "a-0": "../components/a/index",
+    "a-1": "../components/_foo/a/index",
+    "b-0": "../components/b/index",
+    "c-0": "../components/c/index",
+    "cjs-0": "../components/CJS/index",
+    "complex-0": "../components/complex/index",
+    "d-0": "../components/d/index",
+    "e-0": "../components/e/index",
+    "my-plugin-0": "plugin://myPlugin/xx",
+    "my-plugin-1": "plugin://myPlugin/dddd",
+    "not-in-jsx-0": "../components/notInJSX/index",
+    "slot-0": "../components/slot/index",
+    "src-0": "../components/src/index"
+  }
+}

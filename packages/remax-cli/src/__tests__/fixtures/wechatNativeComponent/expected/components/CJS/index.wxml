@@ -1,0 +1,6 @@
+<view class="rax-view {{className}}" 
+    style="{{style}}"
+    bindtap="onClick" 
+    bindlongtap="onLongPress" 
+    <slot/>
+</view>
