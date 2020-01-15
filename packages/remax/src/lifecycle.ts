@@ -45,10 +45,6 @@ export function callbackName(name: string) {
   return 'on' + capitalize(name);
 }
 
-export function registerLifecycle(
-  instance: any,
-  method: Lifecycle | AppLifecycle,
-  callback: Callback
-) {
+export function registerLifecycle(instance: any, method: Lifecycle | AppLifecycle, callback: Callback) {
   return instance.registerLifecycle(method, callback);
 }

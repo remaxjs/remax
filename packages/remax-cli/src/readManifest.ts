@@ -3,10 +3,7 @@ import fs from 'fs';
 
 function readTypescriptManifest(path: string, target: string) {
   require('@babel/register')({
-    presets: [
-      ['@babel/preset-env', { modules: 'commonjs' }],
-      '@babel/preset-typescript',
-    ],
+    presets: [['@babel/preset-env', { modules: 'commonjs' }], '@babel/preset-typescript'],
     extensions: ['.ts'],
     cache: false,
   });
@@ -17,8 +14,7 @@ function readTypescriptManifest(path: string, target: string) {
     },
   });
   delete require.cache[require.resolve(path)];
-  const config =
-    require(path)[target] || require(path).default || require(path);
+  const config = require(path)[target] || require(path).default || require(path);
 
   return config;
 }
@@ -32,17 +28,12 @@ function readJavascriptManifest(path: string, target: string) {
   });
 
   delete require.cache[require.resolve(path)];
-  const config =
-    require(path)[target] || require(path).default || require(path);
+  const config = require(path)[target] || require(path).default || require(path);
 
   return config;
 }
 
-export default function readManifest(
-  path: string,
-  target: string,
-  strict = false
-) {
+export default function readManifest(path: string, target: string, strict = false) {
   const tsPath = path + '.ts';
   if (fs.existsSync(tsPath)) {
     return readTypescriptManifest(tsPath, target);
@@ -54,9 +45,7 @@ export default function readManifest(
   }
 
   if (strict) {
-    throw new Error(
-      `${path}.ts|js 文件不存在，请先创建配置文件，参考 https://remaxjs.org/guide/config`
-    );
+    throw new Error(`${path}.ts|js 文件不存在，请先创建配置文件，参考 https://remaxjs.org/guide/config`);
   }
 
   return {};

@@ -1,7 +1,4 @@
-import stopPropagation, {
-  validate as validatePropagation,
-  isPropagationStopped,
-} from './stopPropagation';
+import stopPropagation, { validate as validatePropagation, isPropagationStopped } from './stopPropagation';
 import { SYNTHETIC_TYPES, DEPRECATED_CATCH_TYPE } from './constants';
 import VNode from '../VNode';
 
@@ -24,11 +21,7 @@ function createBaseSyntheticEvent(node: VNode, nativeEvent: any) {
   return nativeEvent;
 }
 
-export function createCallbackProxy(
-  eventType: string,
-  node: VNode,
-  callback: (...params: any) => any
-) {
+export function createCallbackProxy(eventType: string, node: VNode, callback: (...params: any) => any) {
   if (!isSyntheticType(eventType)) {
     return callback;
   }

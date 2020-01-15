@@ -111,9 +111,7 @@ export default function postProcess() {
         }
 
         // 删除可以被 stub 的属性
-        node.openingElement.attributes = node.openingElement.attributes.filter(
-          attr => !isStubAttribute(attr)
-        );
+        node.openingElement.attributes = node.openingElement.attributes.filter(attr => !isStubAttribute(attr));
 
         if (isStubElement(node, path)) {
           helpers.replacedWithStubBlock(node, path);

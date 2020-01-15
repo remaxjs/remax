@@ -27,9 +27,7 @@ export const AppContext = createContext<AppContext>(defaultAppContext);
 const AppContextProvider = (props: { children?: React.ReactNode }) => {
   const context = useAppContextValue();
 
-  return (
-    <AppContext.Provider value={context}>{props.children}</AppContext.Provider>
-  );
+  return <AppContext.Provider value={context}>{props.children}</AppContext.Provider>;
 };
 
 export default class App extends React.Component {

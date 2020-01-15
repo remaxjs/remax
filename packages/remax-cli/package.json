@@ -102,6 +102,7 @@
     "react-reconciler": "^0.21.0",
     "remax": "^1.18.4",
     "remax-alipay": "^1.18.4",
+    "remax-one": "^0.0.1",
     "remax-toutiao": "^1.18.4",
     "remax-wechat": "^1.18.4",
     "sander": "^0.6.0",

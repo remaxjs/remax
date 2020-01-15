@@ -26,12 +26,7 @@ export default function postcssUrl(options: RemaxOptions) {
     });
 
     if (/^\.{1,2}\/|^\w+\//.test(asset.url)) {
-      return winPath(
-        `/${path.relative(
-          path.resolve(options.cwd, options.rootDir),
-          asset.absolutePath
-        )}`
-      );
+      return winPath(`/${path.relative(path.resolve(options.cwd, options.rootDir), asset.absolutePath)}`);
     }
 
     return asset.url;

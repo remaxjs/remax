@@ -26,12 +26,7 @@ export default class AppContainer {
     this.root.mounted = true;
   }
 
-  requestUpdate(
-    path: string,
-    start: number,
-    deleteCount: number,
-    ...items: RawNode[]
-  ) {
+  requestUpdate(path: string, start: number, deleteCount: number, ...items: RawNode[]) {
     // ignore
   }
 

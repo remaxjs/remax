@@ -71,10 +71,7 @@ export function getRequireSource(node: Node): Node | false {
 }
 
 export function getImportSource(node: Node): Node | false {
-  if (
-    node.type !== NodeType.ImportDeclaration ||
-    node.source.type !== NodeType.Literal
-  ) {
+  if (node.type !== NodeType.ImportDeclaration || node.source.type !== NodeType.Literal) {
     return false;
   }
 
@@ -82,16 +79,9 @@ export function getImportSource(node: Node): Node | false {
 }
 
 export function getExportSource(node: Node): Node | false {
-  const exportNodes = [
-    NodeType.ExportAllDeclaration,
-    NodeType.ExportNamedDeclaration,
-  ];
+  const exportNodes = [NodeType.ExportAllDeclaration, NodeType.ExportNamedDeclaration];
 
-  if (
-    !exportNodes.includes(node.type) ||
-    !node.source ||
-    node.source.type !== NodeType.Literal
-  ) {
+  if (!exportNodes.includes(node.type) || !node.source || node.source.type !== NodeType.Literal) {
     return false;
   }
 
@@ -120,8 +110,7 @@ export default function rename(options: RenameExtensionsOptions): Plugin {
           continue;
         }
 
-        file.facadeModuleId =
-          rewrite(file.facadeModuleId, options.map) || file.facadeModuleId;
+        file.facadeModuleId = rewrite(file.facadeModuleId, options.map) || file.facadeModuleId;
         file.fileName = rewrite(file.fileName, options.map) || file.fileName;
 
         if (file.imports) {
@@ -141,10 +130,7 @@ export default function rename(options: RenameExtensionsOptions): Plugin {
           });
 
           const extract = (node: any) => {
-            const req =
-              getRequireSource(node) ||
-              getImportSource(node) ||
-              getExportSource(node);
+            const req = getRequireSource(node) || getImportSource(node) || getExportSource(node);
 
             if (req) {
               const { start, end } = req;

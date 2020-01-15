@@ -47,12 +47,7 @@ const plainStyle = (style: CSSProperties) => {
         value = value + 'rpx';
       }
 
-      return [
-        ...acc,
-        `${transformReactStyleKey(key)}:${
-          __REMAX_PX2RPX__ ? transformPx(value) : value
-        };`,
-      ];
+      return [...acc, `${transformReactStyleKey(key)}:${__REMAX_PX2RPX__ ? transformPx(value) : value};`];
     }, [])
     .join('');
 };

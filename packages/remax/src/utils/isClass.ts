@@ -16,8 +16,5 @@ export default function isClass(fn: any) {
 
   // babel.js classCallCheck() & inlined
   const body = fnBody(fn);
-  return (
-    /classCallCheck/.test(body) ||
-    /TypeError\("Cannot call a class as a function"\)/.test(body)
-  );
+  return /classCallCheck/.test(body) || /TypeError\("Cannot call a class as a function"\)/.test(body);
 }

@@ -15,10 +15,7 @@ export const pushArray = (arr: string[], path: string) => {
   arr.push(path);
 };
 
-export const isPluginComponent = (
-  sourcePath: string,
-  options: RemaxOptions
-) => {
+export const isPluginComponent = (sourcePath: string, options: RemaxOptions) => {
   if (!sourcePath.startsWith('plugin://')) {
     return false;
   }
@@ -35,21 +32,14 @@ export const isPluginComponent = (
     return false;
   }
 
-  if (
-    (plugins && plugins[pluginName]) ||
-    subs.find(sub => sub.plugins && sub.plugins[pluginName])
-  ) {
+  if ((plugins && plugins[pluginName]) || subs.find(sub => sub.plugins && sub.plugins[pluginName])) {
     return true;
   }
 
   return false;
 };
 
-export const getSourcePath = (
-  options: RemaxOptions,
-  source: string,
-  importer: string
-) => {
+export const getSourcePath = (options: RemaxOptions, source: string, importer: string) => {
   let sourcePath: string = alias(options).resolveId(source, importer) || source;
 
   // ignore rollup's virtual modules

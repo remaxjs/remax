@@ -54,8 +54,7 @@ export const pageScrollTo = promisify(wx.pageScrollTo);
 export const createAnimation = wx.createAnimation;
 export const setTopBarText = promisify(wx.setTopBarText);
 export const nextTick = wx.nextTick;
-export const getMenuButtonBoundingClientRect =
-  wx.getMenuButtonBoundingClientRect;
+export const getMenuButtonBoundingClientRect = wx.getMenuButtonBoundingClientRect;
 export const onWindowResize = wx.onWindowResize;
 export const offWindowResize = wx.offWindowResize;
 export const onKeyboardHeightChange = wx.onKeyboardHeightChange;
@@ -70,12 +69,8 @@ export const onSocketError = wx.onSocketError;
 export const onSocketClose = wx.onSocketClose;
 export const connectSocket = promisify(wx.connectSocket);
 export const closeSocket = promisify(wx.closeSocket);
-export const stopLocalServiceDiscovery = promisify(
-  wx.stopLocalServiceDiscovery
-);
-export const startLocalServiceDiscovery = promisify(
-  wx.startLocalServiceDiscovery
-);
+export const stopLocalServiceDiscovery = promisify(wx.stopLocalServiceDiscovery);
+export const startLocalServiceDiscovery = promisify(wx.startLocalServiceDiscovery);
 export const onLocalServiceResolveFail = wx.onLocalServiceResolveFail;
 export const onLocalServiceLost = wx.onLocalServiceLost;
 export const onLocalServiceFound = wx.onLocalServiceFound;
@@ -119,9 +114,7 @@ export const pauseBackgroundAudio = promisify(wx.pauseBackgroundAudio);
 export const onBackgroundAudioStop = wx.onBackgroundAudioStop;
 export const onBackgroundAudioPlay = wx.onBackgroundAudioPlay;
 export const onBackgroundAudioPause = wx.onBackgroundAudioPause;
-export const getBackgroundAudioPlayerState = promisify(
-  wx.getBackgroundAudioPlayerState
-);
+export const getBackgroundAudioPlayerState = promisify(wx.getBackgroundAudioPlayerState);
 export const getBackgroundAudioManager = wx.getBackgroundAudioManager;
 export const createLivePusherContext = wx.createLivePusherContext;
 export const createLivePlayerContext = wx.createLivePlayerContext;
@@ -130,9 +123,7 @@ export const startRecord = promisify(wx.startRecord);
 export const getRecorderManager = wx.getRecorderManager;
 export const createCameraContext = wx.createCameraContext;
 export const stopLocationUpdate = promisify(wx.stopLocationUpdate);
-export const startLocationUpdateBackground = promisify(
-  wx.startLocationUpdateBackground
-);
+export const startLocationUpdateBackground = promisify(wx.startLocationUpdateBackground);
 export const startLocationUpdate = promisify(wx.startLocationUpdate);
 export const openLocation = promisify(wx.openLocation);
 export const onLocationChange = wx.onLocationChange;
@@ -172,12 +163,8 @@ export const addCard = promisify(wx.addCard);
 export const chooseInvoiceTitle = promisify(wx.chooseInvoiceTitle);
 export const chooseInvoice = promisify(wx.chooseInvoice);
 export const startSoterAuthentication = promisify(wx.startSoterAuthentication);
-export const checkIsSupportSoterAuthentication = promisify(
-  wx.checkIsSupportSoterAuthentication
-);
-export const checkIsSoterEnrolledInDevice = promisify(
-  wx.checkIsSoterEnrolledInDevice
-);
+export const checkIsSupportSoterAuthentication = promisify(wx.checkIsSupportSoterAuthentication);
+export const checkIsSoterEnrolledInDevice = promisify(wx.checkIsSoterEnrolledInDevice);
 export const getWeRunData = promisify(wx.getWeRunData);
 export const stopBeaconDiscovery = promisify(wx.stopBeaconDiscovery);
 export const startBeaconDiscovery = promisify(wx.startBeaconDiscovery);
@@ -193,35 +180,21 @@ export const getWifiList = promisify(wx.getWifiList);
 export const getConnectedWifi = promisify(wx.getConnectedWifi);
 export const connectWifi = promisify(wx.connectWifi);
 export const addPhoneContact = promisify(wx.addPhoneContact);
-export const writeBLECharacteristicValue = promisify(
-  wx.writeBLECharacteristicValue
-);
-export const readBLECharacteristicValue = promisify(
-  wx.readBLECharacteristicValue
-);
+export const writeBLECharacteristicValue = promisify(wx.writeBLECharacteristicValue);
+export const readBLECharacteristicValue = promisify(wx.readBLECharacteristicValue);
 export const onBLEConnectionStateChange = wx.onBLEConnectionStateChange;
 export const onBLECharacteristicValueChange = wx.onBLECharacteristicValueChange;
-export const notifyBLECharacteristicValueChange = promisify(
-  wx.notifyBLECharacteristicValueChange
-);
+export const notifyBLECharacteristicValueChange = promisify(wx.notifyBLECharacteristicValueChange);
 export const getBLEDeviceServices = promisify(wx.getBLEDeviceServices);
-export const getBLEDeviceCharacteristics = promisify(
-  wx.getBLEDeviceCharacteristics
-);
+export const getBLEDeviceCharacteristics = promisify(wx.getBLEDeviceCharacteristics);
 export const createBLEConnection = promisify(wx.createBLEConnection);
 export const closeBLEConnection = promisify(wx.closeBLEConnection);
-export const stopBluetoothDevicesDiscovery = promisify(
-  wx.stopBluetoothDevicesDiscovery
-);
-export const startBluetoothDevicesDiscovery = promisify(
-  wx.startBluetoothDevicesDiscovery
-);
+export const stopBluetoothDevicesDiscovery = promisify(wx.stopBluetoothDevicesDiscovery);
+export const startBluetoothDevicesDiscovery = promisify(wx.startBluetoothDevicesDiscovery);
 export const openBluetoothAdapter = wx.openBluetoothAdapter;
 export const onBluetoothDeviceFound = wx.onBluetoothDeviceFound;
 export const onBluetoothAdapterStateChange = wx.onBluetoothAdapterStateChange;
-export const getConnectedBluetoothDevices = promisify(
-  wx.getConnectedBluetoothDevices
-);
+export const getConnectedBluetoothDevices = promisify(wx.getConnectedBluetoothDevices);
 export const getBluetoothDevices = promisify(wx.getBluetoothDevices);
 export const getBluetoothAdapterState = promisify(wx.getBluetoothAdapterState);
 export const closeBluetoothAdapter = promisify(wx.closeBluetoothAdapter);
@@ -247,12 +220,8 @@ export const onAccelerometerChange = wx.onAccelerometerChange;
 export const stopCompass = promisify(wx.stopCompass);
 export const startCompass = promisify(wx.startCompass);
 export const onCompassChange = wx.onCompassChange;
-export const stopDeviceMotionListening = promisify(
-  wx.stopDeviceMotionListening
-);
-export const startDeviceMotionListening = promisify(
-  wx.startDeviceMotionListening
-);
+export const stopDeviceMotionListening = promisify(wx.stopDeviceMotionListening);
+export const startDeviceMotionListening = promisify(wx.startDeviceMotionListening);
 export const onDeviceMotionChange = wx.onDeviceMotionChange;
 export const stopGyroscope = promisify(wx.stopGyroscope);
 export const startGyroscope = promisify(wx.startGyroscope);

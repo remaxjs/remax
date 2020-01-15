@@ -4,9 +4,7 @@ import Icon from '../../hostComponents/Icon';
 
 describe('Icon', () => {
   it('render correctly', () => {
-    const testRenderer = TestRenderer.create(
-      <Icon className="class" type="info" />
-    );
+    const testRenderer = TestRenderer.create(<Icon className="class" type="info" />);
 
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });

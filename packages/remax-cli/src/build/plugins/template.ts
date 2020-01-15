@@ -23,10 +23,7 @@ function pageUID(pagePath: string) {
 
 function renderOptions(options: RemaxOptions) {
   return {
-    components: sortBy(
-      getComponents(options).concat(Object.values(getNativeComponents())),
-      'id'
-    ),
+    components: sortBy(getComponents(options).concat(Object.values(getNativeComponents())), 'id'),
     viewComponent: {
       props: [...new Set(API.getHostComponents().get('view')!.props)].sort(),
     },
@@ -40,22 +37,17 @@ async function createTemplate(
   meta: Meta,
   createOptions: typeof renderOptions
 ) {
-  const fileName = `${path.dirname(pageFile)}/${path.basename(
-    pageFile,
-    path.extname(pageFile)
-  )}${meta.template.extension}`;
+  const fileName = `${path.dirname(pageFile)}/${path.basename(pageFile, path.extname(pageFile))}${
+    meta.template.extension
+  }`;
 
   const ejsOptions: { [props: string]: any } = {
     ...createOptions(options),
-    baseTemplate: winPath(
-      path.relative(path.dirname(pageFile), `base${meta.template.extension}`)
-    ),
+    baseTemplate: winPath(path.relative(path.dirname(pageFile), `base${meta.template.extension}`)),
   };
 
   if (meta.jsHelper) {
-    ejsOptions.jsHelper = `./${pageUID(pageFile)}_helper${
-      meta.jsHelper.extension
-    }`;
+    ejsOptions.jsHelper = `./${pageUID(pageFile)}_helper${meta.jsHelper.extension}`;
   }
 
   let code: string = await ejs.renderFile(meta.ejs.page, ejsOptions, {
@@ -81,26 +73,17 @@ async function createHelperFile(pageFile: string, meta: Meta) {
   }
 
   const code: string = await ejs.renderFile(meta.ejs.jsHelper, {
-    target: API.adapter.name,
+    target: API.adapter.target,
   });
 
   return {
     type: 'asset' as const,
-    fileName: winPath(
-      path.join(
-        path.dirname(pageFile),
-        `${pageUID(pageFile)}_helper${meta.jsHelper.extension}`
-      )
-    ),
+    fileName: winPath(path.join(path.dirname(pageFile), `${pageUID(pageFile)}_helper${meta.jsHelper.extension}`)),
     source: code,
   };
 }
 
-async function createBaseTemplate(
-  options: RemaxOptions,
-  meta: Meta,
-  createEjsOptions: typeof renderOptions
-) {
+async function createBaseTemplate(options: RemaxOptions, meta: Meta, createEjsOptions: typeof renderOptions) {
   if (!meta.ejs.base) {
     return null;
   }
@@ -132,10 +115,7 @@ async function createBaseTemplate(
 function createAppManifest(options: RemaxOptions, context?: Context) {
   const config = context
     ? { ...context.app, pages: context.pages.map(p => p.path) }
-    : readManifest(
-        path.resolve(options.cwd, `${options.rootDir}/app.config`),
-        API.adapter.name
-      );
+    : readManifest(path.resolve(options.cwd, `${options.rootDir}/app.config`), API.adapter.target);
   return {
     type: 'asset' as const,
     fileName: 'app.json',
@@ -143,11 +123,7 @@ function createAppManifest(options: RemaxOptions, context?: Context) {
   };
 }
 
-function createPageUsingComponents(
-  page: any,
-  configFilePath: string,
-  options: RemaxOptions
-) {
+function createPageUsingComponents(page: any, configFilePath: string, options: RemaxOptions) {
   const nativeComponents = getNativeComponents();
   const usingComponents: { [key: string]: string } = {};
   for (const { id, sourcePath, pages } of nativeComponents) {
@@ -170,9 +146,7 @@ function createPageUsingComponents(
       path
         .relative(
           path.dirname(configFilePath),
-          componentPath
-            .replace(/node_modules/, `${options.rootDir}/npm`)
-            .replace(/node_modules/g, 'npm')
+          componentPath.replace(/node_modules/, `${options.rootDir}/npm`).replace(/node_modules/g, 'npm')
         )
         .replace(new RegExp(`^${options.rootDir}/`), '')
         .replace(/\.js$/, '')
@@ -183,24 +157,12 @@ function createPageUsingComponents(
   return usingComponents;
 }
 
-function createPageManifest(
-  options: RemaxOptions,
-  file: string,
-  page: any,
-  context?: Context
-) {
+function createPageManifest(options: RemaxOptions, file: string, page: any, context?: Context) {
   const configFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.config');
   const manifestFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.json');
-  const configFilePath = path.resolve(
-    options.cwd,
-    path.join(options.rootDir, configFile)
-  );
-  const usingComponents = createPageUsingComponents(
-    page,
-    configFilePath,
-    options
-  );
-  const config = readManifest(configFilePath, API.adapter.name);
+  const configFilePath = path.resolve(options.cwd, path.join(options.rootDir, configFile));
+  const usingComponents = createPageUsingComponents(page, configFilePath, options);
+  const config = readManifest(configFilePath, API.adapter.target);
   config.usingComponents = {
     ...(config.usingComponents || {}),
     ...usingComponents,
@@ -256,10 +218,7 @@ function isRemaxEntry(chunk: any): chunk is OutputChunk {
   });
 }
 
-export default function template(
-  options: RemaxOptions,
-  context?: Context
-): Plugin {
+export default function template(options: RemaxOptions, context?: Context): Plugin {
   return {
     name: 'template',
     async generateBundle(_, bundle) {
@@ -268,10 +227,7 @@ export default function template(
       // app.json
       const manifest = createAppManifest(options, context);
 
-      if (
-        this.cache.get(manifest.fileName)?.toString() !==
-        manifest.source.toString()
-      ) {
+      if (this.cache.get(manifest.fileName)?.toString() !== manifest.source.toString()) {
         this.cache.set(manifest.fileName, manifest.source);
         templateAssets.push(manifest);
       }
@@ -297,9 +253,7 @@ export default function template(
             const page = pages.find(p => p === filePath);
 
             if (page) {
-              renderTemplate = turboPages.validate(page, options)
-                ? staticCompiler.renderPage
-                : createTemplate;
+              renderTemplate = turboPages.validate(page, options) ? staticCompiler.renderPage : createTemplate;
 
               const template = await renderTemplate(
                 file,
@@ -318,9 +272,7 @@ export default function template(
               }
 
               if (config) {
-                if (
-                  this.cache.get(file)?.toString() === config.source.toString()
-                ) {
+                if (this.cache.get(file)?.toString() === config.source.toString()) {
                   return;
                 }
                 this.cache.set(file, config.source);

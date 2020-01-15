@@ -11,12 +11,7 @@ export default () => {
 
   return (
     <View>
-      <View
-        onClick={handleClick}
-        onTouchStart={handleTouchStart}
-        id="view"
-        {...props}
-      >
+      <View onClick={handleClick} onTouchStart={handleTouchStart} id="view" {...props}>
         foo
       </View>
       {TextElement}

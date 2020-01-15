@@ -17,9 +17,7 @@ const walk = (jsHelperPath: string) => {
 
   const extract = ({ node }: any) => {
     const importPath =
-      (get(node, 'callee.name') === 'require'
-        ? get(node, 'arguments[0].value')
-        : '') || get(node, 'source.value');
+      (get(node, 'callee.name') === 'require' ? get(node, 'arguments[0].value') : '') || get(node, 'source.value');
 
     if (!importPath) {
       return;

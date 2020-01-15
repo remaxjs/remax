@@ -4,10 +4,7 @@ import { BaseProps } from '../../types/component';
 
 const componentName = 'scroll-view';
 
-const ScrollViewRender: React.ForwardRefRenderFunction<any, ScrollViewProps> = (
-  props,
-  ref
-) => {
+const ScrollViewRender: React.ForwardRefRenderFunction<any, ScrollViewProps> = (props, ref) => {
   const { children, scrollTop, onScroll, ...restProps } = props;
   const [innerScrollTop, forceUpdateScrollTop] = React.useState(scrollTop);
   const scrollTopRef = React.useRef(innerScrollTop);

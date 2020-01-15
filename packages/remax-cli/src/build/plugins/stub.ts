@@ -13,11 +13,7 @@ export default function stub(options: Options = {}): Plugin {
 
     transform(code: string, id: string) {
       if (options.modules) {
-        if (
-          options.modules.every(
-            module => winPath(id).indexOf(winPath(module)) === -1
-          )
-        ) {
+        if (options.modules.every(module => winPath(id).indexOf(winPath(module)) === -1)) {
           return null;
         }
       }
@@ -40,18 +36,12 @@ export default function stub(options: Options = {}): Plugin {
             exports.push(content);
           } else if (node.declaration.type === 'VariableDeclaration') {
             node.declaration.declarations.forEach((declaration: any) => {
-              exports.push(
-                `\nexport var ${declaration.id.name} = function() {};`
-              );
+              exports.push(`\nexport var ${declaration.id.name} = function() {};`);
             });
           } else if (node.declaration.type === 'FunctionDeclaration') {
-            exports.push(
-              `\nexport var ${node.declaration.id.name} = function() {};`
-            );
+            exports.push(`\nexport var ${node.declaration.id.name} = function() {};`);
           } else if (node.declaration.type === 'ClassDeclaration') {
-            exports.push(
-              `\nexport var ${node.declaration.id.name} = function() {};`
-            );
+            exports.push(`\nexport var ${node.declaration.id.name} = function() {};`);
           }
         }
       });

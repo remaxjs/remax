@@ -31,13 +31,7 @@ export default class Container {
     this.root.mounted = true;
   }
 
-  requestUpdate(
-    path: string,
-    start: number,
-    deleteCount: number,
-    immediately: boolean,
-    ...items: RawNode[]
-  ) {
+  requestUpdate(path: string, start: number, deleteCount: number, immediately: boolean, ...items: RawNode[]) {
     const update: SpliceUpdate = {
       path,
       start,
@@ -79,20 +73,14 @@ export default class Container {
               nativeEffector.run();
               /* istanbul ignore next */
               if (__REMAX_DEBUG__) {
-                console.log(
-                  `setData => 回调时间：${new Date().getTime() - startTime}ms`
-                );
+                console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`);
               }
             };
           }
 
           this.context.$spliceData(
             {
-              [update.path]: [
-                update.start,
-                update.deleteCount,
-                ...update.items,
-              ],
+              [update.path]: [update.start, update.deleteCount, ...update.items],
             },
             callback
           );
@@ -130,10 +118,7 @@ export default class Container {
         nativeEffector.run();
         /* istanbul ignore next */
         if (__REMAX_DEBUG__) {
-          console.log(
-            `setData => 回调时间：${new Date().getTime() - startTime}ms`,
-            action
-          );
+          console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`, action);
         }
       }
     );

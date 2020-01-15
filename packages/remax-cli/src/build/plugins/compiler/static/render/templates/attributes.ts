@@ -69,20 +69,14 @@ export function createAttributesTemplate(
   // case: Spread Attributes
   // 包含了 Spread Attributes 就返回所有属性
   if (hostComponent && attributes.find(attr => t.isJSXSpreadAttribute(attr))) {
-    template = hostComponent.props.map(prop => [
-      prop,
-      createAttributeValueTemplate(prop, dataPath),
-    ]);
+    template = hostComponent.props.map(prop => [prop, createAttributeValueTemplate(prop, dataPath)]);
   } else {
     template = (attributes as t.JSXAttribute[])
       // template id 不渲染
       // react "key" 属性 不渲染
       // leaf 属性 不渲染
       // entry 属性 不渲染
-      .filter(
-        attr =>
-          ![TEMPLATE_ID, REACT_KEY, LEAF, ENTRY].find(k => k === attr.name.name)
-      )
+      .filter(attr => ![TEMPLATE_ID, REACT_KEY, LEAF, ENTRY].find(k => k === attr.name.name))
       .map(attr => {
         const name = attr.name;
         let attrName = '';
@@ -97,10 +91,7 @@ export function createAttributesTemplate(
 
         const prop = hostComponent?.alias?.[attrName] ?? attrName;
 
-        return [
-          prop,
-          createAttributeValueTemplate(prop, dataPath, attr.value as any),
-        ];
+        return [prop, createAttributeValueTemplate(prop, dataPath, attr.value as any)];
       });
   }
 

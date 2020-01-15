@@ -8,9 +8,7 @@ export const checkChokidar = () => {
   } catch (e) {
     if (isFirstCheckFailed) {
       isFirstCheckFailed = false;
-      console.log(
-        '\n 安装 `chokidar` 获得更好的开发体验～～ 😎\n\n > npm install chokidar --save \n'
-      );
+      console.log('\n 安装 `chokidar` 获得更好的开发体验～～ 😎\n\n > npm install chokidar --save \n');
     }
     return false;
   }

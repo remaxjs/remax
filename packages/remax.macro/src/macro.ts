@@ -1,21 +1,11 @@
 import * as React from 'react';
 import { NodePath } from '@babel/traverse';
 import { createMacro } from 'babel-plugin-macros';
-import createHostComponentMacro, {
-  hostComponents,
-} from './createHostComponent';
+import createHostComponentMacro, { hostComponents } from './createHostComponent';
 
-function remax({
-  references,
-  state,
-}: {
-  references: { [name: string]: NodePath[] };
-  state: any;
-}) {
+function remax({ references, state }: { references: { [name: string]: NodePath[] }; state: any }) {
   if (references.createHostComponent) {
-    references.createHostComponent.forEach(path =>
-      createHostComponentMacro(path, state)
-    );
+    references.createHostComponent.forEach(path => createHostComponentMacro(path, state));
   }
 }
 

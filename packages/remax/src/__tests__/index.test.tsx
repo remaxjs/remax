@@ -185,18 +185,14 @@ describe('remax render', () => {
   });
 
   it('renders style', () => {
-    const Page = () => (
-      <View style={{ width: '100px', height: '100px' }}>hello</View>
-    );
+    const Page = () => <View style={{ width: '100px', height: '100px' }}>hello</View>;
     const container = new Container(p);
     render(<Page />, container);
     expect(container.root).toMatchSnapshot();
   });
 
   it('renders vendor prefix style', () => {
-    const Page = () => (
-      <View style={{ WebkitLineClamp: 2, height: '100px' }}>hello</View>
-    );
+    const Page = () => <View style={{ WebkitLineClamp: 2, height: '100px' }}>hello</View>;
     const container = new Container(p);
     render(<Page />, container);
     expect(container.root).toMatchSnapshot();
@@ -262,14 +258,7 @@ describe('remax render', () => {
     };
 
     const container = new Container(p);
-    render(
-      <NativeComponent
-        fooBar="fooBar"
-        onClick={() => void 0}
-        className="class"
-      />,
-      container
-    );
+    render(<NativeComponent fooBar="fooBar" onClick={() => void 0} className="class" />, container);
 
     setTimeout(() => {
       expect(actions).toMatchSnapshot();
@@ -284,13 +273,7 @@ it('create proxy for onClick callback', () => {
   const handleAnimationStart = () => void 0;
   class Page extends React.Component {
     render() {
-      return (
-        <View
-          ref={view}
-          onClick={handleClick}
-          onAnimationStart={handleAnimationStart}
-        />
-      );
+      return <View ref={view} onClick={handleClick} onAnimationStart={handleAnimationStart} />;
     }
   }
   const container = new Container(p);
@@ -380,9 +363,7 @@ it('pure rerender when props delete', done => {
 
     render() {
       return (
-        <View style={{ width: '32px' }}>
-          {!this.state.value ? <Input /> : <Input value={this.state.value} />}
-        </View>
+        <View style={{ width: '32px' }}>{!this.state.value ? <Input /> : <Input value={this.state.value} />}</View>
       );
     }
   }

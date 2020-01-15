@@ -2,9 +2,7 @@ import * as React from 'react';
 import createHostComponent from '../../createHostComponent';
 import { BaseProps } from '../../types/component';
 
-const Navigator: React.ComponentType<NavigatorProps> = createHostComponent<
-  NavigatorProps
->('navigator');
+const Navigator: React.ComponentType<NavigatorProps> = createHostComponent<NavigatorProps>('navigator');
 
 export interface NavigatorProps extends BaseProps {
   /** (default: self) 在哪个目标上发生跳转，默认当前小程序 2.0.7 */
@@ -12,13 +10,7 @@ export interface NavigatorProps extends BaseProps {
   /** 当前小程序内的跳转链接 1.0.0 */
   url?: string;
   /** (default: navigate) 跳转方式 1.0.0 */
-  openType?:
-    | 'navigate'
-    | 'redirect'
-    | 'switchTab'
-    | 'reLaunch'
-    | 'navigateBack'
-    | 'exit';
+  openType?: 'navigate' | 'redirect' | 'switchTab' | 'reLaunch' | 'navigateBack' | 'exit';
   /** (default: 1) 当 open-type 为 'navigateBack' 时有效，表示回退的层数 1.0.0 */
   delta?: number;
   /** 当target="miniProgram"时有效，要打开的小程序 appId 2.0.7 */

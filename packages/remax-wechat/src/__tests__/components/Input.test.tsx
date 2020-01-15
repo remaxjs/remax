@@ -12,9 +12,7 @@ describe('Input', () => {
   it('render placeholderStyle as inline style', () => {
     const color = '#ffffff';
 
-    const component: TestRenderer.ReactTestRenderer = TestRenderer.create(
-      <Input placeholderStyle={{ color }} />
-    );
+    const component: TestRenderer.ReactTestRenderer = TestRenderer.create(<Input placeholderStyle={{ color }} />);
 
     const instance = component.root.findByType('input');
 

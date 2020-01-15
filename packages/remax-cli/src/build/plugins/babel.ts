@@ -20,14 +20,10 @@ function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
     react,
   };
 
-  const existOptions =
-    remaxPresetIndex !== -1 ? presets[remaxPresetIndex].options : {};
+  const existOptions = remaxPresetIndex !== -1 ? presets[remaxPresetIndex].options : {};
 
   const remaxPreset = babel.createConfigItem(
-    [
-      require.resolve('babel-preset-remax'),
-      merge({}, defaultOptions, existOptions),
-    ],
+    [require.resolve('babel-preset-remax'), merge({}, defaultOptions, existOptions)],
     {
       type: `preset`,
     }
@@ -54,23 +50,13 @@ export default babel.custom((babelCore: any) => {
       };
     },
 
-    config(
-      cfg: PartialConfig,
-      { customOptions }: { customOptions: CustomOptions }
-    ) {
-      const presets = processPresets(
-        cfg.options.presets as ConfigItem[],
-        babelCore,
-        customOptions.reactPreset
-      );
+    config(cfg: PartialConfig, { customOptions }: { customOptions: CustomOptions }) {
+      const presets = processPresets(cfg.options.presets as ConfigItem[], babelCore, customOptions.reactPreset);
 
       return {
         ...cfg.options,
         presets,
-        plugins: [
-          ...(cfg.options.plugins || []),
-          ...(customOptions.usePlugins || []),
-        ],
+        plugins: [...(cfg.options.plugins || []), ...(customOptions.usePlugins || [])],
       };
     },
   };

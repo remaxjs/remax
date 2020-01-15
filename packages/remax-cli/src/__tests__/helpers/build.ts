@@ -9,17 +9,14 @@ interface Options {
   exclude: string[];
 }
 
-export default async function build(
-  app: string,
-  target: string,
-  options: Partial<Options> = {}
-) {
+export default async function build(app: string, target: string, options: Partial<Options> = {}) {
   const cwd = path.resolve(__dirname, `../fixtures/${app}`);
   process.chdir(cwd);
 
-  API.registerAdapterPlugins(target);
-
   const config = getConfig();
+
+  API.registerAdapterPlugins(target, config);
+
   const rollupOptions = rollupConfig(
     {
       ...config,
@@ -39,9 +36,7 @@ export default async function build(
     false
   );
   const bundle = await rollup.rollup(rollupOptions);
-  const result = await bundle.generate(
-    rollupOptions.output! as rollup.OutputOptions
-  );
+  const result = await bundle.generate(rollupOptions.output! as rollup.OutputOptions);
 
   const exclude = options.exclude || ['node_modules', '_virtual', 'npm'];
   const include = options.include || [];

@@ -265,7 +265,7 @@
   
 <template name="TPL_contact-button">
   <contact-button 
-    alipay-card-no="{{node.props['alipay-card-no']}}" 
+    card-no="{{node.props['card-no']}}" 
     class="{{node.props['class']}}" 
     color="{{node.props['color']}}" 
     icon="{{node.props['icon']}}" 

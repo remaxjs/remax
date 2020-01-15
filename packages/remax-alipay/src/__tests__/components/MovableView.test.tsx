@@ -4,9 +4,7 @@ import { MovableView } from '../../hostComponents';
 
 describe('MovableView', () => {
   it('render correctly', () => {
-    const testRenderer = TestRenderer.create(
-      <MovableView width={10} height={10} />
-    );
+    const testRenderer = TestRenderer.create(<MovableView width={10} height={10} />);
 
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });

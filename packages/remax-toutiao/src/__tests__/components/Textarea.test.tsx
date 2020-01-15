@@ -4,9 +4,7 @@ import Textarea from '../../hostComponents/Textarea';
 
 describe('TextArea', () => {
   it('render correctly', () => {
-    const testRenderer = TestRenderer.create(
-      <Textarea className="class" value="" />
-    );
+    const testRenderer = TestRenderer.create(<Textarea className="class" value="" />);
 
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });

@@ -22,8 +22,7 @@ export const connectBLEDevice = promisify(my.connectBLEDevice);
 export const connectSocket = promisify(my.connectSocket);
 export const createAnimation = my.createAnimation;
 export const createCanvasContext = my.createCanvasContext;
-export const createIntersectionObserver = (my as any)
-  .createIntersectionObserver;
+export const createIntersectionObserver = (my as any).createIntersectionObserver;
 export const createMapContext = my.createMapContext;
 export const createSelectorQuery = my.createSelectorQuery;
 export const createWebViewContext = my.createWebViewContext;
@@ -35,16 +34,12 @@ export const getAuthUserInfo = promisify(my.getAuthUserInfo);
 export const getBatteryInfo = promisify((my as any).getBatteryInfo);
 export const getBatteryInfoSync = (my as any).getBatteryInfoSync;
 export const getBeacons = promisify(my.getBeacons);
-export const getBLEDeviceCharacteristics = promisify(
-  my.getBLEDeviceCharacteristics
-);
+export const getBLEDeviceCharacteristics = promisify(my.getBLEDeviceCharacteristics);
 export const getBLEDeviceServices = promisify(my.getBLEDeviceServices);
 export const getBluetoothAdapterState = promisify(my.getBluetoothAdapterState);
 export const getBluetoothDevices = promisify(my.getBluetoothDevices);
 export const getClipboard = promisify(my.getClipboard);
-export const getConnectedBluetoothDevices = promisify(
-  my.getConnectedBluetoothDevices
-);
+export const getConnectedBluetoothDevices = promisify(my.getConnectedBluetoothDevices);
 export const getFileInfo = promisify(my.getFileInfo);
 export const getImageInfo = promisify(my.getImageInfo);
 export const getLocation = promisify(my.getLocation);
@@ -84,12 +79,9 @@ export const navigateBack = promisify(my.navigateBack);
 export const navigateBackMiniProgram = promisify(my.navigateBackMiniProgram);
 export const navigateTo = promisify(my.navigateTo);
 export const navigateToMiniProgram = promisify(my.navigateToMiniProgram);
-export const notifyBLECharacteristicValueChange = promisify(
-  my.notifyBLECharacteristicValueChange
-);
+export const notifyBLECharacteristicValueChange = promisify(my.notifyBLECharacteristicValueChange);
 export const offAccelerometerChange = my.offAccelerometerChange;
-export const offBLECharacteristicValueChange =
-  my.offBLECharacteristicValueChange;
+export const offBLECharacteristicValueChange = my.offBLECharacteristicValueChange;
 export const offBLEConnectionStateChanged = my.offBLEConnectionStateChanged;
 export const offBluetoothAdapterStateChange = my.offBluetoothAdapterStateChange;
 export const offBluetoothDeviceFound = my.offBluetoothDeviceFound;
@@ -135,9 +127,7 @@ export const optionsSelect = my.optionsSelect;
 export const pageScrollTo = promisify(my.pageScrollTo);
 export const previewImage = promisify(my.previewImage);
 export const prompt = promisify(my.prompt);
-export const readBLECharacteristicValue = promisify(
-  my.readBLECharacteristicValue
-);
+export const readBLECharacteristicValue = promisify(my.readBLECharacteristicValue);
 export const redirectTo = promisify(my.redirectTo);
 export const reLaunch = promisify(my.reLaunch);
 export const removeSavedFile = promisify(my.removeSavedFile);
@@ -153,9 +143,7 @@ export const scan = promisify(my.scan);
 export const SDKVersion = my.SDKVersion;
 export const sendSocketMessage = promisify(my.sendSocketMessage);
 export const setBackgroundColor = promisify((my as any).setBackgroundColor);
-export const setBackgroundTextStyle = promisify(
-  (my as any).setBackgroundTextStyle
-);
+export const setBackgroundTextStyle = promisify((my as any).setBackgroundTextStyle);
 export const setCanPullDown = (my as any).setCanPullDown;
 export const setClipboard = promisify(my.setClipboard);
 export const setKeepScreenOn = promisify(my.setKeepScreenOn);
@@ -176,15 +164,11 @@ export const showTabBar = promisify(my.showTabBar);
 export const showTabBarRedDot = promisify(my.showTabBarRedDot);
 export const showToast = promisify(my.showToast);
 export const startBeaconDiscovery = promisify(my.startBeaconDiscovery);
-export const startBluetoothDevicesDiscovery = promisify(
-  my.startBluetoothDevicesDiscovery
-);
+export const startBluetoothDevicesDiscovery = promisify(my.startBluetoothDevicesDiscovery);
 export const startPullDownRefresh = promisify(my.startPullDownRefresh);
 export const startZMVerify = my.startZMVerify;
 export const stopBeaconDiscovery = promisify(my.stopBeaconDiscovery);
-export const stopBluetoothDevicesDiscovery = promisify(
-  my.stopBluetoothDevicesDiscovery
-);
+export const stopBluetoothDevicesDiscovery = promisify(my.stopBluetoothDevicesDiscovery);
 export const stopPullDownRefresh = promisify(my.stopPullDownRefresh);
 export const switchTab = promisify(my.switchTab);
 export const textRiskIdentification = promisify(my.textRiskIdentification);
@@ -194,8 +178,6 @@ export const vibrate = promisify(my.vibrate);
 export const vibrateLong = promisify(my.vibrateLong);
 export const vibrateShort = promisify(my.vibrateShort);
 export const watchShake = my.watchShake;
-export const writeBLECharacteristicValue = promisify(
-  my.writeBLECharacteristicValue
-);
+export const writeBLECharacteristicValue = promisify(my.writeBLECharacteristicValue);
 export const createVideoContext = my.createVideoContext;
 export const getOpenUserInfo = promisify((my as any).getOpenUserInfo);

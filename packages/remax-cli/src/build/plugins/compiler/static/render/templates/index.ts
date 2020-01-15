@@ -24,12 +24,7 @@ export function createTemplate(
   dataPath: Array<string | number>
 ): string {
   if (t.isJSXElement(element.node)) {
-    return JSXElement(
-      element as RenderNode<t.JSXElement>,
-      path,
-      dataPath,
-      createTemplate
-    );
+    return JSXElement(element as RenderNode<t.JSXElement>, path, dataPath, createTemplate);
   }
 
   if (t.isJSXExpressionContainer(element.node)) {
