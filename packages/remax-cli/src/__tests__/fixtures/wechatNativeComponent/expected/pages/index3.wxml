@@ -1,0 +1,3 @@
+<wxs src="./pages_index3.js_helper.wxs" module="helper" />
+<import src="../base.wxml"/>
+<template is="REMAX_TPL" data="{{tree: helper.reduce(action)}}" />

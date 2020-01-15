@@ -1,0 +1,9 @@
+var msg = require('./msg.wxs');
+
+function hello() {
+  return msg.text;
+}
+
+module.exports = {
+  hello,
+};

@@ -1,0 +1,5 @@
+<wxs module="h" src="./index.wxs"/>
+
+<include src="./include.wxml" />
+<view>{{h.hello()}}</view>
+<e />
