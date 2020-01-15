@@ -51,16 +51,12 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
      * Lifecycle start
      */
     registerLifecycle(lifecycle: Lifecycle, callback: () => any) {
-      this.lifecycleCallback[lifecycle] =
-        this.lifecycleCallback[lifecycle] || [];
+      this.lifecycleCallback[lifecycle] = this.lifecycleCallback[lifecycle] || [];
 
       this.lifecycleCallback[lifecycle].push(callback);
 
       return () => {
-        this.lifecycleCallback[lifecycle].splice(
-          this.lifecycleCallback[lifecycle].indexOf(callback),
-          1
-        );
+        this.lifecycleCallback[lifecycle].splice(this.lifecycleCallback[lifecycle].indexOf(callback), 1);
       };
     },
 

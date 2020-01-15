@@ -47,14 +47,7 @@ export interface ButtonProps extends BaseProps {
    * openSetting	打开授权设置页	2.0.7
    * feedback	打开“意见反馈”页面，用户可提交反馈内容并上传日志，开发者可以登录小程序管理后台后进入左侧菜单“客服反馈”页面获取到反馈内容	2.1.0
    */
-  openType?:
-    | 'contact'
-    | 'share'
-    | 'getPhoneNumber'
-    | 'getUserInfo'
-    | 'launchApp'
-    | 'openSetting'
-    | 'feedback';
+  openType?: 'contact' | 'share' | 'getPhoneNumber' | 'getUserInfo' | 'launchApp' | 'openSetting' | 'feedback';
   /**
    * 1.0.0
    * 指定按钮按下去的样式类。当 hover-class="none" 时，没有点击态效果

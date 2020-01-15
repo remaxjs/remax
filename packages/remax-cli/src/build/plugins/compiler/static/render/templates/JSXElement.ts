@@ -32,9 +32,7 @@ export default function(
   // 非 host 组件
   // 生成为 TPL_DEFAULT 模板，以动态模板方式渲染
   if (!helpers.isHostComponentElement(element, path)) {
-    return `<template is="TPL_DEFAULT" data="{{root: ${stringPath(
-      dataPath
-    )}}}" />\n`;
+    return `<template is="TPL_DEFAULT" data="{{root: ${stringPath(dataPath)}}}" />\n`;
   }
 
   // 获取真正的组件名称
@@ -57,20 +55,11 @@ export default function(
       // 剔除空 JSXText 标签
       .filter(child => !helpers.isEmptyText(child.node))
       .map((child, index) =>
-        createTemplate(
-          child,
-          path,
-          module,
-          isExpressionBlock ? dataPath : [...dataPath, 'children', index]
-        )
+        createTemplate(child, path, module, isExpressionBlock ? dataPath : [...dataPath, 'children', index])
       )
       .join('\n');
   }
 
   // 生成模板
-  return `<${tag} ${createAttributesTemplate(
-    tag,
-    stringPath(dataPath),
-    attributes
-  )}>${childrenTemplate}</${tag}>\n`;
+  return `<${tag} ${createAttributesTemplate(tag, stringPath(dataPath), attributes)}>${childrenTemplate}</${tag}>\n`;
 }

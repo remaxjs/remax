@@ -5,11 +5,7 @@ import output from '../../utils/output';
 import { PluginContext } from 'rollup';
 import { RemaxOptions } from 'remax-types';
 
-const runWalk = (
-  filePath: string,
-  options: RemaxOptions,
-  ctx: PluginContext
-) => {
+const runWalk = (filePath: string, options: RemaxOptions, ctx: PluginContext) => {
   const walk = (filePath: string) => {
     delete require.cache[filePath];
     const { usingComponents = {} } = require(filePath);
@@ -36,11 +32,7 @@ const runWalk = (
   walk(filePath);
 };
 
-export default function usingComponents(
-  id: string,
-  options: RemaxOptions,
-  ctx: PluginContext
-) {
+export default function usingComponents(id: string, options: RemaxOptions, ctx: PluginContext) {
   const filePath = id.replace(/\.js$/, '.json');
   if (!existsSync(filePath)) {
     output.error(`文件 ${filePath} 不存在`);

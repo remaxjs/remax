@@ -26,9 +26,7 @@ export default function runWatcher(
   rollupOptions: RollupOptions,
   cli: CliOptions,
   context?: Context
-):
-  | { watcher: RollupWatcher; extraFilesWatcher: chokidar.FSWatcher }
-  | undefined {
+): { watcher: RollupWatcher; extraFilesWatcher: chokidar.FSWatcher } | undefined {
   if (isBundleRunning) {
     return;
   }

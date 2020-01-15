@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input render correctly 1`] = `
+<input
+  className="class"
+  controlled={false}
+  onInput={[Function]}
+  wechat-maxlength={140}
+  wechat-selection-end={999}
+  wechat-selection-start={999}
+/>
+`;

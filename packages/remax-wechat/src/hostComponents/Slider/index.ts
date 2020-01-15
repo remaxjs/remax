@@ -2,9 +2,7 @@ import * as React from 'react';
 import createHostComponent from '../../createHostComponent';
 import { BaseProps } from '../../types/component';
 
-const Slider: React.ComponentType<SliderProps> = createHostComponent<
-  SliderProps
->('slider');
+const Slider: React.ComponentType<SliderProps> = createHostComponent<SliderProps>('slider');
 
 export interface SliderProps extends BaseProps {
   /** (default: 0) 最小值 1.0.0 */

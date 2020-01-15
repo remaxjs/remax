@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textarea render correctly 1`] = `
+<textarea
+  alipay-show-count={false}
+  className="class"
+  controlled={false}
+  onInput={[Function]}
+  wechat-fixed={false}
+  wechat-maxlength={-1}
+  wechat-selection-end={999}
+  wechat-selection-start={999}
+/>
+`;

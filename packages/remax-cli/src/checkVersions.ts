@@ -12,11 +12,7 @@ const generatorStar = (count: number, symbol = '*') => {
   return starStr;
 };
 
-const generatorPlace = (
-  origin: string,
-  replace: string,
-  longLength: number
-): string => {
+const generatorPlace = (origin: string, replace: string, longLength: number): string => {
   const index = Math.round(origin.length / 2) - Math.round(longLength / 2) - 1;
   const length = replace.length;
   const originArray = origin.split('');
@@ -30,23 +26,18 @@ const generatorPlace = (
 export const checkRemaxVersion = () => {
   try {
     const cliPackagePath: string = require.resolve('../package.json');
-    const remaxPackagePath: string = winPath(
-      path.join(process.cwd(), 'node_modules', 'remax', 'package.json')
-    );
+    const remaxPackagePath: string = winPath(path.join(process.cwd(), 'node_modules', 'remax', 'package.json'));
     if (fs.existsSync(remaxPackagePath)) {
       const remaxPkgConfig = require(remaxPackagePath);
       const cliPkgConfig = require(cliPackagePath);
       const remaxVersion = remaxPkgConfig.version;
 
       if (semver.neq(remaxVersion, cliPkgConfig.version)) {
-        const placeholder =
-          '*                                                     *';
-        const origin =
-          '*                                                               *';
+        const placeholder = '*                                                     *';
+        const origin = '*                                                               *';
         const remax = 'remax:    ' + chalk.red(remaxVersion);
         const remaxCLI = 'remax-cli: ' + chalk.green(cliPkgConfig.version);
-        const longLength =
-          remax.length > remaxCLI.length ? remax.length : remaxCLI.length;
+        const longLength = remax.length > remaxCLI.length ? remax.length : remaxCLI.length;
 
         const warning = chalk.yellow(`remax-cli 版本与 remax 版本不匹配`);
         const upgrade = chalk.yellow(`请升级 remax 版本`);

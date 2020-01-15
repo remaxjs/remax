@@ -4,20 +4,14 @@ import * as t from '@babel/types';
 import * as path from 'path';
 import { isNativeComponent, isPluginComponent, getSourcePath } from './util';
 import { RemaxOptions } from 'remax-types';
-import {
-  Importers,
-  addToComponentCollection,
-  convertComponents,
-  Component,
-} from '../components';
+import { Importers, addToComponentCollection, convertComponents, Component } from '../components';
 
 const importers: Importers<Component & {
   hashId: string;
   pages: Set<string>;
 }> = new Map();
 
-export const getKebabCaseName = (sourcePath: string) =>
-  kebabCase(path.basename(path.dirname(sourcePath)));
+export const getKebabCaseName = (sourcePath: string) => kebabCase(path.basename(path.dirname(sourcePath)));
 
 const nativeIds: Map<string, string[]> = new Map();
 
@@ -91,10 +85,7 @@ export default (options: RemaxOptions) => {
           const source = componentPath.parent.source.value;
           const sourcePath = getSourcePath(options, source, importer);
 
-          if (
-            !isNativeComponent(sourcePath) &&
-            !isPluginComponent(sourcePath, options)
-          ) {
+          if (!isNativeComponent(sourcePath) && !isPluginComponent(sourcePath, options)) {
             return;
           }
 

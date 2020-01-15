@@ -5,6 +5,7 @@
     "packages/remax-alipay",
     "packages/remax-wechat",
     "packages/remax-toutiao",
+    "packages/remax-one",
     "packages/babel-preset-remax",
     "packages/remax",
     "packages/remax-cli"

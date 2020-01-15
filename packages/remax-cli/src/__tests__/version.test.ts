@@ -8,16 +8,10 @@ describe('compare remax & remax-cli version', () => {
     expect(checkRemaxVersion()).toBeTruthy();
   });
   it('version matched', () => {
-    const cliPackagePath: string = path.resolve(
-      __dirname,
-      `../../package.json`
-    );
+    const cliPackagePath: string = path.resolve(__dirname, `../../package.json`);
     const cliPkgConfig = require(cliPackagePath);
     jest.mock(
-      path.resolve(
-        __dirname,
-        `fixtures/version/match/node_modules/remax/package.json`
-      ),
+      path.resolve(__dirname, `fixtures/version/match/node_modules/remax/package.json`),
       () => ({
         version: cliPkgConfig.version,
       }),

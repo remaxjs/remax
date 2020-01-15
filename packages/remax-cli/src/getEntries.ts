@@ -19,20 +19,13 @@ export function searchFile(file: string, strict?: boolean) {
 }
 
 export const getAppConfig = (options: RemaxOptions) => {
-  const appConfigPath: string = path.join(
-    options.cwd,
-    options.rootDir,
-    'app.config'
-  );
+  const appConfigPath: string = path.join(options.cwd, options.rootDir, 'app.config');
 
-  return readManifest(appConfigPath, API.adapter.name, true) as AppConfig;
+  return readManifest(appConfigPath, API.adapter.target, true) as AppConfig;
 };
 
 // TODO: getEntries 处理 context 的逻辑要去掉
-export default function getEntries(
-  options: RemaxOptions,
-  context?: Context
-): Entries {
+export default function getEntries(options: RemaxOptions, context?: Context): Entries {
   let pages: any = [];
   let subpackages: any = [];
 
@@ -49,23 +42,14 @@ export default function getEntries(
     images: [],
   };
 
-  entries.pages = pages.reduce(
-    (ret: Array<{ path: string; file: string }>, page: string) => {
-      return [
-        ...ret,
-        searchFile(path.join(options.cwd, options.rootDir, page)),
-      ];
-    },
-    []
-  );
+  entries.pages = pages.reduce((ret: Array<{ path: string; file: string }>, page: string) => {
+    return [...ret, searchFile(path.join(options.cwd, options.rootDir, page))];
+  }, []);
 
   subpackages.forEach((pack: { pages: string[]; root: string }) => {
     entries.pages = entries.pages.concat(
       pack.pages.reduce((ret: string[], page) => {
-        return [
-          ...ret,
-          searchFile(path.join(options.cwd, options.rootDir, pack.root, page)),
-        ];
+        return [...ret, searchFile(path.join(options.cwd, options.rootDir, pack.root, page))];
       }, [])
     );
   });

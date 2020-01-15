@@ -4,6 +4,7 @@ import { kebabCase, cloneDeep } from 'lodash';
 import API from '../../API';
 import { RemaxOptions } from '../..';
 import { LEAF, ENTRY } from './compiler/static/constants';
+import { HostComponent } from 'remax-types';
 
 export interface Component {
   id: string;
@@ -17,9 +18,21 @@ export type Importers<T = Component> = Map<string, Components<T>>;
 
 const importers: Importers = new Map();
 
-export function convertComponents<T extends Component>(
-  importers: Importers<T>
-) {
+function aliasProp(propName: string, hostComponent?: HostComponent) {
+  if (!propName) {
+    return propName;
+  }
+
+  const prefix = `${API.adapter.target}-`;
+
+  if (propName.startsWith(prefix)) {
+    return propName.replace(new RegExp(`^${prefix}`), '');
+  }
+
+  return hostComponent?.alias?.[propName] || propName;
+}
+
+export function convertComponents<T extends Component>(importers: Importers<T>) {
   const components = [...importers.values()].reduce((prev, components) => {
     for (const component of components.values()) {
       const com = prev.find(com => com.id === component.id);
@@ -40,10 +53,7 @@ export function convertComponents<T extends Component>(
   return components.map(c => ({ ...c, props: [...c.props] }));
 }
 
-export function addToComponentCollection<T extends Component>(
-  component: T,
-  importers: Importers
-) {
+export function addToComponentCollection<T extends Component>(component: T, importers: Importers) {
   const components = importers.get(component.importer);
 
   if (!components) {
@@ -71,12 +81,7 @@ function registerProps(componentName: string, node?: t.JSXElement) {
     return;
   }
 
-  const usedProps = API.processProps(
-    componentName,
-    hostComponent.props.slice(),
-    hostComponent.additional,
-    node
-  );
+  const usedProps = API.processProps(componentName, hostComponent.props.slice(), hostComponent.additional, node);
 
   if (node) {
     node.openingElement.attributes.forEach(attr => {
@@ -108,7 +113,7 @@ function registerProps(componentName: string, node?: t.JSXElement) {
         .filter(p => p !== LEAF)
         .filter(p => p !== ENTRY)
         .filter(Boolean)
-        .map(prop => hostComponent?.alias?.[prop] || prop)
+        .map(prop => aliasProp(prop, hostComponent))
     ),
   ].sort();
 }
@@ -159,7 +164,7 @@ export default (options: RemaxOptions) => {
       ImportDeclaration(path: NodePath<t.ImportDeclaration>, state: any) {
         const node = path.node;
 
-        if (!node.source.value.startsWith('remax/')) {
+        if (!node.source.value.startsWith('remax/') && node.source.value !== 'remax-one') {
           return;
         }
 
@@ -196,8 +201,7 @@ export default (options: RemaxOptions) => {
             return;
           }
 
-          const componentName = (componentPath.node as t.ImportSpecifier)
-            .imported.name;
+          const componentName = (componentPath.node as t.ImportSpecifier).imported.name;
           const id = kebabCase(componentName);
 
           registerComponent({

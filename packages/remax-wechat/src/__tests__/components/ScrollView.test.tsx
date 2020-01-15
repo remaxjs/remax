@@ -12,9 +12,7 @@ describe('ScrollView', () => {
   it('handle scroll', () => {
     const event = { detail: { scrollTop: 10 } };
     const handleScroll = jest.fn(event => event);
-    const component = TestRenderer.create(
-      <ScrollView onScroll={handleScroll} />
-    );
+    const component = TestRenderer.create(<ScrollView onScroll={handleScroll} />);
 
     const instance = component.root.findByType('scroll-view' as any);
     instance.props.onScroll(event);

@@ -18,7 +18,7 @@ describe('remax config', () => {
     }).toThrowErrorMatchingInlineSnapshot(`
 "Invalid configuration object. remax has been initialized using a configuration object that does not match the API schema.
  - configuration has an unknown property 'xxx'. These properties are valid:
-   object { turboPages?, cssModules?, notify?, pxToRpx?, cwd?, progress?, compressTemplate?, output?, rootDir?, UNSAFE_wechatTemplateDepth?, alias?, postcss?, rollupOptions? }
+   object { turboPages?, cssModules?, notify?, pxToRpx?, cwd?, progress?, compressTemplate?, output?, rootDir?, UNSAFE_wechatTemplateDepth?, alias?, plugins?, postcss?, rollupOptions? }
  - configuration.turboPages should be an array:
    [any, ...]
  - configuration.cssModules should be one of these:
@@ -41,6 +41,8 @@ describe('remax config', () => {
     * configuration.UNSAFE_wechatTemplateDepth should be a number.
  - configuration.alias should be an object:
    object { … }
+ - configuration.plugins should be an array:
+   [any, ...]
  - configuration.postcss.options should be an object:
    object { … }
  - configuration.postcss.plugins should be an array:
@@ -66,21 +68,15 @@ describe('manifest', () => {
   });
 
   it('return empty object when javascript manifest file contains no config', () => {
-    expect(
-      readManifest(
-        path.join(__dirname, './fixtures/exception/manifest.js/app.config'),
-        'alipay'
-      )
-    ).toMatchObject({});
+    expect(readManifest(path.join(__dirname, './fixtures/exception/manifest.js/app.config'), 'alipay')).toMatchObject(
+      {}
+    );
   });
 
   it('return empty object when typescript manifest file contains no config', () => {
-    expect(
-      readManifest(
-        path.join(__dirname, './fixtures/exception/manifest.ts/app.config'),
-        'alipay'
-      )
-    ).toMatchObject({});
+    expect(readManifest(path.join(__dirname, './fixtures/exception/manifest.ts/app.config'), 'alipay')).toMatchObject(
+      {}
+    );
   });
 
   it('throw error when missing pages config in app.config', async () => {

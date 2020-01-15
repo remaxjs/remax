@@ -7,18 +7,16 @@ import runWatcher from './watcher';
 import { output } from './utils/output';
 
 export default async (argv: any, context?: Context) => {
+  process.env.REMAX_PLATFORM = argv.target;
+
   const options = {
     ...getConfig(),
     ...(context ? context.config : {}),
   };
 
-  API.registerAdapterPlugins(argv.target);
+  API.registerAdapterPlugins(argv.target, options);
 
-  const rollupOptions: rollup.RollupOptions = rollupConfig(
-    options,
-    argv,
-    context
-  );
+  const rollupOptions: rollup.RollupOptions = rollupConfig(options, argv, context);
 
   if (argv.watch) {
     runWatcher(options, rollupOptions, argv, context);

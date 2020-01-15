@@ -28,23 +28,18 @@ function insertImportDeclaration(program: any) {
   let name = FUNCTION_NAME;
 
   const node = program.node.body.find(
-    (node: t.Node) =>
-      t.isImportDeclaration(node) && node.source.value === PACKAGE_NAME
+    (node: t.Node) => t.isImportDeclaration(node) && node.source.value === PACKAGE_NAME
   );
 
   if (node) {
     const specifier = (node as t.ImportDeclaration).specifiers.find(
-      specifier =>
-        t.isImportSpecifier(specifier) &&
-        specifier.imported.name === FUNCTION_NAME
+      specifier => t.isImportSpecifier(specifier) && specifier.imported.name === FUNCTION_NAME
     );
 
     if (specifier) {
       name = specifier.local.name;
     } else {
-      node.specifiers.push(
-        t.importSpecifier(t.identifier(name), t.identifier(name))
-      );
+      node.specifiers.push(t.importSpecifier(t.identifier(name), t.identifier(name)));
     }
   } else {
     const importDeclaration = t.importDeclaration(
@@ -60,9 +55,7 @@ function insertImportDeclaration(program: any) {
 export default function createHostComponent(path: NodePath, state: any) {
   const program = state.file.path;
   const functionName = insertImportDeclaration(program);
-  const callExpression = path.findParent(p =>
-    t.isCallExpression(p)
-  ) as NodePath<t.CallExpression>;
+  const callExpression = path.findParent(p => t.isCallExpression(p)) as NodePath<t.CallExpression>;
   const config = getConfig(callExpression);
   const name = config[0] as t.StringLiteral;
   const aliasPair = config[1] as string[][];
@@ -78,7 +71,5 @@ export default function createHostComponent(path: NodePath, state: any) {
     additional: true,
   });
 
-  callExpression.replaceWith(
-    t.callExpression(t.identifier(functionName), [name])
-  );
+  callExpression.replaceWith(t.callExpression(t.identifier(functionName), [name]));
 }

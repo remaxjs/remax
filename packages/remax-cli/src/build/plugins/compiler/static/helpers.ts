@@ -39,10 +39,7 @@ export function getHostComponentName(node: t.JSXElement, path: NodePath) {
  * @param node JSXElement|JSXFragment
  * @param path NodePath
  */
-export function isHostComponentElement(
-  node: t.JSXElement | t.JSXFragment,
-  path: NodePath
-) {
+export function isHostComponentElement(node: t.JSXElement | t.JSXFragment, path: NodePath) {
   if (t.isJSXFragment(node)) {
     return false;
   }
@@ -128,10 +125,7 @@ export function isExpressionBlock(path: any) {
  * @param node JSXElement|JSXFragment
  * @param path NodePath
  */
-export function isReactFragment(
-  node: t.JSXElement | t.JSXFragment,
-  path: NodePath
-) {
+export function isReactFragment(node: t.JSXElement | t.JSXFragment, path: NodePath) {
   if (t.isJSXFragment(node)) {
     return true;
   }
@@ -176,9 +170,7 @@ export function isReactFragment(
       return false;
     }
 
-    return (
-      object.name.toLowerCase() === 'react' && property.name === 'Fragment'
-    );
+    return object.name.toLowerCase() === 'react' && property.name === 'Fragment';
   }
 
   return false;
@@ -192,13 +184,8 @@ export function isReactFragment(
  * @param {t.JSXOpeningElement['attributes']} attributes
  * @returns
  */
-export function getAttributeByName(
-  name: string,
-  attributes: t.JSXOpeningElement['attributes']
-) {
-  return attributes.find(
-    attr => t.isJSXAttribute(attr) && attr.name.name === name
-  );
+export function getAttributeByName(name: string, attributes: t.JSXOpeningElement['attributes']) {
+  return attributes.find(attr => t.isJSXAttribute(attr) && attr.name.name === name);
 }
 
 /**
@@ -209,9 +196,7 @@ export function getAttributeByName(
  * @returns
  */
 export function getLeafAttribute(element: t.JSXOpeningElement) {
-  const attribute = getAttributeByName(LEAF, element.attributes) as
-    | t.JSXAttribute
-    | undefined;
+  const attribute = getAttributeByName(LEAF, element.attributes) as t.JSXAttribute | undefined;
 
   return attribute;
 }
@@ -275,10 +260,7 @@ export function wrappedByElement(name: string, node: JSXNode, path: NodePath) {
 export function wrappedByExpressionBlock(node: JSXNode, path: NodePath) {
   // 如果不是在一个 JSXElement|JSXFragment 中，则不处理
   // 如：这是一个属性表达式 attr={xxx}
-  if (
-    !t.isJSXElement(path.parentPath.node) &&
-    !t.isJSXFragment(path.parentPath.node)
-  ) {
+  if (!t.isJSXElement(path.parentPath.node) && !t.isJSXFragment(path.parentPath.node)) {
     return;
   }
 
@@ -298,9 +280,7 @@ export function wrappedByExpressionBlock(node: JSXNode, path: NodePath) {
  * @param {NodePath} path
  */
 export function replacedWithJSXFragment(node: t.JSXElement, path: NodePath) {
-  path.replaceWith(
-    t.jsxFragment(t.jsxOpeningFragment(), t.jsxClosingFragment(), node.children)
-  );
+  path.replaceWith(t.jsxFragment(t.jsxOpeningFragment(), t.jsxClosingFragment(), node.children));
 }
 
 /**

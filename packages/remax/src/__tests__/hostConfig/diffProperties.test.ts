@@ -29,32 +29,17 @@ describe('diffProperties', () => {
 
     const sameFn = () => void 0;
     expect(!!diffProperties({ a: sameFn }, { a: sameFn })).toBeFalsy();
-    expect(
-      !!diffProperties({ a: () => void 0 }, { a: () => void 0 })
-    ).toBeTruthy();
+    expect(!!diffProperties({ a: () => void 0 }, { a: () => void 0 })).toBeTruthy();
 
-    expect(
-      !!diffProperties({ style: { width: 5 } }, { style: { width: 5 } })
-    ).toBeFalsy();
-    expect(
-      !!diffProperties({ style: null }, { style: { width: 5 } })
-    ).toBeTruthy();
+    expect(!!diffProperties({ style: { width: 5 } }, { style: { width: 5 } })).toBeFalsy();
+    expect(!!diffProperties({ style: null }, { style: { width: 5 } })).toBeTruthy();
     expect(!!diffProperties({}, { style: { width: 5 } })).toBeTruthy();
     expect(!!diffProperties({ style: { width: 5 } }, {})).toBeTruthy();
+    expect(!!diffProperties({ style: { width: 5 } }, { style: { width: 5 } })).toBeFalsy();
+    expect(!!diffProperties({ style: { width: 5 } }, { style: { width: 6 } })).toBeTruthy();
+    expect(!!diffProperties({ style: { width: 5 } }, { style: { height: 6 } })).toBeTruthy();
     expect(
-      !!diffProperties({ style: { width: 5 } }, { style: { width: 5 } })
-    ).toBeFalsy();
-    expect(
-      !!diffProperties({ style: { width: 5 } }, { style: { width: 6 } })
-    ).toBeTruthy();
-    expect(
-      !!diffProperties({ style: { width: 5 } }, { style: { height: 6 } })
-    ).toBeTruthy();
-    expect(
-      !!diffProperties(
-        { style: { width: 5 }, a: '1', b: null },
-        { style: { width: 5 }, a: '1', b: undefined }
-      )
+      !!diffProperties({ style: { width: 5 }, a: '1', b: null }, { style: { width: 5 }, a: '1', b: undefined })
     ).toBeFalsy();
 
     expect(!!diffProperties({ children: '1' }, { children: 1 })).toBeTruthy();

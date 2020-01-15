@@ -10,10 +10,7 @@ export interface PageProps<Q = {}> {
   };
 }
 
-export default function createPageWrapper(
-  Page: React.ComponentType<any>,
-  query: object
-) {
+export default function createPageWrapper(Page: React.ComponentType<any>, query: object) {
   return class PageWrapper extends React.Component<{ page: any }> {
     // 页面组件的实例
     pageComponentInstance: any = null;
@@ -38,10 +35,7 @@ export default function createPageWrapper(
 
     callLifecycle(phase: string, ...args: any[]) {
       const callback = callbackName(phase);
-      if (
-        this.pageComponentInstance &&
-        typeof this.pageComponentInstance[callback] === 'function'
-      ) {
+      if (this.pageComponentInstance && typeof this.pageComponentInstance[callback] === 'function') {
         return this.pageComponentInstance[callback](...args);
       }
     }

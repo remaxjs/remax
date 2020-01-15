@@ -6,6 +6,13 @@ export function getAlias(prop: string, type: string) {
 
   const hostComponent = hostComponents[type];
 
+  const prefix = `${process.env.REMAX_PLATFORM}-`;
+
+  // 判断是否是平台独有属性
+  if (prop.startsWith(prefix)) {
+    return prop.replace(new RegExp(`^${prefix}`), '');
+  }
+
   return hostComponent?.alias?.[prop] ?? prop;
 }
 

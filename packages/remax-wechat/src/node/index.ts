@@ -6,6 +6,7 @@ const EJS_TPL_ROOT = path.join(__dirname, '../../templates');
 
 const plugin: RemaxNodePluginConstructor = () => {
   return {
+    name: 'remax-wechat',
     meta: {
       template: {
         extension: '.wxml',
@@ -45,10 +46,7 @@ const plugin: RemaxNodePluginConstructor = () => {
 
       // 页面
       entries.pages = pages.reduce(
-        (ret: string[], page: string) =>
-          [...ret, getEntryPath(path.join(ROOT_DIR, page))].filter(
-            page => !!page
-          ),
+        (ret: string[], page: string) => [...ret, getEntryPath(path.join(ROOT_DIR, page))].filter(page => !!page),
         []
       );
 
@@ -57,10 +55,7 @@ const plugin: RemaxNodePluginConstructor = () => {
         entries.pages = entries.pages.concat(
           pack.pages.reduce(
             (ret: string[], page) =>
-              [
-                ...ret,
-                getEntryPath(path.join(ROOT_DIR, pack.root, page)),
-              ].filter(page => !!page),
+              [...ret, getEntryPath(path.join(ROOT_DIR, pack.root, page))].filter(page => !!page),
             []
           )
         );
@@ -68,30 +63,16 @@ const plugin: RemaxNodePluginConstructor = () => {
 
       // tabbar 中的图片
       entries.images = (tabBar?.list || [])
-        .reduce(
-          (images: string[], tab: any) => [
-            ...images,
-            tab.iconPath,
-            tab.selectedIconPath,
-          ],
-          []
-        )
+        .reduce((images: string[], tab: any) => [...images, tab.iconPath, tab.selectedIconPath], [])
         .filter((image: any) => !!image && !/^http(s?):\/\//.test(image))
-        .reduce<string[]>(
-          (paths, image) => [...paths, path.join(ROOT_DIR, image)],
-          []
-        );
+        .reduce<string[]>((paths, image) => [...paths, path.join(ROOT_DIR, image)], []);
 
       return entries;
     },
     shouldHostComponentRegister: ({ componentName, additional, phase }) =>
       componentName !== 'swiper-item' && (additional || phase !== 'extra'),
     processProps: ({ node, props, additional }) => {
-      const isSpread =
-        node &&
-        node.openingElement.attributes.find(
-          (a: any) => a.type === 'JSXSpreadAttribute'
-        );
+      const isSpread = node && node.openingElement.attributes.find((a: any) => a.type === 'JSXSpreadAttribute');
 
       const nextProps = isSpread || additional ? props : [];
 
