@@ -67,7 +67,7 @@ function Page() {
 ```jsx
 import { createHostComponent } from 'remax/macro';
 
-const FooBar = createHostComponent<{ foo: string; }>('foo-bar', ['foo]);
+const FooBar = createHostComponent<{ foo: string; }>('foo-bar', ['foo']);
 
 function Page() {
   return <FooBar foo="bar" />;
