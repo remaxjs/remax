@@ -597,6 +597,7 @@
     decode="{{item.props['decode']}}"
     id="{{item.props['id']}}"
     number-of-lines="{{item.props['number-of-lines']}}"
+    onTap="{{item.props['onTap']}}"
     selectable="{{item.props['selectable']}}"
     space="{{item.props['space']}}"
     style="{{item.props['style']}}">

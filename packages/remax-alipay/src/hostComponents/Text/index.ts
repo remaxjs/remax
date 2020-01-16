@@ -10,6 +10,8 @@ export interface TextProps {
   space?: string;
   decode?: boolean;
   numberOfLines?: number;
+  onTap?: (e: any) => void;
+  onClick?: (e: any) => void;
 }
 const Text = createHostComponent<TextProps>('text');
 

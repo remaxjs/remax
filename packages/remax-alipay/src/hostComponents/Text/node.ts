@@ -6,6 +6,8 @@ export const alias = {
   space: 'space',
   decode: 'decode',
   numberOfLines: 'number-of-lines',
+  onClick: 'onTap',
+  onTap: 'onTap',
 };
 
 export const props = Object.values(alias);
