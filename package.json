@@ -18,6 +18,7 @@
     "lint": "eslint \"packages/*/src/**/*.{ts,tsx}\"",
     "prerelease": "./scripts/prerelease",
     "release": "lerna publish --force-publish --create-release=github",
+    "postrelease": "./scripts/postrelease",
     "site:build": "lerna run --scope website --stream build",
     "site:deploy": "lerna run --scope website --stream deploy",
     "authors": "./scripts/authors"
