@@ -7,7 +7,7 @@ export interface ViewProps {
   className?: string;
   style?: React.CSSProperties;
   disableScroll?: boolean;
-  hoverClass?: string;
+  hoverClassName?: string;
   hoverStartTime?: number;
   hoverStayTime?: number;
   hidden?: boolean;

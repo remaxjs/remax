@@ -7,7 +7,7 @@ export interface TextareaProps extends BaseProps {
   value: any;
   placeholder?: string;
   placeholderStyle?: React.CSSProperties;
-  placeholderClass?: string;
+  placeholderClassName?: string;
   disabled?: boolean;
   /** 最大输入长度，设置为 -1 的时候不限制最大长度 */
   maxlength?: number;

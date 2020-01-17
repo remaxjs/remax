@@ -6,6 +6,7 @@ export const alias = {
   value: 'value',
   placeholder: 'placeholder',
   placeholderStyle: 'placeholder-style',
+  placeholderClass: 'placeholder-class',
   placeholderClassName: 'placeholder-class',
   disabled: 'disabled',
   maxlength: 'maxlength',

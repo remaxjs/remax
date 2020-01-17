@@ -7,8 +7,8 @@ export interface SwiperProps {
   indicatorDots?: boolean;
   indicatorColor?: string;
   indicatorActiveColor?: string;
-  activeClass?: string;
-  changingClass?: string;
+  activeClassName?: string;
+  changingClassName?: string;
   autoplay?: boolean;
   current?: number;
   duration?: number;
