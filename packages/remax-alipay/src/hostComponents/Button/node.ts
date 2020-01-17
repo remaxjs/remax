@@ -12,7 +12,7 @@ export const alias = {
   hoverStopPropagation: 'hover-stop-propagation',
   formType: 'form-type',
   openType: 'open-type',
-  scoep: 'scope',
+  scope: 'scope',
   onClick: 'onTap',
   onTap: 'onTap',
   appParameter: 'app-parameter',
