@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.4](https://github.com/remaxjs/remax/compare/v1.11.3...v1.11.4) (2020-01-17)
+
+### Bug Fixes
+
+- **alipay:** 修复 Button 组件 scope 属性拼写错误 ([1b9c3b9](https://github.com/remaxjs/remax/commit/1b9c3b9))
+- **wechat:** 修复 ScrollView 水平受控问题 ([063d627](https://github.com/remaxjs/remax/commit/063d627))
+
 ## [1.11.3](https://github.com/remaxjs/remax/compare/v1.11.2...v1.11.3) (2020-01-16)
 
 ### Bug Fixes
