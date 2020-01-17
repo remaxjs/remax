@@ -4,7 +4,7 @@ export const alias = {
   style: 'style',
   value: 'value',
   indicatorStyle: 'indicator-style',
-  indicatorClassme: 'indicator-class',
+  indicatorClass: 'indicator-class',
   maskStyle: 'mask-style',
   maskClassName: 'mask-class',
   onChange: 'bindchange',

@@ -20,6 +20,7 @@ export const alias = {
   appParameter: 'app-parameter',
   showMessageCard: 'show-message-card',
   onGetUserinfo: 'bindgetuserinfo',
+  onGetUserInfo: 'bindgetuserinfo',
   onContact: 'bindcontact',
   onGetPhoneNumber: 'bindgetphonenumber',
   onError: 'binderror',
