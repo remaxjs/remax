@@ -94,6 +94,8 @@ var _page = function _page() {
     focus: true
   }), React.createElement(index$7.default, {
     scrollTop: 0
+  }, React.createElement(index$2.default, null)), React.createElement(index$7.default, {
+    scrollLeft: 0
   }, React.createElement(index$2.default, null)), React.createElement(index$6.default, null, React.createElement(index$8.default, null, "a"), React.createElement(index$8.default, null, "b")), React.createElement(index$2.default, null, React.createElement(index$2.default, null, React.createElement(index$7.default, null, React.createElement(index$2.default, null)), React.createElement(index$6.default, {
     current: 5
   }, React.createElement(index$8.default, null, "a"), React.createElement(index$8.default, null, "b")), React.createElement(index$e.default, null, React.createElement(index$e.default, null, "text")))));
