@@ -38,6 +38,9 @@ export default () => {
       <ScrollView scrollTop={0}>
         <View />
       </ScrollView>
+      <ScrollView scrollLeft={0}>
+        <View />
+      </ScrollView>
       <Swiper>
         <SwiperItem>a</SwiperItem>
         <SwiperItem>b</SwiperItem>
