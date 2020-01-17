@@ -6,7 +6,7 @@ export const alias = {
   plain: 'plain',
   disabled: 'disabled',
   loading: 'loading',
-  hoverClass: 'hover-class',
+  hoverClassName: 'hover-class',
   hoverStartTime: 'hover-start-time',
   hoverStayTime: 'hover-stay-time',
   hoverStopPropagation: 'hover-stop-propagation',

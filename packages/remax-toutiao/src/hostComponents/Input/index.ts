@@ -15,7 +15,7 @@ export interface InputProps extends BaseProps {
   adjustPosition?: boolean;
   placeholder?: string;
   placeholderStyle?: React.CSSProperties;
-  placeholderClass?: string;
+  placeholderClassName?: string;
   disabled?: boolean;
   cursorSpacing?: number;
   onInput?: (e: any) => void | string;

@@ -11,7 +11,7 @@ export interface InputProps {
   password?: boolean;
   placeholder?: string;
   placeholderStyle?: React.CSSProperties;
-  placeholderClass?: string;
+  placeholderClassName?: string;
   disabled?: boolean;
   maxlength?: number;
   focus?: boolean;

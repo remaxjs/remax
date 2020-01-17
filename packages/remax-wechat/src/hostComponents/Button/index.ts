@@ -59,7 +59,7 @@ export interface ButtonProps extends BaseProps {
    * 1.0.0
    * 指定按钮按下去的样式类。当 hover-class="none" 时，没有点击态效果
    */
-  hoverClass?: string;
+  hoverClassName?: string;
   /**
    * 1.5.0
    * 指定是否阻止本节点的祖先节点出现点击态

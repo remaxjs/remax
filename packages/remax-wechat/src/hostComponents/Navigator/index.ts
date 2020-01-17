@@ -30,7 +30,7 @@ export interface NavigatorProps extends BaseProps {
   /** (default: release) 当target="miniProgram"时有效，要打开的小程序版本 2.0.7 */
   version?: 'develop' | 'trial' | 'release';
   /** (default: navigator-hover) 指定点击时的样式类，当hover-class="none"时，没有点击态效果 1.0.0 */
-  hoverClass?: string;
+  hoverClassName?: string;
   /** (default: false) 指定是否阻止本节点的祖先节点出现点击态 1.5.0 */
   hoverStopPropagation?: boolean;
   /** (default: 50) 按住后多久出现点击态，单位毫秒 1.0.0 */

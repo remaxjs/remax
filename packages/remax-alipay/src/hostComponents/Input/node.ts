@@ -8,7 +8,7 @@ export const alias = {
   password: 'password',
   placeholder: 'placeholder',
   placeholderStyle: 'placeholder-style',
-  placeholderClass: 'placeholder-class',
+  placeholderClassName: 'placeholder-class',
   disabled: 'disabled',
   maxlength: 'maxlength',
   focus: 'focus',
