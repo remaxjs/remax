@@ -15,8 +15,10 @@
   },
   "repository": "git+https://github.com/remaxjs/remax.git",
   "license": "MIT",
+  "dependencies": {
+    "@remax/miniprogram-api-typings": "^2.9.3"
+  },
   "devDependencies": {
-    "@remax/miniprogram-api-typings": "^2.9.3",
     "@types/jest": "^24.0.24",
     "@types/react": "^16.9.17",
     "@types/react-test-renderer": "^16.9.1",
