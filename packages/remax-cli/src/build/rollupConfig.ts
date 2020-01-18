@@ -104,6 +104,7 @@ export default function rollupConfig(
       customResolveOptions: {
         moduleDirectory: 'node_modules',
       },
+      preferBuiltins: false,
     }),
     commonjs({
       include: /node_modules/,
