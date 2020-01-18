@@ -1,6 +1,6 @@
 {
   "name": "remax-types",
-  "version": "1.11.4",
+  "version": "1.11.5",
   "description": "Remax Types",
   "typings": "index.d.ts",
   "author": "Caihuanyu <eterlf41@gmail.com>",

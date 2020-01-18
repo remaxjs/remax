@@ -1,6 +1,6 @@
 {
   "name": "remax-toutiao",
-  "version": "1.11.4",
+  "version": "1.11.5",
   "description": "Remax for Toutiao",
   "main": "./cjs/index.js",
   "esnext": "./esm/index.js",
@@ -22,7 +22,7 @@
     "jest": "^24.9.0",
     "react": "^16.12.0",
     "react-test-renderer": "^16.12.0",
-    "remax-types": "^1.11.4",
+    "remax-types": "^1.11.5",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
   }

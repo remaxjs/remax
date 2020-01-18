@@ -3,7 +3,7 @@
   "private": true,
   "description": "Documentation, built with mdx",
   "author": "Praveen <praveen@hasura.io> (@praveenweb)",
-  "version": "1.11.4",
+  "version": "1.11.5",
   "dependencies": {
     "@babel/plugin-proposal-export-default-from": "^7.0.0",
     "@emotion/core": "^10.0.10",

@@ -1,6 +1,6 @@
 {
   "name": "remax.macro",
-  "version": "1.11.4",
+  "version": "1.11.5",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -36,6 +36,6 @@
   },
   "dependencies": {
     "@types/babel__traverse": "^7.0.8",
-    "remax-types": "^1.11.4"
+    "remax-types": "^1.11.5"
   }
 }
