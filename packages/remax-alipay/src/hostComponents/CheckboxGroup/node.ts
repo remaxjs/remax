@@ -2,7 +2,7 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
-  naem: 'name',
+  name: 'name',
   onChange: 'onChange',
 };
 

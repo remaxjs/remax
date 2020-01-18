@@ -17,7 +17,7 @@ export const alias = {
   onStateChange: 'bindstatechange',
   onFullscreenChange: 'bindfullscreenchange',
   onFullScreenChange: 'bindfullscreenchange',
-  onNetstatus: 'bindnetstatus',
+  onNetStatus: 'bindnetstatus',
   animation: 'animation',
 };
 

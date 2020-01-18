@@ -16,6 +16,7 @@ export const alias = {
   adjustPosition: 'adjust-position',
   placeholder: 'placeholder',
   placeholderStyle: 'placeholder-style',
+  placeholderClass: 'placeholder-class',
   placeholderClassName: 'placeholder-class',
   disabled: 'disabled',
   cursorSpacing: 'cursor-spacing',

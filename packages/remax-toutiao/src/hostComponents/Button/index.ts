@@ -7,7 +7,7 @@ export interface ButtonProps extends BaseProps {
   type?: 'primary' | 'default';
   disabled?: boolean;
   loading?: boolean;
-  hoverClass?: string;
+  hoverClassName?: string;
   hoverStartTime?: number;
   hoverStayTime?: number;
   hoverStopPropagation?: boolean;

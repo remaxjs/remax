@@ -4,7 +4,7 @@ export const alias = {
   className: 'class',
   width: 'width',
   height: 'height',
-  disableCcroll: 'disable-scroll',
+  disableScroll: 'disable-scroll',
   type: 'type',
   canvasId: 'canvas-id',
   onTouchStart: 'bindtouchstart',

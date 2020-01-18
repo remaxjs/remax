@@ -9,7 +9,7 @@ export interface TextareaProps {
   value?: string;
   placeholder?: string;
   placeholderStyle?: React.CSSProperties;
-  placeholderClass?: string;
+  placeholderClassName?: string;
   disabled?: boolean;
   maxlength?: number;
   focus?: boolean;

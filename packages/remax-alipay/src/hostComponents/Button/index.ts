@@ -11,7 +11,7 @@ export interface ButtonProps {
   plain?: boolean;
   disabled?: boolean;
   loading?: boolean;
-  hoverClass?: string;
+  hoverClassName?: string;
   hoverStartTime?: number;
   hoverStayTime?: number;
   hoverStopPropagation?: boolean;

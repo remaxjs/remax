@@ -7,9 +7,9 @@ export interface PickerViewProps {
   className?: string;
   value?: number[];
   indicatorStyle?: React.CSSProperties;
-  indicatorClass?: string;
+  indicatorClassName?: string;
   maskStyle?: React.CSSProperties;
-  maskClass?: string;
+  maskClassName?: string;
   onChange?: (e: any) => void;
 }
 const PickerView = createHostComponent<PickerViewProps>('picker-view');

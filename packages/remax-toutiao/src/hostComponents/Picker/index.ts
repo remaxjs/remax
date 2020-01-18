@@ -6,7 +6,7 @@ type Mode = 'selector' | 'multiSelector' | 'time' | 'date' | 'region';
 
 interface PickerPropsMap extends BaseProps {
   selector: SelectorProps;
-  multiSelector: MutiSelectorProps;
+  multiSelector: MultipleSelectorProps;
   time: TimeProps;
   date: DateProps;
   region: RegionProps;
@@ -21,7 +21,9 @@ interface SelectorProps {
   onCancel?: (e: any) => void;
 }
 
-type MutiSelectorProps = { onColumnchange?: (e: any) => void } & SelectorProps;
+type MultipleSelectorProps = {
+  onColumnChange?: (e: any) => void;
+} & SelectorProps;
 
 interface TimeProps {
   value?: string;

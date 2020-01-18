@@ -4,7 +4,7 @@ import { BaseProps } from '../../types/component';
 
 export interface ViewProps extends BaseProps {
   slot?: string;
-  hoverClass?: string;
+  hoverClassName?: string;
   hoverStartTime?: number;
   hoverStayTime?: number;
   hoverStopPropagation?: boolean;
