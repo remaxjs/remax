@@ -1,4 +1,3 @@
-import * as RuntimeOptions from './RuntimeOptions';
 import plainStyle from './utils/plainStyle';
 import { hostComponents } from './createHostComponent';
 
@@ -12,7 +11,7 @@ export function getAlias(prop: string, type: string) {
 
 function getValue(prop: string, value: any): any {
   if (prop.toLowerCase().endsWith('style') && prop !== 'layerStyle') {
-    return plainStyle(value, RuntimeOptions.pxToRpx);
+    return plainStyle(value);
   }
 
   return value;
