@@ -14,7 +14,7 @@ export interface ButtonProps extends BaseProps {
   formType?: 'submit' | 'reset';
   openType?: 'share' | 'getPhoneNumber';
   onClick?: (e: any) => void;
-  onGetphonenumber?: (e: any) => void;
+  onGetPhoneNumber?: (e: any) => void;
 }
 
 export default createHostComponent<ButtonProps>('button');
