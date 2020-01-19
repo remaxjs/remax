@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.1](https://github.com/remaxjs/remax/compare/v1.12.0...v1.12.1) (2020-01-19)
+
+### Bug Fixes
+
+- 修正环境变量注入导致的语法解析错误 ([1fc8350](https://github.com/remaxjs/remax/commit/1fc8350))
+
 # [1.12.0](https://github.com/remaxjs/remax/compare/v1.11.5...v1.12.0) (2020-01-19)
 
 ### Bug Fixes
