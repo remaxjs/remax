@@ -46,8 +46,9 @@ require('../npm/remax/npm/remax-alipay/esm/hostComponents/Video/index.js');
 require('../npm/remax/npm/remax-alipay/esm/api/index.js');
 
 var _page = function _page() {
-  var REMAX_APP_HELLO = {"NODE_ENV":"test","REMAX_APP_HELLO":"hello","REMAX_APP_MESSAGE":"hello world"}.REMAX_APP_HELLO;
-  return React.createElement(index$2.default, null, React.createElement(index$b.default, null, REMAX_APP_HELLO), React.createElement(index$b.default, null, {"NODE_ENV":"test","REMAX_APP_HELLO":"hello","REMAX_APP_MESSAGE":"hello world"}.REMAX_APP_MESSAGE));
+  var REMAX_APP_HELLO = ({"NODE_ENV":"test","REMAX_APP_HELLO":"hello","REMAX_APP_MESSAGE":"hello world"}).REMAX_APP_HELLO;
+
+  return React.createElement(index$2.default, null, React.createElement(index$b.default, null, ({"NODE_ENV":"test","REMAX_APP_HELLO":"hello","REMAX_APP_MESSAGE":"hello world"}).NODE_ENV), React.createElement(index$b.default, null, REMAX_APP_HELLO), React.createElement(index$b.default, null, ({"NODE_ENV":"test","REMAX_APP_HELLO":"hello","REMAX_APP_MESSAGE":"hello world"}).REMAX_APP_MESSAGE));
 };
 
 var index = Page(createPageConfig.default(_page));

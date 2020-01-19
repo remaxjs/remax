@@ -9,7 +9,9 @@ type Env = Record<string, string | undefined | Replacement>;
 export default function getEnvironment(options: RemaxOptions, target: string) {
   const envFilePath = path.join(options.cwd, '.env');
 
-  const NODE_ENV = process.env.NODE_ENV || 'development';
+  process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+  const NODE_ENV = process.env.NODE_ENV;
 
   // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
   const dotenvFiles = [
@@ -54,12 +56,14 @@ export default function getEnvironment(options: RemaxOptions, target: string) {
 
   const stringified = {
     'process.env': () =>
+      '(' +
       JSON.stringify(
         Object.keys(raw).reduce((env: Env, key) => {
           env[key] = raw[key];
           return env;
         }, {})
-      ),
+      ) +
+      ')',
     __REMAX_DEBUG__: JSON.stringify(process.env.REMAX_DEBUG),
     __REMAX_PX2RPX__: JSON.stringify(options.pxToRpx),
     __REMAX_HOST_COMPONENTS__: () => stringifyHostComponents(),
