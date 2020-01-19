@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.2](https://github.com/remaxjs/remax/compare/v1.12.1...v1.12.2) (2020-01-19)
+
+### Bug Fixes
+
+- 修复 api 类型丢失的问题 ([ed7a77b](https://github.com/remaxjs/remax/commit/ed7a77b)), closes [#598](https://github.com/remaxjs/remax/issues/598)
+- 修复配置 pxToRpx 不生效的问题 ([2c93e21](https://github.com/remaxjs/remax/commit/2c93e21))
+
 ## [1.12.1](https://github.com/remaxjs/remax/compare/v1.12.0...v1.12.1) (2020-01-19)
 
 ### Bug Fixes
