@@ -1,4 +1,5 @@
 import { run } from '../index';
+import runTest from './helpers/runTest';
 
 describe('CLI', () => {
   it('run cli help', done => {
@@ -9,4 +10,6 @@ describe('CLI', () => {
       done();
     });
   });
+
+  runTest('env');
 });

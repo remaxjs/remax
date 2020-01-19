@@ -52,6 +52,8 @@
     "command-exists": "^1.2.8",
     "commander": "^2.19.0",
     "dot-prop": "^5.1.0",
+    "dotenv": "^8.2.0",
+    "dotenv-expand": "^5.1.0",
     "ejs": "^3.0.1",
     "esm": "^3.2.25",
     "htmlparser2": "^4.0.0",

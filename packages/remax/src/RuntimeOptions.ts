@@ -1,2 +1,1 @@
-export const pxToRpx: boolean =
-  !process.env.REMAX_PX2RPX || process.env.REMAX_PX2RPX === 'true';
+export const pxToRpx = !__REMAX_PX2RPX__ || __REMAX_PX2RPX__ === 'true';

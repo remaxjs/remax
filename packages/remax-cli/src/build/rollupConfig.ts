@@ -22,7 +22,7 @@ import rename from './plugins/rename';
 import replace from '@rollup/plugin-replace';
 import { RemaxOptions } from 'remax-types';
 import app from './plugins/app';
-import { Context, Env } from '../types';
+import { Context } from '../types';
 import namedExports from 'named-exports-db';
 import fixRegeneratorRuntime from './plugins/fixRegeneratorRuntime';
 import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin';
@@ -33,7 +33,7 @@ import alias from './plugins/alias';
 import extensions from '../extensions';
 import { without } from 'lodash';
 import jsx from 'acorn-jsx';
-import stringifyHostComponents from './stringifyHostComponents';
+import getEnvironment from './env';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -59,19 +59,7 @@ export default function rollupConfig(
     ...options.postcss,
   };
 
-  const envReplacement: Env = {
-    NODE_ENV: process.env.NODE_ENV || 'development',
-    REMAX_PLATFORM: argv.target,
-    REMAX_DEBUG: process.env.REMAX_DEBUG,
-    REMAX_PX2RPX: `${options.pxToRpx}`,
-    REMAX_HOST_COMPONENTS: () => stringifyHostComponents(),
-  };
-
-  Object.keys(process.env).forEach(k => {
-    if (k.startsWith('REMAX_APP_')) {
-      envReplacement[`${k}`] = process.env[k];
-    }
-  });
+  const env = getEnvironment(options, argv.target);
 
   const plugins = [
     copy({
@@ -141,14 +129,7 @@ export default function rollupConfig(
         .concat(postcssConfig.plugins),
     }),
     replace({
-      values: Object.keys(envReplacement).reduce((acc: any, key) => {
-        if (typeof envReplacement[key] === 'function') {
-          acc[`process.env.${key}`] = envReplacement[key];
-        } else {
-          acc[`process.env.${key}`] = JSON.stringify(envReplacement[key]);
-        }
-        return acc;
-      }, {}),
+      values: env.stringified,
     }),
     rename({
       include: `${options.rootDir}/**`,
