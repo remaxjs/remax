@@ -32,6 +32,8 @@
     "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },
   "dependencies": {
+    "@remax/miniprogram-api-typings": "^2.9.3",
+    "@remax/mini-types": "^0.1.0",
     "lodash.kebabcase": "^4.1.1",
     "react-reconciler": "0.24.0",
     "remax-alipay": "^1.12.1",
