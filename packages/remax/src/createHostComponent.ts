@@ -6,7 +6,7 @@ export const hostComponents: {
       [key: string]: string;
     };
   };
-} = (process.env.REMAX_HOST_COMPONENTS as any) || {};
+} = __REMAX_HOST_COMPONENTS__ || {};
 
 export default function createHostComponent<P = any>(
   name: string,

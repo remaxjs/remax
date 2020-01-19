@@ -15,3 +15,4 @@ order: 20
 - [平台信息](./guide/platform)
 - [TypeScript](./guide/typescript)
 - [CLI](./guide/cli)
+- [环境变量](./guide/environment-variables)

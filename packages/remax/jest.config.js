@@ -8,5 +8,8 @@ module.exports = {
     'ts-jest': {
       isolatedModules: true,
     },
+    __REMAX_HOST_COMPONENTS__: {},
+    __REMAX_PX2RPX__: 'true',
+    __REMAX_DEBUG__: false,
   },
 };

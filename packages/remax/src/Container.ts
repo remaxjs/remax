@@ -93,7 +93,7 @@ export default class Container {
             callback = () => {
               nativeEffector.run();
               /* istanbul ignore next */
-              if (process.env.REMAX_DEBUG) {
+              if (__REMAX_DEBUG__) {
                 console.log(
                   `setData => 回调时间：${new Date().getTime() - startTime}ms`
                 );
@@ -143,7 +143,7 @@ export default class Container {
       () => {
         nativeEffector.run();
         /* istanbul ignore next */
-        if (process.env.REMAX_DEBUG) {
+        if (__REMAX_DEBUG__) {
           console.log(
             `setData => 回调时间：${new Date().getTime() - startTime}ms`,
             action

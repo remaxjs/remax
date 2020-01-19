@@ -9,8 +9,6 @@ export default function runTest(
   it(
     `build ${app} target ${target}`,
     async () => {
-      process.env['REMAX_APP_TEST_VAL'] = `${app} test`;
-
       const result = await build(app, target);
       expect(result).toMatchOutput(
         outputPath || path.resolve(__dirname, `../fixtures/${app}/expected`)
