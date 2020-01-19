@@ -1,3 +1,4 @@
+import '@remax/miniprogram-api-typings';
 export * from 'remax-wechat';
 export { default as render } from './esm/render';
 export { default as createAppConfig } from './esm/createAppConfig';
