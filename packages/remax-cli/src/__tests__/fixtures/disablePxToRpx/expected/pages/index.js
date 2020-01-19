@@ -45,6 +45,8 @@ require('../npm/remax/npm/remax-alipay/esm/hostComponents/ContactButton/index.js
 require('../npm/remax/npm/remax-alipay/esm/hostComponents/Video/index.js');
 require('../npm/remax/npm/remax-alipay/esm/api/index.js');
 
+console.log(false);
+
 var _page = function _page() {
   return React.createElement(index$2.default, {
     className: "foo"

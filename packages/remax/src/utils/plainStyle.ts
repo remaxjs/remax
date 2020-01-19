@@ -37,10 +37,7 @@ const transformPx = (value: string) => {
   });
 };
 
-const plainStyle = (
-  style: CSSProperties | null | undefined,
-  pxToRpx: boolean
-) => {
+const plainStyle = (style: CSSProperties | null | undefined) => {
   if (!style) {
     return '';
   }
@@ -50,7 +47,7 @@ const plainStyle = (
       return [
         ...acc,
         `${transformReactStyleKey(key)}:${
-          pxToRpx ? transformPx(value) : value
+          __REMAX_PX2RPX__ ? transformPx(value) : value
         };`,
       ];
     }, [])
