@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/remaxjs/remax/compare/v1.11.5...v1.12.0) (2020-01-19)
+
+### Bug Fixes
+
+- 修正非 js 后缀名的 cjs 模块构建错误的问题 ([f402c12](https://github.com/remaxjs/remax/commit/f402c12))
+
+### Features
+
+- 支持通过 .env 文件设置环境变量 ([3b3497f](https://github.com/remaxjs/remax/commit/3b3497f))
+
 ## [1.11.5](https://github.com/remaxjs/remax/compare/v1.11.4...v1.11.5) (2020-01-18)
 
 ### Bug Fixes
