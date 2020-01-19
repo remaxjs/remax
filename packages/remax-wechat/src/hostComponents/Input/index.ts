@@ -28,7 +28,7 @@ export interface InputProps extends BaseProps {
    * 1.0.0
    * 是否是密码类型
    */
-  password?: string;
+  password?: boolean;
   /**
    * 1.0.0
    * input 的类型
