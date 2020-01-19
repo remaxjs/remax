@@ -174,7 +174,7 @@ export default function rollupConfig(
             .replace(/\.scss$/, '.scss.js')
             .replace(/\.styl$/, '.styl.js')
             .replace(/node_modules/g, 'npm')
-            .replace(/\.js_commonjs-proxy$/, '.js_commonjs-proxy.js')
+            .replace(/_commonjs-proxy$/, '_commonjs-proxy.js')
             // 支付宝小程序不允许目录带 @
             .replace(/@/g, '_')
         );
