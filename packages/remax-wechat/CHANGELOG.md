@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.3](https://github.com/remaxjs/remax/compare/v1.12.2...v1.12.3) (2020-01-21)
+
+### Bug Fixes
+
+- **wechat:** 修复 Label 组件的点击事件不触发的问题 ([95ae188](https://github.com/remaxjs/remax/commit/95ae188))
+
 ## [1.12.2](https://github.com/remaxjs/remax/compare/v1.12.1...v1.12.2) (2020-01-19)
 
 **Note:** Version bump only for package remax-wechat
