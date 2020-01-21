@@ -55,15 +55,10 @@ export default function getEnvironment(options: RemaxOptions, target: string) {
     }, builtiEnv);
 
   const stringified = {
-    'process.env': () =>
-      '(' +
-      JSON.stringify(
-        Object.keys(raw).reduce((env: Env, key) => {
-          env[key] = raw[key];
-          return env;
-        }, {})
-      ) +
-      ')',
+    ...Object.keys(raw).reduce((env: Env, key) => {
+      env[`process.env.${key}`] = JSON.stringify(raw[key]);
+      return env;
+    }, {}),
     __REMAX_DEBUG__: JSON.stringify(process.env.REMAX_DEBUG),
     __REMAX_PX2RPX__: JSON.stringify(options.pxToRpx),
     __REMAX_HOST_COMPONENTS__: () => stringifyHostComponents(),
