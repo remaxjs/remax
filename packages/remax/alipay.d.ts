@@ -1,4 +1,6 @@
-import '@remax/mini-types';
+import 'mini-types/types/app';
+import 'mini-types/types/page';
+import 'mini-types/types/api';
 export * from 'remax-alipay';
 export { default as render } from './esm/render';
 export { default as createAppConfig } from './esm/createAppConfig';

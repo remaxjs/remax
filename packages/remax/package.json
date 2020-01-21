@@ -32,7 +32,7 @@
     "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },
   "dependencies": {
-    "@remax/mini-types": "^0.1.0",
+    "mini-types": "^0.1.1",
     "@remax/miniprogram-api-typings": "^2.9.3",
     "lodash.kebabcase": "^4.1.1",
     "react-reconciler": "0.24.0",
