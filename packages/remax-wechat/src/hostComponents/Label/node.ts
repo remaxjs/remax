@@ -4,6 +4,8 @@ export const alias = {
   style: 'style',
   for: 'for',
   animation: 'animation',
+  onClick: 'bindtap',
+  onTap: 'bindtap',
 };
 
 export const props = Object.values(alias);
