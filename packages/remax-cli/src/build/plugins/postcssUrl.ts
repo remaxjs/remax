@@ -1,5 +1,4 @@
 import fs from 'fs';
-import mkdirp from 'mkdirp';
 import path from 'path';
 import purl from 'postcss-url';
 import { RemaxOptions } from 'remax-types';
@@ -19,11 +18,11 @@ export default function postcssUrl(options: RemaxOptions) {
       if (!exists) {
         return;
       }
-      mkdirp(path.dirname(destPath), () => {
-        if (!fs.existsSync(destPath)) {
-          fs.copyFileSync(srcPath, destPath);
-        }
-      });
+
+      fs.mkdirSync(path.dirname(destPath), { recursive: true });
+      if (!fs.existsSync(destPath)) {
+        fs.copyFileSync(srcPath, destPath);
+      }
     });
 
     if (/^\.{1,2}\/|^\w+\//.test(asset.url)) {
