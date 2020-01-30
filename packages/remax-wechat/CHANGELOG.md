@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.4](https://github.com/remaxjs/remax/compare/v1.12.3...v1.12.4) (2020-01-30)
+
+### Bug Fixes
+
+- **wechat:** 微信 Video 增加 posterForCrawler 属性 ([c53bdaf](https://github.com/remaxjs/remax/commit/c53bdaf)), closes [#615](https://github.com/remaxjs/remax/issues/615) [#614](https://github.com/remaxjs/remax/issues/614)
+
 ## [1.12.3](https://github.com/remaxjs/remax/compare/v1.12.2...v1.12.3) (2020-01-21)
 
 ### Bug Fixes
