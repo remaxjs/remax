@@ -43,6 +43,8 @@ export interface VideoProps extends BaseProps {
   objectFit?: 'contain' | 'fill' | 'cover';
   /** 视频封面的图片网络资源地址或云文件ID（2.3.0）。若 controls 属性值为 false 则设置 poster 无效 1.0.0 */
   poster?: string;
+  /** 用于给搜索等场景作为视频封面展示，建议使用无播放 icon 的视频封面图，只支持网络地址 */
+  posterForCrawler?: string;
   /** 是否显示静音按钮 2.4.0 */
   showMuteBtn?: boolean;
   /** 视频的标题，全屏时在顶部展示 2.4.0 */
