@@ -1,9 +1,9 @@
-diff --git a/node_modules/rollup/dist/rollup.js b/node_modules/rollup/dist/rollup.js
-index b3efc4e..eb4ed57 100644
---- a/node_modules/rollup/dist/rollup.js
-+++ b/node_modules/rollup/dist/rollup.js
-@@ -13575,7 +13575,7 @@ function rollup(rawInputOptions) {
-             return index.__awaiter(this, void 0, void 0, function* () {
+diff --git a/node_modules/rollup/dist/shared/node-entry.js b/node_modules/rollup/dist/shared/node-entry.js
+index 2902c84..eff6582 100644
+--- a/node_modules/rollup/dist/shared/node-entry.js
++++ b/node_modules/rollup/dist/shared/node-entry.js
+@@ -13893,7 +13893,7 @@ function rollup(rawInputOptions) {
+             return __awaiter(this, void 0, void 0, function* () {
                  timeStart('GENERATE', 1);
                  const assetFileNames = outputOptions.assetFileNames || 'assets/[name]-[hash][extname]';
 -                const inputBase = commondir(getAbsoluteEntryModulePaths(chunks));
