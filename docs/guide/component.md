@@ -11,7 +11,7 @@ import { View, Text, Image, ... } from 'remax/wechat'
 
 ## Props
 
-Remax 遵循 React 规范来命名小程序属性，如：
+Remax 会提供 React 风格的属性命名方式，如：
 
 Remax
 
@@ -30,6 +30,8 @@ Remax
 ```html
 <view class="view" style="display: flex;" onTap="handleClick"></view>
 ```
+
+> 同时你也可以直接采用小程序的命名方式使用属性
 
 ## 注册基础组件
 
