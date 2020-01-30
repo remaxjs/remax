@@ -58,7 +58,7 @@
     "esm": "^3.2.25",
     "htmlparser2": "^4.0.0",
     "lodash": "^4.17.11",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^1.0.3",
     "named-exports-db": "^0.1.0",
     "postcss-url": "^8.0.0",
     "regenerator-runtime": "^0.13.3",
