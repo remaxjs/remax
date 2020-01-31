@@ -51,8 +51,9 @@ require('../npm/remax/npm/remax-wechat/esm/hostComponents/Audio/index.js');
 require('../npm/remax/npm/remax-wechat/esm/hostComponents/Ad/index.js');
 require('../npm/remax/npm/remax-wechat/esm/hostComponents/WebView/index.js');
 require('../npm/remax/npm/remax-wechat/esm/hostComponents/FunctionalPageNavigator/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Camera/index.js');
 require('../npm/remax/npm/remax-wechat/esm/api/index.js');
-var index$H = require('../npm/remax/npm/remax-alipay/esm/hostComponents/index.js');
+var index$I = require('../npm/remax/npm/remax-alipay/esm/hostComponents/index.js');
 
 var _page = function _page() {
   var props = {};
@@ -90,7 +91,7 @@ var _page = function _page() {
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo"), TextElement, React.createElement(index$H.Lifestyle, null), React.createElement(UnBindingComponent, null), React.createElement(index$3.default, null), React.createElement(index$3.default, {
+  }, props), "foo"), TextElement, React.createElement(index$I.Lifestyle, null), React.createElement(UnBindingComponent, null), React.createElement(index$3.default, null), React.createElement(index$3.default, {
     focus: true
   }), React.createElement(index$7.default, {
     scrollTop: 0

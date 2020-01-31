@@ -50,8 +50,9 @@ require('../npm/remax/npm/remax-wechat/esm/hostComponents/Audio/index.js');
 require('../npm/remax/npm/remax-wechat/esm/hostComponents/Ad/index.js');
 require('../npm/remax/npm/remax-wechat/esm/hostComponents/WebView/index.js');
 require('../npm/remax/npm/remax-wechat/esm/hostComponents/FunctionalPageNavigator/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Camera/index.js');
 require('../npm/remax/npm/remax-wechat/esm/api/index.js');
-var index$H = require('../npm/remax/npm/remax-toutiao/esm/hostComponents/index.js');
+var index$I = require('../npm/remax/npm/remax-toutiao/esm/hostComponents/index.js');
 
 function View() {
   var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -61,7 +62,7 @@ function View() {
       return React.createElement(index$1.View, props);
 
     case 'toutiao':
-      return React.createElement(index$H.View, props);
+      return React.createElement(index$I.View, props);
 
     case 'wechat':
     default:
