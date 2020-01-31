@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.5](https://github.com/remaxjs/remax/compare/v1.12.4...v1.12.5) (2020-01-31)
+
+### Bug Fixes
+
+- **wechat:** 修复遗漏的 Camera 组件导出 ([d5b81ad](https://github.com/remaxjs/remax/commit/d5b81ad))
+
 ## [1.12.4](https://github.com/remaxjs/remax/compare/v1.12.3...v1.12.4) (2020-01-30)
 
 **Note:** Version bump only for package remax-cli
