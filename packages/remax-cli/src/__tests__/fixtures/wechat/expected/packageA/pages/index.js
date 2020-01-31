@@ -50,6 +50,7 @@ require('../npm/remax/npm/remax-wechat/esm/hostComponents/Audio/index.js');
 require('../npm/remax/npm/remax-wechat/esm/hostComponents/Ad/index.js');
 require('../npm/remax/npm/remax-wechat/esm/hostComponents/WebView/index.js');
 require('../npm/remax/npm/remax-wechat/esm/hostComponents/FunctionalPageNavigator/index.js');
+require('../npm/remax/npm/remax-wechat/esm/hostComponents/Camera/index.js');
 require('../npm/remax/npm/remax-wechat/esm/api/index.js');
 
 var pageA = function pageA() {

@@ -78,3 +78,5 @@ export { default as WebView } from './WebView';
 export * from './WebView';
 export { default as FunctionalPageNavigator } from './FunctionalPageNavigator';
 export * from './FunctionalPageNavigator';
+export { default as Camera } from './Camera';
+export * from './Camera';
