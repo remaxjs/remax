@@ -6482,11 +6482,11 @@ gatsby-plugin-sharp@^2.3.2:
     uuid "^3.3.3"
 
 gatsby-plugin-sitemap@^2.0.12:
-  version "2.2.10"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sitemap/-/gatsby-plugin-sitemap-2.2.10.tgz#cf399f5e3f42e50ce36b54e0994ec916fd7f5237"
-  integrity sha512-2ND6gEv8P8fBfNKdkv2T51ria6tkCTCBGjrG8zOl60a+OhIJJQANZijIFKaFz/1j+nv+C7h5uxHmvJKf03C0/Q==
+  version "2.2.27"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sitemap/-/gatsby-plugin-sitemap-2.2.27.tgz#efdf0407ae754f806a172785eaab468e8baf42a9"
+  integrity sha512-Iq/nUwMhdl76CPkkUEcprKnGyc3Viaqiaxgn9L2kfF7LhggKVdSKYpJjBa80B0856cDQRJVkatumD43+kf3NZA==
   dependencies:
-    "@babel/runtime" "^7.5.5"
+    "@babel/runtime" "^7.7.6"
     minimatch "^3.0.4"
     pify "^3.0.0"
     sitemap "^1.13.0"
