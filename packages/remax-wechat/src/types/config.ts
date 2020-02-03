@@ -302,4 +302,8 @@ export interface AppConfig {
    * 2.2.1
    */
   useExtendedLib?: Record<string, any>;
+  /**
+   * 在小程序中可以使用云开发
+   */
+  cloud?: boolean;
 }
