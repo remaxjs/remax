@@ -1,0 +1,11 @@
+<template name="TPL_swiper">
+  <swiper <% for (let i = 0; i< props.length; i++) { %>
+    <%=props[i]%>="{{node.props['<%=props[i]%>']}}" <% } %>
+  >
+    <block a:for="{{node.children}}" key="{{item.id}}">
+      <swiper-item key="{{item.props.key}}">
+        <template is="TPL_TRAVERSAL" data="{{root: item}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+</template>

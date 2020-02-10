@@ -8,6 +8,7 @@ import {
   ExtendsRollupConfigOptions,
   Entries,
   Meta,
+  MetaOptions,
 } from 'remax-types';
 import { merge } from 'lodash';
 import { searchFile } from '../getEntries';
@@ -47,7 +48,7 @@ class API {
     return cli;
   }
 
-  public getMeta() {
+  public getMeta(options: MetaOptions) {
     let meta: Meta = {
       template: {
         extension: '',
@@ -70,7 +71,12 @@ class API {
     };
 
     this.plugins.forEach(plugin => {
-      meta = merge(meta, plugin.meta || {});
+      let pluginMeta = plugin.meta || {};
+      if (typeof pluginMeta === 'function') {
+        pluginMeta = pluginMeta(options);
+      }
+
+      meta = merge(meta, pluginMeta);
     });
 
     return meta;
@@ -124,6 +130,7 @@ class API {
   }
 
   public shouldHostComponentRegister(
+    remaxOptions: RemaxOptions,
     componentName: string,
     phase: 'import' | 'jsx' | 'extra',
     additional?: boolean
@@ -131,6 +138,7 @@ class API {
     return this.plugins.reduce((result, plugin) => {
       if (typeof plugin.shouldHostComponentRegister === 'function') {
         return plugin.shouldHostComponentRegister({
+          remaxOptions,
           componentName,
           additional,
           phase,

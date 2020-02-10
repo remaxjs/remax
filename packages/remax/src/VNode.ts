@@ -227,7 +227,7 @@ export default class VNode {
       // while 循环已经保证了不会有空值
       const stackItem = stack.pop()!;
 
-      const { children, currentNode } = stackItem;
+      const { children = [], currentNode } = stackItem;
 
       for (let i = children.length - 1; i >= 0; i--) {
         const currentVNode = children[i];

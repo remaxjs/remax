@@ -3,6 +3,7 @@ import postcss from 'postcss';
 import API from '../../../API';
 import { pushArray, getPath } from './util';
 import output from '../../utils/output';
+import { RemaxOptions } from 'remax-types';
 
 const cssPaths: string[] = [];
 
@@ -38,8 +39,11 @@ export const getcssPaths = () => {
   return cssPaths;
 };
 
-export default (id: string) => {
-  const filePath = id.replace(/\.js$/, API.getMeta().style);
+export default (options: RemaxOptions, id: string) => {
+  const filePath = id.replace(
+    /\.js$/,
+    API.getMeta({ remaxOptions: options }).style
+  );
 
   walk(filePath);
 };

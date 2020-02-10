@@ -85,6 +85,7 @@ export default class Container {
               }
             };
           }
+
           this.context.$spliceData(
             {
               [update.path]: [

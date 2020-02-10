@@ -49,8 +49,8 @@ export default {
     return rootHostContext;
   },
 
-  shouldSetTextContent() {
-    return false;
+  shouldSetTextContent(type: string) {
+    return type === 'stub-block';
   },
 
   prepareForCommit: () => {

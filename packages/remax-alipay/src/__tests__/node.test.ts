@@ -1,24 +1,29 @@
 import node from '../node';
+import { MetaOptions, Meta } from 'remax-types';
 
 describe('node', () => {
   it('meta', () => {
-    expect(node().meta?.ejs).toBeDefined();
-    expect(node().meta?.template).toMatchInlineSnapshot(`
+    const getMeta = node().meta! as (options: MetaOptions) => Meta;
+    const remaxOptions: any = { compiler: 'default' };
+    const meta = getMeta({ remaxOptions });
+
+    expect(meta.ejs).toBeDefined();
+    expect(meta.template).toMatchInlineSnapshot(`
       Object {
         "extension": ".axml",
         "src": "src",
         "tag": "import",
       }
     `);
-    expect(node().meta?.style).toMatchInlineSnapshot(`".acss"`);
-    expect(node().meta?.jsHelper).toMatchInlineSnapshot(`
+    expect(meta.style).toMatchInlineSnapshot(`".acss"`);
+    expect(meta.jsHelper).toMatchInlineSnapshot(`
       Object {
         "extension": ".sjs",
         "src": "from",
         "tag": "import-sjs",
       }
     `);
-    expect(node().meta?.include).toMatchInlineSnapshot(`
+    expect(meta.include).toMatchInlineSnapshot(`
       Object {
         "src": "src",
         "tag": "include",
@@ -85,8 +90,13 @@ describe('node', () => {
   });
 
   it('shouldHostComponentRegister', () => {
+    const remaxOptions: any = {
+      compiler: 'default',
+    };
+
     expect(
       node().shouldHostComponentRegister!({
+        remaxOptions,
         componentName: 'swiper-item',
         phase: 'import',
       })
@@ -94,6 +104,7 @@ describe('node', () => {
 
     expect(
       node().shouldHostComponentRegister!({
+        remaxOptions,
         componentName: 'picker-view-column',
         phase: 'import',
       })
@@ -101,9 +112,105 @@ describe('node', () => {
 
     expect(
       node().shouldHostComponentRegister!({
+        remaxOptions,
         componentName: 'view',
         phase: 'import',
       })
     ).toBeTruthy();
+
+    expect(
+      node().shouldHostComponentRegister!({
+        remaxOptions,
+        componentName: 'view',
+        phase: 'extra',
+      })
+    ).toBeTruthy();
+
+    expect(
+      node().shouldHostComponentRegister!({
+        remaxOptions,
+        componentName: 'custom-view',
+        additional: true,
+        phase: 'import',
+      })
+    ).toBeTruthy();
+  });
+
+  describe('static compiler', () => {
+    it('meta', () => {
+      const getMeta = node().meta! as (options: MetaOptions) => Meta;
+      const remaxOptions: any = { compiler: 'static' };
+      const meta = getMeta({ remaxOptions });
+
+      expect(!!meta.ejs.base).toBeTruthy();
+      expect(meta.template).toMatchInlineSnapshot(`
+              Object {
+                "extension": ".axml",
+                "src": "src",
+                "tag": "import",
+              }
+          `);
+      expect(meta.style).toMatchInlineSnapshot(`".acss"`);
+      expect(meta.jsHelper).toMatchInlineSnapshot(`
+              Object {
+                "extension": ".sjs",
+                "src": "from",
+                "tag": "import-sjs",
+              }
+          `);
+      expect(meta.include).toMatchInlineSnapshot(`
+              Object {
+                "src": "src",
+                "tag": "include",
+              }
+          `);
+    });
+
+    it('shouldHostComponentRegister', () => {
+      const remaxOptions: any = {
+        compiler: 'static',
+      };
+
+      expect(
+        node().shouldHostComponentRegister!({
+          remaxOptions,
+          componentName: 'swiper-item',
+          phase: 'import',
+        })
+      ).toBeFalsy();
+
+      expect(
+        node().shouldHostComponentRegister!({
+          remaxOptions,
+          componentName: 'picker-view-column',
+          phase: 'import',
+        })
+      ).toBeFalsy();
+
+      expect(
+        node().shouldHostComponentRegister!({
+          remaxOptions,
+          componentName: 'view',
+          phase: 'import',
+        })
+      ).toBeTruthy();
+
+      expect(
+        node().shouldHostComponentRegister!({
+          remaxOptions,
+          componentName: 'view',
+          phase: 'extra',
+        })
+      ).toBeFalsy();
+
+      expect(
+        node().shouldHostComponentRegister!({
+          remaxOptions,
+          componentName: 'custom-view',
+          additional: true,
+          phase: 'import',
+        })
+      ).toBeTruthy();
+    });
   });
 });

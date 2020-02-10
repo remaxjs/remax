@@ -6,6 +6,7 @@ import { get } from 'lodash';
 import API from '../../../API';
 import { getPath, pushArray, readFile } from './util';
 import output from '../../utils/output';
+import { RemaxOptions } from 'remax-types';
 
 const jsHelpers: string[] = [];
 
@@ -65,8 +66,8 @@ const parseTemplate = (filePath: string, jsHelper: any) => {
   parser.end();
 };
 
-export default function jsHelper(id: string) {
-  const { jsHelper, template } = API.getMeta();
+export default function jsHelper(options: RemaxOptions, id: string) {
+  const { jsHelper, template } = API.getMeta({ remaxOptions: options });
 
   if (!jsHelper) {
     return;

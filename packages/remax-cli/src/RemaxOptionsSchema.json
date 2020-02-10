@@ -1,6 +1,9 @@
 {
   "type": "object",
   "properties": {
+    "compiler": {
+      "type": "string"
+    },
     "cssModules": {
       "anyOf": [{ "instanceof": "RegExp" }, { "type": "boolean" }]
     },

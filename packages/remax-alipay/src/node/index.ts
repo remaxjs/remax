@@ -2,29 +2,41 @@ import * as path from 'path';
 import hostComponents from '../hostComponents/node';
 import { RemaxNodePluginConstructor, Entries } from 'remax-types';
 
-const EJS_TPL_ROOT = path.join(__dirname, '../../templates');
-
 const plugin: RemaxNodePluginConstructor = () => {
   return {
-    meta: {
-      template: {
-        extension: '.axml',
-        tag: 'import',
-        src: 'src',
-      },
-      style: '.acss',
-      jsHelper: {
-        extension: '.sjs',
-        tag: 'import-sjs',
-        src: 'from',
-      },
-      include: {
-        tag: 'include',
-        src: 'src',
-      },
-      ejs: {
-        page: path.join(EJS_TPL_ROOT, 'page.ejs'),
-      },
+    meta: ({ remaxOptions }) => {
+      const TPL_ROOT = path.join(
+        __dirname,
+        '../../templates',
+        remaxOptions.compiler || 'default'
+      );
+      const meta = {
+        template: {
+          extension: '.axml',
+          tag: 'import',
+          src: 'src',
+        },
+        style: '.acss',
+        jsHelper: {
+          extension: '.sjs',
+          tag: 'import-sjs',
+          src: 'from',
+        },
+        include: {
+          tag: 'include',
+          src: 'src',
+        },
+        ejs: {
+          base: '',
+          page: path.join(TPL_ROOT, 'page.ejs'),
+        },
+      };
+
+      if (remaxOptions.compiler === 'static') {
+        meta.ejs.base = path.join(TPL_ROOT, 'base.ejs');
+      }
+
+      return meta;
     },
     hostComponents,
     getEntries({ remaxOptions, appManifest, getEntryPath }) {
@@ -78,8 +90,21 @@ const plugin: RemaxNodePluginConstructor = () => {
 
       return entries;
     },
-    shouldHostComponentRegister: ({ componentName }) =>
-      componentName !== 'swiper-item' && componentName !== 'picker-view-column',
+    shouldHostComponentRegister: ({
+      remaxOptions,
+      componentName,
+      additional,
+      phase,
+    }) => {
+      const shouldRegisterAll =
+        remaxOptions.compiler !== 'static' || additional || phase !== 'extra';
+
+      return (
+        componentName !== 'swiper-item' &&
+        componentName !== 'picker-view-column' &&
+        shouldRegisterAll
+      );
+    },
   };
 };
 

@@ -5,6 +5,7 @@ import { PluginImpl, RollupOptions } from 'rollup';
 export { PluginImpl, RollupOptions };
 
 export interface RemaxOptions {
+  compiler: 'default' | 'static';
   cssModules: boolean | RegExp;
   pxToRpx: boolean;
   cwd: string;
@@ -99,6 +100,10 @@ export type Meta = {
   };
 };
 
+export type MetaOptions = {
+  remaxOptions: RemaxOptions;
+};
+
 export type ProcessPropsOptions = {
   componentName: string;
   props: string[];
@@ -107,6 +112,7 @@ export type ProcessPropsOptions = {
 };
 
 export type ShouldHostComponentRegister = {
+  remaxOptions: RemaxOptions;
   componentName: string;
   additional?: boolean;
   phase: 'import' | 'jsx' | 'extra';
@@ -121,7 +127,7 @@ export type HostComponent = {
 export type HostComponents = Map<string, HostComponent>;
 
 export interface RemaxNodePlugin {
-  meta?: Meta;
+  meta?: Meta | ((options: MetaOptions) => Meta);
   hostComponents?: HostComponents;
   /**
    * 扩展 CLI 命令

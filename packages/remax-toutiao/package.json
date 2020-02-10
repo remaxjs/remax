@@ -8,6 +8,7 @@
   "typings": "./esm/index.d.ts",
   "scripts": {
     "prebuild": "rm -rf cjs esm",
+    "watch": "tsc -w",
     "build:node": "tsc",
     "build:runtime": "tsc --module ESNext --outDir esm",
     "build": "npm run build:node && npm run build:runtime",

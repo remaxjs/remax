@@ -1,6 +1,6 @@
 import { RollupOptions, RollupWarning } from 'rollup';
 import API from '../API';
-import { output } from './utils/output';
+import output from './utils/output';
 import path from 'path';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -29,6 +29,7 @@ import nativeComponents from './plugins/nativeComponents';
 import components from './plugins/components';
 import template from './plugins/template';
 import alias from './plugins/alias';
+import * as staticCompiler from './plugins/compiler/static';
 import extensions from '../extensions';
 import { without } from 'lodash';
 import jsx from 'acorn-jsx';
@@ -49,6 +50,10 @@ export default function rollupConfig(
     }
   });
 
+  if (options.compiler === 'static' && API.adapter.name !== 'alipay') {
+    output.error('目前 static compiler 模式仅支持 alipay 开启');
+  }
+
   const entries = getEntries(options, context);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
@@ -60,6 +65,51 @@ export default function rollupConfig(
   };
 
   const env = getEnvironment(options, argv.target);
+
+  let babels = [
+    babel({
+      include: [entries.app, ...entries.pages],
+      extensions: without(extensions, '.json'),
+      usePlugins: [app(entries.app), page(entries.pages)],
+      reactPreset: false,
+    }),
+    babel({
+      extensions: without(extensions, '.json'),
+      usePlugins: [nativeComponentsBabelPlugin(options), components(options)],
+      reactPreset: true,
+    }),
+  ];
+
+  if (options.compiler === 'static') {
+    babels = [
+      babel({
+        include: [entries.app, ...entries.pages],
+        extensions: without(extensions, '.json'),
+        usePlugins: [app(entries.app), page(entries.pages)],
+        reactPreset: false,
+      }),
+      babel({
+        extensions: without(extensions, '.json'),
+        usePlugins: [staticCompiler.preprocess],
+        reactPreset: false,
+      }),
+      babel({
+        extensions: without(extensions, '.json'),
+        usePlugins: [staticCompiler.render],
+        reactPreset: false,
+      }),
+      babel({
+        extensions: without(extensions, '.json'),
+        usePlugins: [staticCompiler.postProcess],
+        reactPreset: false,
+      }),
+      babel({
+        extensions: without(extensions, '.json'),
+        usePlugins: [nativeComponentsBabelPlugin(options), components(options)],
+        reactPreset: true,
+      }),
+    ];
+  }
 
   const plugins = [
     copy({
@@ -106,27 +156,11 @@ export default function rollupConfig(
     stub({
       modules: stubModules,
     }),
-    babel({
-      include: entries.pages,
-      extensions: without(extensions, '.json'),
-      usePlugins: [nativeComponentsBabelPlugin(options), page],
-      reactPreset: false,
-    }),
-    babel({
-      include: entries.app,
-      extensions: without(extensions, '.json'),
-      usePlugins: [nativeComponentsBabelPlugin(options), app],
-      reactPreset: false,
-    }),
-    babel({
-      extensions: without(extensions, '.json'),
-      usePlugins: [nativeComponentsBabelPlugin(options), components()],
-      reactPreset: true,
-    }),
+    ...babels,
     postcss({
       extract: true,
       getRelatedModulesForEntry,
-      extension: API.getMeta().style,
+      extension: API.getMeta({ remaxOptions: options }).style,
       ...postcssConfig.options,
       modules: {
         ...cssModuleConfig,
@@ -206,16 +240,15 @@ export default function rollupConfig(
     onwarn(warning, warn) {
       if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
       if ((warning as RollupWarning).code === 'CIRCULAR_DEPENDENCY') {
-        output('⚠️ 检测到循环依赖，如果不影响项目运行，请忽略', 'yellow');
+        output.warn('检测到循环依赖，如果不影响项目运行，请忽略');
       }
 
       if (!warning.message) {
-        output(
-          `⚠️ ${warning.code}:${warning.plugin || ''} ${(warning as any).text}`,
-          'yellow'
+        output.warn(
+          `${warning.code}:${warning.plugin || ''} ${(warning as any).text}`
         );
       } else {
-        output('⚠️ ' + warning.toString(), 'yellow');
+        output.warn(warning.toString());
       }
     },
     plugins,

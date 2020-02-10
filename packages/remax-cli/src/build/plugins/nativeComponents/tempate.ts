@@ -3,18 +3,19 @@ import fs from 'fs';
 import API from '../../../API';
 import { pushArray, getPath } from './util';
 import output from '../../utils/output';
+import { RemaxOptions } from 'remax-types';
 
 const parser = new htmlparser2.Parser({});
 
 const templatePaths: string[] = [];
 
-export function walk(filePath: string) {
+export function walk(filePath: string, options: RemaxOptions) {
   if (!fs.existsSync(filePath)) {
-    output.error(`文件 ${filePath} 不存在`);
+    output.error(`文件 ${filePath} 不存在`, options.notify);
     return;
   }
 
-  const meta = API.getMeta();
+  const meta = API.getMeta({ remaxOptions: options });
   const { tag, src } = meta.template;
   const { tag: includeTag, src: includeSrc } = meta.include;
 
@@ -24,9 +25,9 @@ export function walk(filePath: string) {
 
   parser._cbs.onopentag = (name, attrs) => {
     if (name === tag && attrs[src]) {
-      walk(getPath(filePath, attrs[src]));
+      walk(getPath(filePath, attrs[src]), options);
     } else if (name === includeTag && attrs[includeSrc]) {
-      walk(getPath(filePath, attrs[includeSrc]));
+      walk(getPath(filePath, attrs[includeSrc]), options);
     }
   };
 
@@ -39,8 +40,13 @@ export const getTemplatePaths = () => {
   return templatePaths;
 };
 
-export default (id: string) => {
-  const filePath = id.replace(/\.js$/, API.getMeta().template.extension);
+export default (options: RemaxOptions, id: string) => {
+  const filePath = id.replace(
+    /\.js$/,
+    API.getMeta({
+      remaxOptions: options,
+    }).template.extension
+  );
 
-  walk(filePath);
+  walk(filePath, options);
 };

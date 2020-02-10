@@ -30,10 +30,10 @@ export default (options: RemaxOptions, pages: string[]): Plugin => {
     load(id) {
       if (isNativeComponent(id)) {
         jsModule(id);
-        jsHelper(id);
-        style(id);
+        jsHelper(options, id);
+        style(options, id);
         json(id);
-        template(id);
+        template(options, id);
         usingComponents(id, options, this);
 
         getFiles().forEach(file => {
