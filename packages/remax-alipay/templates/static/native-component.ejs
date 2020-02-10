@@ -1,0 +1,19 @@
+<template name="TPL_<%=id%>">
+  <<%=id%> <% for(let i=0;i < props.length; i++) { %>
+    <%=props[i]%>="{{item.props['<%=props[i]%>']}}"<% } %>
+    ref="{{item.props['__ref']}}">
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" <% for(let i=0;i < view.props.length; i++) { %>
+          <%=view.props[i]%>="{{item.props['<%=view.props[i]%>']}}" <% } %>
+        >
+          <template is="TPL_TRAVERSAL" data="{{root: item}}" />
+        </view>
+      </block>
+      <block a:else>
+        <template a:if="{{item.props.<%=TEMPLATE_PROP%> > 0}}" is="{{'TPL_' + item.props.<%=TEMPLATE_PROP%>}}" data="{{ node: item }}" />
+        <template a:else is="{{ 'TPL_' + item.type }}" data="{{ node: item }}" />
+      </block>
+    </block>
+  </<%=id%>>
+</template>

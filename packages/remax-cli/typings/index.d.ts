@@ -15,6 +15,7 @@ declare module 'named-exports-db';
 declare module 'esm';
 declare module 'sander';
 declare module 'acorn-jsx';
+declare module 'babel-plugin-tester';
 
 declare namespace jest {
   interface Matchers<R, T> {

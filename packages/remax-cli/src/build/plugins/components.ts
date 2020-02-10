@@ -2,6 +2,11 @@ import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { kebabCase, cloneDeep } from 'lodash';
 import API from '../../API';
+import { RemaxOptions } from '../..';
+import {
+  LEAF_ATTRIBUTE_NAME,
+  ENTRY_ATTRIBUTE_NAME,
+} from './compiler/static/constants';
 
 export interface Component {
   id: string;
@@ -95,6 +100,9 @@ function registerProps(componentName: string, node?: t.JSXElement) {
       usedProps
         // 无需收集 slot 字段
         .filter(p => p !== 'slot')
+        // 静态编译辅助字段
+        .filter(p => p !== LEAF_ATTRIBUTE_NAME)
+        .filter(p => p !== ENTRY_ATTRIBUTE_NAME)
         .filter(Boolean)
         .map(prop => hostComponent?.alias?.[prop] || prop)
     ),
@@ -107,7 +115,9 @@ function registerComponent(
     node,
     importer = '',
     phase,
+    remaxOptions,
   }: {
+    remaxOptions: RemaxOptions;
     componentName: string;
     node?: t.JSXElement;
     importer?: string;
@@ -115,7 +125,14 @@ function registerComponent(
   },
   additional?: boolean
 ) {
-  if (!API.shouldHostComponentRegister(componentName, phase, additional)) {
+  if (
+    !API.shouldHostComponentRegister(
+      remaxOptions,
+      componentName,
+      phase,
+      additional
+    )
+  ) {
     return;
   }
 
@@ -129,12 +146,13 @@ function registerComponent(
     id: componentName,
     props,
     importer,
+    additional,
   };
 
   addToComponentCollection(component, importers);
 }
 
-export default () => {
+export default (options: RemaxOptions) => {
   importers.clear();
 
   return {
@@ -154,6 +172,7 @@ export default () => {
             const componentName = specifier.imported.name;
             const id = kebabCase(componentName);
             registerComponent({
+              remaxOptions: options,
               componentName: id,
               importer: state.file.opts.filename,
               phase: 'import',
@@ -186,6 +205,7 @@ export default () => {
           const id = kebabCase(componentName);
 
           registerComponent({
+            remaxOptions: options,
             componentName: id,
             node,
             importer: state.file.opts.filename,
@@ -197,10 +217,11 @@ export default () => {
   };
 };
 
-export function getComponents() {
+export function getComponents(options: RemaxOptions) {
   API.getHostComponents().forEach((component, componentName) => {
     registerComponent(
       {
+        remaxOptions: options,
         componentName,
         phase: 'extra',
       },

@@ -1,0 +1,7 @@
+<template name="TPL_<%=id%>">
+  <<%=id%> <% for (let i = 0; i < props.length; i++) { %>
+    <%=props[i]%>="{{node.props['<%=props[i]%>']}}" <% } %>
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </<%=id%>>
+</template>

@@ -1,18 +1,20 @@
 import node from '../node';
+import { Meta } from 'remax-types';
 
 describe('node', () => {
   it('meta', () => {
-    expect(node().meta?.ejs).toBeDefined();
-    expect(node().meta?.template).toMatchInlineSnapshot(`
+    const meta = node().meta as Meta;
+    expect(meta.ejs).toBeDefined();
+    expect(meta.template).toMatchInlineSnapshot(`
       Object {
         "extension": ".ttml",
         "src": "src",
         "tag": "import",
       }
     `);
-    expect(node().meta?.style).toMatchInlineSnapshot(`".ttss"`);
-    expect(node().meta?.jsHelper).toMatchInlineSnapshot(`undefined`);
-    expect(node().meta?.include).toMatchInlineSnapshot(`
+    expect(meta.style).toMatchInlineSnapshot(`".ttss"`);
+    expect(meta.jsHelper).toMatchInlineSnapshot(`undefined`);
+    expect(meta.include).toMatchInlineSnapshot(`
       Object {
         "src": "src",
         "tag": "include",
@@ -79,8 +81,13 @@ describe('node', () => {
   });
 
   it('shouldHostComponentRegister', () => {
+    const remaxOptions: any = {
+      compiler: 'default',
+    };
+
     expect(
       node().shouldHostComponentRegister!({
+        remaxOptions,
         componentName: 'swiper-item',
         phase: 'import',
       })
@@ -88,6 +95,7 @@ describe('node', () => {
 
     expect(
       node().shouldHostComponentRegister!({
+        remaxOptions,
         componentName: 'view',
         phase: 'import',
       })

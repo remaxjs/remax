@@ -86,7 +86,7 @@ const plugin: RemaxNodePluginConstructor = () => {
     },
     shouldHostComponentRegister: ({ componentName, additional, phase }) =>
       componentName !== 'swiper-item' && (additional || phase !== 'extra'),
-    processProps: ({ node, props, componentName, additional }) => {
+    processProps: ({ node, props, additional }) => {
       const isSpread =
         node &&
         node.openingElement.attributes.find(

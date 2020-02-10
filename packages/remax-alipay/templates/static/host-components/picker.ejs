@@ -1,0 +1,9 @@
+<template name="TPL_picker">
+  <picker <% for (let i = 0; i< props.length; i++) { %>
+    <%=props[i]%>="{{node.props['<%=props[i]%>']}}" <% } %>
+  >
+    <view>
+      <template is="TPL_DEFAULT" data="{{node: item.children[0]}}" />
+    </view>
+  </picker>
+</template>

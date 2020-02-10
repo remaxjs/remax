@@ -1,0 +1,9 @@
+<import src="<%= baseTemplate %>"/>
+
+<% if (entries.length > 0) { %>
+  <% for (let index = 0; index < entries.length; index++) { %>
+    <template is="TPL_<%=entries[index].templateID%>" data="{{ node: root.children[<%=index%>] }}" />
+  <% } %>
+<% } else { %>
+  <template is="TPL_TRAVERSAL" data="{{ root: root }}" />
+<% } %>

@@ -37,12 +37,18 @@ export default class Container {
   }
 
   normalizeRawNode = (item: RawNode): RawNode => {
+    const normalizeChildren = (item: RawNode) => {
+      if (!item.children) {
+        return item.children;
+      }
+
+      return item.children.map(this.normalizeRawNode);
+    };
+
     return {
       ...item,
       props: propsAlias(item.props, item.type),
-      children: item.children
-        ? item.children.map(this.normalizeRawNode)
-        : item.children,
+      children: normalizeChildren(item),
     };
   };
 
@@ -100,6 +106,7 @@ export default class Container {
               }
             };
           }
+
           this.context.$spliceData(
             {
               [update.path.join('.')]: [

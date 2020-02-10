@@ -16,4 +16,5 @@ export const output = (
 
 export default {
   error: (message: string) => output(`\n🚨 ${message}`, 'red'),
+  warn: (message: string) => output(`\n⚠️ ${message}`, 'yellow'),
 };
