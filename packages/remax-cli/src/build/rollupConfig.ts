@@ -127,6 +127,11 @@ export default function rollupConfig(
       plugins: [options.pxToRpx && pxToUnits(), postcssUrl(options)]
         .filter(Boolean)
         .concat(postcssConfig.plugins),
+      filepath: {
+        cwd: options.cwd,
+        rootDir: options.rootDir,
+        output: options.output,
+      },
     }),
     replace({
       values: env.stringified,
@@ -209,7 +214,7 @@ export default function rollupConfig(
       sourcemap: false,
       extend: true,
     },
-    preserveModules: true,
+    preserveModules: false,
     preserveSymlinks: true,
     acornInjectPlugins: [jsx()],
     /* istanbul ignore next */

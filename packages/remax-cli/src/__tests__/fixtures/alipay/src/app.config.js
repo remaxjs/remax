@@ -1,5 +1,5 @@
 module.exports = {
-  pages: ['pages/index', 'pages/dont-exist/index'],
+  pages: ['pages/index', 'pages/home', 'pages/dont-exist/index'],
   window: {
     defaultTitle: 'Alipay App',
     titleBarColor: '#323239',

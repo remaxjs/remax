@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { View, Text } from 'remax/alipay';
 import { FunctionalPageNavigator as UnKnownComponent } from 'remax/wechat';
-import './index.css';
+import styles from './home.css';
 
 export default () => {
   const props = {};
@@ -18,6 +18,7 @@ export default () => {
   return (
     <View>
       <View
+        className={styles.body}
         onClick={handleClick}
         onTouchStart={handleTouchStart}
         id="view"
