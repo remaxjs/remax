@@ -105,7 +105,7 @@ export default function removeSrc(options: RemaxOptions): Plugin {
               sourceType: 'module',
             });
 
-            const extract = (node: Node) => {
+            const extract = (node: any) => {
               const req =
                 getRequireSource(node) ||
                 getImportSource(node) ||
