@@ -139,7 +139,7 @@ export default function rename(options: RenameExtensionsOptions): Plugin {
             sourceType: 'module',
           });
 
-          const extract = (node: Node) => {
+          const extract = (node: any) => {
             const req =
               getRequireSource(node) ||
               getImportSource(node) ||
