@@ -51,7 +51,7 @@ export default function(
   // plain text leaf
   // 单节点文本，子节点直接按 plain-text node 处理
   if (helpers.isPlainTextLeaf(element, path)) {
-    children = `{{ ${stringPath(dataPath)}.children[0].text }}\n`;
+    children = `{{ ${stringPath(dataPath)}.children[0].text }}`;
   } else {
     // case:
     // 默认情况，遍历子节点
@@ -74,7 +74,5 @@ export default function(
     tag,
     stringPath(dataPath),
     attributes
-  )} >
-  ${children}
-</${tag}>\n`;
+  )} >${children}</${tag}>\n`;
 }

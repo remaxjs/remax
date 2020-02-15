@@ -1,6 +1,5 @@
 import VNode, { Path, RawNode } from './VNode';
 import { generate } from './instanceId';
-import { generate as generateActionId } from './actionId';
 import { FiberRoot } from 'react-reconciler';
 import propsAlias from './propsAlias';
 import nativeEffector from './nativeEffect';
@@ -126,38 +125,45 @@ export default class Container {
     }
 
     // TODO 统一更新行为
-    let action: any = {
-      type: 'splice',
-      payload: this.updateQueue.map(update => ({
-        path: stringPath(update.path),
-        start: update.start,
-        deleteCount: update.deleteCount,
-        item: update.items[0],
-      })),
-      id: generateActionId(),
-    };
+    // let action: any = {
+    //   type: 'splice',
+    //   payload: this.updateQueue.map(update => ({
+    //     path: stringPath(update.path),
+    //     start: update.start,
+    //     deleteCount: update.deleteCount,
+    //     item: update.items[0],
+    //   })),
+    //   id: generateActionId(),
+    // };
 
-    if (Platform.isToutiao) {
-      action = {
-        root: this.normalizeRawNode(this.root.toJSON()),
-      };
-    }
+    // if (Platform.isToutiao) {
+    //   action = {
+    //     root: this.normalizeRawNode(this.root.toJSON()),
+    //   };
+    // }
 
-    this.context.setData(
-      {
-        action,
-      },
-      () => {
-        nativeEffector.run();
-        /* istanbul ignore next */
-        if (__REMAX_DEBUG__) {
-          console.log(
-            `setData => 回调时间：${new Date().getTime() - startTime}ms`,
-            action
-          );
-        }
+    const runtime = startTime - getApp().start;
+
+    const action = this.updateQueue.reduce((acc, update) => {
+      acc[stringPath([...update.path, `[${update.start}]`])] = update.items[0];
+      return acc;
+    }, {} as any);
+
+    this.context.setData(action, () => {
+      // console.log('runtime' + runtime);
+      // console.log('total' + (new Date().getTime() - getApp().start));
+      wx.showToast({
+        title: '' + (new Date().getTime() - getApp().start) + ';:' + runtime,
+      });
+      nativeEffector.run();
+      /* istanbul ignore next */
+      if (__REMAX_DEBUG__) {
+        console.log(
+          `setData => 回调时间：${new Date().getTime() - startTime}ms`,
+          action
+        );
       }
-    );
+    });
 
     this.updateQueue = [];
   }

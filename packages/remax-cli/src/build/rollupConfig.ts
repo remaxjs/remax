@@ -50,8 +50,12 @@ export default function rollupConfig(
     }
   });
 
-  if (options.compiler === 'static' && API.adapter.name !== 'alipay') {
-    output.error('目前 static compiler 模式仅支持 alipay 开启');
+  if (
+    options.compiler === 'static' &&
+    API.adapter.name !== 'alipay' &&
+    API.adapter.name !== 'wechat'
+  ) {
+    output.error('目前 static compiler 模式仅支持 alipay 或 wechat 开启');
   }
 
   const entries = getEntries(options, context);

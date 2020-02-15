@@ -4,6 +4,10 @@ import ejs from 'ejs';
 import winPath from '../../../../../winPath';
 import { TEMPLATE_ID_ATTRIBUTE_NAME } from '../constants';
 
+function pageUID(pagePath: string) {
+  return pagePath.replace('/', '_');
+}
+
 export async function renderPage(
   pageFile: string,
   options: RemaxOptions,
@@ -21,6 +25,12 @@ export async function renderPage(
       template.isEntry &&
       template.module === path.join(options.cwd, options.rootDir, pageFile)
   );
+
+  if (meta.jsHelper) {
+    renderOptions.jsHelper = `./${pageUID(pageFile)}_helper${
+      meta.jsHelper.extension
+    }`;
+  }
 
   renderOptions.entries = entries;
   renderOptions.baseTemplate = winPath(

@@ -2,31 +2,39 @@ import * as path from 'path';
 import hostComponents from '../hostComponents/node';
 import { RemaxNodePluginConstructor, Entries } from 'remax-types';
 
-const EJS_TPL_ROOT = path.join(__dirname, '../../templates');
-
 const plugin: RemaxNodePluginConstructor = () => {
   return {
-    meta: {
-      template: {
-        extension: '.wxml',
-        tag: 'import',
-        src: 'src',
-      },
-      style: '.wxss',
-      jsHelper: {
-        extension: '.wxs',
-        tag: 'wxs',
-        src: 'src',
-      },
-      include: {
-        tag: 'include',
-        src: 'src',
-      },
-      ejs: {
-        base: path.join(EJS_TPL_ROOT, 'base.ejs'),
-        page: path.join(EJS_TPL_ROOT, 'page.ejs'),
-        jsHelper: path.join(EJS_TPL_ROOT, 'helper.js'),
-      },
+    meta: ({ remaxOptions }) => {
+      const TPL_ROOT = path.join(
+        __dirname,
+        '../../templates',
+        remaxOptions.compiler || 'default'
+      );
+
+      const meta = {
+        template: {
+          extension: '.wxml',
+          tag: 'import',
+          src: 'src',
+        },
+        style: '.wxss',
+        jsHelper: {
+          extension: '.wxs',
+          tag: 'wxs',
+          src: 'src',
+        },
+        include: {
+          tag: 'include',
+          src: 'src',
+        },
+        ejs: {
+          base: path.join(TPL_ROOT, 'base.ejs'),
+          page: path.join(TPL_ROOT, 'page.ejs'),
+          jsHelper: path.join(TPL_ROOT, 'helper.js'),
+        },
+      };
+
+      return meta;
     },
     hostComponents,
     getEntries({ remaxOptions, appManifest, getEntryPath }) {

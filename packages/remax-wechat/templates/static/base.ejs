@@ -1,0 +1,26 @@
+<% for (let tpl of templates) { %>
+<template name="TPL_<%=tpl.templateID%>">
+  <%-tpl.content%>
+</template>
+<% } %>
+
+<%- include('./host-components/plain-text.ejs') %>
+<%- include('./host-components/block.ejs') %>
+
+<!-- for default render -->
+<template name="TPL_DEFAULT">
+  <template wx:if="{{root.props.<%=TEMPLATE_PROP%>}}" is="{{'TPL_' + root.props.<%=TEMPLATE_PROP%>}}" data="{{ node: root }}" />
+  <template wx:else is="{{ 'TPL_' + root.type }}" data="{{ node: root }}" />
+</template>
+
+<!-- for traversal -->
+<template name="TPL_TRAVERSAL">
+  <block wx:if="{{root.children}}">
+    <block wx:for="{{root.children}}" wx:key="id">
+      <template wx:if="{{item.props.<%=TEMPLATE_PROP%>}}" is="{{'TPL_' + item.props.<%=TEMPLATE_PROP%>}}" data="{{ node: item }}" />
+      <template wx:else is="{{ 'TPL_' + item.type }}" data="{{ node: item }}" />
+    </block>
+  </block>
+  <template wx:elif="{{root.props.<%=TEMPLATE_PROP%>}}" is="{{'TPL_' + root.props.<%=TEMPLATE_PROP%>}}" data="{{ node: root }}" />
+  <template wx:else is="{{ 'TPL_' + root.type }}" data="{{ node: root }}" />
+</template>
