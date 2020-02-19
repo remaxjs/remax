@@ -82,7 +82,16 @@ function registerProps(componentName: string, node?: t.JSXElement) {
         return;
       }
 
-      const propName = attr.name.name as string;
+      const prop = attr.name;
+      let propName = '';
+
+      if (t.isIdentifier(prop)) {
+        propName = prop.name;
+      }
+
+      if (t.isJSXNamespacedName(prop)) {
+        propName = prop.namespace.name + ':' + prop.name.name;
+      }
 
       usedProps.push(propName);
     });

@@ -5,6 +5,7 @@ interface PresetOption {
   typescript?: any;
   decorators?: any;
   'class-properties'?: any;
+  'throw-if-namespace'?: boolean;
 }
 
 function preset(api: any, presetOption: PresetOption) {
@@ -20,6 +21,10 @@ function preset(api: any, presetOption: PresetOption) {
   const decorators = presetOption.decorators || {
     decoratorsBeforeExport: true,
   };
+  const throwIfNamespace =
+    typeof presetOption['throw-if-namespace'] === 'undefined'
+      ? true
+      : presetOption['throw-if-namespace'];
 
   const presets = [require('@babel/preset-env')];
 
@@ -31,7 +36,7 @@ function preset(api: any, presetOption: PresetOption) {
   }
 
   if (react) {
-    presets.push(require('@babel/preset-react'));
+    presets.push([require('@babel/preset-react'), { throwIfNamespace }]);
   }
 
   return {
@@ -41,7 +46,7 @@ function preset(api: any, presetOption: PresetOption) {
       require('@babel/plugin-proposal-object-rest-spread'),
       require('@babel/plugin-proposal-optional-chaining'),
       require('@babel/plugin-proposal-nullish-coalescing-operator'),
-      require('@babel/plugin-syntax-jsx'),
+      [require('@babel/plugin-syntax-jsx'), { throwIfNamespace }],
       [require('@babel/plugin-proposal-decorators'), decorators],
       [require('@babel/plugin-proposal-class-properties'), classProperties],
       [
