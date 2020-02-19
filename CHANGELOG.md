@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/remaxjs/remax/compare/v1.12.5...v1.13.0) (2020-02-19)
+
+### Bug Fixes
+
+- 字节跳动修正 PickerView 的 indicatorStyle 属性类型定义 ([#633](https://github.com/remaxjs/remax/issues/633)) ([3e8151e](https://github.com/remaxjs/remax/commit/3e8151e))
+
+### Features
+
+- 支持使用命名空间属性 ([#650](https://github.com/remaxjs/remax/issues/650)) ([4e9686c](https://github.com/remaxjs/remax/commit/4e9686c)), closes [#642](https://github.com/remaxjs/remax/issues/642)
+
 ## [1.12.5](https://github.com/remaxjs/remax/compare/v1.12.4...v1.12.5) (2020-01-31)
 
 ### Bug Fixes
