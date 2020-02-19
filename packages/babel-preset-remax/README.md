@@ -20,6 +20,10 @@ configure babel proposal decorators. https://babeljs.io/docs/en/babel-plugin-pro
 
 configure babel proposal class properties. https://babeljs.io/docs/en/babel-plugin-proposal-class-properties
 
+### throw-if-namespace
+
+configure react preset throwIfNamespace option. https://babeljs.io/docs/en/babel-preset-react#throwifnamespace
+
 ```js
 {
   presets: [
@@ -35,6 +39,7 @@ configure babel proposal class properties. https://babeljs.io/docs/en/babel-plug
         decorators: {
           legacy: true,
         },
+        'throw-if-namespace': false,
       },
     ],
   ];
