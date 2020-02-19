@@ -85,7 +85,7 @@ function registerProps(componentName: string, node?: t.JSXElement) {
       const prop = attr.name;
       let propName = '';
 
-      if (t.isIdentifier(prop)) {
+      if (t.isJSXIdentifier(prop)) {
         propName = prop.name;
       }
 
