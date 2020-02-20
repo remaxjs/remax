@@ -23,5 +23,5 @@ export default function createHostComponent<P = any>(
     const { children = [] } = props;
     return React.createElement(name, { ...props, ref }, children);
   };
-  return React.forwardRef(Component);
+  return React.forwardRef<any, React.PropsWithChildren<P>>(Component);
 }
