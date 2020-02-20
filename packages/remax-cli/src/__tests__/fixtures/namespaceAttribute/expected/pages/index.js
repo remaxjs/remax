@@ -2,6 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+var _rollupPluginBabelHelpers = require('../_virtual/_rollupPluginBabelHelpers.js');
 require('../npm/remax/esm/render.js');
 var React = require('react');
 require('../npm/remax/esm/createAppConfig.js');
@@ -49,11 +50,12 @@ require('../npm/remax/npm/remax-alipay/esm/api/index.js');
 var NativeComponent = createNativeComponent.default('native-component-0');
 
 function _ref() {
+  var props = {};
   return React.createElement(React.Fragment, null, React.createElement(index$2.default, {
     "ns:prop": "ns:value"
-  }), React.createElement(NativeComponent, {
+  }), React.createElement(NativeComponent, _rollupPluginBabelHelpers.extends({
     "ns:prop": "ns:value"
-  }));
+  }, props)));
 }
 
 var index = Page(createPageConfig.default(_ref));
