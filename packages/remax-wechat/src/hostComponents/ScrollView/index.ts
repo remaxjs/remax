@@ -4,7 +4,7 @@ import { BaseProps } from '../../types/component';
 
 const componentName = 'scroll-view';
 
-const ScrollViewRender: React.FunctionComponent<ScrollViewProps> = (
+const ScrollViewRender: React.ForwardRefRenderFunction<any, ScrollViewProps> = (
   props,
   ref
 ) => {
