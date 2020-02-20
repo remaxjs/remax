@@ -16,7 +16,7 @@ export default function createHostComponent<P = any>(
     return component;
   }
 
-  const Component: React.FC<P> = (props, ref: any) => {
+  const Component: React.ComponentType<P> = (props, ref: any) => {
     const { children = [] } = props;
     return React.createElement(name, { ...props, ref }, children);
   };
