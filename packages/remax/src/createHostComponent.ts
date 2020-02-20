@@ -16,9 +16,9 @@ export default function createHostComponent<P = any>(
     return component;
   }
 
-  const Component: React.ComponentType<P> = (props, ref: any) => {
+  const Component: React.ForwardRefRenderFunction<P> = (props, ref: any) => {
     const { children = [] } = props;
     return React.createElement(name, { ...props, ref }, children);
   };
-  return React.forwardRef<{}, React.PropsWithChildren<P>>(Component);
+  return React.forwardRef(Component);
 }
