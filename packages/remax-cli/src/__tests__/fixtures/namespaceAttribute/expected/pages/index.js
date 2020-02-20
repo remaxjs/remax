@@ -8,6 +8,7 @@ require('../npm/remax/esm/createAppConfig.js');
 require('../npm/remax/esm/createHostComponent.js');
 require('../npm/remax/esm/Platform.js');
 var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
+var createNativeComponent = require('../npm/remax/esm/createNativeComponent.js');
 require('../npm/remax/esm/index.js');
 var index$2 = require('../npm/remax/npm/remax-alipay/esm/hostComponents/View/index.js');
 require('../npm/remax/npm/remax-alipay/esm/hostComponents/ScrollView/index.js');
@@ -45,10 +46,14 @@ require('../npm/remax/npm/remax-alipay/esm/hostComponents/ContactButton/index.js
 require('../npm/remax/npm/remax-alipay/esm/hostComponents/Video/index.js');
 require('../npm/remax/npm/remax-alipay/esm/api/index.js');
 
+var NativeComponent = createNativeComponent.default('native-component-0');
+
 function _ref() {
-  return React.createElement(index$2.default, {
+  return React.createElement(React.Fragment, null, React.createElement(index$2.default, {
     "ns:prop": "ns:value"
-  });
+  }), React.createElement(NativeComponent, {
+    "ns:prop": "ns:value"
+  }));
 }
 
 var index = Page(createPageConfig.default(_ref));
