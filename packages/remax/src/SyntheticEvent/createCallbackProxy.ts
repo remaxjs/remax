@@ -2,10 +2,8 @@ import stopPropagation, {
   validate as validatePropagation,
   isPropagationStopped,
 } from './stopPropagation';
+import { SYNTHETIC_TYPES, DEPRECATED_CATCH_TYPE } from './constants';
 import VNode from '../VNode';
-
-const DEPRECATED_CATCH_TYPE = 'catchClick';
-const SYNTHETIC_TYPES = ['onClick'];
 
 function isSyntheticType(inputType: string) {
   if (DEPRECATED_CATCH_TYPE === inputType) {

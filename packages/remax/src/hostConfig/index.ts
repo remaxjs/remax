@@ -32,8 +32,6 @@ function processProps(newProps: any, node: VNode, id: number) {
     }
   }
 
-  props['data-rid'] = id;
-
   return props;
 }
 
