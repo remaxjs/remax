@@ -78,7 +78,10 @@ export interface VideoProps extends BaseProps {
   onProgress?: (event: any) => any;
 }
 
-const VideoRender: React.FunctionComponent<VideoProps> = (props, ref) => {
+const VideoRender: React.ForwardRefRenderFunction<any, VideoProps> = (
+  props,
+  ref
+) => {
   const { children, ...restProps } = props;
   const videoProps = {
     ...restProps,

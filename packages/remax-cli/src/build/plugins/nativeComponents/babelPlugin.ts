@@ -1,4 +1,3 @@
-import { get } from 'dot-prop';
 import { kebabCase, sortBy } from 'lodash';
 import { NodePath } from '@babel/traverse';
 import * as t from '@babel/types';
@@ -100,8 +99,22 @@ export default (options: RemaxOptions) => {
 
           const id = getKebabCaseName(sourcePath);
 
-          const usedProps = node.openingElement.attributes.map(e => {
-            const propName = get(e, 'name.name') as string;
+          const usedProps = node.openingElement.attributes.map(attr => {
+            if (t.isJSXSpreadAttribute(attr)) {
+              return '';
+            }
+
+            const prop = attr.name;
+            let propName = '';
+
+            if (t.isJSXIdentifier(prop)) {
+              propName = prop.name;
+            }
+
+            if (t.isJSXNamespacedName(prop)) {
+              propName = prop.namespace.name + ':' + prop.name.name;
+            }
+
             return propName;
           });
 
