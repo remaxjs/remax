@@ -3,7 +3,7 @@ import { REMAX_METHOD, TYPE_TEXT } from '../constants';
 import { generate } from '../instanceId';
 import VNode from '../VNode';
 import Container from '../Container';
-import { createCallbackProxy } from '../SyntheticEvent';
+import { createCallbackProxy } from '../SyntheticEvent/createCallbackProxy';
 import diffProperties from './diffProperties';
 
 const {
@@ -13,14 +13,14 @@ const {
   unstable_now: now,
 } = scheduler;
 
-function processProps(newProps: any, rootContext: Container, id: number) {
+function processProps(newProps: any, node: VNode, id: number) {
   const props: any = {};
   for (const propKey of Object.keys(newProps)) {
     if (typeof newProps[propKey] === 'function') {
       const contextKey = `${REMAX_METHOD}_${id}_${propKey}`;
-      rootContext.createCallback(
+      node.container.createCallback(
         contextKey,
-        createCallbackProxy(propKey, newProps[propKey])
+        createCallbackProxy(propKey, node, newProps[propKey])
       );
       props[propKey] = contextKey;
     } else if (propKey === 'style') {
@@ -69,13 +69,15 @@ export default {
 
   createInstance(type: string, newProps: any, container: Container) {
     const id = generate();
-    const props = processProps(newProps, container, id);
-    return new VNode({
+    const node = new VNode({
       id,
       type,
-      props,
+      props: {},
       container,
     });
+    node.props = processProps(newProps, node, id);
+
+    return node;
   },
 
   createTextInstance(text: string, container: Container) {
@@ -98,8 +100,8 @@ export default {
   },
 
   prepareUpdate(node: VNode, type: string, lastProps: any, nextProps: any) {
-    lastProps = processProps(lastProps, node.container, node.id);
-    nextProps = processProps(nextProps, node.container, node.id);
+    lastProps = processProps(lastProps, node, node.id);
+    nextProps = processProps(nextProps, node, node.id);
     if (diffProperties(lastProps, nextProps)) {
       return true;
     }
@@ -113,7 +115,7 @@ export default {
     oldProps: any,
     newProps: any
   ) {
-    node.props = processProps(newProps, node.container, node.id);
+    node.props = processProps(newProps, node, node.id);
     node.update();
   },
 
