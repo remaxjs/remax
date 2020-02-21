@@ -29,24 +29,24 @@
 		<template name="REMAX_TPL_1_input">
     
     <input wx:if="{{i.props.focus}}" focus
-      data-rid="{{_h.v(i.props['data-rid'])}}"
+      
     />
-    <input wx:else data-rid="{{_h.v(i.props['data-rid'])}}" />
+    <input wx:else  />
 </template>
 
 		<template name="REMAX_TPL_1_scroll-view">
     
-    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{item.props['scroll-left']}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{item.props['scroll-left']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:else data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:else  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
@@ -55,17 +55,17 @@
 
 		<template name="REMAX_TPL_2_scroll-view">
     
-    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{item.props['scroll-left']}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{item.props['scroll-left']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:else data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:else  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
@@ -74,17 +74,17 @@
 
 		<template name="REMAX_TPL_3_scroll-view">
     
-    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{item.props['scroll-left']}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{item.props['scroll-left']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:else data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:else  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
@@ -93,17 +93,17 @@
 
 		<template name="REMAX_TPL_4_scroll-view">
     
-    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{item.props['scroll-left']}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{item.props['scroll-left']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:else data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:else  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
@@ -112,17 +112,17 @@
 
 		<template name="REMAX_TPL_5_scroll-view">
     
-    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{item.props['scroll-left']}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{item.props['scroll-left']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:else data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <scroll-view wx:else  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
@@ -131,7 +131,7 @@
 
 		<template name="REMAX_TPL_1_swiper">
     
-    <swiper wx:if="{{i.props.current !== undefined && i.props.current !== null}}" current="{{i.props.current}}" data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <swiper wx:if="{{i.props.current !== undefined && i.props.current !== null}}" current="{{i.props.current}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
           <block wx:for="{{item.children}}" wx:key="id">
@@ -140,7 +140,7 @@
         </swiper-item>
       </block>
     </swiper>
-    <swiper wx:else data-rid="{{_h.v(i.props['data-rid'])}}" >
+    <swiper wx:else  >
       <block wx:for="{{i.children}}" wx:key="id">
         <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
           <block wx:for="{{item.children}}" wx:key="id">
@@ -153,7 +153,7 @@
 
 		<template name="REMAX_TPL_1_text">
   <text
-    data-rid="{{_h.v(i.props['data-rid'])}}">
+    >
     <block wx:for="{{i.children}}" wx:key="id">
       <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
     </block>
@@ -162,7 +162,7 @@
 
 		<template name="REMAX_TPL_2_text">
   <text
-    data-rid="{{_h.v(i.props['data-rid'])}}">
+    >
     <block wx:for="{{i.children}}" wx:key="id">
       <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
     </block>
@@ -171,7 +171,7 @@
 
 		<template name="REMAX_TPL_3_text">
   <text
-    data-rid="{{_h.v(i.props['data-rid'])}}">
+    >
     <block wx:for="{{i.children}}" wx:key="id">
       <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
     </block>
@@ -180,7 +180,7 @@
 
 		<template name="REMAX_TPL_4_text">
   <text
-    data-rid="{{_h.v(i.props['data-rid'])}}">
+    >
     <block wx:for="{{i.children}}" wx:key="id">
       <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
     </block>
@@ -189,7 +189,7 @@
 
 		<template name="REMAX_TPL_5_text">
   <text
-    data-rid="{{_h.v(i.props['data-rid'])}}">
+    >
     <block wx:for="{{i.children}}" wx:key="id">
       <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
     </block>
@@ -211,7 +211,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -241,7 +240,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -271,7 +269,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -301,7 +298,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -331,7 +327,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -361,7 +356,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -391,7 +385,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -421,7 +414,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -451,7 +443,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -481,7 +472,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -511,7 +501,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -541,7 +530,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -571,7 +559,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -601,7 +588,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -631,7 +617,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -661,7 +646,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -691,7 +675,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -721,7 +704,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -751,7 +733,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
@@ -781,7 +762,6 @@ bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
 bindtransitionend="{{_h.v(i.props['bindtransitionend'])}}"
 class="{{_h.v(i.props['class'])}}"
 data-foo="{{_h.v(i.props['data-foo'])}}"
-data-rid="{{_h.v(i.props['data-rid'])}}"
 disable-scroll="{{_h.v(i.props['disable-scroll'])}}"
 hidden="{{_h.v(i.props['hidden'])}}"
 hover-class="{{_h.v(i.props['hover-class'])}}"
