@@ -97,8 +97,6 @@ function registerProps(componentName: string, node?: t.JSXElement) {
     });
   }
 
-  usedProps.push('data-rid');
-
   return [
     ...new Set(
       usedProps
