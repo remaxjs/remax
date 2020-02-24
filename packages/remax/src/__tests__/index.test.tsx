@@ -48,9 +48,15 @@ describe('remax render', () => {
         list: [1, 3],
       };
 
-      update() {
+      insert() {
         this.setState({
           list: [1, 2, 3],
+        });
+      }
+
+      insertBefore() {
+        this.setState({
+          list: [0, 1, 2, 3],
         });
       }
 
@@ -70,7 +76,9 @@ describe('remax render', () => {
     const page = React.createRef<any>();
     render(<Page ref={page} />, container);
     expect(container.root).toMatchSnapshot();
-    page.current.update();
+    page.current.insert();
+    expect(container.root).toMatchSnapshot();
+    page.current.insertBefore();
     expect(container.root).toMatchSnapshot();
   });
 
