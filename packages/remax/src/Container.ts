@@ -2,7 +2,6 @@ import VNode, { Path, RawNode } from './VNode';
 import { generate } from './instanceId';
 import { generate as generateActionId } from './actionId';
 import { FiberRoot } from 'react-reconciler';
-import propsAlias from './propsAlias';
 import nativeEffector from './nativeEffect';
 import Platform from './Platform';
 
@@ -36,16 +35,6 @@ export default class Container {
     this.root.mounted = true;
   }
 
-  normalizeRawNode = (item: RawNode): RawNode => {
-    return {
-      ...item,
-      props: propsAlias(item.props, item.type),
-      children: item.children
-        ? item.children.map(this.normalizeRawNode)
-        : item.children,
-    };
-  };
-
   requestUpdate(
     path: Path,
     start: number,
@@ -57,7 +46,7 @@ export default class Container {
       path,
       start,
       deleteCount,
-      items: items.map(this.normalizeRawNode),
+      items,
     };
     if (immediately) {
       this.updateQueue.push(update);
@@ -132,7 +121,7 @@ export default class Container {
 
     if (Platform.isToutiao) {
       action = {
-        root: this.normalizeRawNode(this.root.toJSON()),
+        root: this.root.toJSON(),
       };
     }
 

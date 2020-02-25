@@ -1,4 +1,5 @@
 import { TYPE_TEXT } from './constants';
+import propsAlias from './propsAlias';
 import Container from './Container';
 
 export interface RawNode {
@@ -190,7 +191,7 @@ export default class VNode {
     return {
       id: this.id,
       type: this.type,
-      props: this.props,
+      props: propsAlias(this.props, this.type),
       children: this.children.map(c => c.toJSON()),
       text: this.text,
     };
