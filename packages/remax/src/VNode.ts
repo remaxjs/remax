@@ -27,8 +27,6 @@ function toRawNode(node: VNode) {
   };
 }
 
-export type Path = Array<string | number>;
-
 export default class VNode {
   id: number;
   container: Container;
@@ -60,30 +58,6 @@ export default class VNode {
     this.props = props;
   }
 
-  get index(): number {
-    let value = 0;
-    let previousSibling = this.previousSibling;
-
-    while (previousSibling) {
-      value += 1;
-      previousSibling = previousSibling.previousSibling;
-    }
-
-    return value;
-  }
-
-  get children() {
-    const arr = [];
-    let item = this.firstChild;
-
-    while (item) {
-      arr.push(item);
-      item = item.nextSibling;
-    }
-
-    return arr;
-  }
-
   appendChild(node: VNode, immediately: boolean) {
     this.removeChild(node, immediately);
     this.size += 1;
@@ -103,7 +77,7 @@ export default class VNode {
 
     if (this.isMounted()) {
       this.container.requestUpdate(
-        [...this.path(), 'children'],
+        this.path + '.children',
         this.size - 1,
         0,
         immediately,
@@ -142,7 +116,7 @@ export default class VNode {
 
     if (this.isMounted()) {
       this.container.requestUpdate(
-        [...this.path(), 'children'],
+        this.path + '.children',
         node.index,
         1,
         immediately
@@ -170,7 +144,7 @@ export default class VNode {
 
     if (this.isMounted()) {
       this.container.requestUpdate(
-        [...this.path(), 'children'],
+        this.path + '.children',
         referenceNode.index,
         0,
         immediately,
@@ -182,7 +156,7 @@ export default class VNode {
   update() {
     // root 不会更新，所以肯定有 parent
     this.container.requestUpdate(
-      [...this.parent!.path(), 'children'],
+      this.parent!.path + '.children',
       this.index,
       1,
       false,
@@ -190,11 +164,40 @@ export default class VNode {
     );
   }
 
-  path(): Path {
-    if (!this.parent) {
-      return ['root'];
+  get index(): number {
+    let value = 0;
+    let previousSibling = this.previousSibling;
+
+    while (previousSibling) {
+      value += 1;
+      previousSibling = previousSibling.previousSibling;
     }
-    return [...this.parent.path(), 'children', this.index];
+
+    return value;
+  }
+
+  get children() {
+    const arr = [];
+    let item = this.firstChild;
+
+    while (item) {
+      arr.push(item);
+      item = item.nextSibling;
+    }
+
+    return arr;
+  }
+
+  get path() {
+    let dataPath = 'root';
+    let parent: VNode | null = this.parent;
+
+    while (parent) {
+      dataPath = '.children.' + parent.index + '.' + dataPath;
+      parent = parent.parent;
+    }
+
+    return dataPath;
   }
 
   isMounted(): boolean {
