@@ -28,9 +28,9 @@ export default function propsAlias(props: GenericProps, type: string) {
 
   const aliasProps: GenericProps = {};
 
-  Object.keys(props).forEach(prop => {
+  for (const prop in props) {
     aliasProps[getAlias(prop, type)] = getValue(prop, props[prop]);
-  });
+  }
 
   return aliasProps;
 }
