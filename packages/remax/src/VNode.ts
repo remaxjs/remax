@@ -190,11 +190,17 @@ export default class VNode {
 
   get path() {
     let dataPath = 'root';
-    let parent: VNode | null = this.parent;
+    const parents = [];
+    let parent = this.parent;
 
     while (parent) {
-      dataPath = '.children.' + parent.index + '.' + dataPath;
+      parents.unshift(parent);
       parent = parent.parent;
+    }
+
+    for (let i = 0; i < parents.length; i++) {
+      const child = parents[i + 1] || this;
+      dataPath += '.children.' + child.index;
     }
 
     return dataPath;
