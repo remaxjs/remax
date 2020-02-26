@@ -1,9 +1,9 @@
-import VNode, { Path, RawNode } from './VNode';
+import VNode, { RawNode } from './VNode';
 import { generate } from './instanceId';
 import { FiberRoot } from 'react-reconciler';
 
 interface SpliceUpdate {
-  path: Path;
+  path: string;
   start: number;
   deleteCount: number;
   items: RawNode[];

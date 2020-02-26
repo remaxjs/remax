@@ -1,17 +1,12 @@
-import VNode, { Path, RawNode } from './VNode';
+import VNode, { RawNode } from './VNode';
 import { generate } from './instanceId';
 import { generate as generateActionId } from './actionId';
 import { FiberRoot } from 'react-reconciler';
-import propsAlias from './propsAlias';
 import nativeEffector from './nativeEffect';
 import Platform from './Platform';
 
-function stringPath(path: Path) {
-  return path.join('.');
-}
-
 interface SpliceUpdate {
-  path: Path;
+  path: string;
   start: number;
   deleteCount: number;
   items: RawNode[];
@@ -36,18 +31,8 @@ export default class Container {
     this.root.mounted = true;
   }
 
-  normalizeRawNode = (item: RawNode): RawNode => {
-    return {
-      ...item,
-      props: propsAlias(item.props, item.type),
-      children: item.children
-        ? item.children.map(this.normalizeRawNode)
-        : item.children,
-    };
-  };
-
   requestUpdate(
-    path: Path,
+    path: string,
     start: number,
     deleteCount: number,
     immediately: boolean,
@@ -57,7 +42,7 @@ export default class Container {
       path,
       start,
       deleteCount,
-      items: items.map(this.normalizeRawNode),
+      items,
     };
     if (immediately) {
       this.updateQueue.push(update);
@@ -102,7 +87,7 @@ export default class Container {
           }
           this.context.$spliceData(
             {
-              [update.path.join('.')]: [
+              [update.path]: [
                 update.start,
                 update.deleteCount,
                 ...update.items,
@@ -122,7 +107,7 @@ export default class Container {
     let action: any = {
       type: 'splice',
       payload: this.updateQueue.map(update => ({
-        path: stringPath(update.path),
+        path: update.path,
         start: update.start,
         deleteCount: update.deleteCount,
         item: update.items[0],
@@ -132,7 +117,7 @@ export default class Container {
 
     if (Platform.isToutiao) {
       action = {
-        root: this.normalizeRawNode(this.root.toJSON()),
+        root: this.root.toJSON(),
       };
     }
 

@@ -275,7 +275,7 @@ Object {
       ],
       "id": 3,
       "props": Object {
-        "className": "foo",
+        "class": "foo",
       },
       "text": undefined,
       "type": "view",
@@ -409,10 +409,7 @@ Object {
       ],
       "id": 2,
       "props": Object {
-        "style": Object {
-          "height": "100px",
-          "width": "100px",
-        },
+        "style": "width:100rpx;height:100rpx;",
       },
       "text": undefined,
       "type": "view",
@@ -437,10 +434,7 @@ Object {
       ],
       "id": 2,
       "props": Object {
-        "style": Object {
-          "WebkitLineClamp": 2,
-          "height": "100px",
-        },
+        "style": "-webkit-line-clamp:2;height:100rpx;",
       },
       "text": undefined,
       "type": "view",
