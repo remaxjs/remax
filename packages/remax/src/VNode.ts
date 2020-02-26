@@ -217,11 +217,8 @@ export default class VNode {
     });
 
     while (stack.length > 0) {
-      const stackItem = stack.pop();
-
-      if (!stackItem) {
-        continue;
-      }
+      // while 循环已经保证了不会有空值
+      const stackItem = stack.pop()!;
 
       const { children, currentNode } = stackItem;
 
