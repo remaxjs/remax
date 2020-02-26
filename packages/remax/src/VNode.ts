@@ -1,5 +1,5 @@
-import { TYPE_TEXT } from './constants';
 import propsAlias from './propsAlias';
+import { TYPE_TEXT } from './constants';
 import Container from './Container';
 
 export interface RawNode {
@@ -8,6 +8,23 @@ export interface RawNode {
   props?: any;
   children?: RawNode[];
   text?: string;
+}
+
+function toRawNode(node: VNode) {
+  if (node.type === TYPE_TEXT) {
+    return {
+      type: node.type,
+      text: node.text,
+    };
+  }
+
+  return {
+    id: node.id,
+    type: node.type,
+    props: propsAlias(node.props, node.type),
+    children: [],
+    text: node.text,
+  };
 }
 
 export type Path = Array<string | number>;
@@ -184,20 +201,40 @@ export default class VNode {
     return this.parent ? this.parent.isMounted() : this.mounted;
   }
 
-  toJSON(): RawNode {
-    if (this.type === TYPE_TEXT) {
-      return {
-        type: this.type,
-        text: this.text,
-      };
+  toJSON() {
+    const stack: Array<{
+      currentNode: RawNode;
+      children: VNode[];
+    }> = [];
+    const rawNode = toRawNode(this);
+
+    stack.push({
+      currentNode: rawNode,
+      children: this.children,
+    });
+
+    while (stack.length > 0) {
+      const stackItem = stack.pop();
+
+      if (!stackItem) {
+        continue;
+      }
+
+      const { children, currentNode } = stackItem;
+
+      for (let i = children.length - 1; i >= 0; i--) {
+        const currentVNode = children[i];
+        const currentRawNode = toRawNode(currentVNode);
+
+        currentNode.children![i] = currentRawNode;
+
+        stack.push({
+          currentNode: currentRawNode,
+          children: currentVNode.children,
+        });
+      }
     }
 
-    return {
-      id: this.id,
-      type: this.type,
-      props: propsAlias(this.props, this.type),
-      children: this.children.map(c => c.toJSON()),
-      text: this.text,
-    };
+    return rawNode;
   }
 }
