@@ -44,11 +44,15 @@ export default class VNode {
   }
 
   get index(): number {
-    if (!this.previousSibling) {
-      return 0;
+    let value = 0;
+    let previousSibling = this.previousSibling;
+
+    while (previousSibling) {
+      value += 1;
+      previousSibling = previousSibling.previousSibling;
     }
 
-    return this.previousSibling.index + 1;
+    return value;
   }
 
   get children() {
