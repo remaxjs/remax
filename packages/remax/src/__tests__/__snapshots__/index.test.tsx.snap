@@ -497,7 +497,7 @@ Object {
       ],
       "id": 2,
       "props": Object {
-        "style": "height:100;flex:1rpx;",
+        "style": "height:100rpx;flex:1;",
       },
       "text": undefined,
       "type": "view",
