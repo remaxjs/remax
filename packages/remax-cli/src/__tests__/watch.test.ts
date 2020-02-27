@@ -84,7 +84,7 @@ describe('watcher', () => {
     extraFilesWatcher.close();
 
     const srcIndex = path.join(cwd, `./${options.rootDir}/index.js`);
-    const destIndex = path.join(cwd, './dist/index.js');
+    const destIndex = path.join(cwd, `./${options.output}/index.js`);
 
     // add file
     sander.writeFileSync(srcIndex, 'export default 1;');
@@ -134,7 +134,10 @@ describe('watcher', () => {
       cwd,
       `./${options.rootDir}/native/nativeIndex.js`
     );
-    const destNativeIndex = path.join(cwd, `./dist/nativeIndex.js`);
+    const destNativeIndex = path.join(
+      cwd,
+      `./${options.output}/nativeIndex.js`
+    );
 
     const { watcher, extraFilesWatcher } = runWatcher(
       options,
