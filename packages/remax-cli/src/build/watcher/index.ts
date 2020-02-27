@@ -21,7 +21,7 @@ const chokidarConfig = {
 let extraFilesWatcher: FSWatcher | null;
 let watcher: RollupWatcher | null;
 
-export default function runWather(
+export default function runWatcher(
   remaxOptions: RemaxOptions,
   rollupOptions: RollupOptions,
   cli: CliOptions,

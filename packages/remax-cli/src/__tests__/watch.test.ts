@@ -18,22 +18,14 @@ function sequence(watcher: any, type: string, events: any[]) {
       if (!next) {
         fulfil();
       } else if (typeof next === 'string') {
-        if (type === 'extra') {
-          watcher.on('change', () => {
-            wait(100).then(() => {
-              go(event);
-            });
-          });
-        } else {
-          watcher.once('event', (event: any) => {
-            if (event.code !== next) {
-              watcher.close();
-            }
-            expect(event.code).toBe(next);
+        watcher.once('event', (event: any) => {
+          if (event.code !== next) {
+            watcher.close();
+          }
+          expect(event.code).toBe(next);
 
-            go(event);
-          });
-        }
+          go(event);
+        });
       } else {
         Promise.resolve()
           .then(() => wait(100)) // gah, this appears to be necessary to fix random errors
@@ -130,7 +122,7 @@ describe('watcher', () => {
     watcher.close();
   });
 
-  it('native files', async () => {
+  it('native files', async done => {
     const nativeIndex = path.join(
       cwd,
       `./${options.rootDir}/native/nativeIndex.js`
@@ -139,6 +131,7 @@ describe('watcher', () => {
       cwd,
       `./${options.output}/nativeIndex.js`
     );
+    const srcIndex = path.join(cwd, `./${options.rootDir}/index.js`);
 
     const { watcher, extraFilesWatcher } = runWatcher(
       options,
@@ -146,32 +139,42 @@ describe('watcher', () => {
       argv
     )!;
 
-    await sequence(extraFilesWatcher, 'extra', [
-      () => {
-        // add native file
-        sander.writeFileSync(nativeIndex, 'export default 3;');
-      },
-      () => {
-        expect(
-          sander.readFileSync(destNativeIndex).toString()
-        ).toMatchInlineSnapshot(`"export default 3;"`);
-        // update native file
-        sander.writeFileSync(nativeIndex, 'export default 4;');
-      },
-      // () => {
-      //   expect(
-      //     sander.readFileSync(destNativeIndex).toString()
-      //   ).toMatchInlineSnapshot(`"export default 4;"`);
-      //   // remove native file
-      //   sander.unlinkSync(nativeIndex);
-      // },
-      // () => {
-      //   expect(sander.existsSync(destNativeIndex)).toBeFalsy();
-      // },
+    sander.writeFileSync(srcIndex, 'export default 1;');
+
+    await sequence(watcher, 'default', [
+      'START',
+      'BUNDLE_START',
+      'BUNDLE_END',
+      'END',
     ]);
 
-    extraFilesWatcher.close();
-    watcher.close();
+    const close = () => {
+      extraFilesWatcher.close();
+      watcher.close();
+      done();
+    };
+
+    extraFilesWatcher.on('change', () => {
+      expect(
+        sander.readFileSync(destNativeIndex).toString()
+      ).toMatchInlineSnapshot(`"export default 4;"`);
+      // remove native file
+      sander.unlinkSync(nativeIndex);
+    });
+    extraFilesWatcher.on('unlink', () => {
+      expect(sander.existsSync(destNativeIndex)).toBeFalsy();
+      close();
+    });
+    extraFilesWatcher.on('add', () => {
+      expect(
+        sander.readFileSync(destNativeIndex).toString()
+      ).toMatchInlineSnapshot(`"export default 3;"`);
+      // update native file
+      sander.writeFileSync(nativeIndex, 'export default 4;');
+    });
+
+    // add native file
+    sander.writeFileSync(nativeIndex, 'export default 3;');
   });
 
   it('avoid rerun when watching', () => {
