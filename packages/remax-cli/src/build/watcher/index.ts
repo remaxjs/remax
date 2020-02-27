@@ -59,18 +59,18 @@ export default function runWatcher(
   const watchEventHandle = (event: any) => {
     switch (event.code) {
       case 'START':
-        output('🚚 编译...', 'blue');
+        output('🚚 开始编译...', 'blue');
         break;
       case 'END':
         isBundleRunning = false;
-        output('💡 完成', 'green');
+        output('💡 编译完成', 'green', remaxOptions.notify);
         break;
       case 'ERROR':
       case 'FATAL':
         isBundleRunning = false;
         const { error } = event;
         const name = error.code === 'PLUGIN_ERROR' ? error.plugin : error.code;
-        output(`\n🚨 [${name}]: ${error.message}`, 'red');
+        output(`\n🚨 [${name}]: ${error.message}`, 'red', remaxOptions.notify);
         throw error;
       default:
         break;

@@ -52,6 +52,8 @@ module.exports = {
     },
     // 其他postcss 插件, 会和默认的插件进行拼接
     plugins: [],
+    // 是否开启 watch 模式桌面提醒
+    notify: false,
   },
   // 修改 rollup 的配置
   rollupOptions: options => {
