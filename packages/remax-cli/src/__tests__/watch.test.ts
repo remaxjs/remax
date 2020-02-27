@@ -1,5 +1,6 @@
 import * as path from 'path';
 import runWatcher from '../build/watcher';
+import { checkChokidar } from '../build/utils/checkChokidar';
 import { RemaxOptions, RollupOptions } from 'remax-types';
 import * as sander from 'sander';
 
@@ -181,5 +182,19 @@ describe('watcher', () => {
 
     watcher.close();
     extraFilesWatcher.close();
+  });
+
+  describe('check chokidar', () => {
+    it('do not exist', () => {
+      expect(checkChokidar()).toBeFalsy();
+    });
+
+    it('exist', () => {
+      jest.mock(path.resolve(cwd, './node_modules/chokidar'), () => ({}), {
+        virtual: true,
+      });
+
+      expect(checkChokidar()).toBeTruthy();
+    });
   });
 });
