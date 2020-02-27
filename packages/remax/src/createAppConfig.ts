@@ -3,21 +3,14 @@ import render from './render';
 import AppContainer from './AppContainer';
 import isClass from './utils/isClass';
 import isClassComponent from './utils/isClassComponent';
+import { AppLifecycle, callbackName } from './lifecycle';
+import AppInstanceContext from './AppInstanceContext';
 import { ForwardRef } from './ReactIs';
 
 class DefaultAppComponent extends React.Component {
   render() {
     return React.createElement(React.Fragment, null, this.props.children);
   }
-}
-
-enum AppLifecyle {
-  onLaunch = 'onLaunch',
-  onShow = 'onShow',
-  onHide = 'onHide',
-  onError = 'onError',
-  onShareAppMessage = 'onShareAppMessage',
-  onPageNotFound = 'onPageNotFound',
 }
 
 export default function createAppConfig(this: any, App: any) {
@@ -31,38 +24,48 @@ export default function createAppConfig(this: any, App: any) {
 
       _instance: React.createRef<any>(),
 
+      callLifecycle(lifecycle: AppLifecycle, ...args: any[]) {
+        const callbacks = AppInstanceContext.lifecycleCallback[lifecycle] || [];
+        let result;
+        callbacks.forEach((callback: any) => {
+          result = callback(...args);
+        });
+        if (result) {
+          return result;
+        }
+
+        const callback = callbackName(lifecycle);
+        if (this._instance.current && this._instance.current[callback]) {
+          return this._instance.current[callback](...args);
+        }
+      },
+
       onLaunch(options: any) {
         this._render();
 
-        this.callLifecycle(AppLifecyle.onLaunch, options);
+        this.callLifecycle(AppLifecycle.launch, options);
       },
 
       onShow(options: any) {
-        this.callLifecycle(AppLifecyle.onShow, options);
+        this.callLifecycle(AppLifecycle.show, options);
       },
 
       onHide() {
-        this.callLifecycle(AppLifecyle.onHide);
+        this.callLifecycle(AppLifecycle.hide);
       },
 
       onError(error: any) {
-        this.callLifecycle(AppLifecyle.onError, error);
+        this.callLifecycle(AppLifecycle.error, error);
       },
 
       // 支付宝
       onShareAppMessage(options: any) {
-        this.callLifecycle(AppLifecyle.onShareAppMessage, options);
+        this.callLifecycle(AppLifecycle.shareAppMessage, options);
       },
 
       // 微信
       onPageNotFound(options: any) {
-        this.callLifecycle(AppLifecyle.onPageNotFound, options);
-      },
-
-      callLifecycle(lifecycle: AppLifecyle, ...args: any[]) {
-        if (this._instance.current && this._instance.current[lifecycle]) {
-          return this._instance.current[lifecycle](...args);
-        }
+        this.callLifecycle(AppLifecycle.pageNotFound, options);
       },
 
       _mount(pageInstance: any) {

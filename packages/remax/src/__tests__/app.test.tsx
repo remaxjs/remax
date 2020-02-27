@@ -1,6 +1,14 @@
 import * as React from 'react';
 import './helpers/setupGlobals';
 import App from './helpers/App';
+import {
+  useAppShow,
+  useAppError,
+  useAppHide,
+  useAppLaunch,
+  useAppPageNotFound,
+  useAppShareAppMessage,
+} from '../hooks';
 import createAppConfig from '../createAppConfig';
 
 describe('app', () => {
@@ -57,6 +65,49 @@ describe('app', () => {
       'error',
       'onError',
       'onHide',
+    ]);
+  });
+
+  it('hooks', () => {
+    const log: string[] = [];
+
+    function Foo(props: any) {
+      useAppLaunch(() => {
+        log.push('launch');
+      });
+      useAppShow(() => {
+        log.push('show');
+      });
+      useAppPageNotFound(() => {
+        log.push('pageNotFound');
+      });
+      useAppShareAppMessage(() => {
+        log.push('shareAppMessage');
+      });
+      useAppError(() => {
+        log.push('error');
+      });
+      useAppHide(() => {
+        log.push('hide');
+      });
+      return props.children;
+    }
+
+    const app = App(createAppConfig(Foo));
+    app.launch();
+    app.show();
+    app.pageNotFound();
+    app.shareAppMessage();
+    app.error();
+    app.hide();
+
+    expect(log).toEqual([
+      'launch',
+      'show',
+      'pageNotFound',
+      'shareAppMessage',
+      'error',
+      'hide',
     ]);
   });
 });

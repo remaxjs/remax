@@ -21,6 +21,15 @@ export enum Lifecycle {
   resize = 'resize',
 }
 
+export enum AppLifecycle {
+  launch = 'launch',
+  show = 'show',
+  hide = 'hide',
+  error = 'error',
+  shareAppMessage = 'shareAppMessage',
+  pageNotFound = 'pageNotFound',
+}
+
 export function callbackName(name: string) {
   if (name.startsWith('before')) {
     return capitalize(name);
@@ -29,9 +38,9 @@ export function callbackName(name: string) {
 }
 
 export function registerLifecycle(
-  page: any,
-  method: Lifecycle,
+  instance: any,
+  method: Lifecycle | AppLifecycle,
   callback: Callback
 ) {
-  return page.registerLifecycle(method, callback);
+  return instance.registerLifecycle(method, callback);
 }
