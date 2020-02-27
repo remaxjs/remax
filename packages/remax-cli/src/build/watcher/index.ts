@@ -21,12 +21,14 @@ const chokidarConfig = {
 let extraFilesWatcher: FSWatcher | null;
 let watcher: RollupWatcher | null;
 
-export default function runWather(
+export default function runWatcher(
   remaxOptions: RemaxOptions,
   rollupOptions: RollupOptions,
   cli: CliOptions,
   context?: Context
-) {
+):
+  | { watcher: RollupWatcher; extraFilesWatcher: chokidar.FSWatcher }
+  | undefined {
   if (isBundleRunning) {
     return;
   }
@@ -144,4 +146,9 @@ export default function runWather(
     .on('unlink', reloadWatcher('unlink'))
     .on('unlinkDir', reloadWatcher('unlinkDir'))
     .on('change', reloadWatcher('change'));
+
+  return {
+    watcher,
+    extraFilesWatcher,
+  };
 }
