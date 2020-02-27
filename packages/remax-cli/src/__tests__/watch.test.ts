@@ -148,6 +148,8 @@ describe('watcher', () => {
       'END',
     ]);
 
+    console.log('start');
+
     const close = () => {
       extraFilesWatcher.close();
       watcher.close();
@@ -155,6 +157,7 @@ describe('watcher', () => {
     };
 
     extraFilesWatcher.on('change', () => {
+      console.log('change');
       expect(
         sander.readFileSync(destNativeIndex).toString()
       ).toMatchInlineSnapshot(`"export default 4;"`);
@@ -162,10 +165,12 @@ describe('watcher', () => {
       sander.unlinkSync(nativeIndex);
     });
     extraFilesWatcher.on('unlink', () => {
+      console.log('unlink');
       expect(sander.existsSync(destNativeIndex)).toBeFalsy();
       close();
     });
     extraFilesWatcher.on('add', () => {
+      console.log('add');
       expect(
         sander.readFileSync(destNativeIndex).toString()
       ).toMatchInlineSnapshot(`"export default 3;"`);
