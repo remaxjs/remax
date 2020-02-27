@@ -20,7 +20,9 @@ function sequence(watcher: any, type: string, events: any[]) {
       } else if (typeof next === 'string') {
         if (type === 'extra') {
           watcher.on('change', () => {
-            go(event);
+            wait(100).then(() => {
+              go(event);
+            });
           });
         } else {
           watcher.once('event', (event: any) => {
@@ -139,31 +141,45 @@ describe('watcher', () => {
       argv
     )!;
 
-    await wait(100).then(async () => {
-      // add native file
-      sander.writeFileSync(nativeIndex, 'export default 3;');
+    await sequence(extraFilesWatcher, 'extra', [
+      () => {
+        // add native file
+        sander.writeFileSync(nativeIndex, 'export default 3;');
+      },
+      () => {
+        expect(
+          sander.readFileSync(destNativeIndex).toString()
+        ).toMatchInlineSnapshot(`"export default 3;"`);
+        // update native file
+        sander.writeFileSync(nativeIndex, 'export default 4;');
+      },
+      () => {
+        expect(
+          sander.readFileSync(destNativeIndex).toString()
+        ).toMatchInlineSnapshot(`"export default 4;"`);
+        // remove native file
+        sander.unlinkSync(nativeIndex);
+      },
+      () => {
+        expect(sander.existsSync(destNativeIndex)).toBeFalsy();
+      },
+    ]);
+    watcher.close();
+  });
 
-      watcher.close();
+  it('avoid rerun when watching', () => {
+    const { watcher, extraFilesWatcher } = runWatcher(
+      options,
+      rollupOptions,
+      argv
+    )!;
 
-      await sequence(extraFilesWatcher, 'extra', [
-        () => {
-          expect(
-            sander.readFileSync(destNativeIndex).toString()
-          ).toMatchInlineSnapshot(`"export default 3;"`);
-          // update native file
-          sander.writeFileSync(nativeIndex, 'export default 4;');
-        },
-        () => {
-          expect(
-            sander.readFileSync(destNativeIndex).toString()
-          ).toMatchInlineSnapshot(`"export default 4;"`);
-          // remove native file
-          sander.unlinkSync(nativeIndex);
-        },
-        () => {
-          expect(sander.existsSync(destNativeIndex)).toBeFalsy();
-        },
-      ]);
-    });
+    expect(watcher).toBeDefined();
+    expect(extraFilesWatcher).toBeDefined();
+
+    expect(runWatcher(options, rollupOptions, argv)).toBeUndefined();
+
+    watcher.close();
+    extraFilesWatcher.close();
   });
 });
