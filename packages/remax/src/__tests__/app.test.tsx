@@ -77,6 +77,10 @@ describe('app', () => {
       });
       useAppShow(() => {
         log.push('show');
+
+        return () => {
+          log.push('unregister show');
+        };
       });
       useAppPageNotFound(() => {
         log.push('pageNotFound');
