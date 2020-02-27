@@ -122,66 +122,6 @@ describe('watcher', () => {
     watcher.close();
   });
 
-  it('native files', async done => {
-    const nativeIndex = path.join(
-      cwd,
-      `./${options.rootDir}/native/nativeIndex.js`
-    );
-    const destNativeIndex = path.join(
-      cwd,
-      `./${options.output}/nativeIndex.js`
-    );
-    const srcIndex = path.join(cwd, `./${options.rootDir}/index.js`);
-
-    const { watcher, extraFilesWatcher } = runWatcher(
-      options,
-      rollupOptions,
-      argv
-    )!;
-
-    sander.writeFileSync(srcIndex, 'export default 1;');
-
-    await sequence(watcher, 'default', [
-      'START',
-      'BUNDLE_START',
-      'BUNDLE_END',
-      'END',
-    ]);
-
-    console.log('start');
-
-    const close = () => {
-      extraFilesWatcher.close();
-      watcher.close();
-      done();
-    };
-
-    extraFilesWatcher.on('change', () => {
-      console.log('change');
-      expect(
-        sander.readFileSync(destNativeIndex).toString()
-      ).toMatchInlineSnapshot(`"export default 4;"`);
-      // remove native file
-      sander.unlinkSync(nativeIndex);
-    });
-    extraFilesWatcher.on('unlink', () => {
-      console.log('unlink');
-      expect(sander.existsSync(destNativeIndex)).toBeFalsy();
-      close();
-    });
-    extraFilesWatcher.on('add', () => {
-      console.log('add');
-      expect(
-        sander.readFileSync(destNativeIndex).toString()
-      ).toMatchInlineSnapshot(`"export default 3;"`);
-      // update native file
-      sander.writeFileSync(nativeIndex, 'export default 4;');
-    });
-
-    // add native file
-    sander.writeFileSync(nativeIndex, 'export default 3;');
-  });
-
   it('avoid rerun when watching', () => {
     const { watcher, extraFilesWatcher } = runWatcher(
       options,
