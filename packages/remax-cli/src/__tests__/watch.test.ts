@@ -36,7 +36,7 @@ function sequence(watcher: any, type: string, events: any[]) {
         }
       } else {
         Promise.resolve()
-          .then(() => wait(300)) // gah, this appears to be necessary to fix random errors
+          .then(() => wait(500)) // gah, this appears to be necessary to fix random errors
           .then(() => next(event))
           .then(go)
           .catch(error => {
