@@ -12,9 +12,7 @@ require('../../npm/remax/esm/createPageConfig.js');
 require('../../npm/remax/esm/createNativeComponent.js');
 require('../../npm/remax/esm/index.js');
 
-var _ref =
-/*#__PURE__*/
-function (_React$Component) {
+var _ref = /*#__PURE__*/function (_React$Component) {
   _rollupPluginBabelHelpers.inherits(_ref, _React$Component);
 
   function _ref() {

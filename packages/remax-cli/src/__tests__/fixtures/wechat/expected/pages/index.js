@@ -64,9 +64,7 @@ var _page = function _page() {
   }
 
   function _handleClick() {
-    _handleClick = _rollupPluginBabelHelpers.asyncToGenerator(
-    /*#__PURE__*/
-    runtime.default.mark(function _callee() {
+    _handleClick = _rollupPluginBabelHelpers.asyncToGenerator( /*#__PURE__*/runtime.default.mark(function _callee() {
       return runtime.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
