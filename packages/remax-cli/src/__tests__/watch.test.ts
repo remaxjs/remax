@@ -151,6 +151,9 @@ describe('watcher', () => {
         sander.writeFileSync(nativeIndex, 'export default 3;');
       },
       () => {
+        // wait 100 ms
+      },
+      () => {
         expect(
           sander.readFileSync(destNativeIndex).toString()
         ).toMatchInlineSnapshot(`"export default 3;"`);
