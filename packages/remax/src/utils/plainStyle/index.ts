@@ -1,4 +1,5 @@
 import { CSSProperties } from 'react';
+import { isUnitlessNumber } from './CSSProperty';
 
 const vendorPrefixes = ['webkit', 'moz', 'ms', 'o'];
 
@@ -41,9 +42,15 @@ const plainStyle = (style: CSSProperties | null | undefined) => {
   if (!style) {
     return '';
   }
+
   return Object.keys(style)
     .reduce((acc: string[], key) => {
-      const value = (style as any)[key];
+      let value = (style as any)[key];
+
+      if (!Number.isNaN(Number(value)) && !isUnitlessNumber[key]) {
+        value = value + 'rpx';
+      }
+
       return [
         ...acc,
         `${transformReactStyleKey(key)}:${

@@ -162,6 +162,13 @@ describe('remax render', () => {
     expect(container.root).toMatchSnapshot();
   });
 
+  it('renders unitless style', () => {
+    const Page = () => <View style={{ height: 100, flex: 1 }}>hello</View>;
+    const container = new Container(p);
+    render(<Page />, container);
+    expect(container.root).toMatchSnapshot();
+  });
+
   it('renders empty style', () => {
     const Page = () => <View style={undefined}>hello</View>;
     const container = new Container(p);
