@@ -145,6 +145,24 @@ export default () => {
 };
 ```
 
+对于函数组件的 App, hook 名称上多了一个 App 前缀，与页面 hook 做出区分。
+
+```jsx
+import { useAppShow, useAppShareAppMessage } from 'remax';
+
+export default function App(props) {
+  useAppShow(() => {
+    console.log('这个 hook 等用于 onShow');
+  });
+
+  useAppShareAppMessage(() => {
+    console.log('这个 hook 等用于 onShareAppMessage');
+  });
+
+  return props.children;
+}
+```
+
 > 注意
 >
 > class 组件的生命周期回调只能用在页面组件上，但是 hooks 可以用在任意的组件上。

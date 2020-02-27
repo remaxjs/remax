@@ -1,7 +1,17 @@
 import { useLayoutEffect, useContext, DependencyList } from 'react';
-import { registerLifecycle, Lifecycle, Callback } from './lifecycle';
+import {
+  registerLifecycle,
+  AppLifecycle,
+  Lifecycle,
+  Callback,
+} from './lifecycle';
 import PageInstanceContext from './PageInstanceContext';
+import AppInstanceContext from './AppInstanceContext';
 import nativeEffect, { Listener } from './nativeEffect';
+
+/**
+ *  Page Hooks
+ */
 
 // eslint-disable-next-line @typescript-eslint/camelcase
 export function unstable_useNativeEffect(
@@ -99,4 +109,52 @@ export function usePullIntercept(callback: Callback) {
 export function useQuery<Q extends {} = { [name: string]: string }>(): Q {
   const pageInstance: any = useContext(PageInstanceContext);
   return pageInstance.query;
+}
+
+/**
+ * App Hooks
+ */
+
+export function useAppShow(callback: Callback) {
+  useLayoutEffect(() => {
+    return registerLifecycle(AppInstanceContext, AppLifecycle.show, callback);
+  });
+}
+
+export function useAppLaunch(callback: Callback) {
+  useLayoutEffect(() => {
+    return registerLifecycle(AppInstanceContext, AppLifecycle.launch, callback);
+  });
+}
+
+export function useAppError(callback: Callback) {
+  useLayoutEffect(() => {
+    return registerLifecycle(AppInstanceContext, AppLifecycle.error, callback);
+  });
+}
+
+export function useAppHide(callback: Callback) {
+  useLayoutEffect(() => {
+    return registerLifecycle(AppInstanceContext, AppLifecycle.hide, callback);
+  });
+}
+
+export function useAppPageNotFound(callback: Callback) {
+  useLayoutEffect(() => {
+    return registerLifecycle(
+      AppInstanceContext,
+      AppLifecycle.pageNotFound,
+      callback
+    );
+  });
+}
+
+export function useAppShareAppMessage(callback: Callback) {
+  useLayoutEffect(() => {
+    return registerLifecycle(
+      AppInstanceContext,
+      AppLifecycle.shareAppMessage,
+      callback
+    );
+  });
 }
