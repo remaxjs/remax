@@ -3,13 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [1.14.0](https://github.com/remaxjs/remax/compare/v1.13.2...v1.14.0) (2020-02-28)
-
-### Features
-
-- **remax:** 为 App 添加 hooks ([e2be286](https://github.com/remaxjs/remax/commit/e2be286)), closes [#343](https://github.com/remaxjs/remax/issues/343)
-- **remax:** 支持 inline style 属性值不写单位，默认为 rpx ([82ea0af](https://github.com/remaxjs/remax/commit/82ea0af)), closes [#574](https://github.com/remaxjs/remax/issues/574)
-
 ## [1.13.2](https://github.com/remaxjs/remax/compare/v1.13.1...v1.13.2) (2020-02-26)
 
 ### Bug Fixes
