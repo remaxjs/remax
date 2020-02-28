@@ -5,7 +5,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.14.0](https://github.com/remaxjs/remax/compare/v1.13.3...v1.14.0) (2020-02-28)
 
-**Note:** Version bump only for package root
+### Features
+
+- **cli:** remax.config.js 添加 watch 模式桌面提醒配置项 notify ([#665](https://github.com/remaxjs/remax/issues/665)) ([24bf5cb](https://github.com/remaxjs/remax/commit/24bf5cb))
+
+- **remax:** 为 App 添加 hooks ([e2be286](https://github.com/remaxjs/remax/commit/e2be286))
+
+- **remax:** 支持 inline style 属性值不写单位，默认为 rpx ([82ea0af](https://github.com/remaxjs/remax/commit/82ea0af))
+
+### Bug Fixes
+
+- 修复当 app 文件引入图片，导致样式文件丢失的问题 ([37482e3](https://github.com/remaxjs/remax/commit/37482e3))
 
 ## [1.13.2](https://github.com/remaxjs/remax/compare/v1.13.1...v1.13.2) (2020-02-26)
 
