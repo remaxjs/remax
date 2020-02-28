@@ -28,7 +28,11 @@ export function resolveCollection() {
       if (importer) {
         source = tsResolve(path.dirname(importer), source);
       } else {
-        source = tsResolve('', source);
+        try {
+          source = tsResolve('', source);
+        } catch (e) {
+          // ignore this
+        }
       }
 
       if (!importer) {
