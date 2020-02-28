@@ -2,6 +2,6 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var cat = "/assets/images/cat.png";
+var image = "/assets/images/cat.png";
 
-exports.default = cat;
+exports.default = image;
