@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/remaxjs/remax/compare/v1.13.2...v1.14.0) (2020-02-28)
+
+### Bug Fixes
+
+- 修复当 app 文件引入图片，导致样式文件丢失的问题 ([37482e3](https://github.com/remaxjs/remax/commit/37482e3)), closes [#663](https://github.com/remaxjs/remax/issues/663)
+
+### Features
+
+- **cli:** remax.config.js 添加 watch 模式桌面提醒配置项 notify ([#665](https://github.com/remaxjs/remax/issues/665)) ([24bf5cb](https://github.com/remaxjs/remax/commit/24bf5cb)), closes [#579](https://github.com/remaxjs/remax/issues/579)
+
 ## [1.13.2](https://github.com/remaxjs/remax/compare/v1.13.1...v1.13.2) (2020-02-26)
 
 ### Bug Fixes
