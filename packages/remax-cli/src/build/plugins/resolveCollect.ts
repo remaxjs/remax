@@ -18,6 +18,7 @@ export function resolveCollection() {
   return {
     name: 'resolveCollection',
     resolveId(source: string, importer: string) {
+      if (!source) return;
       if (
         source.indexOf('rollupPluginBabelHelpers.js') > -1 ||
         source.indexOf('commonjsHelpers.js') > -1
