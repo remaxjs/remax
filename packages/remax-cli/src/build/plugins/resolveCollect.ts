@@ -10,6 +10,10 @@ export interface ResolveCollectionObject {
 
 export const resolveList: ResolveCollectionObject[] = [];
 
+const tsResolve = resolve.create.sync({
+  extensions: ['.ts', '.js', '.tsx', '.json'],
+});
+
 export function resolveCollection() {
   return {
     name: 'resolveCollection',
@@ -21,9 +25,9 @@ export function resolveCollection() {
         return;
       }
       if (importer) {
-        source = resolve.sync(path.dirname(importer), source);
+        source = tsResolve(path.dirname(importer), source);
       } else {
-        source = resolve.sync('', source);
+        source = tsResolve('', source);
       }
 
       if (!importer) {
