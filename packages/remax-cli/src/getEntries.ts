@@ -4,7 +4,7 @@ import API from './API';
 import { RemaxOptions, AppConfig, Entries } from 'remax-types';
 import readManifest from './readManifest';
 import { Context } from './types';
-import { output } from './build/utils/output';
+import output from './build/utils/output';
 
 export function searchFile(file: string, strict?: boolean) {
   const exts = ['ts', 'tsx', 'js', 'jsx'];
@@ -17,7 +17,7 @@ export function searchFile(file: string, strict?: boolean) {
   }
 
   if (strict) {
-    output(`\n🚨 [配置]: ${file} 不存在，请检查你的配置文件`, 'red');
+    output.error(`[配置]: ${file} 不存在，请检查你的配置文件`);
   }
 
   return '';

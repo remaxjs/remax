@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'fs';
 import postcss from 'postcss';
 import API from '../../../API';
 import { pushArray, getPath } from './util';
-import { output } from '../../utils/output';
+import output from '../../utils/output';
 
 const cssPaths: string[] = [];
 
@@ -25,7 +25,7 @@ export const walk = (filePath: string) => {
       const file = getPath(filePath, node.params.replace(/'|"/g, ''));
 
       if (!existsSync(file)) {
-        output(`\n🚨 文件 ${file} 不存在`, 'red');
+        output.error(`文件 ${file} 不存在`);
         return;
       }
 
