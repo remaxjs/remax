@@ -31,6 +31,7 @@ export interface RemaxOptions {
   };
   rollupOptions?: RollupOptions | ((options: RollupOptions) => RollupOptions);
   plugins: RemaxNodePlugin[];
+  notify?: boolean;
 }
 
 export type RemaxConfig = Partial<RemaxOptions>;

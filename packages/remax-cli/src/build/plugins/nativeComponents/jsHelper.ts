@@ -5,7 +5,7 @@ import * as htmlparser2 from 'htmlparser2';
 import { get } from 'lodash';
 import API from '../../../API';
 import { getPath, pushArray, readFile } from './util';
-import { output } from '../../utils/output';
+import output from '../../utils/output';
 
 const jsHelpers: string[] = [];
 
@@ -50,7 +50,7 @@ const parseTemplate = (filePath: string, jsHelper: any) => {
       const jsHelperPath = getPath(filePath, attrs[src]);
 
       if (!fs.existsSync(jsHelperPath)) {
-        output(`\n🚨 文件 ${jsHelperPath} 不存在`, 'red');
+        output.error(`文件 ${jsHelperPath} 不存在`);
         return;
       }
 

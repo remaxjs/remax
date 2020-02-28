@@ -1,7 +1,7 @@
 import { getPath } from './util';
 import { existsSync } from 'fs';
 import path from 'path';
-import { output } from '../../utils/output';
+import output from '../../utils/output';
 import { PluginContext } from 'rollup';
 import { RemaxOptions } from 'remax-types';
 
@@ -20,7 +20,7 @@ const runWalk = (
       const componentJsonPath = `${componentPath}.json`;
 
       if (!existsSync(componentJsPath) || !existsSync(componentJsonPath)) {
-        output(`\n🚨 ${componentJsPath} 或 ${componentJsonPath} 不存在`, 'red');
+        output.error(`${componentJsPath} 或 ${componentJsonPath} 不存在`);
         return;
       }
 
@@ -43,7 +43,7 @@ export default function usingComponents(
 ) {
   const filePath = id.replace(/\.js$/, '.json');
   if (!existsSync(filePath)) {
-    output(`\n🚨 文件 ${filePath} 不存在`, 'red');
+    output.error(`文件 ${filePath} 不存在`);
     return;
   }
 

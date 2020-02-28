@@ -4,6 +4,9 @@
     "cssModules": {
       "anyOf": [{ "instanceof": "RegExp" }, { "type": "boolean" }]
     },
+    "notify": {
+      "type": "boolean"
+    },
     "pxToRpx": {
       "type": "boolean"
     },
