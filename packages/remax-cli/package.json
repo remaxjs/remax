@@ -30,6 +30,7 @@
     "postinstall": "node ./bin/patch-package.js"
   },
   "dependencies": {
+    "enhanced-resolve": "^4.1.1",
     "@babel/core": "^7.7.4",
     "@babel/helper-module-imports": "^7.7.4",
     "@babel/preset-env": "^7.7.4",

@@ -34,6 +34,7 @@ import extensions from '../extensions';
 import { without } from 'lodash';
 import jsx from 'acorn-jsx';
 import getEnvironment from './env';
+import { resolveCollection } from './plugins/resolveCollect';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -80,6 +81,7 @@ export default function rollupConfig(
       include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
     }),
     json(),
+    resolveCollection(),
     resolve({
       dedupe: [
         'react',
