@@ -121,7 +121,11 @@ export default function rollupConfig(
       reactPreset: true,
     }),
     postcss({
-      extract: true,
+      extract: path.join(
+        options.cwd,
+        options.output,
+        'app' + API.getMeta().style
+      ),
       ...postcssConfig.options,
       modules: cssModuleConfig,
       plugins: [options.pxToRpx && pxToUnits(), postcssUrl(options)]
