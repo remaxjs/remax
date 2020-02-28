@@ -93,6 +93,7 @@ export default class VNode {
       return;
     }
 
+    const index = node.index;
     this.size -= 1;
 
     if (this.firstChild === node) {
@@ -117,7 +118,7 @@ export default class VNode {
     if (this.isMounted()) {
       this.container.requestUpdate(
         this.path + '.children',
-        node.index,
+        index,
         1,
         immediately
       );
@@ -145,7 +146,7 @@ export default class VNode {
     if (this.isMounted()) {
       this.container.requestUpdate(
         this.path + '.children',
-        referenceNode.index,
+        node.index,
         0,
         immediately,
         node.toJSON()

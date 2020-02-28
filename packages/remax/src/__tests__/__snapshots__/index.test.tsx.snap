@@ -165,6 +165,123 @@ Object {
 }
 `;
 
+exports[`remax render conditional render 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "text": "1",
+              "type": "plain-text",
+            },
+          ],
+          "id": 2,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "text": "2",
+              "type": "plain-text",
+            },
+          ],
+          "id": 4,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+      ],
+      "id": 5,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
+    },
+  ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
+}
+`;
+
+exports[`remax render conditional render 2`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "text": "2",
+              "type": "plain-text",
+            },
+          ],
+          "id": 4,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+      ],
+      "id": 5,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
+    },
+  ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
+}
+`;
+
+exports[`remax render conditional render 3`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "text": "1",
+              "type": "plain-text",
+            },
+          ],
+          "id": 7,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "text": "2",
+              "type": "plain-text",
+            },
+          ],
+          "id": 4,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+      ],
+      "id": 5,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
+    },
+  ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
+}
+`;
+
 exports[`remax render insert new element 1`] = `
 Object {
   "children": Array [

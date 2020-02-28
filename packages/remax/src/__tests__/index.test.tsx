@@ -82,6 +82,45 @@ describe('remax render', () => {
     expect(container.root).toMatchSnapshot();
   });
 
+  it('conditional render', () => {
+    class Page extends React.Component {
+      state = {
+        show: true,
+      };
+
+      show() {
+        this.setState({
+          show: true,
+        });
+      }
+
+      hide() {
+        this.setState({
+          show: false,
+        });
+      }
+
+      render() {
+        const { show } = this.state;
+        return (
+          <View>
+            {show && <View>1</View>}
+            <View>2</View>
+          </View>
+        );
+      }
+    }
+
+    const container = new Container(p);
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, container);
+    expect(container.root).toMatchSnapshot();
+    page.current.hide();
+    expect(container.root).toMatchSnapshot();
+    page.current.show();
+    expect(container.root).toMatchSnapshot();
+  });
+
   it("change elements' order", () => {
     class Page extends React.Component {
       state = {
