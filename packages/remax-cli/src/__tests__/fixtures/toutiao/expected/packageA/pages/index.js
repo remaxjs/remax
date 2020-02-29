@@ -2,25 +2,21 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var _rollupPluginBabelHelpers = require('../../_virtual/_rollupPluginBabelHelpers.js');
+var index$1 = require('../../index.js');
+require('react-reconciler');
+require('scheduler');
 var React = require('react');
-require('../npm/remax/esm/createHostComponent.js');
-require('../npm/remax/esm/render.js');
-require('../npm/remax/esm/createAppConfig.js');
-require('../npm/remax/esm/Platform.js');
-var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
-require('../npm/remax/esm/index.js');
-var index$u = require('../npm/remax/npm/remax-wechat/esm/hostComponents/index.js');
+var wechat = require('../../wechat.js');
 
 var _page = function _page() {
   var props = {};
-  var TextElement = React.cloneElement(React.createElement(index$u.Text, null));
+  var TextElement = React.cloneElement(React.createElement(wechat.Text, null));
 
   function handleClick() {}
 
   function handleTouchStart() {}
 
-  return React.createElement(index$u.View, null, React.createElement(index$u.View, _rollupPluginBabelHelpers.extends({
+  return React.createElement(wechat.View, null, React.createElement(wechat.View, index$1._extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
@@ -28,6 +24,6 @@ var _page = function _page() {
   }, props), "foo"), TextElement);
 };
 
-var index = Page(createPageConfig.default(_page));
+var index = Page(index$1.createPageConfig(_page));
 
 exports.default = index;

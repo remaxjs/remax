@@ -211,12 +211,13 @@ export default function rollupConfig(
     input: [entries.app, ...entries.pages, ...entries.images],
     output: {
       dir: options.output,
+      entryFileNames: '[name]',
       format: 'cjs',
       exports: 'named',
       sourcemap: false,
       extend: true,
     },
-    preserveModules: true,
+    preserveModules: false,
     preserveSymlinks: true,
     acornInjectPlugins: [jsx()],
     /* istanbul ignore next */
@@ -245,6 +246,14 @@ export default function rollupConfig(
   }
 
   config = API.extendsRollupConfig({ rollupConfig: config });
+
+  config.input = (config.input as string[]).reduce(
+    (acc, i) => ({
+      ...acc,
+      [i.replace(path.join(options.cwd, `${options.rootDir}/`), '')]: i,
+    }),
+    {}
+  );
 
   return config;
 }

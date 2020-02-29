@@ -287,7 +287,8 @@ export default function template(
         files.map(async file => {
           const chunk = bundle[file];
           if (isRemaxEntry(chunk)) {
-            const filePath = Object.keys(chunk.modules)[0];
+            const modules = Object.keys(chunk.modules);
+            const filePath = modules[modules.length - 1];
             const page = pages.find(p => p === filePath);
             if (page) {
               const template = await createTemplate(file, options, meta);
