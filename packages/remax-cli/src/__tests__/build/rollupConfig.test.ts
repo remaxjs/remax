@@ -29,13 +29,13 @@ describe('rollupConfig', () => {
       {
         ...defaultOptions,
         rollupOptions: options => {
-          (options.input as string[]).push('foo.js');
+          options.treeshake = true;
           return options;
         },
       },
       {}
     );
 
-    expect(options.input).toEqual(['app.js', 'foo.js']);
+    expect(options.treeshake).toBe(true);
   });
 });

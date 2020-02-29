@@ -1,8 +1,5 @@
 {
   "usingComponents": {
-    "a-0": "../components/a/index",
-    "b-0": "../components/b/index",
-    "c-0": "../components/c/index",
-    "d-0": "../components/d/index"
+    "b-0": "../components/b/index"
   }
 }

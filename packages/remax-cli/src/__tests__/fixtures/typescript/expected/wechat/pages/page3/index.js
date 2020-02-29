@@ -2,16 +2,15 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var _rollupPluginBabelHelpers = require('../../_virtual/_rollupPluginBabelHelpers.js');
+var index$1 = require('../../index.js');
+require('react-reconciler');
+require('scheduler');
 var React = require('react');
-var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
-require('../npm/remax/esm/index.js');
-var View = require('../../components/View.js');
-var Text = require('../../components/Text.js');
+var Text = require('../../Text.js');
 
 var _page = function _page() {
   var props = {};
-  var TextElement = React.cloneElement(React.createElement(Text.default, null));
+  var TextElement = React.cloneElement(React.createElement(Text.Text, null));
 
   var handleClick = function handleClick() {
     return void 0;
@@ -21,13 +20,13 @@ var _page = function _page() {
     return void 0;
   };
 
-  return React.createElement(View.default, null, React.createElement(View.default, _rollupPluginBabelHelpers.extends({
+  return React.createElement(Text.View, null, React.createElement(Text.View, index$1._extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view"
   }, props), "foo"), TextElement);
 };
 
-var index = Page(createPageConfig.default(_page));
+var index = Page(index$1.createPageConfig(_page));
 
 exports.default = index;

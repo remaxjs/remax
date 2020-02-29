@@ -2,26 +2,21 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var _rollupPluginBabelHelpers = require('./_virtual/_rollupPluginBabelHelpers.js');
+var index = require('./index.js');
+require('react-reconciler');
+require('scheduler');
 var React = require('react');
-require('../../npm/remax/esm/createHostComponent.js');
-require('../../npm/remax/esm/render.js');
-var createAppConfig = require('../../npm/remax/esm/createAppConfig.js');
-require('../../npm/remax/esm/Platform.js');
-require('../../npm/remax/esm/createPageConfig.js');
-require('../../npm/remax/esm/createNativeComponent.js');
-require('../../npm/remax/esm/index.js');
 
 var _ref = /*#__PURE__*/function (_React$Component) {
-  _rollupPluginBabelHelpers.inherits(_ref, _React$Component);
+  index._inherits(_ref, _React$Component);
 
   function _ref() {
-    _rollupPluginBabelHelpers.classCallCheck(this, _ref);
+    index._classCallCheck(this, _ref);
 
-    return _rollupPluginBabelHelpers.possibleConstructorReturn(this, _rollupPluginBabelHelpers.getPrototypeOf(_ref).apply(this, arguments));
+    return index._possibleConstructorReturn(this, index._getPrototypeOf(_ref).apply(this, arguments));
   }
 
-  _rollupPluginBabelHelpers.createClass(_ref, [{
+  index._createClass(_ref, [{
     key: "render",
     value: function render() {
       return this.props.children;
@@ -31,6 +26,6 @@ var _ref = /*#__PURE__*/function (_React$Component) {
   return _ref;
 }(React.Component);
 
-var app = App(createAppConfig.default(_ref));
+var app = App(index.createAppConfig(_ref));
 
 exports.default = app;
