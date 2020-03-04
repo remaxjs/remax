@@ -34,7 +34,7 @@ export default function(options: RemaxOptions) {
         replacement: path.resolve(options.cwd, 'node_modules', 'remax/esm'),
       },
       {
-        find: '@',
+        find: '@/',
         replacement: path.resolve(options.cwd, options.rootDir),
       },
       ...aliasConfig,
