@@ -2,7 +2,7 @@ module.exports = function(api) {
   api.cache(true);
 
   return {
-    plugins: ['loop-optimizer'],
+    plugins: ['loop-optimizer', '@babel/plugin-transform-runtime'],
     presets: [
       [
         'remax',

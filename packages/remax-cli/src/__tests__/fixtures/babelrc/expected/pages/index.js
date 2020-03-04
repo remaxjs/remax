@@ -5,12 +5,14 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var React = require('react');
 require('../npm/remax/esm/createHostComponent.js');
 require('../npm/remax/esm/render.js');
-var _rollupPluginBabelHelpers = require('../_virtual/_rollupPluginBabelHelpers.js');
 require('../npm/remax/esm/createAppConfig.js');
 require('../npm/remax/esm/Platform.js');
 var createPageConfig = require('../npm/remax/esm/createPageConfig.js');
 var createNativeComponent = require('../npm/remax/esm/createNativeComponent.js');
 require('../npm/remax/esm/index.js');
+var initializerDefineProperty = require('../npm/_babel/runtime/helpers/initializerDefineProperty.js');
+var classCallCheck = require('../npm/_babel/runtime/helpers/classCallCheck.js');
+var applyDecoratedDescriptor = require('../npm/_babel/runtime/helpers/applyDecoratedDescriptor.js');
 var index$2 = require('../npm/remax/npm/remax-alipay/esm/hostComponents/View/index.js');
 require('../npm/remax/npm/remax-alipay/esm/hostComponents/ScrollView/index.js');
 require('../npm/remax/npm/remax-alipay/esm/hostComponents/Swiper/index.js');
@@ -84,10 +86,10 @@ function readonly(target, name, descriptor) {
 }
 
 var C = (_class = (_temp = function C() {
-  _rollupPluginBabelHelpers.classCallCheck(this, C);
+  classCallCheck.default(this, C);
 
-  _rollupPluginBabelHelpers.initializerDefineProperty(this, "p", _descriptor, this);
-}, _temp), _descriptor = _rollupPluginBabelHelpers.applyDecoratedDescriptor(_class.prototype, "p", [readonly], {
+  initializerDefineProperty.default(this, "p", _descriptor, this);
+}, _temp), _descriptor = applyDecoratedDescriptor.default(_class.prototype, "p", [readonly], {
   configurable: true,
   enumerable: true,
   writable: true,

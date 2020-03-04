@@ -45,12 +45,25 @@ function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
 export default babel.custom((babelCore: any) => {
   return {
     options({ reactPreset, usePlugins, ...pluginOptions }: CustomOptions) {
+      const cfg = babelCore.loadPartialConfig();
+
+      const runtimePluginName = '@babel/plugin-transform-runtime';
+      // 如果引入了 runtime 插件，则 runtimeHelpers 置为 true
+      const hasRuntimePlugin = (cfg?.options?.plugins ?? []).find(
+        (plugin: any) => {
+          return plugin?.file?.request === runtimePluginName;
+        }
+      );
+
       return {
         customOptions: {
           reactPreset,
           usePlugins,
         },
-        pluginOptions,
+        pluginOptions: {
+          ...pluginOptions,
+          runtimeHelpers: hasRuntimePlugin,
+        },
       };
     },
 
