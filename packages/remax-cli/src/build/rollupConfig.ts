@@ -71,6 +71,9 @@ export default function rollupConfig(
       ],
       copyOnce: true,
     }),
+    replace({
+      values: env.stringified,
+    }),
     alias(options),
     url({
       limit: 0,
@@ -131,9 +134,6 @@ export default function rollupConfig(
       plugins: [options.pxToRpx && pxToUnits(), postcssUrl(options)]
         .filter(Boolean)
         .concat(postcssConfig.plugins),
-    }),
-    replace({
-      values: env.stringified,
     }),
     rename({
       include: `${options.rootDir}/**`,
