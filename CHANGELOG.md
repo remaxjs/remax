@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.2](https://github.com/remaxjs/remax/compare/v1.14.1...v1.14.2) (2020-03-05)
+
+### Performance Improvements
+
+- **cli:** 优化生产模式编译速度 ([ffaca9a](https://github.com/remaxjs/remax/commit/ffaca9a))
+
 ## [1.14.1](https://github.com/remaxjs/remax/compare/v1.14.0...v1.14.1) (2020-02-28)
 
 ### Bug Fixes
