@@ -12,9 +12,10 @@ import getEntries from '../../getEntries';
 import { Context } from '../../types';
 import winPath from '../../winPath';
 import { getNativeComponents } from './nativeComponents/babelPlugin';
+import { rename as renameExtension } from '../../extensions';
 
 function pageUID(pagePath: string) {
-  return pagePath.replace('/', '_');
+  return winPath(pagePath).replace('/', '_');
 }
 
 async function createTemplate(
@@ -155,7 +156,7 @@ function createPageUsingComponents(
   const nativeComponents = getNativeComponents();
   const usingComponents: { [key: string]: string } = {};
   for (const { id, sourcePath, pages } of nativeComponents) {
-    if (!pages.has(page)) {
+    if (!pages.has(renameExtension(page))) {
       continue;
     }
 

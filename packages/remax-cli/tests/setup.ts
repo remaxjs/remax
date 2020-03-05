@@ -5,8 +5,8 @@ import * as sander from 'sander';
 import readdir from 'fs-readdir-recursive';
 import diff from 'jest-diff';
 import { sortBy } from 'lodash';
-import slash from 'slash2';
 import * as eol from 'eol';
+import winPath from '../src/winPath';
 
 type Received = Array<{
   fileName: string;
@@ -14,7 +14,13 @@ type Received = Array<{
 }>;
 
 function buildText(files: Received) {
-  return sortBy(files, ['fileName'])
+  return sortBy(
+    files.map(f => ({
+      ...f,
+      fileName: winPath(f.fileName),
+    })),
+    ['fileName']
+  )
     .reduce((acc: string[], f) => {
       acc.push(
         `file: ${f.fileName}`,
@@ -45,7 +51,7 @@ expect.extend({
     if (fs.existsSync(output)) {
       const expected = buildText(
         readdir(output).map(fileName => ({
-          fileName: slash(fileName),
+          fileName: fileName,
           code: eol.lf(
             sander.readFileSync(path.join(output, fileName)).toString()
           ),

@@ -37,10 +37,6 @@ export default async function build(
     },
     false
   );
-  rollupOptions.output = {
-    ...rollupOptions.output,
-    chunkFileNames: '[name].js',
-  };
   const bundle = await rollup.rollup(rollupOptions);
   const result = await bundle.generate(
     rollupOptions.output! as rollup.OutputOptions
