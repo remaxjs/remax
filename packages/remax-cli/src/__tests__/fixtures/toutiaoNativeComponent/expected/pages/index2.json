@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "d-0": "../components/d/index",
+    "f-0": "../components/f/index"
+  }
 }

@@ -17,7 +17,6 @@ import pxToUnits from '@remax/postcss-px2units';
 import getEntries from '../getEntries';
 import getCssModuleConfig from '../getCssModuleConfig';
 import page from './plugins/page';
-import removeSrc from './plugins/removeSrc';
 import rename from './plugins/rename';
 import replace from '@rollup/plugin-replace';
 import { RemaxOptions } from 'remax-types';
@@ -141,11 +140,7 @@ export default function rollupConfig(
     rename({
       include: `${options.rootDir}/**`,
       map: input => {
-        if (!input) {
-          return input;
-        }
-
-        input = input
+        input = (input || '')
           // typescript
           .replace(/\.ts$/, '.js')
           .replace(/\.tsx$/, '.js')
@@ -187,7 +182,6 @@ export default function rollupConfig(
         );
       },
     }),
-    removeSrc(options),
     fixRegeneratorRuntime(),
     nativeComponents(options, entries.pages),
     template(options, context),
@@ -212,6 +206,7 @@ export default function rollupConfig(
     output: {
       dir: options.output,
       entryFileNames: '[name]',
+      chunkFileNames: '[name].js',
       format: 'cjs',
       exports: 'named',
       sourcemap: false,

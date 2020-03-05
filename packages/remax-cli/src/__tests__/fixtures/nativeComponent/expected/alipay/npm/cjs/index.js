@@ -2,13 +2,44 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var _commonjsHelpers = require('../../_virtual/_commonjsHelpers.js');
-require('./fmtEvent.js');
-var fmtEvent$1 = require('../../_virtual/fmtEvent.js_commonjs-proxy.js');
+function unwrapExports (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
 
-var cjs = _commonjsHelpers.createCommonjsModule(function (module) {
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
 
-  var _fmtEvent = _interopRequireDefault(fmtEvent$1.default);
+var fmtEvent_1 = createCommonjsModule(function (module, exports) {
+
+  exports.__esModule = true;
+  exports["default"] = fmtEvent;
+
+  function fmtEvent(props, e) {
+    var dataset = {};
+
+    for (var key in props) {
+      if (/data-/gi.test(key)) {
+        dataset[key.replace(/data-/gi, '')] = props[key];
+      }
+    }
+
+    return Object.assign({}, e, {
+      currentTarget: {
+        dataset: dataset
+      },
+      target: {
+        dataset: dataset,
+        targetDataset: dataset
+      }
+    });
+  }
+});
+unwrapExports(fmtEvent_1);
+
+var cjs = createCommonjsModule(function (module) {
+
+  var _fmtEvent = _interopRequireDefault(fmtEvent_1);
 
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -68,6 +99,6 @@ var cjs = _commonjsHelpers.createCommonjsModule(function (module) {
     }
   });
 });
-var index = _commonjsHelpers.unwrapExports(cjs);
+var index = unwrapExports(cjs);
 
 exports.default = index;

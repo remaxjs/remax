@@ -44,11 +44,12 @@ export default (options: RemaxOptions) => {
 
   return () => ({
     pre(state: any) {
-      importers.delete(state.opts.filename);
+      const filename = state.opts.filename;
+      importers.delete(filename);
     },
     visitor: {
       ImportDeclaration(path: NodePath<t.ImportDeclaration>, state: any) {
-        const importer: string = state.file.opts.filename;
+        const importer = state.file.opts.filename;
         const node = path.node;
 
         const sourcePath = getSourcePath(options, node.source.value, importer);
@@ -68,7 +69,7 @@ export default (options: RemaxOptions) => {
         addToComponentCollection(component, importers);
       },
       JSXElement(nodePath: NodePath<t.JSXElement>, state: any) {
-        const importer: string = state.file.opts.filename;
+        const importer = state.file.opts.filename;
         const node = nodePath.node;
 
         if (t.isJSXIdentifier(node.openingElement.name)) {

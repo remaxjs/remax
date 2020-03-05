@@ -67,7 +67,11 @@ export const getSourcePath = (
   return sourcePath;
 };
 
-export const isNativeComponent = (sourcePath: string): boolean => {
+export const isNativeComponent = (sourcePath: string | null): boolean => {
+  if (!sourcePath) {
+    return false;
+  }
+
   if (path.extname(sourcePath) !== '.js') {
     return false;
   }

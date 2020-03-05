@@ -26,8 +26,7 @@
     "prebuild": "rm -rf lib",
     "build": "tsc",
     "test": "jest",
-    "test:debug": "npx --node-arg=--inspect-brk jest -i",
-    "postinstall": "node ./bin/patch-package.js"
+    "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },
   "dependencies": {
     "@babel/core": "^7.7.4",
@@ -94,7 +93,6 @@
     "eol": "^0.9.1",
     "fs-readdir-recursive": "^1.1.0",
     "jest": "^24.8.0",
-    "patch-package": "^6.2.0",
     "postinstall-postinstall": "^2.0.0",
     "react": "^16.8.6",
     "react-reconciler": "^0.21.0",

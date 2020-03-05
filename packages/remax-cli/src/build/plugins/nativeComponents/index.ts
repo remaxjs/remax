@@ -1,7 +1,7 @@
 import { get } from 'lodash';
 import MagicString from 'magic-string';
 import * as path from 'path';
-import { Plugin, OutputChunk } from 'rollup';
+import { Plugin } from 'rollup';
 import { simple } from 'acorn-walk';
 import { readFileSync } from 'fs';
 import { RemaxOptions } from 'remax-types';
@@ -13,7 +13,7 @@ import { isNativeComponent, isPluginComponent, getSourcePath } from './util';
 import winPath from '../../../winPath';
 import usingComponents from './usingComponents';
 import { getImporters } from './babelPlugin';
-import { searchFile } from '../../../getEntries';
+import { getEntryChunks, getRelatedModulesForEntry } from '../../chunk';
 
 const getFiles = () => [
   ...getcssPaths(),
@@ -35,6 +35,21 @@ export default (options: RemaxOptions, pages: string[]): Plugin => {
 
         getFiles().forEach(file => {
           this.addWatchFile(file);
+        });
+
+        const bundleFileName = winPath(path.relative(options.cwd, id))
+          .replace(new RegExp(`^${options.rootDir}/`), '')
+          .replace(/node_modules/g, 'npm')
+          .replace(/@/g, '_')
+          // trim extension
+          .split('.')
+          .slice(0, -1)
+          .join('.');
+
+        this.emitFile({
+          type: 'chunk',
+          id,
+          name: bundleFileName,
         });
       }
       return null;
@@ -98,57 +113,25 @@ export default (options: RemaxOptions, pages: string[]): Plugin => {
     },
     generateBundle(_, bundle) {
       const importers = getImporters();
-      const collected: Map<string, Set<string>> = new Map();
 
-      const collectPages = (page: string, importer: string) => {
-        const pageCollected = collected.get(page);
-
-        if (pageCollected) {
-          if (pageCollected.has(importer)) {
-            return;
+      getEntryChunks(bundle).forEach(chunk => {
+        const page = chunk.facadeModuleId!;
+        const modules = getRelatedModulesForEntry(chunk, bundle);
+        modules.forEach(id => {
+          const nativeImporter = importers.get(id);
+          if (nativeImporter) {
+            [...nativeImporter.values()].forEach(component => {
+              component.pages = new Set([...component.pages, page]);
+            });
           }
-
-          pageCollected.add(importer);
-        } else {
-          collected.set(page, new Set([importer]));
-        }
-
-        const nativeImporter = importers.get(
-          searchFile(
-            path.join(options.cwd, importer).replace(path.extname(importer), '')
-          )
-        );
-
-        if (nativeImporter) {
-          [...nativeImporter.values()].forEach(component => {
-            component.pages = new Set([...component.pages, page]);
-          });
-        }
-
-        importer = winPath(importer)
-          .replace(/node_modules/g, 'npm')
-          .replace(new RegExp(`^${options.rootDir}/`), '')
-          .replace(/@/g, '_')
-          .replace(path.extname(importer), '.js');
-
-        const { imports } = (bundle[importer] as OutputChunk) || {
-          imports: [],
-        };
-
-        for (const file of imports) {
-          collectPages(page, file);
-        }
-      };
-
-      for (const key of pages) {
-        collectPages(key, path.relative(options.cwd, key));
-      }
+        });
+      });
 
       getFiles().forEach(id => {
         const bundleFileName = winPath(
           path.relative(options.cwd, id).replace(/node_modules/g, 'npm')
         )
-          .replace(/^src\//, '')
+          .replace(new RegExp(`^${options.rootDir}/`), '')
           .replace(/@/g, '_');
 
         const source = readFileSync(id);
