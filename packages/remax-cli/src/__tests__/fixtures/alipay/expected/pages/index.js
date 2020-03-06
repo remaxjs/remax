@@ -1030,6 +1030,8 @@ var getOpenUserInfo = promisify(my.getOpenUserInfo);
 
 var FunctionalPageNavigator = function FunctionalPageNavigator() {};
 
+var styles = {"page-index":"index-module_page-index__1ZW9Y"};
+
 var _page = function _page() {
   var _, _obj$a;
 
@@ -1063,7 +1065,9 @@ var _page = function _page() {
 
   var obj = {};
   var value = (_ = 0) !== null && _ !== void 0 ? _ : 1;
-  return React.createElement(View, null, React.createElement(View, index$1._extends({
+  return React.createElement(View, {
+    className: styles['page-index']
+  }, React.createElement(View, index$1._extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",

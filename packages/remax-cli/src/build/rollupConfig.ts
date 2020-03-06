@@ -33,6 +33,7 @@ import extensions from '../extensions';
 import { without } from 'lodash';
 import jsx from 'acorn-jsx';
 import getEnvironment from './env';
+import { getRelatedModulesForEntry } from './chunk';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -123,11 +124,9 @@ export default function rollupConfig(
       reactPreset: true,
     }),
     postcss({
-      extract: path.join(
-        options.cwd,
-        options.output,
-        'app' + API.getMeta().style
-      ),
+      extract: true,
+      getRelatedModulesForEntry,
+      extension: API.getMeta().style,
       ...postcssConfig.options,
       modules: {
         ...cssModuleConfig,
@@ -139,8 +138,8 @@ export default function rollupConfig(
     }),
     rename({
       include: `${options.rootDir}/**`,
-      map: input => {
-        input = (input || '')
+      map: input =>
+        (input || '')
           // typescript
           .replace(/\.ts$/, '.js')
           .replace(/\.tsx$/, '.js')
@@ -149,18 +148,7 @@ export default function rollupConfig(
           .replace(/\.gif$/, '.gif.js')
           .replace(/\.svg$/, '.svg.js')
           .replace(/\.jpeg$/, '.jpeg.js')
-          .replace(/\.jpg$/, '.jpg.js');
-
-        // 不启用 css module 的 css 文件以及 app.css
-        if (
-          cssModuleConfig.globalModulePaths.some(reg => reg.test(input)) ||
-          input.indexOf('app.css') !== -1
-        ) {
-          return input.replace(/\.css/, API.getMeta().style);
-        }
-
-        return input.replace(/\.css/, '.css.js');
-      },
+          .replace(/\.jpg$/, '.jpg.js'),
     }),
     rename({
       matchAll: true,

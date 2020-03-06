@@ -36,7 +36,7 @@
     "@babel/register": "^7.7.0",
     "@babel/types": "^7.7.4",
     "@remax/postcss-px2units": "^0.2.0",
-    "@remax/rollup-plugin-postcss": "^2.0.4",
+    "@remax/rollup-plugin-postcss": "^3.0.0",
     "@remax/rollup-plugin-url": "^3.0.2",
     "@rollup/plugin-alias": "^2.2.0",
     "@rollup/plugin-commonjs": "^11.0.0",
