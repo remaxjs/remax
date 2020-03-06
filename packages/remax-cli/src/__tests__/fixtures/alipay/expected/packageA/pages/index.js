@@ -335,7 +335,9 @@ var _page = function _page() {
 
   function handleTouchStart() {}
 
-  return React.createElement(View, null, React.createElement(View, index$1._extends({
+  return React.createElement(View, {
+    className: "pageA-index"
+  }, React.createElement(View, index$1._extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
