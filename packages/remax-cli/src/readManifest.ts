@@ -1,5 +1,5 @@
 import esm from 'esm';
-import fs from 'fs';
+import * as fs from 'fs';
 
 function readTypescriptManifest(path: string, target: string) {
   require('@babel/register')({
@@ -23,6 +23,11 @@ function readTypescriptManifest(path: string, target: string) {
   return config;
 }
 
+function readJsonManifest(path: string) {
+  const json = fs.readFileSync(path).toString();
+  return JSON.parse(json);
+}
+
 function readJavascriptManifest(path: string, target: string) {
   // eslint-disable-next-line no-global-assign
   require = esm(module, {
@@ -38,25 +43,20 @@ function readJavascriptManifest(path: string, target: string) {
   return config;
 }
 
-export default function readManifest(
-  path: string,
-  target: string,
-  strict = false
-) {
-  const tsPath = path + '.ts';
+export default function readManifest(path: string, target: string) {
+  const jsonPath = path + '.json';
+  if (fs.existsSync(jsonPath)) {
+    return readJsonManifest(jsonPath);
+  }
+
+  const tsPath = path + '.config.ts';
   if (fs.existsSync(tsPath)) {
     return readTypescriptManifest(tsPath, target);
   }
 
-  const jsPath = path + '.js';
+  const jsPath = path + '.config.js';
   if (fs.existsSync(jsPath)) {
     return readJavascriptManifest(jsPath, target);
-  }
-
-  if (strict) {
-    throw new Error(
-      `${path}.ts|js 文件不存在，请先创建配置文件，参考 https://remaxjs.org/guide/config`
-    );
   }
 
   return {};

@@ -10,7 +10,6 @@ import json from '@rollup/plugin-json';
 import postcss from '@remax/rollup-plugin-postcss';
 import postcssUrl from './plugins/postcssUrl';
 import progress from 'rollup-plugin-progress';
-import clean from 'rollup-plugin-delete';
 import copy from 'rollup-plugin-copy';
 import stub from './plugins/stub';
 import pxToUnits from '@remax/postcss-px2units';
@@ -34,6 +33,8 @@ import { without } from 'lodash';
 import jsx from 'acorn-jsx';
 import getEnvironment from './env';
 import { getRelatedModulesForEntry } from './chunk';
+import * as hybridMode from '../hybridMode';
+import { isNativeComponent } from './plugins/nativeComponents/util';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -53,7 +54,7 @@ export default function rollupConfig(
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
   // 获取 postcss 配置
-  const postcssConfig = {
+  const postcssConfig: any = {
     options: {},
     plugins: [],
     ...options.postcss,
@@ -109,13 +110,16 @@ export default function rollupConfig(
     babel({
       include: entries.pages,
       extensions: without(extensions, '.json'),
-      usePlugins: [nativeComponentsBabelPlugin(options), page],
+      usePlugins: [nativeComponentsBabelPlugin(options), page(entries.pages)],
       reactPreset: false,
     }),
     babel({
       include: entries.app,
       extensions: without(extensions, '.json'),
-      usePlugins: [nativeComponentsBabelPlugin(options), app],
+      usePlugins: [
+        nativeComponentsBabelPlugin(options),
+        app(entries.app, hybridMode.validate(options)),
+      ],
       reactPreset: false,
     }),
     babel({
@@ -163,7 +167,6 @@ export default function rollupConfig(
             .replace(/\.sass$/, '.sass.js')
             .replace(/\.scss$/, '.scss.js')
             .replace(/\.styl$/, '.styl.js')
-            .replace(/node_modules/g, 'npm')
             .replace(/_commonjs-proxy$/, '_commonjs-proxy.js')
             // 支付宝小程序不允许目录带 @
             .replace(/@/g, '_')
@@ -180,17 +183,9 @@ export default function rollupConfig(
     plugins.push(progress());
   }
 
-  if (process.env.NODE_ENV === 'production') {
-    plugins.unshift(
-      clean({
-        targets: [path.join(options.output, '*'), '!.tea'],
-      })
-    );
-  }
-
   let config: RollupOptions = {
     treeshake: process.env.NODE_ENV === 'production',
-    input: [entries.app, ...entries.pages, ...entries.images],
+    input: [entries.app, ...entries.pages, ...entries.images].filter(i => i),
     output: {
       dir: options.output,
       entryFileNames: '[name]',
@@ -199,6 +194,21 @@ export default function rollupConfig(
       exports: 'named',
       sourcemap: false,
       extend: true,
+    },
+    manualChunks: (id: string) => {
+      if (entries.pages.find(p => p === id)) {
+        return null;
+      }
+
+      if (entries.app === id) {
+        return null;
+      }
+
+      if (isNativeComponent(id)) {
+        return null;
+      }
+
+      return 'remaxVendor';
     },
     preserveModules: false,
     preserveSymlinks: true,

@@ -3,6 +3,7 @@ import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName } from './lifecycle';
 import Container from './Container';
 import { createPortal } from './ReactPortal';
+import { CONFIG_SCOPE as SCOPE } from './constants';
 
 let idCounter = 0;
 
@@ -38,13 +39,13 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
         this.pageId
       );
 
-      app._mount(this);
+      app[SCOPE]._mount(this);
     },
 
     onUnload(this: any) {
       this.unloaded = true;
       this.container.clearUpdate();
-      app._unmount(this);
+      app[SCOPE]._unmount(this);
     },
 
     /**

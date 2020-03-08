@@ -9,7 +9,12 @@ import style, { getcssPaths } from './style';
 import json, { getjsonPaths } from './json';
 import template, { getTemplatePaths } from './tempate';
 import jsHelper, { getJsHelpers } from './jsHelper';
-import { isNativeComponent, isPluginComponent, getSourcePath } from './util';
+import {
+  isNativeComponent,
+  isPluginComponent,
+  getSourcePath,
+  VENDOR_DIR,
+} from './util';
 import winPath from '../../../winPath';
 import usingComponents from './usingComponents';
 import { getImporters } from './babelPlugin';
@@ -39,7 +44,7 @@ export default (options: RemaxOptions, pages: string[]): Plugin => {
 
         const bundleFileName = winPath(path.relative(options.cwd, id))
           .replace(new RegExp(`^${options.rootDir}/`), '')
-          .replace(/node_modules/g, 'npm')
+          .replace(/node_modules/g, VENDOR_DIR)
           .replace(/@/g, '_')
           // trim extension
           .split('.')
@@ -129,7 +134,7 @@ export default (options: RemaxOptions, pages: string[]): Plugin => {
 
       getFiles().forEach(id => {
         const bundleFileName = winPath(
-          path.relative(options.cwd, id).replace(/node_modules/g, 'npm')
+          path.relative(options.cwd, id).replace(/node_modules/g, VENDOR_DIR)
         )
           .replace(new RegExp(`^${options.rootDir}/`), '')
           .replace(/@/g, '_');

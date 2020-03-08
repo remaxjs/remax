@@ -31,6 +31,6 @@ var _page = function _page() {
   }, props), "foo", obj === null || obj === void 0 ? void 0 : (_obj$a = obj.a) === null || _obj$a === void 0 ? void 0 : _obj$a.b, value), TextElement);
 };
 
-var index = Page(index$1.createPageConfig(_page));
+var index = Page(index$1.createPageConfig(_page), true);
 
 exports.default = index;

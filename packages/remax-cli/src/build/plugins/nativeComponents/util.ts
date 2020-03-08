@@ -7,6 +7,8 @@ import winPath from '../../../winPath';
 import { RemaxOptions } from 'remax-types';
 import { getAppConfig } from '../../../getEntries';
 
+export const VENDOR_DIR = 'remaxVendor';
+
 export const pushArray = (arr: string[], path: string) => {
   if (arr.includes(path)) {
     return;

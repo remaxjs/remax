@@ -332,6 +332,6 @@ var _page = function _page() {
   return React.createElement(View, null, React.createElement(Text, null, "test"), React.createElement(Text, null, "hello"), React.createElement(Text, null, "hello world"));
 };
 
-var index = Page(index$1.createPageConfig(_page));
+var index = Page(index$1.createPageConfig(_page), true);
 
 exports.default = index;

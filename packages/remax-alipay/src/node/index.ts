@@ -32,7 +32,7 @@ const plugin: RemaxNodePluginConstructor = () => {
       const { pages, subPackages = [], tabBar = { items: [] } } = appManifest;
 
       if (!pages || pages.length === 0) {
-        throw new Error('app.config.js|ts 并未配置页面参数');
+        throw new Error('并未配置页面参数');
       }
 
       const entries: Entries = {

@@ -16,6 +16,6 @@ var _page = function _page() {
   return React.createElement(wechat.View, null, React.createElement(index.G, null), React.createElement(B, null));
 };
 
-var index4 = Page(index$1.createPageConfig(_page));
+var index4 = Page(index$1.createPageConfig(_page), true);
 
 exports.default = index4;

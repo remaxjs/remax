@@ -756,6 +756,6 @@ var _page = function _page() {
   }, React.createElement(wechat.SwiperItem, null, "a"), React.createElement(wechat.SwiperItem, null, "b")), React.createElement(wechat.Text, null, React.createElement(wechat.Text, null, "text")))));
 };
 
-var index = Page(index$1.createPageConfig(_page));
+var index = Page(index$1.createPageConfig(_page), true);
 
 exports.default = index;

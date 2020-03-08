@@ -5,6 +5,7 @@ import { RemaxOptions, AppConfig, Entries } from 'remax-types';
 import readManifest from './readManifest';
 import { Context } from './types';
 import output from './build/utils/output';
+import * as hybridMode from './hybridMode';
 
 export function searchFile(file: string, strict?: boolean) {
   const exts = ['ts', 'tsx', 'js', 'jsx'];
@@ -24,13 +25,15 @@ export function searchFile(file: string, strict?: boolean) {
 }
 
 export const getAppConfig = (options: RemaxOptions) => {
-  const appConfigPath: string = path.join(
-    options.cwd,
-    options.rootDir,
-    'app.config'
-  );
+  const app = 'app';
+  let appConfigPath = path.join(options.cwd, options.rootDir, app);
 
-  return readManifest(appConfigPath, API.adapter.name, true) as AppConfig;
+  if (hybridMode.validate(options)) {
+    // hybrid 模式，直接读取原生的 app.json
+    appConfigPath = path.join(options.cwd, options.output, app);
+  }
+
+  return readManifest(appConfigPath, API.adapter.name) as AppConfig;
 };
 
 // TODO: getEntries 处理 context 的逻辑要去掉
@@ -49,20 +52,24 @@ export default function getEntries(
   }
 
   const entries: Entries = {
-    app: searchFile(path.join(options.cwd, options.rootDir, 'app'), true),
+    app: searchFile(
+      path.join(
+        options.cwd,
+        options.rootDir,
+        hybridMode.validate(options) ? hybridMode.appName : 'app'
+      ),
+      true
+    ),
     pages: [],
     images: [],
   };
 
-  entries.pages = pages.reduce(
-    (ret: Array<{ path: string; file: string }>, page: string) => {
-      return [
-        ...ret,
-        searchFile(path.join(options.cwd, options.rootDir, page), true),
-      ].filter(page => !!page);
-    },
-    []
-  );
+  entries.pages = pages.reduce((ret: string[], page: string) => {
+    return [
+      ...ret,
+      searchFile(path.join(options.cwd, options.rootDir, page), true),
+    ].filter(page => !!page);
+  }, []);
 
   subpackages.forEach((pack: { pages: string[]; root: string }) => {
     entries.pages = entries.pages.concat(

@@ -1,5 +1,4 @@
 import * as path from 'path';
-import { parse } from 'acorn';
 import { Plugin, OutputChunk } from 'rollup';
 import { sortBy } from 'lodash';
 import { getComponents } from './components';
@@ -13,6 +12,8 @@ import { Context } from '../../types';
 import winPath from '../../winPath';
 import { getNativeComponents } from './nativeComponents/babelPlugin';
 import { rename as renameExtension } from '../../extensions';
+import * as hybridMode from '../../hybridMode';
+import { VENDOR_DIR } from './nativeComponents/util';
 
 function pageUID(pagePath: string) {
   return winPath(pagePath).replace('/', '_');
@@ -138,7 +139,7 @@ function createAppManifest(options: RemaxOptions, context?: Context) {
   const config = context
     ? { ...context.app, pages: context.pages.map(p => p.path) }
     : readManifest(
-        path.resolve(options.cwd, `${options.rootDir}/app.config`),
+        path.resolve(options.cwd, `${options.rootDir}/app`),
         API.adapter.name
       );
   return {
@@ -170,8 +171,8 @@ function createPageUsingComponents(
         .relative(
           path.dirname(configFilePath),
           sourcePath
-            .replace(/node_modules/, `${options.rootDir}/npm`)
-            .replace(/node_modules/g, 'npm')
+            .replace(/node_modules/, `${options.rootDir}/${VENDOR_DIR}`)
+            .replace(/node_modules/g, VENDOR_DIR)
         )
         .replace(/\.js$/, '')
         .replace(/@/g, '_')
@@ -187,7 +188,7 @@ function createPageManifest(
   page: any,
   context?: Context
 ) {
-  const configFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.config');
+  const configFile = file.replace(/\.(js|jsx|ts|tsx)$/, '');
   const manifestFile = file.replace(/\.(js|jsx|ts|tsx)$/, '.json');
   const configFilePath = path.resolve(
     options.cwd,
@@ -228,30 +229,8 @@ function createPageManifest(
   };
 }
 
-function isRemaxEntry(chunk: any): chunk is OutputChunk {
-  if (!chunk.isEntry) {
-    return false;
-  }
-
-  const ast: any = parse(chunk.code, {
-    sourceType: 'module',
-  });
-
-  return ast.body.every((node: any) => {
-    // 检查是不是原生写法
-    if (
-      node.type === 'ExpressionStatement' &&
-      node.expression.type === 'CallExpression' &&
-      node.expression.callee.type === 'Identifier' &&
-      node.expression.callee.name === 'Page' &&
-      node.expression.arguments.length > 0 &&
-      node.expression.arguments[0].type === 'ObjectExpression'
-    ) {
-      return false;
-    }
-
-    return true;
-  });
+function isRemaxEntryChunk(chunk: any): chunk is OutputChunk {
+  return chunk.isEntry;
 }
 
 export default function template(
@@ -263,15 +242,17 @@ export default function template(
     async generateBundle(_, bundle, isWrite) {
       const meta = API.getMeta();
       const templateAssets = [];
-      // app.json
-      const manifest = createAppManifest(options, context);
+      if (!hybridMode.validate(options)) {
+        // app.json
+        const manifest = createAppManifest(options, context);
 
-      if (
-        this.cache.get(manifest.fileName)?.toString() !==
-        manifest.source.toString()
-      ) {
-        this.cache.set(manifest.fileName, manifest.source);
-        templateAssets.push(manifest);
+        if (
+          this.cache.get(manifest.fileName)?.toString() !==
+          manifest.source.toString()
+        ) {
+          this.cache.set(manifest.fileName, manifest.source);
+          templateAssets.push(manifest);
+        }
       }
 
       const template = await createBaseTemplate(options, meta);
@@ -287,7 +268,7 @@ export default function template(
       await Promise.all(
         files.map(async file => {
           const chunk = bundle[file];
-          if (isRemaxEntry(chunk)) {
+          if (isRemaxEntryChunk(chunk)) {
             const modules = Object.keys(chunk.modules);
             const filePath = modules[modules.length - 1];
             const page = pages.find(p => p === filePath);

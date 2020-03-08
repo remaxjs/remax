@@ -1,4 +1,5 @@
 import { hostComponents } from 'remax/macro';
+import * as path from 'path';
 import * as t from '@babel/types';
 import {
   AppConfig,
@@ -11,6 +12,7 @@ import {
 } from 'remax-types';
 import { merge } from 'lodash';
 import { searchFile } from '../getEntries';
+import { validate as isHybridEnabled } from '../hybridMode';
 
 class API {
   public plugins: RemaxNodePlugin[] = [];
@@ -90,7 +92,20 @@ class API {
         const currentEntries = plugin.getEntries({
           remaxOptions,
           appManifest,
-          getEntryPath: (entryPath: string) => searchFile(entryPath, true),
+          getEntryPath: (entryPath: string) => {
+            const rootNativePath = path.join(
+              remaxOptions.cwd,
+              remaxOptions.rootDir,
+              'native'
+            );
+
+            // native 目录下的 page 不处理
+            if (entryPath.startsWith(rootNativePath)) {
+              return '';
+            }
+
+            return searchFile(entryPath, !isHybridEnabled(remaxOptions));
+          },
         });
 
         entries.app = currentEntries.app || entries.app;

@@ -47,6 +47,6 @@ var _page = function _page() {
   })), React.createElement(ScopedComponent, null), React.createElement(SrcComponent, null), React.createElement(CJSComponent, null), text);
 };
 
-var index = Page(index$1.createPageConfig(_page));
+var index = Page(index$1.createPageConfig(_page), true);
 
 exports.default = index;

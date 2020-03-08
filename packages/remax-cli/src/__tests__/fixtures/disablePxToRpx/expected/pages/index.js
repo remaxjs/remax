@@ -335,6 +335,6 @@ var _page = function _page() {
   }, "foo");
 };
 
-var index = Page(index$1.createPageConfig(_page));
+var index = Page(index$1.createPageConfig(_page), true);
 
 exports.default = index;

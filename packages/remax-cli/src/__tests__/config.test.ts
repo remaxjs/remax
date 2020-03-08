@@ -56,13 +56,6 @@ describe('remax config', () => {
 });
 
 describe('manifest', () => {
-  it('throw error when file not exists with strict mode enabled', () => {
-    expect(readManifest('', 'alipay')).toEqual({});
-    expect(() => {
-      readManifest('', 'alipay', true);
-    }).toThrow();
-  });
-
   it('return empty object when javascript manifest file contains no config', () => {
     expect(
       readManifest(

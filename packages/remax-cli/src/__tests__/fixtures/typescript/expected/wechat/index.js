@@ -6,6 +6,22 @@ var ReactReconciler = _interopDefault(require('react-reconciler'));
 var scheduler = require('scheduler');
 var React = require('react');
 
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -1734,9 +1750,43 @@ var context = {
 // nor polyfill, then a plain number is used for performance.
 var hasSymbol = typeof Symbol === 'function' && Symbol["for"];
 var REACT_PORTAL_TYPE = hasSymbol ? Symbol["for"]('react.portal') : 0xeaca;
+var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol["for"]('react.fragment') : 0xeacb;
+var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol["for"]('react.strict_mode') : 0xeacc;
+var REACT_PROFILER_TYPE = hasSymbol ? Symbol["for"]('react.profiler') : 0xead2;
+var REACT_PROVIDER_TYPE = hasSymbol ? Symbol["for"]('react.provider') : 0xeacd;
+var REACT_CONTEXT_TYPE = hasSymbol ? Symbol["for"]('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
+var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol["for"]('react.concurrent_mode') : 0xeacf;
 var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol["for"]('react.forward_ref') : 0xead0;
+var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol["for"]('react.suspense') : 0xead1;
+var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol["for"]('react.suspense_list') : 0xead8;
+var REACT_MEMO_TYPE = hasSymbol ? Symbol["for"]('react.memo') : 0xead3;
+var REACT_LAZY_TYPE = hasSymbol ? Symbol["for"]('react.lazy') : 0xead4;
+var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol["for"]('react.fundamental') : 0xead5;
+var REACT_RESPONDER_TYPE = hasSymbol ? Symbol["for"]('react.responder') : 0xead6;
+var REACT_SCOPE_TYPE = hasSymbol ? Symbol["for"]('react.scope') : 0xead7;
+function isValidElementType(type) {
+  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || _typeof(type) === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE);
+}
 var ForwardRef = REACT_FORWARD_REF_TYPE;
 var Portal = REACT_PORTAL_TYPE;
+
+function isPlainObject(obj) {
+  if (isValidElementType(obj)) {
+    return false;
+  }
+
+  if (_typeof(obj) == 'object' && obj !== null) {
+    if (typeof Object.getPrototypeOf == 'function') {
+      var proto = Object.getPrototypeOf(obj);
+      return proto === Object.prototype || proto === null;
+    }
+
+    return Object.prototype.toString.call(obj) == '[object Object]';
+  }
+
+  return false;
+}
 
 var __extends = undefined && undefined.__extends || function () {
   var _extendStatics = function extendStatics(d, b) {
@@ -1764,6 +1814,22 @@ var __extends = undefined && undefined.__extends || function () {
   };
 }();
 
+var __assign$1 = undefined && undefined.__assign || function () {
+  __assign$1 = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign$1.apply(this, arguments);
+};
+
 var DefaultAppComponent =
 /** @class */
 function (_super) {
@@ -1780,15 +1846,18 @@ function (_super) {
   return DefaultAppComponent;
 }(React.Component);
 
+var SCOPE = '__remax-scope__';
 function createAppConfig(App) {
   var _this = this;
 
   var createConfig = function createConfig(AppComponent) {
+    var _a;
+
     if (AppComponent === void 0) {
       AppComponent = DefaultAppComponent;
     }
 
-    var config = {
+    var scope = {
       _container: new AppContainer(_this),
       _pages: [],
       _instance: React.createRef(),
@@ -1817,28 +1886,6 @@ function createAppConfig(App) {
           return (_a = this._instance.current)[callback].apply(_a, args);
         }
       },
-      onLaunch: function onLaunch(options) {
-        this._render();
-
-        this.callLifecycle(AppLifecycle.launch, options);
-      },
-      onShow: function onShow(options) {
-        this.callLifecycle(AppLifecycle.show, options);
-      },
-      onHide: function onHide() {
-        this.callLifecycle(AppLifecycle.hide);
-      },
-      onError: function onError(error) {
-        this.callLifecycle(AppLifecycle.error, error);
-      },
-      // 支付宝
-      onShareAppMessage: function onShareAppMessage(options) {
-        this.callLifecycle(AppLifecycle.shareAppMessage, options);
-      },
-      // 微信
-      onPageNotFound: function onPageNotFound(options) {
-        this.callLifecycle(AppLifecycle.pageNotFound, options);
-      },
       _mount: function _mount(pageInstance) {
         this._pages.push(pageInstance);
 
@@ -1861,18 +1908,50 @@ function createAppConfig(App) {
         })), this._container);
       }
     };
+    var config = (_a = {}, _a[SCOPE] = scope, _a.onLaunch = function (options) {
+      this[SCOPE]._render();
+
+      this[SCOPE].callLifecycle(AppLifecycle.launch, options);
+    }, _a.onShow = function (options) {
+      this[SCOPE].callLifecycle(AppLifecycle.show, options);
+    }, _a.onHide = function () {
+      this[SCOPE].callLifecycle(AppLifecycle.hide);
+    }, _a.onError = function (error) {
+      this[SCOPE].callLifecycle(AppLifecycle.error, error);
+    }, // 支付宝
+    _a.onShareAppMessage = function (options) {
+      this[SCOPE].callLifecycle(AppLifecycle.shareAppMessage, options);
+    }, // 微信
+    _a.onPageNotFound = function (options) {
+      this[SCOPE].callLifecycle(AppLifecycle.pageNotFound, options);
+    }, _a);
     return config;
-  }; // 兼容老的写法
+  };
+
+  if (isPlainObject(App)) {
+    var NativeApp =
+    /** @class */
+    function () {
+      function NativeApp() {
+        Object.assign(this, __assign$1({}, App));
+      }
+
+      return NativeApp;
+    }();
+
+    Object.assign(NativeApp.prototype, createConfig());
+    return new NativeApp();
+  } // 兼容老的写法和原生写法
 
 
   if (isClass(App) && !isClassComponent(App)) {
     // eslint-disable-next-line no-console
-    console.warn('使用非 React 组件定义 App 的方式已经废弃，详细请参考：https://remaxjs.org/guide/framework');
+    console.warn('使用非 React 组件定义 App 的方式已经废弃，详细请参考：https://remaxjs.org/guide/framework。');
     Object.assign(App.prototype, createConfig());
     return new App();
-  } else {
-    return createConfig(App);
   }
+
+  return createConfig(App);
 }
 
 var PageInstanceContext = React.createContext(null);
@@ -2218,8 +2297,12 @@ function createPortal(children, containerInfo, key) {
 }
 
 var idCounter = 0;
-function createPageConfig(Page) {
-  var app = getApp();
+function createPageConfig(Page, singleton) {
+  if (singleton === void 0) {
+    singleton = true;
+  }
+
+  var app = singleton ? getApp() : createAppConfig({});
   var id = idCounter;
   idCounter += 1;
   var config = {
@@ -2241,13 +2324,13 @@ function createPageConfig(Page) {
         ref: this.wrapperRef
       }), this.container, this.pageId);
 
-      app._mount(this);
+      app[SCOPE]._mount(this);
     },
     onUnload: function onUnload() {
       this.unloaded = true;
       this.container.clearUpdate();
 
-      app._unmount(this);
+      app[SCOPE]._unmount(this);
     },
 
     /**
@@ -2344,8 +2427,8 @@ function createPageConfig(Page) {
   return config;
 }
 
-var __assign$1 = undefined && undefined.__assign || function () {
-  __assign$1 = Object.assign || function (t) {
+var __assign$2 = undefined && undefined.__assign || function () {
+  __assign$2 = Object.assign || function (t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
 
@@ -2357,7 +2440,7 @@ var __assign$1 = undefined && undefined.__assign || function () {
     return t;
   };
 
-  return __assign$1.apply(this, arguments);
+  return __assign$2.apply(this, arguments);
 };
 
 var unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;

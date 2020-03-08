@@ -17,6 +17,6 @@ var _page = function _page() {
   return React.createElement(alipay.View, null, React.createElement(PluginComponent, null), React.createElement(PluginComponent2, null));
 };
 
-var subPackage = Page(index$1.createPageConfig(_page));
+var subPackage = Page(index$1.createPageConfig(_page), true);
 
 exports.default = subPackage;

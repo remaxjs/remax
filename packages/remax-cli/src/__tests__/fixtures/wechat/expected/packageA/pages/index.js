@@ -25,6 +25,6 @@ var pageA = function pageA() {
 };
 
 var _page = pageA;
-var index = Page(index$1.createPageConfig(_page));
+var index = Page(index$1.createPageConfig(_page), true);
 
 exports.default = index;
