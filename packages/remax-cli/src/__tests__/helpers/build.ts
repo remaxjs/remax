@@ -4,7 +4,16 @@ import API from '../../API';
 import rollupConfig from '../../build/rollupConfig';
 import getConfig from '../../getConfig';
 
-export default async function build(app: string, target: string) {
+interface Options {
+  include: string[];
+  exclude: string[];
+}
+
+export default async function build(
+  app: string,
+  target: string,
+  options: Partial<Options> = {}
+) {
   const cwd = path.resolve(__dirname, `../fixtures/${app}`);
   process.chdir(cwd);
 
@@ -33,8 +42,17 @@ export default async function build(app: string, target: string) {
     rollupOptions.output! as rollup.OutputOptions
   );
 
+  const exclude = options.exclude || ['node_modules', '_virtual', 'npm'];
+  const include = options.include || [];
+  const includeRegExp = new RegExp(`(${include.join('|')})`);
+  const excludeRegExp = new RegExp(`(${exclude.join('|')})`);
+
   return result.output
-    .filter(c => !/(node_modules|_virtual|npm)/.test(c.fileName))
+    .filter(
+      c =>
+        (include.length > 0 && includeRegExp.test(c.fileName)) ||
+        (exclude.length > 0 && !excludeRegExp.test(c.fileName))
+    )
     .map(c => {
       let code = '';
       if (c.type === 'chunk') {
