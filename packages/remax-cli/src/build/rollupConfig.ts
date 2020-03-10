@@ -130,7 +130,10 @@ export default function rollupConfig(
         'app' + API.getMeta().style
       ),
       ...postcssConfig.options,
-      modules: cssModuleConfig,
+      modules: {
+        ...cssModuleConfig,
+        ...postcssConfig.options.modules,
+      },
       plugins: [options.pxToRpx && pxToUnits(), postcssUrl(options)]
         .filter(Boolean)
         .concat(postcssConfig.plugins),
