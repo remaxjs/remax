@@ -1,5 +1,4 @@
 import { hostComponents } from 'remax/macro';
-import * as path from 'path';
 import * as t from '@babel/types';
 import {
   AppConfig,
@@ -92,20 +91,8 @@ class API {
         const currentEntries = plugin.getEntries({
           remaxOptions,
           appManifest,
-          getEntryPath: (entryPath: string) => {
-            const rootNativePath = path.join(
-              remaxOptions.cwd,
-              remaxOptions.rootDir,
-              'native'
-            );
-
-            // native 目录下的 page 不处理
-            if (entryPath.startsWith(rootNativePath)) {
-              return '';
-            }
-
-            return searchFile(entryPath, !isHybridEnabled(remaxOptions));
-          },
+          getEntryPath: (entryPath: string) =>
+            searchFile(entryPath, !isHybridEnabled(remaxOptions)),
         });
 
         entries.app = currentEntries.app || entries.app;
