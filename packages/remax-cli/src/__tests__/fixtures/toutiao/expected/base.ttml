@@ -671,7 +671,6 @@
     hover-stay-time="{{i.props['hover-stay-time']}}" 
     hover-stop-propagation="{{i.props['hover-stop-propagation']}}" 
     id="{{i.props['id']}}" 
-    onClick="{{i.props['onClick']}}" 
     style="{{i.props['style']}}" 
   >
     
