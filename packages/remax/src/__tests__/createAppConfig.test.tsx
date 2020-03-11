@@ -67,6 +67,24 @@ describe('createAppConfig', () => {
     expect(onShow).toBeCalled();
   });
 
+  it('pass in extra config', () => {
+    const onShow = jest.fn();
+    const extraConfig = {
+      foo: 'bar',
+      onShow,
+    };
+
+    function App(props: any) {
+      return props.children;
+    }
+
+    const appConfig = createAppConfig(App, extraConfig);
+    appConfig.onShow();
+
+    expect(appConfig.foo).toBe('bar');
+    expect(onShow).toBeCalled();
+  });
+
   it('use default App', () => {
     expect(createAppConfig(undefined)).toBeDefined();
   });
