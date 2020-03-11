@@ -11,6 +11,7 @@ export const alias = {
   animation: 'animation',
   hoverStopPropagation: 'hover-stop-propagation',
   onTap: 'bindtap',
+  onClick: 'bindtap',
   onTouchStart: 'bindtouchstart',
   onTouchMove: 'bindtouchmove',
   onTouchEnd: 'bindtouchend',
