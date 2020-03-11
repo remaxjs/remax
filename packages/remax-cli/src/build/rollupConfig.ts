@@ -115,17 +115,12 @@ export default function rollupConfig(
       modules: stubModules,
     }),
     babel({
-      include: entries.pages,
-      extensions: without(extensions, '.json'),
-      usePlugins: [nativeComponentsBabelPlugin(options), page(entries.pages)],
-      reactPreset: false,
-    }),
-    babel({
-      include: entries.app,
+      include: [entries.app, ...entries.pages],
       extensions: without(extensions, '.json'),
       usePlugins: [
-        nativeComponentsBabelPlugin(options),
         app(entries.app, hybridMode.validate(options)),
+        page(entries.pages),
+        nativeComponentsBabelPlugin(options),
       ],
       reactPreset: false,
     }),
