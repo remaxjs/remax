@@ -1,5 +1,6 @@
 module.exports = {
   xxx: 1,
+  mode: 1,
   cssModules: 1,
   pxToRpx: 1,
   cwd: 1,

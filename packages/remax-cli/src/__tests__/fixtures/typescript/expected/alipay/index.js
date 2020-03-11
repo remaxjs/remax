@@ -111,6 +111,7 @@ function _possibleConstructorReturn(self, call) {
 
 var REMAX_METHOD = '$$REMAX_METHOD';
 var TYPE_TEXT = 'plain-text';
+var CONFIG_SCOPE = '__remax_scope__';
 
 var instanceId = 0;
 function generate() {
@@ -1602,9 +1603,10 @@ function (_super) {
   return DefaultAppComponent;
 }(React.Component);
 
-var SCOPE = '__remax-scope__';
-function createAppConfig(App) {
+function createAppConfig(App, extraConfig) {
   var _this = this;
+
+  extraConfig = extraConfig || {};
 
   var createConfig = function createConfig(AppComponent) {
     var _a;
@@ -1628,6 +1630,12 @@ function createAppConfig(App) {
 
         var callbacks = context.lifecycleCallback[lifecycle] || [];
         var result;
+        var callback = callbackName(lifecycle);
+
+        if (typeof extraConfig[callback] === 'function') {
+          return extraConfig[callback].apply(extraConfig, args);
+        }
+
         callbacks.forEach(function (callback) {
           result = callback.apply(void 0, args);
         });
@@ -1635,8 +1643,6 @@ function createAppConfig(App) {
         if (result) {
           return result;
         }
-
-        var callback = callbackName(lifecycle);
 
         if (this._instance.current && this._instance.current[callback]) {
           return (_a = this._instance.current)[callback].apply(_a, args);
@@ -1664,23 +1670,32 @@ function createAppConfig(App) {
         })), this._container);
       }
     };
-    var config = (_a = {}, _a[SCOPE] = scope, _a.onLaunch = function (options) {
-      this[SCOPE]._render();
 
-      this[SCOPE].callLifecycle(AppLifecycle.launch, options);
-    }, _a.onShow = function (options) {
-      this[SCOPE].callLifecycle(AppLifecycle.show, options);
-    }, _a.onHide = function () {
-      this[SCOPE].callLifecycle(AppLifecycle.hide);
-    }, _a.onError = function (error) {
-      this[SCOPE].callLifecycle(AppLifecycle.error, error);
-    }, // 支付宝
-    _a.onShareAppMessage = function (options) {
-      this[SCOPE].callLifecycle(AppLifecycle.shareAppMessage, options);
-    }, // 微信
-    _a.onPageNotFound = function (options) {
-      this[SCOPE].callLifecycle(AppLifecycle.pageNotFound, options);
-    }, _a);
+    var config = __assign$1(__assign$1((_a = {}, _a[CONFIG_SCOPE] = scope, _a), extraConfig), {
+      onLaunch: function onLaunch(options) {
+        this[CONFIG_SCOPE]._render();
+
+        this[CONFIG_SCOPE].callLifecycle(AppLifecycle.launch, options);
+      },
+      onShow: function onShow(options) {
+        this[CONFIG_SCOPE].callLifecycle(AppLifecycle.show, options);
+      },
+      onHide: function onHide() {
+        this[CONFIG_SCOPE].callLifecycle(AppLifecycle.hide);
+      },
+      onError: function onError(error) {
+        this[CONFIG_SCOPE].callLifecycle(AppLifecycle.error, error);
+      },
+      // 支付宝
+      onShareAppMessage: function onShareAppMessage(options) {
+        this[CONFIG_SCOPE].callLifecycle(AppLifecycle.shareAppMessage, options);
+      },
+      // 微信
+      onPageNotFound: function onPageNotFound(options) {
+        this[CONFIG_SCOPE].callLifecycle(AppLifecycle.pageNotFound, options);
+      }
+    });
+
     return config;
   };
 
@@ -2053,12 +2068,8 @@ function createPortal(children, containerInfo, key) {
 }
 
 var idCounter = 0;
-function createPageConfig(Page, singleton) {
-  if (singleton === void 0) {
-    singleton = true;
-  }
-
-  var app = singleton ? getApp() : createAppConfig({});
+function createPageConfig(Page) {
+  var app = getApp();
   var id = idCounter;
   idCounter += 1;
   var config = {
@@ -2080,13 +2091,13 @@ function createPageConfig(Page, singleton) {
         ref: this.wrapperRef
       }), this.container, this.pageId);
 
-      app[SCOPE]._mount(this);
+      app[CONFIG_SCOPE]._mount(this);
     },
     onUnload: function onUnload() {
       this.unloaded = true;
       this.container.clearUpdate();
 
-      app[SCOPE]._unmount(this);
+      app[CONFIG_SCOPE]._unmount(this);
     },
 
     /**

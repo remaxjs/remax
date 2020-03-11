@@ -16,7 +16,7 @@ const defaultOptions: RemaxOptions = {
   },
   plugins: [],
   notify: false,
-  mode: 'app',
+  mode: 'standard',
 };
 
 export default defaultOptions;

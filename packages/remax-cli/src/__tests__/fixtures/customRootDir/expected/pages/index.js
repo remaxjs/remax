@@ -10,6 +10,7 @@ var React = require('react');
 
 var REMAX_METHOD = '$$REMAX_METHOD';
 var TYPE_TEXT = 'plain-text';
+var CONFIG_SCOPE = '__remax_scope__';
 
 var instanceId = 0;
 function generate() {
@@ -1247,87 +1248,6 @@ var hostConfig = {
 
 var ReactReconcilerInst = ReactReconciler(hostConfig);
 
-function getPublicRootInstance(container) {
-  var containerFiber = container.current;
-
-  if (!containerFiber.child) {
-    return null;
-  }
-
-  return containerFiber.child.stateNode;
-}
-
-function render(rootElement, container) {
-  // Create a root Container if it doesnt exist
-  if (!container._rootContainer) {
-    container._rootContainer = ReactReconcilerInst.createContainer(container, false, false);
-  }
-
-  ReactReconcilerInst.updateContainer(rootElement, container._rootContainer, null, function () {// ignore
-  });
-  return getPublicRootInstance(container._rootContainer);
-}
-
-var AppContainer =
-/** @class */
-function () {
-  function AppContainer(context) {
-    this.updateQueue = [];
-    this.context = context;
-    this.root = new VNode({
-      id: generate(),
-      type: 'root',
-      container: this
-    });
-    this.root.mounted = true;
-  }
-
-  AppContainer.prototype.requestUpdate = function (path, start, deleteCount) {
-    var items = [];
-
-    for (var _i = 3; _i < arguments.length; _i++) {
-      items[_i - 3] = arguments[_i];
-    } // ignore
-
-  };
-
-  AppContainer.prototype.createCallback = function (name, fn) {
-    this.context[name] = fn;
-  };
-
-  AppContainer.prototype.appendChild = function (child) {
-    this.root.appendChild(child, true);
-  };
-
-  AppContainer.prototype.removeChild = function (child) {
-    this.root.removeChild(child, true);
-  };
-
-  AppContainer.prototype.insertBefore = function (child, beforeChild) {
-    this.root.insertBefore(child, beforeChild, true);
-  };
-
-  return AppContainer;
-}();
-
-function fnBody(fn) {
-  return fn.toString().replace(/^[^{]*{\s*/, '').replace(/\s*}[^}]*$/, '');
-}
-
-function isClass(fn) {
-  if (typeof fn !== 'function') {
-    return false;
-  }
-
-  if (/^class[\s{]/.test(toString.call(fn))) {
-    return true;
-  } // babel.js classCallCheck() & inlined
-
-
-  var body = fnBody(fn);
-  return /classCallCheck/.test(body) || /TypeError\("Cannot call a class as a function"\)/.test(body);
-}
-
 function isClassComponent(Component) {
   return Component.prototype && typeof Component.prototype.render === 'function';
 }
@@ -1376,35 +1296,6 @@ function callbackName(name) {
   return 'on' + capitalize(name);
 }
 
-var context = {
-  lifecycleCallback: {},
-  registerLifecycle: function registerLifecycle(lifecycle, callback) {
-    var _this = this;
-
-    this.lifecycleCallback[lifecycle] = this.lifecycleCallback[lifecycle] || [];
-    this.lifecycleCallback[lifecycle].push(callback);
-    return function () {
-      _this.lifecycleCallback[lifecycle].splice(_this.lifecycleCallback[lifecycle].indexOf(callback), 1);
-    };
-  }
-};
-
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function (obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function (obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
 /* eslint-disable */
 
 /* istanbul ignore file */
@@ -1421,43 +1312,9 @@ function _typeof(obj) {
 // nor polyfill, then a plain number is used for performance.
 var hasSymbol = typeof Symbol === 'function' && Symbol["for"];
 var REACT_PORTAL_TYPE = hasSymbol ? Symbol["for"]('react.portal') : 0xeaca;
-var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol["for"]('react.fragment') : 0xeacb;
-var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol["for"]('react.strict_mode') : 0xeacc;
-var REACT_PROFILER_TYPE = hasSymbol ? Symbol["for"]('react.profiler') : 0xead2;
-var REACT_PROVIDER_TYPE = hasSymbol ? Symbol["for"]('react.provider') : 0xeacd;
-var REACT_CONTEXT_TYPE = hasSymbol ? Symbol["for"]('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
-var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol["for"]('react.concurrent_mode') : 0xeacf;
 var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol["for"]('react.forward_ref') : 0xead0;
-var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol["for"]('react.suspense') : 0xead1;
-var REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol["for"]('react.suspense_list') : 0xead8;
-var REACT_MEMO_TYPE = hasSymbol ? Symbol["for"]('react.memo') : 0xead3;
-var REACT_LAZY_TYPE = hasSymbol ? Symbol["for"]('react.lazy') : 0xead4;
-var REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol["for"]('react.fundamental') : 0xead5;
-var REACT_RESPONDER_TYPE = hasSymbol ? Symbol["for"]('react.responder') : 0xead6;
-var REACT_SCOPE_TYPE = hasSymbol ? Symbol["for"]('react.scope') : 0xead7;
-function isValidElementType(type) {
-  return typeof type === 'string' || typeof type === 'function' || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
-  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || _typeof(type) === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE);
-}
 var ForwardRef = REACT_FORWARD_REF_TYPE;
 var Portal = REACT_PORTAL_TYPE;
-
-function isPlainObject(obj) {
-  if (isValidElementType(obj)) {
-    return false;
-  }
-
-  if (_typeof(obj) == 'object' && obj !== null) {
-    if (typeof Object.getPrototypeOf == 'function') {
-      var proto = Object.getPrototypeOf(obj);
-      return proto === Object.prototype || proto === null;
-    }
-
-    return Object.prototype.toString.call(obj) == '[object Object]';
-  }
-
-  return false;
-}
 
 var __extends = undefined && undefined.__extends || function () {
   var _extendStatics = function extendStatics(d, b) {
@@ -1516,114 +1373,6 @@ function (_super) {
 
   return DefaultAppComponent;
 }(React.Component);
-
-var SCOPE = '__remax-scope__';
-function createAppConfig(App) {
-  var _this = this;
-
-  var createConfig = function createConfig(AppComponent) {
-    var _a;
-
-    if (AppComponent === void 0) {
-      AppComponent = DefaultAppComponent;
-    }
-
-    var scope = {
-      _container: new AppContainer(_this),
-      _pages: [],
-      _instance: React.createRef(),
-      callLifecycle: function callLifecycle(lifecycle) {
-        var _a;
-
-        var args = [];
-
-        for (var _i = 1; _i < arguments.length; _i++) {
-          args[_i - 1] = arguments[_i];
-        }
-
-        var callbacks = context.lifecycleCallback[lifecycle] || [];
-        var result;
-        callbacks.forEach(function (callback) {
-          result = callback.apply(void 0, args);
-        });
-
-        if (result) {
-          return result;
-        }
-
-        var callback = callbackName(lifecycle);
-
-        if (this._instance.current && this._instance.current[callback]) {
-          return (_a = this._instance.current)[callback].apply(_a, args);
-        }
-      },
-      _mount: function _mount(pageInstance) {
-        this._pages.push(pageInstance);
-
-        this._render();
-      },
-      _unmount: function _unmount(pageInstance) {
-        this._pages.splice(this._pages.indexOf(pageInstance), 1);
-
-        this._render();
-      },
-      _render: function _render() {
-        var props = {};
-
-        if (isClassComponent(AppComponent) || AppComponent.$$typeof === ForwardRef) {
-          props.ref = this._instance;
-        }
-
-        return render(React.createElement(AppComponent, props, this._pages.map(function (p) {
-          return p.element;
-        })), this._container);
-      }
-    };
-    var config = (_a = {}, _a[SCOPE] = scope, _a.onLaunch = function (options) {
-      this[SCOPE]._render();
-
-      this[SCOPE].callLifecycle(AppLifecycle.launch, options);
-    }, _a.onShow = function (options) {
-      this[SCOPE].callLifecycle(AppLifecycle.show, options);
-    }, _a.onHide = function () {
-      this[SCOPE].callLifecycle(AppLifecycle.hide);
-    }, _a.onError = function (error) {
-      this[SCOPE].callLifecycle(AppLifecycle.error, error);
-    }, // 支付宝
-    _a.onShareAppMessage = function (options) {
-      this[SCOPE].callLifecycle(AppLifecycle.shareAppMessage, options);
-    }, // 微信
-    _a.onPageNotFound = function (options) {
-      this[SCOPE].callLifecycle(AppLifecycle.pageNotFound, options);
-    }, _a);
-    return config;
-  };
-
-  if (isPlainObject(App)) {
-    var NativeApp =
-    /** @class */
-    function () {
-      function NativeApp() {
-        Object.assign(this, __assign$1({}, App));
-      }
-
-      return NativeApp;
-    }();
-
-    Object.assign(NativeApp.prototype, createConfig());
-    return new NativeApp();
-  } // 兼容老的写法和原生写法
-
-
-  if (isClass(App) && !isClassComponent(App)) {
-    // eslint-disable-next-line no-console
-    console.warn('使用非 React 组件定义 App 的方式已经废弃，详细请参考：https://remaxjs.org/guide/framework。');
-    Object.assign(App.prototype, createConfig());
-    return new App();
-  }
-
-  return createConfig(App);
-}
 
 var PageInstanceContext = React.createContext(null);
 
@@ -1968,12 +1717,8 @@ function createPortal(children, containerInfo, key) {
 }
 
 var idCounter = 0;
-function createPageConfig(Page, singleton) {
-  if (singleton === void 0) {
-    singleton = true;
-  }
-
-  var app = singleton ? getApp() : createAppConfig({});
+function createPageConfig(Page) {
+  var app = getApp();
   var id = idCounter;
   idCounter += 1;
   var config = {
@@ -1995,13 +1740,13 @@ function createPageConfig(Page, singleton) {
         ref: this.wrapperRef
       }), this.container, this.pageId);
 
-      app[SCOPE]._mount(this);
+      app[CONFIG_SCOPE]._mount(this);
     },
     onUnload: function onUnload() {
       this.unloaded = true;
       this.container.clearUpdate();
 
-      app[SCOPE]._unmount(this);
+      app[CONFIG_SCOPE]._unmount(this);
     },
 
     /**
@@ -2440,6 +2185,6 @@ var _page = function _page() {
   return React.createElement(View, null, "foo");
 };
 
-var index = Page(createPageConfig(_page), true);
+var index = Page(createPageConfig(_page));
 
 exports.default = index;

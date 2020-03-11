@@ -27,4 +27,5 @@ export const output = (
 export default {
   error: (message: string, notify?: boolean) =>
     output(`\n🚨 ${message}`, 'red', notify),
+  warn: (message: string) => output('⚠️ ' + message, 'yellow'),
 };

@@ -24,6 +24,6 @@ var _page = function _page() {
   return React.createElement(alipay.View, null, React.createElement(Nihao, null));
 };
 
-var index2 = Page(index$1.createPageConfig(_page), true);
+var index2 = Page(index$1.createPageConfig(_page));
 
 exports.default = index2;

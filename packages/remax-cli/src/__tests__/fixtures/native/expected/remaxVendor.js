@@ -1,7 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var ReactReconciler = _interopDefault(require('react-reconciler'));
@@ -88,15 +86,9 @@ function prefixKey(prefix, key) {
 var prefixes = ['Webkit', 'ms', 'Moz', 'O'];
 
 var _loop_1 = function _loop_1(prop) {
-  var _a = prefixes;
-
-  var _f = function _f(prefix) {
+  prefixes.forEach(function (prefix) {
     isUnitlessNumber[prefixKey(prefix, prop)] = isUnitlessNumber[prop];
-  };
-
-  for (var _i = 0; _i < _a.length; _i++) {
-    _f(_a[_i]);
-  }
+  });
 };
 
 for (var prop in isUnitlessNumber) {
@@ -178,9 +170,7 @@ var __assign = undefined && undefined.__assign || function () {
       s = arguments[i];
 
       for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) {
-          t[p] = s[p];
-        }
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
       }
     }
 
@@ -1304,51 +1294,6 @@ function callbackName(name) {
   return 'on' + capitalize(name);
 }
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _initializerDefineProperty(target, property, descriptor, context) {
-  if (!descriptor) return;
-  Object.defineProperty(target, property, {
-    enumerable: descriptor.enumerable,
-    configurable: descriptor.configurable,
-    writable: descriptor.writable,
-    value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
-  });
-}
-
-function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-  var desc = {};
-  Object.keys(descriptor).forEach(function (key) {
-    desc[key] = descriptor[key];
-  });
-  desc.enumerable = !!desc.enumerable;
-  desc.configurable = !!desc.configurable;
-
-  if ('value' in desc || desc.initializer) {
-    desc.writable = true;
-  }
-
-  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-    return decorator(target, property, desc) || desc;
-  }, desc);
-
-  if (context && desc.initializer !== void 0) {
-    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-    desc.initializer = undefined;
-  }
-
-  if (desc.initializer === void 0) {
-    Object.defineProperty(target, property, desc);
-    desc = null;
-  }
-
-  return desc;
-}
-
 /* eslint-disable */
 
 /* istanbul ignore file */
@@ -1377,9 +1322,7 @@ var __extends = undefined && undefined.__extends || function () {
       d.__proto__ = b;
     } || function (d, b) {
       for (var p in b) {
-        if (b.hasOwnProperty(p)) {
-          d[p] = b[p];
-        }
+        if (b.hasOwnProperty(p)) d[p] = b[p];
       }
     };
 
@@ -1403,9 +1346,7 @@ var __assign$1 = undefined && undefined.__assign || function () {
       s = arguments[i];
 
       for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) {
-          t[p] = s[p];
-        }
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
       }
     }
 
@@ -1441,9 +1382,7 @@ var __extends$1 = undefined && undefined.__extends || function () {
       d.__proto__ = b;
     } || function (d, b) {
       for (var p in b) {
-        if (b.hasOwnProperty(p)) {
-          d[p] = b[p];
-        }
+        if (b.hasOwnProperty(p)) d[p] = b[p];
       }
     };
 
@@ -1486,10 +1425,7 @@ function createPageWrapper(Page, query) {
 
         _this.pageComponentInstance = null;
         _this.callbacks = new Map();
-
-        var _a2 = Object.keys(Lifecycle);
-
-        var _f = function _f(phase) {
+        Object.keys(Lifecycle).forEach(function (phase) {
           var callback = callbackName(phase);
 
           _this[callback] = function () {
@@ -1501,11 +1437,7 @@ function createPageWrapper(Page, query) {
 
             return _this.callLifecycle.apply(_this, __spreadArrays$2([phase], args));
           };
-        };
-
-        for (var _i2 = 0; _i2 < _a2.length; _i2++) {
-          _f(_a2[_i2]);
-        }
+        });
         return _this;
       }
 
@@ -1578,19 +1510,13 @@ function connect(listener, once) {
 }
 
 function run() {
-  var _a = effector.listenerConfigs;
-
-  var _f = function _f(config) {
+  effector.listenerConfigs.forEach(function (config) {
     config.listener();
 
     if (config.once) {
       dispose(config.listener);
     }
-  };
-
-  for (var _i = 0; _i < _a.length; _i++) {
-    _f(_a[_i]);
-  }
+  });
 }
 
 var nativeEffect = {
@@ -1700,9 +1626,7 @@ function () {
       }
 
       $batchedUpdates(function () {
-        var _a2 = _this.updateQueue;
-
-        var _f = function _f(update, index) {
+        _this.updateQueue.map(function (update, index) {
           var _a;
 
           var callback = undefined;
@@ -1714,39 +1638,23 @@ function () {
           }
 
           _this.context.$spliceData((_a = {}, _a[update.path] = __spreadArrays$3([update.start, update.deleteCount], update.items), _a), callback);
-        };
-
-        var _r = [];
-
-        for (var _i2 = 0; _i2 < _a2.length; _i2++) {
-          _r.push(_f(_a2[_i2], _i2));
-        }
+        });
       });
       this.updateQueue = [];
       return;
     } // TODO 统一更新行为
 
 
-    var _a3 = this.updateQueue;
-
-    var _f2 = function _f2(update) {
-      return {
-        path: update.path,
-        start: update.start,
-        deleteCount: update.deleteCount,
-        item: update.items[0]
-      };
-    };
-
-    var _r2 = [];
-
-    for (var _i3 = 0; _i3 < _a3.length; _i3++) {
-      _r2.push(_f2(_a3[_i3]));
-    }
-
     var action = {
       type: 'splice',
-      payload: _r2,
+      payload: this.updateQueue.map(function (update) {
+        return {
+          path: update.path,
+          start: update.start,
+          deleteCount: update.deleteCount,
+          item: update.items[0]
+        };
+      }),
       id: generate$1()
     };
 
@@ -1862,15 +1770,9 @@ function createPageConfig(Page) {
 
       var callbacks = this.lifecycleCallback[lifecycle] || [];
       var result;
-      var _a2 = callbacks;
-
-      var _f = function _f(callback) {
+      callbacks.forEach(function (callback) {
         result = callback.apply(void 0, args);
-      };
-
-      for (var _i2 = 0; _i2 < _a2.length; _i2++) {
-        _f(_a2[_i2]);
-      }
+      });
 
       if (result) {
         return result;
@@ -1945,9 +1847,7 @@ var __assign$2 = undefined && undefined.__assign || function () {
       s = arguments[i];
 
       for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) {
-          t[p] = s[p];
-        }
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
       }
     }
 
@@ -1956,22 +1856,6 @@ var __assign$2 = undefined && undefined.__assign || function () {
 
   return __assign$2.apply(this, arguments);
 };
-function createNativeComponent(name) {
-  return React.forwardRef(function (props, ref) {
-    if (typeof ref === 'string') {
-      console.error('不支持使用 string 获取小程序组件 ref，请使用回调或 React.createRef/React.useRef');
-    }
-
-    var newProps = __assign$2({}, props);
-
-    newProps.__ref = typeof ref === 'function' ? ref : function (e) {
-      if (ref) {
-        ref.current = e;
-      }
-    };
-    return React.createElement(name, newProps, props.children);
-  });
-}
 
 var unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;
 
@@ -1981,9 +1865,7 @@ var __assign$3 = undefined && undefined.__assign || function () {
       s = arguments[i];
 
       for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) {
-          t[p] = s[p];
-        }
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
       }
     }
 
@@ -2078,9 +1960,7 @@ var __assign$4 = undefined && undefined.__assign || function () {
       s = arguments[i];
 
       for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) {
-          t[p] = s[p];
-        }
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
       }
     }
 
@@ -2299,61 +2179,5 @@ var writeBLECharacteristicValue = promisify(my.writeBLECharacteristicValue);
 var createVideoContext = my.createVideoContext;
 var getOpenUserInfo = promisify(my.getOpenUserInfo);
 
-var A = createNativeComponent('a-0');
-
-var _class, _descriptor, _temp;
-
-var N;
-
-(function (_N) {
-  var V = _N.V = 1;
-})(N || (N = {})); // eslint-disable-next-line @typescript-eslint/no-namespace
-
-
-(function (_N2) {
-  var W = _N2.W = V;
-})(N || (N = {}));
-
-function timesTwo(arr) {
-  var _a = arr;
-
-  var _f = function _f(n) {
-    return n * 2;
-  };
-
-  var _r = [];
-
-  for (var _i = 0; _i < _a.length; _i++) {
-    _r.push(_f(_a[_i]));
-  }
-
-  return _r;
-}
-
-function readonly(target, name, descriptor) {
-  descriptor.writable = false;
-  return descriptor;
-}
-
-var C = (_class = (_temp = function C() {
-  _classCallCheck(this, C);
-
-  _initializerDefineProperty(this, "p", _descriptor, this);
-}, _temp), _descriptor = _applyDecoratedDescriptor(_class.prototype, "p", [readonly], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: function initializer() {
-    return 'p';
-  }
-}), _class);
-var c = new C();
-c.p = 'a';
-
-var _page = function _page() {
-  return React.createElement(View, null, timesTwo([1, 2, 3]), N.V, N.W, c.p, React.createElement(A, null));
-};
-
-var index = Page(createPageConfig(_page));
-
-exports.default = index;
+exports.View = View;
+exports.createPageConfig = createPageConfig;

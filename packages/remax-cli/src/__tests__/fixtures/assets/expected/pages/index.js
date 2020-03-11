@@ -335,6 +335,6 @@ function _ref() {
   }));
 }
 
-var index = Page(index$1.createPageConfig(_ref), true);
+var index = Page(index$1.createPageConfig(_ref));
 
 exports.default = index;

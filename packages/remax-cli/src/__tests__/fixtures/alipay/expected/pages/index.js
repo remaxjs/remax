@@ -1075,6 +1075,6 @@ var _page = function _page() {
   }, props), "foo", obj === null || obj === void 0 ? void 0 : (_obj$a = obj.a) === null || _obj$a === void 0 ? void 0 : _obj$a.b, value), React.createElement(FunctionalPageNavigator, null), React.createElement(UnBindingComponent, null), TextElement);
 };
 
-var index = Page(index$1.createPageConfig(_page), true);
+var index = Page(index$1.createPageConfig(_page));
 
 exports.default = index;

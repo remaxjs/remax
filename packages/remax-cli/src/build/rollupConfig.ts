@@ -1,6 +1,7 @@
+import * as fs from 'fs';
 import { RollupOptions, RollupWarning } from 'rollup';
 import API from '../API';
-import { output } from './utils/output';
+import output from './utils/output';
 import path from 'path';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -61,6 +62,12 @@ export default function rollupConfig(
   };
 
   const env = getEnvironment(options, argv.target);
+
+  if (fs.existsSync(path.join(options.cwd, options.rootDir, 'native'))) {
+    output.warn(
+      'remax 现已支持更友好的原生混合开发方式，具体请参考：https://remaxjs.org/advanced-guide/native'
+    );
+  }
 
   const plugins = [
     copy({
@@ -196,6 +203,10 @@ export default function rollupConfig(
       extend: true,
     },
     manualChunks: (id: string) => {
+      if (!hybridMode.validate(options)) {
+        return;
+      }
+
       if (entries.pages.find(p => p === id)) {
         return null;
       }
@@ -217,16 +228,15 @@ export default function rollupConfig(
     onwarn(warning, warn) {
       if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
       if ((warning as RollupWarning).code === 'CIRCULAR_DEPENDENCY') {
-        output('⚠️ 检测到循环依赖，如果不影响项目运行，请忽略', 'yellow');
+        output.warn(' 检测到循环依赖，如果不影响项目运行，请忽略');
       }
 
       if (!warning.message) {
-        output(
-          `⚠️ ${warning.code}:${warning.plugin || ''} ${(warning as any).text}`,
-          'yellow'
+        output.warn(
+          ` ${warning.code}:${warning.plugin || ''} ${(warning as any).text}`
         );
       } else {
-        output('⚠️ ' + warning.toString(), 'yellow');
+        output.warn(warning.toString());
       }
     },
     plugins,

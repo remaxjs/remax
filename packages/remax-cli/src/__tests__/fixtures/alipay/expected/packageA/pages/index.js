@@ -345,6 +345,6 @@ var _page = function _page() {
   }, props), "foo"), TextElement);
 };
 
-var index = Page(index$1.createPageConfig(_page), true);
+var index = Page(index$1.createPageConfig(_page));
 
 exports.default = index;
