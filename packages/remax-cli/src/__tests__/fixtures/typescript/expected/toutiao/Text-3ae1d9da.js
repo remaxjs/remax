@@ -1,7 +1,10 @@
 'use strict';
 
-var index = require('./index.js');
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var index = require('./index-c474e00d.js');
 var React = require('react');
+var React__default = _interopDefault(React);
 
 var View = function View() {};
 var Text = function Text() {};
