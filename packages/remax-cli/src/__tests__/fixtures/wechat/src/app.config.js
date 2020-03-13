@@ -25,7 +25,7 @@ module.exports = {
       {
         pagePath: 'packageA/pages/index',
         text: '其他',
-        iconPath: './assets/images/cat.png',
+        iconPath: 'https://img.com/assets/images/cat.png',
         selectedIconPath: './assets/images/dog.png',
       },
     ],

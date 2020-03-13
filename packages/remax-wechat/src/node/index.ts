@@ -76,7 +76,7 @@ const plugin: RemaxNodePluginConstructor = () => {
           ],
           []
         )
-        .filter((image: any) => !!image)
+        .filter((image: any) => !!image && !/^http(s?):\/\//.test(image))
         .reduce<string[]>(
           (paths, image) => [...paths, path.join(ROOT_DIR, image)],
           []
