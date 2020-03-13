@@ -1,3 +1,4 @@
+import * as fs from 'fs';
 import * as babelParser from '@babel/parser';
 import traverse from '@babel/traverse';
 import { get } from 'lodash';
@@ -6,8 +7,8 @@ import { getPath, pushArray, readFile } from './util';
 const modules: string[] = [];
 
 const walk = (jsPath: string) => {
-  const jsHelperContent = readFile(jsPath);
-  const ast = babelParser.parse(jsHelperContent, {
+  const jsContent = readFile(jsPath);
+  const ast = babelParser.parse(jsContent, {
     sourceType: 'module',
   });
 
@@ -21,7 +22,17 @@ const walk = (jsPath: string) => {
       return;
     }
 
-    const absolutePath = getPath(jsPath, importPath) + '.js';
+    const absoluteId = getPath(jsPath, importPath);
+
+    let absolutePath = absoluteId + '.js';
+
+    if (!fs.existsSync(absolutePath)) {
+      absolutePath = absoluteId + '/index.js';
+    }
+
+    if (!fs.existsSync(absolutePath)) {
+      return;
+    }
 
     pushArray(modules, absolutePath);
 
