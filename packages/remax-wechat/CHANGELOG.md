@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.1](https://github.com/remaxjs/remax/compare/v1.15.0...v1.15.1) (2020-03-13)
+
+### Bug Fixes
+
+- **wechat:** 修正微信 CheckboxGroup type 定义 ([ab92f2c](https://github.com/remaxjs/remax/commit/ab92f2c))
+- 修复 tabBar icon 使用网络图片编译报错的问题 ([baaf172](https://github.com/remaxjs/remax/commit/baaf172)), closes [#697](https://github.com/remaxjs/remax/issues/697)
+
 # [1.15.0](https://github.com/remaxjs/remax/compare/v1.14.2...v1.15.0) (2020-03-11)
 
 ### Bug Fixes

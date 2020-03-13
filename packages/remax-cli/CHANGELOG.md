@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.1](https://github.com/remaxjs/remax/compare/v1.15.0...v1.15.1) (2020-03-13)
+
+### Bug Fixes
+
+- 修复 tabBar icon 使用网络图片编译报错的问题 ([baaf172](https://github.com/remaxjs/remax/commit/baaf172)), closes [#697](https://github.com/remaxjs/remax/issues/697)
+- 修复使用 typescript 创建 app.tsx 文件可能导致报错的问题 ([#703](https://github.com/remaxjs/remax/issues/703)) ([16f7f6c](https://github.com/remaxjs/remax/commit/16f7f6c)), closes [#702](https://github.com/remaxjs/remax/issues/702)
+- 字节跳动 View 组件增加 onClick ([#696](https://github.com/remaxjs/remax/issues/696)) ([e216454](https://github.com/remaxjs/remax/commit/e216454))
+
 # [1.15.0](https://github.com/remaxjs/remax/compare/v1.14.2...v1.15.0) (2020-03-11)
 
 ### Features
