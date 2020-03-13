@@ -194,7 +194,6 @@ export default function rollupConfig(
     output: {
       dir: options.output,
       entryFileNames: '[name]',
-      chunkFileNames: '[name].js',
       format: 'cjs',
       exports: 'named',
       sourcemap: false,

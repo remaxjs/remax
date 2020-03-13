@@ -2,11 +2,12 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var index$1 = require('../index.js');
+var index$1 = require('../index-c7376423.js');
 require('react-reconciler');
 require('scheduler');
 var React = require('react');
-var alipay = require('../alipay.js');
+require('../index-5e3c4f1c.js');
+var alipay = require('../alipay-dbbd8e08.js');
 
 var CJSComponent = index$1.createNativeComponent('cjs-0');
 var NotInJSXComponent = index$1.createNativeComponent('not-in-jsx-0');

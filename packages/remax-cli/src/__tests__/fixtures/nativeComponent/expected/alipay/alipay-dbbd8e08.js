@@ -1,6 +1,6 @@
 'use strict';
 
-var index = require('./index.js');
+require('./index-c7376423.js');
 var React = require('react');
 
 var __assign = undefined && undefined.__assign || function () {
@@ -323,43 +323,4 @@ var writeBLECharacteristicValue = promisify(my.writeBLECharacteristicValue);
 var createVideoContext = my.createVideoContext;
 var getOpenUserInfo = promisify(my.getOpenUserInfo);
 
-var View$1 = function View() {};
-var Text$1 = function Text() {};
-
-var View$2 = function View() {};
-var Text$2 = function Text() {};
-
-function View$3() {
-  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-  switch (index.Platform.current) {
-    case 'alipay':
-      return React.createElement(View, props);
-
-    case 'toutiao':
-      return React.createElement(View$2, props);
-
-    case 'wechat':
-    default:
-      return React.createElement(View$1, props);
-  }
-}
-
-function Text$3() {
-  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-  switch (index.Platform.current) {
-    case 'alipay':
-      return React.createElement(Text, props);
-
-    case 'toutiao':
-      return React.createElement(Text$2, props);
-
-    case 'wechat':
-    default:
-      return React.createElement(Text$1, props);
-  }
-}
-
-exports.Text = Text$3;
-exports.View = View$3;
+exports.View = View;

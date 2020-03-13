@@ -1,6 +1,6 @@
 'use strict';
 
-require('./index.js');
+require('./index-5ac8bdeb.js');
 
 var View = function View() {};
 var Text = function Text() {};

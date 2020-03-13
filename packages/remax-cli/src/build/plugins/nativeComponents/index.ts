@@ -9,6 +9,7 @@ import style, { getcssPaths } from './style';
 import json, { getjsonPaths } from './json';
 import template, { getTemplatePaths } from './tempate';
 import jsHelper, { getJsHelpers } from './jsHelper';
+import jsModule, { getJsModules } from './modules';
 import { isNativeComponent, isPluginComponent, getSourcePath } from './util';
 import winPath from '../../../winPath';
 import usingComponents from './usingComponents';
@@ -20,6 +21,7 @@ const getFiles = () => [
   ...getjsonPaths(),
   ...getTemplatePaths(),
   ...getJsHelpers(),
+  ...getJsModules(),
 ];
 
 export default (options: RemaxOptions, pages: string[]): Plugin => {
@@ -27,6 +29,7 @@ export default (options: RemaxOptions, pages: string[]): Plugin => {
     name: 'nativeComponents',
     load(id) {
       if (isNativeComponent(id)) {
+        jsModule(id);
         jsHelper(id);
         style(id);
         json(id);
@@ -37,20 +40,8 @@ export default (options: RemaxOptions, pages: string[]): Plugin => {
           this.addWatchFile(file);
         });
 
-        const bundleFileName = winPath(path.relative(options.cwd, id))
-          .replace(new RegExp(`^${options.rootDir}/`), '')
-          .replace(/node_modules/g, 'npm')
-          .replace(/@/g, '_')
-          // trim extension
-          .split('.')
-          .slice(0, -1)
-          .join('.');
-
-        this.emitFile({
-          type: 'chunk',
-          id,
-          name: bundleFileName,
-        });
+        // TODO 转换成 react 组件
+        return 'export default {};';
       }
       return null;
     },
@@ -82,14 +73,12 @@ export default (options: RemaxOptions, pages: string[]): Plugin => {
           return;
         }
 
+        magicString.remove(node.start, node.end);
+
         if (!isPluginComponent(componentPath, options)) {
-          this.emitFile({
-            id: path.relative(options.cwd, componentPath),
-            type: 'chunk',
-          });
+          magicString.prepend(`import '${source}'\n;`);
         }
 
-        magicString.remove(node.start, node.end);
         if (!helperImported) {
           magicString.prepend(
             "import { unstable_createNativeComponent } from 'remax';\n"

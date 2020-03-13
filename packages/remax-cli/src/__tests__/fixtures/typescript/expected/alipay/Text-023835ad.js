@@ -1,7 +1,10 @@
 'use strict';
 
-require('./index.js');
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var index = require('./index-b4a5e116.js');
 var React = require('react');
+var React__default = _interopDefault(React);
 
 var __assign = undefined && undefined.__assign || function () {
   __assign = Object.assign || function (t) {
@@ -323,4 +326,43 @@ var writeBLECharacteristicValue = promisify(my.writeBLECharacteristicValue);
 var createVideoContext = my.createVideoContext;
 var getOpenUserInfo = promisify(my.getOpenUserInfo);
 
-exports.View = View;
+var View$1 = function View() {};
+var Text$1 = function Text() {};
+
+var View$2 = function View() {};
+var Text$2 = function Text() {};
+
+function View$3() {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+  switch (index.Platform.current) {
+    case 'alipay':
+      return React.createElement(View, props);
+
+    case 'toutiao':
+      return React.createElement(View$2, props);
+
+    case 'wechat':
+    default:
+      return React.createElement(View$1, props);
+  }
+}
+
+function Text$3() {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+  switch (index.Platform.current) {
+    case 'alipay':
+      return React.createElement(Text, props);
+
+    case 'toutiao':
+      return React.createElement(Text$2, props);
+
+    case 'wechat':
+    default:
+      return React.createElement(Text$1, props);
+  }
+}
+
+exports.Text = Text$3;
+exports.View = View$3;

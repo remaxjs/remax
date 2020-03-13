@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var index$1 = require('../index.js');
+var index$1 = require('../index-421a83e7.js');
 require('react-reconciler');
 require('scheduler');
 var React = require('react');
