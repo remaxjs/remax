@@ -2,11 +2,11 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var index$1 = require('../../index-a1a0a009.js');
+var index$1 = require('../../index-c9e354d0.js');
 require('react-reconciler');
 require('scheduler');
 var React = require('react');
-var wechat = require('../../wechat-0c9b12ce.js');
+var wechat = require('../../wechat-da4967d3.js');
 
 var pageA = function pageA() {
   var props = {};

@@ -4,12 +4,12 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var index$1 = require('../index-1143a26b.js');
+var index$1 = require('../index-416ebf1d.js');
 require('react-reconciler');
 require('scheduler');
 var React = require('react');
 var React__default = _interopDefault(React);
-var Text = require('../Text-d29e28af.js');
+var Text = require('../Text-1f3a887b.js');
 
 var _page = function _page() {
   var _, _obj$a;

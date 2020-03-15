@@ -1793,8 +1793,8 @@ function createPageConfig(Page) {
     onTitleClick: function onTitleClick() {
       return this.callLifecycle(Lifecycle.titleClick);
     },
-    onOptionMenuClick: function onOptionMenuClick() {
-      return this.callLifecycle(Lifecycle.optionMenuClick);
+    onOptionMenuClick: function onOptionMenuClick(e) {
+      return this.callLifecycle(Lifecycle.optionMenuClick, e);
     },
     onPopMenuClick: function onPopMenuClick(e) {
       return this.callLifecycle(Lifecycle.popMenuClick, e);

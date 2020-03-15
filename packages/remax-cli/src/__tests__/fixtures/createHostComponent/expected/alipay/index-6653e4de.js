@@ -5,7 +5,6 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var ReactReconciler = _interopDefault(require('react-reconciler'));
 var scheduler = require('scheduler');
 var React = require('react');
-var React__default = _interopDefault(React);
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -27,24 +26,6 @@ function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
   return Constructor;
-}
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
 }
 
 function _inherits(subClass, superClass) {
@@ -92,48 +73,6 @@ function _possibleConstructorReturn(self, call) {
   }
 
   return _assertThisInitialized(self);
-}
-
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
-}
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-function _iterableToArrayLimit(arr, i) {
-  if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
-    return;
-  }
-
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance");
 }
 
 var REMAX_METHOD = '$$REMAX_METHOD';
@@ -309,84 +248,27 @@ var __assign = undefined && undefined.__assign || function () {
   return __assign.apply(this, arguments);
 };
 var hostComponents = {
-  "ad": {
-    "alias": {
-      "unitId": "unit-id",
-      "adIntervals": "ad-intervals",
-      "onLoad": "bindload",
-      "onError": "binderror",
-      "onClose": "bindclose",
-      "animation": "animation"
-    }
-  },
-  "audio": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "src": "src",
-      "loop": "loop",
-      "controls": "controls",
-      "poster": "poster",
-      "name": "name",
-      "author": "author",
-      "onError": "binderror",
-      "onPlay": "bindplay",
-      "onPause": "bindpause",
-      "onTimeUpdate": "bindtimeupdate",
-      "onEnded": "bindended",
-      "animation": "animation"
-    }
-  },
   "button": {
     "alias": {
-      "className": "class",
       "id": "id",
-      "style": "style",
+      "className": "class",
+      "size": "size",
       "type": "type",
       "plain": "plain",
       "disabled": "disabled",
       "loading": "loading",
-      "formType": "form-type",
-      "openType": "open-type",
       "hoverClass": "hover-class",
       "hoverClassName": "hover-class",
-      "hoverStopPropagation": "hover-stop-propagation",
       "hoverStartTime": "hover-start-time",
       "hoverStayTime": "hover-stay-time",
-      "lang": "lang",
-      "sessionFrom": "session-from",
-      "sendMessageTitle": "send-message-title",
-      "sendMessagePath": "send-message-path",
-      "sendMessageImg": "send-message-img",
-      "size": "size",
+      "hoverStopPropagation": "hover-stop-propagation",
+      "formType": "form-type",
+      "openType": "open-type",
+      "scope": "scope",
+      "onClick": "onTap",
+      "onTap": "onTap",
       "appParameter": "app-parameter",
-      "showMessageCard": "show-message-card",
-      "onGetUserInfo": "bindgetuserinfo",
-      "onContact": "bindcontact",
-      "onGetPhoneNumber": "bindgetphonenumber",
-      "onError": "binderror",
-      "onOpenSetting": "bindopensetting",
-      "onLaunchApp": "bindlaunchapp",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "animation": "animation"
-    }
-  },
-  "camera": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "mode": "mode",
-      "devicePosition": "device-position",
-      "flash": "flash",
-      "frameSize": "frame-size",
-      "onStop": "bindstop",
-      "onError": "binderror",
-      "onInitDone": "bindinitdone",
-      "onScanCode": "bindscancode",
-      "animation": "animation"
+      "publicId": "public-id"
     }
   },
   "canvas": {
@@ -397,18 +279,14 @@ var hostComponents = {
       "width": "width",
       "height": "height",
       "disableScroll": "disable-scroll",
-      "type": "type",
-      "canvasId": "canvas-id",
-      "onTouchStart": "bindtouchstart",
-      "onTouchMove": "bindtouchmove",
-      "onTouchEnd": "bindtouchend",
-      "onTouchCancel": "bindtouchcancel",
-      "onLongTap": "bindlongtap",
-      "onLongClick": "bindlongtap",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "onError": "binderror",
-      "animation": "animation"
+      "onClick": "onTap",
+      "onTap": "onTap",
+      "onTouchStart": "onTouchStart",
+      "onTouchMove": "onTouchMove",
+      "onTouchEnd": "onTouchEnd",
+      "onTouchCancel": "onTouchCancel",
+      "onLongTap": "onLongTap",
+      "onLongClick": "onLongTap"
     }
   },
   "checkbox-group": {
@@ -417,34 +295,42 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "name": "name",
-      "onChange": "bindchange",
-      "animation": "animation"
+      "onChange": "onChange"
     }
   },
   "checkbox": {
     "alias": {
-      "id": "id",
       "className": "class",
       "style": "style",
+      "id": "id",
       "value": "value",
       "checked": "checked",
       "disabled": "disabled",
-      "onChange": "bindchange",
+      "onChange": "onChange",
+      "color": "color"
+    }
+  },
+  "contact-button": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "style": "style",
+      "tntInstId": "tnt-inst-id",
+      "scene": "scene",
+      "size": "size",
       "color": "color",
-      "animation": "animation"
+      "icon": "icon",
+      "alipayCardNo": "alipay-card-no"
     }
   },
   "cover-image": {
     "alias": {
       "id": "id",
       "className": "class",
-      "style": "style",
       "src": "src",
-      "onLoad": "bindload",
-      "onError": "binderror",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "animation": "animation"
+      "style": "style",
+      "onClick": "onTap",
+      "onTap": "onTap"
     }
   },
   "cover-view": {
@@ -452,28 +338,8 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "scrollTop": "scroll-top",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "animation": "animation"
-    }
-  },
-  "editor": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "readOnly": "read-only",
-      "placeholder": "placeholder",
-      "showImgSize": "show-img-size",
-      "showImgToolbar": "show-img-toolbar",
-      "showImgResize": "show-img-resize",
-      "onReady": "bindready",
-      "onFocus": "bindfocus",
-      "onBlur": "bindblur",
-      "onInput": "bindinput",
-      "onStatusChange": "bindstatuschange",
-      "animation": "animation"
+      "onTap": "onTap",
+      "onClick": "onTap"
     }
   },
   "form": {
@@ -482,20 +348,8 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "reportSubmit": "report-submit",
-      "onSubmit": "bindsubmit",
-      "onReset": "bindreset",
-      "reportSubmitTimeout": "report-submit-timeout",
-      "animation": "animation"
-    }
-  },
-  "functional-page-navigator": {
-    "alias": {
-      "version": "version",
-      "name": "name",
-      "args": "args",
-      "onSuccess": "bindsuccess",
-      "onFail": "bindfail",
-      "animation": "animation"
+      "onSubmit": "onSubmit",
+      "onReset": "onReset"
     }
   },
   "icon": {
@@ -505,8 +359,7 @@ var hostComponents = {
       "style": "style",
       "type": "type",
       "size": "size",
-      "color": "color",
-      "animation": "animation"
+      "color": "color"
     }
   },
   "image": {
@@ -517,46 +370,39 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "lazyLoad": "lazy-load",
-      "onLoad": "bindload",
-      "onError": "binderror",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "showMenuByLongpress": "show-menu-by-longpress",
-      "animation": "animation"
+      "onLoad": "onLoad",
+      "onError": "onError",
+      "onTap": "onTap",
+      "onClick": "onTap"
     }
   },
   "input": {
     "alias": {
       "id": "id",
-      "autoFocus": "auto-focus",
       "className": "class",
-      "focus": "focus",
-      "name": "name",
-      "maxlength": "maxlength",
-      "value": "value",
       "style": "style",
-      "password": "password",
+      "value": "value",
+      "name": "name",
       "type": "type",
-      "confirmType": "confirm-type",
-      "confirmHold": "confirm-hold",
-      "cursor": "cursor",
-      "selectionStart": "selection-start",
-      "selectionEnd": "selection-end",
-      "adjustPosition": "adjust-position",
+      "password": "password",
       "placeholder": "placeholder",
       "placeholderStyle": "placeholder-style",
       "placeholderClass": "placeholder-class",
       "placeholderClassName": "placeholder-class",
       "disabled": "disabled",
-      "cursorSpacing": "cursor-spacing",
-      "onInput": "bindinput",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "onFocus": "bindfocus",
-      "onBlur": "bindblur",
-      "onConfirm": "bindconfirm",
-      "onKeyboardHeightChange": "bindkeyboardheightchange",
-      "animation": "animation"
+      "maxlength": "maxlength",
+      "focus": "focus",
+      "confirmType": "confirm-type",
+      "confirmHold": "confirm-hold",
+      "cursor": "cursor",
+      "selectionStart": "selection-start",
+      "selectionEnd": "selection-end",
+      "randomNumber": "randomNumber",
+      "controlled": "controlled",
+      "onInput": "onInput",
+      "onConfirm": "onConfirm",
+      "onFocus": "onFocus",
+      "onBlur": "onBlur"
     }
   },
   "label": {
@@ -564,66 +410,13 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "for": "for",
-      "animation": "animation",
-      "onClick": "bindtap",
-      "onTap": "bindtap"
+      "for": "for"
     }
   },
-  "live-player": {
+  "lifestyle": {
     "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "src": "src",
-      "mode": "mode",
-      "autoplay": "autoplay",
-      "muted": "muted",
-      "orientation": "orientation",
-      "objectFit": "object-fit",
-      "background": "background",
-      "minCache": "min-cache",
-      "maxCache": "max-cache",
-      "soundMode": "sound-mode",
-      "autoPauseIfNavigate": "auto-pause-if-navigate",
-      "autoPauseIfOpenNative": "auto-pause-if-open-native",
-      "onStateChange": "bindstatechange",
-      "onFullscreenChange": "bindfullscreenchange",
-      "onFullScreenChange": "bindfullscreenchange",
-      "onNetStatus": "bindnetstatus",
-      "animation": "animation"
-    }
-  },
-  "live-pusher": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "url": "url",
-      "mode": "mode",
-      "autopush": "autopush",
-      "muted": "muted",
-      "enableCamera": "enable-camera",
-      "autoFocus": "auto-focus",
-      "orientation": "orientation",
-      "beauty": "beauty",
-      "whiteness": "whiteness",
-      "aspect": "aspect",
-      "minBitrate": "min-bitrate",
-      "maxBitrate": "max-bitrate",
-      "waitingImage": "waiting-image",
-      "waitingImageHash": "waiting-image-hash",
-      "zoom": "zoom",
-      "devicePosition": "device-position",
-      "backgroundMute": "background-mute",
-      "mirror": "mirror",
-      "onStateChange": "bindstatechange",
-      "onNetStatus": "bindnetstatus",
-      "onError": "binderror",
-      "onBgmStart": "bindbgmstart",
-      "onBgmProgress": "bindbgmprogress",
-      "onBgmComplete": "bindbgmcomplete",
-      "animation": "animation"
+      "publicId": "public-id",
+      "onFollow": "onFollow"
     }
   },
   "map": {
@@ -645,68 +438,43 @@ var hostComponents = {
       "groundOverlays": "ground-overlays",
       "tileOverlay": "tile-overlay",
       "setting": "setting",
-      "covers": "covers",
-      "subkey": "subkey",
-      "layerStyle": "layer-style",
-      "rotate": "rotate",
-      "skew": "skew",
-      "enable3D": "enable-3D",
-      "showCompass": "show-compass",
-      "showScale": "show-scale",
-      "enableOverlooking": "enable-overlooking",
-      "enableZoom": "enable-zoom",
-      "enableScroll": "enable-scroll",
-      "enableRotate": "enable-rotate",
-      "enableSatellite": "enable-satellite",
-      "enableTraffic": "enable-traffic",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "onMarkerTap": "bindmarkertap",
-      "onMarkerClick": "bindmarkertap",
-      "onControlTap": "bindcontroltap",
-      "onControlClick": "bindcontroltap",
-      "onCalloutTap": "bindcallouttap",
-      "onCalloutClick": "bindcallouttap",
-      "onUpdated": "bindupdated",
-      "onRegionChange": "bindregionchange",
-      "onPoiTap": "bindpoitap",
-      "onPoiClick": "bindpoitap",
-      "animation": "animation"
+      "onMarkerTap": "onMarkerTap",
+      "onMarkerClick": "onMarkerTap",
+      "onCalloutTap": "onCalloutTap",
+      "onCalloutClick": "onCalloutTap",
+      "onControlTap": "onControlTap",
+      "onControlClick": "onControlTap",
+      "onRegionChange": "onRegionChange",
+      "onTap": "onTap",
+      "onClick": "onTap"
     }
   },
   "movable-area": {
     "alias": {
+      "id": "id",
       "className": "class",
       "style": "style",
       "width": "width",
-      "height": "height",
-      "id": "id",
-      "scaleArea": "scale-area",
-      "animation": "animation"
+      "height": "height"
     }
   },
   "movable-view": {
     "alias": {
+      "id": "id",
       "className": "class",
       "style": "style",
-      "id": "id",
       "direction": "direction",
-      "inertia": "inertia",
-      "outOfBounds": "out-of-bounds",
+      "width": "width",
+      "height": "height",
       "x": "x",
       "y": "y",
-      "damping": "damping",
-      "friction": "friction",
       "disabled": "disabled",
-      "scale": "scale",
-      "scaleMin": "scale-min",
-      "scaleMax": "scale-max",
-      "scaleValue": "scale-value",
-      "animation": "animation",
-      "onChange": "bindchange",
-      "onScale": "bindscale",
-      "hTouchMove": "htouchmove",
-      "vTouchMove": "vtouchmove"
+      "onTouchStart": "onTouchStart",
+      "onTouchMove": "onTouchMove",
+      "onTouchEnd": "onTouchEnd",
+      "onTouchCancel": "onTouchCancel",
+      "onChange": "onChange",
+      "onChangeEnd": "onChangeEnd"
     }
   },
   "navigator": {
@@ -719,31 +487,7 @@ var hostComponents = {
       "hoverClassName": "hover-class",
       "hoverStartTime": "hover-start-time",
       "hoverStayTime": "hover-stay-time",
-      "url": "url",
-      "target": "target",
-      "delta": "delta",
-      "appId": "app-id",
-      "path": "path",
-      "extraData": "extra-data",
-      "version": "version",
-      "hoverStopPropagation": "hover-stop-propagation",
-      "onSuccess": "bindsuccess",
-      "onFail": "bindfail",
-      "onComplete": "bindcomplete",
-      "animation": "animation"
-    }
-  },
-  "official-account": {
-    "alias": {
-      "onLoad": "onLoad",
-      "onError": "onError"
-    }
-  },
-  "open-data": {
-    "alias": {
-      "type": "type",
-      "openGid": "open-gid",
-      "lang": "lang"
+      "url": "url"
     }
   },
   "picker-view-column": {
@@ -761,10 +505,7 @@ var hostComponents = {
       "maskStyle": "mask-style",
       "maskClass": "mask-class",
       "maskClassName": "mask-class",
-      "onChange": "bindchange",
-      "onPickStart": "bindpickstart",
-      "onPickEnd": "bindpickend",
-      "animation": "animation"
+      "onChange": "onChange"
     }
   },
   "picker": {
@@ -775,15 +516,8 @@ var hostComponents = {
       "range": "range",
       "rangeKey": "range-key",
       "value": "value",
-      "onChange": "bindchange",
-      "onCancel": "bindcancel",
-      "onColumnChange": "bindcolumnchange",
-      "start": "start",
-      "end": "end",
-      "fields": "fields",
-      "customItem": "custom-item",
-      "disabled": "disabled",
-      "animation": "animation"
+      "onChange": "onChange",
+      "disabled": "disabled"
     }
   },
   "progress": {
@@ -793,16 +527,10 @@ var hostComponents = {
       "style": "style",
       "percent": "percent",
       "showInfo": "show-info",
-      "borderRadius": "border-radius",
-      "fontSize": "font-size",
       "strokeWidth": "stroke-width",
-      "color": "color",
-      "activeColor": "activeColor",
-      "backgroundColor": "backgroundColor",
-      "active": "active",
-      "activeMode": "active-mode",
-      "onActiveEnd": "bindactiveend",
-      "animation": "animation"
+      "activeColor": "active-color",
+      "backgroundColor": "background-color",
+      "active": "active"
     }
   },
   "radio-group": {
@@ -810,9 +538,8 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "onChange": "bindchange",
-      "name": "name",
-      "animation": "animation"
+      "onChange": "onChange",
+      "name": "name"
     }
   },
   "radio": {
@@ -823,8 +550,7 @@ var hostComponents = {
       "value": "value",
       "checked": "checked",
       "disabled": "disabled",
-      "color": "color",
-      "animation": "animation"
+      "color": "color"
     }
   },
   "rich-text": {
@@ -833,16 +559,14 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "nodes": "nodes",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "space": "space",
-      "onTouchStart": "bindtouchstart",
-      "onTouchMove": "bindtouchmove",
-      "onTouchEnd": "bindtouchend",
-      "onTouchCancel": "bindtouchcancel",
-      "onLongTap": "bindlongtap",
-      "onLongClick": "bindlongtap",
-      "animation": "animation"
+      "onTap": "onTap",
+      "onClick": "onTap",
+      "onTouchStart": "onTouchStart",
+      "onTouchMove": "onTouchMove",
+      "onTouchEnd": "onTouchEnd",
+      "onTouchCancel": "onTouchCancel",
+      "onLongTap": "onLongTap",
+      "onLongClick": "onLongTap"
     }
   },
   "scroll-view": {
@@ -858,14 +582,16 @@ var hostComponents = {
       "scrollLeft": "scroll-left",
       "scrollIntoView": "scroll-into-view",
       "scrollWithAnimation": "scroll-with-animation",
+      "scrollAnimationDuration": "scroll-animation-duration",
       "enableBackToTop": "enable-back-to-top",
-      "enableFlex": "enable-flex",
-      "onScrollToUpper": "bindscrolltoupper",
-      "onScrollToLower": "bindscrolltolower",
-      "onScroll": "bindscroll",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "animation": "animation"
+      "trapScroll": "trap-scroll",
+      "onScrollToUpper": "onScrollToUpper",
+      "onScrollToLower": "onScrollToLower",
+      "onScroll": "onScroll",
+      "onTouchStart": "onTouchStart",
+      "onTouchMove": "onTouchMove",
+      "onTouchEnd": "onTouchEnd",
+      "onTouchCancel": "onTouchCancel"
     }
   },
   "slider": {
@@ -875,31 +601,23 @@ var hostComponents = {
       "style": "style",
       "name": "name",
       "min": "min",
-      "color": "color",
       "max": "max",
       "step": "step",
       "disabled": "disabled",
       "value": "value",
       "showValue": "show-value",
-      "activeColor": "activeColor",
-      "backgroundColor": "backgroundColor",
+      "activeColor": "active-color",
+      "backgroundColor": "background-color",
       "trackSize": "track-size",
-      "blockSize": "block-size",
-      "blockColor": "block-color",
-      "onChange": "bindchange",
-      "onChanging": "bindchanging",
-      "selectedColor": "selectedColor",
-      "animation": "animation"
+      "handleSize": "handle-size",
+      "handleColor": "handle-color",
+      "onChange": "onChange",
+      "onChanging": "onChanging"
     }
   },
   "swiper-item": {
     "alias": {
-      "key": "key",
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "itemId": "item-id",
-      "animation": "animation"
+      "key": "key"
     }
   },
   "swiper": {
@@ -910,23 +628,24 @@ var hostComponents = {
       "indicatorDots": "indicator-dots",
       "indicatorColor": "indicator-color",
       "indicatorActiveColor": "indicator-active-color",
+      "activeClass": "active-class",
+      "activeClassName": "active-class",
+      "changingClass": "changing-class",
+      "changingClassName": "changing-class",
       "autoplay": "autoplay",
       "current": "current",
-      "interval": "interval",
       "duration": "duration",
+      "interval": "interval",
       "circular": "circular",
       "vertical": "vertical",
       "previousMargin": "previous-margin",
       "nextMargin": "next-margin",
-      "displayMultipleItems": "display-multiple-items",
-      "skipHiddenItemLayout": "skip-hidden-item-layout",
-      "easingFunction": "easing-function",
-      "onChange": "bindchange",
-      "onTransition": "bindtransition",
-      "onAnimationFinish": "bindanimationfinish",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "animation": "animation"
+      "acceleration": "acceleration",
+      "disableProgrammaticAnimation": "disable-programmatic-animation",
+      "onChange": "onChange",
+      "onTransition": "onTransition",
+      "onAnimationEnd": "onAnimationEnd",
+      "disableTouch": "disable-touch"
     }
   },
   "switch": {
@@ -938,10 +657,8 @@ var hostComponents = {
       "checked": "checked",
       "disabled": "disabled",
       "color": "color",
-      "onChange": "bindchange",
-      "controlled": "controlled",
-      "type": "type",
-      "animation": "animation"
+      "onChange": "onChange",
+      "controlled": "controlled"
     }
   },
   "text": {
@@ -952,9 +669,9 @@ var hostComponents = {
       "selectable": "selectable",
       "space": "space",
       "decode": "decode",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "animation": "animation"
+      "numberOfLines": "number-of-lines",
+      "onClick": "onTap",
+      "onTap": "onTap"
     }
   },
   "textarea": {
@@ -970,69 +687,14 @@ var hostComponents = {
       "placeholderClassName": "placeholder-class",
       "disabled": "disabled",
       "maxlength": "maxlength",
-      "autoFocus": "auto-focus",
       "focus": "focus",
-      "fixed": "fixed",
       "autoHeight": "auto-height",
       "showCount": "show-count",
       "controlled": "controlled",
-      "cursorSpacing": "cursor-spacing",
-      "cursor": "cursor",
-      "showConfirmBar": "show-confirm-bar",
-      "selectionStart": "selection-start",
-      "selectionEnd": "selection-end",
-      "adjustPosition": "adjust-position",
-      "onFocus": "bindfocus",
-      "onBlur": "bindblur",
-      "onLineChange": "bindlinechange",
-      "onInput": "bindinput",
-      "onConfirm": "bindconfirm",
-      "onKeyboardHeightChange": "bindkeyboardheightchange",
-      "animation": "animation"
-    }
-  },
-  "video": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "src": "src",
-      "duration": "duration",
-      "controls": "controls",
-      "danmuList": "danmu-list",
-      "danmuBtn": "danmu-btn",
-      "enableDanmu": "enable-danmu",
-      "autoplay": "autoplay",
-      "loop": "loop",
-      "muted": "muted",
-      "initialTime": "initial-time",
-      "pageGesture": "page-gesture",
-      "direction": "direction",
-      "showProgress": "show-progress",
-      "showFullscreenBtn": "show-fullscreen-btn",
-      "showPlayBtn": "show-play-btn",
-      "showCenterPlayBtn": "show-center-play-btn",
-      "enableProgressGesture": "enable-progress-gesture",
-      "objectFit": "object-fit",
-      "poster": "poster",
-      "showMuteBtn": "show-mute-btn",
-      "title": "title",
-      "playBtnPosition": "play-btn-position",
-      "posterForCrawler": "poster-for-crawler",
-      "enablePlayGesture": "enable-play-gesture",
-      "autoPauseIfNavigate": "auto-pause-if-navigate",
-      "autoPauseIfOpenNative": "auto-pause-if-open-native",
-      "vslideGesture": "vslide-gesture",
-      "vslideGestureInFullscreen": "vslide-gesture-in-fullscreen",
-      "onPlay": "bindplay",
-      "onPause": "bindpause",
-      "onEnded": "bindended",
-      "onTimeUpdate": "bindtimeupdate",
-      "onFullScreenChange": "bindfullscreenchange",
-      "onWaiting": "bindwaiting",
-      "onError": "binderror",
-      "onProgress": "bindprogress",
-      "animation": "animation"
+      "onInput": "onInput",
+      "onFocus": "onFocus",
+      "onBlur": "onBlur",
+      "onConfirm": "onConfirm"
     }
   },
   "view": {
@@ -1048,29 +710,88 @@ var hostComponents = {
       "style": "style",
       "animation": "animation",
       "hoverStopPropagation": "hover-stop-propagation",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "onTouchStart": "bindtouchstart",
-      "onTouchMove": "bindtouchmove",
-      "onTouchEnd": "bindtouchend",
-      "onTouchCancel": "bindtouchcancel",
-      "onLongTap": "bindlongtap",
-      "onLongClick": "bindlongtap",
-      "onTransitionEnd": "bindtransitionend",
-      "onAnimationIteration": "bindanimationiteration",
-      "onAnimationStart": "bindanimationstart",
-      "onAnimationEnd": "bindanimationend"
+      "onClick": "onTap",
+      "onTap": "onTap",
+      "onTouchStart": "onTouchStart",
+      "onTouchMove": "onTouchMove",
+      "onTouchEnd": "onTouchEnd",
+      "onTouchCancel": "onTouchCancel",
+      "onLongTap": "onLongTap",
+      "onLongClick": "onLongTap",
+      "onTransitionEnd": "onTransitionEnd",
+      "onAnimationIteration": "onAnimationIteration",
+      "onAnimationStart": "onAnimationStart",
+      "onAnimationEnd": "onAnimationEnd",
+      "onAppear": "onAppear",
+      "onDisappear": "onDisappear",
+      "onFirstAppear": "onFirstAppear"
     }
   },
   "web-view": {
     "alias": {
       "src": "src",
-      "onMessage": "bindmessage",
-      "onLoad": "bindload",
-      "onError": "binderror"
+      "onMessage": "onMessage"
+    }
+  },
+  "video": {
+    "alias": {
+      "className": "class",
+      "src": "src",
+      "id": "id",
+      "poster": "poster",
+      "objectFit": "objectFit",
+      "initialTime": "initial-time",
+      "duration": "duration",
+      "controls": "controls",
+      "autoplay": "autoplay",
+      "direction": "direction",
+      "loop": "loop",
+      "muted": "muted",
+      "showFullscreenBtn": "show-fullscreen-btn",
+      "showPlayBtn": "show-play-btn",
+      "showCenterPlayBtn": "show-center-play-btn",
+      "showMuteBtn": "show-mute-btn",
+      "enableProgressGesture": "enableProgressGesture",
+      "mobilenetHintType": "mobilenetHintType",
+      "onPlay": "onPlay",
+      "onPause": "onPause",
+      "onEnded": "onEnded",
+      "onTimeUpdate": "onTimeUpdate",
+      "onLoading": "onLoading",
+      "onError": "onError",
+      "onFullScreenChange": "onFullScreenChange",
+      "onTap": "onTap",
+      "onClick": "onTap",
+      "onUserAction": "onUserAction"
+    }
+  },
+  "foo-bar": {
+    "alias": {
+      "foo": "foo",
+      "className": "class"
+    }
+  },
+  "custom-component": {
+    "alias": {
+      "foo": "foo"
     }
   }
 } || {};
+function createHostComponent(name, component) {
+  if (component) {
+    return component;
+  }
+
+  var Component = function Component(props, ref) {
+    var _a = props.children,
+        children = _a === void 0 ? [] : _a;
+    return React.createElement(name, __assign(__assign({}, props), {
+      ref: ref
+    }), children);
+  };
+
+  return React.forwardRef(Component);
+}
 
 function getAlias(prop, type) {
   var _a, _b;
@@ -2354,8 +2075,8 @@ function createPageConfig(Page) {
     onTitleClick: function onTitleClick() {
       return this.callLifecycle(Lifecycle.titleClick);
     },
-    onOptionMenuClick: function onOptionMenuClick() {
-      return this.callLifecycle(Lifecycle.optionMenuClick);
+    onOptionMenuClick: function onOptionMenuClick(e) {
+      return this.callLifecycle(Lifecycle.optionMenuClick, e);
     },
     onPopMenuClick: function onPopMenuClick(e) {
       return this.callLifecycle(Lifecycle.popMenuClick, e);
@@ -2405,13 +2126,11 @@ var __assign$1 = undefined && undefined.__assign || function () {
 
 var unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;
 
-exports.Platform = Platform;
 exports._classCallCheck = _classCallCheck;
 exports._createClass = _createClass;
-exports._extends = _extends;
 exports._getPrototypeOf = _getPrototypeOf;
 exports._inherits = _inherits;
 exports._possibleConstructorReturn = _possibleConstructorReturn;
-exports._slicedToArray = _slicedToArray;
 exports.createAppConfig = createAppConfig;
+exports.createHostComponent = createHostComponent;
 exports.createPageConfig = createPageConfig;

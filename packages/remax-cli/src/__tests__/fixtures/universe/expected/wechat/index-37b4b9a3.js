@@ -2363,8 +2363,8 @@ function createPageConfig(Page) {
     onTitleClick: function onTitleClick() {
       return this.callLifecycle(Lifecycle.titleClick);
     },
-    onOptionMenuClick: function onOptionMenuClick() {
-      return this.callLifecycle(Lifecycle.optionMenuClick);
+    onOptionMenuClick: function onOptionMenuClick(e) {
+      return this.callLifecycle(Lifecycle.optionMenuClick, e);
     },
     onPopMenuClick: function onPopMenuClick(e) {
       return this.callLifecycle(Lifecycle.popMenuClick, e);
@@ -2414,6 +2414,7 @@ var __assign$1 = undefined && undefined.__assign || function () {
 
 var unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;
 
+exports.Platform = Platform;
 exports._asyncToGenerator = _asyncToGenerator;
 exports._classCallCheck = _classCallCheck;
 exports._createClass = _createClass;

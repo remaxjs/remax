@@ -204,18 +204,6 @@ var transformReactStyleKey = function transformReactStyleKey(key) {
   return styleValue;
 };
 
-var transformPx = function transformPx(value) {
-  if (typeof value !== 'string') {
-    return value;
-  }
-
-  return value.replace(/\b(\d+(\.\d+)?)px\b/g, function (match, x) {
-    var targetUnit = 'rpx';
-    var size = Number(x);
-    return size % 1 === 0 ? size + targetUnit : size.toFixed(2) + targetUnit;
-  });
-};
-
 var plainStyle = function plainStyle(style) {
   if (!style) {
     return '';
@@ -228,7 +216,7 @@ var plainStyle = function plainStyle(style) {
       value = value + 'rpx';
     }
 
-    return __spreadArrays(acc, [transformReactStyleKey(key) + ":" + ( transformPx(value) ) + ";"]);
+    return __spreadArrays(acc, [transformReactStyleKey(key) + ":" + ( value) + ";"]);
   }, []).join('');
 };
 
@@ -2049,8 +2037,8 @@ function createPageConfig(Page) {
     onTitleClick: function onTitleClick() {
       return this.callLifecycle(Lifecycle.titleClick);
     },
-    onOptionMenuClick: function onOptionMenuClick() {
-      return this.callLifecycle(Lifecycle.optionMenuClick);
+    onOptionMenuClick: function onOptionMenuClick(e) {
+      return this.callLifecycle(Lifecycle.optionMenuClick, e);
     },
     onPopMenuClick: function onPopMenuClick(e) {
       return this.callLifecycle(Lifecycle.popMenuClick, e);
@@ -2107,4 +2095,3 @@ exports._inherits = _inherits;
 exports._possibleConstructorReturn = _possibleConstructorReturn;
 exports.createAppConfig = createAppConfig;
 exports.createPageConfig = createPageConfig;
-exports.unstable_batchedUpdates = unstable_batchedUpdates;

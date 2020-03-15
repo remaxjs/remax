@@ -2,11 +2,11 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var index$1 = require('../index-c7376423.js');
+var index$1 = require('../index-007f8e63.js');
 require('react-reconciler');
 require('scheduler');
 var React = require('react');
-var alipay = require('../alipay-dbbd8e08.js');
+var alipay = require('../alipay-3210329c.js');
 
 var PluginComponent2 = index$1.createNativeComponent('sub-plugin-1');
 var PluginComponent = index$1.createNativeComponent('sub-plugin-0');

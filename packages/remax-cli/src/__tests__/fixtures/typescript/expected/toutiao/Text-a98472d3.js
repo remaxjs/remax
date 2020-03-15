@@ -2,7 +2,7 @@
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var index = require('./index-c474e00d.js');
+var index = require('./index-224604e8.js');
 var React = require('react');
 var React__default = _interopDefault(React);
 

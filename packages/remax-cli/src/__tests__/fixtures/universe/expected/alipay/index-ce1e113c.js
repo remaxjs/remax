@@ -320,37 +320,25 @@ var __assign = undefined && undefined.__assign || function () {
 var hostComponents = {
   "button": {
     "alias": {
-      "className": "class",
       "id": "id",
-      "style": "style",
+      "className": "class",
+      "size": "size",
       "type": "type",
       "plain": "plain",
       "disabled": "disabled",
       "loading": "loading",
-      "formType": "form-type",
-      "openType": "open-type",
       "hoverClass": "hover-class",
       "hoverClassName": "hover-class",
-      "hoverStopPropagation": "hover-stop-propagation",
       "hoverStartTime": "hover-start-time",
       "hoverStayTime": "hover-stay-time",
-      "lang": "lang",
-      "sessionFrom": "session-from",
-      "sendMessageTitle": "send-message-title",
-      "sendMessagePath": "send-message-path",
-      "sendMessageImg": "send-message-img",
+      "hoverStopPropagation": "hover-stop-propagation",
+      "formType": "form-type",
+      "openType": "open-type",
+      "scope": "scope",
+      "onClick": "onTap",
+      "onTap": "onTap",
       "appParameter": "app-parameter",
-      "showMessageCard": "show-message-card",
-      "onGetUserinfo": "bindgetuserinfo",
-      "onGetUserInfo": "bindgetuserinfo",
-      "onContact": "bindcontact",
-      "onGetPhoneNumber": "bindgetphonenumber",
-      "onError": "binderror",
-      "onOpenSetting": "bindopensetting",
-      "onLaunchApp": "bindlaunchapp",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "animation": "animation"
+      "publicId": "public-id"
     }
   },
   "canvas": {
@@ -361,16 +349,14 @@ var hostComponents = {
       "width": "width",
       "height": "height",
       "disableScroll": "disable-scroll",
-      "type": "type",
-      "canvasId": "canvas-id",
-      "onTouchStart": "bindtouchstart",
-      "onTouchMove": "bindtouchmove",
-      "onTouchEnd": "bindtouchend",
-      "onTouchCancel": "bindtouchcancel",
-      "onLongTap": "bindlongtap",
-      "onLongClick": "bindlongtap",
-      "onError": "binderror",
-      "animation": "animation"
+      "onClick": "onTap",
+      "onTap": "onTap",
+      "onTouchStart": "onTouchStart",
+      "onTouchMove": "onTouchMove",
+      "onTouchEnd": "onTouchEnd",
+      "onTouchCancel": "onTouchCancel",
+      "onLongTap": "onLongTap",
+      "onLongClick": "onLongTap"
     }
   },
   "checkbox-group": {
@@ -378,20 +364,52 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "onChange": "bindchange"
+      "name": "name",
+      "onChange": "onChange"
     }
   },
   "checkbox": {
     "alias": {
-      "id": "id",
       "className": "class",
       "style": "style",
+      "id": "id",
       "value": "value",
       "checked": "checked",
       "disabled": "disabled",
-      "onChange": "bindchange",
+      "onChange": "onChange",
+      "color": "color"
+    }
+  },
+  "contact-button": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "style": "style",
+      "tntInstId": "tnt-inst-id",
+      "scene": "scene",
+      "size": "size",
       "color": "color",
-      "animation": "animation"
+      "icon": "icon",
+      "alipayCardNo": "alipay-card-no"
+    }
+  },
+  "cover-image": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "src": "src",
+      "style": "style",
+      "onClick": "onTap",
+      "onTap": "onTap"
+    }
+  },
+  "cover-view": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "style": "style",
+      "onTap": "onTap",
+      "onClick": "onTap"
     }
   },
   "form": {
@@ -400,10 +418,8 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "reportSubmit": "report-submit",
-      "onSubmit": "bindsubmit",
-      "onReset": "bindreset",
-      "reportSubmitTimeout": "report-submit-timeout",
-      "animation": "animation"
+      "onSubmit": "onSubmit",
+      "onReset": "onReset"
     }
   },
   "icon": {
@@ -413,8 +429,7 @@ var hostComponents = {
       "style": "style",
       "type": "type",
       "size": "size",
-      "color": "color",
-      "animation": "animation"
+      "color": "color"
     }
   },
   "image": {
@@ -425,45 +440,39 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "lazyLoad": "lazy-load",
-      "onLoad": "bindload",
-      "onError": "binderror",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "showMenuByLongpress": "show-menu-by-longpress",
-      "animation": "animation"
+      "onLoad": "onLoad",
+      "onError": "onError",
+      "onTap": "onTap",
+      "onClick": "onTap"
     }
   },
   "input": {
     "alias": {
-      "autoFocus": "auto-focus",
+      "id": "id",
       "className": "class",
-      "focus": "focus",
-      "name": "name",
-      "maxlength": "maxlength",
-      "value": "value",
       "style": "style",
-      "password": "password",
+      "value": "value",
+      "name": "name",
       "type": "type",
-      "confirmType": "confirm-type",
-      "confirmHold": "confirm-hold",
-      "cursor": "cursor",
-      "selectionStart": "selection-start",
-      "selectionEnd": "selection-end",
-      "adjustPosition": "adjust-position",
+      "password": "password",
       "placeholder": "placeholder",
       "placeholderStyle": "placeholder-style",
       "placeholderClass": "placeholder-class",
       "placeholderClassName": "placeholder-class",
       "disabled": "disabled",
-      "cursorSpacing": "cursor-spacing",
-      "onInput": "bindinput",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "onFocus": "bindfocus",
-      "onBlur": "bindblur",
-      "onConfirm": "bindconfirm",
-      "onKeyboardHeightChange": "bindkeyboardheightchange",
-      "animation": "animation"
+      "maxlength": "maxlength",
+      "focus": "focus",
+      "confirmType": "confirm-type",
+      "confirmHold": "confirm-hold",
+      "cursor": "cursor",
+      "selectionStart": "selection-start",
+      "selectionEnd": "selection-end",
+      "randomNumber": "randomNumber",
+      "controlled": "controlled",
+      "onInput": "onInput",
+      "onConfirm": "onConfirm",
+      "onFocus": "onFocus",
+      "onBlur": "onBlur"
     }
   },
   "label": {
@@ -471,8 +480,71 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "for": "for",
-      "animation": "animation"
+      "for": "for"
+    }
+  },
+  "lifestyle": {
+    "alias": {
+      "publicId": "public-id",
+      "onFollow": "onFollow"
+    }
+  },
+  "map": {
+    "alias": {
+      "id": "id",
+      "style": "style",
+      "className": "class",
+      "latitude": "latitude",
+      "longitude": "longitude",
+      "scale": "scale",
+      "markers": "markers",
+      "polyline": "polyline",
+      "circles": "circles",
+      "controls": "controls",
+      "polygon": "polygon",
+      "showLocation": "show-location",
+      "includePoints": "include-points",
+      "includePadding": "include-padding",
+      "groundOverlays": "ground-overlays",
+      "tileOverlay": "tile-overlay",
+      "setting": "setting",
+      "onMarkerTap": "onMarkerTap",
+      "onMarkerClick": "onMarkerTap",
+      "onCalloutTap": "onCalloutTap",
+      "onCalloutClick": "onCalloutTap",
+      "onControlTap": "onControlTap",
+      "onControlClick": "onControlTap",
+      "onRegionChange": "onRegionChange",
+      "onTap": "onTap",
+      "onClick": "onTap"
+    }
+  },
+  "movable-area": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "style": "style",
+      "width": "width",
+      "height": "height"
+    }
+  },
+  "movable-view": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "style": "style",
+      "direction": "direction",
+      "width": "width",
+      "height": "height",
+      "x": "x",
+      "y": "y",
+      "disabled": "disabled",
+      "onTouchStart": "onTouchStart",
+      "onTouchMove": "onTouchMove",
+      "onTouchEnd": "onTouchEnd",
+      "onTouchCancel": "onTouchCancel",
+      "onChange": "onChange",
+      "onChangeEnd": "onChangeEnd"
     }
   },
   "navigator": {
@@ -485,18 +557,7 @@ var hostComponents = {
       "hoverClassName": "hover-class",
       "hoverStartTime": "hover-start-time",
       "hoverStayTime": "hover-stay-time",
-      "url": "url",
-      "target": "target",
-      "delta": "delta",
-      "appId": "app-id",
-      "path": "path",
-      "extraData": "extra-data",
-      "version": "version",
-      "hoverStopPropagation": "hover-stop-propagation",
-      "onSuccess": "bindsuccess",
-      "onFail": "bindfail",
-      "onComplete": "bindcomplete",
-      "animation": "animation"
+      "url": "url"
     }
   },
   "picker-view-column": {
@@ -514,10 +575,7 @@ var hostComponents = {
       "maskStyle": "mask-style",
       "maskClass": "mask-class",
       "maskClassName": "mask-class",
-      "onChange": "bindchange",
-      "onPickStart": "bindpickstart",
-      "onPickEnd": "bindpickend",
-      "animation": "animation"
+      "onChange": "onChange"
     }
   },
   "picker": {
@@ -528,15 +586,8 @@ var hostComponents = {
       "range": "range",
       "rangeKey": "range-key",
       "value": "value",
-      "onChange": "bindchange",
-      "onCancel": "bindcancel",
-      "onColumnChange": "bindcolumnchange",
-      "start": "start",
-      "end": "end",
-      "fields": "fields",
-      "customItem": "custom-item",
-      "disabled": "disabled",
-      "animation": "animation"
+      "onChange": "onChange",
+      "disabled": "disabled"
     }
   },
   "progress": {
@@ -546,16 +597,10 @@ var hostComponents = {
       "style": "style",
       "percent": "percent",
       "showInfo": "show-info",
-      "borderRadius": "border-radius",
-      "fontSize": "font-size",
       "strokeWidth": "stroke-width",
-      "color": "color",
-      "activeColor": "activeColor",
-      "backgroundColor": "backgroundColor",
-      "active": "active",
-      "activeMode": "active-mode",
-      "onActiveEnd": "bindactiveend",
-      "animation": "animation"
+      "activeColor": "active-color",
+      "backgroundColor": "background-color",
+      "active": "active"
     }
   },
   "radio-group": {
@@ -563,9 +608,8 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "onChange": "bindchange",
-      "name": "name",
-      "animation": "animation"
+      "onChange": "onChange",
+      "name": "name"
     }
   },
   "radio": {
@@ -576,8 +620,7 @@ var hostComponents = {
       "value": "value",
       "checked": "checked",
       "disabled": "disabled",
-      "color": "color",
-      "animation": "animation"
+      "color": "color"
     }
   },
   "rich-text": {
@@ -586,16 +629,14 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "nodes": "nodes",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "space": "space",
-      "onTouchStart": "bindtouchstart",
-      "onTouchMove": "bindtouchmove",
-      "onTouchEnd": "bindtouchend",
-      "onTouchCancel": "bindtouchcancel",
-      "onLongTap": "bindlongtap",
-      "onLongClick": "bindlongtap",
-      "animation": "animation"
+      "onTap": "onTap",
+      "onClick": "onTap",
+      "onTouchStart": "onTouchStart",
+      "onTouchMove": "onTouchMove",
+      "onTouchEnd": "onTouchEnd",
+      "onTouchCancel": "onTouchCancel",
+      "onLongTap": "onLongTap",
+      "onLongClick": "onLongTap"
     }
   },
   "scroll-view": {
@@ -611,14 +652,16 @@ var hostComponents = {
       "scrollLeft": "scroll-left",
       "scrollIntoView": "scroll-into-view",
       "scrollWithAnimation": "scroll-with-animation",
+      "scrollAnimationDuration": "scroll-animation-duration",
       "enableBackToTop": "enable-back-to-top",
-      "enableFlex": "enable-flex",
-      "onScrollToUpper": "bindscrolltoupper",
-      "onScrollToLower": "bindscrolltolower",
-      "onScroll": "bindscroll",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "animation": "animation"
+      "trapScroll": "trap-scroll",
+      "onScrollToUpper": "onScrollToUpper",
+      "onScrollToLower": "onScrollToLower",
+      "onScroll": "onScroll",
+      "onTouchStart": "onTouchStart",
+      "onTouchMove": "onTouchMove",
+      "onTouchEnd": "onTouchEnd",
+      "onTouchCancel": "onTouchCancel"
     }
   },
   "slider": {
@@ -628,31 +671,23 @@ var hostComponents = {
       "style": "style",
       "name": "name",
       "min": "min",
-      "color": "color",
       "max": "max",
       "step": "step",
       "disabled": "disabled",
       "value": "value",
       "showValue": "show-value",
-      "activeColor": "activeColor",
-      "backgroundColor": "backgroundColor",
+      "activeColor": "active-color",
+      "backgroundColor": "background-color",
       "trackSize": "track-size",
-      "blockSize": "block-size",
-      "blockColor": "block-color",
-      "onChange": "bindchange",
-      "onChanging": "bindchanging",
-      "selectedColor": "selected-color",
-      "animation": "animation"
+      "handleSize": "handle-size",
+      "handleColor": "handle-color",
+      "onChange": "onChange",
+      "onChanging": "onChanging"
     }
   },
   "swiper-item": {
     "alias": {
-      "key": "key",
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "itemId": "item-id",
-      "animation": "animation"
+      "key": "key"
     }
   },
   "swiper": {
@@ -663,23 +698,24 @@ var hostComponents = {
       "indicatorDots": "indicator-dots",
       "indicatorColor": "indicator-color",
       "indicatorActiveColor": "indicator-active-color",
+      "activeClass": "active-class",
+      "activeClassName": "active-class",
+      "changingClass": "changing-class",
+      "changingClassName": "changing-class",
       "autoplay": "autoplay",
       "current": "current",
-      "interval": "interval",
       "duration": "duration",
+      "interval": "interval",
       "circular": "circular",
       "vertical": "vertical",
       "previousMargin": "previous-margin",
       "nextMargin": "next-margin",
-      "displayMultipleItems": "display-multiple-items",
-      "skipHiddenItemLayout": "skip-hidden-item-layout",
-      "easingFunction": "easing-function",
-      "onChange": "bindchange",
-      "onTransition": "bindtransition",
-      "onAnimationFinish": "bindanimationfinish",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "animation": "animation"
+      "acceleration": "acceleration",
+      "disableProgrammaticAnimation": "disable-programmatic-animation",
+      "onChange": "onChange",
+      "onTransition": "onTransition",
+      "onAnimationEnd": "onAnimationEnd",
+      "disableTouch": "disable-touch"
     }
   },
   "switch": {
@@ -691,10 +727,8 @@ var hostComponents = {
       "checked": "checked",
       "disabled": "disabled",
       "color": "color",
-      "onChange": "bindchange",
-      "controlled": "controlled",
-      "type": "type",
-      "animation": "animation"
+      "onChange": "onChange",
+      "controlled": "controlled"
     }
   },
   "text": {
@@ -705,8 +739,9 @@ var hostComponents = {
       "selectable": "selectable",
       "space": "space",
       "decode": "decode",
-      "onTap": "bindtap",
-      "animation": "animation"
+      "numberOfLines": "number-of-lines",
+      "onClick": "onTap",
+      "onTap": "onTap"
     }
   },
   "textarea": {
@@ -722,68 +757,14 @@ var hostComponents = {
       "placeholderClassName": "placeholder-class",
       "disabled": "disabled",
       "maxlength": "maxlength",
-      "autoFocus": "auto-focus",
       "focus": "focus",
-      "fixed": "fixed",
       "autoHeight": "auto-height",
       "showCount": "show-count",
       "controlled": "controlled",
-      "cursorSpacing": "cursor-spacing",
-      "cursor": "cursor",
-      "showConfirmBar": "show-confirm-bar",
-      "selectionStart": "selection-start",
-      "selectionEnd": "selection-end",
-      "adjustPosition": "adjust-position",
-      "onFocus": "bindfocus",
-      "onBlur": "bindblur",
-      "onLineChange": "bindlinechange",
-      "onInput": "bindinput",
-      "onConfirm": "bindconfirm",
-      "onKeyboardHeightChange": "bindkeyboardheightchange",
-      "animation": "animation"
-    }
-  },
-  "video": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "src": "src",
-      "duration": "duration",
-      "controls": "controls",
-      "danmuList": "danmu-list",
-      "danmuBtn": "danmu-btn",
-      "enableDanmu": "enable-danmu",
-      "autoplay": "autoplay",
-      "loop": "loop",
-      "muted": "muted",
-      "initialTime": "initial-time",
-      "pageGesture": "page-gesture",
-      "direction": "direction",
-      "showProgress": "show-progress",
-      "showFullscreenBtn": "show-fullscreen-btn",
-      "showPlayBtn": "show-play-btn",
-      "showCenterPlayBtn": "show-center-play-btn",
-      "enableProgressGesture": "enable-progress-gesture",
-      "objectFit": "object-fit",
-      "poster": "poster",
-      "showMuteBtn": "show-mute-btn",
-      "title": "title",
-      "playBtnPosition": "play-btn-position",
-      "enablePlayGesture": "enable-play-gesture",
-      "autoPauseIfNavigate": "auto-pause-if-navigate",
-      "autoPauseIfOpenNative": "auto-pause-if-open-native",
-      "vSlideGesture": "vslide-gesture",
-      "vSlideGestureInfullscreen": "vslide-gesture-in-fullscreen",
-      "onPlay": "bindplay",
-      "onPause": "bindpause",
-      "onEnded": "bindended",
-      "onTimeUpdate": "bindtimeupdate",
-      "onFullscreenChange": "bindfullscreenchange",
-      "onWaiting": "bindwaiting",
-      "onError": "binderror",
-      "onProgress": "bindprogress",
-      "animation": "animation"
+      "onInput": "onInput",
+      "onFocus": "onFocus",
+      "onBlur": "onBlur",
+      "onConfirm": "onConfirm"
     }
   },
   "view": {
@@ -799,26 +780,59 @@ var hostComponents = {
       "style": "style",
       "animation": "animation",
       "hoverStopPropagation": "hover-stop-propagation",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "onTouchStart": "bindtouchstart",
-      "onTouchMove": "bindtouchmove",
-      "onTouchEnd": "bindtouchend",
-      "onTouchCancel": "bindtouchcancel",
-      "onLongTap": "bindlongtap",
-      "onLongClick": "bindlongtap",
-      "onTransitionEnd": "bindtransitionend",
-      "onAnimationIteration": "bindanimationiteration",
-      "onAnimationStart": "bindanimationstart",
-      "onAnimationEnd": "bindanimationend"
+      "onClick": "onTap",
+      "onTap": "onTap",
+      "onTouchStart": "onTouchStart",
+      "onTouchMove": "onTouchMove",
+      "onTouchEnd": "onTouchEnd",
+      "onTouchCancel": "onTouchCancel",
+      "onLongTap": "onLongTap",
+      "onLongClick": "onLongTap",
+      "onTransitionEnd": "onTransitionEnd",
+      "onAnimationIteration": "onAnimationIteration",
+      "onAnimationStart": "onAnimationStart",
+      "onAnimationEnd": "onAnimationEnd",
+      "onAppear": "onAppear",
+      "onDisappear": "onDisappear",
+      "onFirstAppear": "onFirstAppear"
     }
   },
   "web-view": {
     "alias": {
       "src": "src",
-      "onMessage": "bindmessage",
-      "onLoad": "bindload",
-      "onError": "binderror"
+      "onMessage": "onMessage"
+    }
+  },
+  "video": {
+    "alias": {
+      "className": "class",
+      "src": "src",
+      "id": "id",
+      "poster": "poster",
+      "objectFit": "objectFit",
+      "initialTime": "initial-time",
+      "duration": "duration",
+      "controls": "controls",
+      "autoplay": "autoplay",
+      "direction": "direction",
+      "loop": "loop",
+      "muted": "muted",
+      "showFullscreenBtn": "show-fullscreen-btn",
+      "showPlayBtn": "show-play-btn",
+      "showCenterPlayBtn": "show-center-play-btn",
+      "showMuteBtn": "show-mute-btn",
+      "enableProgressGesture": "enableProgressGesture",
+      "mobilenetHintType": "mobilenetHintType",
+      "onPlay": "onPlay",
+      "onPause": "onPause",
+      "onEnded": "onEnded",
+      "onTimeUpdate": "onTimeUpdate",
+      "onLoading": "onLoading",
+      "onError": "onError",
+      "onFullScreenChange": "onFullScreenChange",
+      "onTap": "onTap",
+      "onClick": "onTap",
+      "onUserAction": "onUserAction"
     }
   }
 } || {};
@@ -2105,8 +2119,8 @@ function createPageConfig(Page) {
     onTitleClick: function onTitleClick() {
       return this.callLifecycle(Lifecycle.titleClick);
     },
-    onOptionMenuClick: function onOptionMenuClick() {
-      return this.callLifecycle(Lifecycle.optionMenuClick);
+    onOptionMenuClick: function onOptionMenuClick(e) {
+      return this.callLifecycle(Lifecycle.optionMenuClick, e);
     },
     onPopMenuClick: function onPopMenuClick(e) {
       return this.callLifecycle(Lifecycle.popMenuClick, e);
@@ -2156,6 +2170,7 @@ var __assign$1 = undefined && undefined.__assign || function () {
 
 var unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;
 
+exports.Platform = Platform;
 exports._asyncToGenerator = _asyncToGenerator;
 exports._classCallCheck = _classCallCheck;
 exports._createClass = _createClass;

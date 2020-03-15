@@ -2,11 +2,11 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var index$1 = require('../index-5ac8bdeb.js');
+var index$1 = require('../index-834c24dd.js');
 require('react-reconciler');
 require('scheduler');
 var React = require('react');
-var wechat = require('../wechat-a1cc136e.js');
+var wechat = require('../wechat-527dc462.js');
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
