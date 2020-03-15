@@ -112,8 +112,8 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       return this.callLifecycle(Lifecycle.titleClick);
     },
 
-    onOptionMenuClick() {
-      return this.callLifecycle(Lifecycle.optionMenuClick);
+    onOptionMenuClick(e: any) {
+      return this.callLifecycle(Lifecycle.optionMenuClick, e);
     },
 
     onPopMenuClick(e: any) {
