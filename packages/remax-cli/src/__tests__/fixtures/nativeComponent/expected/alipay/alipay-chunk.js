@@ -1,10 +1,6 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var index$1 = require('../index-chunk.js');
-require('react-reconciler');
-require('scheduler');
+require('./index-chunk.js');
 var React = require('react');
 
 var __assign = undefined && undefined.__assign || function () {
@@ -327,14 +323,4 @@ var writeBLECharacteristicValue = promisify(my.writeBLECharacteristicValue);
 var createVideoContext = my.createVideoContext;
 var getOpenUserInfo = promisify(my.getOpenUserInfo);
 
-console.log(false);
-
-var _page = function _page() {
-  return React.createElement(View, {
-    className: "foo"
-  }, "foo");
-};
-
-var index = Page(index$1.createPageConfig(_page));
-
-exports.default = index;
+exports.View = View;

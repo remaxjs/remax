@@ -1,12 +1,140 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var ReactReconciler = _interopDefault(require('react-reconciler'));
 var scheduler = require('scheduler');
 var React = require('react');
+var React__default = _interopDefault(React);
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (typeof call === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArrayLimit(arr, i) {
+  if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
+    return;
+  }
+
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
 
 var REMAX_METHOD = '$$REMAX_METHOD';
 var TYPE_TEXT = 'plain-text';
@@ -87,15 +215,9 @@ function prefixKey(prefix, key) {
 var prefixes = ['Webkit', 'ms', 'Moz', 'O'];
 
 var _loop_1 = function _loop_1(prop) {
-  var _a = prefixes;
-
-  var _f = function _f(prefix) {
+  prefixes.forEach(function (prefix) {
     isUnitlessNumber[prefixKey(prefix, prop)] = isUnitlessNumber[prop];
-  };
-
-  for (var _i = 0; _i < _a.length; _i++) {
-    _f(_a[_i]);
-  }
+  });
 };
 
 for (var prop in isUnitlessNumber) {
@@ -177,9 +299,7 @@ var __assign = undefined && undefined.__assign || function () {
       s = arguments[i];
 
       for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) {
-          t[p] = s[p];
-        }
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
       }
     }
 
@@ -191,25 +311,37 @@ var __assign = undefined && undefined.__assign || function () {
 var hostComponents = {
   "button": {
     "alias": {
-      "id": "id",
       "className": "class",
-      "size": "size",
+      "id": "id",
+      "style": "style",
       "type": "type",
       "plain": "plain",
       "disabled": "disabled",
       "loading": "loading",
-      "hoverClass": "hover-class",
-      "hoverClassName": "hover-class",
-      "hoverStartTime": "hover-start-time",
-      "hoverStayTime": "hover-stay-time",
-      "hoverStopPropagation": "hover-stop-propagation",
       "formType": "form-type",
       "openType": "open-type",
-      "scope": "scope",
-      "onClick": "onTap",
-      "onTap": "onTap",
+      "hoverClass": "hover-class",
+      "hoverClassName": "hover-class",
+      "hoverStopPropagation": "hover-stop-propagation",
+      "hoverStartTime": "hover-start-time",
+      "hoverStayTime": "hover-stay-time",
+      "lang": "lang",
+      "sessionFrom": "session-from",
+      "sendMessageTitle": "send-message-title",
+      "sendMessagePath": "send-message-path",
+      "sendMessageImg": "send-message-img",
       "appParameter": "app-parameter",
-      "publicId": "public-id"
+      "showMessageCard": "show-message-card",
+      "onGetUserinfo": "bindgetuserinfo",
+      "onGetUserInfo": "bindgetuserinfo",
+      "onContact": "bindcontact",
+      "onGetPhoneNumber": "bindgetphonenumber",
+      "onError": "binderror",
+      "onOpenSetting": "bindopensetting",
+      "onLaunchApp": "bindlaunchapp",
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "animation": "animation"
     }
   },
   "canvas": {
@@ -220,14 +352,16 @@ var hostComponents = {
       "width": "width",
       "height": "height",
       "disableScroll": "disable-scroll",
-      "onClick": "onTap",
-      "onTap": "onTap",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel",
-      "onLongTap": "onLongTap",
-      "onLongClick": "onLongTap"
+      "type": "type",
+      "canvasId": "canvas-id",
+      "onTouchStart": "bindtouchstart",
+      "onTouchMove": "bindtouchmove",
+      "onTouchEnd": "bindtouchend",
+      "onTouchCancel": "bindtouchcancel",
+      "onLongTap": "bindlongtap",
+      "onLongClick": "bindlongtap",
+      "onError": "binderror",
+      "animation": "animation"
     }
   },
   "checkbox-group": {
@@ -235,52 +369,20 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "name": "name",
-      "onChange": "onChange"
+      "onChange": "bindchange"
     }
   },
   "checkbox": {
     "alias": {
+      "id": "id",
       "className": "class",
       "style": "style",
-      "id": "id",
       "value": "value",
       "checked": "checked",
       "disabled": "disabled",
-      "onChange": "onChange",
-      "color": "color"
-    }
-  },
-  "contact-button": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "tntInstId": "tnt-inst-id",
-      "scene": "scene",
-      "size": "size",
+      "onChange": "bindchange",
       "color": "color",
-      "icon": "icon",
-      "alipayCardNo": "alipay-card-no"
-    }
-  },
-  "cover-image": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "src": "src",
-      "style": "style",
-      "onClick": "onTap",
-      "onTap": "onTap"
-    }
-  },
-  "cover-view": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "onTap": "onTap",
-      "onClick": "onTap"
+      "animation": "animation"
     }
   },
   "form": {
@@ -289,8 +391,10 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "reportSubmit": "report-submit",
-      "onSubmit": "onSubmit",
-      "onReset": "onReset"
+      "onSubmit": "bindsubmit",
+      "onReset": "bindreset",
+      "reportSubmitTimeout": "report-submit-timeout",
+      "animation": "animation"
     }
   },
   "icon": {
@@ -300,7 +404,8 @@ var hostComponents = {
       "style": "style",
       "type": "type",
       "size": "size",
-      "color": "color"
+      "color": "color",
+      "animation": "animation"
     }
   },
   "image": {
@@ -311,39 +416,45 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "lazyLoad": "lazy-load",
-      "onLoad": "onLoad",
-      "onError": "onError",
-      "onTap": "onTap",
-      "onClick": "onTap"
+      "onLoad": "bindload",
+      "onError": "binderror",
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "showMenuByLongpress": "show-menu-by-longpress",
+      "animation": "animation"
     }
   },
   "input": {
     "alias": {
-      "id": "id",
+      "autoFocus": "auto-focus",
       "className": "class",
-      "style": "style",
-      "value": "value",
-      "name": "name",
-      "type": "type",
-      "password": "password",
-      "placeholder": "placeholder",
-      "placeholderStyle": "placeholder-style",
-      "placeholderClass": "placeholder-class",
-      "placeholderClassName": "placeholder-class",
-      "disabled": "disabled",
-      "maxlength": "maxlength",
       "focus": "focus",
+      "name": "name",
+      "maxlength": "maxlength",
+      "value": "value",
+      "style": "style",
+      "password": "password",
+      "type": "type",
       "confirmType": "confirm-type",
       "confirmHold": "confirm-hold",
       "cursor": "cursor",
       "selectionStart": "selection-start",
       "selectionEnd": "selection-end",
-      "randomNumber": "randomNumber",
-      "controlled": "controlled",
-      "onInput": "onInput",
-      "onConfirm": "onConfirm",
-      "onFocus": "onFocus",
-      "onBlur": "onBlur"
+      "adjustPosition": "adjust-position",
+      "placeholder": "placeholder",
+      "placeholderStyle": "placeholder-style",
+      "placeholderClass": "placeholder-class",
+      "placeholderClassName": "placeholder-class",
+      "disabled": "disabled",
+      "cursorSpacing": "cursor-spacing",
+      "onInput": "bindinput",
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "onFocus": "bindfocus",
+      "onBlur": "bindblur",
+      "onConfirm": "bindconfirm",
+      "onKeyboardHeightChange": "bindkeyboardheightchange",
+      "animation": "animation"
     }
   },
   "label": {
@@ -351,71 +462,8 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "for": "for"
-    }
-  },
-  "lifestyle": {
-    "alias": {
-      "publicId": "public-id",
-      "onFollow": "onFollow"
-    }
-  },
-  "map": {
-    "alias": {
-      "id": "id",
-      "style": "style",
-      "className": "class",
-      "latitude": "latitude",
-      "longitude": "longitude",
-      "scale": "scale",
-      "markers": "markers",
-      "polyline": "polyline",
-      "circles": "circles",
-      "controls": "controls",
-      "polygon": "polygon",
-      "showLocation": "show-location",
-      "includePoints": "include-points",
-      "includePadding": "include-padding",
-      "groundOverlays": "ground-overlays",
-      "tileOverlay": "tile-overlay",
-      "setting": "setting",
-      "onMarkerTap": "onMarkerTap",
-      "onMarkerClick": "onMarkerTap",
-      "onCalloutTap": "onCalloutTap",
-      "onCalloutClick": "onCalloutTap",
-      "onControlTap": "onControlTap",
-      "onControlClick": "onControlTap",
-      "onRegionChange": "onRegionChange",
-      "onTap": "onTap",
-      "onClick": "onTap"
-    }
-  },
-  "movable-area": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "width": "width",
-      "height": "height"
-    }
-  },
-  "movable-view": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "direction": "direction",
-      "width": "width",
-      "height": "height",
-      "x": "x",
-      "y": "y",
-      "disabled": "disabled",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel",
-      "onChange": "onChange",
-      "onChangeEnd": "onChangeEnd"
+      "for": "for",
+      "animation": "animation"
     }
   },
   "navigator": {
@@ -428,7 +476,18 @@ var hostComponents = {
       "hoverClassName": "hover-class",
       "hoverStartTime": "hover-start-time",
       "hoverStayTime": "hover-stay-time",
-      "url": "url"
+      "url": "url",
+      "target": "target",
+      "delta": "delta",
+      "appId": "app-id",
+      "path": "path",
+      "extraData": "extra-data",
+      "version": "version",
+      "hoverStopPropagation": "hover-stop-propagation",
+      "onSuccess": "bindsuccess",
+      "onFail": "bindfail",
+      "onComplete": "bindcomplete",
+      "animation": "animation"
     }
   },
   "picker-view-column": {
@@ -446,7 +505,10 @@ var hostComponents = {
       "maskStyle": "mask-style",
       "maskClass": "mask-class",
       "maskClassName": "mask-class",
-      "onChange": "onChange"
+      "onChange": "bindchange",
+      "onPickStart": "bindpickstart",
+      "onPickEnd": "bindpickend",
+      "animation": "animation"
     }
   },
   "picker": {
@@ -457,8 +519,15 @@ var hostComponents = {
       "range": "range",
       "rangeKey": "range-key",
       "value": "value",
-      "onChange": "onChange",
-      "disabled": "disabled"
+      "onChange": "bindchange",
+      "onCancel": "bindcancel",
+      "onColumnChange": "bindcolumnchange",
+      "start": "start",
+      "end": "end",
+      "fields": "fields",
+      "customItem": "custom-item",
+      "disabled": "disabled",
+      "animation": "animation"
     }
   },
   "progress": {
@@ -468,10 +537,16 @@ var hostComponents = {
       "style": "style",
       "percent": "percent",
       "showInfo": "show-info",
+      "borderRadius": "border-radius",
+      "fontSize": "font-size",
       "strokeWidth": "stroke-width",
-      "activeColor": "active-color",
-      "backgroundColor": "background-color",
-      "active": "active"
+      "color": "color",
+      "activeColor": "activeColor",
+      "backgroundColor": "backgroundColor",
+      "active": "active",
+      "activeMode": "active-mode",
+      "onActiveEnd": "bindactiveend",
+      "animation": "animation"
     }
   },
   "radio-group": {
@@ -479,8 +554,9 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "onChange": "onChange",
-      "name": "name"
+      "onChange": "bindchange",
+      "name": "name",
+      "animation": "animation"
     }
   },
   "radio": {
@@ -491,7 +567,8 @@ var hostComponents = {
       "value": "value",
       "checked": "checked",
       "disabled": "disabled",
-      "color": "color"
+      "color": "color",
+      "animation": "animation"
     }
   },
   "rich-text": {
@@ -500,14 +577,16 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "nodes": "nodes",
-      "onTap": "onTap",
-      "onClick": "onTap",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel",
-      "onLongTap": "onLongTap",
-      "onLongClick": "onLongTap"
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "space": "space",
+      "onTouchStart": "bindtouchstart",
+      "onTouchMove": "bindtouchmove",
+      "onTouchEnd": "bindtouchend",
+      "onTouchCancel": "bindtouchcancel",
+      "onLongTap": "bindlongtap",
+      "onLongClick": "bindlongtap",
+      "animation": "animation"
     }
   },
   "scroll-view": {
@@ -523,16 +602,14 @@ var hostComponents = {
       "scrollLeft": "scroll-left",
       "scrollIntoView": "scroll-into-view",
       "scrollWithAnimation": "scroll-with-animation",
-      "scrollAnimationDuration": "scroll-animation-duration",
       "enableBackToTop": "enable-back-to-top",
-      "trapScroll": "trap-scroll",
-      "onScrollToUpper": "onScrollToUpper",
-      "onScrollToLower": "onScrollToLower",
-      "onScroll": "onScroll",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel"
+      "enableFlex": "enable-flex",
+      "onScrollToUpper": "bindscrolltoupper",
+      "onScrollToLower": "bindscrolltolower",
+      "onScroll": "bindscroll",
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "animation": "animation"
     }
   },
   "slider": {
@@ -542,23 +619,31 @@ var hostComponents = {
       "style": "style",
       "name": "name",
       "min": "min",
+      "color": "color",
       "max": "max",
       "step": "step",
       "disabled": "disabled",
       "value": "value",
       "showValue": "show-value",
-      "activeColor": "active-color",
-      "backgroundColor": "background-color",
+      "activeColor": "activeColor",
+      "backgroundColor": "backgroundColor",
       "trackSize": "track-size",
-      "handleSize": "handle-size",
-      "handleColor": "handle-color",
-      "onChange": "onChange",
-      "onChanging": "onChanging"
+      "blockSize": "block-size",
+      "blockColor": "block-color",
+      "onChange": "bindchange",
+      "onChanging": "bindchanging",
+      "selectedColor": "selected-color",
+      "animation": "animation"
     }
   },
   "swiper-item": {
     "alias": {
-      "key": "key"
+      "key": "key",
+      "id": "id",
+      "className": "class",
+      "style": "style",
+      "itemId": "item-id",
+      "animation": "animation"
     }
   },
   "swiper": {
@@ -569,24 +654,23 @@ var hostComponents = {
       "indicatorDots": "indicator-dots",
       "indicatorColor": "indicator-color",
       "indicatorActiveColor": "indicator-active-color",
-      "activeClass": "active-class",
-      "activeClassName": "active-class",
-      "changingClass": "changing-class",
-      "changingClassName": "changing-class",
       "autoplay": "autoplay",
       "current": "current",
-      "duration": "duration",
       "interval": "interval",
+      "duration": "duration",
       "circular": "circular",
       "vertical": "vertical",
       "previousMargin": "previous-margin",
       "nextMargin": "next-margin",
-      "acceleration": "acceleration",
-      "disableProgrammaticAnimation": "disable-programmatic-animation",
-      "onChange": "onChange",
-      "onTransition": "onTransition",
-      "onAnimationEnd": "onAnimationEnd",
-      "disableTouch": "disable-touch"
+      "displayMultipleItems": "display-multiple-items",
+      "skipHiddenItemLayout": "skip-hidden-item-layout",
+      "easingFunction": "easing-function",
+      "onChange": "bindchange",
+      "onTransition": "bindtransition",
+      "onAnimationFinish": "bindanimationfinish",
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "animation": "animation"
     }
   },
   "switch": {
@@ -598,8 +682,10 @@ var hostComponents = {
       "checked": "checked",
       "disabled": "disabled",
       "color": "color",
-      "onChange": "onChange",
-      "controlled": "controlled"
+      "onChange": "bindchange",
+      "controlled": "controlled",
+      "type": "type",
+      "animation": "animation"
     }
   },
   "text": {
@@ -610,9 +696,8 @@ var hostComponents = {
       "selectable": "selectable",
       "space": "space",
       "decode": "decode",
-      "numberOfLines": "number-of-lines",
-      "onClick": "onTap",
-      "onTap": "onTap"
+      "onTap": "bindtap",
+      "animation": "animation"
     }
   },
   "textarea": {
@@ -628,14 +713,68 @@ var hostComponents = {
       "placeholderClassName": "placeholder-class",
       "disabled": "disabled",
       "maxlength": "maxlength",
+      "autoFocus": "auto-focus",
       "focus": "focus",
+      "fixed": "fixed",
       "autoHeight": "auto-height",
       "showCount": "show-count",
       "controlled": "controlled",
-      "onInput": "onInput",
-      "onFocus": "onFocus",
-      "onBlur": "onBlur",
-      "onConfirm": "onConfirm"
+      "cursorSpacing": "cursor-spacing",
+      "cursor": "cursor",
+      "showConfirmBar": "show-confirm-bar",
+      "selectionStart": "selection-start",
+      "selectionEnd": "selection-end",
+      "adjustPosition": "adjust-position",
+      "onFocus": "bindfocus",
+      "onBlur": "bindblur",
+      "onLineChange": "bindlinechange",
+      "onInput": "bindinput",
+      "onConfirm": "bindconfirm",
+      "onKeyboardHeightChange": "bindkeyboardheightchange",
+      "animation": "animation"
+    }
+  },
+  "video": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "style": "style",
+      "src": "src",
+      "duration": "duration",
+      "controls": "controls",
+      "danmuList": "danmu-list",
+      "danmuBtn": "danmu-btn",
+      "enableDanmu": "enable-danmu",
+      "autoplay": "autoplay",
+      "loop": "loop",
+      "muted": "muted",
+      "initialTime": "initial-time",
+      "pageGesture": "page-gesture",
+      "direction": "direction",
+      "showProgress": "show-progress",
+      "showFullscreenBtn": "show-fullscreen-btn",
+      "showPlayBtn": "show-play-btn",
+      "showCenterPlayBtn": "show-center-play-btn",
+      "enableProgressGesture": "enable-progress-gesture",
+      "objectFit": "object-fit",
+      "poster": "poster",
+      "showMuteBtn": "show-mute-btn",
+      "title": "title",
+      "playBtnPosition": "play-btn-position",
+      "enablePlayGesture": "enable-play-gesture",
+      "autoPauseIfNavigate": "auto-pause-if-navigate",
+      "autoPauseIfOpenNative": "auto-pause-if-open-native",
+      "vSlideGesture": "vslide-gesture",
+      "vSlideGestureInfullscreen": "vslide-gesture-in-fullscreen",
+      "onPlay": "bindplay",
+      "onPause": "bindpause",
+      "onEnded": "bindended",
+      "onTimeUpdate": "bindtimeupdate",
+      "onFullscreenChange": "bindfullscreenchange",
+      "onWaiting": "bindwaiting",
+      "onError": "binderror",
+      "onProgress": "bindprogress",
+      "animation": "animation"
     }
   },
   "view": {
@@ -651,59 +790,26 @@ var hostComponents = {
       "style": "style",
       "animation": "animation",
       "hoverStopPropagation": "hover-stop-propagation",
-      "onClick": "onTap",
-      "onTap": "onTap",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel",
-      "onLongTap": "onLongTap",
-      "onLongClick": "onLongTap",
-      "onTransitionEnd": "onTransitionEnd",
-      "onAnimationIteration": "onAnimationIteration",
-      "onAnimationStart": "onAnimationStart",
-      "onAnimationEnd": "onAnimationEnd",
-      "onAppear": "onAppear",
-      "onDisappear": "onDisappear",
-      "onFirstAppear": "onFirstAppear"
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "onTouchStart": "bindtouchstart",
+      "onTouchMove": "bindtouchmove",
+      "onTouchEnd": "bindtouchend",
+      "onTouchCancel": "bindtouchcancel",
+      "onLongTap": "bindlongtap",
+      "onLongClick": "bindlongtap",
+      "onTransitionEnd": "bindtransitionend",
+      "onAnimationIteration": "bindanimationiteration",
+      "onAnimationStart": "bindanimationstart",
+      "onAnimationEnd": "bindanimationend"
     }
   },
   "web-view": {
     "alias": {
       "src": "src",
-      "onMessage": "onMessage"
-    }
-  },
-  "video": {
-    "alias": {
-      "className": "class",
-      "src": "src",
-      "id": "id",
-      "poster": "poster",
-      "objectFit": "objectFit",
-      "initialTime": "initial-time",
-      "duration": "duration",
-      "controls": "controls",
-      "autoplay": "autoplay",
-      "direction": "direction",
-      "loop": "loop",
-      "muted": "muted",
-      "showFullscreenBtn": "show-fullscreen-btn",
-      "showPlayBtn": "show-play-btn",
-      "showCenterPlayBtn": "show-center-play-btn",
-      "showMuteBtn": "show-mute-btn",
-      "enableProgressGesture": "enableProgressGesture",
-      "mobilenetHintType": "mobilenetHintType",
-      "onPlay": "onPlay",
-      "onPause": "onPause",
-      "onEnded": "onEnded",
-      "onTimeUpdate": "onTimeUpdate",
-      "onLoading": "onLoading",
-      "onError": "onError",
-      "onFullScreenChange": "onFullScreenChange",
-      "onTap": "onTap",
-      "onClick": "onTap",
-      "onUserAction": "onUserAction"
+      "onMessage": "bindmessage",
+      "onLoad": "bindload",
+      "onError": "binderror"
     }
   }
 } || {};
@@ -1256,6 +1362,87 @@ var hostConfig = {
 
 var ReactReconcilerInst = ReactReconciler(hostConfig);
 
+function getPublicRootInstance(container) {
+  var containerFiber = container.current;
+
+  if (!containerFiber.child) {
+    return null;
+  }
+
+  return containerFiber.child.stateNode;
+}
+
+function render(rootElement, container) {
+  // Create a root Container if it doesnt exist
+  if (!container._rootContainer) {
+    container._rootContainer = ReactReconcilerInst.createContainer(container, false, false);
+  }
+
+  ReactReconcilerInst.updateContainer(rootElement, container._rootContainer, null, function () {// ignore
+  });
+  return getPublicRootInstance(container._rootContainer);
+}
+
+var AppContainer =
+/** @class */
+function () {
+  function AppContainer(context) {
+    this.updateQueue = [];
+    this.context = context;
+    this.root = new VNode({
+      id: generate(),
+      type: 'root',
+      container: this
+    });
+    this.root.mounted = true;
+  }
+
+  AppContainer.prototype.requestUpdate = function (path, start, deleteCount) {
+    var items = [];
+
+    for (var _i = 3; _i < arguments.length; _i++) {
+      items[_i - 3] = arguments[_i];
+    } // ignore
+
+  };
+
+  AppContainer.prototype.createCallback = function (name, fn) {
+    this.context[name] = fn;
+  };
+
+  AppContainer.prototype.appendChild = function (child) {
+    this.root.appendChild(child, true);
+  };
+
+  AppContainer.prototype.removeChild = function (child) {
+    this.root.removeChild(child, true);
+  };
+
+  AppContainer.prototype.insertBefore = function (child, beforeChild) {
+    this.root.insertBefore(child, beforeChild, true);
+  };
+
+  return AppContainer;
+}();
+
+function fnBody(fn) {
+  return fn.toString().replace(/^[^{]*{\s*/, '').replace(/\s*}[^}]*$/, '');
+}
+
+function isClass(fn) {
+  if (typeof fn !== 'function') {
+    return false;
+  }
+
+  if (/^class[\s{]/.test(toString.call(fn))) {
+    return true;
+  } // babel.js classCallCheck() & inlined
+
+
+  var body = fnBody(fn);
+  return /classCallCheck/.test(body) || /TypeError\("Cannot call a class as a function"\)/.test(body);
+}
+
 function isClassComponent(Component) {
   return Component.prototype && typeof Component.prototype.render === 'function';
 }
@@ -1304,50 +1491,18 @@ function callbackName(name) {
   return 'on' + capitalize(name);
 }
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
+var context = {
+  lifecycleCallback: {},
+  registerLifecycle: function registerLifecycle(lifecycle, callback) {
+    var _this = this;
+
+    this.lifecycleCallback[lifecycle] = this.lifecycleCallback[lifecycle] || [];
+    this.lifecycleCallback[lifecycle].push(callback);
+    return function () {
+      _this.lifecycleCallback[lifecycle].splice(_this.lifecycleCallback[lifecycle].indexOf(callback), 1);
+    };
   }
-}
-
-function _initializerDefineProperty(target, property, descriptor, context) {
-  if (!descriptor) return;
-  Object.defineProperty(target, property, {
-    enumerable: descriptor.enumerable,
-    configurable: descriptor.configurable,
-    writable: descriptor.writable,
-    value: descriptor.initializer ? descriptor.initializer.call(context) : void 0
-  });
-}
-
-function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-  var desc = {};
-  Object.keys(descriptor).forEach(function (key) {
-    desc[key] = descriptor[key];
-  });
-  desc.enumerable = !!desc.enumerable;
-  desc.configurable = !!desc.configurable;
-
-  if ('value' in desc || desc.initializer) {
-    desc.writable = true;
-  }
-
-  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-    return decorator(target, property, desc) || desc;
-  }, desc);
-
-  if (context && desc.initializer !== void 0) {
-    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-    desc.initializer = undefined;
-  }
-
-  if (desc.initializer === void 0) {
-    Object.defineProperty(target, property, desc);
-    desc = null;
-  }
-
-  return desc;
-}
+};
 
 /* eslint-disable */
 
@@ -1377,9 +1532,7 @@ var __extends = undefined && undefined.__extends || function () {
       d.__proto__ = b;
     } || function (d, b) {
       for (var p in b) {
-        if (b.hasOwnProperty(p)) {
-          d[p] = b[p];
-        }
+        if (b.hasOwnProperty(p)) d[p] = b[p];
       }
     };
 
@@ -1413,6 +1566,101 @@ function (_super) {
   return DefaultAppComponent;
 }(React.Component);
 
+function createAppConfig(App) {
+  var _this = this;
+
+  var createConfig = function createConfig(AppComponent) {
+    if (AppComponent === void 0) {
+      AppComponent = DefaultAppComponent;
+    }
+
+    var config = {
+      _container: new AppContainer(_this),
+      _pages: [],
+      _instance: React.createRef(),
+      callLifecycle: function callLifecycle(lifecycle) {
+        var _a;
+
+        var args = [];
+
+        for (var _i = 1; _i < arguments.length; _i++) {
+          args[_i - 1] = arguments[_i];
+        }
+
+        var callbacks = context.lifecycleCallback[lifecycle] || [];
+        var result;
+        callbacks.forEach(function (callback) {
+          result = callback.apply(void 0, args);
+        });
+
+        if (result) {
+          return result;
+        }
+
+        var callback = callbackName(lifecycle);
+
+        if (this._instance.current && this._instance.current[callback]) {
+          return (_a = this._instance.current)[callback].apply(_a, args);
+        }
+      },
+      onLaunch: function onLaunch(options) {
+        this._render();
+
+        this.callLifecycle(AppLifecycle.launch, options);
+      },
+      onShow: function onShow(options) {
+        this.callLifecycle(AppLifecycle.show, options);
+      },
+      onHide: function onHide() {
+        this.callLifecycle(AppLifecycle.hide);
+      },
+      onError: function onError(error) {
+        this.callLifecycle(AppLifecycle.error, error);
+      },
+      // 支付宝
+      onShareAppMessage: function onShareAppMessage(options) {
+        this.callLifecycle(AppLifecycle.shareAppMessage, options);
+      },
+      // 微信
+      onPageNotFound: function onPageNotFound(options) {
+        this.callLifecycle(AppLifecycle.pageNotFound, options);
+      },
+      _mount: function _mount(pageInstance) {
+        this._pages.push(pageInstance);
+
+        this._render();
+      },
+      _unmount: function _unmount(pageInstance) {
+        this._pages.splice(this._pages.indexOf(pageInstance), 1);
+
+        this._render();
+      },
+      _render: function _render() {
+        var props = {};
+
+        if (isClassComponent(AppComponent) || AppComponent.$$typeof === ForwardRef) {
+          props.ref = this._instance;
+        }
+
+        return render(React.createElement(AppComponent, props, this._pages.map(function (p) {
+          return p.element;
+        })), this._container);
+      }
+    };
+    return config;
+  }; // 兼容老的写法
+
+
+  if (isClass(App) && !isClassComponent(App)) {
+    // eslint-disable-next-line no-console
+    console.warn('使用非 React 组件定义 App 的方式已经废弃，详细请参考：https://remaxjs.org/guide/framework');
+    Object.assign(App.prototype, createConfig());
+    return new App();
+  } else {
+    return createConfig(App);
+  }
+}
+
 var PageInstanceContext = React.createContext(null);
 
 var __extends$1 = undefined && undefined.__extends || function () {
@@ -1423,9 +1671,7 @@ var __extends$1 = undefined && undefined.__extends || function () {
       d.__proto__ = b;
     } || function (d, b) {
       for (var p in b) {
-        if (b.hasOwnProperty(p)) {
-          d[p] = b[p];
-        }
+        if (b.hasOwnProperty(p)) d[p] = b[p];
       }
     };
 
@@ -1468,10 +1714,7 @@ function createPageWrapper(Page, query) {
 
         _this.pageComponentInstance = null;
         _this.callbacks = new Map();
-
-        var _a2 = Object.keys(Lifecycle);
-
-        var _f = function _f(phase) {
+        Object.keys(Lifecycle).forEach(function (phase) {
           var callback = callbackName(phase);
 
           _this[callback] = function () {
@@ -1483,11 +1726,7 @@ function createPageWrapper(Page, query) {
 
             return _this.callLifecycle.apply(_this, __spreadArrays$2([phase], args));
           };
-        };
-
-        for (var _i2 = 0; _i2 < _a2.length; _i2++) {
-          _f(_a2[_i2]);
-        }
+        });
         return _this;
       }
 
@@ -1560,19 +1799,13 @@ function connect(listener, once) {
 }
 
 function run() {
-  var _a = effector.listenerConfigs;
-
-  var _f = function _f(config) {
+  effector.listenerConfigs.forEach(function (config) {
     config.listener();
 
     if (config.once) {
       dispose(config.listener);
     }
-  };
-
-  for (var _i = 0; _i < _a.length; _i++) {
-    _f(_a[_i]);
-  }
+  });
 }
 
 var nativeEffect = {
@@ -1682,9 +1915,7 @@ function () {
       }
 
       $batchedUpdates(function () {
-        var _a2 = _this.updateQueue;
-
-        var _f = function _f(update, index) {
+        _this.updateQueue.map(function (update, index) {
           var _a;
 
           var callback = undefined;
@@ -1696,39 +1927,23 @@ function () {
           }
 
           _this.context.$spliceData((_a = {}, _a[update.path] = __spreadArrays$3([update.start, update.deleteCount], update.items), _a), callback);
-        };
-
-        var _r = [];
-
-        for (var _i2 = 0; _i2 < _a2.length; _i2++) {
-          _r.push(_f(_a2[_i2], _i2));
-        }
+        });
       });
       this.updateQueue = [];
       return;
     } // TODO 统一更新行为
 
 
-    var _a3 = this.updateQueue;
-
-    var _f2 = function _f2(update) {
-      return {
-        path: update.path,
-        start: update.start,
-        deleteCount: update.deleteCount,
-        item: update.items[0]
-      };
-    };
-
-    var _r2 = [];
-
-    for (var _i3 = 0; _i3 < _a3.length; _i3++) {
-      _r2.push(_f2(_a3[_i3]));
-    }
-
     var action = {
       type: 'splice',
-      payload: _r2,
+      payload: this.updateQueue.map(function (update) {
+        return {
+          path: update.path,
+          start: update.start,
+          deleteCount: update.deleteCount,
+          item: update.items[0]
+        };
+      }),
       id: generate$1()
     };
 
@@ -1844,15 +2059,9 @@ function createPageConfig(Page) {
 
       var callbacks = this.lifecycleCallback[lifecycle] || [];
       var result;
-      var _a2 = callbacks;
-
-      var _f = function _f(callback) {
+      callbacks.forEach(function (callback) {
         result = callback.apply(void 0, args);
-      };
-
-      for (var _i2 = 0; _i2 < _a2.length; _i2++) {
-        _f(_a2[_i2]);
-      }
+      });
 
       if (result) {
         return result;
@@ -1927,9 +2136,7 @@ var __assign$1 = undefined && undefined.__assign || function () {
       s = arguments[i];
 
       for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) {
-          t[p] = s[p];
-        }
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
       }
     }
 
@@ -1938,404 +2145,16 @@ var __assign$1 = undefined && undefined.__assign || function () {
 
   return __assign$1.apply(this, arguments);
 };
-function createNativeComponent(name) {
-  return React.forwardRef(function (props, ref) {
-    if (typeof ref === 'string') {
-      console.error('不支持使用 string 获取小程序组件 ref，请使用回调或 React.createRef/React.useRef');
-    }
-
-    var newProps = __assign$1({}, props);
-
-    newProps.__ref = typeof ref === 'function' ? ref : function (e) {
-      if (ref) {
-        ref.current = e;
-      }
-    };
-    return React.createElement(name, newProps, props.children);
-  });
-}
 
 var unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;
 
-var __assign$2 = undefined && undefined.__assign || function () {
-  __assign$2 = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) {
-          t[p] = s[p];
-        }
-      }
-    }
-
-    return t;
-  };
-
-  return __assign$2.apply(this, arguments);
-};
-function createHostComponent(name) {
-  var Component = function Component(props, ref) {
-    var _a = props.children,
-        children = _a === void 0 ? [] : _a;
-    return React.createElement(name, __assign$2(__assign$2({}, props), {
-      ref: ref
-    }), children);
-  };
-
-  return React.forwardRef(Component);
-}
-
-var View = createHostComponent('view');
-
-var ScrollView = createHostComponent('scroll-view');
-
-createHostComponent('swiper');
-
-createHostComponent('swiper-item');
-
-var MovableView = createHostComponent('movable-view');
-
-var MovableArea = createHostComponent('movable-area');
-
-var CoverView = createHostComponent('cover-view');
-
-var CoverImage = createHostComponent('cover-image');
-
-createHostComponent('icon');
-
-var Text = createHostComponent('text');
-
-createHostComponent('rich-text');
-
-createHostComponent('progress');
-
-var Button = createHostComponent('button');
-
-createHostComponent('checkbox-group');
-
-createHostComponent('checkbox');
-
-var Form = createHostComponent('form');
-
-var Input = createHostComponent('input');
-
-createHostComponent('label');
-
-createHostComponent('picker');
-
-var PickerView = createHostComponent('picker-view');
-
-createHostComponent('picker-view-column');
-
-createHostComponent('radio-group');
-
-createHostComponent('radio');
-
-createHostComponent('slider');
-
-createHostComponent('switch');
-
-var Textarea = createHostComponent('textarea');
-
-createHostComponent('navigator');
-
-var Image = createHostComponent('image');
-
-var Map$1 = createHostComponent('map');
-
-var Canvas = createHostComponent('canvas');
-
-createHostComponent('web-view');
-
-createHostComponent('lifestyle');
-
-createHostComponent('contact-button');
-
-createHostComponent('video');
-
-var __assign$3 = undefined && undefined.__assign || function () {
-  __assign$3 = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) {
-          t[p] = s[p];
-        }
-      }
-    }
-
-    return t;
-  };
-
-  return __assign$3.apply(this, arguments);
-};
-
-function promisify(api) {
-  return function (arg) {
-    if (arg === void 0) {
-      arg = {};
-    }
-
-    return new Promise(function (resolve, reject) {
-      var promisifyArg = arg;
-      api(__assign$3(__assign$3({}, promisifyArg), {
-        success: function success(res) {
-          if (promisifyArg && typeof promisifyArg.success === 'function') {
-            promisifyArg.success(res);
-          }
-
-          resolve(res);
-        },
-        fail: function fail(res) {
-          if (promisifyArg && typeof promisifyArg.fail === 'function') {
-            promisifyArg.fail(res);
-          }
-
-          reject(res);
-        }
-      }));
-    });
-  };
-}
-
-var getAppStub = getApp;
-var addCardAuth = promisify(my.addCardAuth);
-var addPhoneContact = promisify(my.addPhoneContact);
-var alert = promisify(my.alert);
-var canIUse = my.canIUse;
-var chooseAlipayContact = promisify(my.chooseAlipayContact);
-var chooseCity = promisify(my.chooseCity);
-var chooseContact = promisify(my.chooseContact);
-var chooseImage = promisify(my.chooseImage);
-var chooseLocation = promisify(my.chooseLocation);
-var choosePhoneContact = promisify(my.choosePhoneContact);
-var clearStorage = my.clearStorage;
-var clearStorageSync = my.clearStorageSync;
-var closeBluetoothAdapter = promisify(my.closeBluetoothAdapter);
-var closeSocket = promisify(my.closeSocket);
-var compressImage = promisify(my.compressImage);
-var confirm = promisify(my.confirm);
-var connectBLEDevice = promisify(my.connectBLEDevice);
-var connectSocket = promisify(my.connectSocket);
-var createAnimation = my.createAnimation;
-var createCanvasContext = my.createCanvasContext;
-var createIntersectionObserver = my.createIntersectionObserver;
-var createMapContext = my.createMapContext;
-var createSelectorQuery = my.createSelectorQuery;
-var createWebViewContext = my.createWebViewContext;
-var datePicker = promisify(my.datePicker);
-var disconnectBLEDevice = promisify(my.disconnectBLEDevice);
-var downloadFile = promisify(my.downloadFile);
-var getAuthCode = promisify(my.getAuthCode);
-var getAuthUserInfo = promisify(my.getAuthUserInfo);
-var getBatteryInfo = promisify(my.getBatteryInfo);
-var getBatteryInfoSync = my.getBatteryInfoSync;
-var getBeacons = promisify(my.getBeacons);
-var getBLEDeviceCharacteristics = promisify(my.getBLEDeviceCharacteristics);
-var getBLEDeviceServices = promisify(my.getBLEDeviceServices);
-var getBluetoothAdapterState = promisify(my.getBluetoothAdapterState);
-var getBluetoothDevices = promisify(my.getBluetoothDevices);
-var getClipboard = promisify(my.getClipboard);
-var getConnectedBluetoothDevices = promisify(my.getConnectedBluetoothDevices);
-var getFileInfo = promisify(my.getFileInfo);
-var getImageInfo = promisify(my.getImageInfo);
-var getLocation = promisify(my.getLocation);
-var getNetworkType = promisify(my.getNetworkType);
-var getPhoneNumber = promisify(my.getPhoneNumber);
-var getRunData = promisify(my.getRunData);
-var getRunScene = promisify(my.getRunScene);
-var getSavedFileInfo = promisify(my.getSavedFileInfo);
-var getSavedFileList = promisify(my.getSavedFileList);
-var getScreenBrightness = promisify(my.getScreenBrightness);
-var getServerTime = promisify(my.getServerTime);
-var getSetting = promisify(my.getSetting);
-var getStorage = promisify(my.getStorage);
-var getStorageInfo = promisify(my.getStorageInfo);
-var getStorageInfoSync = my.getStorageInfoSync;
-var getStorageSync = my.getStorageSync;
-var getSystemInfo = promisify(my.getSystemInfo);
-var getSystemInfoSync = my.getSystemInfoSync;
-var getTitleColor = promisify(my.getTitleColor);
-var getUpdateManager = my.getUpdateManager;
-var hideAddToDesktopMenu = my.hideAddToDesktopMenu;
-var hideAllAddToDesktopMenu = my.hideAllAddToDesktopMenu;
-var hideAllFavoriteMenu = my.hideAllFavoriteMenu;
-var hideBackHome = my.hideBackHome;
-var hideFavoriteMenu = my.hideFavoriteMenu;
-var hideKeyboard = my.hideKeyboard;
-var hideLoading = my.hideLoading;
-var hideNavigationBarLoading = my.hideNavigationBarLoading;
-var hideShareMenu = my.hideShareMenu;
-var hideTabBar = my.hideTabBar;
-var hideTabBarRedDot = my.hideTabBarRedDot;
-var hideToast = my.hideToast;
-var loadFontFace = promisify(my.loadFontFace);
-var makePhoneCall = my.makePhoneCall;
-var multiLevelSelect = promisify(my.multiLevelSelect);
-var navigateBack = promisify(my.navigateBack);
-var navigateBackMiniProgram = promisify(my.navigateBackMiniProgram);
-var navigateTo = promisify(my.navigateTo);
-var navigateToMiniProgram = promisify(my.navigateToMiniProgram);
-var notifyBLECharacteristicValueChange = promisify(my.notifyBLECharacteristicValueChange);
-var offAccelerometerChange = my.offAccelerometerChange;
-var offBLECharacteristicValueChange = my.offBLECharacteristicValueChange;
-var offBLEConnectionStateChanged = my.offBLEConnectionStateChanged;
-var offBluetoothAdapterStateChange = my.offBluetoothAdapterStateChange;
-var offBluetoothDeviceFound = my.offBluetoothDeviceFound;
-var offCompassChange = my.offCompassChange;
-var offGyroscopeChange = my.offGyroscopeChange;
-var offMemoryWarning = my.offMemoryWarning;
-var offNetworkStatusChange = my.offNetworkStatusChange;
-var offSocketClose = my.offSocketClose;
-var offSocketError = my.offSocketError;
-var offSocketMessage = my.offSocketMessage;
-var offSocketOpen = my.offSocketOpen;
-var offUserCaptureScreen = my.offUserCaptureScreen;
-var onAccelerometerChange = my.onAccelerometerChange;
-var onBeaconServiceChange = my.onBeaconServiceChange;
-var onBeaconUpdate = my.onBeaconUpdate;
-var onBLECharacteristicValueChange = my.onBLECharacteristicValueChange;
-var onBLEConnectionStateChanged = my.onBLEConnectionStateChanged;
-var onBluetoothAdapterStateChange = my.onBluetoothAdapterStateChange;
-var onBluetoothDeviceFound = my.onBluetoothDeviceFound;
-var onCompassChange = my.onCompassChange;
-var onGyroscopeChange = my.onGyroscopeChange;
-var onMemoryWarning = my.onMemoryWarning;
-var onNetworkStatusChange = my.onNetworkStatusChange;
-var onSocketClose = my.onSocketClose;
-var onSocketError = my.onSocketError;
-var onSocketMessage = my.onSocketMessage;
-var onSocketOpen = my.onSocketOpen;
-var onUserCaptureScreen = my.onUserCaptureScreen;
-var openBluetoothAdapter = my.openBluetoothAdapter;
-var openCardDetail = my.openCardDetail;
-var openCardList = my.openCardList;
-var openKBVoucherDetail = my.openKBVoucherDetail;
-var openLocation = promisify(my.openLocation);
-var openMerchantCardList = my.openMerchantCardList;
-var openMerchantTicketList = my.openMerchantTicketList;
-var openMerchantVoucherList = my.openMerchantVoucherList;
-var openSetting = promisify(my.openSetting);
-var openTicketDetail = my.openTicketDetail;
-var openTicketList = my.openTicketList;
-var openVoucherDetail = my.openVoucherDetail;
-var openVoucherList = my.openVoucherList;
-var optionsSelect = my.optionsSelect;
-var pageScrollTo = promisify(my.pageScrollTo);
-var previewImage = promisify(my.previewImage);
-var prompt = promisify(my.prompt);
-var readBLECharacteristicValue = promisify(my.readBLECharacteristicValue);
-var redirectTo = promisify(my.redirectTo);
-var reLaunch = promisify(my.reLaunch);
-var removeSavedFile = promisify(my.removeSavedFile);
-var removeStorage = promisify(my.removeStorage);
-var removeStorageSync = my.removeStorageSync;
-var removeTabBarBadge = promisify(my.removeTabBarBadge);
-var reportAnalytics = my.reportAnalytics;
-var request = promisify(my.request);
-var rsa = promisify(my.rsa);
-var saveFile = promisify(my.saveFile);
-var saveImage = promisify(my.saveImage);
-var scan = promisify(my.scan);
-var SDKVersion = my.SDKVersion;
-var sendSocketMessage = promisify(my.sendSocketMessage);
-var setBackgroundColor = promisify(my.setBackgroundColor);
-var setBackgroundTextStyle = promisify(my.setBackgroundTextStyle);
-var setCanPullDown = my.setCanPullDown;
-var setClipboard = promisify(my.setClipboard);
-var setKeepScreenOn = promisify(my.setKeepScreenOn);
-var setNavigationBar = promisify(my.setNavigationBar);
-var setOptionMenu = my.setOptionMenu;
-var setScreenBrightness = promisify(my.setScreenBrightness);
-var setStorage = promisify(my.setStorage);
-var setStorageSync = my.setStorageSync;
-var setTabBarBadge = promisify(my.setTabBarBadge);
-var setTabBarItem = promisify(my.setTabBarItem);
-var setTabBarStyle = promisify(my.setTabBarStyle);
-var showActionSheet = promisify(my.showActionSheet);
-var showAuthGuide = my.showAuthGuide;
-var showLoading = promisify(my.showLoading);
-var showNavigationBarLoading = promisify(my.showNavigationBarLoading);
-var showSharePanel = my.showSharePanel;
-var showTabBar = promisify(my.showTabBar);
-var showTabBarRedDot = promisify(my.showTabBarRedDot);
-var showToast = promisify(my.showToast);
-var startBeaconDiscovery = promisify(my.startBeaconDiscovery);
-var startBluetoothDevicesDiscovery = promisify(my.startBluetoothDevicesDiscovery);
-var startPullDownRefresh = promisify(my.startPullDownRefresh);
-var startZMVerify = my.startZMVerify;
-var stopBeaconDiscovery = promisify(my.stopBeaconDiscovery);
-var stopBluetoothDevicesDiscovery = promisify(my.stopBluetoothDevicesDiscovery);
-var stopPullDownRefresh = promisify(my.stopPullDownRefresh);
-var switchTab = promisify(my.switchTab);
-var textRiskIdentification = promisify(my.textRiskIdentification);
-var tradePay = promisify(my.tradePay);
-var uploadFile = promisify(my.uploadFile);
-var vibrate = promisify(my.vibrate);
-var vibrateLong = promisify(my.vibrateLong);
-var vibrateShort = promisify(my.vibrateShort);
-var watchShake = my.watchShake;
-var writeBLECharacteristicValue = promisify(my.writeBLECharacteristicValue);
-var createVideoContext = my.createVideoContext;
-var getOpenUserInfo = promisify(my.getOpenUserInfo);
-
-var A = createNativeComponent('a-0');
-
-var _class, _descriptor, _temp;
-
-var N;
-
-(function (_N) {
-  var V = _N.V = 1;
-})(N || (N = {})); // eslint-disable-next-line @typescript-eslint/no-namespace
-
-
-(function (_N2) {
-  var W = _N2.W = V;
-})(N || (N = {}));
-
-function timesTwo(arr) {
-  var _a = arr;
-
-  var _f = function _f(n) {
-    return n * 2;
-  };
-
-  var _r = [];
-
-  for (var _i = 0; _i < _a.length; _i++) {
-    _r.push(_f(_a[_i]));
-  }
-
-  return _r;
-}
-
-function readonly(target, name, descriptor) {
-  descriptor.writable = false;
-  return descriptor;
-}
-
-var C = (_class = (_temp = function C() {
-  _classCallCheck(this, C);
-
-  _initializerDefineProperty(this, "p", _descriptor, this);
-}, _temp), _descriptor = _applyDecoratedDescriptor(_class.prototype, "p", [readonly], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: function initializer() {
-    return 'p';
-  }
-}), _class);
-var c = new C();
-c.p = 'a';
-
-var _page = function _page() {
-  return React.createElement(View, null, timesTwo([1, 2, 3]), N.V, N.W, c.p, React.createElement(A, null));
-};
-
-var index = Page(createPageConfig(_page));
-
-exports.default = index;
+exports.Platform = Platform;
+exports._classCallCheck = _classCallCheck;
+exports._createClass = _createClass;
+exports._extends = _extends;
+exports._getPrototypeOf = _getPrototypeOf;
+exports._inherits = _inherits;
+exports._possibleConstructorReturn = _possibleConstructorReturn;
+exports._slicedToArray = _slicedToArray;
+exports.createAppConfig = createAppConfig;
+exports.createPageConfig = createPageConfig;

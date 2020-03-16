@@ -5,7 +5,58 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var ReactReconciler = _interopDefault(require('react-reconciler'));
 var scheduler = require('scheduler');
 var React = require('react');
-var React__default = _interopDefault(React);
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -92,48 +143,6 @@ function _possibleConstructorReturn(self, call) {
   }
 
   return _assertThisInitialized(self);
-}
-
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
-}
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-function _iterableToArrayLimit(arr, i) {
-  if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
-    return;
-  }
-
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance");
 }
 
 var REMAX_METHOD = '$$REMAX_METHOD';
@@ -309,35 +318,6 @@ var __assign = undefined && undefined.__assign || function () {
   return __assign.apply(this, arguments);
 };
 var hostComponents = {
-  "ad": {
-    "alias": {
-      "unitId": "unit-id",
-      "adIntervals": "ad-intervals",
-      "onLoad": "bindload",
-      "onError": "binderror",
-      "onClose": "bindclose",
-      "animation": "animation"
-    }
-  },
-  "audio": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "src": "src",
-      "loop": "loop",
-      "controls": "controls",
-      "poster": "poster",
-      "name": "name",
-      "author": "author",
-      "onError": "binderror",
-      "onPlay": "bindplay",
-      "onPause": "bindpause",
-      "onTimeUpdate": "bindtimeupdate",
-      "onEnded": "bindended",
-      "animation": "animation"
-    }
-  },
   "button": {
     "alias": {
       "className": "class",
@@ -359,9 +339,9 @@ var hostComponents = {
       "sendMessageTitle": "send-message-title",
       "sendMessagePath": "send-message-path",
       "sendMessageImg": "send-message-img",
-      "size": "size",
       "appParameter": "app-parameter",
       "showMessageCard": "show-message-card",
+      "onGetUserinfo": "bindgetuserinfo",
       "onGetUserInfo": "bindgetuserinfo",
       "onContact": "bindcontact",
       "onGetPhoneNumber": "bindgetphonenumber",
@@ -370,22 +350,6 @@ var hostComponents = {
       "onLaunchApp": "bindlaunchapp",
       "onTap": "bindtap",
       "onClick": "bindtap",
-      "animation": "animation"
-    }
-  },
-  "camera": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "mode": "mode",
-      "devicePosition": "device-position",
-      "flash": "flash",
-      "frameSize": "frame-size",
-      "onStop": "bindstop",
-      "onError": "binderror",
-      "onInitDone": "bindinitdone",
-      "onScanCode": "bindscancode",
       "animation": "animation"
     }
   },
@@ -405,8 +369,6 @@ var hostComponents = {
       "onTouchCancel": "bindtouchcancel",
       "onLongTap": "bindlongtap",
       "onLongClick": "bindlongtap",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
       "onError": "binderror",
       "animation": "animation"
     }
@@ -416,9 +378,7 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "name": "name",
-      "onChange": "bindchange",
-      "animation": "animation"
+      "onChange": "bindchange"
     }
   },
   "checkbox": {
@@ -434,48 +394,6 @@ var hostComponents = {
       "animation": "animation"
     }
   },
-  "cover-image": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "src": "src",
-      "onLoad": "bindload",
-      "onError": "binderror",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "animation": "animation"
-    }
-  },
-  "cover-view": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "scrollTop": "scroll-top",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "animation": "animation"
-    }
-  },
-  "editor": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "readOnly": "read-only",
-      "placeholder": "placeholder",
-      "showImgSize": "show-img-size",
-      "showImgToolbar": "show-img-toolbar",
-      "showImgResize": "show-img-resize",
-      "onReady": "bindready",
-      "onFocus": "bindfocus",
-      "onBlur": "bindblur",
-      "onInput": "bindinput",
-      "onStatusChange": "bindstatuschange",
-      "animation": "animation"
-    }
-  },
   "form": {
     "alias": {
       "id": "id",
@@ -485,16 +403,6 @@ var hostComponents = {
       "onSubmit": "bindsubmit",
       "onReset": "bindreset",
       "reportSubmitTimeout": "report-submit-timeout",
-      "animation": "animation"
-    }
-  },
-  "functional-page-navigator": {
-    "alias": {
-      "version": "version",
-      "name": "name",
-      "args": "args",
-      "onSuccess": "bindsuccess",
-      "onFail": "bindfail",
       "animation": "animation"
     }
   },
@@ -527,7 +435,6 @@ var hostComponents = {
   },
   "input": {
     "alias": {
-      "id": "id",
       "autoFocus": "auto-focus",
       "className": "class",
       "focus": "focus",
@@ -565,148 +472,7 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "for": "for",
-      "animation": "animation",
-      "onClick": "bindtap",
-      "onTap": "bindtap"
-    }
-  },
-  "live-player": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "src": "src",
-      "mode": "mode",
-      "autoplay": "autoplay",
-      "muted": "muted",
-      "orientation": "orientation",
-      "objectFit": "object-fit",
-      "background": "background",
-      "minCache": "min-cache",
-      "maxCache": "max-cache",
-      "soundMode": "sound-mode",
-      "autoPauseIfNavigate": "auto-pause-if-navigate",
-      "autoPauseIfOpenNative": "auto-pause-if-open-native",
-      "onStateChange": "bindstatechange",
-      "onFullscreenChange": "bindfullscreenchange",
-      "onFullScreenChange": "bindfullscreenchange",
-      "onNetStatus": "bindnetstatus",
       "animation": "animation"
-    }
-  },
-  "live-pusher": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "url": "url",
-      "mode": "mode",
-      "autopush": "autopush",
-      "muted": "muted",
-      "enableCamera": "enable-camera",
-      "autoFocus": "auto-focus",
-      "orientation": "orientation",
-      "beauty": "beauty",
-      "whiteness": "whiteness",
-      "aspect": "aspect",
-      "minBitrate": "min-bitrate",
-      "maxBitrate": "max-bitrate",
-      "waitingImage": "waiting-image",
-      "waitingImageHash": "waiting-image-hash",
-      "zoom": "zoom",
-      "devicePosition": "device-position",
-      "backgroundMute": "background-mute",
-      "mirror": "mirror",
-      "onStateChange": "bindstatechange",
-      "onNetStatus": "bindnetstatus",
-      "onError": "binderror",
-      "onBgmStart": "bindbgmstart",
-      "onBgmProgress": "bindbgmprogress",
-      "onBgmComplete": "bindbgmcomplete",
-      "animation": "animation"
-    }
-  },
-  "map": {
-    "alias": {
-      "id": "id",
-      "style": "style",
-      "className": "class",
-      "latitude": "latitude",
-      "longitude": "longitude",
-      "scale": "scale",
-      "markers": "markers",
-      "polyline": "polyline",
-      "circles": "circles",
-      "controls": "controls",
-      "polygon": "polygon",
-      "showLocation": "show-location",
-      "includePoints": "include-points",
-      "includePadding": "include-padding",
-      "groundOverlays": "ground-overlays",
-      "tileOverlay": "tile-overlay",
-      "setting": "setting",
-      "covers": "covers",
-      "subkey": "subkey",
-      "layerStyle": "layer-style",
-      "rotate": "rotate",
-      "skew": "skew",
-      "enable3D": "enable-3D",
-      "showCompass": "show-compass",
-      "showScale": "show-scale",
-      "enableOverlooking": "enable-overlooking",
-      "enableZoom": "enable-zoom",
-      "enableScroll": "enable-scroll",
-      "enableRotate": "enable-rotate",
-      "enableSatellite": "enable-satellite",
-      "enableTraffic": "enable-traffic",
-      "onTap": "bindtap",
-      "onClick": "bindtap",
-      "onMarkerTap": "bindmarkertap",
-      "onMarkerClick": "bindmarkertap",
-      "onControlTap": "bindcontroltap",
-      "onControlClick": "bindcontroltap",
-      "onCalloutTap": "bindcallouttap",
-      "onCalloutClick": "bindcallouttap",
-      "onUpdated": "bindupdated",
-      "onRegionChange": "bindregionchange",
-      "onPoiTap": "bindpoitap",
-      "onPoiClick": "bindpoitap",
-      "animation": "animation"
-    }
-  },
-  "movable-area": {
-    "alias": {
-      "className": "class",
-      "style": "style",
-      "width": "width",
-      "height": "height",
-      "id": "id",
-      "scaleArea": "scale-area",
-      "animation": "animation"
-    }
-  },
-  "movable-view": {
-    "alias": {
-      "className": "class",
-      "style": "style",
-      "id": "id",
-      "direction": "direction",
-      "inertia": "inertia",
-      "outOfBounds": "out-of-bounds",
-      "x": "x",
-      "y": "y",
-      "damping": "damping",
-      "friction": "friction",
-      "disabled": "disabled",
-      "scale": "scale",
-      "scaleMin": "scale-min",
-      "scaleMax": "scale-max",
-      "scaleValue": "scale-value",
-      "animation": "animation",
-      "onChange": "bindchange",
-      "onScale": "bindscale",
-      "hTouchMove": "htouchmove",
-      "vTouchMove": "vtouchmove"
     }
   },
   "navigator": {
@@ -731,19 +497,6 @@ var hostComponents = {
       "onFail": "bindfail",
       "onComplete": "bindcomplete",
       "animation": "animation"
-    }
-  },
-  "official-account": {
-    "alias": {
-      "onLoad": "onLoad",
-      "onError": "onError"
-    }
-  },
-  "open-data": {
-    "alias": {
-      "type": "type",
-      "openGid": "open-gid",
-      "lang": "lang"
     }
   },
   "picker-view-column": {
@@ -888,7 +641,7 @@ var hostComponents = {
       "blockColor": "block-color",
       "onChange": "bindchange",
       "onChanging": "bindchanging",
-      "selectedColor": "selectedColor",
+      "selectedColor": "selected-color",
       "animation": "animation"
     }
   },
@@ -953,7 +706,6 @@ var hostComponents = {
       "space": "space",
       "decode": "decode",
       "onTap": "bindtap",
-      "onClick": "bindtap",
       "animation": "animation"
     }
   },
@@ -1018,17 +770,16 @@ var hostComponents = {
       "showMuteBtn": "show-mute-btn",
       "title": "title",
       "playBtnPosition": "play-btn-position",
-      "posterForCrawler": "poster-for-crawler",
       "enablePlayGesture": "enable-play-gesture",
       "autoPauseIfNavigate": "auto-pause-if-navigate",
       "autoPauseIfOpenNative": "auto-pause-if-open-native",
-      "vslideGesture": "vslide-gesture",
-      "vslideGestureInFullscreen": "vslide-gesture-in-fullscreen",
+      "vSlideGesture": "vslide-gesture",
+      "vSlideGestureInfullscreen": "vslide-gesture-in-fullscreen",
       "onPlay": "bindplay",
       "onPause": "bindpause",
       "onEnded": "bindended",
       "onTimeUpdate": "bindtimeupdate",
-      "onFullScreenChange": "bindfullscreenchange",
+      "onFullscreenChange": "bindfullscreenchange",
       "onWaiting": "bindwaiting",
       "onError": "binderror",
       "onProgress": "bindprogress",
@@ -1290,7 +1041,8 @@ function () {
     while (stack.length > 0) {
       // while 循环已经保证了不会有空值
       var stackItem = stack.pop();
-      var children = stackItem.children,
+      var _a = stackItem.children,
+          children = _a === void 0 ? [] : _a,
           currentNode = stackItem.currentNode;
 
       for (var i = children.length - 1; i >= 0; i--) {
@@ -1532,8 +1284,8 @@ var hostConfig = {
   getRootHostContext: function getRootHostContext() {
     return rootHostContext;
   },
-  shouldSetTextContent: function shouldSetTextContent() {
-    return false;
+  shouldSetTextContent: function shouldSetTextContent(type) {
+    return type === 'stub-block';
   },
   prepareForCommit: function prepareForCommit() {// nothing to do
   },
@@ -2405,13 +2157,13 @@ var __assign$1 = undefined && undefined.__assign || function () {
 
 var unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;
 
-exports.Platform = Platform;
+exports._asyncToGenerator = _asyncToGenerator;
 exports._classCallCheck = _classCallCheck;
 exports._createClass = _createClass;
 exports._extends = _extends;
 exports._getPrototypeOf = _getPrototypeOf;
 exports._inherits = _inherits;
 exports._possibleConstructorReturn = _possibleConstructorReturn;
-exports._slicedToArray = _slicedToArray;
+exports._typeof = _typeof;
 exports.createAppConfig = createAppConfig;
 exports.createPageConfig = createPageConfig;

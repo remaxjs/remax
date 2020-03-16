@@ -1,13 +1,7 @@
 'use strict';
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var index = require('./index-416ebf1d.js');
+require('./index-chunk.js');
 var React = require('react');
-var React__default = _interopDefault(React);
-
-var View = function View() {};
-var Text = function Text() {};
 
 var __assign = undefined && undefined.__assign || function () {
   __assign = Object.assign || function (t) {
@@ -40,7 +34,7 @@ function createHostComponent(name, component) {
   return React.forwardRef(Component);
 }
 
-var WechatView = createHostComponent('view');
+var View = createHostComponent('view');
 
 var Input = createHostComponent('input');
 Input.defaultProps = {
@@ -245,9 +239,9 @@ ScrollView.defaultProps = {
   upperThreshold: 50,
   lowerThreshold: 50
 };
-createHostComponent(componentName, ScrollView);
+var ScrollView$1 = createHostComponent(componentName, ScrollView);
 
-createHostComponent('swiper-item');
+var SwiperItem = createHostComponent('swiper-item');
 
 createHostComponent('movable-view');
 
@@ -259,7 +253,7 @@ createHostComponent('cover-image');
 
 createHostComponent('icon');
 
-var WechatText = createHostComponent('text');
+var Text = createHostComponent('text');
 
 createHostComponent('rich-text');
 
@@ -608,40 +602,9 @@ var createInterstitialAd = wx.createInterstitialAd;
 var cloud = wx.cloud;
 var requestSubscribeMessage = promisify(wx.requestSubscribeMessage);
 
-var View$1 = function View() {};
-var Text$1 = function Text() {};
-
-function View$2() {
-  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-  switch (index.Platform.current) {
-    case 'alipay':
-      return React.createElement(View, props);
-
-    case 'toutiao':
-      return React.createElement(View$1, props);
-
-    case 'wechat':
-    default:
-      return React.createElement(WechatView, props);
-  }
-}
-
-function Text$2() {
-  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-  switch (index.Platform.current) {
-    case 'alipay':
-      return React.createElement(Text, props);
-
-    case 'toutiao':
-      return React.createElement(Text$1, props);
-
-    case 'wechat':
-    default:
-      return React.createElement(WechatText, props);
-  }
-}
-
-exports.Text = Text$2;
-exports.View = View$2;
+exports.Input = Input;
+exports.ScrollView = ScrollView$1;
+exports.Swiper = Swiper;
+exports.SwiperItem = SwiperItem;
+exports.Text = Text;
+exports.View = View;

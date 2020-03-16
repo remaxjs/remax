@@ -2,12 +2,12 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var index$1 = require('../index-007f8e63.js');
+var index$1 = require('../index-chunk.js');
 require('react-reconciler');
 require('scheduler');
 var React = require('react');
-var alipay = require('../alipay-3210329c.js');
-var index = require('../index-bbdca153.js');
+var alipay = require('../alipay-chunk.js');
+var index = require('../index-chunk3.js');
 
 var B = index$1.createNativeComponent('b-0');
 

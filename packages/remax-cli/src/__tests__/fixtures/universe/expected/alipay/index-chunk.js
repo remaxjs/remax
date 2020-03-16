@@ -6,6 +6,58 @@ var ReactReconciler = _interopDefault(require('react-reconciler'));
 var scheduler = require('scheduler');
 var React = require('react');
 
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -26,6 +78,24 @@ function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
   return Constructor;
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
 }
 
 function _inherits(subClass, superClass) {
@@ -985,7 +1055,8 @@ function () {
     while (stack.length > 0) {
       // while 循环已经保证了不会有空值
       var stackItem = stack.pop();
-      var children = stackItem.children,
+      var _a = stackItem.children,
+          children = _a === void 0 ? [] : _a,
           currentNode = stackItem.currentNode;
 
       for (var i = children.length - 1; i >= 0; i--) {
@@ -1227,8 +1298,8 @@ var hostConfig = {
   getRootHostContext: function getRootHostContext() {
     return rootHostContext;
   },
-  shouldSetTextContent: function shouldSetTextContent() {
-    return false;
+  shouldSetTextContent: function shouldSetTextContent(type) {
+    return type === 'stub-block';
   },
   prepareForCommit: function prepareForCommit() {// nothing to do
   },
@@ -2100,11 +2171,14 @@ var __assign$1 = undefined && undefined.__assign || function () {
 
 var unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;
 
+exports.Platform = Platform;
+exports._asyncToGenerator = _asyncToGenerator;
 exports._classCallCheck = _classCallCheck;
 exports._createClass = _createClass;
+exports._extends = _extends;
 exports._getPrototypeOf = _getPrototypeOf;
 exports._inherits = _inherits;
 exports._possibleConstructorReturn = _possibleConstructorReturn;
+exports._typeof = _typeof;
 exports.createAppConfig = createAppConfig;
 exports.createPageConfig = createPageConfig;
-exports.unstable_batchedUpdates = unstable_batchedUpdates;

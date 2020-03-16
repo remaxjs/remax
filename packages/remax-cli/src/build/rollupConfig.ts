@@ -228,6 +228,7 @@ export default function rollupConfig(
     output: {
       dir: options.output,
       entryFileNames: '[name]',
+      chunkFileNames: process.env.NODE_ENV === 'test' ? '[name]-chunk.js' : '',
       format: 'cjs',
       exports: 'named',
       sourcemap: false,

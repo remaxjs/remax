@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var index = require('./index-416ebf1d.js');
+var index = require('./index-chunk.js');
 require('react-reconciler');
 require('scheduler');
 var React = require('react');

@@ -28,6 +28,24 @@ function _createClass(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
     throw new TypeError("Super expression must either be null or a function");
@@ -985,7 +1003,8 @@ function () {
     while (stack.length > 0) {
       // while 循环已经保证了不会有空值
       var stackItem = stack.pop();
-      var children = stackItem.children,
+      var _a = stackItem.children,
+          children = _a === void 0 ? [] : _a,
           currentNode = stackItem.currentNode;
 
       for (var i = children.length - 1; i >= 0; i--) {
@@ -1227,8 +1246,8 @@ var hostConfig = {
   getRootHostContext: function getRootHostContext() {
     return rootHostContext;
   },
-  shouldSetTextContent: function shouldSetTextContent() {
-    return false;
+  shouldSetTextContent: function shouldSetTextContent(type) {
+    return type === 'stub-block';
   },
   prepareForCommit: function prepareForCommit() {// nothing to do
   },
@@ -2118,6 +2137,7 @@ var unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;
 
 exports._classCallCheck = _classCallCheck;
 exports._createClass = _createClass;
+exports._extends = _extends;
 exports._getPrototypeOf = _getPrototypeOf;
 exports._inherits = _inherits;
 exports._possibleConstructorReturn = _possibleConstructorReturn;

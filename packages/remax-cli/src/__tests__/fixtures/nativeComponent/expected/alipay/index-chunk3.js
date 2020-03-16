@@ -1,6 +1,6 @@
 'use strict';
 
-var index$1 = require('./index-007f8e63.js');
+var index$1 = require('./index-chunk.js');
 var React = require('react');
 
 var D = index$1.createNativeComponent('d-0');

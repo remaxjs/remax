@@ -1,6 +1,6 @@
 'use strict';
 
-require('./index-007f8e63.js');
+require('./index-chunk.js');
 var React = require('react');
 
 var __assign = undefined && undefined.__assign || function () {
@@ -323,4 +323,12 @@ var writeBLECharacteristicValue = promisify(my.writeBLECharacteristicValue);
 var createVideoContext = my.createVideoContext;
 var getOpenUserInfo = promisify(my.getOpenUserInfo);
 
+function RemaxWindow() {
+  return React.createElement(View, {
+    _tid: "37"
+  }, "remax window");
+}
+
+exports.RemaxWindow = RemaxWindow;
+exports.Text = Text;
 exports.View = View;

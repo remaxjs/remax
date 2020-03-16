@@ -1,6 +1,6 @@
 'use strict';
 
-require('./index-834c24dd.js');
+require('./index-chunk.js');
 
 var View = function View() {};
 var Text = function Text() {};

@@ -764,34 +764,8 @@ var hostComponents = {
       "onClick": "onTap",
       "onUserAction": "onUserAction"
     }
-  },
-  "foo-bar": {
-    "alias": {
-      "foo": "foo",
-      "className": "class"
-    }
-  },
-  "custom-component": {
-    "alias": {
-      "foo": "foo"
-    }
   }
 } || {};
-function createHostComponent(name, component) {
-  if (component) {
-    return component;
-  }
-
-  var Component = function Component(props, ref) {
-    var _a = props.children,
-        children = _a === void 0 ? [] : _a;
-    return React.createElement(name, __assign(__assign({}, props), {
-      ref: ref
-    }), children);
-  };
-
-  return React.forwardRef(Component);
-}
 
 function getAlias(prop, type) {
   var _a, _b;
@@ -1011,7 +985,8 @@ function () {
     while (stack.length > 0) {
       // while 循环已经保证了不会有空值
       var stackItem = stack.pop();
-      var children = stackItem.children,
+      var _a = stackItem.children,
+          children = _a === void 0 ? [] : _a,
           currentNode = stackItem.currentNode;
 
       for (var i = children.length - 1; i >= 0; i--) {
@@ -1253,8 +1228,8 @@ var hostConfig = {
   getRootHostContext: function getRootHostContext() {
     return rootHostContext;
   },
-  shouldSetTextContent: function shouldSetTextContent() {
-    return false;
+  shouldSetTextContent: function shouldSetTextContent(type) {
+    return type === 'stub-block';
   },
   prepareForCommit: function prepareForCommit() {// nothing to do
   },
@@ -2132,5 +2107,4 @@ exports._getPrototypeOf = _getPrototypeOf;
 exports._inherits = _inherits;
 exports._possibleConstructorReturn = _possibleConstructorReturn;
 exports.createAppConfig = createAppConfig;
-exports.createHostComponent = createHostComponent;
 exports.createPageConfig = createPageConfig;

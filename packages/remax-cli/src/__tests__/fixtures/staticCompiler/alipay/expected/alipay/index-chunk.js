@@ -6,58 +6,6 @@ var ReactReconciler = _interopDefault(require('react-reconciler'));
 var scheduler = require('scheduler');
 var React = require('react');
 
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function (obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function (obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
-}
-
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -143,6 +91,48 @@ function _possibleConstructorReturn(self, call) {
   }
 
   return _assertThisInitialized(self);
+}
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArrayLimit(arr, i) {
+  if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
+    return;
+  }
+
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
 }
 
 var REMAX_METHOD = '$$REMAX_METHOD';
@@ -834,8 +824,26 @@ var hostComponents = {
       "onClick": "onTap",
       "onUserAction": "onUserAction"
     }
+  },
+  "ddd": {
+    "alias": {}
   }
 } || {};
+function createHostComponent(name, component) {
+  if (component) {
+    return component;
+  }
+
+  var Component = function Component(props, ref) {
+    var _a = props.children,
+        children = _a === void 0 ? [] : _a;
+    return React.createElement(name, __assign(__assign({}, props), {
+      ref: ref
+    }), children);
+  };
+
+  return React.forwardRef(Component);
+}
 
 function getAlias(prop, type) {
   var _a, _b;
@@ -1055,7 +1063,8 @@ function () {
     while (stack.length > 0) {
       // while 循环已经保证了不会有空值
       var stackItem = stack.pop();
-      var children = stackItem.children,
+      var _a = stackItem.children,
+          children = _a === void 0 ? [] : _a,
           currentNode = stackItem.currentNode;
 
       for (var i = children.length - 1; i >= 0; i--) {
@@ -1297,8 +1306,8 @@ var hostConfig = {
   getRootHostContext: function getRootHostContext() {
     return rootHostContext;
   },
-  shouldSetTextContent: function shouldSetTextContent() {
-    return false;
+  shouldSetTextContent: function shouldSetTextContent(type) {
+    return type === 'stub-block';
   },
   prepareForCommit: function prepareForCommit() {// nothing to do
   },
@@ -1540,6 +1549,7 @@ var context = {
  */
 // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
 // nor polyfill, then a plain number is used for performance.
+
 var hasSymbol = typeof Symbol === 'function' && Symbol["for"];
 var REACT_PORTAL_TYPE = hasSymbol ? Symbol["for"]('react.portal') : 0xeaca;
 var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol["for"]('react.forward_ref') : 0xead0;
@@ -2167,17 +2177,33 @@ var __assign$1 = undefined && undefined.__assign || function () {
 
   return __assign$1.apply(this, arguments);
 };
+function createNativeComponent(name) {
+  return React.forwardRef(function (props, ref) {
+    if (typeof ref === 'string') {
+      console.error('不支持使用 string 获取小程序组件 ref，请使用回调或 React.createRef/React.useRef');
+    }
+
+    var newProps = __assign$1({}, props);
+
+    newProps.__ref = typeof ref === 'function' ? ref : function (e) {
+      if (ref) {
+        ref.current = e;
+      }
+    };
+    return React.createElement(name, newProps, props.children);
+  });
+}
 
 var unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;
 
-exports.Platform = Platform;
-exports._asyncToGenerator = _asyncToGenerator;
 exports._classCallCheck = _classCallCheck;
 exports._createClass = _createClass;
 exports._extends = _extends;
 exports._getPrototypeOf = _getPrototypeOf;
 exports._inherits = _inherits;
 exports._possibleConstructorReturn = _possibleConstructorReturn;
-exports._typeof = _typeof;
+exports._slicedToArray = _slicedToArray;
 exports.createAppConfig = createAppConfig;
+exports.createHostComponent = createHostComponent;
+exports.createNativeComponent = createNativeComponent;
 exports.createPageConfig = createPageConfig;
