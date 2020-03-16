@@ -2,41 +2,35 @@ import * as path from 'path';
 import hostComponents from '../hostComponents/node';
 import { RemaxNodePluginConstructor, Entries } from 'remax-types';
 
+const TPL_DEFAULT_ROOT = path.join(__dirname, '../../templates', 'default');
+const TPL_STATIC_ROOT = path.join(__dirname, '../../templates', 'static');
+
 const plugin: RemaxNodePluginConstructor = () => {
   return {
-    meta: ({ remaxOptions }) => {
-      const TPL_ROOT = path.join(
-        __dirname,
-        '../../templates',
-        remaxOptions.compiler || 'default'
-      );
-      const meta = {
-        template: {
-          extension: '.axml',
-          tag: 'import',
-          src: 'src',
-        },
-        style: '.acss',
-        jsHelper: {
-          extension: '.sjs',
-          tag: 'import-sjs',
-          src: 'from',
-        },
-        include: {
-          tag: 'include',
-          src: 'src',
-        },
-        ejs: {
-          base: '',
-          page: path.join(TPL_ROOT, 'page.ejs'),
-        },
-      };
-
-      if (remaxOptions.compiler === 'static') {
-        meta.ejs.base = path.join(TPL_ROOT, 'base.ejs');
-      }
-
-      return meta;
+    meta: {
+      template: {
+        extension: '.axml',
+        tag: 'import',
+        src: 'src',
+      },
+      style: '.acss',
+      jsHelper: {
+        extension: '.sjs',
+        tag: 'import-sjs',
+        src: 'from',
+      },
+      include: {
+        tag: 'include',
+        src: 'src',
+      },
+      ejs: {
+        base: '',
+        page: path.join(TPL_DEFAULT_ROOT, 'page.ejs'),
+      },
+      staticEjs: {
+        base: '',
+        page: path.join(TPL_STATIC_ROOT, 'page.ejs'),
+      },
     },
     hostComponents,
     getEntries({ remaxOptions, appManifest, getEntryPath }) {
@@ -90,14 +84,8 @@ const plugin: RemaxNodePluginConstructor = () => {
 
       return entries;
     },
-    shouldHostComponentRegister: ({
-      remaxOptions,
-      componentName,
-      additional,
-      phase,
-    }) => {
-      const shouldRegisterAll =
-        remaxOptions.compiler !== 'static' || additional || phase !== 'extra';
+    shouldHostComponentRegister: ({ componentName, additional, phase }) => {
+      const shouldRegisterAll = additional || phase !== 'extra';
 
       return (
         componentName !== 'swiper-item' &&

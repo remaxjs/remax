@@ -15,6 +15,7 @@ import { getNativeComponents } from './nativeComponents/babelPlugin';
 import { rename as renameExtension } from '../../extensions';
 import * as staticCompiler from './compiler/static';
 import { getRelatedModulesForEntry } from '../chunk';
+import * as turboPages from '../turboPages';
 
 function pageUID(pagePath: string) {
   return winPath(pagePath).replace('/', '_');
@@ -270,14 +271,10 @@ export default function template(
 
       let renderTemplate = createTemplate;
 
-      if (options.compiler === 'static') {
-        renderTemplate = staticCompiler.renderPage;
-      } else {
-        const template = await createBaseTemplate(options, meta, renderOptions);
+      const template = await createBaseTemplate(options, meta, renderOptions);
 
-        if (template) {
-          templateAssets.push(template);
-        }
+      if (template) {
+        templateAssets.push(template);
       }
 
       const entries = getEntries(options, context);
@@ -291,7 +288,14 @@ export default function template(
             const modules = Object.keys(chunk.modules);
             const filePath = modules[modules.length - 1];
             const page = pages.find(p => p === filePath);
+
             if (page) {
+              if (turboPages.validate(page, options)) {
+                renderTemplate = staticCompiler.renderPage;
+              } else {
+                renderTemplate = createTemplate;
+              }
+
               const template = await renderTemplate(
                 file,
                 getRelatedModulesForEntry(chunk, bundle),

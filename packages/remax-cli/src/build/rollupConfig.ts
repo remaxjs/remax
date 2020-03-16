@@ -50,10 +50,6 @@ export default function rollupConfig(
     }
   });
 
-  if (options.compiler === 'static' && API.adapter.name !== 'alipay') {
-    output.error('目前 static compiler 模式仅支持 alipay 开启');
-  }
-
   const entries = getEntries(options, context);
   const cssModuleConfig = getCssModuleConfig(options.cssModules);
 
@@ -65,51 +61,6 @@ export default function rollupConfig(
   };
 
   const env = getEnvironment(options, argv.target);
-
-  let babels = [
-    babel({
-      include: [entries.app, ...entries.pages],
-      extensions: without(extensions, '.json'),
-      usePlugins: [app(entries.app), page(entries.pages)],
-      reactPreset: false,
-    }),
-    babel({
-      extensions: without(extensions, '.json'),
-      usePlugins: [nativeComponentsBabelPlugin(options), components(options)],
-      reactPreset: true,
-    }),
-  ];
-
-  if (options.compiler === 'static') {
-    babels = [
-      babel({
-        include: [entries.app, ...entries.pages],
-        extensions: without(extensions, '.json'),
-        usePlugins: [app(entries.app), page(entries.pages)],
-        reactPreset: false,
-      }),
-      babel({
-        extensions: without(extensions, '.json'),
-        usePlugins: [staticCompiler.preprocess],
-        reactPreset: false,
-      }),
-      babel({
-        extensions: without(extensions, '.json'),
-        usePlugins: [staticCompiler.render],
-        reactPreset: false,
-      }),
-      babel({
-        extensions: without(extensions, '.json'),
-        usePlugins: [staticCompiler.postProcess],
-        reactPreset: false,
-      }),
-      babel({
-        extensions: without(extensions, '.json'),
-        usePlugins: [nativeComponentsBabelPlugin(options), components(options)],
-        reactPreset: true,
-      }),
-    ];
-  }
 
   const plugins = [
     copy({
@@ -156,7 +107,35 @@ export default function rollupConfig(
     stub({
       modules: stubModules,
     }),
-    ...babels,
+    babel({
+      include: [entries.app, ...entries.pages],
+      extensions: without(extensions, '.json'),
+      usePlugins: [app(entries.app), page(entries.pages)],
+      reactPreset: false,
+    }),
+    babel({
+      include: options.turboPages,
+      extensions: without(extensions, '.json'),
+      usePlugins: [staticCompiler.preprocess],
+      reactPreset: false,
+    }),
+    babel({
+      include: options.turboPages,
+      extensions: without(extensions, '.json'),
+      usePlugins: [staticCompiler.render],
+      reactPreset: false,
+    }),
+    babel({
+      include: options.turboPages,
+      extensions: without(extensions, '.json'),
+      usePlugins: [staticCompiler.postProcess],
+      reactPreset: false,
+    }),
+    babel({
+      extensions: without(extensions, '.json'),
+      usePlugins: [nativeComponentsBabelPlugin(options), components(options)],
+      reactPreset: true,
+    }),
     postcss({
       extract: true,
       getRelatedModulesForEntry,
