@@ -14,6 +14,7 @@ import winPath from '../../winPath';
 import { getNativeComponents } from './nativeComponents/babelPlugin';
 import { rename as renameExtension } from '../../extensions';
 import * as staticCompiler from './compiler/static';
+import { getRelatedModulesForEntry } from '../chunk';
 
 function pageUID(pagePath: string) {
   return winPath(pagePath).replace('/', '_');
@@ -33,6 +34,7 @@ function renderOptions(options: RemaxOptions) {
 
 async function createTemplate(
   pageFile: string,
+  modules: string[],
   options: RemaxOptions,
   meta: Meta,
   createOptions: typeof renderOptions
@@ -266,18 +268,16 @@ export default function template(
         templateAssets.push(manifest);
       }
 
-      let renderBase = createBaseTemplate;
       let renderTemplate = createTemplate;
 
       if (options.compiler === 'static') {
-        renderBase = staticCompiler.renderCommon;
         renderTemplate = staticCompiler.renderPage;
-      }
+      } else {
+        const template = await createBaseTemplate(options, meta, renderOptions);
 
-      const template = await renderBase(options, meta, renderOptions);
-
-      if (template) {
-        templateAssets.push(template);
+        if (template) {
+          templateAssets.push(template);
+        }
       }
 
       const entries = getEntries(options, context);
@@ -294,6 +294,7 @@ export default function template(
             if (page) {
               const template = await renderTemplate(
                 file,
+                getRelatedModulesForEntry(chunk, bundle),
                 options,
                 meta,
                 renderOptions

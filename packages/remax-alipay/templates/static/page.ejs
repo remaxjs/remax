@@ -1,7 +1,57 @@
-<import src="<%= baseTemplate %>"/>
+<% for (let tpl of templates) { %>
+<template name="TPL_<%=tpl.id%>">
+  <%-tpl.template%>
+</template>
+<% } %>
+
+<% for (let component of components) { %>
+  <% if (component.additional) { %>
+<%- include('./additional-host-component.ejs', {
+  props: component.props,
+  id: component.id,
+  view: viewComponent
+  })
+%>
+  <% } else if (component.type === 'native') { %>
+<%- include('./native-component.ejs', {
+  props: component.props,
+  id: component.id,
+  view: viewComponent,
+  TEMPLATE_ID: TEMPLATE_ID
+  })
+%>
+  <% } else { %>
+<%- include('./host-components/' + component.id + '.ejs', {
+  props: component.props,
+  id: component.id,
+  })
+%>
+  <% } %>
+<% } %>
+
+<%- include('./host-components/plain-text.ejs') %>
+<%- include('./host-components/block.ejs') %>
 
 <% if (entries.length > 0) { %>
   <template is="TPL_<%=entries[0].id%>" data="{{ node: root.children[0] }}" />
 <% } else { %>
   <template is="TPL_TRAVERSAL" data="{{ root: root }}" />
 <% } %>
+
+<!-- for default render -->
+<template name="TPL_DEFAULT">
+  <template a:if="{{root.props.<%=TEMPLATE_ID%> > 0}}" is="{{'TPL_' + root.props.<%=TEMPLATE_ID%>}}" data="{{ node: root }}" />
+  <template a:else is="{{ 'TPL_' + root.type }}" data="{{ node: root }}" />
+</template>
+
+<!-- for traversal -->
+<template name="TPL_TRAVERSAL">
+  <block a:if="{{root.children}}">
+    <block a:for="{{root.children}}" key="{{item.id}}">
+      <template a:if="{{item.props.<%=TEMPLATE_ID%> > 0}}" is="{{'TPL_' + item.props.<%=TEMPLATE_ID%>}}" data="{{ node: item }}" />
+      <template a:else is="{{ 'TPL_' + item.type }}" data="{{ node: item }}" />
+    </block>
+  </block>
+  <template a:elif="{{root.props.<%=TEMPLATE_ID%> > 0}}" is="{{'TPL_' + root.props.<%=TEMPLATE_ID%>}}" data="{{ node: root }}" />
+  <template a:else is="{{ 'TPL_' + root.type }}" data="{{ node: root }}" />
+</template>
