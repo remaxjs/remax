@@ -18,7 +18,9 @@ describe('remax config', () => {
     }).toThrowErrorMatchingInlineSnapshot(`
 "Invalid configuration object. remax has been initialized using a configuration object that does not match the API schema.
  - configuration has an unknown property 'xxx'. These properties are valid:
-   object { cssModules?, notify?, pxToRpx?, cwd?, progress?, compressTemplate?, output?, rootDir?, UNSAFE_wechatTemplateDepth?, alias?, postcss?, rollupOptions? }
+   object { turboPages?, cssModules?, notify?, pxToRpx?, cwd?, progress?, compressTemplate?, output?, rootDir?, UNSAFE_wechatTemplateDepth?, alias?, postcss?, rollupOptions? }
+ - configuration.turboPages should be an array:
+   [any, ...]
  - configuration.cssModules should be one of these:
    RegExp | boolean
    Details:

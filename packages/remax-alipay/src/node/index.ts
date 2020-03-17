@@ -2,7 +2,8 @@ import * as path from 'path';
 import hostComponents from '../hostComponents/node';
 import { RemaxNodePluginConstructor, Entries } from 'remax-types';
 
-const EJS_TPL_ROOT = path.join(__dirname, '../../templates');
+const TPL_DEFAULT_ROOT = path.join(__dirname, '../../templates', 'default');
+const TPL_STATIC_ROOT = path.join(__dirname, '../../templates', 'static');
 
 const plugin: RemaxNodePluginConstructor = () => {
   return {
@@ -23,7 +24,12 @@ const plugin: RemaxNodePluginConstructor = () => {
         src: 'src',
       },
       ejs: {
-        page: path.join(EJS_TPL_ROOT, 'page.ejs'),
+        base: '',
+        page: path.join(TPL_DEFAULT_ROOT, 'page.ejs'),
+      },
+      staticEjs: {
+        base: '',
+        page: path.join(TPL_STATIC_ROOT, 'page.ejs'),
       },
     },
     hostComponents,

@@ -2,6 +2,7 @@ import { RemaxOptions } from 'remax-types';
 import UNSAFE_wechatTemplateDepth from './UNSAFE_wechatTemplateDepth';
 
 const defaultOptions: RemaxOptions = {
+  turboPages: [],
   cssModules: /\.module\.(less|scss|css)$/,
   pxToRpx: true,
   cwd: process.cwd(),

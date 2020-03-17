@@ -2,23 +2,26 @@ import node from '../node';
 
 describe('node', () => {
   it('meta', () => {
-    expect(node().meta?.ejs).toBeDefined();
-    expect(node().meta?.template).toMatchInlineSnapshot(`
+    const meta = node().meta!;
+
+    expect(meta.ejs).toBeDefined();
+    expect(meta.staticEjs).toBeDefined();
+    expect(meta.template).toMatchInlineSnapshot(`
       Object {
         "extension": ".axml",
         "src": "src",
         "tag": "import",
       }
     `);
-    expect(node().meta?.style).toMatchInlineSnapshot(`".acss"`);
-    expect(node().meta?.jsHelper).toMatchInlineSnapshot(`
+    expect(meta.style).toMatchInlineSnapshot(`".acss"`);
+    expect(meta.jsHelper).toMatchInlineSnapshot(`
       Object {
         "extension": ".sjs",
         "src": "from",
         "tag": "import-sjs",
       }
     `);
-    expect(node().meta?.include).toMatchInlineSnapshot(`
+    expect(meta.include).toMatchInlineSnapshot(`
       Object {
         "src": "src",
         "tag": "include",
@@ -102,6 +105,21 @@ describe('node', () => {
     expect(
       node().shouldHostComponentRegister!({
         componentName: 'view',
+        phase: 'import',
+      })
+    ).toBeTruthy();
+
+    expect(
+      node().shouldHostComponentRegister!({
+        componentName: 'view',
+        phase: 'extra',
+      })
+    ).toBeTruthy();
+
+    expect(
+      node().shouldHostComponentRegister!({
+        componentName: 'custom-view',
+        additional: true,
         phase: 'import',
       })
     ).toBeTruthy();

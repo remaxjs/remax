@@ -1,6 +1,6 @@
 import { RollupOptions, RollupWarning } from 'rollup';
 import API from '../API';
-import { output } from './utils/output';
+import output from './utils/output';
 import path from 'path';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
@@ -29,11 +29,13 @@ import nativeComponents from './plugins/nativeComponents';
 import components from './plugins/components';
 import template from './plugins/template';
 import alias from './plugins/alias';
+import * as staticCompiler from './plugins/compiler/static';
 import extensions from '../extensions';
 import { without } from 'lodash';
 import jsx from 'acorn-jsx';
 import getEnvironment from './env';
 import { getRelatedModulesForEntry } from './chunk';
+import * as TurboPages from './turboPages';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -60,6 +62,42 @@ export default function rollupConfig(
   };
 
   const env = getEnvironment(options, argv.target);
+  const turboPagesEnabled = options.turboPages && options.turboPages.length > 0;
+
+  const babelPlugins = [
+    babel({
+      include: [entries.app, ...entries.pages],
+      extensions: without(extensions, '.json'),
+      usePlugins: [app(entries.app), page(entries.pages)],
+      reactPreset: false,
+    }),
+    turboPagesEnabled &&
+      babel({
+        include: TurboPages.filter(entries, options),
+        extensions: without(extensions, '.json'),
+        usePlugins: [staticCompiler.preprocess],
+        reactPreset: false,
+      }),
+    turboPagesEnabled &&
+      babel({
+        include: TurboPages.filter(entries, options),
+        extensions: without(extensions, '.json'),
+        usePlugins: [staticCompiler.render],
+        reactPreset: false,
+      }),
+    turboPagesEnabled &&
+      babel({
+        include: TurboPages.filter(entries, options),
+        extensions: without(extensions, '.json'),
+        usePlugins: [staticCompiler.postProcess],
+        reactPreset: false,
+      }),
+    babel({
+      extensions: without(extensions, '.json'),
+      usePlugins: [nativeComponentsBabelPlugin(options), components(options)],
+      reactPreset: true,
+    }),
+  ].filter(Boolean);
 
   const plugins = [
     copy({
@@ -106,23 +144,7 @@ export default function rollupConfig(
     stub({
       modules: stubModules,
     }),
-    babel({
-      include: entries.pages,
-      extensions: without(extensions, '.json'),
-      usePlugins: [nativeComponentsBabelPlugin(options), page],
-      reactPreset: false,
-    }),
-    babel({
-      include: entries.app,
-      extensions: without(extensions, '.json'),
-      usePlugins: [nativeComponentsBabelPlugin(options), app],
-      reactPreset: false,
-    }),
-    babel({
-      extensions: without(extensions, '.json'),
-      usePlugins: [nativeComponentsBabelPlugin(options), components()],
-      reactPreset: true,
-    }),
+    ...babelPlugins,
     postcss({
       extract: true,
       getRelatedModulesForEntry,
@@ -194,6 +216,7 @@ export default function rollupConfig(
     output: {
       dir: options.output,
       entryFileNames: '[name]',
+      chunkFileNames: process.env.NODE_ENV === 'test' ? '[name]-chunk.js' : '',
       format: 'cjs',
       exports: 'named',
       sourcemap: false,
@@ -206,16 +229,15 @@ export default function rollupConfig(
     onwarn(warning, warn) {
       if ((warning as RollupWarning).code === 'THIS_IS_UNDEFINED') return;
       if ((warning as RollupWarning).code === 'CIRCULAR_DEPENDENCY') {
-        output('⚠️ 检测到循环依赖，如果不影响项目运行，请忽略', 'yellow');
+        output.warn('检测到循环依赖，如果不影响项目运行，请忽略');
       }
 
       if (!warning.message) {
-        output(
-          `⚠️ ${warning.code}:${warning.plugin || ''} ${(warning as any).text}`,
-          'yellow'
+        output.warn(
+          `${warning.code}:${warning.plugin || ''} ${(warning as any).text}`
         );
       } else {
-        output('⚠️ ' + warning.toString(), 'yellow');
+        output.warn(warning.toString());
       }
     },
     plugins,

@@ -33,7 +33,7 @@ export default (options: RemaxOptions, pages: string[]): Plugin => {
         jsHelper(id);
         style(id);
         json(id);
-        template(id);
+        template(options, id);
         usingComponents(id, options, this);
 
         getFiles().forEach(file => {

@@ -1,6 +1,9 @@
 {
   "type": "object",
   "properties": {
+    "turboPages": {
+      "type": "array"
+    },
     "cssModules": {
       "anyOf": [{ "instanceof": "RegExp" }, { "type": "boolean" }]
     },

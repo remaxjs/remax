@@ -13,53 +13,54 @@ import { Context } from '../../types';
 import winPath from '../../winPath';
 import { getNativeComponents } from './nativeComponents/babelPlugin';
 import { rename as renameExtension } from '../../extensions';
+import * as staticCompiler from './compiler/static';
+import { getRelatedModulesForEntry } from '../chunk';
+import * as turboPages from '../turboPages';
 
 function pageUID(pagePath: string) {
   return winPath(pagePath).replace('/', '_');
 }
 
+function renderOptions(options: RemaxOptions) {
+  return {
+    components: sortBy(
+      getComponents(options).concat(Object.values(getNativeComponents())),
+      'id'
+    ),
+    viewComponent: {
+      props: [...new Set(API.getHostComponents().get('view')!.props)].sort(),
+    },
+  };
+}
+
 async function createTemplate(
   pageFile: string,
+  modules: string[],
   options: RemaxOptions,
-  meta: Meta
+  meta: Meta,
+  createOptions: typeof renderOptions
 ) {
   const fileName = `${path.dirname(pageFile)}/${path.basename(
     pageFile,
     path.extname(pageFile)
   )}${meta.template.extension}`;
 
-  const renderOptions: { [props: string]: any } = {
+  const ejsOptions: { [props: string]: any } = {
+    ...createOptions(options),
     baseTemplate: winPath(
       path.relative(path.dirname(pageFile), `base${meta.template.extension}`)
     ),
   };
 
   if (meta.jsHelper) {
-    renderOptions.jsHelper = `./${pageUID(pageFile)}_helper${
+    ejsOptions.jsHelper = `./${pageUID(pageFile)}_helper${
       meta.jsHelper.extension
     }`;
   }
 
-  const components = sortBy(
-    getComponents().concat(Object.values(getNativeComponents())),
-    'id'
-  );
-
-  const hostComponents = API.getHostComponents();
-
-  let code: string = await ejs.renderFile(
-    meta.ejs.page,
-    {
-      ...renderOptions,
-      components,
-      viewComponent: {
-        props: [...new Set(hostComponents.get('view')!.props)].sort(),
-      },
-    },
-    {
-      rmWhitespace: options.compressTemplate,
-    }
-  );
+  let code: string = await ejs.renderFile(meta.ejs.page, ejsOptions, {
+    rmWhitespace: options.compressTemplate,
+  });
 
   // TODO 用 uglify 替代 compressTemplate
   /* istanbul ignore next */
@@ -95,26 +96,20 @@ async function createHelperFile(pageFile: string, meta: Meta) {
   };
 }
 
-async function createBaseTemplate(options: RemaxOptions, meta: Meta) {
+async function createBaseTemplate(
+  options: RemaxOptions,
+  meta: Meta,
+  createEjsOptions: typeof renderOptions
+) {
   if (!meta.ejs.base) {
     return null;
   }
 
-  const hostComponents = API.getHostComponents();
-
-  const components = sortBy(
-    getComponents().concat(Object.values(getNativeComponents())),
-    'id'
-  );
-
   let code: string = await ejs.renderFile(
     meta.ejs.base,
     {
-      components,
+      ...createEjsOptions(options),
       depth: ensureDepth(options.UNSAFE_wechatTemplateDepth),
-      viewComponent: {
-        props: [...new Set(hostComponents.get('view')!.props)].sort(),
-      },
     },
     {
       rmWhitespace: options.compressTemplate,
@@ -260,7 +255,7 @@ export default function template(
 ): Plugin {
   return {
     name: 'template',
-    async generateBundle(_, bundle, isWrite) {
+    async generateBundle(_, bundle) {
       const meta = API.getMeta();
       const templateAssets = [];
       // app.json
@@ -274,7 +269,9 @@ export default function template(
         templateAssets.push(manifest);
       }
 
-      const template = await createBaseTemplate(options, meta);
+      let renderTemplate = createTemplate;
+
+      const template = await createBaseTemplate(options, meta, renderOptions);
 
       if (template) {
         templateAssets.push(template);
@@ -291,8 +288,19 @@ export default function template(
             const modules = Object.keys(chunk.modules);
             const filePath = modules[modules.length - 1];
             const page = pages.find(p => p === filePath);
+
             if (page) {
-              const template = await createTemplate(file, options, meta);
+              renderTemplate = turboPages.validate(page, options)
+                ? staticCompiler.renderPage
+                : createTemplate;
+
+              const template = await renderTemplate(
+                file,
+                getRelatedModulesForEntry(chunk, bundle),
+                options,
+                meta,
+                renderOptions
+              );
               templateAssets.push(template);
 
               const config = createPageManifest(options, file, page, context);

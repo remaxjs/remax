@@ -1,24 +1,26 @@
 import node from '../node';
+import { Meta } from 'remax-types';
 
 describe('node', () => {
   it('meta', () => {
-    expect(node().meta?.ejs).toBeDefined();
-    expect(node().meta?.template).toMatchInlineSnapshot(`
+    const meta = node().meta as Meta;
+    expect(meta.ejs).toBeDefined();
+    expect(meta.template).toMatchInlineSnapshot(`
       Object {
         "extension": ".wxml",
         "src": "src",
         "tag": "import",
       }
     `);
-    expect(node().meta?.style).toMatchInlineSnapshot(`".wxss"`);
-    expect(node().meta?.jsHelper).toMatchInlineSnapshot(`
+    expect(meta.style).toMatchInlineSnapshot(`".wxss"`);
+    expect(meta.jsHelper).toMatchInlineSnapshot(`
       Object {
         "extension": ".wxs",
         "src": "src",
         "tag": "wxs",
       }
     `);
-    expect(node().meta?.include).toMatchInlineSnapshot(`
+    expect(meta.include).toMatchInlineSnapshot(`
       Object {
         "src": "src",
         "tag": "include",

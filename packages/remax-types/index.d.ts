@@ -5,6 +5,7 @@ import { PluginImpl, RollupOptions } from 'rollup';
 export { PluginImpl, RollupOptions };
 
 export interface RemaxOptions {
+  turboPages: string[];
   cssModules: boolean | RegExp;
   pxToRpx: boolean;
   cwd: string;
@@ -97,6 +98,15 @@ export type Meta = {
     page: string;
     jsHelper?: string;
   };
+  staticEjs?: {
+    base?: string;
+    page: string;
+    jsHelper?: string;
+  };
+};
+
+export type MetaOptions = {
+  remaxOptions: RemaxOptions;
 };
 
 export type ProcessPropsOptions = {

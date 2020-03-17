@@ -9,6 +9,7 @@ import {
   Entries,
   Meta,
 } from 'remax-types';
+import { RollupOptions } from 'rollup';
 import { merge } from 'lodash';
 import { searchFile } from '../getEntries';
 
@@ -141,7 +142,9 @@ class API {
     }, true);
   }
 
-  public extendsRollupConfig(options: ExtendsRollupConfigOptions) {
+  public extendsRollupConfig(
+    options: ExtendsRollupConfigOptions
+  ): RollupOptions {
     let { rollupConfig } = options;
     this.plugins.forEach(plugin => {
       if (typeof plugin.extendsRollupConfig === 'function') {
