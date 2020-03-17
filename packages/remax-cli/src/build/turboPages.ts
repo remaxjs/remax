@@ -3,6 +3,7 @@ import { RemaxOptions, Entries } from 'remax-types';
 import { isMatch } from 'micromatch';
 import { getEntryInfo } from '../getEntries';
 import { rename } from '../extensions';
+import winPath from '../winPath';
 
 export function validate(route: string, options: RemaxOptions) {
   if (!route) {
@@ -15,7 +16,10 @@ export function validate(route: string, options: RemaxOptions) {
 export function filter(entries: Entries, options: RemaxOptions) {
   return entries.pages.filter(p =>
     isMatch(
-      rename(p.replace(path.join(options.cwd, options.rootDir) + '/', ''), ''),
+      rename(
+        p.replace(winPath(path.join(options.cwd, options.rootDir)) + '/', ''),
+        ''
+      ),
       options.turboPages
     )
   );
