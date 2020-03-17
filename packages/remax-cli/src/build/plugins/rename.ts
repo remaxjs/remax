@@ -111,8 +111,9 @@ export default function rename(options: RenameExtensionsOptions): Plugin {
       const files = Object.entries<any>(bundle);
 
       for (const [key, file] of files) {
+        // file.facadeModuleId 不存在，表明是 common chunk 文件
         if (
-          !filter(file.facadeModuleId) &&
+          !(!file.facadeModuleId || filter(file.facadeModuleId)) &&
           !(options.matchAll && /\0/.test(file.facadeModuleId)) &&
           file.fileName !== 'app.css'
         ) {
