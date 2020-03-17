@@ -38,7 +38,7 @@
     "lodash.startcase": "^4.4.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-emotion": "^10.0.0",
+    "react-emotion": "9.2.12",
     "react-feather": "^2.0.3",
     "react-github-btn": "^1.0.5",
     "react-helmet": "^5.2.0",
