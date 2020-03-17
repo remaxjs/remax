@@ -2,9 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import esm from 'esm';
 import defaultOptions from './defaultOptions';
-import { RemaxOptions } from 'remax-types';
+import { RemaxOptions, RemaxConfig } from 'remax-types';
 import validateOptions from 'schema-utils';
 import schema from './RemaxOptionsSchema.json';
+import API from './API';
 
 export interface CliOptions {
   target: string;
@@ -23,6 +24,16 @@ function readJavascriptConfig(path: string) {
   return config || {};
 }
 
+function validateTurboPages(config: RemaxConfig) {
+  if (API.adapter.name === 'alipay') {
+    return;
+  }
+
+  if (config.turboPages && config.turboPages.length > 0) {
+    throw new Error('turboPages 目前仅支持 alipay 平台开启');
+  }
+}
+
 export default function getConfig(validate = true): RemaxOptions {
   const configPath: string = path.join(process.cwd(), './remax.config');
   let options = {};
@@ -35,6 +46,8 @@ export default function getConfig(validate = true): RemaxOptions {
     validateOptions(schema as any, options, {
       name: 'remax',
     });
+
+    validateTurboPages(options);
   }
 
   return {

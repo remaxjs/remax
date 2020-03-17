@@ -37,7 +37,8 @@ export async function renderPage(
   renderOptions.entries = entries;
   renderOptions.TEMPLATE_ID = TEMPLATE_ID;
 
-  let code: string = await ejs.renderFile(meta.ejs.page, renderOptions, {
+  // 可以进入到 static compiler 中的都是配置好 staticEjs 的平台
+  let code: string = await ejs.renderFile(meta.staticEjs!.page, renderOptions, {
     rmWhitespace: options.compressTemplate,
   });
 

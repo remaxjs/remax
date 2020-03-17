@@ -119,7 +119,6 @@ function registerComponent(
     node,
     importer = '',
     phase,
-    remaxOptions,
   }: {
     remaxOptions: RemaxOptions;
     componentName: string;
@@ -129,14 +128,7 @@ function registerComponent(
   },
   additional?: boolean
 ) {
-  if (
-    !API.shouldHostComponentRegister(
-      remaxOptions,
-      componentName,
-      phase,
-      additional
-    )
-  ) {
+  if (!API.shouldHostComponentRegister(componentName, phase, additional)) {
     return;
   }
 

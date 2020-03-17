@@ -1,3 +1,3 @@
 module.exports = {
-  compiler: 'static',
+  turboPages: ['**/src/pages/index.js', '**/src/pages/entry/index.js'],
 };

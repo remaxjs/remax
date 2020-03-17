@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "native-component-0": "../components/nativeComponent/index"
+  }
+}

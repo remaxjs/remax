@@ -61,6 +61,42 @@ export default function rollupConfig(
   };
 
   const env = getEnvironment(options, argv.target);
+  const turboPagesEnabled = options.turboPages && options.turboPages.length > 0;
+
+  const babelPlugins = [
+    babel({
+      include: [entries.app, ...entries.pages],
+      extensions: without(extensions, '.json'),
+      usePlugins: [app(entries.app), page(entries.pages)],
+      reactPreset: false,
+    }),
+    turboPagesEnabled &&
+      babel({
+        include: options.turboPages,
+        extensions: without(extensions, '.json'),
+        usePlugins: [staticCompiler.preprocess],
+        reactPreset: false,
+      }),
+    turboPagesEnabled &&
+      babel({
+        include: options.turboPages,
+        extensions: without(extensions, '.json'),
+        usePlugins: [staticCompiler.render],
+        reactPreset: false,
+      }),
+    turboPagesEnabled &&
+      babel({
+        include: options.turboPages,
+        extensions: without(extensions, '.json'),
+        usePlugins: [staticCompiler.postProcess],
+        reactPreset: false,
+      }),
+    babel({
+      extensions: without(extensions, '.json'),
+      usePlugins: [nativeComponentsBabelPlugin(options), components(options)],
+      reactPreset: true,
+    }),
+  ].filter(Boolean);
 
   const plugins = [
     copy({
@@ -107,35 +143,7 @@ export default function rollupConfig(
     stub({
       modules: stubModules,
     }),
-    babel({
-      include: [entries.app, ...entries.pages],
-      extensions: without(extensions, '.json'),
-      usePlugins: [app(entries.app), page(entries.pages)],
-      reactPreset: false,
-    }),
-    babel({
-      include: options.turboPages,
-      extensions: without(extensions, '.json'),
-      usePlugins: [staticCompiler.preprocess],
-      reactPreset: false,
-    }),
-    babel({
-      include: options.turboPages,
-      extensions: without(extensions, '.json'),
-      usePlugins: [staticCompiler.render],
-      reactPreset: false,
-    }),
-    babel({
-      include: options.turboPages,
-      extensions: without(extensions, '.json'),
-      usePlugins: [staticCompiler.postProcess],
-      reactPreset: false,
-    }),
-    babel({
-      extensions: without(extensions, '.json'),
-      usePlugins: [nativeComponentsBabelPlugin(options), components(options)],
-      reactPreset: true,
-    }),
+    ...babelPlugins,
     postcss({
       extract: true,
       getRelatedModulesForEntry,

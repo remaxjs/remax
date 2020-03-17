@@ -59,18 +59,11 @@ describe('API', () => {
   });
 
   it('shouldHostComponentRegister', () => {
-    const remaxOptions: any = { compiler: 'default' };
-
     expect(
-      API.shouldHostComponentRegister(remaxOptions, 'view', 'import', false)
+      API.shouldHostComponentRegister('view', 'import', false)
     ).toBeTruthy();
     expect(
-      API.shouldHostComponentRegister(
-        remaxOptions,
-        'swiper-item',
-        'import',
-        false
-      )
+      API.shouldHostComponentRegister('swiper-item', 'import', false)
     ).toBeFalsy();
   });
 

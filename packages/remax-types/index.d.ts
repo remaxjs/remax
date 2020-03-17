@@ -98,7 +98,7 @@ export type Meta = {
     page: string;
     jsHelper?: string;
   };
-  staticEjs: {
+  staticEjs?: {
     base?: string;
     page: string;
     jsHelper?: string;

@@ -324,9 +324,7 @@ var createVideoContext = my.createVideoContext;
 var getOpenUserInfo = promisify(my.getOpenUserInfo);
 
 function RemaxWindow() {
-  return React.createElement(View, {
-    _tid: "37"
-  }, "remax window");
+  return React.createElement(View, null, "remax window");
 }
 
 exports.RemaxWindow = RemaxWindow;

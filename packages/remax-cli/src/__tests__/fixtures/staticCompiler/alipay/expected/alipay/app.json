@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index",
-    "pages/entry/index"
+    "pages/entry/index",
+    "pages/turboPageDisabled"
   ],
   "window": {
     "defaultTitle": "Alipay App",

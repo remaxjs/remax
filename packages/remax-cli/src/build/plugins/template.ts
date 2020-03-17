@@ -290,11 +290,9 @@ export default function template(
             const page = pages.find(p => p === filePath);
 
             if (page) {
-              if (turboPages.validate(page, options)) {
-                renderTemplate = staticCompiler.renderPage;
-              } else {
-                renderTemplate = createTemplate;
-              }
+              renderTemplate = turboPages.validate(page, options)
+                ? staticCompiler.renderPage
+                : createTemplate;
 
               const template = await renderTemplate(
                 file,

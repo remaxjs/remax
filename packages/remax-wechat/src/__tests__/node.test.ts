@@ -87,13 +87,8 @@ describe('node', () => {
   });
 
   it('shouldHostComponentRegister', () => {
-    const remaxOptions: any = {
-      compiler: 'default',
-    };
-
     expect(
       node().shouldHostComponentRegister!({
-        remaxOptions,
         componentName: 'swiper-item',
         phase: 'jsx',
       })
@@ -101,7 +96,6 @@ describe('node', () => {
 
     expect(
       node().shouldHostComponentRegister!({
-        remaxOptions,
         componentName: 'foo',
         additional: false,
         phase: 'extra',
@@ -110,7 +104,6 @@ describe('node', () => {
 
     expect(
       node().shouldHostComponentRegister!({
-        remaxOptions,
         componentName: 'foo',
         additional: true,
         phase: 'extra',
@@ -119,7 +112,6 @@ describe('node', () => {
 
     expect(
       node().shouldHostComponentRegister!({
-        remaxOptions,
         componentName: 'view',
         phase: 'import',
       })

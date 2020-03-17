@@ -130,7 +130,6 @@ class API {
   }
 
   public shouldHostComponentRegister(
-    remaxOptions: RemaxOptions,
     componentName: string,
     phase: 'import' | 'jsx' | 'extra',
     additional?: boolean
@@ -138,7 +137,6 @@ class API {
     return this.plugins.reduce((result, plugin) => {
       if (typeof plugin.shouldHostComponentRegister === 'function') {
         return plugin.shouldHostComponentRegister({
-          remaxOptions,
           componentName,
           additional,
           phase,
