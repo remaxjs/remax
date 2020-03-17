@@ -71,12 +71,7 @@ class API {
     };
 
     this.plugins.forEach(plugin => {
-      let pluginMeta = plugin.meta || {};
-      if (typeof pluginMeta === 'function') {
-        pluginMeta = pluginMeta();
-      }
-
-      meta = merge(meta, pluginMeta);
+      meta = merge(meta, plugin.meta || {});
     });
 
     return meta;
