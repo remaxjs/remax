@@ -24,7 +24,7 @@ export default class TemplateInfoMap {
   }
 
   public remove(module: string) {
-    this.templates.filter(t => t.module !== module);
+    this.templates = this.templates.filter(t => t.module !== module);
   }
 
   private templates: TemplateInfo[] = [];

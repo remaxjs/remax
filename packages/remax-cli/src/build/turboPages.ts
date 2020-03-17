@@ -15,7 +15,7 @@ export function validate(route: string, options: RemaxOptions) {
 export function filter(entries: Entries, options: RemaxOptions) {
   return entries.pages.filter(p =>
     isMatch(
-      rename(p.replace(path.join(options.cwd, options.rootDir), ''), ''),
+      rename(p.replace(path.join(options.cwd, options.rootDir) + '/', ''), ''),
       options.turboPages
     )
   );

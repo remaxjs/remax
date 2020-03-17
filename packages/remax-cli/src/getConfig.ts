@@ -25,7 +25,8 @@ function readJavascriptConfig(path: string) {
 }
 
 function validateTurboPages(config: RemaxConfig) {
-  if (API.adapter.name === 'alipay') {
+  // adapter name 还不存在，说明 adapter plugin 还没有初始化
+  if (!API.adapter.name || API.adapter.name === 'alipay') {
     return;
   }
 

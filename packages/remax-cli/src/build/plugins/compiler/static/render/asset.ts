@@ -20,7 +20,6 @@ export async function renderPage(
 
   const templates = templateInfoMap
     .values()
-    .filter(t => !t.isEntry)
     .filter(t => modules.find(m => m === t.module));
 
   const entries = templateInfoMap
