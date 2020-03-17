@@ -15,7 +15,7 @@ export function walk(filePath: string, options: RemaxOptions) {
     return;
   }
 
-  const meta = API.getMeta({ remaxOptions: options });
+  const meta = API.getMeta();
   const { tag, src } = meta.template;
   const { tag: includeTag, src: includeSrc } = meta.include;
 
@@ -41,12 +41,7 @@ export const getTemplatePaths = () => {
 };
 
 export default (options: RemaxOptions, id: string) => {
-  const filePath = id.replace(
-    /\.js$/,
-    API.getMeta({
-      remaxOptions: options,
-    }).template.extension
-  );
+  const filePath = id.replace(/\.js$/, API.getMeta().template.extension);
 
   walk(filePath, options);
 };

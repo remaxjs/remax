@@ -255,8 +255,8 @@ export default function template(
 ): Plugin {
   return {
     name: 'template',
-    async generateBundle(_, bundle, isWrite) {
-      const meta = API.getMeta({ remaxOptions: options });
+    async generateBundle(_, bundle) {
+      const meta = API.getMeta();
       const templateAssets = [];
       // app.json
       const manifest = createAppManifest(options, context);
