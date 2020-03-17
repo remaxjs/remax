@@ -80,3 +80,14 @@ export default function getEntries(
 
   return API.getEntries(entries, appConfig, options);
 }
+
+export function getEntryInfo(path: string, options: RemaxOptions) {
+  const { pages } = getAppConfig(options);
+
+  const page = pages.find(p => path.indexOf(p + '.') !== -1) || '';
+
+  return {
+    path,
+    route: page,
+  };
+}

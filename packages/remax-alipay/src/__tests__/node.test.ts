@@ -114,7 +114,7 @@ describe('node', () => {
         componentName: 'view',
         phase: 'extra',
       })
-    ).toBeFalsy();
+    ).toBeTruthy();
 
     expect(
       node().shouldHostComponentRegister!({

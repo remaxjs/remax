@@ -92,7 +92,6 @@
     hover-stop-propagation="{{item.props['hover-stop-propagation']}}"
     id="{{item.props['id']}}"
     key="{{item.props['key']}}"
-    ns:attr="{{item.props['ns:attr']}}"
     onAnimationEnd="{{item.props['onAnimationEnd']}}"
     onAnimationIteration="{{item.props['onAnimationIteration']}}"
     onAnimationStart="{{item.props['onAnimationStart']}}"
@@ -106,7 +105,6 @@
     onTouchMove="{{item.props['onTouchMove']}}"
     onTouchStart="{{item.props['onTouchStart']}}"
     onTransitionEnd="{{item.props['onTransitionEnd']}}"
-    show="{{item.props['show']}}"
     style="{{item.props['style']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">

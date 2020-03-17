@@ -84,15 +84,8 @@ const plugin: RemaxNodePluginConstructor = () => {
 
       return entries;
     },
-    shouldHostComponentRegister: ({ componentName, additional, phase }) => {
-      const shouldRegisterAll = additional || phase !== 'extra';
-
-      return (
-        componentName !== 'swiper-item' &&
-        componentName !== 'picker-view-column' &&
-        shouldRegisterAll
-      );
-    },
+    shouldHostComponentRegister: ({ componentName }) =>
+      componentName !== 'swiper-item' && componentName !== 'picker-view-column',
   };
 };
 

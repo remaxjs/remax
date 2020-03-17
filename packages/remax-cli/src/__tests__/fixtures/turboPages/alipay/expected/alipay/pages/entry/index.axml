@@ -1,5 +1,5 @@
 
-<template name="TPL_30">
+<template name="TPL_59">
   <view ><text >{{'react component'}}</text>
 
 <text >{{'Text inside Fragment'}}</text>
@@ -27,22 +27,22 @@
 
 </template>
 
-<template name="TPL_31">
+<template name="TPL_60">
   <view >{{'View inside Expression'}}</view>
 
 </template>
 
-<template name="TPL_33">
+<template name="TPL_62">
   <view show="{{node.props['show']}}">{{'React Component First Child'}}</view>
 
 </template>
 
-<template name="TPL_34">
+<template name="TPL_63">
   <view >{{'create element children 1'}}</view>
 
 </template>
 
-<template name="TPL_35">
+<template name="TPL_64">
   <view >{{'array map: '}}
 <block ><block a:if="{{node.children[1].children}}">
   <block a:for="{{node.children[1].children || []}}" key="{{item.id}}">
@@ -57,8 +57,13 @@
 
 </template>
 
-<template name="TPL_36">
+<template name="TPL_65">
   <view >{{'Conditional View'}}</view>
+
+</template>
+
+<template name="TPL_66">
+  <view >{{'remax window'}}</view>
 
 </template>
 
@@ -148,7 +153,6 @@
     hover-stop-propagation="{{node.props['hover-stop-propagation']}}" 
     id="{{node.props['id']}}" 
     key="{{node.props['key']}}" 
-    ns:attr="{{node.props['ns:attr']}}" 
     onAnimationEnd="{{node.props['onAnimationEnd']}}" 
     onAnimationIteration="{{node.props['onAnimationIteration']}}" 
     onAnimationStart="{{node.props['onAnimationStart']}}" 
@@ -162,7 +166,6 @@
     onTouchMove="{{node.props['onTouchMove']}}" 
     onTouchStart="{{node.props['onTouchStart']}}" 
     onTransitionEnd="{{node.props['onTransitionEnd']}}" 
-    show="{{node.props['show']}}" 
     style="{{node.props['style']}}" 
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
@@ -182,7 +185,7 @@
 </template>
 
 
-  <template is="TPL_32" data="{{ node: root.children[0] }}" />
+  <template is="TPL_61" data="{{ node: root.children[0] }}" />
 
 
 <!-- for default render -->

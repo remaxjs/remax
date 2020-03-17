@@ -35,6 +35,7 @@ import { without } from 'lodash';
 import jsx from 'acorn-jsx';
 import getEnvironment from './env';
 import { getRelatedModulesForEntry } from './chunk';
+import * as TurboPages from './turboPages';
 
 export default function rollupConfig(
   options: RemaxOptions,
@@ -72,21 +73,21 @@ export default function rollupConfig(
     }),
     turboPagesEnabled &&
       babel({
-        include: options.turboPages,
+        include: TurboPages.filter(entries, options),
         extensions: without(extensions, '.json'),
         usePlugins: [staticCompiler.preprocess],
         reactPreset: false,
       }),
     turboPagesEnabled &&
       babel({
-        include: options.turboPages,
+        include: TurboPages.filter(entries, options),
         extensions: without(extensions, '.json'),
         usePlugins: [staticCompiler.render],
         reactPreset: false,
       }),
     turboPagesEnabled &&
       babel({
-        include: options.turboPages,
+        include: TurboPages.filter(entries, options),
         extensions: without(extensions, '.json'),
         usePlugins: [staticCompiler.postProcess],
         reactPreset: false,
