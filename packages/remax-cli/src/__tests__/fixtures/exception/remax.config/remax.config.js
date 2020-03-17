@@ -1,5 +1,5 @@
 module.exports = {
-  compiler: 1,
+  turboPages: 1,
   xxx: 1,
   cssModules: 1,
   pxToRpx: 1,

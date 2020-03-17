@@ -84,8 +84,7 @@ describe('API', () => {
   });
 
   it('getMeta', () => {
-    const remaxOptions: any = { compiler: 'default' };
-    const extensions = API.getMeta({ remaxOptions });
+    const extensions = API.getMeta();
     expect(extensions.include).toMatchInlineSnapshot(`
       Object {
         "src": "src",
