@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.3](https://github.com/remaxjs/remax/compare/v1.15.2...v1.15.3) (2020-03-17)
+
+### Bug Fixes
+
+- 修复使用 typescript 时 common chunk 可能存在错误引用的问题 ([d2874aa](https://github.com/remaxjs/remax/commit/d2874aa)), closes [#708](https://github.com/remaxjs/remax/issues/708)
+
 ## [1.15.2](https://github.com/remaxjs/remax/compare/v1.15.1...v1.15.2) (2020-03-15)
 
 **Note:** Version bump only for package remax-cli
