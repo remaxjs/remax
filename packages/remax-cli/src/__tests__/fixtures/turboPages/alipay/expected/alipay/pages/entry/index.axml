@@ -1,5 +1,5 @@
 
-<template name="TPL_59">
+<template name="TPL_30">
   <view ><text >{{'react component'}}</text>
 
 <text >{{'Text inside Fragment'}}</text>
@@ -27,22 +27,142 @@
 
 </template>
 
-<template name="TPL_60">
+<template name="TPL_31">
   <view >{{'View inside Expression'}}</view>
 
 </template>
 
-<template name="TPL_62">
+<template name="TPL_32">
+  <view >{{'JSXText entry'}}
+<block >{{'expression entry'}}</block>
+
+<text >{{'Fragment Text 1'}}</text>
+
+<text >{{'Fragment Text 2'}}</text>
+
+<text >{{'Fragment Text 3'}}</text>
+
+<text >{{'Fragment Text 4'}}</text>
+
+{{'Fragment'}}
+{{'React.Fragment'}}
+<block ><template is="TPL_DEFAULT" data="{{root: node.children[8]}}" />
+</block>
+
+<text >{{'Remax.Text'}}</text>
+
+<block ><template is="TPL_DEFAULT" data="{{root: node.children[10]}}" />
+</block>
+
+<block ><template is="TPL_DEFAULT" data="{{root: node.children[11]}}" />
+</block>
+
+<view class="className">{{'Count: '}}
+<block ><block a:if="{{node.children[12].children[1].children}}">
+  <block a:for="{{node.children[12].children[1].children || []}}" key="{{item.id}}">
+    <template a:if="{{item.props._tid > 0}}" is="{{'TPL_' + item.props._tid}}" data="{{ node: item }}" />
+    <template a:else is="{{ 'TPL_' + item.type }}" data="{{ node: item }}" />
+  </block>
+</block>
+<template a:elif="{{node.children[12].children[1].props._tid > 0}}" is="{{'TPL_' + node.children[12].children[1].props._tid}}" data="{{ node: node.children[12].children[1] }}" />
+<template a:else is="{{ 'TPL_' + node.children[12].children[1].type }}" data="{{ node: node.children[12].children[1] }}" />
+</block>
+</view>
+
+<view id="{{node.children[13].props['id']}}"
+  class="class">{{'view'}}</view>
+
+<view >{{'custom view'}}</view>
+
+<block ><block a:if="{{node.children[15].children}}">
+  <block a:for="{{node.children[15].children || []}}" key="{{item.id}}">
+    <template a:if="{{item.props._tid > 0}}" is="{{'TPL_' + item.props._tid}}" data="{{ node: item }}" />
+    <template a:else is="{{ 'TPL_' + item.type }}" data="{{ node: item }}" />
+  </block>
+</block>
+<template a:elif="{{node.children[15].props._tid > 0}}" is="{{'TPL_' + node.children[15].props._tid}}" data="{{ node: node.children[15] }}" />
+<template a:else is="{{ 'TPL_' + node.children[15].type }}" data="{{ node: node.children[15] }}" />
+</block>
+
+<block ><block a:if="{{node.children[16].children}}">
+  <block a:for="{{node.children[16].children || []}}" key="{{item.id}}">
+    <template a:if="{{item.props._tid > 0}}" is="{{'TPL_' + item.props._tid}}" data="{{ node: item }}" />
+    <template a:else is="{{ 'TPL_' + item.type }}" data="{{ node: item }}" />
+  </block>
+</block>
+<template a:elif="{{node.children[16].props._tid > 0}}" is="{{'TPL_' + node.children[16].props._tid}}" data="{{ node: node.children[16] }}" />
+<template a:else is="{{ 'TPL_' + node.children[16].type }}" data="{{ node: node.children[16] }}" />
+</block>
+
+<view id="{{node.children[17].props['id']}}"
+  disable-scroll="{{node.children[17].props['disable-scroll']}}"
+  hover-class="{{node.children[17].props['hover-class']}}"
+  hover-class="{{node.children[17].props['hover-class']}}"
+  hover-start-time="{{node.children[17].props['hover-start-time']}}"
+  hover-stay-time="{{node.children[17].props['hover-stay-time']}}"
+  hidden="{{node.children[17].props['hidden']}}"
+  class="{{node.children[17].props['class']}}"
+  style="{{node.children[17].props['style']}}"
+  animation="{{node.children[17].props['animation']}}"
+  hover-stop-propagation="{{node.children[17].props['hover-stop-propagation']}}"
+  onTap="{{node.children[17].props['onTap']}}"
+  onTap="{{node.children[17].props['onTap']}}"
+  onTouchStart="{{node.children[17].props['onTouchStart']}}"
+  onTouchMove="{{node.children[17].props['onTouchMove']}}"
+  onTouchEnd="{{node.children[17].props['onTouchEnd']}}"
+  onTouchCancel="{{node.children[17].props['onTouchCancel']}}"
+  onLongTap="{{node.children[17].props['onLongTap']}}"
+  onLongTap="{{node.children[17].props['onLongTap']}}"
+  onTransitionEnd="{{node.children[17].props['onTransitionEnd']}}"
+  onAnimationIteration="{{node.children[17].props['onAnimationIteration']}}"
+  onAnimationStart="{{node.children[17].props['onAnimationStart']}}"
+  onAnimationEnd="{{node.children[17].props['onAnimationEnd']}}"
+  onAppear="{{node.children[17].props['onAppear']}}"
+  onDisappear="{{node.children[17].props['onDisappear']}}"
+  onFirstAppear="{{node.children[17].props['onFirstAppear']}}">{{'Spread Attributes View'}}</view>
+
+<text >{{'long long long long long long long long long long long long text long long long long long long long long long long long long text '}}</text>
+
+<block ><template is="TPL_DEFAULT" data="{{root: node.children[19]}}" />
+</block>
+
+<block >{{'Literal Expression'}}</block>
+
+<block ><template is="TPL_DEFAULT" data="{{root: node.children[21]}}" />
+</block>
+
+<block ><template is="TPL_DEFAULT" data="{{root: node.children[22]}}" />
+</block>
+
+<block ><block a:if="{{node.children[23].children}}">
+  <block a:for="{{node.children[23].children || []}}" key="{{item.id}}">
+    <template a:if="{{item.props._tid > 0}}" is="{{'TPL_' + item.props._tid}}" data="{{ node: item }}" />
+    <template a:else is="{{ 'TPL_' + item.type }}" data="{{ node: item }}" />
+  </block>
+</block>
+<template a:elif="{{node.children[23].props._tid > 0}}" is="{{'TPL_' + node.children[23].props._tid}}" data="{{ node: node.children[23] }}" />
+<template a:else is="{{ 'TPL_' + node.children[23].type }}" data="{{ node: node.children[23] }}" />
+</block>
+
+<text >{{ node.children[24].children[0].text }}
+</text>
+
+<view ns:attr="1"></view>
+</view>
+
+</template>
+
+<template name="TPL_33">
   <view show="{{node.props['show']}}">{{'React Component First Child'}}</view>
 
 </template>
 
-<template name="TPL_63">
+<template name="TPL_34">
   <view >{{'create element children 1'}}</view>
 
 </template>
 
-<template name="TPL_64">
+<template name="TPL_35">
   <view >{{'array map: '}}
 <block ><block a:if="{{node.children[1].children}}">
   <block a:for="{{node.children[1].children || []}}" key="{{item.id}}">
@@ -57,13 +177,8 @@
 
 </template>
 
-<template name="TPL_65">
+<template name="TPL_36">
   <view >{{'Conditional View'}}</view>
-
-</template>
-
-<template name="TPL_66">
-  <view >{{'remax window'}}</view>
 
 </template>
 
@@ -750,6 +865,7 @@
     hover-stop-propagation="{{node.props['hover-stop-propagation']}}" 
     id="{{node.props['id']}}" 
     key="{{node.props['key']}}" 
+    ns:attr="{{node.props['ns:attr']}}" 
     onAnimationEnd="{{node.props['onAnimationEnd']}}" 
     onAnimationIteration="{{node.props['onAnimationIteration']}}" 
     onAnimationStart="{{node.props['onAnimationStart']}}" 
@@ -793,7 +909,7 @@
 </template>
 
 
-  <template is="TPL_61" data="{{ node: root.children[0] }}" />
+  <template is="TPL_32" data="{{ node: root.children[0] }}" />
 
 
 <!-- for default render -->

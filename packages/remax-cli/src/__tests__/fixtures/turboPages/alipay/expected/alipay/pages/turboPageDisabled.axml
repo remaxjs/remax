@@ -713,6 +713,7 @@
     hover-stop-propagation="{{item.props['hover-stop-propagation']}}"
     id="{{item.props['id']}}"
     key="{{item.props['key']}}"
+    ns:attr="{{item.props['ns:attr']}}"
     onAnimationEnd="{{item.props['onAnimationEnd']}}"
     onAnimationIteration="{{item.props['onAnimationIteration']}}"
     onAnimationStart="{{item.props['onAnimationStart']}}"

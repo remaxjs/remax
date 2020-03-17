@@ -244,11 +244,6 @@
 
 </template>
 
-<template name="TPL_66">
-  <view >{{'remax window'}}</view>
-
-</template>
-
 
 
   
@@ -932,6 +927,7 @@
     hover-stop-propagation="{{node.props['hover-stop-propagation']}}" 
     id="{{node.props['id']}}" 
     key="{{node.props['key']}}" 
+    ns:attr="{{node.props['ns:attr']}}" 
     onAnimationEnd="{{node.props['onAnimationEnd']}}" 
     onAnimationIteration="{{node.props['onAnimationIteration']}}" 
     onAnimationStart="{{node.props['onAnimationStart']}}" 
