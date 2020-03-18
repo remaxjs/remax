@@ -1,6 +1,7 @@
 'use strict';
 
 var _fmtEvent = _interopRequireDefault(require('./fmtEvent'));
+require('module-a');
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
