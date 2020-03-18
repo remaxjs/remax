@@ -6,5 +6,7 @@ describe('use native components in alipay app', () => {
     __dirname,
     '../fixtures/nativeComponent/expected/alipay'
   );
-  runTest('nativeComponent', 'alipay', cwd, { include: ['npm/cjs'] });
+  runTest('nativeComponent', 'alipay', cwd, {
+    include: ['npm/cjs', 'npm/module-a'],
+  });
 });

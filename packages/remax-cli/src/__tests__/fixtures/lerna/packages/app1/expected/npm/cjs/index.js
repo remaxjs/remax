@@ -1,6 +1,7 @@
 'use strict';
 
 var _fmtEvent = _interopRequireDefault(require('./fmtEvent'));
+var moduleA= require('module-a');
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -9,6 +10,7 @@ function _interopRequireDefault(obj) {
 Component({
   data: {},
   props: {
+    moduleA: moduleA,
     className: '',
     style: '',
     onClick: function onClick(e) {},
