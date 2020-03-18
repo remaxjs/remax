@@ -54,7 +54,7 @@ export default function getEntries(
       return [
         ...ret,
         searchFile(path.join(options.cwd, options.rootDir, page)),
-      ].filter(page => !!page);
+      ];
     },
     []
   );
@@ -65,7 +65,7 @@ export default function getEntries(
         return [
           ...ret,
           searchFile(path.join(options.cwd, options.rootDir, pack.root, page)),
-        ].filter(page => !!page);
+        ];
       }, [])
     );
   });
