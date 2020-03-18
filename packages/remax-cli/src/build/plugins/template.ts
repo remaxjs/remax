@@ -160,14 +160,21 @@ function createPageUsingComponents(
       continue;
     }
 
+    // 避免出现不在 cwd 下的引用路径
+    const componentPath = path.join(
+      options.cwd,
+      winPath(path.relative(options.cwd, sourcePath)).replace(/\.\.\//g, '')
+    );
+
     usingComponents[id] = winPath(
       path
         .relative(
           path.dirname(configFilePath),
-          sourcePath
+          componentPath
             .replace(/node_modules/, `${options.rootDir}/npm`)
             .replace(/node_modules/g, 'npm')
         )
+        .replace(new RegExp(`^${options.rootDir}/`), '')
         .replace(/\.js$/, '')
         .replace(/@/g, '_')
     );
