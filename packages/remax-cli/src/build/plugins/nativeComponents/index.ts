@@ -29,7 +29,7 @@ export default (options: RemaxOptions, pages: string[]): Plugin => {
     name: 'nativeComponents',
     load(id) {
       if (isNativeComponent(id)) {
-        jsModule(id);
+        jsModule(options, id);
         jsHelper(id);
         style(id);
         json(id);
