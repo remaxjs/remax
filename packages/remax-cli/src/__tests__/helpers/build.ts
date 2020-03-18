@@ -25,10 +25,15 @@ export default async function build(
       ...config,
       cwd,
       progress: false,
-      rollupOptions: {
+      rollupOptions: options => ({
+        ...options,
         external: ['react', 'react-reconciler', 'scheduler'],
         treeshake: true,
-      },
+        output: {
+          ...options.output,
+          chunkFileNames: '[name]-chunk.js',
+        },
+      }),
       alias: {
         '@': 'src',
         '@components': 'src/components',

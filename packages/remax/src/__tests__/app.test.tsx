@@ -8,6 +8,7 @@ import {
   useAppLaunch,
   useAppPageNotFound,
   useAppShareAppMessage,
+  useAppEvent,
 } from '../hooks';
 import createAppConfig from '../createAppConfig';
 
@@ -82,6 +83,9 @@ describe('app', () => {
           log.push('unregister show');
         };
       });
+      useAppEvent('onShow', () => {
+        log.push('appEventShow');
+      });
       useAppPageNotFound(() => {
         log.push('pageNotFound');
       });
@@ -108,6 +112,7 @@ describe('app', () => {
     expect(log).toEqual([
       'launch',
       'show',
+      'appEventShow',
       'pageNotFound',
       'shareAppMessage',
       'error',

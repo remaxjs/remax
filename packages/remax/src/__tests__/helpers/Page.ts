@@ -72,6 +72,10 @@ class Page {
   pullIntercept() {
     this.config.onPullIntercept();
   }
+
+  back() {
+    this.config.events.onBack();
+  }
 }
 
 export default function PageConstructor(config: any) {

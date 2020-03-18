@@ -25,7 +25,7 @@
     "watch": "tsc -w",
     "prebuild": "rm -rf lib",
     "build": "tsc",
-    "test": "cross-env NODE_ENV=test jest",
+    "test": "jest",
     "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },
   "dependencies": {
@@ -93,7 +93,6 @@
     "babel-plugin-loop-optimizer": "^1.4.1",
     "babel-plugin-tester": "^8.0.1",
     "chalk": "^3.0.0",
-    "cross-env": "^7.0.2",
     "eol": "^0.9.1",
     "fs-readdir-recursive": "^1.1.0",
     "jest": "^24.8.0",

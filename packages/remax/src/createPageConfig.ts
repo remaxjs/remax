@@ -127,25 +127,25 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     events: {
       // 页面返回时触发
       onBack(this: any) {
-        return this.callLifecycle(Lifecycle.back);
+        return config.callLifecycle(Lifecycle.back);
       },
 
       // 键盘高度变化时触发
       onKeyboardHeight(this: any, e: any) {
-        return this.callLifecycle(Lifecycle.keyboardHeight, e);
+        return config.callLifecycle(Lifecycle.keyboardHeight, e);
       },
 
       onTabItemTap(this: any, e: any) {
-        return this.callLifecycle(Lifecycle.keyboardHeight, e);
+        return config.callLifecycle(Lifecycle.keyboardHeight, e);
       },
 
       // 点击但切换tabItem前触发
       beforeTabItemTap(this: any) {
-        return this.callLifecycle(Lifecycle.beforeTabItemTap);
+        return config.callLifecycle(Lifecycle.beforeTabItemTap);
       },
 
       onResize(this: any, e: any) {
-        return this.callLifecycle(Lifecycle.keyboardHeight, e);
+        return config.callLifecycle(Lifecycle.keyboardHeight, e);
       },
     },
 

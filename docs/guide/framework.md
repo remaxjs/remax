@@ -134,28 +134,32 @@ export default class IndexPage extends React.Component {
 对于函数组件的页面  我们提供了 hooks 来监听生命周期。
 
 ```jsx
-import { useShow } from 'remax';
+import { usePageEvent } from 'remax';
 
 export default () => {
-  useShow(() => {
+  // onShow 生命周期
+  usePageEvent('onShow', () => {
     console.log('onShow');
   });
 
-  return <View>view</View>;
+  // 支付宝 onBack 回调
+  usePageEvent('onBack', () => {
+    console.log('onBack');
+  });
 };
 ```
 
-对于函数组件的 App, hook 名称上多了一个 App 前缀，与页面 hook 做出区分。
+对于函数组件的 App, 为 `useAppEvent`
 
 ```jsx
-import { useAppShow, useAppShareAppMessage } from 'remax';
+import { useAppEvent } from 'remax';
 
 export default function App(props) {
-  useAppShow(() => {
+  useAppEvent('onShow', () => {
     console.log('这个 hook 等用于 onShow');
   });
 
-  useAppShareAppMessage(() => {
+  useAppShareAppMessage('onShareAppMessage', () => {
     console.log('这个 hook 等用于 onShareAppMessage');
   });
 

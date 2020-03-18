@@ -13,6 +13,7 @@ import {
   useOptionMenuClick,
   usePopMenuClick,
   usePullIntercept,
+  usePageEvent,
 } from '../../src';
 import { PageProps } from '../createPageWrapper';
 import View from './helpers/View';
@@ -76,6 +77,14 @@ describe('page', () => {
           log.push('usePullIntercept');
         });
 
+        usePageEvent('onBack', () => {
+          log.push('useBack');
+        });
+
+        usePageEvent('onShow', () => {
+          log.push('useEventOnShow');
+        });
+
         return <View>foo</View>;
       };
       const page = Page(createPageConfig(Foo));
@@ -89,10 +98,12 @@ describe('page', () => {
       page.titleClick();
       page.optionMenuClick();
       page.popMenuClick();
+      page.back();
       page.hide();
 
       expect(log).toEqual([
         'useShow',
+        'useEventOnShow',
         'useReady',
         'usePullDownRefresh',
         'usePullIntercept',
@@ -103,6 +114,7 @@ describe('page', () => {
         'useTitleClick',
         'useOptionMenuClick',
         'usePopMenuClick',
+        'useBack',
         'useHide',
       ]);
     });
