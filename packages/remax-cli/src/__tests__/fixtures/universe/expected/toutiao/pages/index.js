@@ -841,6 +841,7 @@ function promisify(api) {
 }
 
 var getAppStub = getApp;
+var canIUse = tt.canIUse;
 var getSystemInfoSync = tt.getSystemInfoSync;
 var getSystemInfo = promisify(tt.getSystemInfo);
 var getUpdateManager = tt.getUpdateManager;
@@ -887,6 +888,7 @@ var openLocation = promisify(tt.openLocation);
 var getLocation = promisify(tt.getLocation);
 var showShareMenu = promisify(tt.showShareMenu);
 var hideShareMenu = promisify(tt.hideShareMenu);
+var navigateToVideoView = promisify(tt.navigateToVideoView);
 var createCanvasContext = tt.createCanvasContext;
 var saveFile = promisify(tt.saveFile);
 var removeSavedFile = promisify(tt.removeSavedFile);
