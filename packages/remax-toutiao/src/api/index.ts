@@ -2,6 +2,7 @@ import promisify from './promisify';
 
 export const getAppStub = getApp;
 
+export const canIUse = tt.canIUse;
 export const getSystemInfoSync = tt.getSystemInfoSync;
 export const getSystemInfo = promisify(tt.getSystemInfo);
 export const getUpdateManager = tt.getUpdateManager;
@@ -48,6 +49,7 @@ export const openLocation = promisify(tt.openLocation);
 export const getLocation = promisify(tt.getLocation);
 export const showShareMenu = promisify(tt.showShareMenu);
 export const hideShareMenu = promisify(tt.hideShareMenu);
+export const navigateToVideoView = promisify(tt.navigateToVideoView);
 export const createCanvasContext = tt.createCanvasContext;
 export const saveFile = promisify(tt.saveFile);
 export const removeSavedFile = promisify(tt.removeSavedFile);
