@@ -1,0 +1,13 @@
+<view class="rax-view {{className}}" 
+    style="{{style}}"
+    onTap="onClick" 
+    onLongTap="onLongPress" 
+    onAppear="onAppear"
+    onDisAppear="onDisAppear"
+    onTouchStart="onTouchStart"
+    onTouchMove="onTouchMove"
+    onTouchEnd="onTouchEnd"
+    animation="{{animation}}"
+    onTouchCancel="onTouchCancel">
+    <slot/>
+</view>

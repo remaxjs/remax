@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "cjs-0": "../npm/cjs/index"
+  }
+}
