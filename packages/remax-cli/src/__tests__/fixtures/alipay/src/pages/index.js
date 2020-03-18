@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text } from 'remax/alipay';
 import { FunctionalPageNavigator as UnKnownComponent } from 'remax/wechat';
+import C from '@/components/C';
 import styles from './index.module.css';
 
 export default () => {
@@ -17,6 +18,7 @@ export default () => {
 
   return (
     <View className={styles['page-index']}>
+      <C className="b" />
       <View
         onClick={handleClick}
         onTouchStart={handleTouchStart}

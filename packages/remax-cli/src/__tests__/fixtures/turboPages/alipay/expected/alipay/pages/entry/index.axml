@@ -1,5 +1,5 @@
 
-<template name="TPL_30">
+<template name="TPL_1">
   <view ><text >{{'react component'}}</text>
 
 <text >{{'Text inside Fragment'}}</text>
@@ -27,12 +27,12 @@
 
 </template>
 
-<template name="TPL_31">
+<template name="TPL_2">
   <view >{{'View inside Expression'}}</view>
 
 </template>
 
-<template name="TPL_32">
+<template name="TPL_3">
   <view >{{'JSXText entry'}}
 <block >{{'expression entry'}}</block>
 
@@ -152,17 +152,17 @@
 
 </template>
 
-<template name="TPL_33">
+<template name="TPL_4">
   <view show="{{node.props['show']}}">{{'React Component First Child'}}</view>
 
 </template>
 
-<template name="TPL_34">
+<template name="TPL_5">
   <view >{{'create element children 1'}}</view>
 
 </template>
 
-<template name="TPL_35">
+<template name="TPL_6">
   <view >{{'array map: '}}
 <block ><block a:if="{{node.children[1].children}}">
   <block a:for="{{node.children[1].children || []}}" key="{{item.id}}">
@@ -177,7 +177,7 @@
 
 </template>
 
-<template name="TPL_36">
+<template name="TPL_7">
   <view >{{'Conditional View'}}</view>
 
 </template>
@@ -909,7 +909,7 @@
 </template>
 
 
-  <template is="TPL_32" data="{{ node: root.children[0] }}" />
+  <template is="TPL_3" data="{{ node: root.children[0] }}" />
 
 
 <!-- for default render -->

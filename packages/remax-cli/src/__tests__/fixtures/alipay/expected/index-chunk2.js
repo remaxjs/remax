@@ -1,12 +1,7 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
-var index$1 = require('../../index-chunk.js');
-require('react-reconciler');
-require('scheduler');
+require('./index-chunk.js');
 var React = require('react');
-var index$2 = require('../../index-chunk2.js');
 
 var __assign = undefined && undefined.__assign || function () {
   __assign = Object.assign || function (t) {
@@ -328,26 +323,13 @@ var writeBLECharacteristicValue = promisify(my.writeBLECharacteristicValue);
 var createVideoContext = my.createVideoContext;
 var getOpenUserInfo = promisify(my.getOpenUserInfo);
 
-var _page = function _page() {
-  var props = {};
-  var TextElement = React.cloneElement(React.createElement(Text, null));
-
-  function handleClick() {}
-
-  function handleTouchStart() {}
-
+var C = (function (_ref) {
+  var className = _ref.className;
   return React.createElement(View, {
-    className: "pageA-index"
-  }, React.createElement(index$2.C, {
-    className: "a"
-  }), React.createElement(View, index$1._extends({
-    onClick: handleClick,
-    onTouchStart: handleTouchStart,
-    id: "view",
-    "data-foo": "bar"
-  }, props), "foo"), TextElement);
-};
+    className: "c ".concat(className)
+  }, "c");
+});
 
-var index = Page(index$1.createPageConfig(_page));
-
-exports.default = index;
+exports.C = C;
+exports.Text = Text;
+exports.View = View;

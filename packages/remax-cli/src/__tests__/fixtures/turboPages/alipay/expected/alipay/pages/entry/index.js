@@ -20,9 +20,9 @@ var DDD = index$1.createHostComponent('ddd');
 function ReactComp(_ref) {
   var children = _ref.children;
   return React.createElement(React.Fragment, null, React.createElement(index$2.View, {
-    _tid: "30"
+    _tid: "1"
   }, React.createElement("stub-block", null), React.createElement(React.Fragment, null, React.createElement("stub-block", null)), React.createElement("block", null, React.createElement(index$2.View, {
-    _tid: "31"
+    _tid: "2"
   }, "View inside Expression")), React.createElement("block", null, React.Children.map(children, function (child, index) {
     return React.cloneElement(child, {
       id: 'reactComp' + index
@@ -50,24 +50,24 @@ function _ref2() {
   var plainText = 'plain-text-leaf';
   return React.createElement(index$2.View, {
     entry: true,
-    _tid: "32"
+    _tid: "3"
   }, "JSXText entry", React.createElement("block", null, 'expression entry'), React.createElement(React.Fragment, null, React.createElement("stub-block", null), React.createElement("stub-block", null), React.createElement(React.Fragment, null, React.createElement("stub-block", null), React.createElement("stub-block", null))), React.createElement(React.Fragment, null, "Fragment"), React.createElement(React.Fragment, null, "React.Fragment"), React.createElement("block", null, React.createElement(DDD, null)), React.createElement("stub-block", null), React.createElement("block", null, React.createElement(NativeComponent, null)), React.createElement("block", null, React.createElement(ReactComp, null, React.createElement(index$2.View, {
-    _tid: "33"
+    _tid: "4"
   }, "React Component First Child"), React.createElement("block", null, 'React Component Second Child'))), React.createElement(index$2.View, null, "Count: ", React.createElement("block", null, count)), React.createElement(index$2.View, {
     id: count
   }, "view"), React.createElement("stub-block", null), React.createElement("block", null, React.createElement('view', {
     id: 'view'
   }, [React.createElement(index$2.View, {
-    _tid: "34"
+    _tid: "5"
   }, "create element children 1"), React.createElement('view', {
     key: '2'
   })])), React.createElement("block", null, [1, 2, 3].map(function (item) {
     return React.createElement(index$2.View, {
       key: item,
-      _tid: "35"
+      _tid: "6"
     }, "array map: ", React.createElement("block", null, item));
   })), React.createElement(index$2.View, props, "Spread Attributes View"), React.createElement("stub-block", null), React.createElement("block", null, React.createElement(index$2.RemaxWindow, null)), React.createElement("block", null, 'Literal Expression'), React.createElement("block", null, React.createElement(Deep.Object.View, null, "Deep Object View")), React.createElement("block", null, React.createElement(RenameView, null, "Rename View")), React.createElement("block", null, show && React.createElement(index$2.View, {
-    _tid: "36"
+    _tid: "7"
   }, "Conditional View")), React.createElement(index$2.Text, null, showPlainText && plainText), React.createElement("stub-block", null));
 }
 

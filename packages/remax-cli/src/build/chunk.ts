@@ -32,25 +32,25 @@ export function getRelatedModules(
 ): string[] {
   const { imports } = chunk;
 
-  const relatedChunks = commonChunks.filter(chunk =>
-    imports.find(i => i === chunk.fileName)
-  );
+  const relatedChunks = commonChunks
+    .filter(chunk => imports.find(i => i === chunk.fileName))
+    .sort((a, b) => imports.indexOf(a.fileName) - imports.indexOf(b.fileName));
 
-  const unrelatedChunks = commonChunks.filter(chunk =>
-    imports.find(i => i !== chunk.fileName)
-  );
+  const unrelatedChunks = commonChunks
+    .filter(chunk => imports.find(i => i !== chunk.fileName))
+    .sort((a, b) => imports.indexOf(a.fileName) - imports.indexOf(b.fileName));
 
   return [
-    ...Object.keys(chunk.modules),
     ...relatedChunks.reduce<string[]>(
       (acc, c) => [
-        ...acc,
-        ...Object.keys(chunk.modules),
         // 递归查找 common chunk 引用的 chunk
         ...getRelatedModules(c, unrelatedChunks),
+        ...Object.keys(chunk.modules),
+        ...acc,
       ],
       []
     ),
+    ...Object.keys(chunk.modules),
   ];
 }
 
