@@ -1,4 +1,5 @@
 import { OutputBundle, OutputChunk } from 'rollup';
+import winPath from '../winPath';
 
 export function getEntryChunks(bundle: OutputBundle): OutputChunk[] {
   const entryChunks = [];
@@ -30,15 +31,17 @@ export function getRelatedModules(
   chunk: OutputChunk,
   commonChunks: OutputChunk[]
 ): string[] {
-  const { imports } = chunk;
+  const imports = chunk.imports.map(i => winPath(i));
+  const asc = (a: OutputChunk, b: OutputChunk) =>
+    imports.indexOf(winPath(a.fileName)) - imports.indexOf(winPath(b.fileName));
 
   const relatedChunks = commonChunks
     .filter(chunk => imports.find(i => i === chunk.fileName))
-    .sort((a, b) => imports.indexOf(a.fileName) - imports.indexOf(b.fileName));
+    .sort(asc);
 
   const unrelatedChunks = commonChunks
     .filter(chunk => imports.find(i => i !== chunk.fileName))
-    .sort((a, b) => imports.indexOf(a.fileName) - imports.indexOf(b.fileName));
+    .sort(asc);
 
   return [
     ...relatedChunks.reduce<string[]>(
