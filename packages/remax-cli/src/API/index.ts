@@ -91,7 +91,7 @@ class API {
         const currentEntries = plugin.getEntries({
           remaxOptions,
           appManifest,
-          getEntryPath: (entryPath: string) => searchFile(entryPath, true),
+          getEntryPath: (entryPath: string) => searchFile(entryPath),
         });
 
         entries.app = currentEntries.app || entries.app;

@@ -4,7 +4,6 @@ import API from './API';
 import { RemaxOptions, AppConfig, Entries } from 'remax-types';
 import readManifest from './readManifest';
 import { Context } from './types';
-import output from './build/utils/output';
 
 export function searchFile(file: string, strict?: boolean) {
   const exts = ['ts', 'tsx', 'js', 'jsx'];
@@ -14,10 +13,6 @@ export function searchFile(file: string, strict?: boolean) {
     if (fs.existsSync(extFile)) {
       return extFile;
     }
-  }
-
-  if (strict) {
-    output.error(`[配置]: ${file} 不存在，请检查你的配置文件`);
   }
 
   return '';
@@ -49,7 +44,7 @@ export default function getEntries(
   }
 
   const entries: Entries = {
-    app: searchFile(path.join(options.cwd, options.rootDir, 'app'), true),
+    app: searchFile(path.join(options.cwd, options.rootDir, 'app')),
     pages: [],
     images: [],
   };
@@ -58,7 +53,7 @@ export default function getEntries(
     (ret: Array<{ path: string; file: string }>, page: string) => {
       return [
         ...ret,
-        searchFile(path.join(options.cwd, options.rootDir, page), true),
+        searchFile(path.join(options.cwd, options.rootDir, page)),
       ].filter(page => !!page);
     },
     []
@@ -69,10 +64,7 @@ export default function getEntries(
       pack.pages.reduce((ret: string[], page) => {
         return [
           ...ret,
-          searchFile(
-            path.join(options.cwd, options.rootDir, pack.root, page),
-            true
-          ),
+          searchFile(path.join(options.cwd, options.rootDir, pack.root, page)),
         ].filter(page => !!page);
       }, [])
     );
