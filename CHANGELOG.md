@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.1](https://github.com/remaxjs/remax/compare/v1.16.0...v1.16.1) (2020-03-18)
+
+### Bug Fixes
+
+- 修复样式文件引入顺序错误的问题 ([b43e6bd](https://github.com/remaxjs/remax/commit/b43e6bd))
+- 修复自定义组件引用在 lerna 项目结构下错误的问题 ([37b6ba4](https://github.com/remaxjs/remax/commit/37b6ba4))
+- 修复自定义组件中 js 文件 resolve 问题 ([ef2dc43](https://github.com/remaxjs/remax/commit/ef2dc43))
+
 # [1.16.0](https://github.com/remaxjs/remax/compare/v1.15.3...v1.16.0) (2020-03-17)
 
 ### Features
