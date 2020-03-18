@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, Text } from 'remax-alipay';
+import C from '@/components/C';
 import './index.css';
 
 export default () => {
@@ -12,6 +13,7 @@ export default () => {
 
   return (
     <View className="pageA-index">
+      <C className="a" />
       <View
         onClick={handleClick}
         onTouchStart={handleTouchStart}
