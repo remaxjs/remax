@@ -76,6 +76,19 @@ class Page {
   back() {
     this.config.events.onBack();
   }
+
+  keyboardHeight() {
+    this.config.events.onKeyboardHeight();
+  }
+  tabItemTap() {
+    this.config.events.onTabItemTap();
+  }
+  beforeTabItemTap() {
+    this.config.events.beforeTabItemTap();
+  }
+  resize() {
+    this.config.events.onResize();
+  }
 }
 
 export default function PageConstructor(config: any) {

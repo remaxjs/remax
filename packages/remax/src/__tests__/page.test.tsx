@@ -78,7 +78,23 @@ describe('page', () => {
         });
 
         usePageEvent('onBack', () => {
-          log.push('useBack');
+          log.push('useEventOnBack');
+        });
+
+        usePageEvent('onKeyboardHeight', () => {
+          log.push('useEventOnKeyboardHeight');
+        });
+
+        usePageEvent('onTabItemTap', () => {
+          log.push('useEventOnTabItemTap');
+        });
+
+        usePageEvent('beforeTabItemTap', () => {
+          log.push('useEventBeforeTabItemTap');
+        });
+
+        usePageEvent('onResize', () => {
+          log.push('useEventOnResize');
         });
 
         usePageEvent('onShow', () => {
@@ -99,6 +115,10 @@ describe('page', () => {
       page.optionMenuClick();
       page.popMenuClick();
       page.back();
+      page.keyboardHeight();
+      page.tabItemTap();
+      page.beforeTabItemTap();
+      page.resize();
       page.hide();
 
       expect(log).toEqual([
@@ -114,7 +134,11 @@ describe('page', () => {
         'useTitleClick',
         'useOptionMenuClick',
         'usePopMenuClick',
-        'useBack',
+        'useEventOnBack',
+        'useEventOnKeyboardHeight',
+        'useEventOnTabItemTap',
+        'useEventBeforeTabItemTap',
+        'useEventOnResize',
         'useHide',
       ]);
     });
@@ -234,6 +258,11 @@ describe('page', () => {
     page.popMenuClick();
     page.hide();
     page.unload();
+    page.back();
+    page.keyboardHeight();
+    page.tabItemTap();
+    page.beforeTabItemTap();
+    page.resize();
 
     expect(log).toEqual([
       'componentWillMount',

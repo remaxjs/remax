@@ -136,7 +136,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       },
 
       onTabItemTap(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.keyboardHeight, e);
+        return config.callLifecycle(Lifecycle.tabItemTap, e);
       },
 
       // 点击但切换tabItem前触发
@@ -145,7 +145,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       },
 
       onResize(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.keyboardHeight, e);
+        return config.callLifecycle(Lifecycle.resize, e);
       },
     },
 
