@@ -126,8 +126,8 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
 
     events: {
       // 页面返回时触发
-      onBack(this: any) {
-        return config.callLifecycle(Lifecycle.back);
+      onBack(this: any, e: any) {
+        return config.callLifecycle(Lifecycle.back, e);
       },
 
       // 键盘高度变化时触发
