@@ -2068,14 +2068,14 @@ function createPageConfig(Page) {
         return config.callLifecycle(Lifecycle.keyboardHeight, e);
       },
       onTabItemTap: function onTabItemTap(e) {
-        return config.callLifecycle(Lifecycle.keyboardHeight, e);
+        return config.callLifecycle(Lifecycle.tabItemTap, e);
       },
       // 点击但切换tabItem前触发
       beforeTabItemTap: function beforeTabItemTap() {
         return config.callLifecycle(Lifecycle.beforeTabItemTap);
       },
       onResize: function onResize(e) {
-        return config.callLifecycle(Lifecycle.keyboardHeight, e);
+        return config.callLifecycle(Lifecycle.resize, e);
       }
     }
   };
