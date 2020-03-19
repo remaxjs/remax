@@ -41,7 +41,7 @@ export function resolveModulesInCode(
     }
 
     const absoluteId = getPath(filePath, importPath);
-    const resolveId = relative(dirname(filePath), absoluteId);
+    const resolveId = winPath(relative(dirname(filePath), absoluteId));
 
     if (t.isImportDeclaration(node)) {
       const sourcePath = path.get('source') as NodePath;
