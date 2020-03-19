@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.2](https://github.com/remaxjs/remax/compare/v1.17.1...v1.17.2) (2020-03-19)
+
+### Bug Fixes
+
+- 修复自定义组件中引用 node_modules 模块的问题 ([#726](https://github.com/remaxjs/remax/issues/726)) ([22f6064](https://github.com/remaxjs/remax/commit/22f6064))
+
 ## [1.17.1](https://github.com/remaxjs/remax/compare/v1.17.0...v1.17.1) (2020-03-19)
 
 **Note:** Version bump only for package remax-cli
