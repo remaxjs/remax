@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/remaxjs/remax/compare/v1.16.1...v1.17.0) (2020-03-19)
+
+### Features
+
+- 新增 usePageEvent，useAppEvent 统一生命周期 hook ([#722](https://github.com/remaxjs/remax/issues/722)) ([0e8d7cd](https://github.com/remaxjs/remax/commit/0e8d7cd)), closes [#179](https://github.com/remaxjs/remax/issues/179)
+
 ## [1.16.1](https://github.com/remaxjs/remax/compare/v1.16.0...v1.16.1) (2020-03-18)
 
 **Note:** Version bump only for package remax
