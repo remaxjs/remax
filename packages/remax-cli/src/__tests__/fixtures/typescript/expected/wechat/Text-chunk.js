@@ -607,6 +607,7 @@ var createRewardedVideoAd = wx.createRewardedVideoAd;
 var createInterstitialAd = wx.createInterstitialAd;
 var cloud = wx.cloud;
 var requestSubscribeMessage = promisify(wx.requestSubscribeMessage);
+var hideHomeButton = promisify(wx.hideHomeButton);
 
 var View$1 = function View() {};
 var Text$1 = function Text() {};
