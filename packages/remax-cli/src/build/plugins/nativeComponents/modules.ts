@@ -8,6 +8,7 @@ import { get } from 'lodash';
 import resolve from 'resolve';
 import { getPath, pushArray, readFile } from './util';
 import { RemaxOptions } from 'remax-types';
+import winPath from '../../../winPath';
 
 const modules: string[] = [];
 
@@ -41,7 +42,9 @@ export function resolveModulesInCode(
     }
 
     const absoluteId = getPath(filePath, importPath);
-    const resolveId = winPath(relative(dirname(filePath), absoluteId));
+    const resolveId = winPath(relative(dirname(filePath), absoluteId))
+      .replace(/@/g, '_')
+      .replace(/node_modules/g, 'npm');
 
     if (t.isImportDeclaration(node)) {
       const sourcePath = path.get('source') as NodePath;
