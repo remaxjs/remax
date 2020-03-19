@@ -1435,7 +1435,6 @@ var AppLifecycle;
   AppLifecycle["shareAppMessage"] = "shareAppMessage";
   AppLifecycle["pageNotFound"] = "pageNotFound";
 })(AppLifecycle || (AppLifecycle = {}));
-
 function callbackName(name) {
   if (name.startsWith('before')) {
     return capitalize(name);
@@ -2062,21 +2061,21 @@ function createPageConfig(Page) {
     events: {
       // 页面返回时触发
       onBack: function onBack() {
-        return this.callLifecycle(Lifecycle.back);
+        return config.callLifecycle(Lifecycle.back);
       },
       // 键盘高度变化时触发
       onKeyboardHeight: function onKeyboardHeight(e) {
-        return this.callLifecycle(Lifecycle.keyboardHeight, e);
+        return config.callLifecycle(Lifecycle.keyboardHeight, e);
       },
       onTabItemTap: function onTabItemTap(e) {
-        return this.callLifecycle(Lifecycle.keyboardHeight, e);
+        return config.callLifecycle(Lifecycle.tabItemTap, e);
       },
       // 点击但切换tabItem前触发
       beforeTabItemTap: function beforeTabItemTap() {
-        return this.callLifecycle(Lifecycle.beforeTabItemTap);
+        return config.callLifecycle(Lifecycle.beforeTabItemTap);
       },
       onResize: function onResize(e) {
-        return this.callLifecycle(Lifecycle.keyboardHeight, e);
+        return config.callLifecycle(Lifecycle.resize, e);
       }
     }
   };

@@ -1,4 +1,5 @@
 import capitalize from './utils/capitalize';
+import lowercase from './utils/lowercase';
 
 export type Callback = (...args: any[]) => any;
 
@@ -28,6 +29,13 @@ export enum AppLifecycle {
   error = 'error',
   shareAppMessage = 'shareAppMessage',
   pageNotFound = 'pageNotFound',
+}
+
+export function lifeCycleName(name: string): Lifecycle {
+  if (name.startsWith('before')) {
+    return name as Lifecycle;
+  }
+  return lowercase(name.slice(2)) as Lifecycle;
 }
 
 export function callbackName(name: string) {

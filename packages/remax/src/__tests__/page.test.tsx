@@ -13,6 +13,7 @@ import {
   useOptionMenuClick,
   usePopMenuClick,
   usePullIntercept,
+  usePageEvent,
 } from '../../src';
 import { PageProps } from '../createPageWrapper';
 import View from './helpers/View';
@@ -76,6 +77,30 @@ describe('page', () => {
           log.push('usePullIntercept');
         });
 
+        usePageEvent('onBack', () => {
+          log.push('useEventOnBack');
+        });
+
+        usePageEvent('onKeyboardHeight', () => {
+          log.push('useEventOnKeyboardHeight');
+        });
+
+        usePageEvent('onTabItemTap', () => {
+          log.push('useEventOnTabItemTap');
+        });
+
+        usePageEvent('beforeTabItemTap', () => {
+          log.push('useEventBeforeTabItemTap');
+        });
+
+        usePageEvent('onResize', () => {
+          log.push('useEventOnResize');
+        });
+
+        usePageEvent('onShow', () => {
+          log.push('useEventOnShow');
+        });
+
         return <View>foo</View>;
       };
       const page = Page(createPageConfig(Foo));
@@ -89,10 +114,16 @@ describe('page', () => {
       page.titleClick();
       page.optionMenuClick();
       page.popMenuClick();
+      page.back();
+      page.keyboardHeight();
+      page.tabItemTap();
+      page.beforeTabItemTap();
+      page.resize();
       page.hide();
 
       expect(log).toEqual([
         'useShow',
+        'useEventOnShow',
         'useReady',
         'usePullDownRefresh',
         'usePullIntercept',
@@ -103,6 +134,11 @@ describe('page', () => {
         'useTitleClick',
         'useOptionMenuClick',
         'usePopMenuClick',
+        'useEventOnBack',
+        'useEventOnKeyboardHeight',
+        'useEventOnTabItemTap',
+        'useEventBeforeTabItemTap',
+        'useEventOnResize',
         'useHide',
       ]);
     });
@@ -222,6 +258,11 @@ describe('page', () => {
     page.popMenuClick();
     page.hide();
     page.unload();
+    page.back();
+    page.keyboardHeight();
+    page.tabItemTap();
+    page.beforeTabItemTap();
+    page.resize();
 
     expect(log).toEqual([
       'componentWillMount',
