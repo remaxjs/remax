@@ -9,7 +9,7 @@ import style, { getcssPaths } from './style';
 import json, { getjsonPaths } from './json';
 import template, { getTemplatePaths } from './tempate';
 import jsHelper, { getJsHelpers } from './jsHelper';
-import jsModule, { getJsModules } from './modules';
+import jsModule, { getJsModules, resolveModulesInCode } from './modules';
 import { isNativeComponent, isPluginComponent, getSourcePath } from './util';
 import winPath from '../../../winPath';
 import usingComponents from './usingComponents';
@@ -127,13 +127,18 @@ export default (options: RemaxOptions, pages: string[]): Plugin => {
           .replace(new RegExp(`^${options.rootDir}/`), '')
           .replace(/@/g, '_');
 
-        const source = readFileSync(id);
+        let source: string | Buffer = readFileSync(id);
 
         if (this.cache.get(bundleFileName)?.toString() === source.toString()) {
           return;
         }
 
         this.cache.set(bundleFileName, source);
+
+        // resolve js 文件中的引用路径
+        if (id.match(/.js$/)) {
+          source = resolveModulesInCode(source.toString(), id, options);
+        }
 
         this.emitFile({
           fileName: bundleFileName,

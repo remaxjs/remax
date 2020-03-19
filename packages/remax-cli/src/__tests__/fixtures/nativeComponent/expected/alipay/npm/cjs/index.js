@@ -2,6 +2,7 @@
 
 var _fmtEvent = _interopRequireDefault(require('./fmtEvent'));
 var moduleA= require('module-a');
+import '../_module/a/index.js';
 
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
