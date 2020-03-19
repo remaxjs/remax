@@ -2078,8 +2078,8 @@ function createPageConfig(Page) {
     },
     events: {
       // 页面返回时触发
-      onBack: function onBack() {
-        return config.callLifecycle(Lifecycle.back);
+      onBack: function onBack(e) {
+        return config.callLifecycle(Lifecycle.back, e);
       },
       // 键盘高度变化时触发
       onKeyboardHeight: function onKeyboardHeight(e) {
