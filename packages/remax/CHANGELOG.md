@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.1](https://github.com/remaxjs/remax/compare/v1.17.0...v1.17.1) (2020-03-19)
+
+### Bug Fixes
+
+- **alipay:** 补充支付宝 onBack 事件 hook 参数传递 ([c0600b7](https://github.com/remaxjs/remax/commit/c0600b7))
+
 # [1.17.0](https://github.com/remaxjs/remax/compare/v1.16.1...v1.17.0) (2020-03-19)
 
 ### Features
