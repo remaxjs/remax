@@ -20,9 +20,9 @@ var DDD = index$1.createHostComponent('ddd');
 function ReactComp(_ref) {
   var children = _ref.children;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(index$2.View, {
-    _tid: "1"
+    _tid: "30"
   }, /*#__PURE__*/React.createElement("stub-block", null), /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("stub-block", null)), /*#__PURE__*/React.createElement("block", null, /*#__PURE__*/React.createElement(index$2.View, {
-    _tid: "2"
+    _tid: "31"
   }, "View inside Expression")), /*#__PURE__*/React.createElement("block", null, React.Children.map(children, function (child, index) {
     return React.cloneElement(child, {
       id: 'reactComp' + index
@@ -50,24 +50,24 @@ function _Index() {
   var plainText = 'plain-text-leaf';
   return /*#__PURE__*/React.createElement(index$2.View, {
     entry: true,
-    _tid: "3"
+    _tid: "32"
   }, "JSXText entry", /*#__PURE__*/React.createElement("block", null, 'expression entry'), /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("stub-block", null), /*#__PURE__*/React.createElement("stub-block", null), /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("stub-block", null), /*#__PURE__*/React.createElement("stub-block", null))), /*#__PURE__*/React.createElement(React.Fragment, null, "Fragment"), /*#__PURE__*/React.createElement(React.Fragment, null, "React.Fragment"), /*#__PURE__*/React.createElement("block", null, /*#__PURE__*/React.createElement(DDD, null)), /*#__PURE__*/React.createElement("stub-block", null), /*#__PURE__*/React.createElement("block", null, /*#__PURE__*/React.createElement(NativeComponent, null)), /*#__PURE__*/React.createElement("block", null, /*#__PURE__*/React.createElement(ReactComp, null, /*#__PURE__*/React.createElement(index$2.View, {
-    _tid: "4"
+    _tid: "33"
   }, "React Component First Child"), /*#__PURE__*/React.createElement("block", null, 'React Component Second Child'))), /*#__PURE__*/React.createElement(index$2.View, null, "Count: ", /*#__PURE__*/React.createElement("block", null, count)), /*#__PURE__*/React.createElement(index$2.View, {
     id: count
   }, "view"), /*#__PURE__*/React.createElement("stub-block", null), /*#__PURE__*/React.createElement("block", null, React.createElement('view', {
     id: 'view'
   }, [/*#__PURE__*/React.createElement(index$2.View, {
-    _tid: "5"
+    _tid: "34"
   }, "create element children 1"), React.createElement('view', {
     key: '2'
   })])), /*#__PURE__*/React.createElement("block", null, [1, 2, 3].map(function (item) {
     return /*#__PURE__*/React.createElement(index$2.View, {
       key: item,
-      _tid: "6"
+      _tid: "35"
     }, "array map: ", /*#__PURE__*/React.createElement("block", null, item));
   })), /*#__PURE__*/React.createElement(index$2.View, props, "Spread Attributes View"), /*#__PURE__*/React.createElement("stub-block", null), /*#__PURE__*/React.createElement("block", null, /*#__PURE__*/React.createElement(index$2.RemaxWindow, null)), /*#__PURE__*/React.createElement("block", null, 'Literal Expression'), /*#__PURE__*/React.createElement("block", null, /*#__PURE__*/React.createElement(Deep.Object.View, null, "Deep Object View")), /*#__PURE__*/React.createElement("block", null, /*#__PURE__*/React.createElement(RenameView, null, "Rename View")), /*#__PURE__*/React.createElement("block", null, show && /*#__PURE__*/React.createElement(index$2.View, {
-    _tid: "7"
+    _tid: "36"
   }, "Conditional View")), /*#__PURE__*/React.createElement(index$2.Text, null, showPlainText && plainText), /*#__PURE__*/React.createElement("stub-block", null));
 }
 

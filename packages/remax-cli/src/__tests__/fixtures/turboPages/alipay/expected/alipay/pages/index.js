@@ -20,9 +20,9 @@ var DDD = index$1.createHostComponent('ddd');
 function ReactComp(_ref) {
   var children = _ref.children;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(index$2.View, {
-    _tid: "8"
+    _tid: "1"
   }, /*#__PURE__*/React.createElement("stub-block", null), /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("stub-block", null)), /*#__PURE__*/React.createElement("block", null, /*#__PURE__*/React.createElement(index$2.View, {
-    _tid: "9"
+    _tid: "2"
   }, "View inside Expression")), /*#__PURE__*/React.createElement("block", null, React.Children.map(children, function (child, index) {
     return React.cloneElement(child, {
       id: 'reactComp' + index
@@ -49,67 +49,67 @@ function _Index() {
 
   var plainText = 'plain-text-leaf';
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("block", {
-    _tid: "10"
+    _tid: "3"
   }, 'expression entry'), /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(index$2.Text, {
-    _tid: "11"
+    _tid: "4"
   }, "Fragment Text 1"), /*#__PURE__*/React.createElement(index$2.Text, {
-    _tid: "12"
+    _tid: "5"
   }, "Fragment Text 2"), /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(index$2.Text, {
-    _tid: "13"
+    _tid: "6"
   }, "Fragment Text 3"), /*#__PURE__*/React.createElement(index$2.Text, {
-    _tid: "14"
+    _tid: "7"
   }, "Fragment Text 4"))), /*#__PURE__*/React.createElement(React.Fragment, null, "Fragment"), /*#__PURE__*/React.createElement(React.Fragment, null, "React.Fragment"), /*#__PURE__*/React.createElement("block", {
-    _tid: "15"
+    _tid: "8"
   }, /*#__PURE__*/React.createElement(DDD, null)), /*#__PURE__*/React.createElement(index$2.Text, {
-    _tid: "16"
+    _tid: "9"
   }, "Remax.Text"), /*#__PURE__*/React.createElement("block", {
-    _tid: "17"
+    _tid: "10"
   }, /*#__PURE__*/React.createElement(NativeComponent, null)), /*#__PURE__*/React.createElement("block", {
-    _tid: "18"
+    _tid: "11"
   }, /*#__PURE__*/React.createElement(ReactComp, null, /*#__PURE__*/React.createElement(index$2.View, {
-    _tid: "33"
+    _tid: "26"
   }, "React Component First Child"), /*#__PURE__*/React.createElement("block", null, 'React Component Second Child'))), /*#__PURE__*/React.createElement(index$2.View, {
-    _tid: "19"
+    _tid: "12"
   }, "Count: ", /*#__PURE__*/React.createElement("block", null, count)), /*#__PURE__*/React.createElement(index$2.View, {
     id: count,
-    _tid: "20"
+    _tid: "13"
   }, "view"), /*#__PURE__*/React.createElement(index$2.View, {
-    _tid: "21"
+    _tid: "14"
   }, "custom view"), /*#__PURE__*/React.createElement("block", {
-    _tid: "22"
+    _tid: "15"
   }, React.createElement('view', {
     id: 'view'
   }, [/*#__PURE__*/React.createElement(index$2.View, {
-    _tid: "34"
+    _tid: "27"
   }, "create element children 1"), React.createElement('view', {
     key: '2'
   })])), /*#__PURE__*/React.createElement("block", {
-    _tid: "23"
+    _tid: "16"
   }, [1, 2, 3].map(function (item) {
     return /*#__PURE__*/React.createElement(index$2.View, {
       key: item,
-      _tid: "35"
+      _tid: "28"
     }, "array map: ", /*#__PURE__*/React.createElement("block", null, item));
   })), /*#__PURE__*/React.createElement(index$2.View, index$1._extends({}, props, {
-    _tid: "24"
+    _tid: "17"
   }), "Spread Attributes View"), /*#__PURE__*/React.createElement(index$2.Text, {
-    _tid: "25"
+    _tid: "18"
   }, "long long long long long long long long long long long long text long long long long long long long long long long long long text"), /*#__PURE__*/React.createElement("block", {
-    _tid: "26"
+    _tid: "19"
   }, /*#__PURE__*/React.createElement(index$2.RemaxWindow, null)), /*#__PURE__*/React.createElement("block", {
-    _tid: "27"
+    _tid: "20"
   }, 'Literal Expression'), /*#__PURE__*/React.createElement("block", {
-    _tid: "28"
+    _tid: "21"
   }, /*#__PURE__*/React.createElement(Deep.Object.View, null, "Deep Object View")), /*#__PURE__*/React.createElement("block", {
-    _tid: "29"
+    _tid: "22"
   }, /*#__PURE__*/React.createElement(RenameView, null, "Rename View")), /*#__PURE__*/React.createElement("block", {
-    _tid: "30"
+    _tid: "23"
   }, show && /*#__PURE__*/React.createElement(index$2.View, {
-    _tid: "36"
+    _tid: "29"
   }, "Conditional View")), /*#__PURE__*/React.createElement(index$2.Text, {
-    _tid: "31"
+    _tid: "24"
   }, showPlainText && plainText), /*#__PURE__*/React.createElement(index$2.View, {
-    _tid: "32"
+    _tid: "25"
   }));
 }
 
