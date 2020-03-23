@@ -330,7 +330,7 @@ var getOpenUserInfo = promisify(my.getOpenUserInfo);
 console.log(false);
 
 var _page = function _page() {
-  return React.createElement(View, {
+  return /*#__PURE__*/React.createElement(View, {
     className: "foo"
   }, "foo");
 };

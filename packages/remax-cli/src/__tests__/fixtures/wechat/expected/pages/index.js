@@ -714,7 +714,7 @@ var Lifestyle = function Lifestyle() {};
 
 var _page = function _page() {
   var props = {};
-  var TextElement = React.cloneElement(React.createElement(wechat.Text, null));
+  var TextElement = React.cloneElement( /*#__PURE__*/React.createElement(wechat.Text, null));
 
   function handleClick() {
     return _handleClick.apply(this, arguments);
@@ -741,20 +741,20 @@ var _page = function _page() {
 
   function handleTouchStart() {}
 
-  return React.createElement(wechat.View, null, React.createElement(wechat.View, index$1._extends({
+  return /*#__PURE__*/React.createElement(wechat.View, null, /*#__PURE__*/React.createElement(wechat.View, index$1._extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo"), TextElement, React.createElement(Lifestyle, null), React.createElement(UnBindingComponent, null), React.createElement(wechat.Input, null), React.createElement(wechat.Input, {
+  }, props), "foo"), TextElement, /*#__PURE__*/React.createElement(Lifestyle, null), /*#__PURE__*/React.createElement(UnBindingComponent, null), /*#__PURE__*/React.createElement(wechat.Input, null), /*#__PURE__*/React.createElement(wechat.Input, {
     focus: true
-  }), React.createElement(wechat.ScrollView, {
+  }), /*#__PURE__*/React.createElement(wechat.ScrollView, {
     scrollTop: 0
-  }, React.createElement(wechat.View, null)), React.createElement(wechat.ScrollView, {
+  }, /*#__PURE__*/React.createElement(wechat.View, null)), /*#__PURE__*/React.createElement(wechat.ScrollView, {
     scrollLeft: 0
-  }, React.createElement(wechat.View, null)), React.createElement(wechat.Swiper, null, React.createElement(wechat.SwiperItem, null, "a"), React.createElement(wechat.SwiperItem, null, "b")), React.createElement(wechat.View, null, React.createElement(wechat.View, null, React.createElement(wechat.ScrollView, null, React.createElement(wechat.View, null)), React.createElement(wechat.Swiper, {
+  }, /*#__PURE__*/React.createElement(wechat.View, null)), /*#__PURE__*/React.createElement(wechat.Swiper, null, /*#__PURE__*/React.createElement(wechat.SwiperItem, null, "a"), /*#__PURE__*/React.createElement(wechat.SwiperItem, null, "b")), /*#__PURE__*/React.createElement(wechat.View, null, /*#__PURE__*/React.createElement(wechat.View, null, /*#__PURE__*/React.createElement(wechat.ScrollView, null, /*#__PURE__*/React.createElement(wechat.View, null)), /*#__PURE__*/React.createElement(wechat.Swiper, {
     current: 5
-  }, React.createElement(wechat.SwiperItem, null, "a"), React.createElement(wechat.SwiperItem, null, "b")), React.createElement(wechat.Text, null, React.createElement(wechat.Text, null, "text")))));
+  }, /*#__PURE__*/React.createElement(wechat.SwiperItem, null, "a"), /*#__PURE__*/React.createElement(wechat.SwiperItem, null, "b")), /*#__PURE__*/React.createElement(wechat.Text, null, /*#__PURE__*/React.createElement(wechat.Text, null, "text")))));
 };
 
 var index = Page(index$1.createPageConfig(_page));

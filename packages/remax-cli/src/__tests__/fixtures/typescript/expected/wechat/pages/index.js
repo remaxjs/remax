@@ -15,7 +15,7 @@ var _page = function _page() {
   var _, _obj$a;
 
   var props = {};
-  var TextElement = React.cloneElement(React.createElement(Text.Text, null));
+  var TextElement = React.cloneElement( /*#__PURE__*/React.createElement(Text.Text, null));
 
   var handleClick = function handleClick() {
     return void 0;
@@ -27,7 +27,7 @@ var _page = function _page() {
 
   var obj = {};
   var value = (_ = 0) !== null && _ !== void 0 ? _ : 1;
-  return React.createElement(Text.View, null, React.createElement(Text.View, index$1._extends({
+  return /*#__PURE__*/React.createElement(Text.View, null, /*#__PURE__*/React.createElement(Text.View, index$1._extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view"

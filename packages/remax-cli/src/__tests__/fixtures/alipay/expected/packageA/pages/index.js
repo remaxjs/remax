@@ -330,17 +330,17 @@ var getOpenUserInfo = promisify(my.getOpenUserInfo);
 
 var _page = function _page() {
   var props = {};
-  var TextElement = React.cloneElement(React.createElement(Text, null));
+  var TextElement = React.cloneElement( /*#__PURE__*/React.createElement(Text, null));
 
   function handleClick() {}
 
   function handleTouchStart() {}
 
-  return React.createElement(View, {
+  return /*#__PURE__*/React.createElement(View, {
     className: "pageA-index"
-  }, React.createElement(index$2.C, {
+  }, /*#__PURE__*/React.createElement(index$2.C, {
     className: "a"
-  }), React.createElement(View, index$1._extends({
+  }), /*#__PURE__*/React.createElement(View, index$1._extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",

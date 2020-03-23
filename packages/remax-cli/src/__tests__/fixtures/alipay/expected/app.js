@@ -11,9 +11,9 @@ var cat_png = require('./assets/images/cat.png.js');
 var _App = /*#__PURE__*/function (_React$Component) {
   index._inherits(_App, _React$Component);
 
-  function _App() {
-    var _getPrototypeOf2;
+  var _super = index._createSuper(_App);
 
+  function _App() {
     var _this;
 
     index._classCallCheck(this, _App);
@@ -22,7 +22,7 @@ var _App = /*#__PURE__*/function (_React$Component) {
       args[_key] = arguments[_key];
     }
 
-    _this = index._possibleConstructorReturn(this, (_getPrototypeOf2 = index._getPrototypeOf(_App)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this = _super.call.apply(_super, [this].concat(args));
 
     index._defineProperty(index._assertThisInitialized(_this), "image", cat_png.default);
 

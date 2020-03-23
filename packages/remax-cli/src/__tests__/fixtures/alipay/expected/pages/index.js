@@ -718,7 +718,7 @@ var _page = function _page() {
   var _, _obj$a;
 
   var props = {};
-  var TextElement = React.cloneElement(React.createElement(index$2.Text, null));
+  var TextElement = React.cloneElement( /*#__PURE__*/React.createElement(index$2.Text, null));
 
   function handleClick() {
     return _handleClick.apply(this, arguments);
@@ -747,16 +747,16 @@ var _page = function _page() {
 
   var obj = {};
   var value = (_ = 0) !== null && _ !== void 0 ? _ : 1;
-  return React.createElement(index$2.View, {
+  return /*#__PURE__*/React.createElement(index$2.View, {
     className: styles['page-index']
-  }, React.createElement(index$2.C, {
+  }, /*#__PURE__*/React.createElement(index$2.C, {
     className: "b"
-  }), React.createElement(index$2.View, index$1._extends({
+  }), /*#__PURE__*/React.createElement(index$2.View, index$1._extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo", obj === null || obj === void 0 ? void 0 : (_obj$a = obj.a) === null || _obj$a === void 0 ? void 0 : _obj$a.b, value), React.createElement(FunctionalPageNavigator, null), React.createElement(UnBindingComponent, null), TextElement);
+  }, props), "foo", obj === null || obj === void 0 ? void 0 : (_obj$a = obj.a) === null || _obj$a === void 0 ? void 0 : _obj$a.b, value), /*#__PURE__*/React.createElement(FunctionalPageNavigator, null), /*#__PURE__*/React.createElement(UnBindingComponent, null), TextElement);
 };
 
 var index = Page(index$1.createPageConfig(_page));

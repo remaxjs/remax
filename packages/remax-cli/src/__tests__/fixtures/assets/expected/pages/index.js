@@ -330,7 +330,7 @@ var getOpenUserInfo = promisify(my.getOpenUserInfo);
 var cat = "/assets/images/cat.jpg";
 
 function _Index() {
-  return React.createElement(View, null, React.createElement(Image, {
+  return /*#__PURE__*/React.createElement(View, null, /*#__PURE__*/React.createElement(Image, {
     src: cat
   }));
 }
