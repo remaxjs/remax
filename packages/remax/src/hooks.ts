@@ -21,6 +21,11 @@ function warn(message: string) {
  */
 
 // eslint-disable-next-line @typescript-eslint/camelcase
+export function usePageInstance() {
+  return useContext(PageInstanceContext);
+}
+
+// eslint-disable-next-line @typescript-eslint/camelcase
 export function unstable_useNativeEffect(
   listener: Listener,
   deps?: DependencyList

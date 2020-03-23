@@ -108,6 +108,23 @@ module.exports = {
 };
 ```
 
+### 页面实例
+
+通过 `usePageInstance` 可以获取 Page 实例
+
+```jsx
+import { usePageInstance } from 'remax'
+
+export default () => {
+  const instance = usePageInstance();
+
+  ...
+}
+```
+
+> remax 在 instance 上设置了一些内部逻辑相关的属性，（包括 data 上面的值），最好不要随意修改实例上的属性。
+> 这个 hook 是为了方便调用页面实例上的方法，如 `selectComponent`
+
 ### 生命周期
 
 对于 class 组件的页面你可以直接在 class 上监听页面的生命周期。
