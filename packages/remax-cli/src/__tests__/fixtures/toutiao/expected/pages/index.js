@@ -928,7 +928,7 @@ var getMenuButtonLayout = tt.getMenuButtonLayout;
 
 var _page = function _page() {
   var props = {};
-  var TextElement = React.cloneElement(React.createElement(Text, null));
+  var TextElement = React.cloneElement( /*#__PURE__*/React.createElement(Text, null));
 
   function handleClick() {
     return _handleClick.apply(this, arguments);
@@ -955,12 +955,12 @@ var _page = function _page() {
 
   function handleTouchStart() {}
 
-  return React.createElement(View, null, React.createElement(View, index$1._extends({
+  return /*#__PURE__*/React.createElement(View, null, /*#__PURE__*/React.createElement(View, index$1._extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo"), TextElement, React.createElement(wechat.FunctionalPageNavigator, null), React.createElement(UnBindingComponent, null));
+  }, props), "foo"), TextElement, /*#__PURE__*/React.createElement(wechat.FunctionalPageNavigator, null), /*#__PURE__*/React.createElement(UnBindingComponent, null));
 };
 
 var index = Page(index$1.createPageConfig(_page));

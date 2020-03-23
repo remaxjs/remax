@@ -10,13 +10,13 @@ var wechat = require('../../wechat-chunk.js');
 
 var _page = function _page() {
   var props = {};
-  var TextElement = React.cloneElement(React.createElement(wechat.Text, null));
+  var TextElement = React.cloneElement( /*#__PURE__*/React.createElement(wechat.Text, null));
 
   function handleClick() {}
 
   function handleTouchStart() {}
 
-  return React.createElement(wechat.View, null, React.createElement(wechat.View, index$1._extends({
+  return /*#__PURE__*/React.createElement(wechat.View, null, /*#__PURE__*/React.createElement(wechat.View, index$1._extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",

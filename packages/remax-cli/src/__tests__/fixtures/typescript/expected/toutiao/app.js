@@ -29,31 +29,33 @@ var AppContext = React.createContext(defaultAppContext);
 
 var AppContextProvider = function AppContextProvider(props) {
   var context = useAppContextValue();
-  return React__default.createElement(AppContext.Provider, {
+  return /*#__PURE__*/React__default.createElement(AppContext.Provider, {
     value: context
   }, props.children);
 };
 
-var _ref = /*#__PURE__*/function (_React$Component) {
-  index._inherits(_ref, _React$Component);
+var _App = /*#__PURE__*/function (_React$Component) {
+  index._inherits(_App, _React$Component);
 
-  function _ref() {
-    index._classCallCheck(this, _ref);
+  var _super = index._createSuper(_App);
 
-    return index._possibleConstructorReturn(this, index._getPrototypeOf(_ref).apply(this, arguments));
+  function _App() {
+    index._classCallCheck(this, _App);
+
+    return _super.apply(this, arguments);
   }
 
-  index._createClass(_ref, [{
+  index._createClass(_App, [{
     key: "render",
     value: function render() {
-      return React__default.createElement(AppContextProvider, null, this.props.children);
+      return /*#__PURE__*/React__default.createElement(AppContextProvider, null, this.props.children);
     }
   }]);
 
-  return _ref;
+  return _App;
 }(React__default.Component);
 
-var app = App(index.createAppConfig(_ref));
+var app = App(index.createAppConfig(_App));
 
 exports.AppContext = AppContext;
 exports.default = app;

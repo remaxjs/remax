@@ -2165,7 +2165,7 @@ var createVideoContext = my.createVideoContext;
 var getOpenUserInfo = promisify(my.getOpenUserInfo);
 
 var _page = function _page() {
-  return React.createElement(View, null, "foo");
+  return /*#__PURE__*/React.createElement(View, null, "foo");
 };
 
 var index = Page(createPageConfig(_page));

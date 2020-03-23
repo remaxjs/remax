@@ -329,7 +329,7 @@ var getOpenUserInfo = promisify(my.getOpenUserInfo);
 
 var _page = function _page() {
 
-  return React.createElement(View, null, React.createElement(Text, null, "test"), React.createElement(Text, null, "hello"), React.createElement(Text, null, "hello world"));
+  return /*#__PURE__*/React.createElement(View, null, /*#__PURE__*/React.createElement(Text, null, "test"), /*#__PURE__*/React.createElement(Text, null, "hello"), /*#__PURE__*/React.createElement(Text, null, "hello world"));
 };
 
 var index = Page(index$1.createPageConfig(_page));

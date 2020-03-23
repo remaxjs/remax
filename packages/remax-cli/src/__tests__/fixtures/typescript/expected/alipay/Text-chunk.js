@@ -337,14 +337,14 @@ function View$3() {
 
   switch (index.Platform.current) {
     case 'alipay':
-      return React.createElement(View, props);
+      return /*#__PURE__*/React.createElement(View, props);
 
     case 'toutiao':
-      return React.createElement(View$2, props);
+      return /*#__PURE__*/React.createElement(View$2, props);
 
     case 'wechat':
     default:
-      return React.createElement(View$1, props);
+      return /*#__PURE__*/React.createElement(View$1, props);
   }
 }
 
@@ -353,14 +353,14 @@ function Text$3() {
 
   switch (index.Platform.current) {
     case 'alipay':
-      return React.createElement(Text, props);
+      return /*#__PURE__*/React.createElement(Text, props);
 
     case 'toutiao':
-      return React.createElement(Text$2, props);
+      return /*#__PURE__*/React.createElement(Text$2, props);
 
     case 'wechat':
     default:
-      return React.createElement(Text$1, props);
+      return /*#__PURE__*/React.createElement(Text$1, props);
   }
 }
 

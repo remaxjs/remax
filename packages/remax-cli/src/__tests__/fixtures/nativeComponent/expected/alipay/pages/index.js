@@ -39,13 +39,13 @@ var A = index$1.createNativeComponent('a-0');
 var _page = function _page() {
   var b = React.createRef();
   var text = 'not in jsx' + NotInJSXComponent;
-  return React.createElement(alipay.View, null, React.createElement(A, {
+  return /*#__PURE__*/React.createElement(alipay.View, null, /*#__PURE__*/React.createElement(A, {
     foo: "bar"
-  }), React.createElement(B, {
+  }), /*#__PURE__*/React.createElement(B, {
     ref: b
-  }), React.createElement(C, null), React.createElement(D, null), React.createElement(E, null), React.createElement(Complex, null), React.createElement(PluginComponent, null), React.createElement(PluginComponent2, null), React.createElement(SlotComponent, null, React.createElement(alipay.View, {
+  }), /*#__PURE__*/React.createElement(C, null), /*#__PURE__*/React.createElement(D, null), /*#__PURE__*/React.createElement(E, null), /*#__PURE__*/React.createElement(Complex, null), /*#__PURE__*/React.createElement(PluginComponent, null), /*#__PURE__*/React.createElement(PluginComponent2, null), /*#__PURE__*/React.createElement(SlotComponent, null, /*#__PURE__*/React.createElement(alipay.View, {
     slot: "inner"
-  })), React.createElement(ScopedComponent, null), React.createElement(SrcComponent, null), React.createElement(CJSComponent, null), text);
+  })), /*#__PURE__*/React.createElement(ScopedComponent, null), /*#__PURE__*/React.createElement(SrcComponent, null), /*#__PURE__*/React.createElement(CJSComponent, null), text);
 };
 
 var index = Page(index$1.createPageConfig(_page));

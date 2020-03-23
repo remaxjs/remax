@@ -19,14 +19,14 @@ var DDD = index$1.createHostComponent('ddd');
 
 function ReactComp(_ref) {
   var children = _ref.children;
-  return React.createElement(React.Fragment, null, React.createElement(index$2.View, null, React.createElement(index$2.Text, null, "react component"), React.createElement(React.Fragment, null, React.createElement(index$2.Text, null, "Text inside Fragment")), React.createElement(index$2.View, null, "View inside Expression"), React.Children.map(children, function (child, index) {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(index$2.View, null, /*#__PURE__*/React.createElement(index$2.Text, null, "react component"), /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(index$2.Text, null, "Text inside Fragment")), /*#__PURE__*/React.createElement(index$2.View, null, "View inside Expression"), React.Children.map(children, function (child, index) {
     return React.cloneElement(child, {
       id: 'reactComp' + index
     });
   })));
 }
 
-function _ref2() {
+function _Index() {
   var _React$useState = React.useState(1),
       _React$useState2 = index$1._slicedToArray(_React$useState, 1),
       count = _React$useState2[0];
@@ -44,28 +44,28 @@ function _ref2() {
       showPlainText = _React$useState6[0];
 
   var plainText = 'plain-text-leaf';
-  return React.createElement(React.Fragment, null, 'expression entry', React.createElement(React.Fragment, null, React.createElement(index$2.Text, null, "Fragment Text 1"), React.createElement(index$2.Text, null, "Fragment Text 2"), React.createElement(React.Fragment, null, React.createElement(index$2.Text, null, "Fragment Text 3"), React.createElement(index$2.Text, null, "Fragment Text 4"))), React.createElement(React.Fragment, null, "Fragment"), React.createElement(React.Fragment, null, "React.Fragment"), React.createElement(DDD, null), React.createElement(index$2.Text, null, "Remax.Text"), React.createElement(NativeComponent, null), React.createElement(ReactComp, null, React.createElement(index$2.View, null, "React Component First Child")), React.createElement(index$2.View, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, 'expression entry', /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(index$2.Text, null, "Fragment Text 1"), /*#__PURE__*/React.createElement(index$2.Text, null, "Fragment Text 2"), /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(index$2.Text, null, "Fragment Text 3"), /*#__PURE__*/React.createElement(index$2.Text, null, "Fragment Text 4"))), /*#__PURE__*/React.createElement(React.Fragment, null, "Fragment"), /*#__PURE__*/React.createElement(React.Fragment, null, "React.Fragment"), /*#__PURE__*/React.createElement(DDD, null), /*#__PURE__*/React.createElement(index$2.Text, null, "Remax.Text"), /*#__PURE__*/React.createElement(NativeComponent, null), /*#__PURE__*/React.createElement(ReactComp, null, /*#__PURE__*/React.createElement(index$2.View, null, "React Component First Child")), /*#__PURE__*/React.createElement(index$2.View, {
     className: "className"
-  }, "Count: ", count), React.createElement(index$2.View, {
+  }, "Count: ", count), /*#__PURE__*/React.createElement(index$2.View, {
     id: count,
     className: 'class'
-  }, "view"), React.createElement(index$2.View, null, "custom view"), React.createElement('view', {
+  }, "view"), /*#__PURE__*/React.createElement(index$2.View, null, "custom view"), React.createElement('view', {
     id: 'view'
-  }, [React.createElement(index$2.View, {
+  }, [/*#__PURE__*/React.createElement(index$2.View, {
     key: "1"
   }, "create element children 1"), React.createElement('view', {
     key: '2'
   })]), [1, 2, 3].map(function (item) {
-    return React.createElement(index$2.View, {
+    return /*#__PURE__*/React.createElement(index$2.View, {
       key: item
     }, "array map: ", item);
-  }), React.createElement(index$2.View, props, "Spread Attributes View"), React.createElement(index$2.Text, null, "long long long long long long long long long long long long text long long long long long long long long long long long long text"), React.createElement(index$2.RemaxWindow, null), 'Literal Expression', React.createElement(Deep.Object.View, null, "Deep Object View"), React.createElement(RenameView, null, "Rename View"), show && React.createElement(index$2.View, null, "Conditional View"), React.createElement(index$2.Text, {
+  }), /*#__PURE__*/React.createElement(index$2.View, props, "Spread Attributes View"), /*#__PURE__*/React.createElement(index$2.Text, null, "long long long long long long long long long long long long text long long long long long long long long long long long long text"), /*#__PURE__*/React.createElement(index$2.RemaxWindow, null), 'Literal Expression', /*#__PURE__*/React.createElement(Deep.Object.View, null, "Deep Object View"), /*#__PURE__*/React.createElement(RenameView, null, "Rename View"), show && /*#__PURE__*/React.createElement(index$2.View, null, "Conditional View"), /*#__PURE__*/React.createElement(index$2.Text, {
     leaf: true
-  }, showPlainText && plainText), React.createElement(index$2.View, {
+  }, showPlainText && plainText), /*#__PURE__*/React.createElement(index$2.View, {
     "ns:attr": "1"
   }));
 }
 
-var turboPageDisabled = Page(index$1.createPageConfig(_ref2));
+var turboPageDisabled = Page(index$1.createPageConfig(_Index));
 
 exports.default = turboPageDisabled;

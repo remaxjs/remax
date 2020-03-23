@@ -13,15 +13,15 @@ var F = index$1.createNativeComponent('f-0');
 
 
 var Hello = (function () {
-  return React.createElement(alipay.View, null, React.createElement(F, null), React.createElement(D, null));
+  return /*#__PURE__*/React.createElement(alipay.View, null, /*#__PURE__*/React.createElement(F, null), /*#__PURE__*/React.createElement(D, null));
 });
 
 var Nihao = (function () {
-  return React.createElement(alipay.View, null, React.createElement(Hello, null));
+  return /*#__PURE__*/React.createElement(alipay.View, null, /*#__PURE__*/React.createElement(Hello, null));
 });
 
 var _page = function _page() {
-  return React.createElement(alipay.View, null, React.createElement(Nihao, null));
+  return /*#__PURE__*/React.createElement(alipay.View, null, /*#__PURE__*/React.createElement(Nihao, null));
 };
 
 var index2 = Page(index$1.createPageConfig(_page));

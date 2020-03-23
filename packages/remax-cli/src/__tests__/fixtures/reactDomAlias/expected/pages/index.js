@@ -330,7 +330,7 @@ var getOpenUserInfo = promisify(my.getOpenUserInfo);
 index$1.unstable_batchedUpdates(function () {});
 
 var _page = function _page() {
-  return React.createElement(View, null);
+  return /*#__PURE__*/React.createElement(View, null);
 };
 
 var index = Page(index$1.createPageConfig(_page));

@@ -2332,7 +2332,7 @@ var c = new C();
 c.p = 'a';
 
 var _page = function _page() {
-  return React.createElement(View, null, timesTwo([1, 2, 3]), N.V, N.W, c.p, React.createElement(A, null));
+  return /*#__PURE__*/React.createElement(View, null, timesTwo([1, 2, 3]), N.V, N.W, c.p, /*#__PURE__*/React.createElement(A, null));
 };
 
 var index = Page(createPageConfig(_page));

@@ -14,7 +14,7 @@ var PluginComponent = index$1.createNativeComponent('sub-plugin-0');
 
 
 var _page = function _page() {
-  return React.createElement(alipay.View, null, React.createElement(PluginComponent, null), React.createElement(PluginComponent2, null));
+  return /*#__PURE__*/React.createElement(alipay.View, null, /*#__PURE__*/React.createElement(PluginComponent, null), /*#__PURE__*/React.createElement(PluginComponent2, null));
 };
 
 var subPackage = Page(index$1.createPageConfig(_page));
