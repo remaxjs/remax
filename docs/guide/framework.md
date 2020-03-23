@@ -122,7 +122,7 @@ export default () => {
 }
 ```
 
-> remax 在 instance 上设置了一些内部逻辑相关的属性，（包括 data 上面的值），最好不要随意修改实例上的属性。
+> Remax 在 instance 上设置了一些内部逻辑相关的属性，（包括 data 上面的值），不要随意修改实例上的属性。
 > 这个 hook 是为了方便调用页面实例上的方法，如 `selectComponent`
 
 ### 生命周期
