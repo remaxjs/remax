@@ -908,6 +908,10 @@ var hostComponents = {
       "onScrollToLower": "bindscrolltolower",
       "onScroll": "bindscroll",
       "onTap": "bindtap",
+      "onTouchStart": "bindtouchstart",
+      "onTouchEnd": "bindtouchend",
+      "onTouchMove": "bindtouchmove",
+      "onTouchCancel": "bindtouchcancel",
       "onClick": "bindtap",
       "animation": "animation"
     }
