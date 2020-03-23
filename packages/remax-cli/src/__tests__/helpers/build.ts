@@ -29,10 +29,6 @@ export default async function build(
         ...options,
         external: ['react', 'react-reconciler', 'scheduler'],
         treeshake: true,
-        output: {
-          ...options.output,
-          chunkFileNames: '[name]-chunk.js',
-        },
       }),
       alias: {
         '@': 'src',
