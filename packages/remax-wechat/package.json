@@ -1,6 +1,6 @@
 {
   "name": "remax-wechat",
-  "version": "1.17.2",
+  "version": "1.18.0",
   "description": "Remax for Wechat",
   "main": "./cjs/index.js",
   "esnext": "./esm/index.js",
