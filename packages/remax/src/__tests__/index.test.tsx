@@ -6,8 +6,9 @@ import render from '../render';
 import { reset as resetInstanceId } from '../instanceId';
 import { reset as resetActionId } from '../actionId';
 import Container from '../Container';
+import createPageWrapper from '../createPageWrapper';
 // eslint-disable-next-line @typescript-eslint/camelcase
-import { unstable_useNativeEffect } from '../hooks';
+import { unstable_useNativeEffect, usePageInstance } from '../hooks';
 
 const p = {
   setData(state: any, callback: Function) {
@@ -453,4 +454,19 @@ it('unstable_useNativeEffect deps works', done => {
   };
   const container = new Container(p);
   render(<Page />, container);
+});
+
+it('usePageInstance works', done => {
+  const Page = createPageWrapper(() => {
+    const instance = usePageInstance();
+
+    React.useEffect(() => {
+      expect(instance.data).toBeDefined();
+      done();
+    }, []);
+
+    return <View />;
+  }, {});
+  const container = new Container(p);
+  render(<Page page={{ data: {} }} />, container);
 });

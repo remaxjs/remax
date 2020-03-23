@@ -30,7 +30,7 @@ function ReactComp(_ref) {
   }))));
 }
 
-function _ref2() {
+function _Index() {
   var _React$useState = React.useState(1),
       _React$useState2 = index$1._slicedToArray(_React$useState, 1),
       count = _React$useState2[0];
@@ -113,6 +113,6 @@ function _ref2() {
   }));
 }
 
-var index = Page(index$1.createPageConfig(_ref2));
+var index = Page(index$1.createPageConfig(_Index));
 
 exports.default = index;
