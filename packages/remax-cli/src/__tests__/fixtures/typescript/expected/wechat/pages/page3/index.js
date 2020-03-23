@@ -13,7 +13,7 @@ var Text = require('../../Text-chunk.js');
 
 var _page = function _page() {
   var props = {};
-  var TextElement = React.cloneElement(React.createElement(Text.Text, null));
+  var TextElement = React.cloneElement( /*#__PURE__*/React.createElement(Text.Text, null));
 
   var handleClick = function handleClick() {
     return void 0;
@@ -23,7 +23,7 @@ var _page = function _page() {
     return void 0;
   };
 
-  return React.createElement(Text.View, null, React.createElement(Text.View, index$1._extends({
+  return /*#__PURE__*/React.createElement(Text.View, null, /*#__PURE__*/React.createElement(Text.View, index$1._extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view"

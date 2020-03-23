@@ -13,7 +13,7 @@ var B = index$1.createNativeComponent('b-0');
 
 
 var _page = function _page() {
-  return React.createElement(alipay.View, null, React.createElement(index.G, null), React.createElement(B, null));
+  return /*#__PURE__*/React.createElement(alipay.View, null, /*#__PURE__*/React.createElement(index.G, null), /*#__PURE__*/React.createElement(B, null));
 };
 
 var index4 = Page(index$1.createPageConfig(_page));

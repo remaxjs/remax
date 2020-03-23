@@ -1040,13 +1040,13 @@ function View$3() {
 
   switch (index$1.Platform.current) {
     case 'alipay':
-      return React.createElement(View, props);
+      return /*#__PURE__*/React.createElement(View, props);
 
     case 'wechat':
-      return React.createElement(View$1, props);
+      return /*#__PURE__*/React.createElement(View$1, props);
 
     case 'toutiao':
-      return React.createElement(View$2, props);
+      return /*#__PURE__*/React.createElement(View$2, props);
   }
 }
 
@@ -1055,19 +1055,19 @@ function Text$3() {
 
   switch (index$1.Platform.current) {
     case 'alipay':
-      return React.createElement(Text, props);
+      return /*#__PURE__*/React.createElement(Text, props);
 
     case 'wechat':
-      return React.createElement(Text$1, props);
+      return /*#__PURE__*/React.createElement(Text$1, props);
 
     case 'toutiao':
-      return React.createElement(Text$2, props);
+      return /*#__PURE__*/React.createElement(Text$2, props);
   }
 }
 
 var _page = function _page() {
   var props = {};
-  var TextElement = React.cloneElement(React.createElement(Text$3, null));
+  var TextElement = React.cloneElement( /*#__PURE__*/React.createElement(Text$3, null));
 
   function handleClick() {
     return _handleClick.apply(this, arguments);
@@ -1094,7 +1094,7 @@ var _page = function _page() {
 
   function handleTouchStart() {}
 
-  return React.createElement(View$3, null, React.createElement(View$3, index$1._extends({
+  return /*#__PURE__*/React.createElement(View$3, null, /*#__PURE__*/React.createElement(View$3, index$1._extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view"

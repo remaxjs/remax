@@ -331,7 +331,7 @@ var CJSComponent = index$1.createNativeComponent('cjs-0');
 
 
 var _page = function _page() {
-  return React.createElement(View, null, React.createElement(CJSComponent, null));
+  return /*#__PURE__*/React.createElement(View, null, /*#__PURE__*/React.createElement(CJSComponent, null));
 };
 
 var index = Page(index$1.createPageConfig(_page));

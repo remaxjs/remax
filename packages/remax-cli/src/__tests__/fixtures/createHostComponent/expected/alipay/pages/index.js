@@ -12,10 +12,10 @@ var CustomComponent = index$1.createHostComponent('custom-component');
 var FooBar = index$1.createHostComponent('foo-bar');
 
 var _page = function _page() {
-  return React.createElement(React.Fragment, null, React.createElement(FooBar, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(FooBar, {
     foo: "bar",
     className: "class"
-  }), React.createElement(CustomComponent, {
+  }), /*#__PURE__*/React.createElement(CustomComponent, {
     foo: "bar"
   }));
 };

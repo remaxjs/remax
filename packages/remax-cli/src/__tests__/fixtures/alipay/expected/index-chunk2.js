@@ -325,7 +325,7 @@ var getOpenUserInfo = promisify(my.getOpenUserInfo);
 
 var C = (function (_ref) {
   var className = _ref.className;
-  return React.createElement(View, {
+  return /*#__PURE__*/React.createElement(View, {
     className: "c ".concat(className)
   }, "c");
 });

@@ -29,7 +29,7 @@ var AppContext = React.createContext(defaultAppContext);
 
 var AppContextProvider = function AppContextProvider(props) {
   var context = useAppContextValue();
-  return React__default.createElement(AppContext.Provider, {
+  return /*#__PURE__*/React__default.createElement(AppContext.Provider, {
     value: context
   }, props.children);
 };
@@ -37,16 +37,18 @@ var AppContextProvider = function AppContextProvider(props) {
 var _App = /*#__PURE__*/function (_React$Component) {
   index._inherits(_App, _React$Component);
 
+  var _super = index._createSuper(_App);
+
   function _App() {
     index._classCallCheck(this, _App);
 
-    return index._possibleConstructorReturn(this, index._getPrototypeOf(_App).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   index._createClass(_App, [{
     key: "render",
     value: function render() {
-      return React__default.createElement(AppContextProvider, null, this.props.children);
+      return /*#__PURE__*/React__default.createElement(AppContextProvider, null, this.props.children);
     }
   }]);
 
