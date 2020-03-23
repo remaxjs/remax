@@ -329,7 +329,7 @@ var getOpenUserInfo = promisify(my.getOpenUserInfo);
 
 var NativeComponent = index$1.createNativeComponent('native-component-0');
 
-function _ref() {
+function _Index() {
   var props = {};
   return React.createElement(React.Fragment, null, React.createElement(View, {
     "ns:prop": "ns:value"
@@ -338,6 +338,6 @@ function _ref() {
   }, props)));
 }
 
-var index = Page(index$1.createPageConfig(_ref));
+var index = Page(index$1.createPageConfig(_Index));
 
 exports.default = index;
