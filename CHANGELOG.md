@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0](https://github.com/remaxjs/remax/compare/v1.17.2...v1.18.0) (2020-03-23)
+
+### Bug Fixes
+
+- **wechat:** 微信 ScrollView 增加 touch 事件别名 ([b1f386f](https://github.com/remaxjs/remax/commit/b1f386f))
+
+### Features
+
+- 引入 usePageInstance，用于获取页面实例 ([7a5b7a5](https://github.com/remaxjs/remax/commit/7a5b7a5))
+
 ## [1.17.2](https://github.com/remaxjs/remax/compare/v1.17.1...v1.17.2) (2020-03-19)
 
 ### Bug Fixes
