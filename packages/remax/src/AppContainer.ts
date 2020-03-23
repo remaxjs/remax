@@ -27,7 +27,7 @@ export default class AppContainer {
   }
 
   requestUpdate(
-    path: Path,
+    path: string,
     start: number,
     deleteCount: number,
     ...items: RawNode[]
