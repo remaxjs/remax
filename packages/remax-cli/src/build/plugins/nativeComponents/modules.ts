@@ -53,7 +53,6 @@ export function resolveModulesInCode(
         sourcePath.node.end!,
         `'${resolveId}'`
       );
-      path.stop();
     } else {
       const sourcePath = path.get('arguments.0') as NodePath;
       magicString.overwrite(
@@ -61,7 +60,6 @@ export function resolveModulesInCode(
         sourcePath.node.end!,
         `'${resolveId}'`
       );
-      path.stop();
     }
   };
 
