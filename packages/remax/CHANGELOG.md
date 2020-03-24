@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1](https://github.com/remaxjs/remax/compare/v1.18.0...v1.18.1) (2020-03-24)
+
+### Bug Fixes
+
+- 修复 useAppShareAppMessage 不生效的问题 ([#739](https://github.com/remaxjs/remax/issues/739)) ([6e3c562](https://github.com/remaxjs/remax/commit/6e3c562))
+
 # [1.18.0](https://github.com/remaxjs/remax/compare/v1.17.2...v1.18.0) (2020-03-23)
 
 **Note:** Version bump only for package remax
