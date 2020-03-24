@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import * as React from 'react';
 import createHostComponent from '../../createHostComponent';
-import { TapEvent, TouchStartEvent, TouchEndEvent, TouchMoveEvent } from '../../types';
+import { TapEvent, TouchStartEvent, TouchEndEvent, TouchMoveEvent, TouchCancelEvent } from '../../types';
 
 export interface ViewProps extends React.AriaAttributes {
   // 通用属性
@@ -18,8 +18,8 @@ export interface ViewProps extends React.AriaAttributes {
   onTouchStart?: (event: TouchStartEvent) => void;
   onTouchMove?: (e: TouchMoveEvent) => void;
   onTouchEnd?: (e: TouchEndEvent) => void;
-  onTouchCancel?: (e: any) => void;
-  onLongTap?: (e: any) => void;
+  onTouchCancel?: (e: TouchCancelEvent) => void;
+  onLongTap?: (e: TapEvent) => void;
 }
 
 const View = createHostComponent<ViewProps>('view');

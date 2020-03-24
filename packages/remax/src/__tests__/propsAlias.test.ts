@@ -60,4 +60,10 @@ describe('props alias', () => {
       'kebab-case': 'value',
     });
   });
+
+  it('transform platform props', () => {
+    process.env.REMAX_PLATFORM = 'alipay';
+    expect(getAlias('alipay-prop', 'any')).toBe('prop');
+    process.env.REMAX_PLATFORM = '';
+  });
 });

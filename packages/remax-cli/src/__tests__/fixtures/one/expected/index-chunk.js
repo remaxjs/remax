@@ -398,7 +398,8 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "name": "name"
+      "name": "name",
+      "onChange": "onChange"
     }
   },
   "checkbox": {
@@ -409,6 +410,7 @@ var hostComponents = {
       "value": "value",
       "checked": "checked",
       "disabled": "disabled",
+      "onChange": "onChange",
       "color": "color"
     }
   },
@@ -780,7 +782,6 @@ var hostComponents = {
       "hoverClass": "hover-class",
       "hoverStartTime": "hover-start-time",
       "hoverStayTime": "hover-stay-time",
-      "hidden": "hidden",
       "className": "class",
       "style": "style",
       "animation": "animation",
@@ -789,6 +790,7 @@ var hostComponents = {
   },
   "web-view": {
     "alias": {
+      "id": "id",
       "src": "src"
     }
   },
@@ -1623,24 +1625,24 @@ function createAppConfig(App) {
       onLaunch: function onLaunch(options) {
         this._render();
 
-        this.callLifecycle(AppLifecycle.launch, options);
+        return this.callLifecycle(AppLifecycle.launch, options);
       },
       onShow: function onShow(options) {
-        this.callLifecycle(AppLifecycle.show, options);
+        return this.callLifecycle(AppLifecycle.show, options);
       },
       onHide: function onHide() {
-        this.callLifecycle(AppLifecycle.hide);
+        return this.callLifecycle(AppLifecycle.hide);
       },
       onError: function onError(error) {
-        this.callLifecycle(AppLifecycle.error, error);
+        return this.callLifecycle(AppLifecycle.error, error);
       },
       // 支付宝
       onShareAppMessage: function onShareAppMessage(options) {
-        this.callLifecycle(AppLifecycle.shareAppMessage, options);
+        return this.callLifecycle(AppLifecycle.shareAppMessage, options);
       },
       // 微信
       onPageNotFound: function onPageNotFound(options) {
-        this.callLifecycle(AppLifecycle.pageNotFound, options);
+        return this.callLifecycle(AppLifecycle.pageNotFound, options);
       },
       _mount: function _mount(pageInstance) {
         this._pages.push(pageInstance);
@@ -2125,8 +2127,8 @@ function createPageConfig(Page) {
     },
     events: {
       // 页面返回时触发
-      onBack: function onBack() {
-        return config.callLifecycle(Lifecycle.back);
+      onBack: function onBack(e) {
+        return config.callLifecycle(Lifecycle.back, e);
       },
       // 键盘高度变化时触发
       onKeyboardHeight: function onKeyboardHeight(e) {

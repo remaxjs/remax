@@ -1,6 +1,4 @@
 import * as button from './Button/node';
-import * as checkboxGroup from './CheckboxGroup/node';
-import * as checkbox from './Checkbox/node';
 import * as form from './Form/node';
 import * as image from './Image/node';
 import * as input from './Input/node';
@@ -15,8 +13,6 @@ import * as webView from './WebView/node';
 const hostComponents = new Map();
 
 hostComponents.set('button', button);
-hostComponents.set('checkbox-group', checkboxGroup);
-hostComponents.set('checkbox', checkbox);
 hostComponents.set('form', form);
 hostComponents.set('image', image);
 hostComponents.set('input', input);

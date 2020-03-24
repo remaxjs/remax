@@ -88,25 +88,68 @@ var createFormEvent = function createFormEvent(originalEvent) {
 };
 function createHostComponent(name) {
   var Component = function Component(props, ref) {
-    var inputProps = __assign(__assign({}, props), {
-      onLongTap: createCallback(props.onLongTap, createTapEvent),
-      onTap: createCallback(props.onTap, createTapEvent),
-      onTouchStart: createCallback(props.onTouchStart, createTouchEvent),
-      onTouchMove: createCallback(props.onTouchMove, createTouchEvent),
-      onTouchEnd: createCallback(props.onTouchEnd, createTouchEvent),
-      onTouchCancel: createCallback(props.onTouchCancel, createTouchEvent),
-      onChange: createCallback(props.onChange, createInputEvent),
-      onInput: createCallback(props.onInput, createInputEvent),
-      onConfirm: createCallback(props.onConfirm, createInputEvent),
-      onFocus: createCallback(props.onFocus, createInputEvent),
-      onBlur: createCallback(props.onBlur, createInputEvent),
-      onSubmit: createCallback(props.onSubmit, createFormEvent),
-      onReset: createCallback(props.onReset, createFormEvent)
-    });
+    var inputProps = __assign({}, props);
+
+    if (props.onLongTap) {
+      inputProps.onLongTap = createCallback(inputProps.onLongTap, createTapEvent);
+    }
+
+    if (inputProps.onTap) {
+      inputProps.onTap = createCallback(inputProps.onTap, createTapEvent);
+    }
+
+    if (inputProps.onTouchStart) {
+      inputProps.onTouchStart = createCallback(inputProps.onTouchStart, createTouchEvent);
+    }
+
+    if (inputProps.onTouchMove) {
+      inputProps.onTouchMove = createCallback(inputProps.onTouchMove, createTouchEvent);
+    }
+
+    if (inputProps.onTouchEnd) {
+      inputProps.onTouchEnd = createCallback(inputProps.onTouchEnd, createTouchEvent);
+    }
+
+    if (inputProps.onTouchCancel) {
+      inputProps.onTouchCancel = createCallback(inputProps.onTouchCancel, createTouchEvent);
+    }
+
+    if (inputProps.onChange) {
+      inputProps.onChange = createCallback(inputProps.onChange, createInputEvent);
+    }
+
+    if (inputProps.onInput) {
+      inputProps.onInput = createCallback(inputProps.onInput, createInputEvent);
+    }
+
+    if (inputProps.onConfirm) {
+      inputProps.onConfirm = createCallback(inputProps.onConfirm, createInputEvent);
+    }
+
+    if (inputProps.onFocus) {
+      inputProps.onFocus = createCallback(inputProps.onFocus, createInputEvent);
+    }
+
+    if (inputProps.onBlur) {
+      inputProps.onBlur = createCallback(inputProps.onBlur, createInputEvent);
+    }
+
+    if (inputProps.onSubmit) {
+      inputProps.onSubmit = createCallback(inputProps.onSubmit, createFormEvent);
+    }
+
+    if (inputProps.onReset) {
+      inputProps.onReset = createCallback(inputProps.onReset, createFormEvent);
+    }
 
     if (name === 'image') {
-      inputProps.onLoad = createCallback(props.onLoad, createImageEvent);
-      inputProps.onError = createCallback(props.onError, createImageEvent);
+      if (inputProps.onLoad) {
+        inputProps.onLoad = createCallback(props.onLoad, createImageEvent);
+      }
+
+      if (inputProps.onError) {
+        inputProps.onError = createCallback(props.onError, createImageEvent);
+      }
     }
 
     return React.createElement(name, __assign(__assign({}, inputProps), {
@@ -118,10 +161,6 @@ function createHostComponent(name) {
 }
 
 var Button = createHostComponent('button');
-
-createHostComponent('checkbox');
-
-createHostComponent('checkbox-group');
 
 var Form = createHostComponent('form');
 
@@ -230,6 +269,9 @@ function (_super) {
   };
 
   Input.defaultProps = {
+    'toutiao-maxlength': 140,
+    'toutiao-selection-end': 999,
+    'toutiao-selection-start': 999,
     'wechat-maxlength': 140,
     'wechat-selection-end': 999,
     'wechat-selection-start': 999
@@ -348,11 +390,13 @@ function (_super) {
   };
 
   Textarea.defaultProps = {
+    'toutiao-maxlength': -1,
+    'toutiao-selection-end': 999,
+    'toutiao-selection-start': 999,
     'wechat-maxlength': -1,
     'wechat-selection-end': 999,
     'wechat-selection-start': 999,
-    'wechat-fixed': false,
-    'alipay-show-count': false
+    'wechat-fixed': false
   };
   return Textarea;
 }(React.Component);
@@ -691,3 +735,4 @@ var C = (function (_ref) {
 exports.C = C;
 exports.Text = Text;
 exports.View = View;
+exports.chooseImage = chooseImage;

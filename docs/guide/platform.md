@@ -43,4 +43,4 @@ import { View, navigateTo, useShow } from 'remax/toutiao';
 
 ## 跨平台开发
 
-如果你有跨平台开发的需求，请查阅 [高级指南 - 跨平台开发](/advanced-guide/cross-platform)
+如果你有跨平台开发的需求，请查阅 [跨平台开发](/one/intro)

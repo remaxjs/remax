@@ -11,6 +11,7 @@ const platformAlias: any = {
 };
 
 const defaultAlias = {
+  id: 'id',
   src: 'src',
 };
 
