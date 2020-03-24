@@ -1,2 +1,2 @@
-export const props = ['src', 'onMessage'];
-export const alias = { src: 'src', onMessage: 'onMessage' };
+export const props = ['id', 'src', 'onMessage'];
+export const alias = { id: 'id', src: 'src', onMessage: 'onMessage' };
