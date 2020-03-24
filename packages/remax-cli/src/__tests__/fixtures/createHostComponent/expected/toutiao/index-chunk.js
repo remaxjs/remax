@@ -1600,24 +1600,24 @@ function createAppConfig(App) {
       onLaunch: function onLaunch(options) {
         this._render();
 
-        this.callLifecycle(AppLifecycle.launch, options);
+        return this.callLifecycle(AppLifecycle.launch, options);
       },
       onShow: function onShow(options) {
-        this.callLifecycle(AppLifecycle.show, options);
+        return this.callLifecycle(AppLifecycle.show, options);
       },
       onHide: function onHide() {
-        this.callLifecycle(AppLifecycle.hide);
+        return this.callLifecycle(AppLifecycle.hide);
       },
       onError: function onError(error) {
-        this.callLifecycle(AppLifecycle.error, error);
+        return this.callLifecycle(AppLifecycle.error, error);
       },
       // 支付宝
       onShareAppMessage: function onShareAppMessage(options) {
-        this.callLifecycle(AppLifecycle.shareAppMessage, options);
+        return this.callLifecycle(AppLifecycle.shareAppMessage, options);
       },
       // 微信
       onPageNotFound: function onPageNotFound(options) {
-        this.callLifecycle(AppLifecycle.pageNotFound, options);
+        return this.callLifecycle(AppLifecycle.pageNotFound, options);
       },
       _mount: function _mount(pageInstance) {
         this._pages.push(pageInstance);

@@ -43,29 +43,29 @@ export default function createAppConfig(this: any, App: any) {
       onLaunch(options: any) {
         this._render();
 
-        this.callLifecycle(AppLifecycle.launch, options);
+        return this.callLifecycle(AppLifecycle.launch, options);
       },
 
       onShow(options: any) {
-        this.callLifecycle(AppLifecycle.show, options);
+        return this.callLifecycle(AppLifecycle.show, options);
       },
 
       onHide() {
-        this.callLifecycle(AppLifecycle.hide);
+        return this.callLifecycle(AppLifecycle.hide);
       },
 
       onError(error: any) {
-        this.callLifecycle(AppLifecycle.error, error);
+        return this.callLifecycle(AppLifecycle.error, error);
       },
 
       // 支付宝
       onShareAppMessage(options: any) {
-        this.callLifecycle(AppLifecycle.shareAppMessage, options);
+        return this.callLifecycle(AppLifecycle.shareAppMessage, options);
       },
 
       // 微信
       onPageNotFound(options: any) {
-        this.callLifecycle(AppLifecycle.pageNotFound, options);
+        return this.callLifecycle(AppLifecycle.pageNotFound, options);
       },
 
       _mount(pageInstance: any) {
