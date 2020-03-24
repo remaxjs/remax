@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
-
 const platformAlias: any = {
   alipay: {
     onLoad: 'onLoad',

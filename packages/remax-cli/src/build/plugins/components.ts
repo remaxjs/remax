@@ -19,10 +19,6 @@ export type Importers<T = Component> = Map<string, Components<T>>;
 const importers: Importers = new Map();
 
 function aliasProp(propName: string, hostComponent?: HostComponent) {
-  if (!propName) {
-    return propName;
-  }
-
   const prefix = `${API.adapter.target}-`;
 
   if (propName.startsWith(prefix)) {

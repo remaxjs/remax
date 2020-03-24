@@ -54,6 +54,7 @@
     color="{{item.props['color']}}"
     disabled="{{item.props['disabled']}}"
     id="{{item.props['id']}}"
+    onChange="{{item.props['onChange']}}"
     style="{{item.props['style']}}"
     value="{{item.props['value']}}">
     
@@ -69,6 +70,7 @@
     class="{{item.props['class']}}"
     id="{{item.props['id']}}"
     name="{{item.props['name']}}"
+    onChange="{{item.props['onChange']}}"
     style="{{item.props['style']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
@@ -617,7 +619,6 @@
     animation="{{item.props['animation']}}"
     class="{{item.props['class']}}"
     data-foo="{{item.props['data-foo']}}"
-    hidden="{{item.props['hidden']}}"
     hover-class="{{item.props['hover-class']}}"
     hover-start-time="{{item.props['hover-start-time']}}"
     hover-stay-time="{{item.props['hover-stay-time']}}"
@@ -638,6 +639,7 @@
   
   <template name="REMAX_TPL_1_web-view">
   <web-view 
+    id="{{item.props['id']}}"
     src="{{item.props['src']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">

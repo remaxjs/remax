@@ -34,8 +34,8 @@
     "alias": {
       "type": "object"
     },
-    "plugins": {
-      "type": "array"
+    "one": {
+      "type": "boolean"
     },
     "postcss": {
       "type": "object",

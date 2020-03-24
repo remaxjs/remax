@@ -28,6 +28,7 @@ import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin'
 import nativeComponents from './plugins/nativeComponents';
 import components from './plugins/components';
 import template from './plugins/template';
+import resolvePlatform from './plugins/resolvePlatform';
 import alias from './plugins/alias';
 import * as staticCompiler from './plugins/compiler/static';
 import extensions from '../extensions';
@@ -36,11 +37,12 @@ import jsx from 'acorn-jsx';
 import getEnvironment from './env';
 import { getRelatedModulesForEntry } from './chunk';
 import * as TurboPages from './turboPages';
+import * as platform from './platform';
 
 export default function rollupConfig(options: RemaxOptions, argv: any, context?: Context) {
   const stubModules: string[] = [];
 
-  ['wechat', 'alipay', 'toutiao'].forEach(name => {
+  platform.mini.forEach(name => {
     if (API.adapter.target !== name) {
       stubModules.push(`${name}/esm/api`);
       stubModules.push(`${name}/esm/hostComponents`);
@@ -125,6 +127,7 @@ export default function rollupConfig(options: RemaxOptions, argv: any, context?:
       },
       preferBuiltins: false,
     }),
+    resolvePlatform(),
     commonjs({
       include: /node_modules/,
       namedExports,

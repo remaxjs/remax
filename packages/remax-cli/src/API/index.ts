@@ -155,25 +155,24 @@ class API {
     this.registerHostComponents(plugin.hostComponents);
     this.plugins.push(plugin);
 
-    const one = remaxConfig.plugins.find(plugin => plugin.name === 'remax-one');
+    if (remaxConfig.one) {
+      const onePath = 'remax-one/node';
 
-    if (one) {
-      this.adapter.name = 'one';
-      this.adapter.packageName = 'remax-one';
+      delete require.cache[onePath];
+      const plugin = require(onePath).default || require(onePath);
+      const one = plugin();
       this.registerHostComponents(one.hostComponents);
       this.plugins.push(one);
     }
   }
 
   public registerNodePlugins(remaxConfig: RemaxOptions) {
-    remaxConfig.plugins
-      .filter(plugin => plugin.name !== 'remax-one')
-      .forEach(plugin => {
-        if (plugin) {
-          this.registerHostComponents(plugin.hostComponents);
-          this.plugins.push(plugin);
-        }
-      });
+    remaxConfig.plugins.forEach(plugin => {
+      if (plugin) {
+        this.registerHostComponents(plugin.hostComponents);
+        this.plugins.push(plugin);
+      }
+    });
   }
 
   private registerHostComponents(components?: Map<string, any>) {

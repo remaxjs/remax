@@ -730,10 +730,13 @@ var _page = function _page() {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              index$2.chooseImage();
+              index$2.chooseImage();
+              index$2.chooseImage();
+              _context.next = 5;
               return Promise.resolve(1);
 
-            case 2:
+            case 5:
             case "end":
               return _context.stop();
           }

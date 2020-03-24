@@ -19,7 +19,7 @@ export interface TextareaProps {
   focus?: boolean;
   /** 是否自动增高，设置auto-height时，style.height不生效 */
   autoHeight?: boolean;
-  onInput?: (event: InputEvent) => void;
+  onInput?: (event: InputEvent) => any;
   onFocus?: (event: InputEvent) => void;
   onBlur?: (event: InputEvent) => void;
   onConfirm?: (event: InputEvent) => void;
@@ -32,11 +32,13 @@ export interface TextareaState {
 
 export default class Textarea extends React.Component<TextareaProps, TextareaState> {
   static defaultProps = {
+    'toutiao-maxlength': -1,
+    'toutiao-selection-end': 999,
+    'toutiao-selection-start': 999,
     'wechat-maxlength': -1,
     'wechat-selection-end': 999,
     'wechat-selection-start': 999,
     'wechat-fixed': false,
-    'alipay-show-count': false,
   };
 
   state: TextareaState = {

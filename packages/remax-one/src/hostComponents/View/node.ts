@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
-
 const platformAlias: any = {
   alipay: {
     onTap: 'onTap',
@@ -8,19 +6,6 @@ const platformAlias: any = {
     onTouchEnd: 'onTouchEnd',
     onTouchCancel: 'onTouchCancel',
     onLongTap: 'onLongTap',
-    onTransitionEnd: 'onTransitionEnd',
-    onAnimationIteration: 'onAnimationIteration',
-    onAnimationStart: 'onAnimationStart',
-    onAnimationEnd: 'onAnimationEnd',
-    ['alipay-onAppear']: 'onAppear',
-    ['alipay-onDisappear']: 'onDisappear',
-    ['alipay-onFirstAppear']: 'onFirstAppear',
-    ['alipay-disable-scroll']: 'disable-scroll',
-    ['alipay-hover-stop-propagation']: 'hover-stop-propagation',
-    ['alipay-onTransitionEnd']: 'onTransitionEnd',
-    ['alipay-onAnimationIteration']: 'onAnimationIteration',
-    ['alipay-onAnimationStart']: 'onAnimationStart',
-    ['alipay-onAnimationEnd']: 'onAnimationEnd',
   },
   wechat: {
     role: 'aria-role',
@@ -30,25 +15,8 @@ const platformAlias: any = {
     onTouchEnd: 'bindtouchend',
     onTouchCancel: 'bindtouchcancel',
     onLongTap: 'bindlongtap',
-    onTransitionEnd: 'bindtransitionend',
-    onAnimationIteration: 'bindanimationiteration',
-    onAnimationStart: 'bindanimationstart',
-    onAnimationEnd: 'bindanimationend',
-    ['wechat-disable-scroll']: 'disable-scroll',
-    ['wechat-hover-stop-propagation']: 'hover-stop-propagation',
-    ['wechat-bindtransitionend']: 'bindtransitionend',
-    ['wechat-bindanimationiteration']: 'bindanimationiteration',
-    ['wechat-bindanimationstart']: 'bindanimationstart',
-    ['wechat-bindanimationend']: 'bindanimationend',
   },
-  toutiao: {
-    ['toutiao-disable-scroll']: 'disable-scroll',
-    ['toutiao-hover-stop-propagation']: 'hover-stop-propagation',
-    ['toutiao-bindtransitionend']: 'bindtransitionend',
-    ['toutiao-bindanimationiteration']: 'bindanimationiteration',
-    ['toutiao-bindanimationstart']: 'bindanimationstart',
-    ['toutiao-bindanimationend']: 'bindanimationend',
-  },
+  toutiao: {},
 };
 
 const defaultAlias = {
@@ -57,7 +25,6 @@ const defaultAlias = {
   hoverClass: 'hover-class',
   hoverStartTime: 'hover-start-time',
   hoverStayTime: 'hover-stay-time',
-  hidden: 'hidden',
   className: 'class',
   style: 'style',
   animation: 'animation',

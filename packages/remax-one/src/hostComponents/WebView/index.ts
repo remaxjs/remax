@@ -1,9 +1,11 @@
 import * as React from 'react';
 import createHostComponent from '../../createHostComponent';
+import { Event } from '../../types';
 
 export interface WebViewProps extends React.AriaAttributes {
+  id?: string;
   src: string;
-  onMessage?: (event: any) => void;
+  onMessage?: (event: Event) => void;
 }
 
 const WebView = createHostComponent<WebViewProps>('web-view');

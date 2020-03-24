@@ -1,5 +1,6 @@
 import * as React from 'react';
 import createHostComponent from '../../createHostComponent';
+import { TapEvent } from '../../types';
 
 export interface ButtonProps extends React.AriaAttributes {
   // 通用属性
@@ -19,7 +20,7 @@ export interface ButtonProps extends React.AriaAttributes {
   hoverStopPropagation?: boolean;
   /** 用于 form 组件，点击分别会触发 form 组件的 submit/reset 事件 */
   formType?: 'submit' | 'reset';
-  onTap?: (e: any) => void;
+  onTap?: (event: TapEvent) => void;
 }
 
 const Button = createHostComponent<ButtonProps>('button');

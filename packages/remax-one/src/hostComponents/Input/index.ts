@@ -38,6 +38,9 @@ export interface InputState {
 
 export default class Input extends React.Component<InputProps, InputState> {
   static defaultProps = {
+    'toutiao-maxlength': 140,
+    'toutiao-selection-end': 999,
+    'toutiao-selection-start': 999,
     'wechat-maxlength': 140,
     'wechat-selection-end': 999,
     'wechat-selection-start': 999,
