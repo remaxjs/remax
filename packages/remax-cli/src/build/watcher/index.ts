@@ -64,6 +64,10 @@ export default function runWatcher(
       case 'END':
         isBundleRunning = false;
         output('💡 编译完成', 'green', remaxOptions.notify);
+        // 适配支付宝小程序 IDE
+        if (process.env.VOL_ROOT) {
+          output('Watching for changes...', 'green', remaxOptions.notify);
+        }
         break;
       case 'ERROR':
       case 'FATAL':
