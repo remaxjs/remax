@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.3](https://github.com/remaxjs/remax/compare/v1.18.2...v1.18.3) (2020-03-25)
+
+### Bug Fixes
+
+- **alipay:** 修复支付宝 IDE 里预览会卡住的问题 ([bc8a50b](https://github.com/remaxjs/remax/commit/bc8a50b2557b711672a1c551caddf5381ec7bb22))
+
 ## [1.18.2](https://github.com/remaxjs/remax/compare/v1.18.1...v1.18.2) (2020-03-25)
 
 ### Bug Fixes
