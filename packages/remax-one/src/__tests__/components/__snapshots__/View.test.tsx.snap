@@ -3,6 +3,12 @@
 exports[`View render correctly 1`] = `
 <view
   className="class"
+  onLongTap={[Function]}
+  onTap={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
 >
   view
 </view>

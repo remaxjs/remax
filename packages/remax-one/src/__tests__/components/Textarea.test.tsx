@@ -1,10 +1,24 @@
 import * as React from 'react';
-import TestRenderer from 'react-test-renderer';
+import TestRenderer, { act } from 'react-test-renderer';
 import { Textarea } from '../../hostComponents';
+import { InputEvent } from '../../types';
 
 describe('Textarea', () => {
   it('render correctly', () => {
-    const testRenderer = TestRenderer.create(<Textarea className="class" />);
+    const testRenderer = TestRenderer.create(
+      <Textarea
+        className="class"
+        onConfirm={() => {
+          // ignore
+        }}
+        onFocus={() => {
+          // ignore
+        }}
+        onBlur={() => {
+          // ignore
+        }}
+      />
+    );
 
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });
@@ -28,20 +42,34 @@ describe('Textarea', () => {
   });
 
   it('value', () => {
-    const testRenderer = TestRenderer.create(<Textarea className="class" value="1" />);
+    function TextareaTest() {
+      const [value, setValue] = React.useState('1');
+      const handleInput = (e: InputEvent) => {
+        setValue(e.target.value);
+      };
+
+      return <Textarea className="class" value={value} onInput={handleInput} />;
+    }
+
+    const testRenderer = TestRenderer.create(<TextareaTest />);
 
     const instance = testRenderer.root.findByType('textarea');
 
     expect(instance.props.value).toEqual('1');
 
-    instance.props.onInput({
+    const originalEvent = {
       target: {},
       currentTarget: {},
       detail: {
         value: '2',
       },
+      type: 'input',
+    };
+
+    act(() => {
+      instance.props.onInput(originalEvent);
     });
 
-    expect(instance.props.value).toEqual('1');
+    expect(instance.props.value).toEqual('2');
   });
 });

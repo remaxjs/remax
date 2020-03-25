@@ -4,7 +4,16 @@ import { Form } from '../../hostComponents';
 
 describe('Form', () => {
   it('render correctly', () => {
-    const testRenderer = TestRenderer.create(<Form />);
+    const testRenderer = TestRenderer.create(
+      <Form
+        onSubmit={() => {
+          // ignore
+        }}
+        onReset={() => {
+          // ignore
+        }}
+      />
+    );
 
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });

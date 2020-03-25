@@ -4,7 +4,13 @@ exports[`Input render correctly 1`] = `
 <input
   className="class"
   controlled={false}
+  onBlur={[Function]}
+  onConfirm={[Function]}
+  onFocus={[Function]}
   onInput={[Function]}
+  toutiao-maxlength={140}
+  toutiao-selection-end={999}
+  toutiao-selection-start={999}
   wechat-maxlength={140}
   wechat-selection-end={999}
   wechat-selection-start={999}

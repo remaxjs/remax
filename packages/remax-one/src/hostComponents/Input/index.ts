@@ -90,10 +90,19 @@ export default class Input extends React.Component<InputProps, InputState> {
     const inputProps = {
       ...this.props,
       onInput: createCallback(this.handleInput, createInputEvent),
-      onConfirm: createCallback(this.props.onConfirm, createInputEvent),
-      onFocus: createCallback(this.props.onFocus, createInputEvent),
-      onBlur: createCallback(this.props.onBlur, createInputEvent),
     };
+
+    if (inputProps.onConfirm) {
+      inputProps.onConfirm = createCallback(this.props.onConfirm, createInputEvent);
+    }
+
+    if (inputProps.onFocus) {
+      inputProps.onFocus = createCallback(this.props.onFocus, createInputEvent);
+    }
+
+    if (inputProps.onBlur) {
+      inputProps.onBlur = createCallback(this.props.onBlur, createInputEvent);
+    }
 
     return React.createElement('input', {
       ...inputProps,
