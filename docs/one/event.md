@@ -23,51 +23,21 @@ export default () => {
 
 ## Event
 
-| 名称          | 类型          | 描述                            |
-| ------------- | ------------- | ------------------------------- |
-| target        | Target        | 事件 target                     |
-| currentTarget | CurrentTarget | 事件 currentTarget              |
-| type          | string        | 事件类型， 如 'tap'，'focus' 等 |
-| originalEvent | any           | 小程序原始事件对象              |
-
-## Target
-
-| 名称       | 类型                   | 描述       |
-| ---------- | ---------------------- | ---------- |
-| id         | string                 | 节点 id    |
-| offsetLeft | number                 | 左偏移量   |
-| offsetTop  | number                 | 顶部偏移量 |
-| dataset    | { [key: string]: any } | data 对象  |
-| value      | any                    | 目标值     |
-
-## CurrentTarget
-
-| 名称       | 类型                   | 描述       |
-| ---------- | ---------------------- | ---------- |
-| id         | string                 | 节点 id    |
-| offsetLeft | number                 | 左偏移量   |
-| offsetTop  | number                 | 顶部偏移量 |
-| dataset    | { [key: string]: any } | data 对象  |
-| value      | any                    | 目标值     |
-
-## Touch
-
-| 名称       | 类型   | 描述                                                                                     |
-| ---------- | ------ | ---------------------------------------------------------------------------------------- |
-| clientX    | number | 触点相对于可见视区左边沿的的 X 坐标. 不包括任何滚动偏移                                  |
-| clientY    | number | 触点相对于可见视区上边沿的的 Y 坐标. 不包括任何滚动偏移                                  |
-| pageX      | number | 触点相对于页面左边沿的的 X 坐标. 当存在水平滚动的偏移时, 这个值包含了水平滚动的偏移      |
-| pageY      | number | 触点相对于页面左边沿的的 Y 坐标. 当存在垂直滚动的偏移时, 这个值包含了垂直滚动的偏移      |
-| identifier | number | 一次触摸动作在移动的整个过程中, 该标识符不变. 可以根据它来判断跟踪的是否是同一次触摸过程 |
+| 名称          | 类型                                      | 描述                            |
+| ------------- | ----------------------------------------- | ------------------------------- |
+| target        | [Target](/one/event#target)               | 事件 target                     |
+| currentTarget | [CurrentTarget](/one/event#currenttarget) | 事件 currentTarget              |
+| type          | string                                    | 事件类型， 如 'tap'，'focus' 等 |
+| originalEvent | any                                       | 小程序原始事件对象              |
 
 ## TouchEvent
 
 继承 Event 事件
 
-| 名称           | 类型    | 描述                                                                                                         |
-| -------------- | ------- | ------------------------------------------------------------------------------------------------------------ |
-| touches        | Touch[] | 包含了所有当前接触触摸平面的触点的 Touch 对象，无论它们的起始于哪个 element 上，也无论它们状态是否发生了变化 |
-| changedTouches | Touch[] | 包含了代表所有从上一次触摸事件到此次事件过程中，状态发生了改变的触点的 Touch 对象。                          |
+| 名称           | 类型                        | 描述                                                                                                         |
+| -------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| touches        | [Touch](/one/event#touch)[] | 包含了所有当前接触触摸平面的触点的 Touch 对象，无论它们的起始于哪个 element 上，也无论它们状态是否发生了变化 |
+| changedTouches | [Touch](/one/event#touch)[] | 包含了代表所有从上一次触摸事件到此次事件过程中，状态发生了改变的触点的 Touch 对象。                          |
 
 ## TouchStartEvent
 
@@ -108,3 +78,33 @@ export default () => {
 ## FormEvent
 
 继承 Event
+
+## Target
+
+| 名称       | 类型                   | 描述       |
+| ---------- | ---------------------- | ---------- |
+| id         | string                 | 节点 id    |
+| offsetLeft | number                 | 左偏移量   |
+| offsetTop  | number                 | 顶部偏移量 |
+| dataset    | { [key: string]: any } | data 对象  |
+| value      | any                    | 目标值     |
+
+## CurrentTarget
+
+| 名称       | 类型                   | 描述       |
+| ---------- | ---------------------- | ---------- |
+| id         | string                 | 节点 id    |
+| offsetLeft | number                 | 左偏移量   |
+| offsetTop  | number                 | 顶部偏移量 |
+| dataset    | { [key: string]: any } | data 对象  |
+| value      | any                    | 目标值     |
+
+## Touch
+
+| 名称       | 类型   | 描述                                                                                     |
+| ---------- | ------ | ---------------------------------------------------------------------------------------- |
+| clientX    | number | 触点相对于可见视区左边沿的的 X 坐标. 不包括任何滚动偏移                                  |
+| clientY    | number | 触点相对于可见视区上边沿的的 Y 坐标. 不包括任何滚动偏移                                  |
+| pageX      | number | 触点相对于页面左边沿的的 X 坐标. 当存在水平滚动的偏移时, 这个值包含了水平滚动的偏移      |
+| pageY      | number | 触点相对于页面左边沿的的 Y 坐标. 当存在垂直滚动的偏移时, 这个值包含了垂直滚动的偏移      |
+| identifier | number | 一次触摸动作在移动的整个过程中, 该标识符不变. 可以根据它来判断跟踪的是否是同一次触摸过程 |
