@@ -877,7 +877,7 @@ function getAlias(prop, type) {
 }
 
 function getValue(prop, value) {
-  if (prop.toLowerCase().endsWith('style') && prop !== 'layerStyle') {
+  if (prop.toLowerCase().endsWith('style') && _typeof(value) === 'object') {
     return plainStyle(value);
   }
 
