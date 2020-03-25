@@ -1371,6 +1371,7 @@
   
   <template name="REMAX_TPL_1_web-view">
   <web-view 
+    id="{{item.props['id']}}"
     onMessage="{{item.props['onMessage']}}"
     src="{{item.props['src']}}">
     

@@ -662,6 +662,7 @@ var hostComponents = {
   },
   "web-view": {
     "alias": {
+      "id": "id",
       "src": "src",
       "onMessage": "onMessage"
     }

@@ -889,6 +889,7 @@
   
 <template name="TPL_web-view">
   <web-view 
+    id="{{node.props['id']}}" 
     onMessage="{{node.props['onMessage']}}" 
     src="{{node.props['src']}}" 
   >
