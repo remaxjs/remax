@@ -913,7 +913,17 @@ var hostComponents = {
       "onTouchMove": "bindtouchmove",
       "onTouchCancel": "bindtouchcancel",
       "onClick": "bindtap",
-      "animation": "animation"
+      "animation": "animation",
+      "scrollAnchoring": "scroll-anchoring",
+      "refresherEnabled": "refresher-enabled",
+      "refresherThreshold": "refresher-threshold",
+      "refresherDefaultStyle": "refresher-default-style",
+      "refresherBackground": "refresher-background",
+      "refresherTriggered": "refresher-triggered",
+      "onRefresherPulling": "bindrefresherpulling",
+      "onRefresherRefresh": "bindrefresherrefresh",
+      "onRefresherRestore": "bindrefresherrestore",
+      "onRefresherAbort": "bindrefresherabort"
     }
   },
   "slider": {
