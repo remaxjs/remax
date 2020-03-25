@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.2](https://github.com/remaxjs/remax/compare/v1.18.1...v1.18.2) (2020-03-25)
+
+### Bug Fixes
+
+- **alipay:** 修复 WebView 缺少的 id 定义 ([fed4d13](https://github.com/remaxjs/remax/commit/fed4d13faa8d8608e4725618417cc72a34eaae41))
+- **alipay:** 修复指定 WebView id 不生效的问题 ([549aba2](https://github.com/remaxjs/remax/commit/549aba2cc1a11888e7ee9e2d3447704be496a6e6))
+
 ## [1.18.1](https://github.com/remaxjs/remax/compare/v1.18.0...v1.18.1) (2020-03-24)
 
 **Note:** Version bump only for package remax-alipay
