@@ -12,6 +12,7 @@ interface Options {
 export default async function build(app: string, target: string, options: Partial<Options> = {}) {
   const cwd = path.resolve(__dirname, `../fixtures/${app}`);
   process.chdir(cwd);
+  process.env.REMAX_PLATFORM = target;
 
   const config = getConfig();
 

@@ -29,6 +29,7 @@ function createTarget(target, detail) {
 }
 function createCurrentTarget(currentTarget) {
   return {
+    id: currentTarget.id,
     offsetLeft: currentTarget.offsetLeft,
     offsetTop: currentTarget.offsetTop,
     dataset: currentTarget.dataset
@@ -259,11 +260,20 @@ function (_super) {
 
   Input.prototype.render = function () {
     var inputProps = __assign$1(__assign$1({}, this.props), {
-      onInput: createCallback(this.handleInput, createInputEvent),
-      onConfirm: createCallback(this.props.onConfirm, createInputEvent),
-      onFocus: createCallback(this.props.onFocus, createInputEvent),
-      onBlur: createCallback(this.props.onBlur, createInputEvent)
+      onInput: createCallback(this.handleInput, createInputEvent)
     });
+
+    if (inputProps.onConfirm) {
+      inputProps.onConfirm = createCallback(this.props.onConfirm, createInputEvent);
+    }
+
+    if (inputProps.onFocus) {
+      inputProps.onFocus = createCallback(this.props.onFocus, createInputEvent);
+    }
+
+    if (inputProps.onBlur) {
+      inputProps.onBlur = createCallback(this.props.onBlur, createInputEvent);
+    }
 
     return React.createElement('input', __assign$1(__assign$1({}, inputProps), this.state));
   };
@@ -380,11 +390,20 @@ function (_super) {
 
   Textarea.prototype.render = function () {
     var inputProps = __assign$2(__assign$2({}, this.props), {
-      onInput: createCallback(this.handleInput, createInputEvent),
-      onConfirm: createCallback(this.props.onConfirm, createInputEvent),
-      onFocus: createCallback(this.props.onFocus, createInputEvent),
-      onBlur: createCallback(this.props.onBlur, createInputEvent)
+      onInput: createCallback(this.handleInput, createInputEvent)
     });
+
+    if (inputProps.onConfirm) {
+      inputProps.onConfirm = createCallback(this.props.onConfirm, createInputEvent);
+    }
+
+    if (inputProps.onFocus) {
+      inputProps.onFocus = createCallback(this.props.onFocus, createInputEvent);
+    }
+
+    if (inputProps.onBlur) {
+      inputProps.onBlur = createCallback(this.props.onBlur, createInputEvent);
+    }
 
     return React.createElement('textarea', __assign$2(__assign$2({}, inputProps), this.state));
   };

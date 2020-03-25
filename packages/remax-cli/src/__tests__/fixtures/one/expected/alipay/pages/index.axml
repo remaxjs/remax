@@ -16,7 +16,8 @@
     hover-start-time="{{item.props['hover-start-time']}}"
     hover-stay-time="{{item.props['hover-stay-time']}}"
     hover-stop-propagation="{{item.props['hover-stop-propagation']}}"
-    id="{{item.props['id']}}">
+    id="{{item.props['id']}}"
+    onTap="{{item.props['onTap']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
@@ -132,6 +133,8 @@
   <form 
     class="{{item.props['class']}}"
     id="{{item.props['id']}}"
+    onReset="{{item.props['onReset']}}"
+    onSubmit="{{item.props['onSubmit']}}"
     style="{{item.props['style']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
@@ -163,6 +166,9 @@
     id="{{item.props['id']}}"
     lazy-load="{{item.props['lazy-load']}}"
     mode="{{item.props['mode']}}"
+    onError="{{item.props['onError']}}"
+    onLoad="{{item.props['onLoad']}}"
+    onTap="{{item.props['onTap']}}"
     src="{{item.props['src']}}"
     style="{{item.props['style']}}">
     
@@ -178,11 +184,16 @@
     class="{{item.props['class']}}"
     confirm-hold="{{item.props['confirm-hold']}}"
     confirm-type="{{item.props['confirm-type']}}"
+    controlled="{{item.props['controlled']}}"
     disabled="{{item.props['disabled']}}"
     focus="{{item.props['focus']}}"
     id="{{item.props['id']}}"
     maxlength="{{item.props['maxlength']}}"
     name="{{item.props['name']}}"
+    onBlur="{{item.props['onBlur']}}"
+    onConfirm="{{item.props['onConfirm']}}"
+    onFocus="{{item.props['onFocus']}}"
+    onInput="{{item.props['onInput']}}"
     password="{{item.props['password']}}"
     placeholder="{{item.props['placeholder']}}"
     placeholder-style="{{item.props['placeholder-style']}}"
@@ -395,6 +406,7 @@
     class="{{item.props['class']}}"
     id="{{item.props['id']}}"
     name="{{item.props['name']}}"
+    onChange="{{item.props['onChange']}}"
     style="{{item.props['style']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
@@ -542,6 +554,7 @@
     class="{{item.props['class']}}"
     decode="{{item.props['decode']}}"
     id="{{item.props['id']}}"
+    onTap="{{item.props['onTap']}}"
     selectable="{{item.props['selectable']}}"
     style="{{item.props['style']}}">
     
@@ -625,7 +638,11 @@
     hover-stop-propagation="{{item.props['hover-stop-propagation']}}"
     id="{{item.props['id']}}"
     onClick="{{item.props['onClick']}}"
+    onLongTap="{{item.props['onLongTap']}}"
     onTap="{{item.props['onTap']}}"
+    onTouchCancel="{{item.props['onTouchCancel']}}"
+    onTouchEnd="{{item.props['onTouchEnd']}}"
+    onTouchMove="{{item.props['onTouchMove']}}"
     onTouchStart="{{item.props['onTouchStart']}}"
     role="{{item.props['role']}}"
     style="{{item.props['style']}}">
@@ -640,6 +657,7 @@
   <template name="REMAX_TPL_1_web-view">
   <web-view 
     id="{{item.props['id']}}"
+    onMessage="{{item.props['onMessage']}}"
     src="{{item.props['src']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">

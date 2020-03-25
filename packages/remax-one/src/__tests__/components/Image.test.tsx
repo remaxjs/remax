@@ -4,7 +4,17 @@ import { Image } from '../../hostComponents';
 
 describe('Image', () => {
   it('render correctly', () => {
-    const testRenderer = TestRenderer.create(<Image className="class" />);
+    const testRenderer = TestRenderer.create(
+      <Image
+        className="class"
+        onError={() => {
+          // ignore
+        }}
+        onLoad={() => {
+          // ignore
+        }}
+      />
+    );
 
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });

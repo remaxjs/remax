@@ -43,6 +43,7 @@ describe('create event', () => {
       Object {
         "currentTarget": Object {
           "dataset": Object {},
+          "id": 1,
           "offsetLeft": 0,
           "offsetTop": 0,
         },
@@ -86,6 +87,7 @@ describe('create event', () => {
       Object {
         "currentTarget": Object {
           "dataset": Object {},
+          "id": 1,
           "offsetLeft": 0,
           "offsetTop": 0,
         },
@@ -129,6 +131,7 @@ describe('create event', () => {
       Object {
         "currentTarget": Object {
           "dataset": Object {},
+          "id": 1,
           "offsetLeft": 0,
           "offsetTop": 0,
         },
@@ -172,6 +175,7 @@ describe('create event', () => {
       Object {
         "currentTarget": Object {
           "dataset": Object {},
+          "id": 1,
           "offsetLeft": 0,
           "offsetTop": 0,
         },
@@ -217,6 +221,7 @@ describe('create event', () => {
         "changedTouches": Array [],
         "currentTarget": Object {
           "dataset": Object {},
+          "id": 1,
           "offsetLeft": 0,
           "offsetTop": 0,
         },

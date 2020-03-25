@@ -22,6 +22,7 @@ export function createTarget(target: any, detail: any): EventTarget {
 
 export function createCurrentTarget(currentTarget: any): EventCurrentTarget {
   return {
+    id: currentTarget.id,
     offsetLeft: currentTarget.offsetLeft,
     offsetTop: currentTarget.offsetTop,
     dataset: currentTarget.dataset,

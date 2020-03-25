@@ -97,7 +97,6 @@ export default () => {
 | offsetLeft | number                 | 左偏移量   |
 | offsetTop  | number                 | 顶部偏移量 |
 | dataset    | { [key: string]: any } | data 对象  |
-| value      | any                    | 目标值     |
 
 ## Touch
 
