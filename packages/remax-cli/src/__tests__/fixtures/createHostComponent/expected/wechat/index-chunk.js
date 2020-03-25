@@ -263,10 +263,6 @@ var transformPx = function transformPx(value) {
 };
 
 var plainStyle = function plainStyle(style) {
-  if (!style) {
-    return '';
-  }
-
   return Object.keys(style).reduce(function (acc, key) {
     var value = style[key];
 
