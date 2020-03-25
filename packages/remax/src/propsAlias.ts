@@ -10,7 +10,7 @@ export function getAlias(prop: string, type: string) {
 }
 
 function getValue(prop: string, value: any): any {
-  if (prop.toLowerCase().endsWith('style') && prop !== 'layerStyle') {
+  if (prop.toLowerCase().endsWith('style') && typeof value === 'object') {
     return plainStyle(value);
   }
 

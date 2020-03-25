@@ -317,10 +317,6 @@ var transformPx = function transformPx(value) {
 };
 
 var plainStyle = function plainStyle(style) {
-  if (!style) {
-    return '';
-  }
-
   return Object.keys(style).reduce(function (acc, key) {
     var value = style[key];
 
@@ -908,7 +904,17 @@ var hostComponents = {
       "onTouchMove": "bindtouchmove",
       "onTouchCancel": "bindtouchcancel",
       "onClick": "bindtap",
-      "animation": "animation"
+      "animation": "animation",
+      "scrollAnchoring": "scroll-anchoring",
+      "refresherEnabled": "refresher-enabled",
+      "refresherThreshold": "refresher-threshold",
+      "refresherDefaultStyle": "refresher-default-style",
+      "refresherBackground": "refresher-background",
+      "refresherTriggered": "refresher-triggered",
+      "onRefresherPulling": "bindrefresherpulling",
+      "onRefresherRefresh": "bindrefresherrefresh",
+      "onRefresherRestore": "bindrefresherrestore",
+      "onRefresherAbort": "bindrefresherabort"
     }
   },
   "slider": {
@@ -1124,7 +1130,7 @@ function getAlias(prop, type) {
 }
 
 function getValue(prop, value) {
-  if (prop.toLowerCase().endsWith('style') && prop !== 'layerStyle') {
+  if (prop.toLowerCase().endsWith('style') && _typeof(value) === 'object') {
     return plainStyle(value);
   }
 

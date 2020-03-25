@@ -7,6 +7,22 @@ var scheduler = require('scheduler');
 var React = require('react');
 var React__default = _interopDefault(React);
 
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -322,10 +338,6 @@ var transformPx = function transformPx(value) {
 };
 
 var plainStyle = function plainStyle(style) {
-  if (!style) {
-    return '';
-  }
-
   return Object.keys(style).reduce(function (acc, key) {
     var value = style[key];
 
@@ -867,7 +879,7 @@ function getAlias(prop, type) {
 }
 
 function getValue(prop, value) {
-  if (prop.toLowerCase().endsWith('style') && prop !== 'layerStyle') {
+  if (prop.toLowerCase().endsWith('style') && _typeof(value) === 'object') {
     return plainStyle(value);
   }
 

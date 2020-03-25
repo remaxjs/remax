@@ -332,10 +332,6 @@ var transformPx = function transformPx(value) {
 };
 
 var plainStyle = function plainStyle(style) {
-  if (!style) {
-    return '';
-  }
-
   return Object.keys(style).reduce(function (acc, key) {
     var value = style[key];
 
@@ -892,7 +888,7 @@ function getAlias(prop, type) {
 }
 
 function getValue(prop, value) {
-  if (prop.toLowerCase().endsWith('style') && prop !== 'layerStyle') {
+  if (prop.toLowerCase().endsWith('style') && _typeof(value) === 'object') {
     return plainStyle(value);
   }
 

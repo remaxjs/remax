@@ -38,11 +38,7 @@ const transformPx = (value: string) => {
   });
 };
 
-const plainStyle = (style: CSSProperties | null | undefined) => {
-  if (!style) {
-    return '';
-  }
-
+const plainStyle = (style: CSSProperties) => {
   return Object.keys(style)
     .reduce((acc: string[], key) => {
       let value = (style as any)[key];
