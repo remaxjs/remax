@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.4](https://github.com/remaxjs/remax/compare/v1.18.3...v1.18.4) (2020-03-25)
+
+### Bug Fixes
+
+- **wechat:** 微信 ScrollView 添加自定义刷新相关属性 ([#742](https://github.com/remaxjs/remax/issues/742)) ([9ef2afd](https://github.com/remaxjs/remax/commit/9ef2afddbadb7e21f4c342e2633049eb016ee0a5))
+
 ## [1.18.3](https://github.com/remaxjs/remax/compare/v1.18.2...v1.18.3) (2020-03-25)
 
 ### Bug Fixes

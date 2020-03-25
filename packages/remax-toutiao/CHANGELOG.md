@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.4](https://github.com/remaxjs/remax/compare/v1.18.3...v1.18.4) (2020-03-25)
+
+**Note:** Version bump only for package remax-toutiao
+
 ## [1.18.3](https://github.com/remaxjs/remax/compare/v1.18.2...v1.18.3) (2020-03-25)
 
 **Note:** Version bump only for package remax-toutiao
