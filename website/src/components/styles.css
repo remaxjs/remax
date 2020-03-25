@@ -131,7 +131,7 @@ body {
 }
 .mainWrapper {
   color: rgb(59, 69, 78);
-  max-width: 750px;
+  max-width: 1280px;
 }
 .navBarUL li a:hover {
   opacity: 0.7;
@@ -173,6 +173,10 @@ pre {
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.mainWrapper table {
+  width: 100%;
 }
 
 /* Header section ends here */
