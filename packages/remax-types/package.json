@@ -8,6 +8,7 @@
   "dependencies": {
     "@babel/types": "^7.8.0",
     "@types/yargs": "^15.0.0",
-    "rollup": "^1.29.0"
+    "rollup": "^1.29.0",
+    "webpack-chain": "^6.4.0"
   }
 }

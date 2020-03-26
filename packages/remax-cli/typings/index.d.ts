@@ -1,3 +1,6 @@
+declare module 'webpack/lib/*';
+declare module 'babel-loader';
+
 declare module 'rollup-plugin-babel';
 declare module '@remax/rollup-plugin-postcss';
 declare module 'rollup-plugin-progress';

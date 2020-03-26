@@ -37,8 +37,6 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
         this.container,
         this.pageId
       );
-
-      app._mount(this);
     },
 
     onUnload(this: any) {

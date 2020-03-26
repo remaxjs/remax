@@ -1,17 +1,8 @@
 import { hostComponents } from 'remax/macro';
 import * as t from '@babel/types';
-import {
-  AppConfig,
-  RemaxOptions,
-  RemaxNodePlugin,
-  ExtendsCLIOptions,
-  ExtendsRollupConfigOptions,
-  Entries,
-  Meta,
-} from 'remax-types';
+import { RemaxOptions, RemaxNodePlugin, ExtendsCLIOptions, ExtendsRollupConfigOptions, Meta } from 'remax-types';
 import { RollupOptions } from 'rollup';
 import { merge } from 'lodash';
-import { searchFile } from '../getEntries';
 
 class API {
   public plugins: RemaxNodePlugin[] = [];
@@ -22,6 +13,7 @@ class API {
     options: {},
   };
   public meta = {
+    global: '',
     template: {
       extension: '',
       tag: '',
@@ -51,6 +43,7 @@ class API {
 
   public getMeta() {
     let meta: Meta = {
+      global: '',
       template: {
         extension: '',
         tag: '',
@@ -80,24 +73,6 @@ class API {
 
   public getHostComponents() {
     return hostComponents;
-  }
-
-  public getEntries(entries: Entries, appManifest: AppConfig, remaxOptions: RemaxOptions) {
-    this.plugins.forEach(plugin => {
-      if (typeof plugin.getEntries === 'function') {
-        const currentEntries = plugin.getEntries({
-          remaxOptions,
-          appManifest,
-          getEntryPath: (entryPath: string) => searchFile(entryPath),
-        });
-
-        entries.app = currentEntries.app || entries.app;
-        entries.pages = [...entries.pages, ...currentEntries.pages];
-        entries.images = [...entries.images, ...currentEntries.images];
-      }
-    });
-
-    return entries;
   }
 
   public processProps(componentName: string, props: string[], additional?: boolean, node?: t.JSXElement | undefined) {

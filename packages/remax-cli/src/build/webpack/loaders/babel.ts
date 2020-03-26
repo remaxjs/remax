@@ -39,13 +39,13 @@ function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
 }
 
 export default babelLoader.custom((babelCore: any) => ({
-  options({ reactPreset, usePlugins, ...pluginOptions }: CustomOptions) {
+  customOptions({ reactPreset, usePlugins, ...loaderOptions }: CustomOptions) {
     return {
-      customOptions: {
+      custom: {
         reactPreset,
         usePlugins,
       },
-      pluginOptions,
+      loader: loaderOptions,
     };
   },
 
