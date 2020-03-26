@@ -23,6 +23,16 @@ const generatorPlace = (origin: string, replace: string, longLength: number): st
   return originArray.join('');
 };
 
+export function remaxVersion() {
+  const remaxPackagePath: string = winPath(path.join(process.cwd(), 'node_modules', 'remax', 'package.json'));
+  if (fs.existsSync(remaxPackagePath)) {
+    const remaxPkgConfig = require(remaxPackagePath);
+    return remaxPkgConfig.version;
+  }
+
+  return '';
+}
+
 export const checkRemaxVersion = () => {
   try {
     const cliPackagePath: string = require.resolve('../package.json');
