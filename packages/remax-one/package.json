@@ -29,12 +29,5 @@
     "remax-types": "^1.11.1",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
-  },
-  "dependencies": {
-    "remax.macro": "^1.11.1"
-  },
-  "peerDependencies": {
-    "remax": "^1.19.0",
-    "remax-cli": "^1.19.0"
   }
 }

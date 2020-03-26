@@ -27,11 +27,43 @@ jobs:
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - name: Release remax-alipay
+        run: |
+          cd packages/remax-alipay 
+          yarn install
+          yarn build
+          yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - name: Release remax-wechat
+        run: |
+          cd packages/remax-wechat 
+          yarn install
+          yarn build
+          yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - name: Release remax-toutiao
+        run: |
+          cd packages/remax-toutiao 
+          yarn install
+          yarn build
+          yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - name: Release remax-one
+        run: |
+          cd packages/remax-one 
+          yarn install
+          yarn build
+          yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
       - name: Release remax
         run: |
           cd packages/remax 
           yarn install
-          yarn add remax.macro@alpha 
+          yarn add remax.macro@alpha remax-alipay@alpha remax-wechat@alpha remax-toutiao@alpha remax-one@alpha
           yarn build
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:
