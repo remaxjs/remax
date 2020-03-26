@@ -557,7 +557,11 @@ var hostComponents = {
       "onTap": "bindtap",
       "onClick": "bindtap",
       "showMenuByLongpress": "show-menu-by-longpress",
-      "animation": "animation"
+      "animation": "animation",
+      "onTouchStart": "bindtouchstart",
+      "onTouchMove": "bindtouchmove",
+      "onTouchEnd": "bindtouchend",
+      "onTouchCancel": "bindtouchcancel"
     }
   },
   "input": {

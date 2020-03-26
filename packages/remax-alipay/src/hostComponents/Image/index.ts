@@ -14,6 +14,10 @@ export interface ImageProps {
   onTap?: (e: any) => void;
   onClick?: (e: any) => void;
   catchTap?: (e: any) => void;
+  onTouchStart?: (e: any) => void;
+  onTouchMove?: (e: any) => void;
+  onTouchEnd?: (e: any) => void;
+  onTouchCancel?: (e: any) => void;
 }
 const Image = createHostComponent<ImageProps>('image');
 

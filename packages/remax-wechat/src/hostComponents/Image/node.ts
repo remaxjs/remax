@@ -11,6 +11,10 @@ export const alias = {
   onClick: 'bindtap',
   showMenuByLongpress: 'show-menu-by-longpress',
   animation: 'animation',
+  onTouchStart: 'bindtouchstart',
+  onTouchMove: 'bindtouchmove',
+  onTouchEnd: 'bindtouchend',
+  onTouchCancel: 'bindtouchcancel',
 };
 
 export const props = Object.values(alias);
