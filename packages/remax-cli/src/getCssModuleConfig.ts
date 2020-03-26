@@ -1,14 +1,16 @@
 function getCssModuleConfig(cssModule: boolean | RegExp) {
-  let regStr = cssModule.toString();
+  let modules = true;
+  let localIdentRegExp = /.module./;
 
   if (typeof cssModule === 'boolean') {
-    regStr = cssModule ? '^(?!.*.*)' : '(.*)';
+    modules = cssModule;
   } else {
-    regStr = '^(?!.*' + cssModule.toString().replace(/^\/|\/$/g, '') + ')';
+    localIdentRegExp = cssModule;
   }
 
   return {
-    globalModulePaths: [new RegExp(regStr)],
+    modules,
+    localIdentRegExp,
   };
 }
 

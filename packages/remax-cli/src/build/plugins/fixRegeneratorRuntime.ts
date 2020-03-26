@@ -1,41 +1,27 @@
-import { Plugin } from 'rollup';
-import { simple } from 'acorn-walk';
-import MagicString from 'magic-string';
+import * as t from '@babel/types';
+import { NodePath } from '@babel/traverse';
 
-/**
- * rollup-plugin-commonjs 把 regenerator-runtime  变成了 es module
- * 然后 es module 默认就是 strict mode
- * 支付宝小程序用 webpack 打包的时候默认会给 es module 加个 use strict。
- */
-export default function fixRegeneratorRuntime(): Plugin {
+export default function fixRegeneratorRuntime() {
   return {
-    name: 'fix-regenerator-runetime',
-    transform(code) {
-      const magicString = new MagicString(code);
-      const ast = this.parse(code, {
-        sourceType: 'module',
-      });
+    visitor: {
+      CallExpression: (path: NodePath<t.CallExpression>) => {
+        const node = path.node;
+        const arg0 = node.arguments[0];
+        const arg1 = node.arguments[1];
 
-      const remove = (node: any) => {
         if (
-          node.callee.type === 'CallExpression' &&
-          node.callee.callee.name === 'Function' &&
-          node.callee.arguments.length === 2 &&
-          node.callee.arguments[0].value === 'r' &&
-          node.callee.arguments[1].value === 'regeneratorRuntime = r'
+          t.isIdentifier(node.callee) &&
+          node.callee.name === 'Function' &&
+          node.arguments.length === 2 &&
+          t.isStringLiteral(arg0) &&
+          arg0.value === 'r' &&
+          t.isStringLiteral(arg1) &&
+          arg1.value === 'regeneratorRuntime = r'
         ) {
-          magicString.remove(node.start, node.end);
+          path.parentPath.remove();
+          path.stop();
         }
-      };
-
-      simple(ast, {
-        CallExpression: remove,
-      });
-
-      return {
-        code: magicString.toString(),
-        map: magicString.generateMap().toString(),
-      };
+      },
     },
   };
 }

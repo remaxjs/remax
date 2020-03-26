@@ -1,4 +1,5 @@
 import yargs from 'yargs';
+import Config from 'webpack-chain';
 import * as t from '@babel/types';
 import { PluginImpl, RollupOptions } from 'rollup';
 
@@ -14,23 +15,7 @@ export interface RemaxOptions {
   rootDir: string;
   compressTemplate?: boolean;
   UNSAFE_wechatTemplateDepth: number | { [key: string]: number };
-  alias?: {
-    [key: string]: string;
-  };
-  postcss?: {
-    options?: {
-      [key: string]: any;
-    };
-    url?: {
-      inline?: boolean;
-      maxSize?: number;
-      filter?: boolean;
-      useHash?: boolean;
-      hashOptions?: 'method' | 'shrink' | 'append';
-    };
-    plugins?: PluginImpl[];
-  };
-  rollupOptions?: RollupOptions | ((options: RollupOptions) => RollupOptions);
+  configWebpack?: (config: Config) => void;
   plugins: RemaxNodePlugin[];
   one?: boolean;
   notify?: boolean;
@@ -41,7 +26,6 @@ export type RemaxConfig = Partial<RemaxOptions>;
 export interface Entries {
   app: string;
   pages: string[];
-  images: string[];
 }
 
 export interface AppConfigPlugins {
@@ -72,13 +56,9 @@ export interface AppConfig {
 
 export type CLI = yargs.Argv;
 export type ExtendsCLIOptions = { cli: CLI };
-export type GetEntriesOptions = {
-  remaxOptions: RemaxOptions;
-  appManifest: AppConfig;
-  getEntryPath: (entryPath: string) => string;
-};
 export type ExtendsRollupConfigOptions = { rollupConfig: RollupOptions };
 export type Meta = {
+  global: string;
   template: {
     extension: string;
     tag: string;
@@ -140,13 +120,6 @@ export interface RemaxNodePlugin {
    * 扩展 CLI 命令
    */
   extendsCLI?: (options: ExtendsCLIOptions) => CLI;
-  /**
-   * 定义 rollup 入口文件
-   * entries.app app 文件路径
-   * entries.pages pages 文件路径数组
-   * entries.images 额外的图片文件路径数组（通常为定义在 config 文件中的 tabbar 的 icon）
-   */
-  getEntries?: (options: GetEntriesOptions) => Entries;
   /**
    * 自定义组件属性
    * options.componentName 组件名称

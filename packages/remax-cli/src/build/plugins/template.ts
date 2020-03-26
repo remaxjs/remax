@@ -240,7 +240,7 @@ export default function template(options: RemaxOptions, context?: Context): Plug
         templateAssets.push(template);
       }
 
-      const entries = getEntries(options, context);
+      const entries = getEntries(options);
       const { pages } = entries;
 
       const files = Object.keys(bundle);

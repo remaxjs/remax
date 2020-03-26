@@ -1,8 +1,7 @@
 import * as fs from 'fs';
 import path from 'path';
-import resolve from 'resolve';
-import extensions from '../../../extensions';
-import alias from '../alias';
+// import resolve from 'resolve';
+// import extensions from '../../../extensions';
 import winPath from '../../../winPath';
 import { RemaxOptions } from 'remax-types';
 import { getAppConfig } from '../../../getEntries';
@@ -40,21 +39,23 @@ export const isPluginComponent = (sourcePath: string, options: RemaxOptions) => 
 };
 
 export const getSourcePath = (options: RemaxOptions, source: string, importer: string) => {
-  let sourcePath: string = alias(options).resolveId(source, importer) || source;
+  const sourcePath: string = source;
 
   // ignore rollup's virtual modules
   if (sourcePath.startsWith('\0')) {
     return sourcePath;
   }
 
-  if (!isPluginComponent(sourcePath, options)) {
-    sourcePath = resolve.sync(sourcePath, {
-      extensions,
-      basedir: path.dirname(importer),
-    });
-  }
-
   return sourcePath;
+
+  // if (!isPluginComponent(sourcePath, options)) {
+  //   sourcePath = resolve.sync(sourcePath, {
+  //     extensions,
+  //     basedir: path.dirname(importer),
+  //   });
+  // }
+
+  // return sourcePath;
 };
 
 export const isNativeComponent = (sourcePath: string | null): boolean => {

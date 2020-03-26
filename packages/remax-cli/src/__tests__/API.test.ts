@@ -31,28 +31,6 @@ describe('API', () => {
     expect(argv.cat).toEqual(33);
   });
 
-  it('getEntries', () => {
-    const defaultPage = 'defaultPageFile';
-    const defaultImage = 'defaultImage';
-    const entries = API.getEntries(
-      {
-        app: 'defaultApp',
-        pages: [defaultPage],
-        images: [defaultImage],
-      },
-      {
-        pages: [defaultPage],
-      },
-      remaxOptions
-    );
-
-    expect(entries).toEqual({
-      app: remaxOptions.cwd,
-      pages: [defaultPage, 'page'],
-      images: [defaultImage, remaxOptions.cwd],
-    });
-  });
-
   it('processProps', () => {
     const props = API.processProps('text', []);
 
