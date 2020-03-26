@@ -476,6 +476,10 @@ var hostComponents = {
       "onError": "binderror",
       "onTap": "bindtap",
       "onClick": "bindtap",
+      "onTouchStart": "bindtouchstart",
+      "onTouchMove": "bindtouchmove",
+      "onTouchEnd": "bindtouchend",
+      "onTouchCancel": "bindtouchcancel",
       "showMenuByLongpress": "show-menu-by-longpress",
       "animation": "animation"
     }

@@ -356,6 +356,10 @@
     onError="{{node.props['onError']}}" 
     onLoad="{{node.props['onLoad']}}" 
     onTap="{{node.props['onTap']}}" 
+    onTouchCancel="{{node.props['onTouchCancel']}}" 
+    onTouchEnd="{{node.props['onTouchEnd']}}" 
+    onTouchMove="{{node.props['onTouchMove']}}" 
+    onTouchStart="{{node.props['onTouchStart']}}" 
     src="{{node.props['src']}}" 
     style="{{node.props['style']}}" 
   >

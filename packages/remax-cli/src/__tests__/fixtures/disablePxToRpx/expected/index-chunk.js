@@ -403,6 +403,10 @@ var hostComponents = {
       "onLoad": "onLoad",
       "onError": "onError",
       "onTap": "onTap",
+      "onTouchStart": "onTouchStart",
+      "onTouchMove": "onTouchMove",
+      "onTouchEnd": "onTouchEnd",
+      "onTouchCancel": "onTouchCancel",
       "onClick": "onTap"
     }
   },

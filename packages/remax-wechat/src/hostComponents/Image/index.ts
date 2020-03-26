@@ -58,6 +58,10 @@ export interface ImageProps extends BaseProps {
    * 当图片载入完毕时触发，event.detail = {height, width}
    */
   onLoad?: (event: any) => any;
+  onTouchStart?: (e: any) => void;
+  onTouchMove?: (e: any) => void;
+  onTouchEnd?: (e: any) => void;
+  onTouchCancel?: (e: any) => void;
 }
 
 export default createHostComponent<ImageProps>('image');
