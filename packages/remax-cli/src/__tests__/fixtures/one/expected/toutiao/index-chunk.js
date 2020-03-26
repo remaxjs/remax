@@ -443,7 +443,11 @@ var hostComponents = {
       "lazyLoad": "lazy-load",
       "onLoad": "bindload",
       "onError": "binderror",
-      "onTap": "bindtap"
+      "onTap": "bindtap",
+      "onTouchStart": "bindtouchstart",
+      "onTouchEnd": "bindtouchend",
+      "onTouchMove": "bindtouchmove",
+      "onTouchCancel": "bindtouchcancel"
     }
   },
   "input": {

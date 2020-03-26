@@ -36,17 +36,21 @@ order: 1
 
 属性
 
-| 名称      | 类型                                                             | 描述                                                   | wechat    | alipay    | toutiao   |
-| --------- | ---------------------------------------------------------------- | ------------------------------------------------------ | --------- | --------- | --------- |
-| id        | string                                                           | 节点 id                                                | id        | id        | id        |
-| className | string                                                           | 节点样式类                                             | class     | class     | class     |
-| style     | React.CssProperties                                              | 节点 inline style                                      | style     | style     | style     |
-| src       | string                                                           | 图片资源地址                                           | src       | src       | src       |
-| mode      | 'scaleToFill' \| 'aspectFit' \| 'aspectFill' \| 'widthFix'       | 图片裁剪，缩放模式                                     | mode      | mode      | mode      |
-| lazyload  | boolean                                                          | 图片懒加载，在即将进入一定范围（上下三屏）时才开始加载 | lazy-load | lazy-load | lazy-load |
-| onLoad    | ((event: [ImageLoadEvent](/one/event#imageloadevent))) => void   | 当图片加入完毕时触发                                   | bindload  | onLoad    | bindload  |
-| onError   | ((event: [ImageErrorEvent](/one/event#imageerrorevent))) => void | 当错误发生时触发                                       | binderror | onError   | binderror |
-| onTap     | ((event: [TapEvent](/one/event#tapevent))) => void               | 点击事件                                               | bindtap   | onTap     | bindtap   |
+| 名称          | 类型                                                                                                                                                                             | 描述                                                   | wechat          | alipay        | toutiao         |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | --------------- | ------------- | --------------- |
+| id            | string                                                                                                                                                                           | 节点 id                                                | id              | id            | id              |
+| className     | string                                                                                                                                                                           | 节点样式类                                             | class           | class         | class           |
+| style         | React.CssProperties                                                                                                                                                              | 节点 inline style                                      | style           | style         | style           |
+| src           | string                                                                                                                                                                           | 图片资源地址                                           | src             | src           | src             |
+| mode          | 'scaleToFill' \| 'aspectFit' \| 'aspectFill' \| 'widthFix' \| 'top' \| 'bottom' \| 'center' \| 'left' \| 'right' \| 'top left' \| 'top right' \| 'bottom left' \| 'bottom right' | 图片裁剪，缩放模式                                     | mode            | mode          | mode            |
+| lazyload      | boolean                                                                                                                                                                          | 图片懒加载，在即将进入一定范围（上下三屏）时才开始加载 | lazy-load       | lazy-load     | lazy-load       |
+| onLoad        | ((event: [ImageLoadEvent](/one/event#imageloadevent))) => void                                                                                                                   | 当图片加入完毕时触发                                   | bindload        | onLoad        | bindload        |
+| onError       | ((event: [ImageErrorEvent](/one/event#imageerrorevent))) => void                                                                                                                 | 当错误发生时触发                                       | binderror       | onError       | binderror       |
+| onTap         | ((event: [TapEvent](/one/event#tapevent))) => void                                                                                                                               | 点击事件                                               | bindtap         | onTap         | bindtap         |
+| onTouchStart  | ((event: [TouchStartEvent](/one/event#touchstartevent))) => void                                                                                                                 | 触碰开始事件                                           | bindtouchstart  | onTouchStart  | bindtouchstart  |
+| onTouchMove   | ((event: [TouchMoveEvent](/one/event#touchmoveevent))) => void                                                                                                                   | 触碰移动事件                                           | bindtouchmove   | onTouchMove   | bindtouchmove   |
+| onTouchEnd    | ((event: [TouchMoveEvent](/one/event#touchmoveevent))) => void                                                                                                                   | 触碰结束事件                                           | bindtouchend    | bindtouchend  | bindtouchend    |
+| onTouchCancel | ((event: [TouchCancelEvent](/one/event#touchcancelevent))) => void                                                                                                               | 触碰取消事件                                           | bindtouchcancel | onTouchCancel | bindtouchcancel |
 
 ## Input
 

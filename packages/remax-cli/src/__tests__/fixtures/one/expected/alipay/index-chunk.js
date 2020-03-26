@@ -472,7 +472,11 @@ var hostComponents = {
       "lazyLoad": "lazy-load",
       "onLoad": "onLoad",
       "onError": "onError",
-      "onTap": "onTap"
+      "onTap": "onTap",
+      "onTouchStart": "onTouchStart",
+      "onTouchEnd": "onTouchEnd",
+      "onTouchMove": "onTouchMove",
+      "onTouchCancel": "onTouchCancel"
     }
   },
   "input": {

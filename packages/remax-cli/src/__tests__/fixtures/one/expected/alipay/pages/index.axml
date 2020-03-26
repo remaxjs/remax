@@ -169,6 +169,10 @@
     onError="{{item.props['onError']}}"
     onLoad="{{item.props['onLoad']}}"
     onTap="{{item.props['onTap']}}"
+    onTouchCancel="{{item.props['onTouchCancel']}}"
+    onTouchEnd="{{item.props['onTouchEnd']}}"
+    onTouchMove="{{item.props['onTouchMove']}}"
+    onTouchStart="{{item.props['onTouchStart']}}"
     src="{{item.props['src']}}"
     style="{{item.props['style']}}">
     

@@ -3,16 +3,28 @@ const platformAlias: any = {
     onLoad: 'onLoad',
     onError: 'onError',
     onTap: 'onTap',
+    onTouchStart: 'onTouchStart',
+    onTouchEnd: 'onTouchEnd',
+    onTouchMove: 'onTouchMove',
+    onTouchCancel: 'onTouchCancel',
   },
   wechat: {
     onLoad: 'bindload',
     onError: 'binderror',
     onTap: 'bindtap',
+    onTouchStart: 'bindtouchstart',
+    onTouchEnd: 'bindtouchend',
+    onTouchMove: 'bindtouchmove',
+    onTouchCancel: 'bindtouchcancel',
   },
   toutiao: {
     onLoad: 'bindload',
     onError: 'binderror',
     onTap: 'bindtap',
+    onTouchStart: 'bindtouchstart',
+    onTouchEnd: 'bindtouchend',
+    onTouchMove: 'bindtouchmove',
+    onTouchCancel: 'bindtouchcancel',
   },
 };
 

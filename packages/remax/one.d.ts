@@ -1,1 +1,1 @@
-export * from 'remax-toutiao';
+export * from 'remax-one';
