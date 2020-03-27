@@ -1,3 +1,4 @@
+declare module 'webpack/lib/*';
 declare module 'babel-loader';
 
 declare module 'rollup-plugin-babel';

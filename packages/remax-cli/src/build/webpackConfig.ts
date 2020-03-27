@@ -1,7 +1,11 @@
 import * as path from 'path';
 import * as fs from 'fs';
 import { camelCase } from 'lodash';
-import { Configuration, RuleSetRule, ProgressPlugin } from 'webpack';
+import { Configuration, RuleSetRule, ProgressPlugin, Compiler } from 'webpack';
+import FunctionModulePlugin from 'webpack/lib/FunctionModulePlugin';
+import NodeSourcePlugin from 'webpack/lib/node/NodeSourcePlugin';
+import JsonpTemplatePlugin from 'webpack/lib/web/JsonpTemplatePlugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { RemaxOptions } from 'remax-types';
 import { PlatformTarget } from './platform';
 import extensions, { matcher } from '../extensions';
@@ -13,7 +17,9 @@ import page from './plugins/page';
 import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin';
 import components from './plugins/components';
 import RemaxNativeFilesPlugin from './webpack/plugins/NativeFiles';
+import RemaxOptimizeEntriesPlugin from './webpack/plugins/OptimizeEntries';
 import alias from './alias';
+import API from '../API';
 
 function useLoader(id: string) {
   try {
@@ -25,12 +31,15 @@ function useLoader(id: string) {
     // ignore
   }
 
-  return require.resolve(id);
+  return require.resolve(id + '-loader');
 }
 
 export default function webpackConfig(options: RemaxOptions, target: PlatformTarget): Configuration {
+  const meta = API.getMeta();
   const turboPagesEnabled = options.turboPages && options.turboPages.length > 0;
   const entries = getEntries(options);
+  const publicPath = '/';
+
   const babelLoaders = [
     {
       test: matcher,
@@ -106,6 +115,15 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     output: {
       path: path.join(options.cwd, options.output),
       filename: '[name].js',
+      globalObject: 'my',
+      publicPath,
+    },
+    optimization: {
+      usedExports: true,
+      runtimeChunk: { name: 'runtime' },
+      splitChunks: {
+        chunks: 'initial',
+      },
     },
     module: {
       rules: [
@@ -113,10 +131,10 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
         {
           test: /\.css$/,
           use: [
-            useLoader('style-loader'),
-            { loader: useLoader('css-loader'), options: { importLoaders: 1 } },
+            MiniCssExtractPlugin.loader,
+            { loader: useLoader('css'), options: { importLoaders: 1 } },
             {
-              loader: useLoader('postcss-loader'),
+              loader: useLoader('postcss'),
               options: {
                 config: {
                   path: path.resolve(__dirname, '../../'),
@@ -129,12 +147,34 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
           test: /\.(png|jpe?g|gif|svg)$/i,
           use: [
             {
-              loader: useLoader('file-loader'),
+              loader: useLoader('file'),
+            },
+          ],
+        },
+        {
+          test: /remax\/esm\/createHostComponent.js/i,
+          use: [
+            {
+              loader: useLoader('remax-define'),
             },
           ],
         },
       ],
     },
-    plugins: [new ProgressPlugin(), new RemaxNativeFilesPlugin(options)],
+    plugins: [
+      new ProgressPlugin(),
+      new MiniCssExtractPlugin({
+        filename: `[name]${meta.style}`,
+      }),
+      new RemaxNativeFilesPlugin(options),
+      new RemaxOptimizeEntriesPlugin(meta),
+    ],
+    devtool: false,
+    target: function(compiler: Compiler) {
+      const { options } = compiler;
+      new JsonpTemplatePlugin().apply(compiler);
+      new FunctionModulePlugin(options.output).apply(compiler);
+      new NodeSourcePlugin(options.node).apply(compiler);
+    },
   };
 }

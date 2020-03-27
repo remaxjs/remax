@@ -15,6 +15,7 @@ class DefaultAppComponent extends React.Component {
 
 export default function createAppConfig(this: any, App: any) {
   const createConfig = (AppComponent: React.ComponentType<any> = DefaultAppComponent) => {
+    console.log('page');
     const config = {
       _container: new AppContainer(this),
 

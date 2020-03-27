@@ -42,6 +42,8 @@ export default async (argv: any, context?: Context) => {
       if (stats.hasWarnings()) {
         output.warn(info.warnings.join('\n'));
       }
+
+      output.message('💡 完成', 'green');
     });
 
     try {
