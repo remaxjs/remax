@@ -3,6 +3,8 @@ import createHostComponent from '../../createHostComponent';
 
 export interface MovableViewProps {
   readonly dataset?: DOMStringMap;
+  id?: string;
+  className?: string;
   style?: React.CSSProperties;
   width: number;
   height: number;

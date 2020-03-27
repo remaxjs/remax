@@ -5,6 +5,7 @@ export interface InputProps {
   readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
+  style?: React.CSSProperties;
   value?: string;
   name?: string;
   type?: string;
