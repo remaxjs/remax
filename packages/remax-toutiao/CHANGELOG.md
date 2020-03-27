@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.5](https://github.com/remaxjs/remax/compare/v1.18.4...v1.18.5) (2020-03-27)
+
+### Bug Fixes
+
+- 组件 Image 添加 touch 事件别名 ([9474e14](https://github.com/remaxjs/remax/commit/9474e14bd914edbfa911815005be4d45727b471d)), closes [#743](https://github.com/remaxjs/remax/issues/743)
+
 ## [1.18.4](https://github.com/remaxjs/remax/compare/v1.18.3...v1.18.4) (2020-03-25)
 
 **Note:** Version bump only for package remax-toutiao
