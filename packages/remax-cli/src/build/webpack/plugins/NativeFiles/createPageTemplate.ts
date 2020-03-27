@@ -3,11 +3,11 @@ import { sortBy } from 'lodash';
 import { compilation } from 'webpack';
 import ejs from 'ejs';
 import { RemaxOptions, Meta } from 'remax-types';
-import API from '../../../API';
-import { getComponents } from '../components';
-import { getNativeComponents } from '../nativeComponents/babelPlugin';
-import winPath from '../../../winPath';
-import { ensureDepth } from '../../../defaultOptions/UNSAFE_wechatTemplateDepth';
+import API from '../../../../API';
+import { getComponents } from '../../../../build/plugins/components';
+import { getNativeComponents } from '../../../../build/plugins/nativeComponents/babelPlugin';
+import winPath from '../../../../winPath';
+import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDepth';
 
 function pageUID(pagePath: string) {
   return winPath(pagePath).replace('/', '_');

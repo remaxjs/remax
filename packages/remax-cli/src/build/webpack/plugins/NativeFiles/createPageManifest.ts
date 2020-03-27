@@ -1,7 +1,7 @@
 import * as path from 'path';
-import { matcher } from './../../../extensions';
-import API from '../../../API';
-import readManifest from '../../../readManifest';
+import { matcher } from '../../../../extensions';
+import API from '../../../../API';
+import readManifest from '../../../../readManifest';
 import { compilation } from 'webpack';
 import { RemaxOptions } from 'remax-types';
 

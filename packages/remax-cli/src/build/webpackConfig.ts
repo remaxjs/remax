@@ -1,4 +1,6 @@
 import * as path from 'path';
+import * as fs from 'fs';
+import { camelCase } from 'lodash';
 import { Configuration, RuleSetRule, ProgressPlugin } from 'webpack';
 import { RemaxOptions } from 'remax-types';
 import { PlatformTarget } from './platform';
@@ -10,8 +12,21 @@ import app from './plugins/app';
 import page from './plugins/page';
 import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin';
 import components from './plugins/components';
-import RemaxNativeFilesPlugin from './plugins/NativeFiles';
+import RemaxNativeFilesPlugin from './webpack/plugins/NativeFiles';
 import alias from './alias';
+
+function useLoader(id: string) {
+  try {
+    const loaderPath = path.join(__dirname, './webpack/loaders', camelCase(id) + '.js');
+    if (fs.existsSync(loaderPath)) {
+      return loaderPath;
+    }
+  } catch {
+    // ignore
+  }
+
+  return require.resolve(id);
+}
 
 export default function webpackConfig(options: RemaxOptions, target: PlatformTarget): Configuration {
   const turboPagesEnabled = options.turboPages && options.turboPages.length > 0;
@@ -21,7 +36,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
       test: matcher,
       include: [entries.app, ...entries.pages],
       use: {
-        loader: path.join(__dirname, './plugins/babel.js'),
+        loader: useLoader('babel'),
         options: {
           usePlugins: [app(entries.app), page(entries.pages)],
           reactPreset: false,
@@ -32,7 +47,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
       test: matcher,
       include: TurboPages.filter(entries, options),
       use: {
-        loader: path.join(__dirname, './plugins/babel.js'),
+        loader: useLoader('babel'),
         options: {
           usePlugins: [staticCompiler.preprocess],
           reactPreset: false,
@@ -43,7 +58,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
       test: matcher,
       include: TurboPages.filter(entries, options),
       use: {
-        loader: path.join(__dirname, './plugins/babel.js'),
+        loader: useLoader('babel'),
         options: {
           usePlugins: [staticCompiler.render],
           reactPreset: false,
@@ -54,7 +69,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
       test: matcher,
       include: TurboPages.filter(entries, options),
       use: {
-        loader: path.join(__dirname, './plugins/babel.js'),
+        loader: useLoader('babel'),
         options: {
           usePlugins: [staticCompiler.postProcess],
           reactPreset: false,
@@ -64,7 +79,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     {
       test: matcher,
       use: {
-        loader: path.join(__dirname, './plugins/babel.js'),
+        loader: useLoader('babel'),
         options: {
           usePlugins: [nativeComponentsBabelPlugin(options), components(options)],
           reactPreset: true,
@@ -98,10 +113,10 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
         {
           test: /\.css$/,
           use: [
-            require.resolve('style-loader'),
-            { loader: require.resolve('css-loader'), options: { importLoaders: 1 } },
+            useLoader('style-loader'),
+            { loader: useLoader('css-loader'), options: { importLoaders: 1 } },
             {
-              loader: require.resolve('postcss-loader'),
+              loader: useLoader('postcss-loader'),
               options: {
                 config: {
                   path: path.resolve(__dirname, '../../'),
@@ -114,7 +129,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
           test: /\.(png|jpe?g|gif|svg)$/i,
           use: [
             {
-              loader: require.resolve('file-loader'),
+              loader: useLoader('file-loader'),
             },
           ],
         },

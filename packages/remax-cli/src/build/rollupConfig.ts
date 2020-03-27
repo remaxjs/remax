@@ -27,7 +27,7 @@ import fixRegeneratorRuntime from './plugins/fixRegeneratorRuntime';
 import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin';
 import nativeComponents from './plugins/nativeComponents';
 import components from './plugins/components';
-import template from './plugins/template.bak';
+import template from './plugins/template';
 import resolvePlatform from './plugins/resolvePlatform';
 import alias from './plugins/alias';
 import * as staticCompiler from './plugins/compiler/static';

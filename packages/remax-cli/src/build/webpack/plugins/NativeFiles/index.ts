@@ -1,7 +1,7 @@
 import { Compiler } from 'webpack';
 import { RemaxOptions } from 'remax-types';
-import API from '../../../API';
-import getEntries from '../../../getEntries';
+import API from '../../../../API';
+import getEntries from '../../../../getEntries';
 import createAppManifest from './createAppManifest';
 import createPageTemplate, { createBaseTemplate } from './createPageTemplate';
 import createPageManifest from './createPageManifest';
