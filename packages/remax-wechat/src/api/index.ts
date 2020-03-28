@@ -1,6 +1,7 @@
 import promisify from './promisify';
 
 export const getAppStub = getApp;
+export const getPages = getCurrentPages;
 
 export const canIUse = wx.canIUse;
 export const base64ToArrayBuffer = wx.base64ToArrayBuffer;
