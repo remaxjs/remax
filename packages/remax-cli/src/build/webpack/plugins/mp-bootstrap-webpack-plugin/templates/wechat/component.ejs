@@ -1,0 +1,83 @@
+<template name="REMAX_TPL_<%=templateId%>_<%=id%>">
+  <%_ function propsKeyTpl(props) {
+    return props
+      .map(key => `${key}="{{_h.v(i.props['${key}'])}}"`)
+      .join('\n')
+  } _%>
+  <%_ if (['input', 'textarea'].includes(id)) { _%>
+    <% const propsString = propsKeyTpl(props.filter(key => (key !== 'focus'))) %>
+    <<%=id%> wx:if="{{i.props.focus}}" focus
+      <%- propsString %>
+    />
+    <<%=id%> wx:else <%- propsString %> />
+  <%_ } else if (id === 'scroll-view') { _%>
+    <% const propsString = propsKeyTpl(props.filter(key => (key !== 'scroll-top' && key !== 'scroll-left'))) %>
+    <<%=id%> wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{item.props['scroll-top']}}" <%- propsString %> >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+      </block>
+    </<%=id%>>
+    <<%=id%> wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{item.props['scroll-left']}}" <%- propsString %> >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+      </block>
+    </<%=id%>>
+    <<%=id%> wx:else <%- propsString %> >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+      </block>
+    </<%=id%>>
+  <%_ } else if (id === 'swiper') { _%>
+    <% const propsString = propsKeyTpl(props.filter(key => (key !== 'current'))) %>
+    <<%=id%> wx:if="{{i.props.current !== undefined && i.props.current !== null}}" current="{{i.props.current}}" <%- propsString %> >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
+          <block wx:for="{{item.children}}" wx:key="id">
+            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+          </block>
+        </swiper-item>
+      </block>
+    </<%=id%>>
+    <<%=id%> wx:else <%- propsString %> >
+      <block wx:for="{{i.children}}" wx:key="id">
+        <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
+          <block wx:for="{{item.children}}" wx:key="id">
+            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+          </block>
+        </swiper-item>
+      </block>
+    </<%=id%>>
+  <%_ } else { _%>
+  <<%=id%>
+    <%- propsKeyTpl(props) %>>
+    <%_ if (id === 'swiper') { _%>
+    <block wx:for="{{i.children}}" wx:key="id">
+      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
+        <block wx:for="{{item.children}}" wx:key="id">
+          <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+        </block>
+      </swiper-item>
+    </block>
+    <%_ } else if (type === 'native') { _%>
+    <block wx:for="{{i.children}}" wx:key="id">
+      <block wx:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" <% for(let i=0;i < viewComponent.props.length; i++) { %>
+          <%=viewComponent.props[i]%>="{{item.props['<%=viewComponent.props[i]%>']}}" <%}%>
+        >
+          <block wx:for="{{item.children}}" wx:key="id">
+            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+          </block>
+        </view>
+      </block>
+      <block wx:else>
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+      </block>
+    </block>
+    <%_ } else { _%>
+    <block wx:for="{{i.children}}" wx:key="id">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    </block>
+    <%_ } _%>
+  </<%=id%>>
+  <%_ } _%>
+</template>
