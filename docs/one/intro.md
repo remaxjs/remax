@@ -5,29 +5,48 @@ order: 0
 
 ## 跨平台开发的挑战
 
-各家小程序平台之间虽然大体上相似，但依然有非常多的细微差异。跨平台开发最大的挑战就是如何抹平这些差异。不同于其他小程序框架的选择，我们选择了  不抹平平台差异，我们希望开发者在做跨平台开发时能清楚地意识到你写下的这行代码只会在特定的平台上生效。而平台之间相同的部分我们按照我们口味做了适当的抹平。
+小程序作为一项非标准的技术，各个小程序平台之间虽然大体上相似，但依然有非常多的差异。“一次开发多端运行”当然是非常美好的愿望，但我们在设计 Remax 之初就意识到各个小程序平台之间的差异是无法被抹平的，因为没有一个标准来指导我们该如何抹平这些差异。
+
+所以我们在最开始，为每个小程序平台提供了独立的基础组件。开发者如果要做跨平台开发，需要自己去封装基础组件。但很快，我们也意识到这对开发者来说是一件很麻烦的事情，特别是后面我们要支持更多平台的话。
+
+受 CSS 属性名前缀的启发，重新设计了 Remax 的跨平台方案。我们非常克制地选取了 10 个基础组件，抹平了他们之间非平台私有的属性，并且以属性名前缀的方式来支持各个平台私有的特性。我们希望开发者在做跨平台开发时能清楚地意识到你写下的这行代码只会在特定的平台上生效。
 
 ## Remax One
 
-Remax One 是我们提供的跨平台解决方案。通过 `remax/one` 我们提供了跨平台的组件。
+Remax One 就是我们提供的跨平台解决方案。通过 `remax/one` 我们提供了跨平台的组件。
 
 ```jsx
 import * as React from 'react';
-import { View, Text } from 'remax/one';
+import { View, Button } from 'remax/one';
 
 export default () => {
+  const [count, setCount] = React.useState(0);
+
   return (
-    <>
-      <View>view</View>
-      <Text>text</Text>
-    </>
+    <View alipay-onAppear={() => console.log('Aha!')}>
+      <View>{count}</View>
+      <Button onTap={() => setCount(count + 1)}>+1</Button>
+    </View>
   );
 };
 ```
 
+可以看到，对于 `onTap` 这样通用的属性我们进行了统一，而支付宝独有的 `onAppear` 属性，则需要加上 `alipay-` 的前缀。
+
 [完整的示例项目](https://github.com/remaxjs/examples/tree/master/one)
 
+> `remax/one` 是 **1.19.0** 以后引入的特性。
+
 ## 使用
+
+从模板创建：
+
+```bash
+$ npx degit remaxjs/template-one my-app
+$ cd my-app
+```
+
+或者在已有的项目中引入：
 
 在 `remax.config.js` 中设置 `one: true` 来开启 Remax One。
 
@@ -76,32 +95,37 @@ exports.wechat = {
 你可以通过创建不同平台的同名文件做同构来封装跨平台组件和 API。例如：
 
 ```js
-// src/api/chooseImage.js
-import { chooseImage } from 'remax/alipay';
+// src/api/showToast/index.js
+import { showToast } from 'remax/alipay';
 
-export default chooseImage;
+export default showToast;
 ```
 
 ```js
-// src/api/chooseImage.wechat.js
-import { chooseImage } from 'remax/wechat';
+// src/api/showToast/index.wechat.js
+import { showToast } from 'remax/wechat';
 
-export default chooseImage;
+export default (options) => {
+  showToast({
+    ...options,
+    title: options.content,
+  })
+};
 ```
 
 ```js
 // src/pages/index.js
 import { View } from 'remax-one';
-import chooseImage from '@/api/chooseImage';
+import showToast from '@/api/showToast';
 
 export default () => {
   return (
     <View
       onClick={() => {
-        chooseImage();
+        showToast({ content: 'Hello World!' });
       }}
     >
-      choose image
+      CLICK ME!
     </View>
   );
 };
@@ -109,7 +133,7 @@ export default () => {
 
 `remax-cli` 会优先读取 `[target].js` 文件，这个规则针对 CSS 等其他文件同样有效。
 
-> 注意：上面的例子中 ·src/api/chooseImage.js· 是必须的，也就是说不能只提供带有平台后缀的文件。
+> 注意：上面的例子中的 `src/api/showToast/index.js` 是必须的，也就是说不能只提供带有平台后缀的文件。
 
 ## 组件
 
