@@ -18,7 +18,7 @@ const defaultAlias = {
   hoverStartTime: 'hover-start-time',
   hoverStayTime: 'hover-stay-time',
   hoverStopPropagation: 'hover-stop-propagation',
-  formType: 'form-type',
+  type: 'form-type',
 };
 
 export const alias = { ...defaultAlias, ...platformAlias[process.env.REMAX_PLATFORM!] };

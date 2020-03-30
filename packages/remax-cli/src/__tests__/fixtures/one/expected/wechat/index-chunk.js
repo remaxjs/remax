@@ -397,7 +397,7 @@ var hostComponents = {
       "hoverStartTime": "hover-start-time",
       "hoverStayTime": "hover-stay-time",
       "hoverStopPropagation": "hover-stop-propagation",
-      "formType": "form-type",
+      "type": "form-type",
       "onTap": "bindtap"
     }
   },

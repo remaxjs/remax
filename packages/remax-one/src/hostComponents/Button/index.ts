@@ -19,7 +19,7 @@ export interface ButtonProps extends React.AriaAttributes {
   /** 指定是否阻止本节点的祖先节点出现点击态 */
   hoverStopPropagation?: boolean;
   /** 用于 form 组件，点击分别会触发 form 组件的 submit/reset 事件 */
-  formType?: 'submit' | 'reset';
+  type?: 'submit' | 'reset';
   onTap?: (event: TapEvent) => void;
 }
 
