@@ -1,9 +1,5 @@
 import API from './API';
-import {
-  Entries as EntriesType,
-  RemaxOptions as RemaxOptionsType,
-  RemaxConfig as RemaxConfigType,
-} from 'remax-types';
+import { Entries as EntriesType, RemaxOptions as RemaxOptionsType, RemaxConfig as RemaxConfigType } from 'remax-types';
 export { default as logger } from './build/utils/output';
 import yargs from 'yargs';
 import build from './build';

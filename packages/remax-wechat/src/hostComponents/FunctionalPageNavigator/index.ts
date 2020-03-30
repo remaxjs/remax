@@ -16,6 +16,4 @@ export interface FunctionalPageNavigatorProps extends BaseProps {
   onCancel?: (event: any) => any;
 }
 
-export default createHostComponent<FunctionalPageNavigatorProps>(
-  'functional-page-navigator'
-);
+export default createHostComponent<FunctionalPageNavigatorProps>('functional-page-navigator');

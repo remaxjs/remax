@@ -80,9 +80,7 @@ export default (options: RemaxOptions, pages: string[]): Plugin => {
         }
 
         if (!helperImported) {
-          magicString.prepend(
-            "import { unstable_createNativeComponent } from 'remax';\n"
-          );
+          magicString.prepend("import { unstable_createNativeComponent } from 'remax';\n");
           helperImported = true;
         }
 
@@ -117,11 +115,7 @@ export default (options: RemaxOptions, pages: string[]): Plugin => {
       });
 
       getFiles().forEach(id => {
-        const bundleFileName = winPath(
-          path
-            .relative(path.join(options.cwd), id)
-            .replace(/node_modules/g, 'npm')
-        )
+        const bundleFileName = winPath(path.relative(path.join(options.cwd), id).replace(/node_modules/g, 'npm'))
           // 避免出现相对路径，形如： '../'
           .replace(/\.\.\//g, '')
           .replace(new RegExp(`^${options.rootDir}/`), '')

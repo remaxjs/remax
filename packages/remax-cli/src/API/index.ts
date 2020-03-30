@@ -17,6 +17,7 @@ class API {
   public plugins: RemaxNodePlugin[] = [];
   public adapter = {
     name: '',
+    target: '',
     packageName: '',
     options: {},
   };
@@ -81,11 +82,7 @@ class API {
     return hostComponents;
   }
 
-  public getEntries(
-    entries: Entries,
-    appManifest: AppConfig,
-    remaxOptions: RemaxOptions
-  ) {
+  public getEntries(entries: Entries, appManifest: AppConfig, remaxOptions: RemaxOptions) {
     this.plugins.forEach(plugin => {
       if (typeof plugin.getEntries === 'function') {
         const currentEntries = plugin.getEntries({
@@ -103,12 +100,7 @@ class API {
     return entries;
   }
 
-  public processProps(
-    componentName: string,
-    props: string[],
-    additional?: boolean,
-    node?: t.JSXElement | undefined
-  ) {
+  public processProps(componentName: string, props: string[], additional?: boolean, node?: t.JSXElement | undefined) {
     let nextProps = props;
     this.plugins.forEach(plugin => {
       if (typeof plugin.processProps === 'function') {
@@ -124,11 +116,7 @@ class API {
     return nextProps;
   }
 
-  public shouldHostComponentRegister(
-    componentName: string,
-    phase: 'import' | 'jsx' | 'extra',
-    additional?: boolean
-  ) {
+  public shouldHostComponentRegister(componentName: string, phase: 'import' | 'jsx' | 'extra', additional?: boolean) {
     return this.plugins.reduce((result, plugin) => {
       if (typeof plugin.shouldHostComponentRegister === 'function') {
         return plugin.shouldHostComponentRegister({
@@ -142,9 +130,7 @@ class API {
     }, true);
   }
 
-  public extendsRollupConfig(
-    options: ExtendsRollupConfigOptions
-  ): RollupOptions {
+  public extendsRollupConfig(options: ExtendsRollupConfigOptions): RollupOptions {
     let { rollupConfig } = options;
     this.plugins.forEach(plugin => {
       if (typeof plugin.extendsRollupConfig === 'function') {
@@ -155,9 +141,11 @@ class API {
     return rollupConfig;
   }
 
-  public registerAdapterPlugins(adapterName: string) {
-    this.adapter.name = adapterName;
-    this.adapter.packageName = 'remax-' + adapterName;
+  public registerAdapterPlugins(targetName: string, remaxConfig: RemaxOptions) {
+    this.adapter.target = targetName;
+
+    this.adapter.name = targetName;
+    this.adapter.packageName = 'remax-' + targetName;
 
     const packagePath = this.adapter.packageName + '/node';
 
@@ -166,6 +154,16 @@ class API {
     plugin = typeof plugin === 'function' ? plugin() : plugin;
     this.registerHostComponents(plugin.hostComponents);
     this.plugins.push(plugin);
+
+    if (remaxConfig.one) {
+      const onePath = 'remax-one/node';
+
+      delete require.cache[onePath];
+      const plugin = require(onePath).default || require(onePath);
+      const one = plugin();
+      this.registerHostComponents(one.hostComponents);
+      this.plugins.push(one);
+    }
   }
 
   public registerNodePlugins(remaxConfig: RemaxOptions) {

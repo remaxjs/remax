@@ -11,7 +11,7 @@ const remaxOptions = getConfig(false);
 describe('API', () => {
   beforeAll(() => {
     API.registerNodePlugins(remaxOptions);
-    API.registerAdapterPlugins('alipay');
+    API.registerAdapterPlugins('alipay', remaxOptions);
   });
 
   it('install plugins in a variety of ways', () => {
@@ -20,6 +20,7 @@ describe('API', () => {
 
   it('install adapter plugin', () => {
     expect(API.adapter.name).toEqual('alipay');
+    expect(API.adapter.target).toEqual('alipay');
     expect(API.adapter.packageName).toEqual('remax-alipay');
   });
 
@@ -59,12 +60,8 @@ describe('API', () => {
   });
 
   it('shouldHostComponentRegister', () => {
-    expect(
-      API.shouldHostComponentRegister('view', 'import', false)
-    ).toBeTruthy();
-    expect(
-      API.shouldHostComponentRegister('swiper-item', 'import', false)
-    ).toBeFalsy();
+    expect(API.shouldHostComponentRegister('view', 'import', false)).toBeTruthy();
+    expect(API.shouldHostComponentRegister('swiper-item', 'import', false)).toBeFalsy();
   });
 
   it('extendsRollupConfig', () => {

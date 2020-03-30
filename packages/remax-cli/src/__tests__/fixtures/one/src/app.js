@@ -1,0 +1,13 @@
+import './app.css';
+import * as React from 'react';
+import image from '@/assets/images/cat.png';
+
+export default class App extends React.Component {
+  // 引入一张图片，测试当 app 文件不是第一个 entry 时的
+  // case https://github.com/remaxjs/remax/pull/666
+  image = image;
+
+  render() {
+    return this.props.children;
+  }
+}

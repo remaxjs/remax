@@ -109,14 +109,6 @@ describe('app', () => {
     app.error();
     app.hide();
 
-    expect(log).toEqual([
-      'launch',
-      'show',
-      'appEventShow',
-      'pageNotFound',
-      'shareAppMessage',
-      'error',
-      'hide',
-    ]);
+    expect(log).toEqual(['launch', 'show', 'appEventShow', 'pageNotFound', 'shareAppMessage', 'error', 'hide']);
   });
 });

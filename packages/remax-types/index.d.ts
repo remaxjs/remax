@@ -32,6 +32,7 @@ export interface RemaxOptions {
   };
   rollupOptions?: RollupOptions | ((options: RollupOptions) => RollupOptions);
   plugins: RemaxNodePlugin[];
+  one?: boolean;
   notify?: boolean;
 }
 
@@ -131,52 +132,39 @@ export type HostComponent = {
 export type HostComponents = Map<string, HostComponent>;
 
 export interface RemaxNodePlugin {
+  /** 插件名称 */
+  name: string;
   meta?: Meta;
   hostComponents?: HostComponents;
   /**
    * 扩展 CLI 命令
-   * @param options
-   * @param options.cli yargs 对象
-   * @return 返回扩展后的 yargs 对象
    */
   extendsCLI?: (options: ExtendsCLIOptions) => CLI;
   /**
    * 定义 rollup 入口文件
-   * @param options
-   * @param options.remaxOptions Remax Config 参数
-   * @param options.appManifest app.config.js|ts 内容
-   * @param options.getEntryPath 读取 entry 路径
-   * @return entries 对象，其中包含：
-   * entreis.app app 文件路径
-   * entreis.pages pages 文件路径数组
-   * entreis.images 额外的图片文件路径数组（通常为定义在 config 文件中的 tabbar 的 icon）
+   * entries.app app 文件路径
+   * entries.pages pages 文件路径数组
+   * entries.images 额外的图片文件路径数组（通常为定义在 config 文件中的 tabbar 的 icon）
    */
   getEntries?: (options: GetEntriesOptions) => Entries;
   /**
    * 自定义组件属性
-   * @param options
-   * @param options.componentName 组件名称
-   * @param options.props 组件属性
-   * @param options.node 组件 babel JSXElement
-   * @param options.additional 是否用户额外创建的 host 组件
-   * @return 组件对应的属性
+   * options.componentName 组件名称
+   * options.props 组件属性
+   * options.node 组件 babel JSXElement
+   * options.additional 是否用户额外创建的 host 组件
    */
   processProps?: (options: ProcessPropsOptions) => string[];
   /**
    * 是否注册组件
-   * @param options
-   * @param options.componentName 组件名称
-   * @param options.additional 是否是额外定义的组件
-   * @param options.phase 组件被引入的阶段，import | jsx | extra
+   * options.componentName 组件名称
+   * options.additional 是否是额外定义的组件
+   * options.phase 组件被引入的阶段，import | jsx | extra
    */
-  shouldHostComponentRegister?: (
-    options: ShouldHostComponentRegister
-  ) => boolean;
+  shouldHostComponentRegister?: (options: ShouldHostComponentRegister) => boolean;
   /**
    * 扩展 Rollup Config
-   * @param options
-   * @param options.rollupConfig Remax 生成的 Rollup Options 对象
-   * @return 扩展后的 Rollup Options 对象
+   * options.rollupConfig Remax 生成的 Rollup Options 对象
    *
    */
   extendsRollupConfig?: (options: ExtendsRollupConfigOptions) => RollupOptions;

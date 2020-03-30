@@ -7,6 +7,7 @@ const TPL_STATIC_ROOT = path.join(__dirname, '../../templates', 'static');
 
 const plugin: RemaxNodePluginConstructor = () => {
   return {
+    name: 'remax-alipay',
     meta: {
       template: {
         extension: '.axml',
@@ -49,10 +50,7 @@ const plugin: RemaxNodePluginConstructor = () => {
 
       // 页面
       entries.pages = pages.reduce(
-        (ret: string[], page: string) =>
-          [...ret, getEntryPath(path.join(ROOT_DIR, page))].filter(
-            page => !!page
-          ),
+        (ret: string[], page: string) => [...ret, getEntryPath(path.join(ROOT_DIR, page))].filter(page => !!page),
         []
       );
 
@@ -61,10 +59,7 @@ const plugin: RemaxNodePluginConstructor = () => {
         entries.pages = entries.pages.concat(
           pack.pages.reduce(
             (ret: string[], page) =>
-              [
-                ...ret,
-                getEntryPath(path.join(ROOT_DIR, pack.root, page)),
-              ].filter(page => !!page),
+              [...ret, getEntryPath(path.join(ROOT_DIR, pack.root, page))].filter(page => !!page),
             []
           )
         );
@@ -72,15 +67,9 @@ const plugin: RemaxNodePluginConstructor = () => {
 
       // tabbar 中的图片
       entries.images = (tabBar?.items || [])
-        .reduce(
-          (images: string[], tab: any) => [...images, tab.icon, tab.activeIcon],
-          []
-        )
+        .reduce((images: string[], tab: any) => [...images, tab.icon, tab.activeIcon], [])
         .filter((image: any) => !!image && !/^http(s?):\/\//.test(image))
-        .reduce<string[]>(
-          (paths, image) => [...paths, path.join(ROOT_DIR, image)],
-          []
-        );
+        .reduce<string[]>((paths, image) => [...paths, path.join(ROOT_DIR, image)], []);
 
       return entries;
     },

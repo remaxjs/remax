@@ -62,8 +62,7 @@ export default function diffProperties(
         for (styleName in lastProp) {
           if (
             Object.prototype.hasOwnProperty.call(lastProp, styleName) &&
-            (!nextProp ||
-              !Object.prototype.hasOwnProperty.call(nextProp, styleName))
+            (!nextProp || !Object.prototype.hasOwnProperty.call(nextProp, styleName))
           ) {
             if (!styleUpdates) {
               styleUpdates = {};
@@ -94,10 +93,7 @@ export default function diffProperties(
         styleUpdates = nextProp;
       }
     } else if (propKey === CHILDREN) {
-      if (
-        lastProp !== nextProp &&
-        (typeof nextProp === 'string' || typeof nextProp === 'number')
-      ) {
+      if (lastProp !== nextProp && (typeof nextProp === 'string' || typeof nextProp === 'number')) {
         (updatePayload = updatePayload || []).push(propKey, '' + nextProp);
       }
     } else {

@@ -11,18 +11,13 @@ import { TEMPLATE_ID } from '../../constants';
  * @param {(Array<string | number>)} dataPath
  * @returns
  */
-export default function JSXExpressionContainer(
-  element: t.JSXExpressionContainer,
-  dataPath: Array<string | number>
-) {
+export default function JSXExpressionContainer(element: t.JSXExpressionContainer, dataPath: Array<string | number>) {
   const expressionContainer = element as t.JSXExpressionContainer;
 
   // case: Literal
   // 直接静态化
   if (t.isLiteral(expressionContainer.expression)) {
-    return `{{'${helpers.normalizeLiteral(
-      (expressionContainer.expression as t.StringLiteral).value
-    )}'}}`;
+    return `{{'${helpers.normalizeLiteral((expressionContainer.expression as t.StringLiteral).value)}'}}`;
   }
 
   // TODO: 更多 case 可以在这里处理, 如：

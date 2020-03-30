@@ -66,11 +66,7 @@ const argv = { target: 'alipay' };
 
 describe('watcher', () => {
   it('works', async () => {
-    const { watcher, extraFilesWatcher } = runWatcher(
-      options,
-      rollupOptions,
-      argv
-    )!;
+    const { watcher, extraFilesWatcher } = runWatcher(options, rollupOptions, argv)!;
 
     extraFilesWatcher.close();
 
@@ -86,8 +82,7 @@ describe('watcher', () => {
       'BUNDLE_END',
       'END',
       () => {
-        expect(sander.readFileSync(destIndex).toString())
-          .toMatchInlineSnapshot(`
+        expect(sander.readFileSync(destIndex).toString()).toMatchInlineSnapshot(`
           "'use strict';
 
           Object.defineProperty(exports, '__esModule', { value: true });
@@ -105,8 +100,7 @@ describe('watcher', () => {
       'BUNDLE_END',
       'END',
       () => {
-        expect(sander.readFileSync(destIndex).toString())
-          .toMatchInlineSnapshot(`
+        expect(sander.readFileSync(destIndex).toString()).toMatchInlineSnapshot(`
           "'use strict';
 
           Object.defineProperty(exports, '__esModule', { value: true });
@@ -123,11 +117,7 @@ describe('watcher', () => {
   });
 
   it('avoid rerun when watching', () => {
-    const { watcher, extraFilesWatcher } = runWatcher(
-      options,
-      rollupOptions,
-      argv
-    )!;
+    const { watcher, extraFilesWatcher } = runWatcher(options, rollupOptions, argv)!;
 
     expect(watcher).toBeDefined();
     expect(extraFilesWatcher).toBeDefined();

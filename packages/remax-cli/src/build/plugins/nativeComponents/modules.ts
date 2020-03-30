@@ -12,11 +12,7 @@ import winPath from '../../../winPath';
 
 const modules: string[] = [];
 
-export function resolveModulesInCode(
-  code: string,
-  filePath: string,
-  options: RemaxOptions
-) {
+export function resolveModulesInCode(code: string, filePath: string, options: RemaxOptions) {
   const magicString = new MagicString(code);
   const ast = babelParser.parse(code, {
     sourceType: 'module',
@@ -26,9 +22,7 @@ export function resolveModulesInCode(
     const { node } = path;
 
     let importPath =
-      (get(node, 'callee.name') === 'require'
-        ? get(node, 'arguments[0].value')
-        : '') || get(node, 'source.value');
+      (get(node, 'callee.name') === 'require' ? get(node, 'arguments[0].value') : '') || get(node, 'source.value');
 
     if (!importPath) {
       return;
@@ -48,18 +42,10 @@ export function resolveModulesInCode(
 
     if (t.isImportDeclaration(node)) {
       const sourcePath = path.get('source') as NodePath;
-      magicString.overwrite(
-        sourcePath.node.start!,
-        sourcePath.node.end!,
-        `'${resolveId}'`
-      );
+      magicString.overwrite(sourcePath.node.start!, sourcePath.node.end!, `'${resolveId}'`);
     } else {
       const sourcePath = path.get('arguments.0') as NodePath;
-      magicString.overwrite(
-        sourcePath.node.start!,
-        sourcePath.node.end!,
-        `'${resolveId}'`
-      );
+      magicString.overwrite(sourcePath.node.start!, sourcePath.node.end!, `'${resolveId}'`);
     }
   };
 
@@ -79,9 +65,7 @@ const walk = (jsPath: string, options: RemaxOptions) => {
 
   const extract = ({ node }: any) => {
     let importPath =
-      (get(node, 'callee.name') === 'require'
-        ? get(node, 'arguments[0].value')
-        : '') || get(node, 'source.value');
+      (get(node, 'callee.name') === 'require' ? get(node, 'arguments[0].value') : '') || get(node, 'source.value');
 
     if (!importPath) {
       return;
@@ -96,9 +80,7 @@ const walk = (jsPath: string, options: RemaxOptions) => {
 
     const absoluteId = getPath(jsPath, importPath);
 
-    let absolutePath = /.js$/.test(absoluteId)
-      ? absoluteId
-      : absoluteId + '.js';
+    let absolutePath = /.js$/.test(absoluteId) ? absoluteId : absoluteId + '.js';
 
     if (!fs.existsSync(absolutePath)) {
       absolutePath = absoluteId + '/index.js';

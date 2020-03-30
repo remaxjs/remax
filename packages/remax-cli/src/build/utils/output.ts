@@ -8,11 +8,7 @@ const COLORS = {
 };
 const RESET = '\x1b[0m';
 
-export const output = (
-  content: string | string[],
-  color: 'red' | 'green' | 'blue' | 'yellow',
-  notify?: boolean
-) => {
+export const output = (content: string | string[], color: 'red' | 'green' | 'blue' | 'yellow', notify?: boolean) => {
   const message = Array.isArray(content) ? content : [content];
   console.log(`${COLORS[color]}%s${RESET}`, ...message);
 
@@ -25,8 +21,6 @@ export const output = (
 };
 
 export default {
-  error: (message: string, notify?: boolean) =>
-    output(`\n🚨 ${message}`, 'red', notify),
-  warn: (message: string, notify?: boolean) =>
-    output(`\n⚠️ ${message}`, 'yellow', notify),
+  error: (message: string, notify?: boolean) => output(`\n🚨 ${message}`, 'red', notify),
+  warn: (message: string, notify?: boolean) => output(`\n⚠️ ${message}`, 'yellow', notify),
 };

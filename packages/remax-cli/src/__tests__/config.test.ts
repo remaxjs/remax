@@ -17,8 +17,8 @@ describe('remax config', () => {
       getConfig();
     }).toThrowErrorMatchingInlineSnapshot(`
 "Invalid configuration object. remax has been initialized using a configuration object that does not match the API schema.
- - configuration has an unknown property 'xxx'. These properties are valid:
-   object { turboPages?, cssModules?, notify?, pxToRpx?, cwd?, progress?, compressTemplate?, output?, rootDir?, UNSAFE_wechatTemplateDepth?, alias?, postcss?, rollupOptions? }
+ - configuration has an unknown property 'plugins'. These properties are valid:
+   object { turboPages?, cssModules?, notify?, pxToRpx?, cwd?, progress?, compressTemplate?, output?, rootDir?, UNSAFE_wechatTemplateDepth?, alias?, one?, postcss?, rollupOptions? }
  - configuration.turboPages should be an array:
    [any, ...]
  - configuration.cssModules should be one of these:
@@ -66,21 +66,15 @@ describe('manifest', () => {
   });
 
   it('return empty object when javascript manifest file contains no config', () => {
-    expect(
-      readManifest(
-        path.join(__dirname, './fixtures/exception/manifest.js/app.config'),
-        'alipay'
-      )
-    ).toMatchObject({});
+    expect(readManifest(path.join(__dirname, './fixtures/exception/manifest.js/app.config'), 'alipay')).toMatchObject(
+      {}
+    );
   });
 
   it('return empty object when typescript manifest file contains no config', () => {
-    expect(
-      readManifest(
-        path.join(__dirname, './fixtures/exception/manifest.ts/app.config'),
-        'alipay'
-      )
-    ).toMatchObject({});
+    expect(readManifest(path.join(__dirname, './fixtures/exception/manifest.ts/app.config'), 'alipay')).toMatchObject(
+      {}
+    );
   });
 
   it('throw error when missing pages config in app.config', async () => {

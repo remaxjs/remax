@@ -22,4 +22,5 @@ module.exports = {
   },
   rollupOptions: 1,
   notify: 1,
+  plugins: 1,
 };

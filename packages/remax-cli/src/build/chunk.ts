@@ -27,21 +27,14 @@ export function getCommonChunks(bundle: OutputBundle): OutputChunk[] {
   return entryChunks;
 }
 
-export function getRelatedModules(
-  chunk: OutputChunk,
-  commonChunks: OutputChunk[]
-): string[] {
+export function getRelatedModules(chunk: OutputChunk, commonChunks: OutputChunk[]): string[] {
   const imports = chunk.imports.map(i => winPath(i));
   const asc = (a: OutputChunk, b: OutputChunk) =>
     imports.indexOf(winPath(a.fileName)) - imports.indexOf(winPath(b.fileName));
 
-  const relatedChunks = commonChunks
-    .filter(chunk => imports.find(i => i === chunk.fileName))
-    .sort(asc);
+  const relatedChunks = commonChunks.filter(chunk => imports.find(i => i === chunk.fileName)).sort(asc);
 
-  const unrelatedChunks = commonChunks
-    .filter(chunk => imports.find(i => i !== chunk.fileName))
-    .sort(asc);
+  const unrelatedChunks = commonChunks.filter(chunk => imports.find(i => i !== chunk.fileName)).sort(asc);
 
   return [
     ...relatedChunks.reduce<string[]>(
@@ -57,9 +50,6 @@ export function getRelatedModules(
   ];
 }
 
-export function getRelatedModulesForEntry(
-  chunk: OutputChunk,
-  bundle: OutputBundle
-): string[] {
+export function getRelatedModulesForEntry(chunk: OutputChunk, bundle: OutputBundle): string[] {
   return getRelatedModules(chunk, getCommonChunks(bundle));
 }

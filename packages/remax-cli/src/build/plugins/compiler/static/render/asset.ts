@@ -12,21 +12,14 @@ export async function renderPage(
   createRenderOptions: Function
 ) {
   const renderOptions: any = createRenderOptions(options);
-  const fileName = `${path.dirname(pageFile)}/${path.basename(
-    pageFile,
-    path.extname(pageFile)
-  )}${meta.template.extension}`;
+  const fileName = `${path.dirname(pageFile)}/${path.basename(pageFile, path.extname(pageFile))}${
+    meta.template.extension
+  }`;
   const pagePath = path.join(options.cwd, options.rootDir, pageFile);
 
-  const templates = templateInfoMap
-    .values()
-    .filter(t => modules.find(m => m === t.module));
+  const templates = templateInfoMap.values().filter(t => modules.find(m => m === t.module));
 
-  const entries = templateInfoMap
-    .values()
-    .filter(
-      (template: any) => template.isEntry && template.module === pagePath
-    );
+  const entries = templateInfoMap.values().filter((template: any) => template.isEntry && template.module === pagePath);
 
   renderOptions.components = renderOptions.components.filter((c: any) => {
     // native 组件要筛选属于当前 page 下的

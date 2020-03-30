@@ -1,6 +1,7 @@
 import API from '../../API';
 import rollupConfig from '../../build/rollupConfig';
 import defaultOptions from '../../defaultOptions';
+import getConfig from '../../getConfig';
 
 jest.mock('../../getEntries', () => () => ({
   app: 'app.js',
@@ -10,7 +11,8 @@ jest.mock('../../getEntries', () => () => ({
 
 describe('rollupConfig', () => {
   it('override rollup options', () => {
-    API.registerAdapterPlugins('alipay');
+    const remaxOptions = getConfig(false);
+    API.registerAdapterPlugins('alipay', remaxOptions);
     const options = rollupConfig(
       {
         ...defaultOptions,

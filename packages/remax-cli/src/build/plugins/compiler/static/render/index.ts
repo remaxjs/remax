@@ -15,8 +15,7 @@ function isRootPath(path: NodePath<t.JSXElement | t.JSXFragment>) {
   // 元素自身是非 host component 或者是 block，不能识别为 Root
   if (
     t.isJSXElement(node) &&
-    ((node.openingElement.name as t.JSXIdentifier).name === 'block' ||
-      !helpers.isHostComponentElement(node, path))
+    ((node.openingElement.name as t.JSXIdentifier).name === 'block' || !helpers.isHostComponentElement(node, path))
   ) {
     return false;
   }
@@ -30,10 +29,7 @@ function isRootPath(path: NodePath<t.JSXElement | t.JSXFragment>) {
 
   // case:
   // parent 本身是一个非 host 组件(React 组件, 原生组件或者无法识别的组件等)
-  if (
-    t.isJSXElement(parent) &&
-    !helpers.isHostComponentElement(parent, parentPath)
-  ) {
+  if (t.isJSXElement(parent) && !helpers.isHostComponentElement(parent, parentPath)) {
     return true;
   }
 
@@ -51,9 +47,7 @@ function isEntry(node: t.JSXElement | t.JSXFragment) {
     return false;
   }
 
-  return !!node.openingElement.attributes.find(
-    attr => t.isJSXAttribute(attr) && attr.name.name === ENTRY
-  );
+  return !!node.openingElement.attributes.find(attr => t.isJSXAttribute(attr) && attr.name.name === ENTRY);
 }
 
 let id = 0;
@@ -75,9 +69,7 @@ function markTemplateID(element: t.JSXOpeningElement): string {
 
   if (!templateID) {
     templateID = generateID();
-    element.attributes.push(
-      t.jsxAttribute(t.jsxIdentifier(TEMPLATE_ID), t.stringLiteral(templateID))
-    );
+    element.attributes.push(t.jsxAttribute(t.jsxIdentifier(TEMPLATE_ID), t.stringLiteral(templateID)));
   }
 
   return templateID;
@@ -91,20 +83,14 @@ function markTemplateID(element: t.JSXOpeningElement): string {
  */
 function sortNodes(node: JSXNode): RenderNode[] {
   if (t.isJSXFragment(node)) {
-    return node.children.reduce<RenderNode[]>(
-      (prev, current) => prev.concat(sortNodes(current)),
-      []
-    );
+    return node.children.reduce<RenderNode[]>((prev, current) => prev.concat(sortNodes(current)), []);
   }
 
   if (t.isJSXElement(node)) {
     return [
       {
         node,
-        children: node.children.reduce<RenderNode[]>(
-          (prev, current) => prev.concat(sortNodes(current)),
-          []
-        ),
+        children: node.children.reduce<RenderNode[]>((prev, current) => prev.concat(sortNodes(current)), []),
       },
     ];
   }
@@ -128,10 +114,7 @@ function sortNodes(node: JSXNode): RenderNode[] {
  * @param {*} state
  * @returns
  */
-function renderTemplates(
-  path: NodePath<t.JSXElement | t.JSXFragment>,
-  state: any
-) {
+function renderTemplates(path: NodePath<t.JSXElement | t.JSXFragment>, state: any) {
   if (!isRootPath(path)) {
     return;
   }
@@ -154,12 +137,7 @@ function renderTemplates(
       return;
     }
 
-    templateInfoMap.set(
-      templateID,
-      createTemplate(node, path, module, ['node']),
-      module,
-      isEntry(path.node)
-    );
+    templateInfoMap.set(templateID, createTemplate(node, path, module, ['node']), module, isEntry(path.node));
   });
 }
 

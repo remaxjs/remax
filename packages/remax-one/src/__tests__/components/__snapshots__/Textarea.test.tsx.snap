@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Textarea render correctly 1`] = `
+<textarea
+  className="class"
+  controlled={false}
+  onBlur={[Function]}
+  onConfirm={[Function]}
+  onFocus={[Function]}
+  onInput={[Function]}
+  toutiao-maxlength={-1}
+  toutiao-selection-end={999}
+  toutiao-selection-start={999}
+  wechat-fixed={false}
+  wechat-maxlength={-1}
+  wechat-selection-end={999}
+  wechat-selection-start={999}
+/>
+`;

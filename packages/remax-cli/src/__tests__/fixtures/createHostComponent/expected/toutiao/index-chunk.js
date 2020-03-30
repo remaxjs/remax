@@ -830,6 +830,12 @@ function getAlias(prop, type) {
 
   prop = prop.replace('className', 'class');
   var hostComponent = hostComponents[type];
+  var prefix = undefined + "-"; // 判断是否是平台独有属性
+
+  if (prop.startsWith(prefix)) {
+    return prop.replace(new RegExp("^" + prefix), '');
+  }
+
   return (_b = (_a = hostComponent === null || hostComponent === void 0 ? void 0 : hostComponent.alias) === null || _a === void 0 ? void 0 : _a[prop]) !== null && _b !== void 0 ? _b : prop;
 }
 
@@ -1065,7 +1071,7 @@ function () {
 }();
 
 var DEPRECATED_CATCH_TYPE = 'catchClick';
-var SYNTHETIC_TYPES = ['onClick', 'onTap'];
+var SYNTHETIC_TYPES = ['onClick', 'onTap', 'onLongClick', 'onLongTap'];
 
 var isPropagationStopped = false;
 /**

@@ -8,13 +8,7 @@ export function validate(route: string, options: RemaxOptions) {
   if (!route) {
     return false;
   }
-  const page = rename(
-    winPath(route).replace(
-      winPath(path.join(options.cwd, options.rootDir)) + '/',
-      ''
-    ),
-    ''
-  );
+  const page = rename(winPath(route).replace(winPath(path.join(options.cwd, options.rootDir)) + '/', ''), '');
 
   return isMatch(page, options.turboPages);
 }

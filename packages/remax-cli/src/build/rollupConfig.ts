@@ -28,6 +28,7 @@ import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin'
 import nativeComponents from './plugins/nativeComponents';
 import components from './plugins/components';
 import template from './plugins/template';
+import resolvePlatform from './plugins/resolvePlatform';
 import alias from './plugins/alias';
 import * as staticCompiler from './plugins/compiler/static';
 import extensions from '../extensions';
@@ -36,16 +37,13 @@ import jsx from 'acorn-jsx';
 import getEnvironment from './env';
 import { getRelatedModulesForEntry } from './chunk';
 import * as TurboPages from './turboPages';
+import * as platform from './platform';
 
-export default function rollupConfig(
-  options: RemaxOptions,
-  argv: any,
-  context?: Context
-) {
+export default function rollupConfig(options: RemaxOptions, argv: any, context?: Context) {
   const stubModules: string[] = [];
 
-  ['wechat', 'alipay', 'toutiao'].forEach(name => {
-    if (API.adapter.name !== name) {
+  platform.mini.forEach(name => {
+    if (API.adapter.target !== name) {
       stubModules.push(`${name}/esm/api`);
       stubModules.push(`${name}/esm/hostComponents`);
     }
@@ -122,19 +120,14 @@ export default function rollupConfig(
     }),
     json(),
     resolve({
-      dedupe: [
-        'react',
-        'object-assign',
-        'prop-types',
-        'scheduler',
-        'react-reconciler',
-      ],
+      dedupe: ['react', 'object-assign', 'prop-types', 'scheduler', 'react-reconciler'],
       extensions,
       customResolveOptions: {
         moduleDirectory: 'node_modules',
       },
       preferBuiltins: false,
     }),
+    resolvePlatform(),
     commonjs({
       include: /node_modules/,
       namedExports,
@@ -154,9 +147,7 @@ export default function rollupConfig(
         ...cssModuleConfig,
         ...postcssConfig.options.modules,
       },
-      plugins: [options.pxToRpx && pxToUnits(), postcssUrl(options)]
-        .filter(Boolean)
-        .concat(postcssConfig.plugins),
+      plugins: [options.pxToRpx && pxToUnits(), postcssUrl(options)].filter(Boolean).concat(postcssConfig.plugins),
     }),
     rename({
       include: `${options.rootDir}/**`,
@@ -216,8 +207,7 @@ export default function rollupConfig(
     output: {
       dir: options.output,
       entryFileNames: '[name]',
-      chunkFileNames:
-        process.env.NODE_ENV !== 'production' ? '[name]-chunk.js' : '',
+      chunkFileNames: process.env.NODE_ENV !== 'production' ? '[name]-chunk.js' : '',
       format: 'cjs',
       exports: 'named',
       sourcemap: false,
@@ -234,9 +224,7 @@ export default function rollupConfig(
       }
 
       if (!warning.message) {
-        output.warn(
-          `${warning.code}:${warning.plugin || ''} ${(warning as any).text}`
-        );
+        output.warn(`${warning.code}:${warning.plugin || ''} ${(warning as any).text}`);
       } else {
         output.warn(warning.toString());
       }

@@ -34,6 +34,9 @@
     "alias": {
       "type": "object"
     },
+    "one": {
+      "type": "boolean"
+    },
     "postcss": {
       "type": "object",
       "properties": {

@@ -8,18 +8,12 @@ export const hostComponents: {
   };
 } = __REMAX_HOST_COMPONENTS__ || {};
 
-export default function createHostComponent<P = any>(
-  name: string,
-  component?: React.ComponentType<P>
-) {
+export default function createHostComponent<P = any>(name: string, component?: React.ComponentType<P>) {
   if (component) {
     return component;
   }
 
-  const Component: React.ForwardRefRenderFunction<any, P> = (
-    props,
-    ref: React.Ref<any>
-  ) => {
+  const Component: React.ForwardRefRenderFunction<any, P> = (props, ref: React.Ref<any>) => {
     const { children = [] } = props;
     return React.createElement(name, { ...props, ref }, children);
   };

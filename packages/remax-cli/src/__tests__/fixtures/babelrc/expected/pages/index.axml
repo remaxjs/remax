@@ -134,7 +134,7 @@
   
   <template name="REMAX_TPL_1_contact-button">
   <contact-button 
-    alipay-card-no="{{item.props['alipay-card-no']}}"
+    card-no="{{item.props['card-no']}}"
     class="{{item.props['class']}}"
     color="{{item.props['color']}}"
     icon="{{item.props['icon']}}"

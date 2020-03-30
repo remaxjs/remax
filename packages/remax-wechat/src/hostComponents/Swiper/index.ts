@@ -31,12 +31,7 @@ export interface SwiperProps extends BaseProps {
   /** (default: false) 是否跳过未显示的滑块布局，设为 true 可优化复杂情况下的滑动性能，但会丢失隐藏状态滑块的布局信息 1.9.0  */
   skipHiddenItemLayout?: boolean;
   /** 指定 swiper 切换缓动动画类型 2.6.5  */
-  easingFunction?:
-    | 'default'
-    | 'linear'
-    | 'easeInCubic'
-    | 'easeOutCubic'
-    | 'easeInOutCubic';
+  easingFunction?: 'default' | 'linear' | 'easeInCubic' | 'easeOutCubic' | 'easeInOutCubic';
   /** current 改变时会触发 change 事件，event.detail = {current, source} 1.0.0 */
   onChange?: (event: any) => any;
   /** swiper-item 的位置发生改变时会触发 transition 事件，event.detail = {dx: dx, dy: dy} 2.4.3 */

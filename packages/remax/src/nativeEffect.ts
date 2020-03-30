@@ -14,9 +14,7 @@ const effector: NativeEffector = {
 };
 
 function dispose(listener: Listener) {
-  effector.listenerConfigs = effector.listenerConfigs.filter(
-    config => config.listener !== listener
-  );
+  effector.listenerConfigs = effector.listenerConfigs.filter(config => config.listener !== listener);
 }
 
 function connect(listener: Listener, once: boolean) {

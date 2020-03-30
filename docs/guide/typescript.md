@@ -24,7 +24,7 @@ $ cd my-app
 跨平台
 
 ```bash
-$ npx degit remaxjs/template-universe-typescript my-app
+$ npx degit remaxjs/template-one-typescript my-app
 $ cd my-app
 ```
 

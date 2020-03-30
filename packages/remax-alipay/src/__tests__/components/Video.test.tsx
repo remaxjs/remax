@@ -4,9 +4,7 @@ import { Video } from '../../hostComponents';
 
 describe('Video', () => {
   it('render correctly', () => {
-    const testRenderer = TestRenderer.create(
-      <Video src="https://www.alipay.com" />
-    );
+    const testRenderer = TestRenderer.create(<Video src="https://www.alipay.com" />);
 
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });

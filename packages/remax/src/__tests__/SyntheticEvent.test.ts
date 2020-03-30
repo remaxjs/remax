@@ -21,11 +21,7 @@ class SyntheticEventTester {
         props: {},
       });
 
-      const callback = createCallbackProxy(
-        'onClick',
-        node,
-        cb || (() => void 0)
-      );
+      const callback = createCallbackProxy('onClick', node, cb || (() => void 0));
       if (cb) {
         node.props.onClick = callback;
       }

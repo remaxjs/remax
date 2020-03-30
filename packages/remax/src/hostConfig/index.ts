@@ -18,10 +18,7 @@ function processProps(newProps: any, node: VNode, id: number) {
   for (const propKey of Object.keys(newProps)) {
     if (typeof newProps[propKey] === 'function') {
       const contextKey = `${REMAX_METHOD}_${id}_${propKey}`;
-      node.container.createCallback(
-        contextKey,
-        createCallbackProxy(propKey, node, newProps[propKey])
-      );
+      node.container.createCallback(contextKey, createCallbackProxy(propKey, node, newProps[propKey]));
       props[propKey] = contextKey;
     } else if (propKey === 'style') {
       props[propKey] = newProps[propKey] || '';
@@ -106,13 +103,7 @@ export default {
     return null;
   },
 
-  commitUpdate(
-    node: VNode,
-    updatePayload: any,
-    type: string,
-    oldProps: any,
-    newProps: any
-  ) {
+  commitUpdate(node: VNode, updatePayload: any, type: string, oldProps: any, newProps: any) {
     node.props = processProps(newProps, node, node.id);
     node.update();
   },

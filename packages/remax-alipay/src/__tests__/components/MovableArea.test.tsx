@@ -4,9 +4,7 @@ import { MovableArea } from '../../hostComponents';
 
 describe('MovableArea', () => {
   it('render correctly', () => {
-    const testRenderer = TestRenderer.create(
-      <MovableArea width={10} height={10} />
-    );
+    const testRenderer = TestRenderer.create(<MovableArea width={10} height={10} />);
 
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });

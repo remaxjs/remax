@@ -41,17 +41,7 @@ export default class VNode {
   nextSibling: VNode | null = null;
   text?: string;
 
-  constructor({
-    id,
-    type,
-    props,
-    container,
-  }: {
-    id: number;
-    type: string;
-    props?: any;
-    container: any;
-  }) {
+  constructor({ id, type, props, container }: { id: number; type: string; props?: any; container: any }) {
     this.id = id;
     this.container = container;
     this.type = type;
@@ -76,13 +66,7 @@ export default class VNode {
     this.lastChild = node;
 
     if (this.isMounted()) {
-      this.container.requestUpdate(
-        this.path + '.children',
-        this.size - 1,
-        0,
-        immediately,
-        node.toJSON()
-      );
+      this.container.requestUpdate(this.path + '.children', this.size - 1, 0, immediately, node.toJSON());
     }
   }
 
@@ -116,12 +100,7 @@ export default class VNode {
     node.nextSibling = null;
 
     if (this.isMounted()) {
-      this.container.requestUpdate(
-        this.path + '.children',
-        index,
-        1,
-        immediately
-      );
+      this.container.requestUpdate(this.path + '.children', index, 1, immediately);
     }
   }
 
@@ -144,25 +123,13 @@ export default class VNode {
     node.nextSibling = referenceNode;
 
     if (this.isMounted()) {
-      this.container.requestUpdate(
-        this.path + '.children',
-        node.index,
-        0,
-        immediately,
-        node.toJSON()
-      );
+      this.container.requestUpdate(this.path + '.children', node.index, 0, immediately, node.toJSON());
     }
   }
 
   update() {
     // root 不会更新，所以肯定有 parent
-    this.container.requestUpdate(
-      this.parent!.path + '.children',
-      this.index,
-      1,
-      false,
-      this.toJSON()
-    );
+    this.container.requestUpdate(this.parent!.path + '.children', this.index, 1, false, this.toJSON());
   }
 
   get index(): number {

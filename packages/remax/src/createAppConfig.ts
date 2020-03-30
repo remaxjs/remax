@@ -14,9 +14,7 @@ class DefaultAppComponent extends React.Component {
 }
 
 export default function createAppConfig(this: any, App: any) {
-  const createConfig = (
-    AppComponent: React.ComponentType<any> = DefaultAppComponent
-  ) => {
+  const createConfig = (AppComponent: React.ComponentType<any> = DefaultAppComponent) => {
     const config = {
       _container: new AppContainer(this),
 
@@ -81,10 +79,7 @@ export default function createAppConfig(this: any, App: any) {
       _render() {
         const props: any = {};
 
-        if (
-          isClassComponent(AppComponent) ||
-          (AppComponent as any).$$typeof === ForwardRef
-        ) {
+        if (isClassComponent(AppComponent) || (AppComponent as any).$$typeof === ForwardRef) {
           props.ref = this._instance;
         }
 
@@ -105,9 +100,7 @@ export default function createAppConfig(this: any, App: any) {
   // 兼容老的写法
   if (isClass(App) && !isClassComponent(App)) {
     // eslint-disable-next-line no-console
-    console.warn(
-      '使用非 React 组件定义 App 的方式已经废弃，详细请参考：https://remaxjs.org/guide/framework'
-    );
+    console.warn('使用非 React 组件定义 App 的方式已经废弃，详细请参考：https://remaxjs.org/guide/framework');
     Object.assign(App.prototype, createConfig());
     return new App();
   } else {
