@@ -25,7 +25,7 @@ export default async function build(app: string, target: string, options: Partia
       progress: false,
       rollupOptions: options => ({
         ...options,
-        external: ['react', 'react-reconciler', 'scheduler'],
+        external: ['react', 'react-reconciler', 'scheduler', 'regenerator-runtime'],
         treeshake: true,
       }),
       alias: {

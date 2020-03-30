@@ -2199,6 +2199,5 @@ exports._createClass = _createClass;
 exports._createSuper = _createSuper;
 exports._extends = _extends;
 exports._inherits = _inherits;
-exports._typeof = _typeof;
 exports.createAppConfig = createAppConfig;
 exports.createPageConfig = createPageConfig;
