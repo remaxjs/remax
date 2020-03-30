@@ -106,7 +106,7 @@
     "remax-toutiao": "^1.19.0",
     "remax-wechat": "^1.19.0",
     "sander": "^0.6.0",
-    "scheduler": "^0.15.0",
+    "scheduler": "^0.19.1",
     "ts-jest": "^24.0.2",
     "typescript": "^3.7.3"
   },
