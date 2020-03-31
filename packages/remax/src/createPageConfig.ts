@@ -101,7 +101,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     },
 
     onShareAppMessage(options: any) {
-      return this.callLifecycle(Lifecycle.shareAppMessage, options);
+      return this.callLifecycle(Lifecycle.shareAppMessage, options) || {};
     },
 
     onTitleClick() {
