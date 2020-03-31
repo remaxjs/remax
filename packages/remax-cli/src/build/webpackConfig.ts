@@ -12,12 +12,12 @@ import extensions, { matcher } from '../extensions';
 import getEntries from '../getEntries';
 import * as styleConfig from './styleConfig';
 import * as TurboPages from './turboPages';
-import * as staticCompiler from './plugins/compiler/static';
-import app from './plugins/app';
-import page from './plugins/page';
-// import fixRegeneratorRuntime from './plugins/fixRegeneratorRuntime';
-import nativeComponentsBabelPlugin from './plugins/nativeComponents/babelPlugin';
-import components from './plugins/components';
+import * as staticCompiler from './babel/compiler/static';
+import app from './babel/app';
+import page from './babel/page';
+import fixRegeneratorRuntime from './babel/fixRegeneratorRuntime';
+import nativeComponentsBabelPlugin from './babel/nativeComponents/babelPlugin';
+import components from './babel/components';
 import * as RemaxPlugins from './webpack/plugins';
 import alias from './alias';
 import API from '../API';
@@ -140,11 +140,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .use('babel')
     .loader(useLoader('babel'))
     .options({
-      usePlugins: [
-        nativeComponentsBabelPlugin(options),
-        components(options),
-        // fixRegeneratorRuntime
-      ],
+      usePlugins: [nativeComponentsBabelPlugin(options), components(options), fixRegeneratorRuntime],
       reactPreset: true,
     });
 
@@ -167,8 +163,8 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
 
   let stylesRule = config.module
     .rule('styles')
-    .test(/\.(css|less|sass|stylus)$/i)
-    .exclude.add(cssModuleConfig.enabled ? cssModuleConfig.regExp : '')
+    .test(styleConfig.styleMatcher)
+    .exclude.add(cssModuleConfig.enabled ? cssModuleConfig.cssModuleMatcher : '')
     .end()
     .use('cssExtract')
     .loader(MiniCssExtractPlugin.loader)
@@ -192,8 +188,8 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
   if (cssModuleConfig.enabled) {
     stylesRule = config.module
       .rule('cssModulesStyles')
-      .test(cssModuleConfig.regExp)
-      .include.add(cssModuleConfig.regExp)
+      .test(cssModuleConfig.cssModuleMatcher)
+      .include.add(cssModuleConfig.cssModuleMatcher)
       .end()
       .use(MiniCssExtractPlugin.loader)
       .loader(MiniCssExtractPlugin.loader)
@@ -271,8 +267,6 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
   if (typeof options.configWebpack === 'function') {
     options.configWebpack(config);
   }
-
-  console.log(config.toConfig());
 
   return config.toConfig();
 }

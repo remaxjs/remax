@@ -4,8 +4,8 @@ import { compilation } from 'webpack';
 import ejs from 'ejs';
 import { RemaxOptions, Meta } from 'remax-types';
 import API from '../../../../API';
-import { getComponents } from '../../../../build/plugins/components';
-import { getNativeComponents } from '../../../../build/plugins/nativeComponents/babelPlugin';
+import { getComponents } from '../../../../build/babel/components';
+import { getNativeComponents } from '../../../../build/babel/nativeComponents/babelPlugin';
 import winPath from '../../../../winPath';
 import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDepth';
 

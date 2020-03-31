@@ -14,7 +14,6 @@ import { isNativeComponent, isPluginComponent, getSourcePath } from './util';
 import winPath from '../../../winPath';
 import usingComponents from './usingComponents';
 import { getImporters } from './babelPlugin';
-import { getEntryChunks, getRelatedModulesForEntry } from '../../chunk';
 
 const getFiles = () => [
   ...getcssPaths(),
@@ -99,20 +98,20 @@ export default (options: RemaxOptions, pages: string[]): Plugin => {
       };
     },
     generateBundle(_, bundle) {
-      const importers = getImporters();
+      // const importers = getImporters();
 
-      getEntryChunks(bundle).forEach(chunk => {
-        const page = chunk.facadeModuleId!;
-        const modules = getRelatedModulesForEntry(chunk, bundle);
-        modules.forEach(id => {
-          const nativeImporter = importers.get(id);
-          if (nativeImporter) {
-            [...nativeImporter.values()].forEach(component => {
-              component.pages = new Set([...component.pages, page]);
-            });
-          }
-        });
-      });
+      // getEntryChunks(bundle).forEach(chunk => {
+      //   const page = chunk.facadeModuleId!;
+      //   const modules = getRelatedModulesForEntry(chunk, bundle);
+      //   modules.forEach(id => {
+      //     const nativeImporter = importers.get(id);
+      //     if (nativeImporter) {
+      //       [...nativeImporter.values()].forEach(component => {
+      //         component.pages = new Set([...component.pages, page]);
+      //       });
+      //     }
+      //   });
+      // });
 
       getFiles().forEach(id => {
         const bundleFileName = winPath(path.relative(path.join(options.cwd), id).replace(/node_modules/g, 'npm'))

@@ -1,5 +1,16 @@
+import { hostComponents } from 'remax/macro';
 import { loader } from 'webpack';
-import stringifyHostComponents from '../../stringifyHostComponents';
+
+const stringifyHostComponents = () =>
+  JSON.stringify(
+    [...hostComponents.keys()].reduce((obj, key) => {
+      obj[key] = {
+        alias: hostComponents.get(key)?.alias || {},
+      };
+
+      return obj;
+    }, {} as any)
+  );
 
 export default function remaxDefine(this: loader.LoaderContext, source: string) {
   if (this.cacheable) {

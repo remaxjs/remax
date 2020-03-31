@@ -2,7 +2,9 @@ import * as path from 'path';
 import { cosmiconfigSync } from 'cosmiconfig';
 import { RemaxOptions, Meta } from 'remax-types';
 
-export const cssModuleMatcher = /\.module\.(css|less|sass|stylus)/;
+export const styleMatcher = /\.(css|less|sass|stylus)$/i;
+
+let cssModuleMatcher = /\.module\.(css|less|sass|stylus)/i;
 
 export function resolvePostcssConfig(options: RemaxOptions) {
   if (!cosmiconfigSync('postcss').search(options.cwd)?.isEmpty) {
@@ -13,7 +15,6 @@ export function resolvePostcssConfig(options: RemaxOptions) {
 }
 
 export function getCssModuleConfig(cssModule: boolean | RegExp) {
-  let regExp = cssModuleMatcher;
   let enabled = true;
 
   if (typeof cssModule === 'boolean') {
@@ -21,12 +22,12 @@ export function getCssModuleConfig(cssModule: boolean | RegExp) {
       enabled = false;
     }
   } else {
-    regExp = cssModule;
+    cssModuleMatcher = cssModule;
   }
 
   return {
     enabled,
-    regExp,
+    cssModuleMatcher,
   };
 }
 
