@@ -1905,7 +1905,7 @@ function createPageConfig(Page) {
       return this.callLifecycle(Lifecycle.pageScroll, e);
     },
     onShareAppMessage: function onShareAppMessage(options) {
-      return this.callLifecycle(Lifecycle.shareAppMessage, options);
+      return this.callLifecycle(Lifecycle.shareAppMessage, options) || {};
     },
     onTitleClick: function onTitleClick() {
       return this.callLifecycle(Lifecycle.titleClick);
