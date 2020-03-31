@@ -1,0 +1,26 @@
+import * as React from 'React';
+import { render, hd } from 'remax/web';
+import 'remax/normalize.css';
+import 'remax/app.css';
+import { BrowserRouter as Router, Switch, Route, Link } from 'remax/web';
+<%- pages.map((page, i) => `import page_${i} from '${page}';`).join('\n') %>
+import App from './app';
+
+hd();
+
+render(
+  <App>
+    <Router>
+      <Switch>
+        <%- pages.map((page, i) => `
+        <Route path="/">
+          <div className="remax-page">
+            {React.createElement(page_${i})}
+          </div>
+        </Route>
+        `).join('\n') %>
+      </Switch>
+    </Router>
+  </App>,
+  document.getElementById('remax-app'),
+);

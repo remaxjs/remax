@@ -47,7 +47,9 @@
     "ejs": "^3.0.1",
     "enhanced-resolve": "^4.1.1",
     "esm": "^3.2.25",
+    "express": "^4.17.1",
     "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.0.4",
     "htmlparser2": "^4.0.0",
     "json-loader": "^0.5.7",
     "less-loader": "^5.0.0",
@@ -70,6 +72,7 @@
     "stylus-loader": "^3.0.2",
     "universal-analytics": "^0.4.20",
     "webpack-chain": "^6.4.0",
+    "webpack-dev-middleware": "^3.7.2",
     "webpack-sources": "^1.4.3",
     "yargs": "^15.1.0"
   },

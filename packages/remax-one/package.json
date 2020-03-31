@@ -7,14 +7,14 @@
   "module": "./esm/index.js",
   "typings": "./esm/index.d.ts",
   "scripts": {
+    "watch": "concurrently \"npm:watch:*\"",
     "watch:esm": "npm run build:esm -- -w",
     "watch:cjs": "npm run build:cjs -- -w",
     "prebuild": "rm -rf cjs esm",
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc --module ESNext --outDir esm",
     "build:cjs": "tsc --module CommonJS --outDir cjs",
-    "test": "jest",
-    "test:cov": "jest --coverage"
+    "test": "jest"
   },
   "repository": "git+https://github.com/remaxjs/remax.git",
   "license": "MIT",

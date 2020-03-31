@@ -11,7 +11,7 @@ export default function resolvePlatform(this: loader.LoaderContext, source: stri
 
   const id = this.resourcePath;
   const ext = path.extname(id);
-  const extRegExp = new RegExp(`${ext}$`);
+  const extRegExp = new RegExp(`${ext.replace('.', '\\.')}$`);
 
   let target = API.adapter.target;
   let targetFile = id.replace(extRegExp, `.${target}${ext}`);

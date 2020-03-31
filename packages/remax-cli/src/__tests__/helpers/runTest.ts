@@ -1,8 +1,8 @@
 import * as path from 'path';
 import build, { JEST_BUILD_TIMEOUT } from './build';
-import { PlatformTarget } from '../../build/platform';
+import { Platform } from '../../build/platform';
 
-export default function runTest(app: string, target: PlatformTarget = 'alipay', outputPath?: string, options?: any) {
+export default function runTest(app: string, target: Platform = Platform.alipay, outputPath?: string, options?: any) {
   it(
     `build ${app} on target ${target}`,
     async () => {

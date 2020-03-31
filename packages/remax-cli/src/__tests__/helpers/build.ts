@@ -5,8 +5,8 @@ import joinPath from 'memory-fs/lib/join';
 import API from '../../API';
 import webpackConfig from '../../build/webpackConfig';
 import getConfig from '../../getConfig';
-import { PlatformTarget } from '../../build/platform';
 import winPath from '../../winPath';
+import { Platform } from '../../build/platform';
 
 function ensureWebpackMemoryFs(fs: IFs) {
   const nextFs = Object.create(fs);
@@ -54,7 +54,7 @@ interface Options {
   exclude: string[];
 }
 
-export default async function build(app: string, target: PlatformTarget, options: Partial<Options> = {}) {
+export default async function build(app: string, target: Platform, options: Partial<Options> = {}) {
   const cwd = path.resolve(__dirname, `../fixtures/${app}`);
   process.chdir(cwd);
   process.env.REMAX_PLATFORM = target;
