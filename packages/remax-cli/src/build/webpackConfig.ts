@@ -248,20 +248,16 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .loader(useLoader('resolve-platform'));
 
   if (options.progress) {
-    config.plugin('progress').use(new ProgressPlugin());
+    config.plugin('progress').use(ProgressPlugin);
   }
 
-  config.plugin('define').use(new DefinePlugin(env.stringified));
-  config.plugin('cssExtract').use(
-    new MiniCssExtractPlugin({
-      filename: `[name]`,
-    })
-  );
-  config.plugin('optimizeEntries').use(new RemaxPlugins.OptimizeEntries(meta));
-  config.plugin('nativeFiles').use(new RemaxPlugins.NativeFiles(options));
+  config.plugin('define').use(DefinePlugin, [env.stringified]);
+  config.plugin('cssExtract').use(MiniCssExtractPlugin, [{ filename: `[name]` }]);
+  config.plugin('optimizeEntries').use(RemaxPlugins.OptimizeEntries, [meta]);
+  config.plugin('nativeFiles').use(RemaxPlugins.NativeFiles, [options]);
 
   if (process.env.NODE_ENV === 'production') {
-    config.plugin('clean').use(new CleanWebpackPlugin() as any);
+    config.plugin('clean').use(CleanWebpackPlugin);
   }
 
   if (typeof options.configWebpack === 'function') {
