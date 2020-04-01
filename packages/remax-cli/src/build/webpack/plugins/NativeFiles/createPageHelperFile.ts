@@ -4,6 +4,7 @@ import { compilation } from 'webpack';
 import { Meta, RemaxOptions } from 'remax-types';
 import API from '../../../../API';
 import { pageUID } from './createPageTemplate';
+import * as cacheable from './cacheable';
 
 export default async function createHelperFile(
   options: RemaxOptions,
@@ -21,7 +22,13 @@ export default async function createHelperFile(
     target: API.adapter.target,
   });
 
-  compilation.assets[path.join(path.dirname(pagePath), `${pageUID(pagePath)}_helper${meta.jsHelper.extension}`)] = {
+  const fileName = path.join(path.dirname(pagePath), `${pageUID(pagePath)}_helper${meta.jsHelper.extension}`);
+
+  if (!cacheable.invalid(fileName, source)) {
+    return;
+  }
+
+  compilation.assets[fileName] = {
     source: () => source,
     size: () => Buffer.byteLength(source),
   };

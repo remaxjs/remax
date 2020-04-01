@@ -212,6 +212,15 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
   }
 
   config.module
+    .rule('watchManifest')
+    .test(matcher)
+    .include.add(entries.app)
+    .merge(entries.pages)
+    .end()
+    .use('manifest')
+    .loader(useLoader('manifest'));
+
+  config.module
     .rule('stub')
     .test(matcher)
     .use('stub')

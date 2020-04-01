@@ -7,6 +7,8 @@ import createPageTemplate, { createBaseTemplate } from './createPageTemplate';
 import createPageManifest from './createPageManifest';
 import createPageHelperFile from './createPageHelperFile';
 
+const PLUGIN_NAME = 'RemaxNativeFilesPlugin';
+
 export default class NativeFilesPlugin {
   remaxOptions: RemaxOptions;
 
@@ -15,7 +17,7 @@ export default class NativeFilesPlugin {
   }
 
   apply(compiler: Compiler) {
-    compiler.hooks.emit.tapAsync('RemaxNativeFilePlugin', async (compilation, callback) => {
+    compiler.hooks.emit.tapAsync(PLUGIN_NAME, async (compilation, callback) => {
       const options = this.remaxOptions;
       const entries = getEntries(options);
       const meta = API.getMeta();

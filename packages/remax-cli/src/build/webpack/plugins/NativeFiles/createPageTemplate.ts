@@ -8,6 +8,7 @@ import { getComponents } from '../../../../build/babel/components';
 import { getNativeComponents } from '../../../../build/babel/nativeComponents/babelPlugin';
 import winPath from '../../../../winPath';
 import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDepth';
+import * as cacheable from './cacheable';
 
 export function pageUID(pagePath: string) {
   let value = winPath(pagePath).replace('/', '_');
@@ -56,6 +57,10 @@ export default async function createPageTemplate(
     source = source.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
   }
 
+  if (!cacheable.invalid(fileName, source)) {
+    return;
+  }
+
   compilation.assets[fileName] = {
     source: () => source,
     size: () => Buffer.byteLength(source),
@@ -84,7 +89,13 @@ export async function createBaseTemplate(options: RemaxOptions, meta: Meta, comp
     source = source.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
   }
 
-  compilation.assets[`base${meta.template.extension}`] = {
+  const fileName = `base${meta.template.extension}`;
+
+  if (!cacheable.invalid(fileName, source)) {
+    return;
+  }
+
+  compilation.assets[fileName] = {
     source: () => source,
     size: () => Buffer.byteLength(source),
   };
