@@ -57,7 +57,7 @@ export default function createPageManifest(
   const configPath = pagePath.replace(matcher, '.config');
   const manifestPath = pagePath.replace(matcher, '.json').replace(rootPath, '');
   const config = readManifest(configPath, API.adapter.target);
-  const usingComponents = getUsingComponents([pagePath, ...modules], options, compilation);
+  const usingComponents = getUsingComponents(modules, options, compilation);
 
   config.usingComponents = {
     ...(config.usingComponents || {}),

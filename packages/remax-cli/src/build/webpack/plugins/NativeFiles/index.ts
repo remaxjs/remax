@@ -5,8 +5,10 @@ import API from '../../../../API';
 import getEntries from '../../../../getEntries';
 import createAppManifest from './createAppManifest';
 import createPageTemplate, { createBaseTemplate } from './createPageTemplate';
+import createTurboPageTemplate from './createTurboPageTemplate';
 import createPageManifest from './createPageManifest';
 import createPageHelperFile from './createPageHelperFile';
+import * as turboPages from '../../../turboPages';
 
 const PLUGIN_NAME = 'RemaxNativeFilesPlugin';
 
@@ -25,10 +27,10 @@ export default class NativeFilesPlugin {
 
       // app.json
       await createAppManifest(options, compilation);
+
       // base template
       await createBaseTemplate(options, meta, compilation);
 
-      // page template
       Promise.all(
         entries.pages.map(async pagePath => {
           const chunk = compilation.chunks.find(c => {
@@ -39,13 +41,24 @@ export default class NativeFilesPlugin {
           });
 
           // TODO: 应该有更好的获取 modules 的方式？
-          const modules = Array.from(chunk._modules)
-            .map((m: any) => m.resource)
-            .filter(Boolean);
+          const modules = [
+            ...Array.from(chunk._modules)
+              .map((m: any) => m.resource)
+              .filter(Boolean),
+            pagePath,
+          ];
 
-          await createPageTemplate(options, pagePath, meta, compilation);
+          if (turboPages.validate(pagePath, options)) {
+            // turbo page
+            await createTurboPageTemplate(options, pagePath, modules, meta, compilation);
+          } else {
+            // page template
+            await createPageTemplate(options, pagePath, meta, compilation);
+            // page helper
+            await createPageHelperFile(options, pagePath, meta, compilation);
+          }
+
           await createPageManifest(options, pagePath, modules, compilation);
-          await createPageHelperFile(options, pagePath, meta, compilation);
         })
       ).then(() => {
         callback();

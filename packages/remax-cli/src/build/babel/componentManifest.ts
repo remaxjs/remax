@@ -7,7 +7,7 @@ import { getSourcePath, isNativeComponent, isPluginComponent } from '../nativeCo
 import API from '../../API';
 import { register as registerNativeComponent } from '../nativeComponents';
 
-interface ComponentManifest {
+export interface ComponentManifest {
   id: string;
   props: string[];
   additional?: boolean;

@@ -16,7 +16,7 @@ import * as staticCompiler from './babel/compiler/static';
 import app from './babel/app';
 import page from './babel/page';
 import fixRegeneratorRuntime from './babel/fixRegeneratorRuntime';
-import hostComponentManifest from './babel/hostComponentManifest';
+import componentManifest from './babel/componentManifest';
 import * as RemaxPlugins from './webpack/plugins';
 import alias from './alias';
 import API from '../API';
@@ -93,6 +93,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
 
   config.module
     .rule('createAppOrPageConfig')
+    .pre()
     .test(matcher)
     .include.add(entries.app)
     .merge(entries.pages)
@@ -106,29 +107,32 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
 
   // turbo pages
   if (turboPagesEnabled) {
+    // webpack chain 的配置顺序是反过来的
     config.module
       .rule('staticCompilation')
-      .test(matcher)
-      .include.add(TurboPages.filter(entries, options))
-      .end()
-      .use('babel')
+      .pre()
+      .use('tuboPagesPostProcess')
       .loader(useLoader('babel'))
       .options({
-        usePlugins: [staticCompiler.preprocess],
+        usePlugins: [staticCompiler.postProcess],
         reactPreset: false,
       })
       .end()
-      .use('babel')
+      .test(matcher)
+      .use('tuboPagesRender')
       .loader(useLoader('babel'))
       .options({
         usePlugins: [staticCompiler.render],
         reactPreset: false,
       })
       .end()
-      .use('babel')
+      .test(matcher)
+      .include.merge(TurboPages.filter(entries, options))
+      .end()
+      .use('tuboPagesPreprocess')
       .loader(useLoader('babel'))
       .options({
-        usePlugins: [staticCompiler.postProcess],
+        usePlugins: [staticCompiler.preprocess],
         reactPreset: false,
       });
   }
@@ -139,7 +143,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .use('babel')
     .loader(useLoader('babel'))
     .options({
-      usePlugins: [hostComponentManifest(options), fixRegeneratorRuntime()],
+      usePlugins: [componentManifest(options), fixRegeneratorRuntime()],
       reactPreset: true,
     });
 
