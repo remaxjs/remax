@@ -38,9 +38,7 @@ export default class NativeFilesPlugin {
             return c.name === name;
           });
 
-          // compilation.chunks.forEach(c => {
-          //   console.log(Array.from(c._modules).map((m: any) => m.resource));
-          // });
+          // TODO: 应该有更好的获取 modules 的方式？
           const modules = Array.from(chunk._modules)
             .map((m: any) => m.resource)
             .filter(Boolean);
