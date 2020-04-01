@@ -17,14 +17,14 @@ import app from './babel/app';
 import page from './babel/page';
 import fixRegeneratorRuntime from './babel/fixRegeneratorRuntime';
 import nativeComponentsBabelPlugin from './babel/nativeComponents/babelPlugin';
-import components from './babel/components';
+import hostComponentManifest from './babel/hostComponentManifest';
 import * as RemaxPlugins from './webpack/plugins';
 import alias from './alias';
 import API from '../API';
 import getEnvironment from './env';
 import * as platform from './platform';
 
-const config = new Config();
+export const config = new Config();
 
 function useLoader(id: string) {
   try {
@@ -140,8 +140,17 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .use('babel')
     .loader(useLoader('babel'))
     .options({
-      usePlugins: [nativeComponentsBabelPlugin(options), components(options), fixRegeneratorRuntime],
+      usePlugins: [hostComponentManifest(options), nativeComponentsBabelPlugin(options), fixRegeneratorRuntime()],
       reactPreset: true,
+    });
+
+  config.module
+    .rule('nativeComponent')
+    .test(matcher)
+    .use('nativeComponent')
+    .loader(useLoader('nativeComponent'))
+    .options({
+      remaxOptions: options,
     });
 
   const cssModuleConfig = styleConfig.getCssModuleConfig(options.cssModules);

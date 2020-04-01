@@ -1,3 +1,4 @@
+import * as path from 'path';
 import { Compiler } from 'webpack';
 import { RemaxOptions } from 'remax-types';
 import API from '../../../../API';
@@ -30,8 +31,22 @@ export default class NativeFilesPlugin {
       // page template
       Promise.all(
         entries.pages.map(async pagePath => {
+          const chunk = compilation.chunks.find(c => {
+            let name = pagePath.replace(path.join(options.cwd, options.rootDir) + '/', '');
+            const ext = path.extname(name);
+            name = name.replace(new RegExp(`${ext}$`), '');
+            return c.name === name;
+          });
+
+          // compilation.chunks.forEach(c => {
+          //   console.log(Array.from(c._modules).map((m: any) => m.resource));
+          // });
+          const modules = Array.from(chunk._modules)
+            .map((m: any) => m.resource)
+            .filter(Boolean);
+
           await createPageTemplate(options, pagePath, meta, compilation);
-          await createPageManifest(options, pagePath, compilation);
+          await createPageManifest(options, pagePath, modules, compilation);
           await createPageHelperFile(options, pagePath, meta, compilation);
         })
       ).then(() => {

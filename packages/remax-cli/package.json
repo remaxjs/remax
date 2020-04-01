@@ -58,6 +58,7 @@
     "dotenv": "^8.2.0",
     "dotenv-expand": "^5.1.0",
     "ejs": "^3.0.1",
+    "enhanced-resolve": "^4.1.1",
     "esm": "^3.2.25",
     "file-loader": "^6.0.0",
     "htmlparser2": "^4.0.0",

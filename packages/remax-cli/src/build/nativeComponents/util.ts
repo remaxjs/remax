@@ -1,12 +1,10 @@
 import * as fs from 'fs';
 import path from 'path';
-// import resolve from 'resolve';
-// import extensions from '../../../extensions';
 import resolve from 'enhanced-resolve';
-import winPath from '../../../winPath';
+import winPath from '../../winPath';
 import { RemaxOptions } from 'remax-types';
-import { getAppConfig } from '../../../getEntries';
-import { config } from '../../webpackConfig';
+import { getAppConfig } from '../../getEntries';
+import { config } from '../webpackConfig';
 
 export const pushArray = (arr: string[], path: string) => {
   if (arr.includes(path)) {

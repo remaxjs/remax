@@ -1,5 +1,6 @@
 declare module 'webpack/lib/*';
 declare module 'babel-loader';
+declare module 'enhanced-resolve';
 
 declare module 'rollup-plugin-babel';
 declare module '@remax/rollup-plugin-postcss';

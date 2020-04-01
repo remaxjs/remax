@@ -4,8 +4,7 @@ import { compilation } from 'webpack';
 import ejs from 'ejs';
 import { RemaxOptions, Meta } from 'remax-types';
 import API from '../../../../API';
-import { getComponents } from '../../../../build/babel/components';
-import { getNativeComponents } from '../../../../build/babel/nativeComponents/babelPlugin';
+import * as hostComponentManifest from '../../../../build/babel/hostComponentManifest';
 import winPath from '../../../../winPath';
 import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDepth';
 import * as cacheable from './cacheable';
@@ -18,9 +17,9 @@ export function pageUID(pagePath: string) {
   return value;
 }
 
-function renderOptions(options: RemaxOptions) {
+function renderOptions() {
   return {
-    components: sortBy(getComponents(options).concat(Object.values(getNativeComponents())), 'id'),
+    components: sortBy(hostComponentManifest.values(), 'id'),
     viewComponent: {
       props: [...new Set(API.getHostComponents().get('view')!.props)].sort(),
     },
@@ -39,7 +38,7 @@ export default async function createPageTemplate(
   }`;
 
   const ejsOptions: { [props: string]: any } = {
-    ...renderOptions(options),
+    ...renderOptions(),
     baseTemplate: `/base${meta.template.extension}`,
   };
 
@@ -75,7 +74,7 @@ export async function createBaseTemplate(options: RemaxOptions, meta: Meta, comp
   let source: string = await ejs.renderFile(
     meta.ejs.base,
     {
-      ...renderOptions(options),
+      ...renderOptions(),
       depth: ensureDepth(options.UNSAFE_wechatTemplateDepth),
     },
     {
