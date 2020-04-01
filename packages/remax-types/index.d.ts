@@ -90,10 +90,6 @@ export type Meta = {
     tag: string;
     src: string;
   };
-  include: {
-    tag: string;
-    src: string;
-  };
   ejs: {
     base?: string;
     page: string;
