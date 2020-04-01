@@ -16,7 +16,6 @@ import * as staticCompiler from './babel/compiler/static';
 import app from './babel/app';
 import page from './babel/page';
 import fixRegeneratorRuntime from './babel/fixRegeneratorRuntime';
-import nativeComponentsBabelPlugin from './babel/nativeComponents/babelPlugin';
 import hostComponentManifest from './babel/hostComponentManifest';
 import * as RemaxPlugins from './webpack/plugins';
 import alias from './alias';
@@ -140,7 +139,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .use('babel')
     .loader(useLoader('babel'))
     .options({
-      usePlugins: [hostComponentManifest(options), nativeComponentsBabelPlugin(options), fixRegeneratorRuntime()],
+      usePlugins: [hostComponentManifest(options), fixRegeneratorRuntime()],
       reactPreset: true,
     });
 

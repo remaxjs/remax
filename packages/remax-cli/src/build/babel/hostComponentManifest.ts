@@ -3,7 +3,7 @@ import { NodePath } from '@babel/traverse';
 import { HostComponent, RemaxOptions } from 'remax-types';
 import { kebabCase } from 'lodash';
 import { LEAF, ENTRY } from './compiler/static/constants';
-import { getSourcePath, isNativeComponent, isPluginComponent } from './nativeComponents/util';
+import { getSourcePath, isNativeComponent, isPluginComponent } from '../nativeComponents/util';
 import API from '../../API';
 import { register as registerNativeComponent } from '../nativeComponents';
 
