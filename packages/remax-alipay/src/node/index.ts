@@ -20,10 +20,6 @@ const plugin: RemaxNodePluginConstructor = () => {
         tag: 'import-sjs',
         src: 'from',
       },
-      include: {
-        tag: 'include',
-        src: 'src',
-      },
       ejs: {
         base: '',
         page: path.join(TPL_DEFAULT_ROOT, 'page.ejs'),
