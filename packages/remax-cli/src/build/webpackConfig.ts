@@ -1,6 +1,4 @@
 import * as path from 'path';
-import * as fs from 'fs';
-import { camelCase } from 'lodash';
 import { Configuration, ProgressPlugin, DefinePlugin } from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -24,19 +22,6 @@ import getEnvironment from './env';
 import * as platform from './platform';
 
 export const config = new Config();
-
-function useLoader(id: string) {
-  try {
-    const loaderPath = path.join(__dirname, './webpack/loaders', camelCase(id) + '.js');
-    if (fs.existsSync(loaderPath)) {
-      return loaderPath;
-    }
-  } catch {
-    // ignore
-  }
-
-  return require.resolve(id + '-loader');
-}
 
 function prepare(options: RemaxOptions, target: PlatformTarget) {
   const meta = API.getMeta();
@@ -77,6 +62,10 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
   config.devtool(false);
   config.mode((process.env.NODE_ENV as any) || 'development');
   config.context(options.cwd);
+  config.resolveLoader.modules
+    .merge(['node_modules', path.join(__dirname, './webpack/loaders')])
+    .end()
+    .extensions.merge(['.js', '.ts']);
   config.resolve.extensions.merge(extensions);
   config.resolve.alias.merge(alias(options));
   config.output.path(path.join(options.cwd, options.output));
@@ -99,7 +88,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .merge(entries.pages)
     .end()
     .use('babel')
-    .loader(useLoader('babel'))
+    .loader('babel')
     .options({
       usePlugins: [app(entries.app), page(entries.pages)],
       reactPreset: false,
@@ -112,7 +101,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
       .rule('staticCompilation')
       .pre()
       .use('tuboPagesPostProcess')
-      .loader(useLoader('babel'))
+      .loader('babel')
       .options({
         usePlugins: [staticCompiler.postProcess],
         reactPreset: false,
@@ -120,7 +109,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
       .end()
       .test(matcher)
       .use('tuboPagesRender')
-      .loader(useLoader('babel'))
+      .loader('babel')
       .options({
         usePlugins: [staticCompiler.render],
         reactPreset: false,
@@ -130,7 +119,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
       .include.merge(TurboPages.filter(entries, options))
       .end()
       .use('tuboPagesPreprocess')
-      .loader(useLoader('babel'))
+      .loader('babel')
       .options({
         usePlugins: [staticCompiler.preprocess],
         reactPreset: false,
@@ -141,7 +130,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .rule('compilation')
     .test(matcher)
     .use('babel')
-    .loader(useLoader('babel'))
+    .loader('babel')
     .options({
       usePlugins: [componentManifest(options), fixRegeneratorRuntime()],
       reactPreset: true,
@@ -151,7 +140,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .rule('nativeComponent')
     .test(matcher)
     .use('nativeComponent')
-    .loader(useLoader('nativeComponent'))
+    .loader('nativeComponent')
     .options({
       remaxOptions: options,
     });
@@ -160,7 +149,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
   const preprocessCssRules = [
     {
       name: 'postcss',
-      loader: useLoader('postcss'),
+      loader: 'postcss-loader',
       options: {
         config: {
           path: styleConfig.resolvePostcssConfig(options),
@@ -168,9 +157,9 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
         plugins: [pxToUnits()].filter(Boolean),
       },
     },
-    styleConfig.enabled('less') && { name: 'less', loader: useLoader('less') },
-    styleConfig.enabled('node-sass') && { name: 'sass', loader: useLoader('sass') },
-    styleConfig.enabled('stylus') && { name: 'stylus', loader: useLoader('stylus') },
+    styleConfig.enabled('less') && { name: 'less', loader: 'less-loader' },
+    styleConfig.enabled('node-sass') && { name: 'sass', loader: 'sass-loader' },
+    styleConfig.enabled('stylus') && { name: 'stylus', loader: 'stylus-loader' },
   ].filter(Boolean) as any[];
 
   let stylesRule = config.module
@@ -182,7 +171,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .loader(MiniCssExtractPlugin.loader)
     .end()
     .use('css')
-    .loader(useLoader('css'))
+    .loader('css-loader')
     .options({
       importLoaders: preprocessCssRules.length,
     })
@@ -207,7 +196,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
       .loader(MiniCssExtractPlugin.loader)
       .end()
       .use('css')
-      .loader(useLoader('css'))
+      .loader('css-loader')
       .options({
         importLoaders: preprocessCssRules.length,
         modules: true,
@@ -230,13 +219,13 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .merge(entries.pages)
     .end()
     .use('manifest')
-    .loader(useLoader('manifest'));
+    .loader('manifest');
 
   config.module
     .rule('stub')
     .test(matcher)
     .use('stub')
-    .loader(useLoader('stub'))
+    .loader('stub')
     .options({
       modules: stubModules,
     });
@@ -245,7 +234,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .rule('json')
     .test(/\.json$/)
     .use('json')
-    .loader(useLoader('json'))
+    .loader('json-loader')
     .options({
       modules: stubModules,
     });
@@ -254,19 +243,19 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .rule('remaxDefineVariables')
     .test(/remax\/esm\/createHostComponent.js/i)
     .use('remax-define')
-    .loader(useLoader('remax-define'));
+    .loader('remaxDefine');
 
   config.module
     .rule('images')
     .test(/\.(png|jpe?g|gif|svg)$/i)
     .use('file')
-    .loader(useLoader('file'));
+    .loader('file-loader');
 
   config.module
     .rule('resolvePlatformFiles')
     .test(matcher)
     .use('resolve-platform')
-    .loader(useLoader('resolve-platform'));
+    .loader('resolvePlatform');
 
   if (options.progress) {
     config.plugin('progress').use(ProgressPlugin);

@@ -4,9 +4,6 @@
     "turboPages": {
       "type": "array"
     },
-    "cssModules": {
-      "anyOf": [{ "instanceof": "RegExp" }, { "type": "boolean" }]
-    },
     "notify": {
       "type": "boolean"
     },
@@ -31,36 +28,11 @@
     "UNSAFE_wechatTemplateDepth": {
       "anyOf": [{ "type": "object" }, { "type": "number" }]
     },
-    "alias": {
-      "type": "object"
-    },
     "one": {
       "type": "boolean"
     },
-    "postcss": {
-      "type": "object",
-      "properties": {
-        "options": {
-          "type": "object"
-        },
-        "plugins": {
-          "type": "array"
-        },
-        "url": {
-          "type": "object",
-          "properties": {
-            "inline": {
-              "type": "boolean"
-            },
-            "maxSize": {
-              "type": "number"
-            }
-          }
-        }
-      }
-    },
-    "rollupOptions": {
-      "anyOf": [{ "type": "object" }, { "instanceof": "Function" }]
+    "configWebpack": {
+      "anyOf": [{ "instanceof": "Function" }]
     }
   },
   "additionalProperties": false
