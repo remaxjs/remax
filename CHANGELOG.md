@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.3](https://github.com/remaxjs/remax/compare/v1.19.2...v1.19.3) (2020-04-02)
+
+### Bug Fixes
+
+- 修复小程序自定义组件引用多个模板时编译错误的问题 ([#761](https://github.com/remaxjs/remax/issues/761)) ([7757678](https://github.com/remaxjs/remax/commit/7757678a33e827895f3df6d2766bdef9856fb7df))
+
 ## [1.19.2](https://github.com/remaxjs/remax/compare/v1.19.1...v1.19.2) (2020-04-01)
 
 ### Bug Fixes
