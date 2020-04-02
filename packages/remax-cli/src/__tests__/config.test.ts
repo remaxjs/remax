@@ -18,14 +18,9 @@ describe('remax config', () => {
     }).toThrowErrorMatchingInlineSnapshot(`
 "Invalid configuration object. remax has been initialized using a configuration object that does not match the API schema.
  - configuration has an unknown property 'plugins'. These properties are valid:
-   object { turboPages?, cssModules?, notify?, pxToRpx?, cwd?, progress?, compressTemplate?, output?, rootDir?, UNSAFE_wechatTemplateDepth?, alias?, one?, postcss?, rollupOptions? }
+   object { turboPages?, notify?, pxToRpx?, cwd?, progress?, compressTemplate?, output?, rootDir?, UNSAFE_wechatTemplateDepth?, one?, configWebpack? }
  - configuration.turboPages should be an array:
    [any, ...]
- - configuration.cssModules should be one of these:
-   RegExp | boolean
-   Details:
-    * configuration.cssModules should be an instance of RegExp.
-    * configuration.cssModules should be a boolean.
  - configuration.notify should be a boolean.
  - configuration.pxToRpx should be a boolean.
  - configuration.cwd should be a string.
@@ -39,20 +34,7 @@ describe('remax config', () => {
     * configuration.UNSAFE_wechatTemplateDepth should be an object:
       object { … }
     * configuration.UNSAFE_wechatTemplateDepth should be a number.
- - configuration.alias should be an object:
-   object { … }
- - configuration.postcss.options should be an object:
-   object { … }
- - configuration.postcss.plugins should be an array:
-   [any, ...]
- - configuration.postcss.url.inline should be a boolean.
- - configuration.postcss.url.maxSize should be a number.
- - configuration.rollupOptions should be one of these:
-   object { … } | function
-   Details:
-    * configuration.rollupOptions should be an object:
-      object { … }
-    * configuration.rollupOptions should be an instance of function."
+ - configuration.configWebpack should be an instance of function."
 `);
   });
 });

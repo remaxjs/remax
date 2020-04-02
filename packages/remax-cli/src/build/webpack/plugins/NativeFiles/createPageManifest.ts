@@ -12,7 +12,6 @@ const NATIVE_COMPONENT_OUTPUT_DIR = 'remaxVendors';
 
 function getNativeComponentAssetOutputPath(sourcePath: string, options: RemaxOptions) {
   return (
-    '/' +
     NATIVE_COMPONENT_OUTPUT_DIR +
     '/' +
     sourcePath
@@ -39,7 +38,7 @@ function getUsingComponents(modules: string[], options: RemaxOptions, compilatio
       };
     });
 
-    const usingPath = getNativeComponentAssetOutputPath(component.sourcePath, options);
+    const usingPath = '/' + getNativeComponentAssetOutputPath(component.sourcePath, options);
     const ext = path.extname(usingPath);
     config[component.id] = usingPath.replace(new RegExp(`${ext}$`), '');
 

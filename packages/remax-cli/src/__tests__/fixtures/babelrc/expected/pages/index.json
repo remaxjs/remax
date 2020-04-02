@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "a-0": "../components/a/index"
+    "index": "/remaxVendors/components/a/index"
   }
 }

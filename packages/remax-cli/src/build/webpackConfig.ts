@@ -151,10 +151,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
       name: 'postcss',
       loader: 'postcss-loader',
       options: {
-        config: {
-          path: styleConfig.resolvePostcssConfig(options),
-        },
-        plugins: [pxToUnits()].filter(Boolean),
+        plugins: [options.pxToRpx && pxToUnits()].filter(Boolean),
       },
     },
     styleConfig.enabled('less') && { name: 'less', loader: 'less-loader' },

@@ -2,6 +2,6 @@
   "defaultTitle": "Alipay App",
   "titleBarColor": "#323239",
   "usingComponents": {
-    "native-component-0": "../components/nativeComponent/index"
+    "index": "/remaxVendors/components/nativeComponent/index"
   }
 }

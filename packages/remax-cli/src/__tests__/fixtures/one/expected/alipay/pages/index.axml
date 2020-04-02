@@ -635,13 +635,11 @@
   <view 
     animation="{{item.props['animation']}}"
     class="{{item.props['class']}}"
-    data-foo="{{item.props['data-foo']}}"
     hover-class="{{item.props['hover-class']}}"
     hover-start-time="{{item.props['hover-start-time']}}"
     hover-stay-time="{{item.props['hover-stay-time']}}"
     hover-stop-propagation="{{item.props['hover-stop-propagation']}}"
     id="{{item.props['id']}}"
-    onClick="{{item.props['onClick']}}"
     onLongTap="{{item.props['onLongTap']}}"
     onTap="{{item.props['onTap']}}"
     onTouchCancel="{{item.props['onTouchCancel']}}"

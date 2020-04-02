@@ -90,6 +90,7 @@
     "stylus-loader": "^3.0.2",
     "webpack-chain": "^6.4.0",
     "webpack-sources": "^1.4.3",
+    "webpack-virtual-modules": "^0.2.1",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
@@ -110,7 +111,7 @@
     "@types/resolve": "^1.14.0",
     "@types/semver": "^7.1.0",
     "@types/through2": "^2.0.34",
-    "@types/webpack": "^4.41.8",
+    "@types/webpack": "^4.41.10",
     "@types/webpack-sources": "^0.1.7",
     "@types/yargs": "^15.0.0",
     "babel-plugin-loop-optimizer": "^1.4.1",

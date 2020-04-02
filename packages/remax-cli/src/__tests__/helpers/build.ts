@@ -68,7 +68,7 @@ export default async function build(app: string, target: PlatformTarget, options
         config
           .mode('none')
           .resolve.alias.merge({
-            '@components': 'src/components',
+            '@components': path.resolve(cwd, 'src/components'),
             '@c': path.resolve(cwd, 'src/components'),
           })
           .end()
@@ -101,6 +101,7 @@ export default async function build(app: string, target: PlatformTarget, options
       const info = stats.toJson();
 
       if (stats.hasErrors()) {
+        console.error(info.errors);
         throw new Error(info.errors.join('\n'));
       }
 

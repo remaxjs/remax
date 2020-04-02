@@ -18,14 +18,14 @@ module.exports = {
       {
         pagePath: 'pages/index/index',
         name: '首页',
-        icon: './assets/images/cat.png',
-        activeIcon: './assets/images/dog.png',
+        icon: '/assets/images/cat.png',
+        activeIcon: '/assets/images/dog.png',
       },
       {
         pagePath: 'packageA/pages/index',
         name: '其他',
         icon: 'https://img.com/assets/images/cat.png',
-        activeIcon: './assets/images/dog.png',
+        activeIcon: '/assets/images/dog.png',
       },
     ],
   },

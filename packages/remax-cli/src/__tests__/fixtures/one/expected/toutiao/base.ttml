@@ -605,14 +605,11 @@
   <view 
     animation="{{i.props['animation']}}" 
     class="{{i.props['class']}}" 
-    data-foo="{{i.props['data-foo']}}" 
     hover-class="{{i.props['hover-class']}}" 
     hover-start-time="{{i.props['hover-start-time']}}" 
     hover-stay-time="{{i.props['hover-stay-time']}}" 
     hover-stop-propagation="{{i.props['hover-stop-propagation']}}" 
     id="{{i.props['id']}}" 
-    onClick="{{i.props['onClick']}}" 
-    onTouchStart="{{i.props['onTouchStart']}}" 
     role="{{i.props['role']}}" 
     style="{{i.props['style']}}" 
   >

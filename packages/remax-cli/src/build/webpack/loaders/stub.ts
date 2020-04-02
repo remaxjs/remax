@@ -13,5 +13,5 @@ export default function stub(this: loader.LoaderContext, source: string) {
     return source;
   }
 
-  return 'module.exports = {}';
+  return 'module.exports = { stub: true }';
 }

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Image } from 'remax/alipay';
-import cat from '../assets/images/cat.jpg';
+import cat from '../assets/images/inline.jpg';
 import './index.css';
 
 export default function Index() {
