@@ -73,6 +73,7 @@
     "schema-utils": "^2.6.1",
     "semver": "^7.1.1",
     "slash2": "^2.0.0",
+    "universal-analytics": "^0.4.20",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
@@ -90,6 +91,7 @@
     "@types/resolve": "^1.14.0",
     "@types/semver": "^7.1.0",
     "@types/through2": "^2.0.34",
+    "@types/universal-analytics": "^0.4.4",
     "@types/yargs": "^15.0.0",
     "babel-plugin-loop-optimizer": "^1.4.1",
     "babel-plugin-tester": "^8.0.1",
