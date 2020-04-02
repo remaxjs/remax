@@ -1,5 +1,6 @@
 <import-sjs name="h" from="./index.sjs"/>
-<import src="./import.axml"/>
+<import src="./import1.axml"/>
+<import src="./import2.axml"/>
 
 <include src="./include.axml" />
 <view>{{h.hello()}}</view>
