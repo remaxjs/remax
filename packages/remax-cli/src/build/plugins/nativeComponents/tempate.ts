@@ -5,8 +5,6 @@ import { pushArray, getPath } from './util';
 import output from '../../utils/output';
 import { RemaxOptions } from 'remax-types';
 
-const parser = new htmlparser2.Parser({});
-
 const templatePaths: string[] = [];
 
 export function walk(filePath: string, options: RemaxOptions) {
@@ -21,6 +19,8 @@ export function walk(filePath: string, options: RemaxOptions) {
   pushArray(templatePaths, filePath);
 
   const content = fs.readFileSync(filePath).toString();
+
+  const parser = new htmlparser2.Parser({});
 
   parser._cbs.onopentag = (name, attrs) => {
     if (name === tag && attrs[src]) {
