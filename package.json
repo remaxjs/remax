@@ -5,10 +5,10 @@
   "scripts": {
     "watch": "lerna run watch --parallel",
     "prebuild": "lerna run build --scope remax-types && lerna run build --scope remax-alipay && lerna run build --scope remax-wechat && lerna run build --scope remax-toutiao && lerna run build --scope remax-one",
-    "build": "lerna run build --scope remax.macro && lerna run build --scope remax && lerna run build --scope babel-preset-remax && lerna run build --scope remax-cli && lerna run build --scope umi-plugin-remax",
-    "test": "lerna run --ignore babel-preset-remax --ignore website --ignore umi-plugin-remax --stream test",
+    "build": "lerna run build --scope remax.macro && lerna run build --scope remax && lerna run build --scope babel-preset-remax && lerna run build --scope remax-cli",
+    "test": "lerna run --ignore babel-preset-remax --ignore website --stream test",
     "test:integration": "./scripts/integration-test",
-    "test:cov": "lerna run --ignore babel-preset-remax --ignore website --ignore umi-plugin-remax --stream test -- --collect-coverage",
+    "test:cov": "lerna run --ignore babel-preset-remax --ignore website --stream test -- --collect-coverage",
     "clean": "lerna clean",
     "readme:copy": "lerna exec 'cp ../../README.md' . --scope remax --scope remax-cli",
     "readme:clean": "lerna exec 'rm README.md' --scope remax --scope remax-cli",
