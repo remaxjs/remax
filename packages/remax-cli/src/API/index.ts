@@ -1,14 +1,6 @@
 import { hostComponents } from 'remax/macro';
 import * as t from '@babel/types';
-import {
-  RemaxOptions,
-  RemaxNodePlugin,
-  ExtendsCLIOptions,
-  ExtendsRollupConfigOptions,
-  Meta,
-  HostComponent,
-} from 'remax-types';
-import { RollupOptions } from 'rollup';
+import { RemaxOptions, RemaxNodePlugin, ExtendsCLIOptions, Meta, HostComponent } from 'remax-types';
 import { merge } from 'lodash';
 
 class API {
@@ -106,17 +98,6 @@ class API {
 
       return result;
     }, true);
-  }
-
-  public extendsRollupConfig(options: ExtendsRollupConfigOptions): RollupOptions {
-    let { rollupConfig } = options;
-    this.plugins.forEach(plugin => {
-      if (typeof plugin.extendsRollupConfig === 'function') {
-        rollupConfig = plugin.extendsRollupConfig({ ...options, rollupConfig });
-      }
-    });
-
-    return rollupConfig;
   }
 
   public registerAdapterPlugins(targetName: string, remaxConfig: RemaxOptions) {

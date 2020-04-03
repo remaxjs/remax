@@ -1,9 +1,6 @@
 import yargs from 'yargs';
 import Config from 'webpack-chain';
 import * as t from '@babel/types';
-import { PluginImpl, RollupOptions } from 'rollup';
-
-export { PluginImpl, RollupOptions };
 
 export interface RemaxOptions {
   turboPages: string[];
@@ -56,7 +53,6 @@ export interface AppConfig {
 
 export type CLI = yargs.Argv;
 export type ExtendsCLIOptions = { cli: CLI };
-export type ExtendsRollupConfigOptions = { rollupConfig: RollupOptions };
 export type Meta = {
   global: string;
   template: {
@@ -136,12 +132,6 @@ export interface RemaxNodePlugin {
    * options.phase 组件被引入的阶段，import | jsx | extra
    */
   shouldHostComponentRegister?: (options: ShouldHostComponentRegister) => boolean;
-  /**
-   * 扩展 Rollup Config
-   * options.rollupConfig Remax 生成的 Rollup Options 对象
-   *
-   */
-  extendsRollupConfig?: (options: ExtendsRollupConfigOptions) => RollupOptions;
 }
 
 export type RemaxNodePluginConstructor = (options?: any) => RemaxNodePlugin;

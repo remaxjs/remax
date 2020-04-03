@@ -15,7 +15,7 @@ describe('API', () => {
   });
 
   it('install plugins in a variety of ways', () => {
-    expect(API.plugins).toHaveLength(6);
+    expect(API.plugins).toHaveLength(5);
   });
 
   it('install adapter plugin', () => {
@@ -40,18 +40,6 @@ describe('API', () => {
   it('shouldHostComponentRegister', () => {
     expect(API.shouldHostComponentRegister('view', 'import', false)).toBeTruthy();
     expect(API.shouldHostComponentRegister('swiper-item', 'import', false)).toBeFalsy();
-  });
-
-  it('extendsRollupConfig', () => {
-    const rollupConfig = API.extendsRollupConfig({
-      rollupConfig: {
-        treeshake: true,
-      },
-    });
-
-    expect(rollupConfig).toEqual({
-      treeshake: false,
-    });
   });
 
   it('getHostComponents', () => {
