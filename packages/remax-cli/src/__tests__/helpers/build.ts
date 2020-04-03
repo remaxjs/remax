@@ -35,12 +35,12 @@ function getFilesInDir(fs: IFs, root: string, fsPath: string) {
   let outputs: OutputFile[] = [];
 
   list.forEach((fileName: any) => {
-    const filePath = winPath(path.join(fsPath, fileName));
+    const filePath = path.join(fsPath, fileName);
     if (fs.statSync(filePath).isDirectory()) {
       outputs = outputs.concat(getFilesInDir(fs, root, filePath));
     } else {
       outputs.push({
-        fileName: filePath.replace(winPath(root), ''),
+        fileName: winPath(filePath).replace(winPath(root), ''),
         code: fs.readFileSync(filePath).toString(),
       });
     }
