@@ -1939,7 +1939,7 @@ function promisify(api) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(remax__WEBPACK_IMPORTED_MODULE_0__["unstable_createNativeComponent"])('index'));
+/* harmony default export */ __webpack_exports__["default"] = (Object(remax__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index'));
 
 /***/ }),
 /* 82 */
