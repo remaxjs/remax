@@ -2,10 +2,10 @@ import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { HostComponent, RemaxOptions } from 'remax-types';
 import { kebabCase } from 'lodash';
+import { registerNativeComponent } from 'remax/macro';
 import { LEAF, ENTRY } from './compiler/static/constants';
-import { getSourcePath, isNativeComponent, isPluginComponent } from '../nativeComponents/util';
+import { getSourcePath, isNativeComponent } from '../nativeComponent';
 import API from '../../API';
-import { register as registerNativeComponent } from '../nativeComponents';
 
 export interface ComponentManifest {
   id: string;
@@ -17,7 +17,45 @@ export interface ComponentManifest {
 const hostComponentManifests: Map<string, ComponentManifest> = new Map();
 const nativeComponentManifests: Map<string, ComponentManifest> = new Map();
 
-function getNativeComponentName(path: NodePath<t.JSXElement>, importer: string, options: RemaxOptions) {
+function getNativePluginComponentName(path: NodePath<t.JSXElement>) {
+  const node = path.node;
+  const openingElement = node.openingElement;
+
+  if (!t.isJSXIdentifier(openingElement.name)) {
+    return false;
+  }
+
+  const name = openingElement.name.name;
+  const binding = path.scope.getBinding(name);
+
+  if (!binding) {
+    return false;
+  }
+
+  const bindingPath = binding.path;
+
+  if (!bindingPath || !t.isVariableDeclarator(bindingPath.node)) {
+    return false;
+  }
+
+  if (
+    !t.isCallExpression(bindingPath.node.init) ||
+    !t.isIdentifier(bindingPath.node.init.callee) ||
+    bindingPath.node.init.callee.name !== 'createNativeComponent'
+  ) {
+    return false;
+  }
+
+  const arg0 = bindingPath.node.init.arguments[0];
+
+  if (!t.isStringLiteral(arg0)) {
+    return false;
+  }
+
+  return arg0.value;
+}
+
+function getNativeComponentName(path: NodePath<t.JSXElement>, importer: string) {
   const node = path.node;
   const openingElement = node.openingElement;
 
@@ -45,9 +83,9 @@ function getNativeComponentName(path: NodePath<t.JSXElement>, importer: string, 
     const importNode = importPath.node as t.ImportDeclaration;
 
     const source = importNode.source.value;
-    const sourcePath = getSourcePath(options, source, importer);
+    const sourcePath = getSourcePath(source, importer);
 
-    if (!isNativeComponent(sourcePath) && !isPluginComponent(sourcePath, options)) {
+    if (!isNativeComponent(sourcePath)) {
       return;
     }
 
@@ -172,13 +210,13 @@ function registerNativeComponentManifest(id: string, node: t.JSXElement) {
     type: 'native',
   };
 
-  const registeredComponent = hostComponentManifests.get(id);
+  const registeredComponent = nativeComponentManifests.get(id);
 
   if (registeredComponent) {
     component.props = Array.from(new Set([...props, ...registeredComponent.props])).sort();
   }
 
-  hostComponentManifests.set(id, component);
+  nativeComponentManifests.set(id, component);
 }
 
 function registerHostComponentManifest(id: string, phase: 'jsx' | 'extra', node?: t.JSXElement, additional?: boolean) {
@@ -201,6 +239,10 @@ function registerHostComponentManifest(id: string, phase: 'jsx' | 'extra', node?
   const registeredComponent = nativeComponentManifests.get(id);
 
   if (registeredComponent) {
+    if (phase === 'extra') {
+      return;
+    }
+
     component.props = Array.from(new Set([...props, ...registeredComponent.props])).sort();
   }
 
@@ -219,7 +261,7 @@ export default function hostComponent(options: RemaxOptions) {
           return;
         }
 
-        name = getNativeComponentName(path, importer, options);
+        name = getNativeComponentName(path, importer) || getNativePluginComponentName(path);
 
         if (name) {
           registerNativeComponentManifest(name, path.node);

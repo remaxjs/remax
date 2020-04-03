@@ -1,12 +1,13 @@
 import * as path from 'path';
 import * as fs from 'fs';
+import { nativeComponents } from 'remax/macro';
 import { matcher } from '../../../../extensions';
 import API from '../../../../API';
 import readManifest from '../../../../readManifest';
+import { isPluginPath } from '../../../nativeComponent';
 import { compilation } from 'webpack';
 import { RemaxOptions } from 'remax-types';
 import * as cacheable from './cacheable';
-import { nativeComponents } from '../../../nativeComponents';
 
 const NATIVE_COMPONENT_OUTPUT_DIR = 'remaxVendors';
 
@@ -38,9 +39,13 @@ function getUsingComponents(modules: string[], options: RemaxOptions, compilatio
       };
     });
 
-    const usingPath = '/' + getNativeComponentAssetOutputPath(component.sourcePath, options);
-    const ext = path.extname(usingPath);
-    config[component.id] = usingPath.replace(new RegExp(`${ext}$`), '');
+    if (isPluginPath(component.sourcePath)) {
+      config[component.id] = component.sourcePath;
+    } else {
+      const usingPath = '/' + getNativeComponentAssetOutputPath(component.sourcePath, options);
+      const ext = path.extname(usingPath);
+      config[component.id] = usingPath.replace(new RegExp(`${ext}$`), '');
+    }
 
     return config;
   }, {});

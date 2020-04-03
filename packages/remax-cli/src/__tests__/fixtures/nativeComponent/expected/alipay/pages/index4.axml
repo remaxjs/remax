@@ -7,137 +7,6 @@
 </template>
 
 
-  <template name="REMAX_TPL_1_a-0">
-  <a-0 
-    foo="{{item.props['foo']}}"
-    title="{{item.props['title']}}"ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </a-0>
-</template>
-  
-  <template name="REMAX_TPL_1_a-1">
-  <a-1 ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </a-1>
-</template>
-  
-  <template name="REMAX_TPL_1_b-0">
-  <b-0 ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </b-0>
-</template>
-  
   <template name="REMAX_TPL_1_button">
   <button 
     app-parameter="{{item.props['app-parameter']}}"
@@ -163,49 +32,6 @@
     </block>
     
   </button>
-</template>
-  
-  <template name="REMAX_TPL_1_c-0">
-  <c-0 ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </c-0>
 </template>
   
   <template name="REMAX_TPL_1_canvas">
@@ -263,92 +89,6 @@
   </checkbox-group>
 </template>
   
-  <template name="REMAX_TPL_1_cjs-0">
-  <cjs-0 ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </cjs-0>
-</template>
-  
-  <template name="REMAX_TPL_1_complex-0">
-  <complex-0 ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </complex-0>
-</template>
-  
   <template name="REMAX_TPL_1_contact-button">
   <contact-button 
     card-no="{{item.props['card-no']}}"
@@ -397,8 +137,8 @@
   </cover-view>
 </template>
   
-  <template name="REMAX_TPL_1_d-0">
-  <d-0 ref="{{item.props['__ref']}}">
+  <template name="REMAX_TPL_1_dddd">
+  <dddd ref="{{item.props['__ref']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -437,93 +177,7 @@
       </block>
     </block>
     
-  </d-0>
-</template>
-  
-  <template name="REMAX_TPL_1_e-0">
-  <e-0 ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </e-0>
-</template>
-  
-  <template name="REMAX_TPL_1_f-0">
-  <f-0 ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </f-0>
+  </dddd>
 </template>
   
   <template name="REMAX_TPL_1_form">
@@ -579,6 +233,481 @@
     </block>
     
   </image>
+</template>
+  
+  <template name="REMAX_TPL_1_index">
+  <index 
+    foo="{{item.props['foo']}}"
+    title="{{item.props['title']}}"ref="{{item.props['__ref']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          animation="{{item.props['animation']}}" 
+          class="{{item.props['class']}}" 
+          disable-scroll="{{item.props['disable-scroll']}}" 
+          hidden="{{item.props['hidden']}}" 
+          hover-class="{{item.props['hover-class']}}" 
+          hover-start-time="{{item.props['hover-start-time']}}" 
+          hover-stay-time="{{item.props['hover-stay-time']}}" 
+          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
+          id="{{item.props['id']}}" 
+          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
+          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
+          onAnimationStart="{{item.props['onAnimationStart']}}" 
+          onAppear="{{item.props['onAppear']}}" 
+          onDisappear="{{item.props['onDisappear']}}" 
+          onFirstAppear="{{item.props['onFirstAppear']}}" 
+          onLongTap="{{item.props['onLongTap']}}" 
+          onTap="{{item.props['onTap']}}" 
+          onTouchCancel="{{item.props['onTouchCancel']}}" 
+          onTouchEnd="{{item.props['onTouchEnd']}}" 
+          onTouchMove="{{item.props['onTouchMove']}}" 
+          onTouchStart="{{item.props['onTouchStart']}}" 
+          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
+          style="{{item.props['style']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </index>
+</template>
+  
+  <template name="REMAX_TPL_1_index0">
+  <index0 ref="{{item.props['__ref']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          animation="{{item.props['animation']}}" 
+          class="{{item.props['class']}}" 
+          disable-scroll="{{item.props['disable-scroll']}}" 
+          hidden="{{item.props['hidden']}}" 
+          hover-class="{{item.props['hover-class']}}" 
+          hover-start-time="{{item.props['hover-start-time']}}" 
+          hover-stay-time="{{item.props['hover-stay-time']}}" 
+          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
+          id="{{item.props['id']}}" 
+          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
+          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
+          onAnimationStart="{{item.props['onAnimationStart']}}" 
+          onAppear="{{item.props['onAppear']}}" 
+          onDisappear="{{item.props['onDisappear']}}" 
+          onFirstAppear="{{item.props['onFirstAppear']}}" 
+          onLongTap="{{item.props['onLongTap']}}" 
+          onTap="{{item.props['onTap']}}" 
+          onTouchCancel="{{item.props['onTouchCancel']}}" 
+          onTouchEnd="{{item.props['onTouchEnd']}}" 
+          onTouchMove="{{item.props['onTouchMove']}}" 
+          onTouchStart="{{item.props['onTouchStart']}}" 
+          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
+          style="{{item.props['style']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </index0>
+</template>
+  
+  <template name="REMAX_TPL_1_index1">
+  <index1 ref="{{item.props['__ref']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          animation="{{item.props['animation']}}" 
+          class="{{item.props['class']}}" 
+          disable-scroll="{{item.props['disable-scroll']}}" 
+          hidden="{{item.props['hidden']}}" 
+          hover-class="{{item.props['hover-class']}}" 
+          hover-start-time="{{item.props['hover-start-time']}}" 
+          hover-stay-time="{{item.props['hover-stay-time']}}" 
+          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
+          id="{{item.props['id']}}" 
+          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
+          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
+          onAnimationStart="{{item.props['onAnimationStart']}}" 
+          onAppear="{{item.props['onAppear']}}" 
+          onDisappear="{{item.props['onDisappear']}}" 
+          onFirstAppear="{{item.props['onFirstAppear']}}" 
+          onLongTap="{{item.props['onLongTap']}}" 
+          onTap="{{item.props['onTap']}}" 
+          onTouchCancel="{{item.props['onTouchCancel']}}" 
+          onTouchEnd="{{item.props['onTouchEnd']}}" 
+          onTouchMove="{{item.props['onTouchMove']}}" 
+          onTouchStart="{{item.props['onTouchStart']}}" 
+          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
+          style="{{item.props['style']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </index1>
+</template>
+  
+  <template name="REMAX_TPL_1_index2">
+  <index2 ref="{{item.props['__ref']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          animation="{{item.props['animation']}}" 
+          class="{{item.props['class']}}" 
+          disable-scroll="{{item.props['disable-scroll']}}" 
+          hidden="{{item.props['hidden']}}" 
+          hover-class="{{item.props['hover-class']}}" 
+          hover-start-time="{{item.props['hover-start-time']}}" 
+          hover-stay-time="{{item.props['hover-stay-time']}}" 
+          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
+          id="{{item.props['id']}}" 
+          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
+          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
+          onAnimationStart="{{item.props['onAnimationStart']}}" 
+          onAppear="{{item.props['onAppear']}}" 
+          onDisappear="{{item.props['onDisappear']}}" 
+          onFirstAppear="{{item.props['onFirstAppear']}}" 
+          onLongTap="{{item.props['onLongTap']}}" 
+          onTap="{{item.props['onTap']}}" 
+          onTouchCancel="{{item.props['onTouchCancel']}}" 
+          onTouchEnd="{{item.props['onTouchEnd']}}" 
+          onTouchMove="{{item.props['onTouchMove']}}" 
+          onTouchStart="{{item.props['onTouchStart']}}" 
+          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
+          style="{{item.props['style']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </index2>
+</template>
+  
+  <template name="REMAX_TPL_1_index3">
+  <index3 ref="{{item.props['__ref']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          animation="{{item.props['animation']}}" 
+          class="{{item.props['class']}}" 
+          disable-scroll="{{item.props['disable-scroll']}}" 
+          hidden="{{item.props['hidden']}}" 
+          hover-class="{{item.props['hover-class']}}" 
+          hover-start-time="{{item.props['hover-start-time']}}" 
+          hover-stay-time="{{item.props['hover-stay-time']}}" 
+          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
+          id="{{item.props['id']}}" 
+          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
+          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
+          onAnimationStart="{{item.props['onAnimationStart']}}" 
+          onAppear="{{item.props['onAppear']}}" 
+          onDisappear="{{item.props['onDisappear']}}" 
+          onFirstAppear="{{item.props['onFirstAppear']}}" 
+          onLongTap="{{item.props['onLongTap']}}" 
+          onTap="{{item.props['onTap']}}" 
+          onTouchCancel="{{item.props['onTouchCancel']}}" 
+          onTouchEnd="{{item.props['onTouchEnd']}}" 
+          onTouchMove="{{item.props['onTouchMove']}}" 
+          onTouchStart="{{item.props['onTouchStart']}}" 
+          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
+          style="{{item.props['style']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </index3>
+</template>
+  
+  <template name="REMAX_TPL_1_index4">
+  <index4 ref="{{item.props['__ref']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          animation="{{item.props['animation']}}" 
+          class="{{item.props['class']}}" 
+          disable-scroll="{{item.props['disable-scroll']}}" 
+          hidden="{{item.props['hidden']}}" 
+          hover-class="{{item.props['hover-class']}}" 
+          hover-start-time="{{item.props['hover-start-time']}}" 
+          hover-stay-time="{{item.props['hover-stay-time']}}" 
+          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
+          id="{{item.props['id']}}" 
+          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
+          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
+          onAnimationStart="{{item.props['onAnimationStart']}}" 
+          onAppear="{{item.props['onAppear']}}" 
+          onDisappear="{{item.props['onDisappear']}}" 
+          onFirstAppear="{{item.props['onFirstAppear']}}" 
+          onLongTap="{{item.props['onLongTap']}}" 
+          onTap="{{item.props['onTap']}}" 
+          onTouchCancel="{{item.props['onTouchCancel']}}" 
+          onTouchEnd="{{item.props['onTouchEnd']}}" 
+          onTouchMove="{{item.props['onTouchMove']}}" 
+          onTouchStart="{{item.props['onTouchStart']}}" 
+          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
+          style="{{item.props['style']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </index4>
+</template>
+  
+  <template name="REMAX_TPL_1_index5">
+  <index5 ref="{{item.props['__ref']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          animation="{{item.props['animation']}}" 
+          class="{{item.props['class']}}" 
+          disable-scroll="{{item.props['disable-scroll']}}" 
+          hidden="{{item.props['hidden']}}" 
+          hover-class="{{item.props['hover-class']}}" 
+          hover-start-time="{{item.props['hover-start-time']}}" 
+          hover-stay-time="{{item.props['hover-stay-time']}}" 
+          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
+          id="{{item.props['id']}}" 
+          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
+          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
+          onAnimationStart="{{item.props['onAnimationStart']}}" 
+          onAppear="{{item.props['onAppear']}}" 
+          onDisappear="{{item.props['onDisappear']}}" 
+          onFirstAppear="{{item.props['onFirstAppear']}}" 
+          onLongTap="{{item.props['onLongTap']}}" 
+          onTap="{{item.props['onTap']}}" 
+          onTouchCancel="{{item.props['onTouchCancel']}}" 
+          onTouchEnd="{{item.props['onTouchEnd']}}" 
+          onTouchMove="{{item.props['onTouchMove']}}" 
+          onTouchStart="{{item.props['onTouchStart']}}" 
+          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
+          style="{{item.props['style']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </index5>
+</template>
+  
+  <template name="REMAX_TPL_1_index6">
+  <index6 ref="{{item.props['__ref']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          animation="{{item.props['animation']}}" 
+          class="{{item.props['class']}}" 
+          disable-scroll="{{item.props['disable-scroll']}}" 
+          hidden="{{item.props['hidden']}}" 
+          hover-class="{{item.props['hover-class']}}" 
+          hover-start-time="{{item.props['hover-start-time']}}" 
+          hover-stay-time="{{item.props['hover-stay-time']}}" 
+          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
+          id="{{item.props['id']}}" 
+          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
+          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
+          onAnimationStart="{{item.props['onAnimationStart']}}" 
+          onAppear="{{item.props['onAppear']}}" 
+          onDisappear="{{item.props['onDisappear']}}" 
+          onFirstAppear="{{item.props['onFirstAppear']}}" 
+          onLongTap="{{item.props['onLongTap']}}" 
+          onTap="{{item.props['onTap']}}" 
+          onTouchCancel="{{item.props['onTouchCancel']}}" 
+          onTouchEnd="{{item.props['onTouchEnd']}}" 
+          onTouchMove="{{item.props['onTouchMove']}}" 
+          onTouchStart="{{item.props['onTouchStart']}}" 
+          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
+          style="{{item.props['style']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </index6>
+</template>
+  
+  <template name="REMAX_TPL_1_index7">
+  <index7 ref="{{item.props['__ref']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          animation="{{item.props['animation']}}" 
+          class="{{item.props['class']}}" 
+          disable-scroll="{{item.props['disable-scroll']}}" 
+          hidden="{{item.props['hidden']}}" 
+          hover-class="{{item.props['hover-class']}}" 
+          hover-start-time="{{item.props['hover-start-time']}}" 
+          hover-stay-time="{{item.props['hover-stay-time']}}" 
+          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
+          id="{{item.props['id']}}" 
+          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
+          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
+          onAnimationStart="{{item.props['onAnimationStart']}}" 
+          onAppear="{{item.props['onAppear']}}" 
+          onDisappear="{{item.props['onDisappear']}}" 
+          onFirstAppear="{{item.props['onFirstAppear']}}" 
+          onLongTap="{{item.props['onLongTap']}}" 
+          onTap="{{item.props['onTap']}}" 
+          onTouchCancel="{{item.props['onTouchCancel']}}" 
+          onTouchEnd="{{item.props['onTouchEnd']}}" 
+          onTouchMove="{{item.props['onTouchMove']}}" 
+          onTouchStart="{{item.props['onTouchStart']}}" 
+          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
+          style="{{item.props['style']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </index7>
+</template>
+  
+  <template name="REMAX_TPL_1_index8">
+  <index8 ref="{{item.props['__ref']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          animation="{{item.props['animation']}}" 
+          class="{{item.props['class']}}" 
+          disable-scroll="{{item.props['disable-scroll']}}" 
+          hidden="{{item.props['hidden']}}" 
+          hover-class="{{item.props['hover-class']}}" 
+          hover-start-time="{{item.props['hover-start-time']}}" 
+          hover-stay-time="{{item.props['hover-stay-time']}}" 
+          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
+          id="{{item.props['id']}}" 
+          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
+          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
+          onAnimationStart="{{item.props['onAnimationStart']}}" 
+          onAppear="{{item.props['onAppear']}}" 
+          onDisappear="{{item.props['onDisappear']}}" 
+          onFirstAppear="{{item.props['onFirstAppear']}}" 
+          onLongTap="{{item.props['onLongTap']}}" 
+          onTap="{{item.props['onTap']}}" 
+          onTouchCancel="{{item.props['onTouchCancel']}}" 
+          onTouchEnd="{{item.props['onTouchEnd']}}" 
+          onTouchMove="{{item.props['onTouchMove']}}" 
+          onTouchStart="{{item.props['onTouchStart']}}" 
+          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
+          style="{{item.props['style']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </index8>
+</template>
+  
+  <template name="REMAX_TPL_1_index9">
+  <index9 ref="{{item.props['__ref']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          animation="{{item.props['animation']}}" 
+          class="{{item.props['class']}}" 
+          disable-scroll="{{item.props['disable-scroll']}}" 
+          hidden="{{item.props['hidden']}}" 
+          hover-class="{{item.props['hover-class']}}" 
+          hover-start-time="{{item.props['hover-start-time']}}" 
+          hover-stay-time="{{item.props['hover-stay-time']}}" 
+          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
+          id="{{item.props['id']}}" 
+          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
+          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
+          onAnimationStart="{{item.props['onAnimationStart']}}" 
+          onAppear="{{item.props['onAppear']}}" 
+          onDisappear="{{item.props['onDisappear']}}" 
+          onFirstAppear="{{item.props['onFirstAppear']}}" 
+          onLongTap="{{item.props['onLongTap']}}" 
+          onTap="{{item.props['onTap']}}" 
+          onTouchCancel="{{item.props['onTouchCancel']}}" 
+          onTouchEnd="{{item.props['onTouchEnd']}}" 
+          onTouchMove="{{item.props['onTouchMove']}}" 
+          onTouchStart="{{item.props['onTouchStart']}}" 
+          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
+          style="{{item.props['style']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </index9>
 </template>
   
   <template name="REMAX_TPL_1_input">
@@ -713,92 +842,6 @@
   </movable-view>
 </template>
   
-  <template name="REMAX_TPL_1_my-plugin-0">
-  <my-plugin-0 ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </my-plugin-0>
-</template>
-  
-  <template name="REMAX_TPL_1_my-plugin-1">
-  <my-plugin-1 ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </my-plugin-1>
-</template>
-  
   <template name="REMAX_TPL_1_navigator">
   <navigator 
     class="{{item.props['class']}}"
@@ -815,49 +858,6 @@
     </block>
     
   </navigator>
-</template>
-  
-  <template name="REMAX_TPL_1_not-in-jsx-0">
-  <not-in-jsx-0 ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </not-in-jsx-0>
 </template>
   
   <template name="REMAX_TPL_1_picker">
@@ -1028,178 +1028,6 @@
     </block>
     
   </slider>
-</template>
-  
-  <template name="REMAX_TPL_1_slot-0">
-  <slot-0 ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </slot-0>
-</template>
-  
-  <template name="REMAX_TPL_1_src-0">
-  <src-0 ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </src-0>
-</template>
-  
-  <template name="REMAX_TPL_1_sub-plugin-0">
-  <sub-plugin-0 ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </sub-plugin-0>
-</template>
-  
-  <template name="REMAX_TPL_1_sub-plugin-1">
-  <sub-plugin-1 ref="{{item.props['__ref']}}">
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </sub-plugin-1>
 </template>
   
   <template name="REMAX_TPL_1_swiper">
@@ -1384,6 +1212,49 @@
     </block>
     
   </web-view>
+</template>
+  
+  <template name="REMAX_TPL_1_xx">
+  <xx ref="{{item.props['__ref']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          animation="{{item.props['animation']}}" 
+          class="{{item.props['class']}}" 
+          disable-scroll="{{item.props['disable-scroll']}}" 
+          hidden="{{item.props['hidden']}}" 
+          hover-class="{{item.props['hover-class']}}" 
+          hover-start-time="{{item.props['hover-start-time']}}" 
+          hover-stay-time="{{item.props['hover-stay-time']}}" 
+          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
+          id="{{item.props['id']}}" 
+          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
+          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
+          onAnimationStart="{{item.props['onAnimationStart']}}" 
+          onAppear="{{item.props['onAppear']}}" 
+          onDisappear="{{item.props['onDisappear']}}" 
+          onFirstAppear="{{item.props['onFirstAppear']}}" 
+          onLongTap="{{item.props['onLongTap']}}" 
+          onTap="{{item.props['onTap']}}" 
+          onTouchCancel="{{item.props['onTouchCancel']}}" 
+          onTouchEnd="{{item.props['onTouchEnd']}}" 
+          onTouchMove="{{item.props['onTouchMove']}}" 
+          onTouchStart="{{item.props['onTouchStart']}}" 
+          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
+          style="{{item.props['style']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </xx>
 </template>
   
 

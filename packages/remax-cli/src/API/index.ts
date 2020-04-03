@@ -1,6 +1,13 @@
 import { hostComponents } from 'remax/macro';
 import * as t from '@babel/types';
-import { RemaxOptions, RemaxNodePlugin, ExtendsCLIOptions, ExtendsRollupConfigOptions, Meta } from 'remax-types';
+import {
+  RemaxOptions,
+  RemaxNodePlugin,
+  ExtendsCLIOptions,
+  ExtendsRollupConfigOptions,
+  Meta,
+  HostComponent,
+} from 'remax-types';
 import { RollupOptions } from 'rollup';
 import { merge } from 'lodash';
 
@@ -150,13 +157,13 @@ class API {
     });
   }
 
-  private registerHostComponents(components?: Map<string, any>) {
+  private registerHostComponents(components?: Map<string, HostComponent>) {
     if (!components) {
       return;
     }
 
     for (const key of components.keys()) {
-      hostComponents.set(key, components.get(key));
+      hostComponents.set(key, components.get(key)!);
     }
   }
 }

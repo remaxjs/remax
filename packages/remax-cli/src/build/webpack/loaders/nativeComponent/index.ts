@@ -1,13 +1,13 @@
 import utils from 'loader-utils';
 import { loader } from 'webpack';
-import { isNativeComponent } from '../../../nativeComponents/util';
+import { registerNativeComponent as register } from 'remax/macro';
+import { isNativeComponent } from '../../../nativeComponent';
 import jsHelper, { getJsHelpers } from './jsHelper';
 import jsModule, { getJsModules } from './modules';
 import style, { getcssPaths } from './style';
 import json, { getjsonPaths } from './json';
 import usingComponents from './usingComponents';
 import template, { getTemplatePaths } from './template';
-import { register } from '../../../nativeComponents';
 
 const getAssets = () => [
   ...getcssPaths(),
@@ -41,8 +41,8 @@ export default function nativeComponent(this: loader.LoaderContext, source: stri
 
     const type = register(resourcePath, '', assets);
 
-    return `import { unstable_createNativeComponent } from 'remax';
-export default unstable_createNativeComponent('${type}')
+    return `import { createNativeComponent } from 'remax';
+export default createNativeComponent('${type}')
 `;
   }
 

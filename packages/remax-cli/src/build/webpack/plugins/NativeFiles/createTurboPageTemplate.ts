@@ -1,12 +1,12 @@
 import * as path from 'path';
 import { compilation } from 'webpack';
-import { RemaxOptions, Meta } from 'remax-types';
 import ejs from 'ejs';
+import { nativeComponents } from 'remax/macro';
+import { RemaxOptions, Meta } from 'remax-types';
 import { TEMPLATE_ID } from '../../../babel/compiler/static/constants';
 import { templateInfoMap } from '../../../babel/compiler/static/render/templates';
 import { createRenderOptions } from './createPageTemplate';
 import { ComponentManifest } from '../../../babel/componentManifest';
-import { nativeComponents } from '../../../nativeComponents';
 
 export default async function createTurboPageTemplate(
   options: RemaxOptions,

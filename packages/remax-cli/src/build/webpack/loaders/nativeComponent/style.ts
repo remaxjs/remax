@@ -1,17 +1,17 @@
 import { existsSync, readFileSync } from 'fs';
 import postcss from 'postcss';
 import API from '../../../../API';
-import { pushArray, getPath } from '../../../nativeComponents/util';
+import { getPath } from '../../../nativeComponent';
 import output from '../../../utils/output';
 
-const cssPaths: string[] = [];
+const cssPaths: Set<string> = new Set();
 
 export const walk = (filePath: string) => {
   if (!existsSync(filePath)) {
     return;
   }
 
-  pushArray(cssPaths, filePath);
+  cssPaths.add(filePath);
 
   const content = readFileSync(filePath);
   const ast = postcss.parse(content);

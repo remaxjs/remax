@@ -4,13 +4,13 @@ import traverse from '@babel/traverse';
 import * as htmlparser2 from 'htmlparser2';
 import { get } from 'lodash';
 import API from '../../../../API';
-import { getPath, pushArray, readFile } from '../../../nativeComponents/util';
+import { getPath } from '../../../nativeComponent';
 import output from '../../../utils/output';
 
-const jsHelpers: string[] = [];
+const jsHelpers: Set<string> = new Set();
 
 const walk = (jsHelperPath: string) => {
-  const jsHelperContent = readFile(jsHelperPath);
+  const jsHelperContent = fs.readFileSync(jsHelperPath).toString();
   const ast = babelParser.parse(jsHelperContent, {
     sourceType: 'module',
   });
@@ -25,7 +25,7 @@ const walk = (jsHelperPath: string) => {
 
     const absolutePath = getPath(jsHelperPath, importPath);
 
-    pushArray(jsHelpers, absolutePath);
+    jsHelpers.add(absolutePath);
 
     walk(absolutePath);
   };
@@ -41,7 +41,7 @@ const parseTemplate = (filePath: string, jsHelper: any) => {
 
   const { tag, src } = jsHelper!;
 
-  const content = readFile(filePath);
+  const content = fs.readFileSync(filePath).toString();
 
   parser._cbs.onopentag = (name, attrs) => {
     if (name === tag && attrs[src]) {
@@ -54,7 +54,7 @@ const parseTemplate = (filePath: string, jsHelper: any) => {
 
       walk(jsHelperPath);
 
-      pushArray(jsHelpers, jsHelperPath);
+      jsHelpers.add(jsHelperPath);
     }
   };
 
@@ -74,4 +74,4 @@ export default function jsHelper(id: string) {
   parseTemplate(templatePath, jsHelper);
 }
 
-export const getJsHelpers = () => jsHelpers;
+export const getJsHelpers = () => Array.from(jsHelpers);

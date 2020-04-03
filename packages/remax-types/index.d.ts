@@ -103,19 +103,24 @@ export type ShouldHostComponentRegister = {
   phase: 'import' | 'jsx' | 'extra';
 };
 
-export type HostComponent = {
+export interface HostComponent {
   props: string[];
   additional?: boolean;
   alias?: { [key: string]: string };
-};
+}
 
-export type HostComponents = Map<string, HostComponent>;
+export interface NativeComponent {
+  id: string;
+  sourcePath: string;
+  importers: string[];
+  assets: string[];
+}
 
 export interface RemaxNodePlugin {
   /** 插件名称 */
   name: string;
   meta?: Meta;
-  hostComponents?: HostComponents;
+  hostComponents?: Map<string, HostComponent>;
   /**
    * 扩展 CLI 命令
    */

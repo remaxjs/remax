@@ -1,0 +1,1 @@
+requirePlugin('plugin://component');

@@ -1,10 +1,9 @@
 import { existsSync } from 'fs';
 import output from '../../../utils/output';
-import { pushArray } from '../../../nativeComponents/util';
 
-const jsonPaths: string[] = [];
+const jsonPaths: Set<string> = new Set();
 
-export const getjsonPaths = () => jsonPaths;
+export const getjsonPaths = () => Array.from(jsonPaths);
 
 export default function json(id: string) {
   const filePath = id.replace(/\.js$/, '.json');
@@ -13,5 +12,5 @@ export default function json(id: string) {
     return;
   }
 
-  pushArray(jsonPaths, filePath);
+  jsonPaths.add(filePath);
 }

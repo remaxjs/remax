@@ -1,7 +1,7 @@
 import { existsSync } from 'fs';
 import path from 'path';
 import { loader } from 'webpack';
-import { getPath } from '../../../nativeComponents/util';
+import { getPath } from '../../../nativeComponent';
 import output from '../../../utils/output';
 import { RemaxOptions } from 'remax-types';
 

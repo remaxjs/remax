@@ -6,11 +6,11 @@ import * as babelParser from '@babel/parser';
 import traverse, { NodePath } from '@babel/traverse';
 import { get } from 'lodash';
 import resolve from 'resolve';
-import { getPath, pushArray, readFile } from '../../../nativeComponents/util';
+import { getPath } from '../../../nativeComponent';
 import { RemaxOptions } from 'remax-types';
 import winPath from '../../../../winPath';
 
-const modules: string[] = [];
+const modules: Set<string> = new Set();
 
 export function resolveModulesInCode(code: string, filePath: string, options: RemaxOptions) {
   const magicString = new MagicString(code);
@@ -58,7 +58,7 @@ export function resolveModulesInCode(code: string, filePath: string, options: Re
 }
 
 const walk = (jsPath: string, options: RemaxOptions) => {
-  const jsContent = readFile(jsPath);
+  const jsContent = fs.readFileSync(jsPath).toString();
   const ast = babelParser.parse(jsContent, {
     sourceType: 'module',
   });
@@ -90,7 +90,7 @@ const walk = (jsPath: string, options: RemaxOptions) => {
       return;
     }
 
-    pushArray(modules, absolutePath);
+    modules.add(absolutePath);
 
     walk(absolutePath, options);
   };
@@ -103,7 +103,7 @@ const walk = (jsPath: string, options: RemaxOptions) => {
 
 const parseTemplate = (filePath: string, options: RemaxOptions) => {
   walk(filePath, options);
-  pushArray(modules, filePath);
+  modules.add(filePath);
 };
 
 export default function jsModule(options: RemaxOptions, id: string) {
@@ -112,4 +112,4 @@ export default function jsModule(options: RemaxOptions, id: string) {
   parseTemplate(templatePath, options);
 }
 
-export const getJsModules = () => modules;
+export const getJsModules = () => Array.from(modules);

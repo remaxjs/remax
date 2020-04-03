@@ -1,13 +1,13 @@
 import * as htmlparser2 from 'htmlparser2';
 import fs from 'fs';
 import API from '../../../../API';
-import { pushArray, getPath } from '../../../nativeComponents/util';
+import { getPath } from '../../../nativeComponent';
 import output from '../../../utils/output';
 import { RemaxOptions } from 'remax-types';
 
 const parser = new htmlparser2.Parser({});
 
-const templatePaths: string[] = [];
+const templatePaths: Set<string> = new Set();
 
 export function walk(filePath: string, options: RemaxOptions) {
   if (!fs.existsSync(filePath)) {
@@ -19,7 +19,7 @@ export function walk(filePath: string, options: RemaxOptions) {
   const { tag, src } = meta.template;
   const { tag: includeTag, src: includeSrc } = meta.include;
 
-  pushArray(templatePaths, filePath);
+  templatePaths.add(filePath);
 
   const content = fs.readFileSync(filePath).toString();
 
