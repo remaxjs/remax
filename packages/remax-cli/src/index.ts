@@ -4,6 +4,7 @@ export { default as logger } from './build/utils/output';
 import yargs from 'yargs';
 import build from './build';
 import { checkRemaxVersion } from './checkVersions';
+import analytics from './analytics';
 
 export type Entries = EntriesType;
 export type RemaxOptions = RemaxOptionsType;
@@ -24,7 +25,10 @@ export function run(args: any, context?: any, callback?: yargs.ParseCallback) {
       () => {
         // ignore
       },
-      (argv: any) => build(argv, context)
+      (argv: any) => {
+        analytics.event('cli', 'build', argv.target).send();
+        build(argv, context);
+      }
     );
 
   cli = API.extendsCLI({ cli });

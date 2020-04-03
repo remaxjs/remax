@@ -20,12 +20,6 @@ describe('node', () => {
         "tag": "wxs",
       }
     `);
-    expect(meta.include).toMatchInlineSnapshot(`
-      Object {
-        "src": "src",
-        "tag": "include",
-      }
-    `);
   });
 
   it('shouldHostComponentRegister', () => {

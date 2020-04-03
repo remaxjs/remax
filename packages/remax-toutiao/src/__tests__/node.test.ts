@@ -14,12 +14,6 @@ describe('node', () => {
     `);
     expect(meta.style).toMatchInlineSnapshot(`".ttss"`);
     expect(meta.jsHelper).toMatchInlineSnapshot(`undefined`);
-    expect(meta.include).toMatchInlineSnapshot(`
-      Object {
-        "src": "src",
-        "tag": "include",
-      }
-    `);
   });
 
   it('shouldHostComponentRegister', () => {

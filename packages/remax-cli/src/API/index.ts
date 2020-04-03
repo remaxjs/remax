@@ -62,10 +62,6 @@ class API {
         tag: '',
         src: '',
       },
-      include: {
-        tag: '',
-        src: '',
-      },
       ejs: {
         page: '',
       },

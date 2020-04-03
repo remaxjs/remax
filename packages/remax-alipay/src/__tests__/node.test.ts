@@ -21,12 +21,6 @@ describe('node', () => {
         "tag": "import-sjs",
       }
     `);
-    expect(meta.include).toMatchInlineSnapshot(`
-      Object {
-        "src": "src",
-        "tag": "include",
-      }
-    `);
   });
 
   it('shouldHostComponentRegister', () => {

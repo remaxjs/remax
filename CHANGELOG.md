@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.4](https://github.com/remaxjs/remax/compare/v1.19.3...v1.19.4) (2020-04-03)
+
+### Bug Fixes
+
+- **alipay:** 修复支付宝 IDE 的编译监听 ([b439ee0](https://github.com/remaxjs/remax/commit/b439ee0d6ee0553019f393e871276265b89cc5fb))
+
+## [1.19.3](https://github.com/remaxjs/remax/compare/v1.19.2...v1.19.3) (2020-04-02)
+
+### Bug Fixes
+
+- 修复小程序自定义组件引用多个模板时编译错误的问题 ([#761](https://github.com/remaxjs/remax/issues/761)) ([7757678](https://github.com/remaxjs/remax/commit/7757678a33e827895f3df6d2766bdef9856fb7df))
+
+## [1.19.2](https://github.com/remaxjs/remax/compare/v1.19.1...v1.19.2) (2020-04-01)
+
+### Bug Fixes
+
+- 修复小程序自定义组件的模板引用 ([#759](https://github.com/remaxjs/remax/issues/759)) ([2e82fc1](https://github.com/remaxjs/remax/commit/2e82fc10ded34c3f70d07b8ce647135d4a6ac359))
+
 ## [1.19.1](https://github.com/remaxjs/remax/compare/v1.19.0...v1.19.1) (2020-03-31)
 
 ### Bug Fixes

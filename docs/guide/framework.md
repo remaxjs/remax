@@ -176,7 +176,7 @@ export default function App(props) {
     console.log('这个 hook 等用于 onShow');
   });
 
-  useAppShareAppMessage('onShareAppMessage', () => {
+  useAppEvent('onShareAppMessage', () => {
     console.log('这个 hook 等用于 onShareAppMessage');
   });
 

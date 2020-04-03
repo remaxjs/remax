@@ -60,12 +60,6 @@ describe('API', () => {
 
   it('getMeta', () => {
     const extensions = API.getMeta();
-    expect(extensions.include).toMatchInlineSnapshot(`
-      Object {
-        "src": "src",
-        "tag": "include",
-      }
-    `);
     expect(extensions.jsHelper).toMatchInlineSnapshot(`
       Object {
         "extension": ".sjs",

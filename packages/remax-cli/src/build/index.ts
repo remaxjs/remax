@@ -43,6 +43,11 @@ export default async (argv: any, context?: Context) => {
         output.warn(info.warnings.join('\n'));
       }
 
+      // 适配支付宝小程序 IDE
+      if (target === 'alipay') {
+        output.message('Watching for changes...', 'green', options.notify);
+      }
+
       output.message('💡 完成', 'green');
     });
 

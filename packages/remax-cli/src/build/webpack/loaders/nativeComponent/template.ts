@@ -5,8 +5,6 @@ import { getPath } from '../../../nativeComponent';
 import output from '../../../utils/output';
 import { RemaxOptions } from 'remax-types';
 
-const parser = new htmlparser2.Parser({});
-
 const templatePaths: Set<string> = new Set();
 
 export function walk(filePath: string, options: RemaxOptions) {
@@ -17,17 +15,18 @@ export function walk(filePath: string, options: RemaxOptions) {
 
   const meta = API.getMeta();
   const { tag, src } = meta.template;
-  const { tag: includeTag, src: includeSrc } = meta.include;
 
   templatePaths.add(filePath);
 
   const content = fs.readFileSync(filePath).toString();
 
+  const parser = new htmlparser2.Parser({});
+
   parser._cbs.onopentag = (name, attrs) => {
     if (name === tag && attrs[src]) {
       walk(getPath(filePath, attrs[src]), options);
-    } else if (name === includeTag && attrs[includeSrc]) {
-      walk(getPath(filePath, attrs[includeSrc]), options);
+    } else if (['include', 'import'].includes(name) && attrs.src) {
+      walk(getPath(filePath, attrs.src), options);
     }
   };
 
