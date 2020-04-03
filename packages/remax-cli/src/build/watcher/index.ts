@@ -63,7 +63,7 @@ export default function runWatcher(
         isBundleRunning = false;
         output('💡 编译完成', 'green', remaxOptions.notify);
         // 适配支付宝小程序 IDE
-        if (process.env.VOL_ROOT) {
+        if (cli.target === 'alipay') {
           output('Watching for changes...', 'green', remaxOptions.notify);
         }
         break;
