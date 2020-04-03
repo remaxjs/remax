@@ -40,7 +40,7 @@ function getFilesInDir(fs: IFs, root: string, fsPath: string) {
       outputs = outputs.concat(getFilesInDir(fs, root, filePath));
     } else {
       outputs.push({
-        fileName: filePath.replace(root, ''),
+        fileName: filePath.replace(winPath(root), ''),
         code: fs.readFileSync(filePath).toString(),
       });
     }
@@ -116,7 +116,7 @@ export default async function build(app: string, target: PlatformTarget, options
       const include = options.include || [];
       const includeRegExp = new RegExp(`(${include.join('|')})`);
       const excludeRegExp = new RegExp(`(${exclude.join('|')})`);
-      const outputDir = winPath(path.join(cwd, remaxOptions.output));
+      const outputDir = path.join(cwd, remaxOptions.output);
       const output = getFilesInDir(fs, outputDir + '/', outputDir).filter(
         c =>
           (include.length > 0 && includeRegExp.test(c.fileName)) ||
