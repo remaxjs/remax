@@ -83,6 +83,8 @@ export default function createAppConfig(this: any, App: any) {
           props.ref = this._instance;
         }
 
+        console.log(this._pages);
+
         return render(
           React.createElement(
             AppComponent,

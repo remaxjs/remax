@@ -39,28 +39,3 @@ export function enabled(module: string) {
     return false;
   }
 }
-
-export function entryGroup(entryKeys: string[], meta: Meta) {
-  return entryKeys.reduce<any>((acc, key) => {
-    const name = key + meta.style;
-    acc[name] = {
-      name,
-      test: (module: any, chunks: any[]) => {
-        if (module.constructor.name === 'CssModule') {
-          const isApp = !!chunks.find(c => c.name === 'app');
-
-          if (isApp && key !== 'app') {
-            return false;
-          }
-
-          return chunks.find(c => c.name === key);
-        }
-
-        return false;
-      },
-      enforce: true,
-    };
-
-    return acc;
-  }, {});
-}

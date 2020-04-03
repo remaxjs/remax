@@ -16,6 +16,7 @@ export default class OptimizeEntriesPlugin {
     compiler.hooks.thisCompilation.tap(PLUGIN_NAME, (compilation: compilation.Compilation) => {
       compilation.hooks.optimizeChunkAssets.tapAsync(PLUGIN_NAME, (chunks, callback) => {
         this.requireChunks(compilation);
+        this.requireStyles(compilation);
         callback();
       });
     });
@@ -36,6 +37,25 @@ export default class OptimizeEntriesPlugin {
           const chunkPath = group.name + '.js';
           compilation.assets[chunkPath] = new ConcatSource(...requires, compilation.assets[chunkPath] ?? '');
         }
+      });
+    });
+  }
+
+  requireStyles(compilation: compilation.Compilation) {
+    compilation.chunkGroups.forEach(group => {
+      const assetPath = group.name + this.meta.style;
+
+      group.chunks.reverse().forEach((chunk: any) => {
+        // require 相关的 styles
+        const requires = (chunk.files as string[])
+          .filter(file => file.endsWith(this.meta.style) && assetPath !== file)
+          .map(file => {
+            const relativePath = path.relative(path.dirname(group.name), file);
+            const requirePath = `@import "./${relativePath}";\n`;
+            return requirePath;
+          });
+
+        compilation.assets[assetPath] = new ConcatSource(...requires, compilation.assets[assetPath] ?? '');
       });
     });
   }

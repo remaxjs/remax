@@ -53,7 +53,6 @@ function prepare(options: RemaxOptions, target: PlatformTarget) {
 
 export default function webpackConfig(options: RemaxOptions, target: PlatformTarget): Configuration {
   const { meta, turboPagesEnabled, entries, entryMap, stubModules, env, publicPath } = prepare(options, target);
-  const styleGroup = styleConfig.entryGroup(Object.keys(entryMap), meta);
 
   for (const entry in entryMap) {
     config.entry(entry).add(entryMap[entry]);
@@ -75,9 +74,6 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
   config.optimization.runtimeChunk({ name: 'runtime' });
   config.optimization.splitChunks({
     chunks: 'initial',
-    cacheGroups: {
-      ...styleGroup,
-    },
   });
 
   config.module
@@ -149,14 +145,14 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
   const preprocessCssRules = [
     {
       name: 'postcss',
-      loader: 'postcss-loader',
+      loader: require.resolve('postcss-loader'),
       options: {
         plugins: [options.pxToRpx && pxToUnits()].filter(Boolean),
       },
     },
-    styleConfig.enabled('less') && { name: 'less', loader: 'less-loader' },
-    styleConfig.enabled('node-sass') && { name: 'sass', loader: 'sass-loader' },
-    styleConfig.enabled('stylus') && { name: 'stylus', loader: 'stylus-loader' },
+    styleConfig.enabled('less') && { name: 'less', loader: require.resolve('less-loader') },
+    styleConfig.enabled('node-sass') && { name: 'sass', loader: require.resolve('sass-loader') },
+    styleConfig.enabled('stylus') && { name: 'stylus', loader: require.resolve('stylus-loader') },
   ].filter(Boolean) as any[];
 
   let stylesRule = config.module
@@ -168,7 +164,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .loader(MiniCssExtractPlugin.loader)
     .end()
     .use('css')
-    .loader('css-loader')
+    .loader(require.resolve('css-loader'))
     .options({
       importLoaders: preprocessCssRules.length,
     })
@@ -231,7 +227,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .rule('json')
     .test(/\.json$/)
     .use('json')
-    .loader('json-loader')
+    .loader(require.resolve('json-loader'))
     .options({
       modules: stubModules,
     });
@@ -246,7 +242,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
     .rule('images')
     .test(/\.(png|jpe?g|gif|svg)$/i)
     .use('file')
-    .loader('file-loader');
+    .loader(require.resolve('file-loader'));
 
   config.module
     .rule('resolvePlatformFiles')
@@ -259,7 +255,7 @@ export default function webpackConfig(options: RemaxOptions, target: PlatformTar
   }
 
   config.plugin('define').use(DefinePlugin, [env.stringified]);
-  config.plugin('cssExtract').use(MiniCssExtractPlugin, [{ filename: `[name]` }]);
+  config.plugin('cssExtract').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('optimizeEntries').use(RemaxPlugins.OptimizeEntries, [meta]);
   config.plugin('nativeFiles').use(RemaxPlugins.NativeFiles, [options]);
 
