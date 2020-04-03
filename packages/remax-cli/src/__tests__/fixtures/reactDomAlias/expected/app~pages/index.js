@@ -2287,7 +2287,7 @@ function createPageConfig(Page) {
       return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].pageScroll, e);
     },
     onShareAppMessage: function onShareAppMessage(options) {
-      return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].shareAppMessage, options);
+      return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].shareAppMessage, options) || {};
     },
     onTitleClick: function onTitleClick() {
       return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].titleClick);

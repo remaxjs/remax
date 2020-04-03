@@ -1,4 +1,4 @@
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[3],[
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[2],[
 /* 0 */,
 /* 1 */,
 /* 2 */
@@ -2215,7 +2215,7 @@ function createPageConfig(Page) {
       return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].pageScroll, e);
     },
     onShareAppMessage: function onShareAppMessage(options) {
-      return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].shareAppMessage, options);
+      return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].shareAppMessage, options) || {};
     },
     onTitleClick: function onTitleClick() {
       return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].titleClick);

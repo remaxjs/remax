@@ -1,9 +1,7 @@
 require('./../runtime.js');
-require('./../packageA/pages/index.acss.js');
-require('./index.acss.js');
 require('./../app~packageA/pages/index~pages/index.js');
 require('./../packageA/pages/index~pages/index.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[6],{
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[2],{
 
 /***/ 103:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -258,7 +256,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ 59:
 /***/ (function(module, exports) {
 
-module.exports = {};
+module.exports = {
+  stub: true
+};
 
 /***/ }),
 
@@ -272,8 +272,10 @@ module.exports = scheduler;
 /***/ 60:
 /***/ (function(module, exports) {
 
-module.exports = {};
+module.exports = {
+  stub: true
+};
 
 /***/ })
 
-},[[40,0,3,2,5,8]]]);
+},[[40,0,5,4]]]);

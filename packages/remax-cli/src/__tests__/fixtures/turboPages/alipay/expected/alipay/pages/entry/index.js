@@ -1,7 +1,7 @@
 require('./../../runtime.js');
 require('./../../app~pages/entry/index~pages/index~pages/turboPageDisabled.js');
 require('./index~pages/index~pages/turboPageDisabled.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[5],{
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[4],{
 
 /***/ 14:
 /***/ (function(module, exports) {
@@ -176,4 +176,4 @@ function _Index() {
 
 /***/ })
 
-},[[83,0,3,7]]]);
+},[[83,0,2,6]]]);

@@ -1,6 +1,6 @@
 require('./../../runtime.js');
 require('./../../app~packageA/pages/index~pages/index.js');
-(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[5],{
+(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[4],{
 
 /***/ 14:
 /***/ (function(module, exports) {
@@ -119,14 +119,18 @@ __webpack_require__.r(__webpack_exports__);
 /***/ 77:
 /***/ (function(module, exports) {
 
-module.exports = {};
+module.exports = {
+  stub: true
+};
 
 /***/ }),
 
 /***/ 78:
 /***/ (function(module, exports) {
 
-module.exports = {};
+module.exports = {
+  stub: true
+};
 
 /***/ }),
 
@@ -173,4 +177,4 @@ var _page = function _page() {
 
 /***/ })
 
-},[[79,0,3]]]);
+},[[79,0,2]]]);

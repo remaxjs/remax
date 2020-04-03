@@ -1,6 +1,6 @@
 require('./runtime.js');
 require('./app~pages/index.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[2],[
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[1],[
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 

@@ -1,7 +1,6 @@
 require('./runtime.js');
-require('./app.wxss.js');
 require('./app~packageA/pages/index~pages/index.js');
-(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[2],{
+(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[1],{
 
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
@@ -100,4 +99,4 @@ module.exports = scheduler;
 
 /***/ })
 
-},[[0,0,1,3]]]);
+},[[0,0,2]]]);

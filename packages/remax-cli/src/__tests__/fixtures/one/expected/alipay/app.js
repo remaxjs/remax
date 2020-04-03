@@ -1,7 +1,6 @@
 require('./runtime.js');
-require('./app.acss.js');
 require('./app~packageA/pages/index~pages/index.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[4],{
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[1],{
 
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
@@ -123,4 +122,4 @@ module.exports = scheduler;
 
 /***/ })
 
-},[[0,0,1,5]]]);
+},[[0,0,5]]]);

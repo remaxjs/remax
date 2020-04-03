@@ -1,4 +1,4 @@
-(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[7],Array(41).concat([
+(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[6],Array(41).concat([
 /* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -9,8 +9,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var remax_alipay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(42);
-/* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(82);
-/* harmony import */ var remax_toutiao__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(86);
+/* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(46);
+/* harmony import */ var remax_toutiao__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(50);
 
 
 
@@ -39,7 +39,6 @@ function View() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var remax_alipay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(43);
-/* harmony import */ var remax_alipay__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(remax_alipay__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in remax_alipay__WEBPACK_IMPORTED_MODULE_0__) if(["render","createAppConfig","createPageConfig","createHostComponent","Platform","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return remax_alipay__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _esm_render__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _esm_render__WEBPACK_IMPORTED_MODULE_1__["default"]; });
@@ -111,1292 +110,42 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 /* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function __export(m) {
-  for (var p in m) {
-    if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-  }
-}
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-__export(__webpack_require__(44));
-
-__export(__webpack_require__(80));
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-function __export(m) {
-  for (var p in m) {
-    if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-  }
-}
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var View_1 = __webpack_require__(45);
-
-exports.View = View_1["default"];
-
-__export(__webpack_require__(45));
-
-var ScrollView_1 = __webpack_require__(47);
-
-exports.ScrollView = ScrollView_1["default"];
-
-__export(__webpack_require__(47));
-
-var Swiper_1 = __webpack_require__(48);
-
-exports.Swiper = Swiper_1["default"];
-
-__export(__webpack_require__(48));
-
-var SwiperItem_1 = __webpack_require__(49);
-
-exports.SwiperItem = SwiperItem_1["default"];
-
-__export(__webpack_require__(49));
-
-var MovableView_1 = __webpack_require__(50);
-
-exports.MovableView = MovableView_1["default"];
-
-__export(__webpack_require__(50));
-
-var MovableArea_1 = __webpack_require__(51);
-
-exports.MovableArea = MovableArea_1["default"];
-
-__export(__webpack_require__(51));
-
-var CoverView_1 = __webpack_require__(52);
-
-exports.CoverView = CoverView_1["default"];
-
-__export(__webpack_require__(52));
-
-var CoverImage_1 = __webpack_require__(53);
-
-exports.CoverImage = CoverImage_1["default"];
-
-__export(__webpack_require__(53));
-
-var Icon_1 = __webpack_require__(54);
-
-exports.Icon = Icon_1["default"];
-
-__export(__webpack_require__(54));
-
-var Text_1 = __webpack_require__(55);
-
-exports.Text = Text_1["default"];
-
-__export(__webpack_require__(55));
-
-var RichText_1 = __webpack_require__(56);
-
-exports.RichText = RichText_1["default"];
-
-__export(__webpack_require__(56));
-
-var Progress_1 = __webpack_require__(57);
-
-exports.Progress = Progress_1["default"];
-
-__export(__webpack_require__(57));
-
-var Button_1 = __webpack_require__(58);
-
-exports.Button = Button_1["default"];
-
-__export(__webpack_require__(58));
-
-var CheckboxGroup_1 = __webpack_require__(59);
-
-exports.CheckboxGroup = CheckboxGroup_1["default"];
-
-__export(__webpack_require__(59));
-
-var Checkbox_1 = __webpack_require__(60);
-
-exports.Checkbox = Checkbox_1["default"];
-
-__export(__webpack_require__(60));
-
-var Form_1 = __webpack_require__(61);
-
-exports.Form = Form_1["default"];
-
-__export(__webpack_require__(61));
-
-var Input_1 = __webpack_require__(62);
-
-exports.Input = Input_1["default"];
-
-__export(__webpack_require__(62));
-
-var Label_1 = __webpack_require__(63);
-
-exports.Label = Label_1["default"];
-
-__export(__webpack_require__(63));
-
-var Picker_1 = __webpack_require__(64);
-
-exports.Picker = Picker_1["default"];
-
-__export(__webpack_require__(64));
-
-var PickerView_1 = __webpack_require__(65);
-
-exports.PickerView = PickerView_1["default"];
-
-__export(__webpack_require__(65));
-
-var PickerViewColumn_1 = __webpack_require__(66);
-
-exports.PickerViewColumn = PickerViewColumn_1["default"];
-
-__export(__webpack_require__(66));
-
-var RadioGroup_1 = __webpack_require__(67);
-
-exports.RadioGroup = RadioGroup_1["default"];
-
-__export(__webpack_require__(67));
-
-var Radio_1 = __webpack_require__(68);
-
-exports.Radio = Radio_1["default"];
-
-__export(__webpack_require__(68));
-
-var Slider_1 = __webpack_require__(69);
-
-exports.Slider = Slider_1["default"];
-
-__export(__webpack_require__(69));
-
-var Switch_1 = __webpack_require__(70);
-
-exports.Switch = Switch_1["default"];
-
-__export(__webpack_require__(70));
-
-var Textarea_1 = __webpack_require__(71);
-
-exports.Textarea = Textarea_1["default"];
-
-__export(__webpack_require__(71));
-
-var Navigator_1 = __webpack_require__(72);
-
-exports.Navigator = Navigator_1["default"];
-
-__export(__webpack_require__(72));
-
-var Image_1 = __webpack_require__(73);
-
-exports.Image = Image_1["default"];
-
-__export(__webpack_require__(73));
-
-var Map_1 = __webpack_require__(74);
-
-exports.Map = Map_1["default"];
-
-__export(__webpack_require__(74));
-
-var Canvas_1 = __webpack_require__(75);
-
-exports.Canvas = Canvas_1["default"];
-
-__export(__webpack_require__(75));
-
-var WebView_1 = __webpack_require__(76);
-
-exports.WebView = WebView_1["default"];
-
-__export(__webpack_require__(76));
-
-var Lifestyle_1 = __webpack_require__(77);
-
-exports.Lifestyle = Lifestyle_1["default"];
-
-__export(__webpack_require__(77));
-
-var ContactButton_1 = __webpack_require__(78);
-
-exports.ContactButton = ContactButton_1["default"];
-
-__export(__webpack_require__(78));
-
-var Video_1 = __webpack_require__(79);
-
-exports.Video = Video_1["default"];
-
-__export(__webpack_require__(79));
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var View = createHostComponent_1["default"]('view');
-exports["default"] = View;
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __assign = this && this.__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) {
-    if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-  }
-  result["default"] = mod;
-  return result;
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var React = __importStar(__webpack_require__(14));
-
-function createHostComponent(name) {
-  var Component = function Component(props, ref) {
-    var _a = props.children,
-        children = _a === void 0 ? [] : _a;
-    return React.createElement(name, __assign(__assign({}, props), {
-      ref: ref
-    }), children);
-  };
-
-  return React.forwardRef(Component);
-}
-
-exports["default"] = createHostComponent;
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var ScrollView = createHostComponent_1["default"]('scroll-view');
-exports["default"] = ScrollView;
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('swiper');
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('swiper-item');
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var MovableView = createHostComponent_1["default"]('movable-view');
-exports["default"] = MovableView;
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var MovableArea = createHostComponent_1["default"]('movable-area');
-exports["default"] = MovableArea;
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var CoverView = createHostComponent_1["default"]('cover-view');
-exports["default"] = CoverView;
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var CoverImage = createHostComponent_1["default"]('cover-image');
-exports["default"] = CoverImage;
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('icon');
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var Text = createHostComponent_1["default"]('text');
-exports["default"] = Text;
-
-/***/ }),
-/* 56 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('rich-text');
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('progress');
-
-/***/ }),
-/* 58 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var Button = createHostComponent_1["default"]('button');
-exports["default"] = Button;
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('checkbox-group');
-
-/***/ }),
-/* 60 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('checkbox');
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var Form = createHostComponent_1["default"]('form');
-exports["default"] = Form;
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var Input = createHostComponent_1["default"]('input');
-exports["default"] = Input;
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('label');
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('picker');
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var PickerView = createHostComponent_1["default"]('picker-view');
-exports["default"] = PickerView;
-
-/***/ }),
-/* 66 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('picker-view-column');
-
-/***/ }),
-/* 67 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('radio-group');
-
-/***/ }),
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('radio');
-
-/***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('slider');
-
-/***/ }),
-/* 70 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('switch');
-
-/***/ }),
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var Textarea = createHostComponent_1["default"]('textarea');
-exports["default"] = Textarea;
-
-/***/ }),
-/* 72 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('navigator');
-
-/***/ }),
-/* 73 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var Image = createHostComponent_1["default"]('image');
-exports["default"] = Image;
-
-/***/ }),
-/* 74 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var Map = createHostComponent_1["default"]('map');
-exports["default"] = Map;
-
-/***/ }),
-/* 75 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-var Canvas = createHostComponent_1["default"]('canvas');
-exports["default"] = Canvas;
-
-/***/ }),
-/* 76 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('web-view');
-
-/***/ }),
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('lifestyle');
-
-/***/ }),
-/* 78 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('contact-button');
-
-/***/ }),
-/* 79 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var createHostComponent_1 = __importDefault(__webpack_require__(46));
-
-exports["default"] = createHostComponent_1["default"]('video');
-
-/***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __importDefault = this && this.__importDefault || function (mod) {
-  return mod && mod.__esModule ? mod : {
-    "default": mod
-  };
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var promisify_1 = __importDefault(__webpack_require__(81));
-
-exports.getAppStub = getApp;
-exports.addCardAuth = promisify_1["default"](my.addCardAuth);
-exports.addPhoneContact = promisify_1["default"](my.addPhoneContact);
-exports.alert = promisify_1["default"](my.alert);
-exports.canIUse = my.canIUse;
-exports.chooseAlipayContact = promisify_1["default"](my.chooseAlipayContact);
-exports.chooseCity = promisify_1["default"](my.chooseCity);
-exports.chooseContact = promisify_1["default"](my.chooseContact);
-exports.chooseImage = promisify_1["default"](my.chooseImage);
-exports.chooseLocation = promisify_1["default"](my.chooseLocation);
-exports.choosePhoneContact = promisify_1["default"](my.choosePhoneContact);
-exports.clearStorage = my.clearStorage;
-exports.clearStorageSync = my.clearStorageSync;
-exports.closeBluetoothAdapter = promisify_1["default"](my.closeBluetoothAdapter);
-exports.closeSocket = promisify_1["default"](my.closeSocket);
-exports.compressImage = promisify_1["default"](my.compressImage);
-exports.confirm = promisify_1["default"](my.confirm);
-exports.connectBLEDevice = promisify_1["default"](my.connectBLEDevice);
-exports.connectSocket = promisify_1["default"](my.connectSocket);
-exports.createAnimation = my.createAnimation;
-exports.createCanvasContext = my.createCanvasContext;
-exports.createIntersectionObserver = my.createIntersectionObserver;
-exports.createMapContext = my.createMapContext;
-exports.createSelectorQuery = my.createSelectorQuery;
-exports.createWebViewContext = my.createWebViewContext;
-exports.datePicker = promisify_1["default"](my.datePicker);
-exports.disconnectBLEDevice = promisify_1["default"](my.disconnectBLEDevice);
-exports.downloadFile = promisify_1["default"](my.downloadFile);
-exports.getAuthCode = promisify_1["default"](my.getAuthCode);
-exports.getAuthUserInfo = promisify_1["default"](my.getAuthUserInfo);
-exports.getBatteryInfo = promisify_1["default"](my.getBatteryInfo);
-exports.getBatteryInfoSync = my.getBatteryInfoSync;
-exports.getBeacons = promisify_1["default"](my.getBeacons);
-exports.getBLEDeviceCharacteristics = promisify_1["default"](my.getBLEDeviceCharacteristics);
-exports.getBLEDeviceServices = promisify_1["default"](my.getBLEDeviceServices);
-exports.getBluetoothAdapterState = promisify_1["default"](my.getBluetoothAdapterState);
-exports.getBluetoothDevices = promisify_1["default"](my.getBluetoothDevices);
-exports.getClipboard = promisify_1["default"](my.getClipboard);
-exports.getConnectedBluetoothDevices = promisify_1["default"](my.getConnectedBluetoothDevices);
-exports.getFileInfo = promisify_1["default"](my.getFileInfo);
-exports.getImageInfo = promisify_1["default"](my.getImageInfo);
-exports.getLocation = promisify_1["default"](my.getLocation);
-exports.getNetworkType = promisify_1["default"](my.getNetworkType);
-exports.getPhoneNumber = promisify_1["default"](my.getPhoneNumber);
-exports.getRunData = promisify_1["default"](my.getRunData);
-exports.getRunScene = promisify_1["default"](my.getRunScene);
-exports.getSavedFileInfo = promisify_1["default"](my.getSavedFileInfo);
-exports.getSavedFileList = promisify_1["default"](my.getSavedFileList);
-exports.getScreenBrightness = promisify_1["default"](my.getScreenBrightness);
-exports.getServerTime = promisify_1["default"](my.getServerTime);
-exports.getSetting = promisify_1["default"](my.getSetting);
-exports.getStorage = promisify_1["default"](my.getStorage);
-exports.getStorageInfo = promisify_1["default"](my.getStorageInfo);
-exports.getStorageInfoSync = my.getStorageInfoSync;
-exports.getStorageSync = my.getStorageSync;
-exports.getSystemInfo = promisify_1["default"](my.getSystemInfo);
-exports.getSystemInfoSync = my.getSystemInfoSync;
-exports.getTitleColor = promisify_1["default"](my.getTitleColor);
-exports.getUpdateManager = my.getUpdateManager;
-exports.hideAddToDesktopMenu = my.hideAddToDesktopMenu;
-exports.hideAllAddToDesktopMenu = my.hideAllAddToDesktopMenu;
-exports.hideAllFavoriteMenu = my.hideAllFavoriteMenu;
-exports.hideBackHome = my.hideBackHome;
-exports.hideFavoriteMenu = my.hideFavoriteMenu;
-exports.hideKeyboard = my.hideKeyboard;
-exports.hideLoading = my.hideLoading;
-exports.hideNavigationBarLoading = my.hideNavigationBarLoading;
-exports.hideShareMenu = my.hideShareMenu;
-exports.hideTabBar = my.hideTabBar;
-exports.hideTabBarRedDot = my.hideTabBarRedDot;
-exports.hideToast = my.hideToast;
-exports.loadFontFace = promisify_1["default"](my.loadFontFace);
-exports.makePhoneCall = my.makePhoneCall;
-exports.multiLevelSelect = promisify_1["default"](my.multiLevelSelect);
-exports.navigateBack = promisify_1["default"](my.navigateBack);
-exports.navigateBackMiniProgram = promisify_1["default"](my.navigateBackMiniProgram);
-exports.navigateTo = promisify_1["default"](my.navigateTo);
-exports.navigateToMiniProgram = promisify_1["default"](my.navigateToMiniProgram);
-exports.notifyBLECharacteristicValueChange = promisify_1["default"](my.notifyBLECharacteristicValueChange);
-exports.offAccelerometerChange = my.offAccelerometerChange;
-exports.offBLECharacteristicValueChange = my.offBLECharacteristicValueChange;
-exports.offBLEConnectionStateChanged = my.offBLEConnectionStateChanged;
-exports.offBluetoothAdapterStateChange = my.offBluetoothAdapterStateChange;
-exports.offBluetoothDeviceFound = my.offBluetoothDeviceFound;
-exports.offCompassChange = my.offCompassChange;
-exports.offGyroscopeChange = my.offGyroscopeChange;
-exports.offMemoryWarning = my.offMemoryWarning;
-exports.offNetworkStatusChange = my.offNetworkStatusChange;
-exports.offSocketClose = my.offSocketClose;
-exports.offSocketError = my.offSocketError;
-exports.offSocketMessage = my.offSocketMessage;
-exports.offSocketOpen = my.offSocketOpen;
-exports.offUserCaptureScreen = my.offUserCaptureScreen;
-exports.onAccelerometerChange = my.onAccelerometerChange;
-exports.onBeaconServiceChange = my.onBeaconServiceChange;
-exports.onBeaconUpdate = my.onBeaconUpdate;
-exports.onBLECharacteristicValueChange = my.onBLECharacteristicValueChange;
-exports.onBLEConnectionStateChanged = my.onBLEConnectionStateChanged;
-exports.onBluetoothAdapterStateChange = my.onBluetoothAdapterStateChange;
-exports.onBluetoothDeviceFound = my.onBluetoothDeviceFound;
-exports.onCompassChange = my.onCompassChange;
-exports.onGyroscopeChange = my.onGyroscopeChange;
-exports.onMemoryWarning = my.onMemoryWarning;
-exports.onNetworkStatusChange = my.onNetworkStatusChange;
-exports.onSocketClose = my.onSocketClose;
-exports.onSocketError = my.onSocketError;
-exports.onSocketMessage = my.onSocketMessage;
-exports.onSocketOpen = my.onSocketOpen;
-exports.onUserCaptureScreen = my.onUserCaptureScreen;
-exports.openBluetoothAdapter = my.openBluetoothAdapter;
-exports.openCardDetail = my.openCardDetail;
-exports.openCardList = my.openCardList;
-exports.openKBVoucherDetail = my.openKBVoucherDetail;
-exports.openLocation = promisify_1["default"](my.openLocation);
-exports.openMerchantCardList = my.openMerchantCardList;
-exports.openMerchantTicketList = my.openMerchantTicketList;
-exports.openMerchantVoucherList = my.openMerchantVoucherList;
-exports.openSetting = promisify_1["default"](my.openSetting);
-exports.openTicketDetail = my.openTicketDetail;
-exports.openTicketList = my.openTicketList;
-exports.openVoucherDetail = my.openVoucherDetail;
-exports.openVoucherList = my.openVoucherList;
-exports.optionsSelect = my.optionsSelect;
-exports.pageScrollTo = promisify_1["default"](my.pageScrollTo);
-exports.previewImage = promisify_1["default"](my.previewImage);
-exports.prompt = promisify_1["default"](my.prompt);
-exports.readBLECharacteristicValue = promisify_1["default"](my.readBLECharacteristicValue);
-exports.redirectTo = promisify_1["default"](my.redirectTo);
-exports.reLaunch = promisify_1["default"](my.reLaunch);
-exports.removeSavedFile = promisify_1["default"](my.removeSavedFile);
-exports.removeStorage = promisify_1["default"](my.removeStorage);
-exports.removeStorageSync = my.removeStorageSync;
-exports.removeTabBarBadge = promisify_1["default"](my.removeTabBarBadge);
-exports.reportAnalytics = my.reportAnalytics;
-exports.request = promisify_1["default"](my.request);
-exports.rsa = promisify_1["default"](my.rsa);
-exports.saveFile = promisify_1["default"](my.saveFile);
-exports.saveImage = promisify_1["default"](my.saveImage);
-exports.scan = promisify_1["default"](my.scan);
-exports.SDKVersion = my.SDKVersion;
-exports.sendSocketMessage = promisify_1["default"](my.sendSocketMessage);
-exports.setBackgroundColor = promisify_1["default"](my.setBackgroundColor);
-exports.setBackgroundTextStyle = promisify_1["default"](my.setBackgroundTextStyle);
-exports.setCanPullDown = my.setCanPullDown;
-exports.setClipboard = promisify_1["default"](my.setClipboard);
-exports.setKeepScreenOn = promisify_1["default"](my.setKeepScreenOn);
-exports.setNavigationBar = promisify_1["default"](my.setNavigationBar);
-exports.setOptionMenu = my.setOptionMenu;
-exports.setScreenBrightness = promisify_1["default"](my.setScreenBrightness);
-exports.setStorage = promisify_1["default"](my.setStorage);
-exports.setStorageSync = my.setStorageSync;
-exports.setTabBarBadge = promisify_1["default"](my.setTabBarBadge);
-exports.setTabBarItem = promisify_1["default"](my.setTabBarItem);
-exports.setTabBarStyle = promisify_1["default"](my.setTabBarStyle);
-exports.showActionSheet = promisify_1["default"](my.showActionSheet);
-exports.showAuthGuide = my.showAuthGuide;
-exports.showLoading = promisify_1["default"](my.showLoading);
-exports.showNavigationBarLoading = promisify_1["default"](my.showNavigationBarLoading);
-exports.showSharePanel = my.showSharePanel;
-exports.showTabBar = promisify_1["default"](my.showTabBar);
-exports.showTabBarRedDot = promisify_1["default"](my.showTabBarRedDot);
-exports.showToast = promisify_1["default"](my.showToast);
-exports.startBeaconDiscovery = promisify_1["default"](my.startBeaconDiscovery);
-exports.startBluetoothDevicesDiscovery = promisify_1["default"](my.startBluetoothDevicesDiscovery);
-exports.startPullDownRefresh = promisify_1["default"](my.startPullDownRefresh);
-exports.startZMVerify = my.startZMVerify;
-exports.stopBeaconDiscovery = promisify_1["default"](my.stopBeaconDiscovery);
-exports.stopBluetoothDevicesDiscovery = promisify_1["default"](my.stopBluetoothDevicesDiscovery);
-exports.stopPullDownRefresh = promisify_1["default"](my.stopPullDownRefresh);
-exports.switchTab = promisify_1["default"](my.switchTab);
-exports.textRiskIdentification = promisify_1["default"](my.textRiskIdentification);
-exports.tradePay = promisify_1["default"](my.tradePay);
-exports.uploadFile = promisify_1["default"](my.uploadFile);
-exports.vibrate = promisify_1["default"](my.vibrate);
-exports.vibrateLong = promisify_1["default"](my.vibrateLong);
-exports.vibrateShort = promisify_1["default"](my.vibrateShort);
-exports.watchShake = my.watchShake;
-exports.writeBLECharacteristicValue = promisify_1["default"](my.writeBLECharacteristicValue);
-exports.createVideoContext = my.createVideoContext;
-exports.getOpenUserInfo = promisify_1["default"](my.getOpenUserInfo);
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var __assign = this && this.__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-function promisify(api) {
-  return function (arg) {
-    if (arg === void 0) {
-      arg = {};
-    }
-
-    return new Promise(function (resolve, reject) {
-      var promisifyArg = arg;
-      api(__assign(__assign({}, promisifyArg), {
-        success: function success(res) {
-          if (promisifyArg && typeof promisifyArg.success === 'function') {
-            promisifyArg.success(res);
-          }
-
-          resolve(res);
-        },
-        fail: function fail(res) {
-          if (promisifyArg && typeof promisifyArg.fail === 'function') {
-            promisifyArg.fail(res);
-          }
-
-          reject(res);
-        }
-      }));
-    });
-  };
-}
-
-exports["default"] = promisify;
-
-/***/ }),
-/* 82 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(83);
+/* harmony import */ var _hostComponents__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(44);
+/* harmony import */ var _hostComponents__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_hostComponents__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _hostComponents__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(45);
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_api__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _api__WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _api__WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  stub: true
+};
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports) {
+
+module.exports = {
+  stub: true
+};
+
+/***/ }),
+/* 46 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(47);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in remax_wechat__WEBPACK_IMPORTED_MODULE_0__) if(["render","createAppConfig","createPageConfig","createHostComponent","Platform","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return remax_wechat__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _esm_render__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _esm_render__WEBPACK_IMPORTED_MODULE_1__["default"]; });
@@ -1467,39 +216,43 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 83 */
+/* 47 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _hostComponents__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(84);
+/* harmony import */ var _hostComponents__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(48);
 /* harmony import */ var _hostComponents__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_hostComponents__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _hostComponents__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(85);
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(49);
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_api__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _api__WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _api__WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 
 /***/ }),
-/* 84 */
+/* 48 */
 /***/ (function(module, exports) {
 
-module.exports = {};
+module.exports = {
+  stub: true
+};
 
 /***/ }),
-/* 85 */
+/* 49 */
 /***/ (function(module, exports) {
 
-module.exports = {};
+module.exports = {
+  stub: true
+};
 
 /***/ }),
-/* 86 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var remax_toutiao__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(87);
+/* harmony import */ var remax_toutiao__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(51);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "View", function() { return remax_toutiao__WEBPACK_IMPORTED_MODULE_0__["View"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Input", function() { return remax_toutiao__WEBPACK_IMPORTED_MODULE_0__["Input"]; });
@@ -1803,39 +556,944 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */,
-/* 104 */,
-/* 105 */,
-/* 106 */,
-/* 107 */,
-/* 108 */,
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */
+/* 51 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _hostComponents__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(52);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "View", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["View"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Input", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Input"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Textarea", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Textarea"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Video", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Video"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Swiper", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Swiper"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ScrollView", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["ScrollView"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SwiperItem", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["SwiperItem"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Icon", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Icon"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Text", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Text"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RichText", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["RichText"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Progress", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Progress"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Button"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CheckboxGroup", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["CheckboxGroup"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Checkbox", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Checkbox"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Form", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Form"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Label", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Label"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Picker", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Picker"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PickerView", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["PickerView"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PickerViewColumn", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["PickerViewColumn"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioGroup", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["RadioGroup"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Radio", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Radio"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Slider", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Slider"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Switch"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Navigator", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Navigator"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Image", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Image"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Canvas", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["Canvas"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WebView", function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__["WebView"]; });
+
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(81);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getAppStub", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getAppStub"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "canIUse", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["canIUse"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getSystemInfoSync", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getSystemInfoSync"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getSystemInfo", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getSystemInfo"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getUpdateManager", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getUpdateManager"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getLaunchOptionsSync", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getLaunchOptionsSync"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "exitMiniProgram", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["exitMiniProgram"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "switchTab", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["switchTab"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "reLaunch", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["reLaunch"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "redirectTo", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["redirectTo"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "navigateTo", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["navigateTo"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "navigateBack", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["navigateBack"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "showToast", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["showToast"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "showModal", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["showModal"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "showLoading", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["showLoading"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "showActionSheet", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["showActionSheet"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "hideToast", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["hideToast"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "hideLoading", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["hideLoading"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setNavigationBarTitle", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["setNavigationBarTitle"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "stopPullDownRefresh", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["stopPullDownRefresh"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startPullDownRefresh", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["startPullDownRefresh"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "pageScrollTo", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["pageScrollTo"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createAnimation", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["createAnimation"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "request", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["request"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "downloadFile", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["downloadFile"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "uploadFile", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["uploadFile"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "connectSocket", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["connectSocket"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setStorageSync", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["setStorageSync"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setStorage", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["setStorage"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "removeStorageSync", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["removeStorageSync"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "removeStorage", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["removeStorage"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getStorageSync", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getStorageSync"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getStorageInfoSync", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getStorageInfoSync"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getStorageInfo", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getStorageInfo"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getStorage", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getStorage"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "clearStorageSync", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["clearStorageSync"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "clearStorage", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["clearStorage"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "saveImageToPhotosAlbum", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["saveImageToPhotosAlbum"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "previewImage", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["previewImage"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getImageInfo", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getImageInfo"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "chooseImage", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["chooseImage"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "saveVideoToPhotosAlbum", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["saveVideoToPhotosAlbum"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createVideoContext", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["createVideoContext"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "chooseVideo", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["chooseVideo"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "openLocation", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["openLocation"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getLocation", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getLocation"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "showShareMenu", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["showShareMenu"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "hideShareMenu", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["hideShareMenu"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "navigateToVideoView", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["navigateToVideoView"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createCanvasContext", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["createCanvasContext"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "saveFile", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["saveFile"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "removeSavedFile", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["removeSavedFile"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "openDocument", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["openDocument"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getSavedFileList", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getSavedFileList"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getFileSystemManager", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getFileSystemManager"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getFileInfo", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getFileInfo"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "login", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["login"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "checkSession", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["checkSession"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "navigateToMiniProgram", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["navigateToMiniProgram"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "navigateBackMiniProgram", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["navigateBackMiniProgram"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getUserInfo", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getUserInfo"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "reportAnalytics", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["reportAnalytics"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "requestPayment", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["requestPayment"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "pay", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["pay"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "authorize", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["authorize"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "openSetting", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["openSetting"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getSetting", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getSetting"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "chooseAddress", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["chooseAddress"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setClipboardData", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["setClipboardData"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getClipboardData", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getClipboardData"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "onNetworkStatusChange", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["onNetworkStatusChange"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getNetworkType", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getNetworkType"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "makePhoneCall", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["makePhoneCall"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "stopAccelerometer", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["stopAccelerometer"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startAccelerometer", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["startAccelerometer"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "onAccelerometerChange", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["onAccelerometerChange"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "stopCompass", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["stopCompass"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "startCompass", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["startCompass"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "onCompassChange", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["onCompassChange"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "scanCode", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["scanCode"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "vibrateShort", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["vibrateShort"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "vibrateLong", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["vibrateLong"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getExtConfigSync", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getExtConfigSync"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getExtConfig", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getExtConfig"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createSelectorQuery", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["createSelectorQuery"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createIntersectionObserver", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["createIntersectionObserver"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createRewardedVideoAd", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["createRewardedVideoAd"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getConnectedWifi", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getConnectedWifi"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "setKeepScreenOn", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["setKeepScreenOn"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "getMenuButtonLayout", function() { return _api__WEBPACK_IMPORTED_MODULE_1__["getMenuButtonLayout"]; });
+
+
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _View__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(53);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "View", function() { return _View__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(55);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Input", function() { return _Input__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Textarea__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(56);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Textarea", function() { return _Textarea__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Video__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(57);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Video", function() { return _Video__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Swiper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(58);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Swiper", function() { return _Swiper__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _ScrollView__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(59);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ScrollView", function() { return _ScrollView__WEBPACK_IMPORTED_MODULE_5__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _SwiperItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(60);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SwiperItem", function() { return _SwiperItem__WEBPACK_IMPORTED_MODULE_6__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(61);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Icon", function() { return _Icon__WEBPACK_IMPORTED_MODULE_7__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Text__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(62);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Text", function() { return _Text__WEBPACK_IMPORTED_MODULE_8__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _RichText__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(63);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RichText", function() { return _RichText__WEBPACK_IMPORTED_MODULE_9__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Progress__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(64);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Progress", function() { return _Progress__WEBPACK_IMPORTED_MODULE_10__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Button__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(65);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return _Button__WEBPACK_IMPORTED_MODULE_11__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _CheckboxGroup__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(66);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CheckboxGroup", function() { return _CheckboxGroup__WEBPACK_IMPORTED_MODULE_12__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Checkbox__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(67);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Checkbox", function() { return _Checkbox__WEBPACK_IMPORTED_MODULE_13__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(68);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Form", function() { return _Form__WEBPACK_IMPORTED_MODULE_14__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Label__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(69);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Label", function() { return _Label__WEBPACK_IMPORTED_MODULE_15__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Picker__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(70);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Picker", function() { return _Picker__WEBPACK_IMPORTED_MODULE_16__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _PickerView__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(71);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PickerView", function() { return _PickerView__WEBPACK_IMPORTED_MODULE_17__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _PickerViewColumn__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(72);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PickerViewColumn", function() { return _PickerViewColumn__WEBPACK_IMPORTED_MODULE_18__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _RadioGroup__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(73);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RadioGroup", function() { return _RadioGroup__WEBPACK_IMPORTED_MODULE_19__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Radio__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(74);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Radio", function() { return _Radio__WEBPACK_IMPORTED_MODULE_20__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Slider__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(75);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Slider", function() { return _Slider__WEBPACK_IMPORTED_MODULE_21__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Switch__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(76);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return _Switch__WEBPACK_IMPORTED_MODULE_22__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Navigator__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(77);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Navigator", function() { return _Navigator__WEBPACK_IMPORTED_MODULE_23__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Image__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(78);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Image", function() { return _Image__WEBPACK_IMPORTED_MODULE_24__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Canvas__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(79);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Canvas", function() { return _Canvas__WEBPACK_IMPORTED_MODULE_25__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _WebView__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(80);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WebView", function() { return _WebView__WEBPACK_IMPORTED_MODULE_26__["default"]; });
+
+/* empty/unused harmony star reexport */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('view'));
+
+/***/ }),
+/* 54 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return createHostComponent; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var __assign = undefined && undefined.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+
+function createHostComponent(name) {
+  var Component = function Component(props, ref) {
+    var _a = props.children,
+        children = _a === void 0 ? [] : _a;
+    return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](name, __assign(__assign({}, props), {
+      ref: ref
+    }), children);
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"](Component);
+}
+
+/***/ }),
+/* 55 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('input'));
+
+/***/ }),
+/* 56 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('textarea'));
+
+/***/ }),
+/* 57 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('video'));
+
+/***/ }),
+/* 58 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('swiper'));
+
+/***/ }),
+/* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('scroll-view'));
+
+/***/ }),
+/* 60 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('swiper-item'));
+
+/***/ }),
+/* 61 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('icon'));
+
+/***/ }),
+/* 62 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('text'));
+
+/***/ }),
+/* 63 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('rich-text'));
+
+/***/ }),
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('progress'));
+
+/***/ }),
+/* 65 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('button'));
+
+/***/ }),
+/* 66 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('checkbox-group'));
+
+/***/ }),
+/* 67 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('checkbox'));
+
+/***/ }),
+/* 68 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('form'));
+
+/***/ }),
+/* 69 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('label'));
+
+/***/ }),
+/* 70 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('picker'));
+
+/***/ }),
+/* 71 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('picker-view'));
+
+/***/ }),
+/* 72 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('picker-view-column'));
+
+/***/ }),
+/* 73 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('radio-group'));
+
+/***/ }),
+/* 74 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('radio'));
+
+/***/ }),
+/* 75 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('slider'));
+
+/***/ }),
+/* 76 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('switch'));
+
+/***/ }),
+/* 77 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('navigator'));
+
+/***/ }),
+/* 78 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+var Image = Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('image');
+/* harmony default export */ __webpack_exports__["default"] = (Image);
+
+/***/ }),
+/* 79 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('canvas'));
+
+/***/ }),
+/* 80 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('web-view'));
+
+/***/ }),
+/* 81 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAppStub", function() { return getAppStub; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "canIUse", function() { return canIUse; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSystemInfoSync", function() { return getSystemInfoSync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSystemInfo", function() { return getSystemInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUpdateManager", function() { return getUpdateManager; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLaunchOptionsSync", function() { return getLaunchOptionsSync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "exitMiniProgram", function() { return exitMiniProgram; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "switchTab", function() { return switchTab; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reLaunch", function() { return reLaunch; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "redirectTo", function() { return redirectTo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "navigateTo", function() { return navigateTo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "navigateBack", function() { return navigateBack; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showToast", function() { return showToast; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showModal", function() { return showModal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showLoading", function() { return showLoading; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showActionSheet", function() { return showActionSheet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hideToast", function() { return hideToast; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hideLoading", function() { return hideLoading; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setNavigationBarTitle", function() { return setNavigationBarTitle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "stopPullDownRefresh", function() { return stopPullDownRefresh; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startPullDownRefresh", function() { return startPullDownRefresh; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pageScrollTo", function() { return pageScrollTo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAnimation", function() { return createAnimation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "request", function() { return request; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "downloadFile", function() { return downloadFile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "uploadFile", function() { return uploadFile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "connectSocket", function() { return connectSocket; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setStorageSync", function() { return setStorageSync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setStorage", function() { return setStorage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeStorageSync", function() { return removeStorageSync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeStorage", function() { return removeStorage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStorageSync", function() { return getStorageSync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStorageInfoSync", function() { return getStorageInfoSync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStorageInfo", function() { return getStorageInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStorage", function() { return getStorage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearStorageSync", function() { return clearStorageSync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearStorage", function() { return clearStorage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "saveImageToPhotosAlbum", function() { return saveImageToPhotosAlbum; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "previewImage", function() { return previewImage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getImageInfo", function() { return getImageInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chooseImage", function() { return chooseImage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "saveVideoToPhotosAlbum", function() { return saveVideoToPhotosAlbum; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createVideoContext", function() { return createVideoContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chooseVideo", function() { return chooseVideo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openLocation", function() { return openLocation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLocation", function() { return getLocation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showShareMenu", function() { return showShareMenu; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hideShareMenu", function() { return hideShareMenu; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "navigateToVideoView", function() { return navigateToVideoView; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createCanvasContext", function() { return createCanvasContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "saveFile", function() { return saveFile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeSavedFile", function() { return removeSavedFile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openDocument", function() { return openDocument; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSavedFileList", function() { return getSavedFileList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFileSystemManager", function() { return getFileSystemManager; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getFileInfo", function() { return getFileInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "checkSession", function() { return checkSession; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "navigateToMiniProgram", function() { return navigateToMiniProgram; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "navigateBackMiniProgram", function() { return navigateBackMiniProgram; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUserInfo", function() { return getUserInfo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "reportAnalytics", function() { return reportAnalytics; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestPayment", function() { return requestPayment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pay", function() { return pay; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "authorize", function() { return authorize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openSetting", function() { return openSetting; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSetting", function() { return getSetting; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "chooseAddress", function() { return chooseAddress; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setClipboardData", function() { return setClipboardData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getClipboardData", function() { return getClipboardData; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onNetworkStatusChange", function() { return onNetworkStatusChange; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getNetworkType", function() { return getNetworkType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "makePhoneCall", function() { return makePhoneCall; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "stopAccelerometer", function() { return stopAccelerometer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startAccelerometer", function() { return startAccelerometer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onAccelerometerChange", function() { return onAccelerometerChange; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "stopCompass", function() { return stopCompass; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "startCompass", function() { return startCompass; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onCompassChange", function() { return onCompassChange; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "scanCode", function() { return scanCode; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vibrateShort", function() { return vibrateShort; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "vibrateLong", function() { return vibrateLong; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getExtConfigSync", function() { return getExtConfigSync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getExtConfig", function() { return getExtConfig; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSelectorQuery", function() { return createSelectorQuery; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createIntersectionObserver", function() { return createIntersectionObserver; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createRewardedVideoAd", function() { return createRewardedVideoAd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getConnectedWifi", function() { return getConnectedWifi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setKeepScreenOn", function() { return setKeepScreenOn; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getMenuButtonLayout", function() { return getMenuButtonLayout; });
+/* harmony import */ var _promisify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(82);
+
+var getAppStub = getApp;
+var canIUse = tt.canIUse;
+var getSystemInfoSync = tt.getSystemInfoSync;
+var getSystemInfo = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.getSystemInfo);
+var getUpdateManager = tt.getUpdateManager;
+var getLaunchOptionsSync = tt.getLaunchOptionsSync;
+var exitMiniProgram = tt.exitMiniProgram;
+var switchTab = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.switchTab);
+var reLaunch = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.reLaunch);
+var redirectTo = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.redirectTo);
+var navigateTo = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.navigateTo);
+var navigateBack = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.navigateBack);
+var showToast = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.showToast);
+var showModal = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.showModal);
+var showLoading = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.showLoading);
+var showActionSheet = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.showActionSheet);
+var hideToast = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.hideToast);
+var hideLoading = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.hideLoading);
+var setNavigationBarTitle = tt.setNavigationBarTitle;
+var stopPullDownRefresh = tt.stopPullDownRefresh;
+var startPullDownRefresh = tt.startPullDownRefresh;
+var pageScrollTo = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.pageScrollTo);
+var createAnimation = tt.createAnimation;
+var request = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.request);
+var downloadFile = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.downloadFile);
+var uploadFile = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.uploadFile);
+var connectSocket = tt.connectSocket;
+var setStorageSync = tt.setStorageSync;
+var setStorage = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.setStorage);
+var removeStorageSync = tt.removeStorageSync;
+var removeStorage = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.removeStorage);
+var getStorageSync = tt.getStorageSync;
+var getStorageInfoSync = tt.getStorageInfoSync;
+var getStorageInfo = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.getStorageInfo);
+var getStorage = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.getStorage);
+var clearStorageSync = tt.clearStorageSync;
+var clearStorage = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.clearStorage);
+var saveImageToPhotosAlbum = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.saveImageToPhotosAlbum);
+var previewImage = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.previewImage);
+var getImageInfo = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.getImageInfo);
+var chooseImage = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.chooseImage);
+var saveVideoToPhotosAlbum = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.saveVideoToPhotosAlbum);
+var createVideoContext = tt.createVideoContext;
+var chooseVideo = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.chooseVideo);
+var openLocation = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.openLocation);
+var getLocation = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.getLocation);
+var showShareMenu = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.showShareMenu);
+var hideShareMenu = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.hideShareMenu);
+var navigateToVideoView = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.navigateToVideoView);
+var createCanvasContext = tt.createCanvasContext;
+var saveFile = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.saveFile);
+var removeSavedFile = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.removeSavedFile);
+var openDocument = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.openDocument);
+var getSavedFileList = tt.getSavedFileList;
+var getFileSystemManager = tt.getFileSystemManager;
+var getFileInfo = tt.getFileInfo;
+var login = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.login);
+var checkSession = tt.checkSession;
+var navigateToMiniProgram = tt.navigateToMiniProgram;
+var navigateBackMiniProgram = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.navigateBackMiniProgram);
+var getUserInfo = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.getUserInfo);
+var reportAnalytics = tt.reportAnalytics;
+var requestPayment = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.requestPayment);
+var pay = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.pay);
+var authorize = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.authorize);
+var openSetting = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.openSetting);
+var getSetting = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.getSetting);
+var chooseAddress = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.chooseAddress);
+var setClipboardData = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.setClipboardData);
+var getClipboardData = tt.getClipboardData;
+var onNetworkStatusChange = tt.onNetworkStatusChange;
+var getNetworkType = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.getNetworkType);
+var makePhoneCall = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.makePhoneCall);
+var stopAccelerometer = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.stopAccelerometer);
+var startAccelerometer = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.startAccelerometer);
+var onAccelerometerChange = tt.onAccelerometerChange;
+var stopCompass = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.stopCompass);
+var startCompass = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.startCompass);
+var onCompassChange = tt.onCompassChange;
+var scanCode = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.scanCode);
+var vibrateShort = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.vibrateShort);
+var vibrateLong = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.vibrateLong);
+var getExtConfigSync = tt.getExtConfigSync;
+var getExtConfig = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.getExtConfig);
+var createSelectorQuery = tt.createSelectorQuery;
+var createIntersectionObserver = tt.createIntersectionObserver;
+var createRewardedVideoAd = tt.createRewardedVideoAd;
+var getConnectedWifi = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.getConnectedWifi);
+var setKeepScreenOn = Object(_promisify__WEBPACK_IMPORTED_MODULE_0__["default"])(tt.setKeepScreenOn);
+var getMenuButtonLayout = tt.getMenuButtonLayout;
+
+/***/ }),
+/* 82 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var __assign = undefined && undefined.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
+    }
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+function promisify(api) {
+  return function (arg) {
+    if (arg === void 0) {
+      arg = {};
+    }
+
+    return new Promise(function (resolve, reject) {
+      var promisifyArg = arg;
+      api(__assign(__assign({}, promisifyArg), {
+        success: function success(res) {
+          if (promisifyArg && typeof promisifyArg.success === 'function') {
+            promisifyArg.success(res);
+          }
+
+          resolve(res);
+        },
+        fail: function fail(res) {
+          if (promisifyArg && typeof promisifyArg.fail === 'function') {
+            promisifyArg.fail(res);
+          }
+
+          reject(res);
+        }
+      }));
+    });
+  };
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (promisify);
+
+/***/ }),
+/* 83 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1845,8 +1503,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var remax_alipay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(42);
-/* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(82);
-/* harmony import */ var remax_toutiao__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(86);
+/* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(46);
+/* harmony import */ var remax_toutiao__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(50);
 
 
 

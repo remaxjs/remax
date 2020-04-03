@@ -1,8 +1,7 @@
 require('./../../runtime.js');
-require('./index.acss.js');
 require('./../../app~packageA/pages/index~pages/index.js');
 require('./index~pages/index.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[7],{
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[3],{
 
 /***/ 14:
 /***/ (function(module, exports) {
@@ -84,4 +83,4 @@ var _page = function _page() {
 
 /***/ })
 
-},[[90,0,3,5,8]]]);
+},[[90,0,5,4]]]);

@@ -1,25 +1,17 @@
 require('./../../runtime.js');
-require('./index.wxss.js');
 require('./../../app~packageA/pages/index~pages/index.js');
 require('./index~pages/index.js');
-(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[7],{
+(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[3],{
 
-/***/ 14:
-/***/ (function(module, exports) {
-
-module.exports = react;
-
-/***/ }),
-
-/***/ 150:
+/***/ 114:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(151);
+module.exports = __webpack_require__(115);
 
 
 /***/ }),
 
-/***/ 151:
+/***/ 115:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -29,7 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var remax_one__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(43);
 /* harmony import */ var _components_C__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(104);
-/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(152);
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(116);
 /* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_4__);
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -63,10 +55,17 @@ var _page = function _page() {
 
 /***/ }),
 
-/***/ 152:
+/***/ 116:
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ 14:
+/***/ (function(module, exports) {
+
+module.exports = react;
 
 /***/ }),
 
@@ -84,4 +83,4 @@ module.exports = scheduler;
 
 /***/ })
 
-},[[150,0,3,5,8]]]);
+},[[114,0,5,4]]]);

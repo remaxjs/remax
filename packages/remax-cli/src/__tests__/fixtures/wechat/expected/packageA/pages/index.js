@@ -1,17 +1,38 @@
 require('./../../runtime.js');
 require('./../../app~packageA/pages/index~pages/index.js');
 require('./index~pages/index.js');
-(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[5],{
+(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[4],{
 
-/***/ 129:
+/***/ 14:
+/***/ (function(module, exports) {
+
+module.exports = react;
+
+/***/ }),
+
+/***/ 4:
+/***/ (function(module, exports) {
+
+module.exports = react-reconciler;
+
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports) {
+
+module.exports = scheduler;
+
+/***/ }),
+
+/***/ 93:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(130);
+module.exports = __webpack_require__(94);
 
 
 /***/ }),
 
-/***/ 130:
+/***/ 94:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -45,27 +66,6 @@ var pageA = function pageA() {
 var _page = pageA;
 /* harmony default export */ __webpack_exports__["default"] = (Page(Object(remax__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page)));
 
-/***/ }),
-
-/***/ 14:
-/***/ (function(module, exports) {
-
-module.exports = react;
-
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports) {
-
-module.exports = react-reconciler;
-
-/***/ }),
-
-/***/ 6:
-/***/ (function(module, exports) {
-
-module.exports = scheduler;
-
 /***/ })
 
-},[[129,0,3,6]]]);
+},[[93,0,2,5]]]);

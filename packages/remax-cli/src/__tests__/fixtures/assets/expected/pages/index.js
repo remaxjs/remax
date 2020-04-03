@@ -1,7 +1,6 @@
 require('./../runtime.js');
-require('./index.acss.js');
 require('./../app~pages/index.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[4],[
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[2],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
@@ -2036,4 +2035,4 @@ __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 /***/ })
-],[[38,0,1,3]]]);
+],[[38,0,3]]]);

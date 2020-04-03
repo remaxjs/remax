@@ -1,48 +1,7 @@
 require('./../runtime.js');
-require('./../packageA/pages/index.ttss.js');
-require('./index.ttss.js');
 require('./../app~packageA/pages/index~pages/index.js');
 require('./../packageA/pages/index~pages/index.js');
-(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[6],{
-
-/***/ 103:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var remax_alipay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(62);
-
-/* harmony default export */ __webpack_exports__["default"] = (remax_alipay__WEBPACK_IMPORTED_MODULE_0__["chooseImage"]);
-
-/***/ }),
-
-/***/ 104:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function () {// ignore
-});
-
-/***/ }),
-
-/***/ 105:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (function () {// ignore
-});
-
-/***/ }),
-
-/***/ 106:
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-module.exports = {"page-index":"_1ZW9Y8KCrSK23n2M-ZMy7g"};
-
-/***/ }),
+(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[2],{
 
 /***/ 14:
 /***/ (function(module, exports) {
@@ -79,10 +38,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var remax_one__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(43);
 /* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(57);
 /* harmony import */ var _components_C__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(61);
-/* harmony import */ var _api_chooseImage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(103);
-/* harmony import */ var _api_chooseImageMini__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(104);
-/* harmony import */ var _api_chooseImageAlipay__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(105);
-/* harmony import */ var _index_module_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(106);
+/* harmony import */ var _api_chooseImage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(67);
+/* harmony import */ var _api_chooseImageMini__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(68);
+/* harmony import */ var _api_chooseImageAlipay__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(69);
+/* harmony import */ var _index_module_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(70);
 /* harmony import */ var _index_module_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_index_module_css__WEBPACK_IMPORTED_MODULE_9__);
 
 
@@ -257,7 +216,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ 59:
 /***/ (function(module, exports) {
 
-module.exports = {};
+module.exports = {
+  stub: true
+};
 
 /***/ }),
 
@@ -271,8 +232,49 @@ module.exports = scheduler;
 /***/ 60:
 /***/ (function(module, exports) {
 
-module.exports = {};
+module.exports = {
+  stub: true
+};
+
+/***/ }),
+
+/***/ 67:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var remax_alipay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(62);
+
+/* harmony default export */ __webpack_exports__["default"] = (remax_alipay__WEBPACK_IMPORTED_MODULE_0__["chooseImage"]);
+
+/***/ }),
+
+/***/ 68:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function () {// ignore
+});
+
+/***/ }),
+
+/***/ 69:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function () {// ignore
+});
+
+/***/ }),
+
+/***/ 70:
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"page-index":"_1ZW9Y8KCrSK23n2M-ZMy7g"};
 
 /***/ })
 
-},[[40,0,3,2,5,8]]]);
+},[[40,0,5,4]]]);

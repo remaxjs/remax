@@ -1,7 +1,6 @@
 require('./runtime.js');
-require('./app.acss.js');
 require('./app~pages/entry/index~pages/index~pages/turboPageDisabled.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[2],{
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[1],{
 
 /***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
@@ -100,4 +99,4 @@ module.exports = scheduler;
 
 /***/ })
 
-},[[0,0,1,3]]]);
+},[[0,0,2]]]);

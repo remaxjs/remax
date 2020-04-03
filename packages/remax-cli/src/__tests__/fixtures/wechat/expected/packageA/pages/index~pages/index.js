@@ -1,4 +1,4 @@
-(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[6],Array(42).concat([
+(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[5],Array(42).concat([
 /* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

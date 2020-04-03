@@ -1,18 +1,38 @@
 require('./../../runtime.js');
-require('./index.ttss.js');
 require('./../../app~packageA/pages/index~pages/index.js');
 require('./index~pages/index.js');
-(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[7],{
+(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[3],{
 
-/***/ 107:
+/***/ 14:
+/***/ (function(module, exports) {
+
+module.exports = react;
+
+/***/ }),
+
+/***/ 4:
+/***/ (function(module, exports) {
+
+module.exports = react-reconciler;
+
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports) {
+
+module.exports = scheduler;
+
+/***/ }),
+
+/***/ 71:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(108);
+module.exports = __webpack_require__(72);
 
 
 /***/ }),
 
-/***/ 108:
+/***/ 72:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -22,7 +42,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var remax_one__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(43);
 /* harmony import */ var _components_C__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(61);
-/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(109);
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(73);
 /* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_4__);
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -56,32 +76,11 @@ var _page = function _page() {
 
 /***/ }),
 
-/***/ 109:
+/***/ 73:
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
-/***/ }),
-
-/***/ 14:
-/***/ (function(module, exports) {
-
-module.exports = react;
-
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports) {
-
-module.exports = react-reconciler;
-
-/***/ }),
-
-/***/ 6:
-/***/ (function(module, exports) {
-
-module.exports = scheduler;
-
 /***/ })
 
-},[[107,0,3,5,8]]]);
+},[[71,0,5,4]]]);

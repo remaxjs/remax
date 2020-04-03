@@ -1,9 +1,7 @@
 require('./../runtime.js');
-require('./../packageA/pages/index.wxss.js');
-require('./index.wxss.js');
 require('./../app~packageA/pages/index~pages/index.js');
 require('./../packageA/pages/index~pages/index.js');
-(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[6],[
+(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[2],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
@@ -79,10 +77,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var remax_one__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(43);
 /* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(57);
 /* harmony import */ var _components_C__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(104);
-/* harmony import */ var _api_chooseImage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(146);
-/* harmony import */ var _api_chooseImageMini__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(147);
-/* harmony import */ var _api_chooseImageAlipay__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(148);
-/* harmony import */ var _index_module_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(149);
+/* harmony import */ var _api_chooseImage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(110);
+/* harmony import */ var _api_chooseImageMini__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(111);
+/* harmony import */ var _api_chooseImageAlipay__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(112);
+/* harmony import */ var _index_module_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(113);
 /* harmony import */ var _index_module_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_index_module_css__WEBPACK_IMPORTED_MODULE_9__);
 
 
@@ -2806,43 +2804,7 @@ function promisify(api) {
 /* 107 */,
 /* 108 */,
 /* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */,
-/* 124 */,
-/* 125 */,
-/* 126 */,
-/* 127 */,
-/* 128 */,
-/* 129 */,
-/* 130 */,
-/* 131 */,
-/* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
-/* 136 */,
-/* 137 */,
-/* 138 */,
-/* 139 */,
-/* 140 */,
-/* 141 */,
-/* 142 */,
-/* 143 */,
-/* 144 */,
-/* 145 */,
-/* 146 */
+/* 110 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2851,7 +2813,7 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 /***/ }),
-/* 147 */
+/* 111 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2860,7 +2822,7 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 /***/ }),
-/* 148 */
+/* 112 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2869,11 +2831,11 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 /***/ }),
-/* 149 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 module.exports = {"page-index":"_1ZW9Y8KCrSK23n2M-ZMy7g"};
 
 /***/ })
-],[[40,0,3,2,5,8]]]);
+],[[40,0,5,4]]]);

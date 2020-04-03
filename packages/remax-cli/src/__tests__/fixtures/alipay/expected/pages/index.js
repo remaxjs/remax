@@ -1,9 +1,7 @@
 require('./../runtime.js');
-require('./../packageA/pages/index.acss.js');
-require('./index.acss.js');
 require('./../app~packageA/pages/index~pages/index.js');
 require('./../packageA/pages/index~pages/index.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[6],{
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[2],{
 
 /***/ 14:
 /***/ (function(module, exports) {
@@ -216,14 +214,18 @@ __webpack_require__.r(__webpack_exports__);
 /***/ 85:
 /***/ (function(module, exports) {
 
-module.exports = {};
+module.exports = {
+  stub: true
+};
 
 /***/ }),
 
 /***/ 86:
 /***/ (function(module, exports) {
 
-module.exports = {};
+module.exports = {
+  stub: true
+};
 
 /***/ }),
 
@@ -235,4 +237,4 @@ module.exports = {"page-index":"_1ZW9Y8KCrSK23n2M-ZMy7g"};
 
 /***/ })
 
-},[[40,0,3,2,5,8]]]);
+},[[40,0,5,4]]]);
