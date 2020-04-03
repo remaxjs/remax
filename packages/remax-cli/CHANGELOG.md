@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.4](https://github.com/remaxjs/remax/compare/v1.19.3...v1.19.4) (2020-04-03)
+
+### Bug Fixes
+
+- **alipay:** 修复支付宝 IDE 的编译监听 ([b439ee0](https://github.com/remaxjs/remax/commit/b439ee0d6ee0553019f393e871276265b89cc5fb))
+
 ## [1.19.3](https://github.com/remaxjs/remax/compare/v1.19.2...v1.19.3) (2020-04-02)
 
 ### Bug Fixes
