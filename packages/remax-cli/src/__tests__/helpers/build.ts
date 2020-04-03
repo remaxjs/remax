@@ -6,6 +6,7 @@ import API from '../../API';
 import webpackConfig from '../../build/webpackConfig';
 import getConfig from '../../getConfig';
 import { PlatformTarget } from '../../build/platform';
+import winPath from '../../winPath';
 
 function ensureWebpackMemoryFs(fs: IFs) {
   const nextFs = Object.create(fs);
@@ -34,7 +35,7 @@ function getFilesInDir(fs: IFs, root: string, fsPath: string) {
   let outputs: OutputFile[] = [];
 
   list.forEach((fileName: any) => {
-    const filePath = path.join(fsPath, fileName);
+    const filePath = winPath(path.join(fsPath, fileName));
     if (fs.statSync(filePath).isDirectory()) {
       outputs = outputs.concat(getFilesInDir(fs, root, filePath));
     } else {

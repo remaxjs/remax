@@ -34,6 +34,5 @@
   "devDependencies": {
     "antd": "^3.26.6",
     "typescript": "^3.7.3"
-  },
-  "gitHead": "28ef4f50ef3c134c4e661d786ebea4d7c4ea89ed"
+  }
 }

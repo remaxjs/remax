@@ -2,18 +2,14 @@ import webpack from 'webpack';
 import webpackConfig from './webpackConfig';
 import API from '../API';
 import getConfig from '../getConfig';
-import { Context } from '../types';
 import output from './utils/output';
 import { remaxVersion } from '../checkVersions';
 
-export default async (argv: any, context?: Context) => {
+export default async (argv: any) => {
   const target = argv.target;
   process.env.REMAX_PLATFORM = target;
 
-  const options = {
-    ...getConfig(),
-    ...(context ? context.config : {}),
-  };
+  const options = getConfig();
 
   API.registerAdapterPlugins(target, options);
 

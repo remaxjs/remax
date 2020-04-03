@@ -1,9 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { RemaxOptions } from 'remax-types';
-import { Replacement } from '@rollup/plugin-replace';
 
-type Env = Record<string, string | undefined | Replacement>;
+type Env = Record<string, string | undefined>;
 
 export default function getEnvironment(options: RemaxOptions, target: string) {
   const envFilePath = path.join(options.cwd, '.env');

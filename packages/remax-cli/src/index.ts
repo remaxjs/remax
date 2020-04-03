@@ -12,7 +12,7 @@ export type RemaxConfig = RemaxConfigType;
 
 export let cli = yargs;
 
-export function run(args: any, context?: any, callback?: yargs.ParseCallback) {
+export function run(args: any, callback?: yargs.ParseCallback) {
   checkRemaxVersion();
 
   cli = yargs
@@ -27,7 +27,7 @@ export function run(args: any, context?: any, callback?: yargs.ParseCallback) {
       },
       (argv: any) => {
         analytics.event('cli', 'build', argv.target).send();
-        build(argv, context);
+        build(argv);
       }
     );
 
