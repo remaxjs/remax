@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "declaration": true,
+    "jsx": "react",
+    "outDir": "cjs",
+    "downlevelIteration": true
+  }
+}

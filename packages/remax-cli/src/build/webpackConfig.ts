@@ -5,7 +5,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import pxToUnits from '@remax/postcss-px2units';
 import { RemaxOptions } from 'remax-types';
-import { PlatformTarget } from './platform';
+import { Platform } from './platform';
 import extensions, { matcher } from '../extensions';
 import getEntries from '../getEntries';
 import * as styleConfig from './styleConfig';
@@ -23,10 +23,10 @@ import * as platform from './platform';
 
 export const config = new Config();
 
-function prepare(options: RemaxOptions, target: PlatformTarget) {
+function prepare(options: RemaxOptions, target: Platform) {
   const meta = API.getMeta();
   const turboPagesEnabled = options.turboPages && options.turboPages.length > 0;
-  const entries = getEntries(options);
+  const entries = getEntries(options, target);
   const entryMap = [entries.app, ...entries.pages].reduce<any>((m, entry) => {
     const ext = path.extname(entry);
     const name = entry.replace(path.join(options.cwd, options.rootDir) + '/', '').replace(new RegExp(`${ext}$`), '');
@@ -51,7 +51,7 @@ function prepare(options: RemaxOptions, target: PlatformTarget) {
   };
 }
 
-export default function webpackConfig(options: RemaxOptions, target: PlatformTarget): Configuration {
+export default function webpackConfig(options: RemaxOptions, target: Platform): Configuration {
   const { meta, turboPagesEnabled, entries, entryMap, stubModules, env, publicPath } = prepare(options, target);
 
   for (const entry in entryMap) {

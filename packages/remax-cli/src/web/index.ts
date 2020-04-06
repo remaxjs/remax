@@ -1,22 +1,16 @@
 import webpack from 'webpack';
-import webpackConfig from './webpackConfig';
-import API from '../API';
+import middleware from 'webpack-dev-middleware';
+import express from 'express';
+import webpackConfig from './webpackConfig.web';
 import getConfig from '../getConfig';
-import output from './utils/output';
+import output from '../build/utils/output';
 import { remaxVersion } from '../checkVersions';
-import { Platform } from './platform';
-import buildWeb from '../web';
 
 export default async (argv: any) => {
   const target = argv.target;
-  if (target === Platform.web) {
-    return buildWeb(argv);
-  }
   process.env.REMAX_PLATFORM = target;
 
   const options = getConfig();
-
-  API.registerAdapterPlugins(target, options);
 
   const webpackOptions: webpack.Configuration = webpackConfig(options, target);
   const compiler = webpack(webpackOptions);
@@ -26,31 +20,9 @@ export default async (argv: any) => {
 
   if (argv.watch) {
     output.message('🚀 启动 watch\n', 'blue');
-    compiler.watch({}, (error, stats) => {
-      if (error) {
-        output.error(`[${name}]: ${error.message}`);
-        throw error;
-      }
-
-      const info = stats.toJson();
-
-      if (stats.hasErrors()) {
-        info.errors.forEach(error => {
-          output.error(error);
-        });
-      }
-
-      if (stats.hasWarnings()) {
-        output.warn(info.warnings.join('\n'));
-      }
-
-      // 适配支付宝小程序 IDE
-      if (target === 'alipay') {
-        output.message('Watching for changes...', 'green', options.notify);
-      }
-
-      output.message('💡 完成', 'green');
-    });
+    const app = express();
+    app.use(middleware(compiler));
+    app.listen(3000, () => console.log('Example app listening on port http://localhost:3000'));
 
     try {
       require('remax-stats').run();

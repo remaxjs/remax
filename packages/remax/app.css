@@ -1,0 +1,33 @@
+*,
+*:before,
+*:after {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+  line-height: 1.2;
+}
+
+body {
+  user-select: none;
+  font-size: 16PX;
+  font-family: PingFang SC, Helvetica Neue;
+  background: transparent;
+}
+
+*[contenteditable] {
+  -webkit-user-select: auto !important;
+}
+
+*:focus {
+  outline: none;
+}
+
+a {
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+}
+
+.remax-page {
+  min-height: 100vh;
+}

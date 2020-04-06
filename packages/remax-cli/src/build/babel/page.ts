@@ -9,7 +9,7 @@ function pageConfigExpression(path: NodePath<t.ExportDefaultDeclaration>, id: t.
   );
 }
 
-export default (entries: string[]) => {
+export default function page(entries: string[]) {
   let skip = false;
   return {
     pre(state: any) {
@@ -38,4 +38,4 @@ export default (entries: string[]) => {
       },
     },
   };
-};
+}
