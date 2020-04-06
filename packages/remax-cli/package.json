@@ -101,7 +101,7 @@
     "jest": "^24.8.0",
     "postinstall-postinstall": "^2.0.0",
     "react": "^16.8.6",
-    "react-reconciler": "^0.21.0",
+    "react-reconciler": "^0.25.1",
     "remax": "^1.19.5",
     "remax-alipay": "^1.19.5",
     "remax-one": "^1.19.5",
