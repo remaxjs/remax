@@ -35,7 +35,7 @@
     "@remax/miniprogram-api-typings": "^2.9.3",
     "lodash.kebabcase": "^4.1.1",
     "mini-types": "^0.1.1",
-    "react-reconciler": "0.24.0",
+    "react-reconciler": "0.25.1",
     "remax-alipay": "^1.19.5",
     "remax-one": "^1.19.5",
     "remax-toutiao": "^1.19.5",
