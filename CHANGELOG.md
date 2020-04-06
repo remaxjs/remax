@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.5](https://github.com/remaxjs/remax/compare/v1.19.4...v1.19.5) (2020-04-03)
+
+### Bug Fixes
+
+- 修复属性 namespace 构建错误的问题 ([838043b](https://github.com/remaxjs/remax/commit/838043bdd5f5ac16d9a0e6d38b435f72fb7ea65d))
+
 ## [1.19.4](https://github.com/remaxjs/remax/compare/v1.19.3...v1.19.4) (2020-04-03)
 
 ### Bug Fixes

@@ -18,7 +18,7 @@ function preset(api: any, presetOption: PresetOption) {
     decoratorsBeforeExport: true,
   };
   const throwIfNamespace =
-    typeof presetOption['throw-if-namespace'] === 'undefined' ? true : presetOption['throw-if-namespace'];
+    typeof presetOption['throw-if-namespace'] === 'undefined' ? false : presetOption['throw-if-namespace'];
 
   const presets = [require('@babel/preset-env')];
 
