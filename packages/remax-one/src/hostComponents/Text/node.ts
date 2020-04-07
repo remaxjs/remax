@@ -15,7 +15,6 @@ const defaultAlias = {
   className: 'class',
   style: 'style',
   selectable: 'selectable',
-  decode: 'decode',
 };
 
 export const alias = { ...defaultAlias, ...platformAlias[process.env.REMAX_PLATFORM!] };

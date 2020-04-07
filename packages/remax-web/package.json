@@ -38,6 +38,7 @@
     "umi-hd": "^5.0.1"
   },
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.1.0",
+    "typescript": "^3.8.3"
   }
 }

@@ -1,6 +1,5 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import { camelCase } from 'lodash';
 import { Configuration, ProgressPlugin, DefinePlugin } from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -19,19 +18,6 @@ import getEnvironment from '../build/env';
 import pageClass from './pageClass';
 
 const config = new Config();
-
-function useLoader(id: string) {
-  try {
-    const loaderPath = path.join(__dirname, '../build/webpack/loaders', camelCase(id) + '.js');
-    if (fs.existsSync(loaderPath)) {
-      return loaderPath;
-    }
-  } catch {
-    // ignore
-  }
-
-  return require.resolve(id + '-loader');
-}
 
 function prepare(options: RemaxOptions, target: Platform) {
   const entries = getEntries(options, target);
@@ -55,11 +41,15 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
 
   config.entry('index').add('./src/remax-entry.js');
 
+  config.resolveLoader.modules
+    .merge(['node_modules', path.join(__dirname, '../build/webpack/loaders')])
+    .end()
+    .extensions.merge(['.js', '.ts']);
   config.devtool(process.env.NODE_ENV === 'development' ? 'cheap-module-source-map' : false);
   config.mode(process.env.NODE_ENV as 'development');
   config.context(options.cwd);
   config.resolve.extensions.merge(extensions.map(ex => `.web${ex}`).concat(extensions));
-  config.resolve.alias.merge(alias(options));
+  config.resolve.alias.merge(alias(options, target));
   config.output.path(path.join(options.cwd, options.output));
   config.output.filename('[name].js');
 
@@ -69,7 +59,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .exclude.add(/\.ejs/)
     .end()
     .use('babel')
-    .loader(useLoader('babel'))
+    .loader('babel')
     .options({
       reactPreset: true,
     });
@@ -77,7 +67,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   const preprocessCssRules = [
     {
       name: 'postcss',
-      loader: useLoader('postcss'),
+      loader: require.resolve('postcss-loader'),
       options: {
         config: {
           path: styleConfig.resolvePostcssConfig(options),
@@ -85,9 +75,9 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
         plugins: [pxToUnits({ targetUnits: 'rem', divisor: 100 }), pageClass()].filter(Boolean),
       },
     },
-    styleConfig.enabled('less') && { name: 'less', loader: useLoader('less') },
-    styleConfig.enabled('node-sass') && { name: 'sass', loader: useLoader('sass') },
-    styleConfig.enabled('stylus') && { name: 'stylus', loader: useLoader('stylus') },
+    styleConfig.enabled('less') && { name: 'less', loader: require.resolve('less-loader') },
+    styleConfig.enabled('node-sass') && { name: 'sass', loader: require.resolve('sass-loader') },
+    styleConfig.enabled('stylus') && { name: 'stylus', loader: require.resolve('stylus-loader') },
   ].filter(Boolean) as any[];
 
   let modulStylesRule = config.module
@@ -97,7 +87,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .loader(MiniCssExtractPlugin.loader)
     .end()
     .use('css')
-    .loader(useLoader('css'))
+    .loader(require.resolve('css-loader'))
     .options({
       modules: true,
       importLoaders: preprocessCssRules.length,
@@ -121,7 +111,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .loader(MiniCssExtractPlugin.loader)
     .end()
     .use('css')
-    .loader(useLoader('css'))
+    .loader(require.resolve('css-loader'))
     .options({
       importLoaders: preprocessCssRules.length,
     })
@@ -139,19 +129,19 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .rule('json')
     .test(/\.json$/)
     .use('json')
-    .loader(useLoader('json'));
+    .loader(require.resolve('json-loader'));
 
   config.module
     .rule('remaxDefineVariables')
     .test(/remax\/esm\/createHostComponent.js/i)
     .use('remax-define')
-    .loader(useLoader('remax-define'));
+    .loader('remaxDefine');
 
   config.module
     .rule('images')
     .test(/\.(png|jpe?g|gif|svg)$/i)
     .use('file')
-    .loader(useLoader('file'));
+    .loader(require.resolve('file-loader'));
 
   const entryTemplate = fs.readFileSync(path.resolve(__dirname, '../../template/entry.js.ejs'), 'utf-8');
   config.plugin('virtualModule').use(VirtualModulesPlugin, [

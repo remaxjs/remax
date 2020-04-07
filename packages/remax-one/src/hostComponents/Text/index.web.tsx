@@ -1,7 +1,57 @@
 import * as React from 'react';
+import clsx from 'clsx';
+import { TextWebProps } from './props';
+import './index.css';
 
-const Text: React.FC<any> = props => {
-  return <span {...props} />;
+const Text: React.FC<TextWebProps> = props => {
+  const { onTap, onTouchStart, onTouchMove, onTouchEnd, onTouchCancel, className, selectable, ...restProps } = props;
+  const hoveringRef = React.useRef(false);
+
+  function handleTouchStart(e: any) {
+    hoveringRef.current = true;
+
+    if (typeof onTouchStart === 'function') {
+      return onTouchStart(e);
+    }
+  }
+
+  function handleTouchMove(e: any) {
+    hoveringRef.current = false;
+
+    if (typeof onTouchMove === 'function') {
+      return onTouchMove(e);
+    }
+  }
+
+  function handleTouchEnd(e: any) {
+    hoveringRef.current = false;
+
+    if (typeof onTouchEnd === 'function') {
+      return onTouchEnd(e);
+    }
+  }
+
+  function handleTouchCancel(e: any) {
+    hoveringRef.current = false;
+
+    if (typeof onTouchCancel === 'function') {
+      return onTouchCancel(e);
+    }
+  }
+
+  return (
+    <span
+      className={clsx(className, {
+        'remax-text-selectable': selectable,
+      })}
+      {...restProps}
+      onClick={onTap}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchCancel}
+    />
+  );
 };
 
 export default Text;

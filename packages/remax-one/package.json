@@ -12,6 +12,7 @@
     "watch:cjs": "npm run build:cjs -- -w",
     "prebuild": "rm -rf cjs esm",
     "build": "npm run build:esm && npm run build:cjs",
+    "postbuild": "node ./scripts/postbuild.js",
     "build:esm": "tsc --module ESNext --outDir esm",
     "build:cjs": "tsc --module CommonJS --outDir cjs",
     "test": "jest"
@@ -29,5 +30,8 @@
     "remax-types": "^1.19.5",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "clsx": "^1.1.0"
   }
 }

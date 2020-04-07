@@ -66,7 +66,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .end()
     .extensions.merge(['.js', '.ts']);
   config.resolve.extensions.merge(extensions);
-  config.resolve.alias.merge(alias(options));
+  config.resolve.alias.merge(alias(options, target));
   config.output.path(path.join(options.cwd, options.output));
   config.output.filename('[name].js');
   config.output.globalObject(meta.global);
