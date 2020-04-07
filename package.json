@@ -2,6 +2,10 @@
   "name": "root",
   "private": true,
   "version": "1.0.0",
+  "workspaces": [
+    "packages/*",
+    "website"
+  ],
   "scripts": {
     "watch": "lerna run watch --parallel",
     "prebuild": "lerna run build --scope remax-types && lerna run build --scope remax-alipay && lerna run build --scope remax-wechat && lerna run build --scope remax-toutiao && lerna run build --scope remax-one",

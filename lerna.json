@@ -9,5 +9,6 @@
     }
   },
   "version": "1.19.5",
-  "npmClient": "yarn"
+  "npmClient": "yarn",
+  "useWorkspaces": true
 }
