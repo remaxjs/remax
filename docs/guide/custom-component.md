@@ -3,6 +3,8 @@ title: 小程序自定义组件
 order: 28
 ---
 
+# 小程序自定义组件
+
 Remax 允许你在 React 组件中引用小程序的自定义组件。包括支持原生 UI 组件库，如：[weui](https://github.com/wechat-miniprogram/weui-miniprogram), [min-antui](https://github.com/ant-mini-program/mini-antui)
 等等
 
@@ -41,8 +43,8 @@ export default () => {
       {/** vant-weapp 中 icon 的属性定义为  class-prefix, bindclick，所以应遵循其命名规则 */}
       <VantIcon
         name="close"
-        classPrefix="custom-class-prefix"
-        onClick={handleClick}
+        class-prefix="custom-class-prefix"
+        bindclick={handleClick}
       />
     </View>
   );

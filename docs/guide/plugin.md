@@ -1,7 +1,9 @@
 ---
 title: 小程序插件
-order: 27
+order: 29
 ---
+
+# 使用小程序插件
 
 ## 引入插件代码包
 
@@ -22,10 +24,12 @@ module.exports = {
 
 ### 自定义组件
 
-使用插件的自定义组件同样不需要申明 `usingComponents`，你可以直接对组件提供的自定义组件进行引用：
+使用插件的自定义组件不需要申明 `usingComponents`，而是使用 Remax 的 `requirePluginComponent` 方法。
 
 ```javascript
-import Hello from 'plugin://myPlugin/hello-component';
+import { requirePluginComponent } from 'remax/macro';
+
+const Hello = requirePluginComponent('plugin://myPlugin/hello-component');
 
 export default ()  => (
   <View>
@@ -47,7 +51,8 @@ export default ()  => (
 ### JavaScript 接口
 
 ```javascript
-const myPlugin = requirePlugin('myPlugin');
+import { requirePlugin } from 'remax/macro';
+const myPlugin = requirePlugin('plugin://myPlugin/javascript');
 
 myPlugin.helloApi();
 const word = myPlugin.world;
