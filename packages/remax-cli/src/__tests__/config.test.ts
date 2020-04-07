@@ -2,6 +2,7 @@ import * as path from 'path';
 import getConfig from '../getConfig';
 import readManifest from '../readManifest';
 import build from './helpers/build';
+import { Platform } from '../build/platform';
 
 describe('remax config', () => {
   it('override output', () => {
@@ -60,6 +61,6 @@ describe('manifest', () => {
   });
 
   it('throw error when missing pages config in app.config', async () => {
-    await expect(build('exception', 'alipay')).rejects.toThrow();
+    await expect(build('exception', Platform.alipay)).rejects.toThrow();
   });
 });

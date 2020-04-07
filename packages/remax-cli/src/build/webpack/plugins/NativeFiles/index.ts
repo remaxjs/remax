@@ -1,8 +1,7 @@
 import * as path from 'path';
 import { Compiler } from 'webpack';
-import { RemaxOptions } from 'remax-types';
+import { RemaxOptions, Entries } from 'remax-types';
 import API from '../../../../API';
-import getEntries from '../../../../getEntries';
 import createAppManifest from './createAppManifest';
 import createPageTemplate, { createBaseTemplate } from './createPageTemplate';
 import createTurboPageTemplate from './createTurboPageTemplate';
@@ -14,15 +13,17 @@ const PLUGIN_NAME = 'RemaxNativeFilesPlugin';
 
 export default class NativeFilesPlugin {
   remaxOptions: RemaxOptions;
+  entries: Entries;
 
-  constructor(options: RemaxOptions) {
+  constructor(options: RemaxOptions, entries: Entries) {
     this.remaxOptions = options;
+    this.entries = entries;
   }
 
   apply(compiler: Compiler) {
     compiler.hooks.emit.tapAsync(PLUGIN_NAME, async (compilation, callback) => {
       const options = this.remaxOptions;
-      const entries = getEntries(options);
+      const entries = this.entries;
       const meta = API.getMeta();
 
       // app.json

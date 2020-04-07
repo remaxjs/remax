@@ -257,7 +257,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   config.plugin('define').use(DefinePlugin, [env.stringified]);
   config.plugin('cssExtract').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('optimizeEntries').use(RemaxPlugins.OptimizeEntries, [meta]);
-  config.plugin('nativeFiles').use(RemaxPlugins.NativeFiles, [options]);
+  config.plugin('nativeFiles').use(RemaxPlugins.NativeFiles, [options, entries]);
 
   if (process.env.NODE_ENV === 'production') {
     config.plugin('clean').use(CleanWebpackPlugin);

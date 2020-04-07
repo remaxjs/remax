@@ -1,6 +1,7 @@
 import API from '../../API';
 import webpackConfig from '../../build/webpackConfig';
 import defaultOptions from '../../defaultOptions';
+import { Platform } from '../../build/platform';
 import getConfig from '../../getConfig';
 
 jest.mock('../../getEntries', () => () => ({
@@ -20,7 +21,7 @@ describe('webpackConfig', () => {
           config.mode(mode);
         },
       },
-      'alipay'
+      Platform.alipay
     );
 
     expect(options.mode).toBe(mode);

@@ -1,6 +1,7 @@
 import * as path from 'path';
 import runTest from '../helpers/runTest';
+import { Platform } from '../../build/platform';
 
 describe('build typescript in toutiao app', () => {
-  runTest('typescript', 'toutiao', path.resolve(__dirname, `../fixtures/typescript/expected/toutiao`));
+  runTest('typescript', Platform.toutiao, path.resolve(__dirname, `../fixtures/typescript/expected/toutiao`));
 });
