@@ -74,6 +74,7 @@
     "webpack-chain": "^6.4.0",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-sources": "^1.4.3",
+    "webpack-virtual-modules": "^0.2.1",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
