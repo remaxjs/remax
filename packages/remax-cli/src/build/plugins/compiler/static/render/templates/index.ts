@@ -19,7 +19,7 @@ export const templateInfoMap = new TemplateInfoMap();
  */
 export function createTemplate(
   element: RenderNode,
-  path: NodePath,
+  path: NodePath<any>,
   module: string,
   dataPath: Array<string | number>
 ): string {

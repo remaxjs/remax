@@ -7,10 +7,8 @@ import { EXPRESSION_BLOCK, LEAF, TEMPLATE_ID, STUB_BLOCK } from './constants';
  * 从 JSXElement 中取出 Host Component 的名称
  * 必须已经确定是 JSXElement 属于 Host Component
  * 可以通过 isHostComponent 判断
- * @param node JSXElement
- * @param path NodePath
  */
-export function getHostComponentName(node: t.JSXElement, path: NodePath) {
+export function getHostComponentName(node: t.JSXElement, path: NodePath<any>) {
   if (t.isJSXIdentifier(node.openingElement.name)) {
     const tag = node.openingElement.name.name;
     const binding = path.scope.getBinding(tag);
@@ -36,10 +34,8 @@ export function getHostComponentName(node: t.JSXElement, path: NodePath) {
 
 /**
  * 判断 JSXElement 是否是 Host Component
- * @param node JSXElement|JSXFragment
- * @param path NodePath
  */
-export function isHostComponentElement(node: t.JSXElement | t.JSXFragment, path: NodePath) {
+export function isHostComponentElement(node: t.JSXElement | t.JSXFragment, path: NodePath<any>) {
   if (t.isJSXFragment(node)) {
     return false;
   }
@@ -113,8 +109,6 @@ export function isHostComponentElement(node: t.JSXElement | t.JSXFragment, path:
 
 /**
  * 判断是否是 expression block
- *
- * @param path NodePath
  */
 export function isExpressionBlock(path: any) {
   return path?.node?.openingElement?.name?.name === EXPRESSION_BLOCK;
@@ -122,10 +116,8 @@ export function isExpressionBlock(path: any) {
 
 /**
  * 判断是否是 <React.Fragment></React.Fragment> 或 <></>
- * @param node JSXElement|JSXFragment
- * @param path NodePath
  */
-export function isReactFragment(node: t.JSXElement | t.JSXFragment, path: NodePath) {
+export function isReactFragment(node: t.JSXElement | t.JSXFragment, path: NodePath<any>) {
   if (t.isJSXFragment(node)) {
     return true;
   }
@@ -218,11 +210,8 @@ export function getTemplateID(element: t.JSXOpeningElement) {
  * 判断是否是 Leaf 节点
  * 组件标记了 leaf 属性时，说明其子节点是单节点
  * 目前只有 plain text 文本情况
- *
- * @param {NodePath<t.JSXElement>} path
- * @returns
  */
-export function isPlainTextLeaf(node: t.Node, path: NodePath) {
+export function isPlainTextLeaf(node: t.Node, path: NodePath<any>) {
   if (!t.isJSXElement(node)) {
     return false;
   }
@@ -236,13 +225,8 @@ export function isPlainTextLeaf(node: t.Node, path: NodePath) {
 
 /**
  * 用标签包裹当前 node
- *
- * @export
- * @param node
- * @param {NodePath} path
- * @returns
  */
-export function wrappedByElement(name: string, node: JSXNode, path: NodePath) {
+export function wrappedByElement(name: string, node: JSXNode, path: NodePath<any>) {
   path.replaceWith(
     t.jsxElement(
       t.jsxOpeningElement(t.jsxIdentifier(name), []),
@@ -257,7 +241,7 @@ export function wrappedByElement(name: string, node: JSXNode, path: NodePath) {
  * 用 <block> 标签包裹，用于处理无法静态化的标签和表达式
  *
  */
-export function wrappedByExpressionBlock(node: JSXNode, path: NodePath) {
+export function wrappedByExpressionBlock(node: JSXNode, path: NodePath<any>) {
   // 如果不是在一个 JSXElement|JSXFragment 中，则不处理
   // 如：这是一个属性表达式 attr={xxx}
   if (!t.isJSXElement(path.parentPath.node) && !t.isJSXFragment(path.parentPath.node)) {
@@ -274,23 +258,15 @@ export function wrappedByExpressionBlock(node: JSXNode, path: NodePath) {
 
 /**
  * 将标签替换成 JSXFragment
- *
- * @export
- * @param {(t.JSXElement)} node
- * @param {NodePath} path
  */
-export function replacedWithJSXFragment(node: t.JSXElement, path: NodePath) {
+export function replacedWithJSXFragment(node: t.JSXElement, path: NodePath<any>) {
   path.replaceWith(t.jsxFragment(t.jsxOpeningFragment(), t.jsxClosingFragment(), node.children));
 }
 
 /**
  * 将标签替换为 <stub-block>
- *
- * @export
- * @param {(t.JSXElement)} node
- * @param {NodePath} path
  */
-export function replacedWithStubBlock(node: t.JSXElement, path: NodePath) {
+export function replacedWithStubBlock(path: NodePath<any>) {
   path.replaceWith(
     t.jsxElement(
       t.jsxOpeningElement(t.jsxIdentifier(STUB_BLOCK), []),

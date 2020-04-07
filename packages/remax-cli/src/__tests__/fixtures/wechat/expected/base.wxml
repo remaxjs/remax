@@ -36,12 +36,12 @@
 
 		<template name="REMAX_TPL_1_scroll-view">
     
-    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}"  >
+    <scroll-view wx:if="{{i.props['scroll-y'] && i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}"  >
+    <scroll-view wx:elif="{{i.props['scroll-x'] && i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
@@ -55,12 +55,12 @@
 
 		<template name="REMAX_TPL_2_scroll-view">
     
-    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}"  >
+    <scroll-view wx:if="{{i.props['scroll-y'] && i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}"  >
+    <scroll-view wx:elif="{{i.props['scroll-x'] && i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
@@ -74,12 +74,12 @@
 
 		<template name="REMAX_TPL_3_scroll-view">
     
-    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}"  >
+    <scroll-view wx:if="{{i.props['scroll-y'] && i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}"  >
+    <scroll-view wx:elif="{{i.props['scroll-x'] && i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
@@ -93,12 +93,12 @@
 
 		<template name="REMAX_TPL_4_scroll-view">
     
-    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}"  >
+    <scroll-view wx:if="{{i.props['scroll-y'] && i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}"  >
+    <scroll-view wx:elif="{{i.props['scroll-x'] && i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
@@ -112,12 +112,12 @@
 
 		<template name="REMAX_TPL_5_scroll-view">
     
-    <scroll-view wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}"  >
+    <scroll-view wx:if="{{i.props['scroll-y'] && i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}"  >
+    <scroll-view wx:elif="{{i.props['scroll-x'] && i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}"  >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
