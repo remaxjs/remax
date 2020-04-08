@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.7](https://github.com/remaxjs/remax/compare/v1.19.6...v1.19.7) (2020-04-08)
+
+### Bug Fixes
+
+- 修复微信 ScrollView scrollLeft 不生效的问题 ([8e02c94](https://github.com/remaxjs/remax/commit/8e02c94d260b9f0ab115761bbef33938abbb215c))
+
 ## [1.19.6](https://github.com/remaxjs/remax/compare/v1.19.5...v1.19.6) (2020-04-07)
 
 **Note:** Version bump only for package remax-wechat
