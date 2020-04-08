@@ -77,9 +77,10 @@ export function addToComponentCollection<T extends Component>(component: T, impo
 }
 
 function registerSlotViewProps(node: t.JSXElement) {
-  const props: string[] = [];
+  let props: string[] = [];
   node.openingElement.attributes.forEach(attr => {
     if (t.isJSXSpreadAttribute(attr)) {
+      props = [...props, ...(API.getHostComponents().get('view')?.props || [])];
       return;
     }
 

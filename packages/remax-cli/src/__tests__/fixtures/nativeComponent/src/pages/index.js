@@ -33,7 +33,7 @@ export default () => {
       </SlotComponent>
       <SlotComponent>
         {/* 测试 slot view 的 prop 收集 */}
-        <View className="outer" slot="outer"></View>
+        <View className="outer" slot="outer" ns:attr="value" />
       </SlotComponent>
       <ScopedComponent />
       <SrcComponent />

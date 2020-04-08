@@ -48,7 +48,8 @@ var _page = function _page() {
     slot: "inner"
   })), /*#__PURE__*/React.createElement(SlotComponent, null, /*#__PURE__*/React.createElement(alipay.View, {
     className: "outer",
-    slot: "outer"
+    slot: "outer",
+    "ns:attr": "value"
   })), /*#__PURE__*/React.createElement(ScopedComponent, null), /*#__PURE__*/React.createElement(SrcComponent, null), /*#__PURE__*/React.createElement(CJSComponent, null), text);
 };
 

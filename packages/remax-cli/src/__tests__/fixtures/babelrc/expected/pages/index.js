@@ -40,6 +40,24 @@ function _classCallCheck(instance, Constructor) {
   }
 }
 
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
 function _initializerDefineProperty(target, property, descriptor, context) {
   if (!descriptor) return;
   Object.defineProperty(target, property, {
@@ -2353,9 +2371,12 @@ var C = (_class = (_temp = function C() {
 }), _class);
 var c = new C();
 c.p = 'a';
+var props = {};
 
 var _page = function _page() {
-  return /*#__PURE__*/React.createElement(View, null, timesTwo([1, 2, 3]), N.V, N.W, c.p, /*#__PURE__*/React.createElement(A, null));
+  return /*#__PURE__*/React.createElement(View, null, timesTwo([1, 2, 3]), N.V, N.W, c.p, /*#__PURE__*/React.createElement(A, null, /*#__PURE__*/React.createElement(View, _extends({
+    slot: "slot"
+  }, props))));
 };
 
 var index = Page(createPageConfig(_page));
