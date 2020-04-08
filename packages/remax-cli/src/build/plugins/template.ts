@@ -2,7 +2,7 @@ import * as path from 'path';
 import { parse } from 'acorn';
 import { Plugin, OutputChunk } from 'rollup';
 import { sortBy } from 'lodash';
-import { getComponents } from './components';
+import { getComponents, SlotView } from './components';
 import { RemaxOptions, Meta } from 'remax-types';
 import ejs from 'ejs';
 import API from '../../API';
@@ -22,10 +22,12 @@ function pageUID(pagePath: string) {
 }
 
 function renderOptions(options: RemaxOptions) {
+  const components = getComponents(options);
+
   return {
-    components: sortBy(getComponents(options).concat(Object.values(getNativeComponents())), 'id'),
-    viewComponent: {
-      props: [...new Set(API.getHostComponents().get('view')!.props)].sort(),
+    components: sortBy(components.concat(Object.values(getNativeComponents())), 'id'),
+    slotView: {
+      props: [...new Set(SlotView.props || [])].sort(),
     },
   };
 }

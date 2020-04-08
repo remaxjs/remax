@@ -13,6 +13,12 @@ export interface Component {
   pages?: Set<string>;
 }
 
+export const SlotView: Component = {
+  id: 'slot-view',
+  props: [],
+  importer: '',
+};
+
 type Components<T> = Map<string, T>;
 export type Importers<T = Component> = Map<string, Components<T>>;
 
@@ -70,6 +76,36 @@ export function addToComponentCollection<T extends Component>(component: T, impo
   });
 }
 
+function registerSlotViewProps(node: t.JSXElement) {
+  const props: string[] = [];
+  node.openingElement.attributes.forEach(attr => {
+    if (t.isJSXSpreadAttribute(attr)) {
+      return;
+    }
+
+    const prop = attr.name;
+    let propName = '';
+
+    if (t.isJSXIdentifier(prop)) {
+      propName = prop.name;
+    }
+
+    if (t.isJSXNamespacedName(prop)) {
+      propName = prop.namespace.name + ':' + prop.name.name;
+    }
+
+    props.push(propName);
+  });
+
+  return (
+    props
+      // 无需收集 slot 字段
+      .filter(p => p !== 'slot')
+      .map(prop => aliasProp(prop, API.getHostComponents().get('view')))
+      .sort()
+  );
+}
+
 function registerProps(componentName: string, node?: t.JSXElement) {
   const hostComponent = API.getHostComponents().get(componentName);
 
@@ -114,6 +150,18 @@ function registerProps(componentName: string, node?: t.JSXElement) {
   ].sort();
 }
 
+function isSlotView(componentName: string, node?: t.JSXElement) {
+  if (!node || componentName !== 'view') {
+    return false;
+  }
+
+  if (node.openingElement.attributes.find(attr => t.isJSXAttribute(attr) && attr.name.name === 'slot')) {
+    return true;
+  }
+
+  return false;
+}
+
 function registerComponent(
   {
     componentName,
@@ -133,7 +181,18 @@ function registerComponent(
     return;
   }
 
-  const props = registerProps(componentName, node);
+  let props: string[] | undefined = [];
+
+  if (isSlotView(componentName, node)) {
+    // isSlotView 确保了 node 一定存在
+    props = registerSlotViewProps(node!);
+
+    SlotView.props = Array.from(new Set([...SlotView.props, ...props]));
+
+    return;
+  } else {
+    props = registerProps(componentName, node);
+  }
 
   if (!props) {
     return;

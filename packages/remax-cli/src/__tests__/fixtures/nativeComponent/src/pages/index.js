@@ -28,7 +28,12 @@ export default () => {
       <PluginComponent />
       <PluginComponent2 />
       <SlotComponent>
-        <View slot="inner"></View>
+        {/* 测试 slot view 的 prop 收集 */}
+        <View id="inner" slot="inner"></View>
+      </SlotComponent>
+      <SlotComponent>
+        {/* 测试 slot view 的 prop 收集 */}
+        <View className="outer" slot="outer"></View>
       </SlotComponent>
       <ScopedComponent />
       <SrcComponent />

@@ -61,8 +61,8 @@
     <%_ } else if (type === 'native') { _%>
     <block wx:for="{{i.children}}" wx:key="id">
       <block wx:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" <% for(let i=0;i < viewComponent.props.length; i++) { %>
-          <%=viewComponent.props[i]%>="{{item.props['<%=viewComponent.props[i]%>']}}" <%}%>
+        <view slot="{{item.props['slot']}}" <% for(let i=0;i < slotView.props.length; i++) { %>
+          <%=slotView.props[i]%>="{{item.props['<%=slotView.props[i]%>']}}" <%}%>
         >
           <block wx:for="{{item.children}}" wx:key="id">
             <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />

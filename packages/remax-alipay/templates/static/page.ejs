@@ -9,14 +9,14 @@
 <%- include('./additional-host-component.ejs', {
   props: component.props,
   id: component.id,
-  view: viewComponent
+  slotView: slotView
   })
 %>
   <% } else if (component.type === 'native') { %>
 <%- include('./native-component.ejs', {
   props: component.props,
   id: component.id,
-  view: viewComponent,
+  slotView: slotView,
   TEMPLATE_ID: TEMPLATE_ID
   })
 %>

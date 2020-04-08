@@ -1,5 +1,3 @@
-<template is="REMAX_TPL" data="{{ root: root }}" />
-
 <template name="REMAX_TPL">
   <block a:for="{{root.children}}" a:key="{{item.id}}">
     <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
@@ -7,13 +5,16 @@
 </template>
 
 <% for (let component of components) { %>
-  <%- include('./component.ejs', {
-          type: component.type,
-          props: component.props,
-          id: component.id,
-          slotView: slotView
-        }) %>
+  <% if (component.type !== 'native') { %>
+<%- include('./native-component.ejs', {
+  props: component.props,
+  id: component.id,
+  slotView: slotView,
+  type: component.type,
+  })
+%>
   <% } %>
+<% } %>
 
 <template name="REMAX_TPL_1_plain-text">
   <block>{{item.text}}</block>
