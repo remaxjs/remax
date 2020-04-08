@@ -44,7 +44,12 @@ var _page = function _page() {
   }), /*#__PURE__*/React.createElement(B, {
     ref: b
   }), /*#__PURE__*/React.createElement(C, null), /*#__PURE__*/React.createElement(D, null), /*#__PURE__*/React.createElement(E, null), /*#__PURE__*/React.createElement(Complex, null), /*#__PURE__*/React.createElement(PluginComponent, null), /*#__PURE__*/React.createElement(PluginComponent2, null), /*#__PURE__*/React.createElement(SlotComponent, null, /*#__PURE__*/React.createElement(alipay.View, {
+    id: "inner",
     slot: "inner"
+  })), /*#__PURE__*/React.createElement(SlotComponent, null, /*#__PURE__*/React.createElement(alipay.View, {
+    className: "outer",
+    slot: "outer",
+    "ns:attr": "value"
   })), /*#__PURE__*/React.createElement(ScopedComponent, null), /*#__PURE__*/React.createElement(SrcComponent, null), /*#__PURE__*/React.createElement(CJSComponent, null), text);
 };
 

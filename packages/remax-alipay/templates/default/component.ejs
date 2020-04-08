@@ -24,8 +24,8 @@
     <% } else if (type === 'native') { %>
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" <% for(let i=0;i < viewComponent.props.length; i++) { %>
-          <%=viewComponent.props[i]%>="{{item.props['<%=viewComponent.props[i]%>']}}" <% } %>
+        <view slot="{{item.props['slot']}}" <% for(let i=0;i < slotView.props.length; i++) { %>
+          <%=slotView.props[i]%>="{{item.props['<%=slotView.props[i]%>']}}" <% } %>
         >
           <block a:for="{{item.children}}" key="{{item.id}}">
             <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
