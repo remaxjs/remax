@@ -7,6 +7,11 @@ import { LEAF, ENTRY } from './compiler/static/constants';
 import { getSourcePath, isNativeComponent } from '../nativeComponent';
 import API from '../../API';
 
+export const SlotView: ComponentManifest = {
+  id: 'slot-view',
+  props: [],
+};
+
 export interface ComponentManifest {
   id: string;
   props: string[];
@@ -140,11 +145,54 @@ function aliasProp(propName: string, hostComponent?: HostComponent) {
   return hostComponent?.alias?.[propName] || propName;
 }
 
+function registerSlotViewProps(node: t.JSXElement) {
+  let props: string[] = [];
+  node.openingElement.attributes.forEach(attr => {
+    if (t.isJSXSpreadAttribute(attr)) {
+      props = [...props, ...(API.getHostComponents().get('view')?.props || [])];
+      return;
+    }
+
+    const prop = attr.name;
+    let propName = '';
+
+    if (t.isJSXIdentifier(prop)) {
+      propName = prop.name;
+    }
+
+    if (t.isJSXNamespacedName(prop)) {
+      propName = prop.namespace.name + ':' + prop.name.name;
+    }
+
+    props.push(propName);
+  });
+
+  return (
+    props
+      // 无需收集 slot 字段
+      .filter(p => p !== 'slot')
+      .map(prop => aliasProp(prop, API.getHostComponents().get('view')))
+      .sort()
+  );
+}
+
+function isSlotView(componentName: string, node?: t.JSXElement) {
+  if (!node || componentName !== 'view') {
+    return false;
+  }
+
+  if (node.openingElement.attributes.find(attr => t.isJSXAttribute(attr) && attr.name.name === 'slot')) {
+    return true;
+  }
+
+  return false;
+}
+
 function registerProps(id: string, node?: t.JSXElement, isNative?: boolean) {
   const hostComponent = API.getHostComponents().get(id);
 
   if (!isNative && !hostComponent) {
-    return false;
+    return;
   }
 
   let props: string[] = [];
@@ -224,7 +272,18 @@ function registerHostComponentManifest(id: string, phase: 'jsx' | 'extra', node?
     return;
   }
 
-  const props = registerProps(id, node);
+  let props: string[] | undefined = [];
+
+  if (isSlotView(id, node)) {
+    // isSlotView 确保了 node 一定存在
+    props = registerSlotViewProps(node!);
+
+    SlotView.props = Array.from(new Set([...SlotView.props, ...props]));
+
+    return;
+  } else {
+    props = registerProps(id, node);
+  }
 
   if (!props) {
     return;

@@ -39,7 +39,7 @@ function isStubAttribute(attribute: t.JSXAttribute | t.JSXSpreadAttribute) {
  * @param {t.JSXElement|t.JSXFragment} node
  * @returns
  */
-function isStubElement(node: t.JSXElement | t.JSXFragment, path: NodePath) {
+function isStubElement(node: t.JSXElement | t.JSXFragment, path: NodePath<any>) {
   let isSelfStub = false;
 
   if (t.isJSXFragment(node)) {
@@ -114,7 +114,7 @@ export default function postProcess() {
         node.openingElement.attributes = node.openingElement.attributes.filter(attr => !isStubAttribute(attr));
 
         if (isStubElement(node, path)) {
-          helpers.replacedWithStubBlock(node, path);
+          helpers.replacedWithStubBlock(path);
         }
       },
     },

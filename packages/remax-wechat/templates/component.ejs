@@ -12,12 +12,12 @@
     <<%=id%> wx:else <%- propsString %> />
   <%_ } else if (id === 'scroll-view') { _%>
     <% const propsString = propsKeyTpl(props.filter(key => (key !== 'scroll-top' && key !== 'scroll-left'))) %>
-    <<%=id%> wx:if="{{i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}" <%- propsString %> >
+    <<%=id%> wx:if="{{i.props['scroll-y'] && i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}" <%- propsString %> >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
     </<%=id%>>
-    <<%=id%> wx:elif="{{i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}" <%- propsString %> >
+    <<%=id%> wx:elif="{{i.props['scroll-x'] && i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}" <%- propsString %> >
       <block wx:for="{{i.children}}" wx:key="id">
         <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
       </block>
@@ -61,8 +61,8 @@
     <%_ } else if (type === 'native') { _%>
     <block wx:for="{{i.children}}" wx:key="id">
       <block wx:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" <% for(let i=0;i < viewComponent.props.length; i++) { %>
-          <%=viewComponent.props[i]%>="{{item.props['<%=viewComponent.props[i]%>']}}" <%}%>
+        <view slot="{{item.props['slot']}}" <% for(let i=0;i < slotView.props.length; i++) { %>
+          <%=slotView.props[i]%>="{{item.props['<%=slotView.props[i]%>']}}" <%}%>
         >
           <block wx:for="{{item.children}}" wx:key="id">
             <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />

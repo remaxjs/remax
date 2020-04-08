@@ -368,6 +368,27 @@
   </movable-view>
 </template>
   
+  <template name="REMAX_TPL_1_native-component-0">
+  <native-component-0 
+    ns:prop="{{item.props['ns:prop']}}"ref="{{item.props['__ref']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </native-component-0>
+</template>
+  
   <template name="REMAX_TPL_1_navigator">
   <navigator 
     class="{{item.props['class']}}"

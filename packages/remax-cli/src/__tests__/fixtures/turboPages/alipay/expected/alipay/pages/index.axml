@@ -600,6 +600,26 @@
   
 
   
+<template name="TPL_native-component-0">
+  <native-component-0 
+    ref="{{node.props['__ref']}}">
+    <block a:for="{{node.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+        >
+          <template is="TPL_TRAVERSAL" data="{{root: item}}" />
+        </view>
+      </block>
+      <block a:else>
+        <template a:if="{{node.props._tid > 0}}" is="{{'TPL_' + node.props._tid}}" data="{{ node: item }}" />
+        <template a:else is="{{ 'TPL_' + item.type }}" data="{{ node: item }}" />
+      </block>
+    </block>
+  </native-component-0>
+</template>
+  
+
+  
 <template name="TPL_navigator">
   <navigator 
     class="{{node.props['class']}}" 

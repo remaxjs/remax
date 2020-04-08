@@ -3,7 +3,6 @@ import { sortBy } from 'lodash';
 import { compilation } from 'webpack';
 import ejs from 'ejs';
 import { RemaxOptions, Meta } from 'remax-types';
-import API from '../../../../API';
 import * as componentManifest from '../../../../build/babel/componentManifest';
 import winPath from '../../../../winPath';
 import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDepth';
@@ -20,8 +19,8 @@ export function pageUID(pagePath: string) {
 export function createRenderOptions() {
   return {
     components: sortBy(componentManifest.values(), 'id'),
-    viewComponent: {
-      props: [...new Set(API.getHostComponents().get('view')!.props)].sort(),
+    slotView: {
+      props: [...new Set(componentManifest.SlotView.props || [])].sort(),
     },
   };
 }

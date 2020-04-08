@@ -3,7 +3,7 @@ import MagicString from 'magic-string';
 import { relative, dirname } from 'path';
 import * as t from '@babel/types';
 import * as babelParser from '@babel/parser';
-import traverse, { NodePath } from '@babel/traverse';
+import traverse, { NodePath, VisitNodeFunction } from '@babel/traverse';
 import { get } from 'lodash';
 import resolve from 'resolve';
 import { getPath } from '../../../nativeComponent';
@@ -18,7 +18,7 @@ export function resolveModulesInCode(code: string, filePath: string, options: Re
     sourceType: 'module',
   });
 
-  const extract = (path: NodePath) => {
+  const extract: VisitNodeFunction<any, any> = (path: NodePath) => {
     const { node } = path;
 
     let importPath =

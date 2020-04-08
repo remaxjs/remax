@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.6](https://github.com/remaxjs/remax/compare/v1.19.5...v1.19.6) (2020-04-07)
+
+### Bug Fixes
+
+- **alipay:** 修复 Label 缺少 className 属性类型的问题 ([#774](https://github.com/remaxjs/remax/issues/774)) ([dc46969](https://github.com/remaxjs/remax/commit/dc469691b0bcc32f3f1253d1ed805959534c7d99))
+
 ## [1.19.5](https://github.com/remaxjs/remax/compare/v1.19.4...v1.19.5) (2020-04-03)
 
 **Note:** Version bump only for package remax-alipay

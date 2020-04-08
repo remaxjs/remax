@@ -28,6 +28,26 @@ function _initializerDefineProperty(target, property, descriptor, context) {
     return;
   }
 
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _initializerDefineProperty(target, property, descriptor, context) {
+  if (!descriptor) return;
   Object.defineProperty(target, property, {
     enumerable: descriptor.enumerable,
     configurable: descriptor.configurable,
@@ -5090,19 +5110,24 @@ function promisify(api) {
             promisifyArg.success(res);
           }
 
-          resolve(res);
-        },
-        fail: function fail(res) {
-          if (promisifyArg && typeof promisifyArg.fail === 'function') {
-            promisifyArg.fail(res);
-          }
+  _initializerDefineProperty(this, "p", _descriptor, this);
+}, _temp), _descriptor = _applyDecoratedDescriptor(_class.prototype, "p", [readonly], {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  initializer: function initializer() {
+    return 'p';
+  }
+}), _class);
+var c = new C();
+c.p = 'a';
+var props = {};
 
-          reject(res);
-        }
-      }));
-    });
-  };
-}
+var _page = function _page() {
+  return /*#__PURE__*/React.createElement(View, null, timesTwo([1, 2, 3]), N.V, N.W, c.p, /*#__PURE__*/React.createElement(A, null, /*#__PURE__*/React.createElement(View, _extends({
+    slot: "slot"
+  }, props))));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (promisify);
 

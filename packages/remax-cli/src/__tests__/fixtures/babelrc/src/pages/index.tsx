@@ -33,12 +33,16 @@ const c = new C();
 
 c.p = 'a';
 
+const props = {};
+
 export default () => (
   <View>
     {timesTwo([1, 2, 3])}
     {N.V}
     {N.W}
     {c.p}
-    <A />
+    <A>
+      <View slot="slot" {...props} />
+    </A>
   </View>
 );
