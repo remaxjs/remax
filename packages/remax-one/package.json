@@ -22,16 +22,22 @@
   "devDependencies": {
     "@types/jest": "^24.0.24",
     "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.6",
+    "@types/react-lazyload": "^2.6.0",
     "@types/react-test-renderer": "^16.9.1",
     "concurrently": "^5.0.0",
     "jest": "^24.9.0",
     "react": "^16.12.0",
+    "react-dom": "^16.13.1",
     "react-test-renderer": "^16.12.0",
     "remax-types": "^1.19.6",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
   },
   "dependencies": {
-    "clsx": "^1.1.0"
+    "clsx": "^1.1.0",
+    "react-autosize-textarea": "^7.0.0",
+    "react-lazyload": "^2.6.7",
+    "rmc-feedback": "^2.0.0"
   }
 }

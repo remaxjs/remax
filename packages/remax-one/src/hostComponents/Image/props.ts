@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ImageLoadEvent, ImageErrorEvent, TapEvent, TouchStartEvent } from '../../types';
 
-export default interface ImageProps extends React.AriaAttributes {
+interface CommonProps {
   // 通用属性
   readonly dataset?: DOMStringMap;
   id?: string;
@@ -24,8 +24,9 @@ export default interface ImageProps extends React.AriaAttributes {
     | 'top right'
     | 'bottom left'
     | 'bottom right';
-  /** 图片懒加载，在即将进入一定范围（上下三屏）时才开始加载 */
-  lazyLoad?: boolean;
+}
+
+export default interface ImageProps extends CommonProps, React.AriaAttributes {
   /** 当图片载入完毕时触发 */
   onLoad?: (e: ImageLoadEvent) => void;
   /** 当错误发生时触发 */
@@ -35,4 +36,8 @@ export default interface ImageProps extends React.AriaAttributes {
   onTouchMove?: (e: TouchStartEvent) => void;
   onTouchEnd?: (e: TouchStartEvent) => void;
   onTouchCancel?: (e: TouchStartEvent) => void;
+}
+
+export interface ImageWebProps extends CommonProps, React.HTMLAttributes<HTMLImageElement> {
+  onTap?: (e: React.MouseEvent<HTMLImageElement>) => void;
 }

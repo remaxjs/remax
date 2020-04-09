@@ -1,29 +1,7 @@
 import * as React from 'react';
 import { InputEvent } from '../../types';
 import { createCallback, createInputEvent } from '../../createHostComponent';
-
-export interface TextareaProps {
-  // 通用属性
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: React.CSSProperties;
-  name?: string;
-  value?: any;
-  defaultValue?: any;
-  placeholder?: string;
-  placeholderStyle?: React.CSSProperties;
-  disabled?: boolean;
-  /** 最大输入长度，设置为 -1 的时候不限制最大长度 */
-  maxlength?: number;
-  focus?: boolean;
-  /** 是否自动增高，设置auto-height时，style.height不生效 */
-  autoHeight?: boolean;
-  onInput?: (event: InputEvent) => any;
-  onFocus?: (event: InputEvent) => void;
-  onBlur?: (event: InputEvent) => void;
-  onConfirm?: (event: InputEvent) => void;
-}
+import { TextareaProps } from './props';
 
 export interface TextareaState {
   value?: string;

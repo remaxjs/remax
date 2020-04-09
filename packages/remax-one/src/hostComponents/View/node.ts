@@ -28,7 +28,6 @@ const defaultAlias = {
   className: 'class',
   style: 'style',
   animation: 'animation',
-  hoverStopPropagation: 'hover-stop-propagation',
 };
 
 export const alias = { ...defaultAlias, ...platformAlias[process.env.REMAX_PLATFORM!] };

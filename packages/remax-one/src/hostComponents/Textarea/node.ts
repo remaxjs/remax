@@ -4,18 +4,24 @@ const platformAlias: any = {
     onFocus: 'onFocus',
     onBlur: 'onBlur',
     onConfirm: 'onConfirm',
+    maxlength: 'maxlength',
   },
   wechat: {
     onInput: 'bindinput',
     onFocus: 'bindfocus',
     onBlur: 'bindblur',
     onConfirm: 'bindconfirm',
+    maxlength: 'maxlength',
   },
   toutiao: {
     onInput: 'bindinput',
     onFocus: 'bindfocus',
     onBlur: 'bindblur',
     onConfirm: 'bindconfirm',
+    maxlength: 'maxlength',
+  },
+  web: {
+    maxLength: 'maxlength',
   },
 };
 
@@ -28,7 +34,6 @@ const defaultAlias = {
   placeholder: 'placeholder',
   placeholderStyle: 'placeholder-style',
   disabled: 'disabled',
-  maxlength: 'maxlength',
   focus: 'focus',
   autoHeight: 'auto-height',
   onInput: 'onInput',

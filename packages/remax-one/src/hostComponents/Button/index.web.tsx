@@ -1,10 +1,10 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { ViewWebProps } from './props';
+import { ButtonWebProps } from './props';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
 import { LONG_TAP_DURATION } from '../../constants';
 
-const View: React.FC<ViewWebProps> = props => {
+const Button: React.FC<ButtonWebProps> = props => {
   const {
     hoverClassName,
     hoverStartTime,
@@ -84,7 +84,7 @@ const View: React.FC<ViewWebProps> = props => {
   }
 
   return (
-    <div
+    <button
       {...filterProps(restProps)}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
@@ -96,9 +96,9 @@ const View: React.FC<ViewWebProps> = props => {
   );
 };
 
-View.defaultProps = {
+Button.defaultProps = {
   hoverStayTime: 400,
   hoverStartTime: 50,
 };
 
-export default View;
+export default Button;
