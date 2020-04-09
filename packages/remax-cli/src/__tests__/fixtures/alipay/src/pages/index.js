@@ -24,6 +24,7 @@ export default () => {
         onTouchStart={handleTouchStart}
         id="view"
         data-foo="bar"
+        key="my-view"
         {...props}
       >
         foo

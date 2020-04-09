@@ -1,9 +1,16 @@
 <template name="REMAX_TPL_1_<%=id%>">
   <<%=id%> <% for(let i=0;i < props.length; i++) { %>
-    <%=props[i]%>="{{item.props['<%=props[i]%>']}}"<% } %><% if (type === 'native') { %>ref="{{item.props['__ref']}}"<% } %>>
+    <% if (props[i] === 'key') { %>
+    key="{{item.props.__key}}"
+    <% } else { %>
+    <%=props[i]%>="{{item.props['<%=props[i]%>']}}"
+    <% } %>
+    <% } %>
+    <% if (type === 'native') { %>ref="{{item.props['__ref']}}"<% } %>
+  >
     <% if (id === 'swiper') { %>
     <block a:for="{{item.children}}" key="{{item.id}}">
-      <swiper-item key="{{item.props.key}}">
+      <swiper-item key="{{item.props.__key}}">
         <block a:for="{{item.children}}" key="{{item.id}}">
           <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
         </block>

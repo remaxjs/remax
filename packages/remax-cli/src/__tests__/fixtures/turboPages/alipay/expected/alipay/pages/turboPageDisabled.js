@@ -52,12 +52,14 @@ function _Index() {
   }, "view"), /*#__PURE__*/React.createElement(index$2.View, null, "custom view"), React.createElement('view', {
     id: 'view'
   }, [/*#__PURE__*/React.createElement(index$2.View, {
-    key: "1"
+    key: "1",
+    __key: "1"
   }, "create element children 1"), React.createElement('view', {
     key: '2'
   })]), [1, 2, 3].map(function (item) {
     return /*#__PURE__*/React.createElement(index$2.View, {
-      key: item
+      key: item,
+      __key: item
     }, "array map: ", item);
   }), /*#__PURE__*/React.createElement(index$2.View, props, "Spread Attributes View"), /*#__PURE__*/React.createElement(index$2.Text, null, "long long long long long long long long long long long long text long long long long long long long long long long long long text"), /*#__PURE__*/React.createElement(index$2.RemaxWindow, null), 'Literal Expression', /*#__PURE__*/React.createElement(Deep.Object.View, null, "Deep Object View"), /*#__PURE__*/React.createElement(RenameView, null, "Rename View"), show && /*#__PURE__*/React.createElement(index$2.View, null, "Conditional View"), /*#__PURE__*/React.createElement(index$2.Text, {
     leaf: true
