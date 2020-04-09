@@ -88,7 +88,8 @@ function _Index() {
   }, [1, 2, 3].map(function (item) {
     return /*#__PURE__*/React.createElement(index$2.View, {
       key: item,
-      _tid: "28"
+      _tid: "28",
+      __key: item
     }, "array map: ", /*#__PURE__*/React.createElement("block", null, item));
   })), /*#__PURE__*/React.createElement(index$2.View, index$1._extends({}, props, {
     _tid: "17"

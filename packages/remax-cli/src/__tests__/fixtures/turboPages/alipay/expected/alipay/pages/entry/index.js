@@ -64,7 +64,8 @@ function _Index() {
   })])), /*#__PURE__*/React.createElement("block", null, [1, 2, 3].map(function (item) {
     return /*#__PURE__*/React.createElement(index$2.View, {
       key: item,
-      _tid: "35"
+      _tid: "35",
+      __key: item
     }, "array map: ", /*#__PURE__*/React.createElement("block", null, item));
   })), /*#__PURE__*/React.createElement(index$2.View, props, "Spread Attributes View"), /*#__PURE__*/React.createElement("stub-block", null), /*#__PURE__*/React.createElement("block", null, /*#__PURE__*/React.createElement(index$2.RemaxWindow, null)), /*#__PURE__*/React.createElement("block", null, 'Literal Expression'), /*#__PURE__*/React.createElement("block", null, /*#__PURE__*/React.createElement(Deep.Object.View, null, "Deep Object View")), /*#__PURE__*/React.createElement("block", null, /*#__PURE__*/React.createElement(RenameView, null, "Rename View")), /*#__PURE__*/React.createElement("block", null, show && /*#__PURE__*/React.createElement(index$2.View, {
     _tid: "36"
