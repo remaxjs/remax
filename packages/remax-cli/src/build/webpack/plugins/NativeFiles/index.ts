@@ -8,7 +8,6 @@ import createTurboPageTemplate from './createTurboPageTemplate';
 import createPageManifest from './createPageManifest';
 import createPageHelperFile from './createPageHelperFile';
 import * as turboPages from '../../../turboPages';
-import winPath from '../../../../winPath';
 
 const PLUGIN_NAME = 'RemaxNativeFilesPlugin';
 
@@ -36,7 +35,7 @@ export default class NativeFilesPlugin {
       Promise.all(
         entries.pages.map(async pagePath => {
           const chunk = compilation.chunks.find(c => {
-            let name = winPath(pagePath).replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '');
+            let name = pagePath.replace(path.join(options.cwd, options.rootDir) + '/', '');
             const ext = path.extname(name);
             name = name.replace(new RegExp(`${ext}$`), '');
             return c.name === name;

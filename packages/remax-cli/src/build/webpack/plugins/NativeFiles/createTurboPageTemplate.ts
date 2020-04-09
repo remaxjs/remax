@@ -7,7 +7,6 @@ import { TEMPLATE_ID } from '../../../babel/compiler/static/constants';
 import { templateInfoMap } from '../../../babel/compiler/static/render/templates';
 import { createRenderOptions } from './createPageTemplate';
 import { ComponentManifest } from '../../../babel/componentManifest';
-import winPath from '../../../../winPath';
 
 export default async function createTurboPageTemplate(
   options: RemaxOptions,
@@ -17,7 +16,7 @@ export default async function createTurboPageTemplate(
   compilation: compilation.Compilation
 ) {
   const renderOptions: any = createRenderOptions();
-  const pagePath = winPath(pageFile).replace(path.join(options.cwd, options.rootDir) + '/', '');
+  const pagePath = pageFile.replace(path.join(options.cwd, options.rootDir) + '/', '');
   const fileName = `${path.dirname(pagePath)}/${path.basename(pagePath, path.extname(pagePath))}${
     meta.template.extension
   }`;
