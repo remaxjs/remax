@@ -5,6 +5,7 @@ import { Meta, RemaxOptions } from 'remax-types';
 import API from '../../../../API';
 import { pageUID } from './createPageTemplate';
 import * as cacheable from './cacheable';
+import winPath from '../../../../winPath';
 
 export default async function createHelperFile(
   options: RemaxOptions,
@@ -16,13 +17,13 @@ export default async function createHelperFile(
     return null;
   }
 
-  pagePath = pagePath.replace(path.join(options.cwd, options.rootDir) + '/', '');
+  pagePath = winPath(pagePath).replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '');
 
   const source: string = await ejs.renderFile(meta.ejs.jsHelper, {
     target: API.adapter.target,
   });
 
-  const fileName = path.join(path.dirname(pagePath), `${pageUID(pagePath)}_helper${meta.jsHelper.extension}`);
+  const fileName = winPath(path.join(path.dirname(pagePath), `${pageUID(pagePath)}_helper${meta.jsHelper.extension}`));
 
   if (!cacheable.invalid(fileName, source)) {
     return;

@@ -20,6 +20,7 @@ import alias from './alias';
 import API from '../API';
 import getEnvironment from './env';
 import * as platform from './platform';
+import winPath from '../winPath';
 
 export const config = new Config();
 
@@ -29,7 +30,9 @@ function prepare(options: RemaxOptions, target: Platform) {
   const entries = getEntries(options, target);
   const entryMap = [entries.app, ...entries.pages].reduce<any>((m, entry) => {
     const ext = path.extname(entry);
-    const name = entry.replace(path.join(options.cwd, options.rootDir) + '/', '').replace(new RegExp(`${ext}$`), '');
+    const name = winPath(entry)
+      .replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '')
+      .replace(new RegExp(`${ext}$`), '');
     m[name] = entry;
     return m;
   }, {});
@@ -234,7 +237,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
 
   config.module
     .rule('remaxDefineVariables')
-    .test(/remax\/esm\/createHostComponent.js/i)
+    .test(/createHostComponent.js/i)
     .use('remax-define')
     .loader('remaxDefine');
 
