@@ -832,7 +832,6 @@ var hostComponents = {
       "mode": "mode",
       "className": "class",
       "style": "style",
-      "lazyLoad": "lazy-load",
       "onLoad": "bindload",
       "onError": "binderror",
       "onTap": "bindtap",
@@ -854,7 +853,6 @@ var hostComponents = {
       "password": "password",
       "placeholder": "placeholder",
       "disabled": "disabled",
-      "maxlength": "maxlength",
       "focus": "focus",
       "confirmType": "confirm-type",
       "confirmHold": "confirm-hold",
@@ -862,7 +860,8 @@ var hostComponents = {
       "onInput": "bindinput",
       "onConfirm": "bindconfirm",
       "onFocus": "bindfocus",
-      "onBlur": "bindblur"
+      "onBlur": "bindblur",
+      "maxLength": "maxlength"
     }
   },
   "label": {
@@ -870,7 +869,7 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "for": "for"
+      "htmlFor": "for"
     }
   },
   "navigator": {
@@ -961,8 +960,9 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
+      "onChange": "bindchange",
       "name": "name",
-      "onChange": "bindchange"
+      "animation": "animation"
     }
   },
   "radio": {
@@ -973,7 +973,8 @@ var hostComponents = {
       "value": "value",
       "checked": "checked",
       "disabled": "disabled",
-      "color": "color"
+      "color": "color",
+      "animation": "animation"
     }
   },
   "rich-text": {
@@ -1099,7 +1100,6 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "selectable": "selectable",
-      "decode": "decode",
       "onTap": "bindtap"
     }
   },
@@ -1113,13 +1113,13 @@ var hostComponents = {
       "placeholder": "placeholder",
       "placeholderStyle": "placeholder-style",
       "disabled": "disabled",
-      "maxlength": "maxlength",
       "focus": "focus",
       "autoHeight": "auto-height",
       "onInput": "bindinput",
       "onFocus": "bindfocus",
       "onBlur": "bindblur",
-      "onConfirm": "bindconfirm"
+      "onConfirm": "bindconfirm",
+      "maxlength": "maxlength"
     }
   },
   "video": {
@@ -1174,8 +1174,7 @@ var hostComponents = {
       "hoverStayTime": "hover-stay-time",
       "className": "class",
       "style": "style",
-      "animation": "animation",
-      "hoverStopPropagation": "hover-stop-propagation"
+      "animation": "animation"
     }
   },
   "web-view": {

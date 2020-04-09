@@ -861,7 +861,6 @@ var hostComponents = {
       "mode": "mode",
       "className": "class",
       "style": "style",
-      "lazyLoad": "lazy-load",
       "onLoad": "onLoad",
       "onError": "onError",
       "onTap": "onTap",
@@ -883,7 +882,6 @@ var hostComponents = {
       "password": "password",
       "placeholder": "placeholder",
       "disabled": "disabled",
-      "maxlength": "maxlength",
       "focus": "focus",
       "confirmType": "confirm-type",
       "confirmHold": "confirm-hold",
@@ -892,7 +890,8 @@ var hostComponents = {
       "onConfirm": "onConfirm",
       "onFocus": "onFocus",
       "onBlur": "onBlur",
-      "controlled": "controlled"
+      "controlled": "controlled",
+      "maxLength": "maxlength"
     }
   },
   "label": {
@@ -900,7 +899,7 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "for": "for"
+      "htmlFor": "for"
     }
   },
   "lifestyle": {
@@ -1028,8 +1027,8 @@ var hostComponents = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "name": "name",
-      "onChange": "onChange"
+      "onChange": "onChange",
+      "name": "name"
     }
   },
   "radio": {
@@ -1157,7 +1156,6 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "selectable": "selectable",
-      "decode": "decode",
       "onTap": "onTap"
     }
   },
@@ -1171,13 +1169,13 @@ var hostComponents = {
       "placeholder": "placeholder",
       "placeholderStyle": "placeholder-style",
       "disabled": "disabled",
-      "maxlength": "maxlength",
       "focus": "focus",
       "autoHeight": "auto-height",
       "onInput": "onInput",
       "onFocus": "onFocus",
       "onBlur": "onBlur",
-      "onConfirm": "onConfirm"
+      "onConfirm": "onConfirm",
+      "maxlength": "maxlength"
     }
   },
   "view": {
@@ -1190,7 +1188,6 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "animation": "animation",
-      "hoverStopPropagation": "hover-stop-propagation",
       "onTap": "onTap",
       "onTouchStart": "onTouchStart",
       "onTouchMove": "onTouchMove",

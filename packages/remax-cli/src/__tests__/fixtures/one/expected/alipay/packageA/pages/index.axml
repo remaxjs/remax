@@ -164,7 +164,6 @@
   <image 
     class="{{item.props['class']}}"
     id="{{item.props['id']}}"
-    lazy-load="{{item.props['lazy-load']}}"
     mode="{{item.props['mode']}}"
     onError="{{item.props['onError']}}"
     onLoad="{{item.props['onLoad']}}"
@@ -556,7 +555,6 @@
   <template name="REMAX_TPL_1_text">
   <text 
     class="{{item.props['class']}}"
-    decode="{{item.props['decode']}}"
     id="{{item.props['id']}}"
     onTap="{{item.props['onTap']}}"
     selectable="{{item.props['selectable']}}"
@@ -638,7 +636,6 @@
     hover-class="{{item.props['hover-class']}}"
     hover-start-time="{{item.props['hover-start-time']}}"
     hover-stay-time="{{item.props['hover-stay-time']}}"
-    hover-stop-propagation="{{item.props['hover-stop-propagation']}}"
     id="{{item.props['id']}}"
     onLongTap="{{item.props['onLongTap']}}"
     onTap="{{item.props['onTap']}}"

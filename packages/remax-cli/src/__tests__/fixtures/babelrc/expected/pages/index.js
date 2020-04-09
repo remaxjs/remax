@@ -19,6 +19,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_a__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(40);
 /* harmony import */ var remax_alipay__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(41);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 
 
 var _class, _descriptor, _temp;
@@ -28,26 +30,6 @@ function _initializerDefineProperty(target, property, descriptor, context) {
     return;
   }
 
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function _initializerDefineProperty(target, property, descriptor, context) {
-  if (!descriptor) return;
   Object.defineProperty(target, property, {
     enumerable: descriptor.enumerable,
     configurable: descriptor.configurable,
@@ -154,9 +136,12 @@ var C = (_class = (_temp = function C() {
 }), _class);
 var c = new C();
 c.p = 'a';
+var props = {};
 
 var _page = function _page() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_alipay__WEBPACK_IMPORTED_MODULE_3__["View"], null, timesTwo([1, 2, 3]), N.V, N.W, c.p, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_a__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_alipay__WEBPACK_IMPORTED_MODULE_3__["View"], null, timesTwo([1, 2, 3]), N.V, N.W, c.p, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_a__WEBPACK_IMPORTED_MODULE_2__["default"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_alipay__WEBPACK_IMPORTED_MODULE_3__["View"], _extends({
+    slot: "slot"
+  }, props))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Page(Object(remax__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page)));
@@ -5110,24 +5095,19 @@ function promisify(api) {
             promisifyArg.success(res);
           }
 
-  _initializerDefineProperty(this, "p", _descriptor, this);
-}, _temp), _descriptor = _applyDecoratedDescriptor(_class.prototype, "p", [readonly], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: function initializer() {
-    return 'p';
-  }
-}), _class);
-var c = new C();
-c.p = 'a';
-var props = {};
+          resolve(res);
+        },
+        fail: function fail(res) {
+          if (promisifyArg && typeof promisifyArg.fail === 'function') {
+            promisifyArg.fail(res);
+          }
 
-var _page = function _page() {
-  return /*#__PURE__*/React.createElement(View, null, timesTwo([1, 2, 3]), N.V, N.W, c.p, /*#__PURE__*/React.createElement(A, null, /*#__PURE__*/React.createElement(View, _extends({
-    slot: "slot"
-  }, props))));
-};
+          reject(res);
+        }
+      }));
+    });
+  };
+}
 
 /* harmony default export */ __webpack_exports__["default"] = (promisify);
 
