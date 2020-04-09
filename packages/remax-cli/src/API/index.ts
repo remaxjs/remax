@@ -70,7 +70,7 @@ class API {
     return hostComponents;
   }
 
-  public processProps(componentName: string, props: string[], additional?: boolean, node?: t.JSXElement | undefined) {
+  public processProps(componentName: string, props: string[], additional?: boolean, node?: t.JSXElement) {
     let nextProps = props;
     this.plugins.forEach(plugin => {
       if (typeof plugin.processProps === 'function') {
