@@ -32,9 +32,9 @@ export default async function createPageTemplate(
   compilation: compilation.Compilation
 ) {
   const pagePath = winPath(pageFile).replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '');
-  const fileName = winPath(`${path.dirname(pagePath)}/${path.basename(pagePath, path.extname(pagePath))}${
-    meta.template.extension
-  }`);
+  const fileName = winPath(
+    `${path.dirname(pagePath)}/${path.basename(pagePath, path.extname(pagePath))}${meta.template.extension}`
+  );
 
   const ejsOptions: { [props: string]: any } = {
     ...createRenderOptions(),
