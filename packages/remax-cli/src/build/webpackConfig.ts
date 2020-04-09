@@ -30,9 +30,7 @@ function prepare(options: RemaxOptions, target: Platform) {
   const entries = getEntries(options, target);
   const entryMap = [entries.app, ...entries.pages].reduce<any>((m, entry) => {
     const ext = path.extname(entry);
-    const name = winPath(entry)
-      .replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '')
-      .replace(new RegExp(`${ext}$`), '');
+    const name = winPath(entry).replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '').replace(new RegExp(`${ext}$`), '');
     m[name] = entry;
     return m;
   }, {});
