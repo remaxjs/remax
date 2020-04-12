@@ -10,12 +10,5 @@
     "skipLibCheck": true,
     "downlevelIteration": true
   },
-  "include": [
-    "src/**/*",
-    "typings/**/*",
-    "./node_modules/mini-types/types/app.d.ts",
-    "./node_modules/mini-types/types/page.d.ts",
-    "./node_modules/mini-types/types/api/index.d.ts",
-    "./node_modules/@remax/miniprogram-api-typings/index.d.ts"
-  ]
+  "include": ["src/**/*", "typings/**/*"]
 }

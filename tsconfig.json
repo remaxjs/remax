@@ -2,9 +2,17 @@
   "compilerOptions": {
     "target": "es5",
     "strict": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "noUnusedLocals": true
-  }
+    "noUnusedLocals": true,
+    "lib": ["DOM"]
+  },
+  "include": [
+    "./node_modules/mini-types/types/app.d.ts",
+    "./node_modules/mini-types/types/page.d.ts",
+    "./node_modules/mini-types/types/api/index.d.ts",
+    "./node_modules/@remax/miniprogram-api-typings/index.d.ts"
+  ],
+  "exclude": ["node_modules"]
 }

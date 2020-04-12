@@ -9,9 +9,5 @@
     "outDir": "cjs",
     "downlevelIteration": true
   },
-  "include": [
-    "src/**/*",
-    "typings/**/*",
-    "./node_modules/@remax/miniprogram-api-typings/index.d.ts"
-  ]
+  "include": ["src/**/*", "typings/**/*"]
 }
