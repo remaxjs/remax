@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { RollupOptions, watch, RollupWatcher } from 'rollup';
 import { RemaxOptions } from 'remax-types';
+import events from 'events';
 import { output } from '../utils/output';
 import { checkChokidar } from '../utils/checkChokidar';
 import { CliOptions } from '../../getConfig';
@@ -25,6 +26,7 @@ export default function runWatcher(
   remaxOptions: RemaxOptions,
   rollupOptions: RollupOptions,
   cli: CliOptions,
+  buildEmitter: events.EventEmitter,
   context?: Context
 ): { watcher: RollupWatcher; extraFilesWatcher: chokidar.FSWatcher } | undefined {
   if (isBundleRunning) {
@@ -55,6 +57,7 @@ export default function runWatcher(
   ]);
 
   const watchEventHandle = (event: any) => {
+    buildEmitter.emit('event', event);
     switch (event.code) {
       case 'START':
         output('🚚 开始编译...', 'blue');
@@ -110,6 +113,9 @@ export default function runWatcher(
 
   const reloadWatcher = (eventName: string) => (fileName: string) => {
     if (isFirstRunWatcher || isBundleRunning) return;
+    buildEmitter.emit('event', {
+      code: 'RESTART',
+    });
 
     if (isConfigFile(fileName)) {
       close();
