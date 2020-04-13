@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/remaxjs/remax/compare/v1.19.8...v1.20.0) (2020-04-13)
+
+### Bug Fixes
+
+- 修复同一页面不能重复渲染的问题 ([#791](https://github.com/remaxjs/remax/issues/791)) ([14dbc28](https://github.com/remaxjs/remax/commit/14dbc2801e2a605d28c25a340ad0951cd403767c))
+
 ## [1.19.8](https://github.com/remaxjs/remax/compare/v1.19.7...v1.19.8) (2020-04-09)
 
 **Note:** Version bump only for package remax
