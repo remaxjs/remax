@@ -1,10 +1,13 @@
 import * as rollup from 'rollup';
+import events from 'events';
 import API from '../API';
 import rollupConfig from './rollupConfig';
 import getConfig from '../getConfig';
 import { Context } from '../types';
 import runWatcher from './watcher';
 import { output } from './utils/output';
+
+const buildEmitter = new events.EventEmitter();
 
 export default async (argv: any, context?: Context) => {
   process.env.REMAX_PLATFORM = argv.target;
@@ -19,12 +22,13 @@ export default async (argv: any, context?: Context) => {
   const rollupOptions: rollup.RollupOptions = rollupConfig(options, argv, context);
 
   if (argv.watch) {
-    runWatcher(options, rollupOptions, argv, context);
+    runWatcher(options, rollupOptions, argv, buildEmitter, context);
     try {
       require('remax-stats').run();
     } catch (e) {
       // ignore
     }
+    return buildEmitter;
   } else {
     try {
       output('🚀 开始 build...', 'blue');
