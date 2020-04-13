@@ -6,14 +6,22 @@ import { createPortal } from './ReactPortal';
 
 let idCounter = 0;
 
+function generatePageId() {
+  const id = idCounter;
+  const pageId = 'page_' + id;
+  idCounter += 1;
+  return pageId;
+}
+
+// for testing
+export function resetPageId() {
+  idCounter = 0;
+}
+
 export default function createPageConfig(Page: React.ComponentType<any>) {
   const app = getApp() as any;
-  const id = idCounter;
-  idCounter += 1;
 
   const config = {
-    pageId: 'page_' + id,
-
     data: {
       action: {},
       root: {
@@ -27,6 +35,8 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
 
     onLoad(this: any, query: any) {
       const PageWrapper = createPageWrapper(Page, query);
+      this.pageId = generatePageId();
+
       this.query = query;
       this.container = new Container(this);
       this.element = createPortal(
