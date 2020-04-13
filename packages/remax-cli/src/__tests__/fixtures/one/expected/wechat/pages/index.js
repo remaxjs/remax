@@ -890,6 +890,7 @@ var chooseImage = promisify(wx.chooseImage);
 var saveVideoToPhotosAlbum = promisify(wx.saveVideoToPhotosAlbum);
 var createVideoContext = wx.createVideoContext;
 var chooseVideo = promisify(wx.chooseVideo);
+var chooseMedia = promisify(wx.chooseMedia);
 var stopVoice = promisify(wx.stopVoice);
 var setInnerAudioOption = promisify(wx.setInnerAudioOption);
 var playVoice = promisify(wx.playVoice);
