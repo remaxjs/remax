@@ -2101,12 +2101,16 @@ function createPortal(children, containerInfo, key) {
 }
 
 var idCounter = 0;
+
+function generatePageId() {
+  var id = idCounter;
+  var pageId = 'page_' + id;
+  idCounter += 1;
+  return pageId;
+} // for testing
 function createPageConfig(Page) {
   var app = getApp();
-  var id = idCounter;
-  idCounter += 1;
   var config = {
-    pageId: 'page_' + id,
     data: {
       action: {},
       root: {
@@ -2117,6 +2121,7 @@ function createPageConfig(Page) {
     lifecycleCallback: {},
     onLoad: function onLoad(query) {
       var PageWrapper = createPageWrapper(Page, query);
+      this.pageId = generatePageId();
       this.query = query;
       this.container = new Container(this);
       this.element = createPortal(React.createElement(PageWrapper, {

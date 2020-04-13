@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { createPageConfig, createAppConfig } from '..';
 import { useQuery } from '../hooks';
+import { resetPageId } from '../createPageConfig';
 
 beforeAll(() => {
   // mock mini program getApp api
@@ -24,6 +25,10 @@ function Page<T>(config: T) {
 }
 
 describe('page query hook', () => {
+  afterEach(() => {
+    resetPageId();
+  });
+
   it('useQuery will get the query from onLoad', () => {
     const pageQuery = { id: 1 };
     let receivedQuery: any;
@@ -37,5 +42,17 @@ describe('page query hook', () => {
     expect(receivedQuery).toBe(pageQuery);
     expect(receivedQuery.id).toBe(1);
     page.onUnload();
+  });
+
+  it('create page id for each page instance', () => {
+    const TestPage = () => {
+      return <div>hello</div>;
+    };
+    const page1 = Page(createPageConfig(TestPage));
+    const page2 = Page(createPageConfig(TestPage));
+    page1.onLoad({});
+    page2.onLoad({});
+    expect((page1 as any).pageId).toBe('page_0');
+    expect((page2 as any).pageId).toBe('page_1');
   });
 });
