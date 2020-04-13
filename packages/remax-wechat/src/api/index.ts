@@ -100,6 +100,7 @@ export const chooseImage = promisify(wx.chooseImage);
 export const saveVideoToPhotosAlbum = promisify(wx.saveVideoToPhotosAlbum);
 export const createVideoContext = wx.createVideoContext;
 export const chooseVideo = promisify(wx.chooseVideo);
+export const chooseMedia = promisify(wx.chooseMedia);
 export const stopVoice = promisify(wx.stopVoice);
 export const setInnerAudioOption = promisify(wx.setInnerAudioOption);
 export const playVoice = promisify(wx.playVoice);
