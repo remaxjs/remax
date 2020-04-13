@@ -115,7 +115,7 @@ async function createBaseTemplate(options: RemaxOptions, meta: Meta, createEjsOp
 }
 
 function createAppManifest(options: RemaxOptions, context?: Context) {
-  const config = context
+  const config = (context && context.pages)
     ? { ...context.app, pages: context.pages.map(p => p.path) }
     : readManifest(path.resolve(options.cwd, `${options.rootDir}/app.config`), API.adapter.target);
   return {
@@ -170,7 +170,7 @@ function createPageManifest(options: RemaxOptions, file: string, page: any, cont
     ...usingComponents,
   };
 
-  if (context) {
+  if (context && context.pages) {
     const pageConfig = context.pages.find((p: any) => p.path === page.path);
     if (pageConfig) {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
