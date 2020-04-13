@@ -115,9 +115,10 @@ async function createBaseTemplate(options: RemaxOptions, meta: Meta, createEjsOp
 }
 
 function createAppManifest(options: RemaxOptions, context?: Context) {
-  const config = (context && context.pages)
-    ? { ...context.app, pages: context.pages.map(p => p.path) }
-    : readManifest(path.resolve(options.cwd, `${options.rootDir}/app.config`), API.adapter.target);
+  const config =
+    context && context.pages
+      ? { ...context.app, pages: context.pages.map(p => p.path) }
+      : readManifest(path.resolve(options.cwd, `${options.rootDir}/app.config`), API.adapter.target);
   return {
     type: 'asset' as const,
     fileName: 'app.json',
