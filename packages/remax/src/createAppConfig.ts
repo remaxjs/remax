@@ -1,3 +1,4 @@
+import './polyfills/Function';
 import * as React from 'react';
 import render from './render';
 import AppContainer from './AppContainer';
