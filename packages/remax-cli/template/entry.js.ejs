@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createPageConfig } from 'remax';
-import { Router, CacheSwitch as Switch, CacheRoute as Route, Link, browserHistory as history, render, hd } from 'remax/web';
+import { Router, CacheSwitch, CacheRoute, Route, Redirect, Link, browserHistory as history, render, hd } from 'remax/web';
 import 'remax/normalize.css';
 import 'remax/app.css';
 <%- pages.map((page, i) => `import page_${i} from '${page.path}';`).join('\n') %>
@@ -53,16 +53,16 @@ function TabBar() {
 render(
   <App>
     <Router history={history}>
-      <Switch>
-        <Route className="remax-cached-router-wrapper" path="/" exact={true}>
-          {props => (React.createElement(page_config_0, { ...props, pageConfig: page_manifest_0, appConfig: app_config }))}
+      <CacheSwitch>
+        <Route exact path="/">
+          <Redirect to="/<%-pages[0].route%>" />
         </Route>
         <%- pages.map((page, i) => `
-        <Route className="remax-cached-router-wrapper" path="/${page.route}" exact={true}>
+        <CacheRoute className="remax-cached-router-wrapper" path="/${page.route}" exact={true}>
           {props => (React.createElement(page_config_${i}, { ...props, pageConfig: page_manifest_${i}, appConfig: app_config }))}
-        </Route>
+        </CacheRoute>
         `).join('\n') %>
-      </Switch>
+      </CacheSwitch>
     <% if (hasTabBar) { %>
       <TabBar />
     <% } %>
