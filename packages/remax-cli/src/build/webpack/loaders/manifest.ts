@@ -6,7 +6,7 @@ import * as path from 'path';
 export default function manifest(this: loader.LoaderContext, source: string) {
   const id = this.resourcePath;
   const ext = path.extname(id);
-  const extRegExp = new RegExp(`${ext}$`);
+  const extRegExp = new RegExp(`\\${ext}$`);
 
   const manifestFilePath = id.replace(extRegExp, `.config.js`);
 

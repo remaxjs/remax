@@ -10,6 +10,7 @@ declare module 'slash2';
 declare module 'esm';
 declare module 'sander';
 declare module 'webpack-virtual-modules';
+declare module 'connect-history-api-fallback';
 
 declare namespace jest {
   interface Matchers<R, T> {

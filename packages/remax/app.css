@@ -10,7 +10,7 @@ html {
 
 body {
   user-select: none;
-  font-size: 16PX;
+  font-size: 16px;
   font-family: PingFang SC, Helvetica Neue;
   background: transparent;
 }
@@ -29,6 +29,78 @@ a {
   outline: none;
 }
 
+.remax-page.with-tab-bar {
+  padding-bottom: 96px;
+}
+
 .remax-page {
   min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.remax-page.disable-scroll {
+  overflow: hidden;
+}
+
+.rmc-pull-to-refresh-transition {
+  transition: transform 0.3s;
+}
+
+.rmc-pull-to-refresh-wrapper {
+  overflow: hidden;
+}
+
+.rmc-pull-to-refresh-indicator {
+  color: grey;
+  text-align: center;
+  height: 100px;
+}
+
+.rmc-pull-to-refresh-indicator {
+  margin-top: -100px;
+}
+
+.remax-pull-to-refresh-loading {
+  width: 100px;
+  height: 100px;
+}
+
+.remax-tab-bar {
+  height: 96px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 999999;
+}
+
+.remax-tab-bar .remax-tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.remax-tab-bar .remax-tab-item .remax-tab-item-image {
+  height: 34px;
+  width: 34px;
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.remax-tab-bar .remax-tab-item .remax-tab-item-title {
+  font-size: 12px;
+  color: #333;
+  transform: scale(0.7);
+}
+
+.remax-tab-bar .remax-tab-item .remax-tab-item-title.active {
+  color: #108ee9;
 }

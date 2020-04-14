@@ -1,6 +1,7 @@
 import * as React from 'react';
 import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName } from './lifecycle';
+import stopPullDownRefresh from './stopPullDownRefresh';
 import Container from './Container';
 import { createPortal } from './ReactPortal';
 
@@ -89,7 +90,13 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     },
 
     onPullDownRefresh(e: any) {
-      return this.callLifecycle(Lifecycle.pullDownRefresh, e);
+      const result = this.callLifecycle(Lifecycle.pullDownRefresh, e);
+
+      if (result && typeof result.then === 'function') {
+        Promise.resolve(result).then(() => {
+          stopPullDownRefresh();
+        });
+      }
     },
 
     onReachBottom() {

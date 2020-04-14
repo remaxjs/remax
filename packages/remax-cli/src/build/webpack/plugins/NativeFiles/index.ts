@@ -38,7 +38,7 @@ export default class NativeFilesPlugin {
           const chunk = compilation.chunks.find(c => {
             let name = winPath(pagePath).replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '');
             const ext = path.extname(name);
-            name = name.replace(new RegExp(`${ext}$`), '');
+            name = name.replace(new RegExp(`\\${ext}$`), '');
             return c.name === name;
           });
 

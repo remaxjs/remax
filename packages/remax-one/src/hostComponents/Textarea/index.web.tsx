@@ -6,7 +6,7 @@ import { filterProps } from '../../utils/isPlatformSpecifyProp';
 import clsx from 'clsx';
 
 const Input: React.FC<TextareaWebProps> = props => {
-  const { onConfirm, onKeyPress, autoHeight, className, placeholderStyle, ...restProps } = props;
+  const { onConfirm, onKeyPress, autoHeight, className, placeholderStyle, ...restProps } = filterProps(props);
   const [placeholderStyleClassName] = useWebPlaceholderStyle(placeholderStyle);
 
   function handleKeyPress(e: React.KeyboardEvent<HTMLTextAreaElement>) {
@@ -22,10 +22,10 @@ const Input: React.FC<TextareaWebProps> = props => {
   const textareaClassName = clsx(className, placeholderStyleClassName);
 
   if (autoHeight) {
-    return <TextareaAutoSize className={textareaClassName} onKeyPress={handleKeyPress} {...filterProps(restProps)} />;
+    return <TextareaAutoSize {...restProps} className={textareaClassName} onKeyPress={handleKeyPress} />;
   }
 
-  return <textarea className={textareaClassName} onKeyPress={handleKeyPress} {...filterProps(restProps)} />;
+  return <textarea {...restProps} className={textareaClassName} onKeyPress={handleKeyPress} />;
 };
 export default Input;
 

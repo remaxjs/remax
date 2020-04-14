@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { filterProps } from '../../utils/isPlatformSpecifyProp';
 import './index.css';
 
 export interface WebViewProps extends React.AriaAttributes {
@@ -8,7 +9,7 @@ export interface WebViewProps extends React.AriaAttributes {
 }
 
 const WebView: React.FC<WebViewProps> = props => {
-  const { onMessage, ...restProps } = props;
+  const { onMessage, ...restProps } = filterProps(props);
   React.useEffect(() => {
     const listener = (event: Event) => {
       if (typeof onMessage === 'function') {
@@ -21,7 +22,7 @@ const WebView: React.FC<WebViewProps> = props => {
     return () => window.removeEventListener('message', listener);
   }, []);
 
-  return <iframe className="remax-web-view" {...restProps} />;
+  return <iframe {...restProps} className="remax-web-view" />;
 };
 
 export default WebView;

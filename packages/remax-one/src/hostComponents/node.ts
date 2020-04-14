@@ -7,6 +7,7 @@ import * as text from './Text/node';
 import * as textarea from './Textarea/node';
 import * as view from './View/node';
 import * as webView from './WebView/node';
+import * as navigator from './Navigator/node';
 
 const hostComponents = new Map();
 
@@ -19,5 +20,6 @@ hostComponents.set('text', text);
 hostComponents.set('textarea', textarea);
 hostComponents.set('view', view);
 hostComponents.set('web-view', webView);
+hostComponents.set('navigator', navigator);
 
 export default hostComponents;

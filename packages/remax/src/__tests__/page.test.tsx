@@ -1,20 +1,7 @@
 import * as React from 'react';
 import './helpers/setupGlobals';
 import createPageConfig from '../createPageConfig';
-import {
-  useReady,
-  useShow,
-  useHide,
-  usePullDownRefresh,
-  useReachBottom,
-  usePageScroll,
-  useShareAppMessage,
-  useTitleClick,
-  useOptionMenuClick,
-  usePopMenuClick,
-  usePullIntercept,
-  usePageEvent,
-} from '../../src';
+import { usePageEvent } from '../../src';
 import { PageProps } from '../createPageWrapper';
 import View from './helpers/View';
 import Page from './helpers/Page';
@@ -33,47 +20,47 @@ describe('page', () => {
     it('works', () => {
       const log: string[] = [];
       const Foo: React.FC<PageProps> = () => {
-        useReady(() => {
+        usePageEvent('onReady', () => {
           log.push('useReady');
         });
-        useShow(() => {
+        usePageEvent('onShow', () => {
           log.push('useShow');
         });
 
-        useHide(() => {
+        usePageEvent('onHide', () => {
           log.push('useHide');
         });
 
-        usePullDownRefresh(() => {
+        usePageEvent('onPullDownRefresh', () => {
           log.push('usePullDownRefresh');
         });
 
-        useReachBottom(() => {
+        usePageEvent('onReachBottom', () => {
           log.push('useReachBottom');
         });
 
-        usePageScroll(() => {
+        usePageEvent('onPageScroll', () => {
           log.push('usePageScroll');
         });
 
-        useShareAppMessage(object => {
+        usePageEvent('onShareAppMessage', object => {
           log.push(object.from);
           log.push('useShareAppMessage');
         });
 
-        useTitleClick(() => {
+        usePageEvent('onTitleClick', () => {
           log.push('useTitleClick');
         });
 
-        useOptionMenuClick(() => {
+        usePageEvent('onOptionMenuClick', () => {
           log.push('useOptionMenuClick');
         });
 
-        usePopMenuClick(() => {
+        usePageEvent('onPopMenuClick', () => {
           log.push('usePopMenuClick');
         });
 
-        usePullIntercept(() => {
+        usePageEvent('onPullIntercept', () => {
           log.push('usePullIntercept');
         });
 
@@ -146,7 +133,7 @@ describe('page', () => {
     it('works in component', () => {
       const log: string[] = [];
       const Foo = () => {
-        useShow(() => {
+        usePageEvent('onShow', () => {
           log.push('onShow');
         });
         return <View>foo</View>;
@@ -163,11 +150,11 @@ describe('page', () => {
       const Foo = React.forwardRef((props, ref) => {
         const forceUpdate = React.useState(0)[1];
 
-        useShow(() => {
+        usePageEvent('onShow', () => {
           log.push('onShow');
         });
 
-        useShareAppMessage(() => {
+        usePageEvent('onShareAppMessage', () => {
           log.push('onShareAppMessage');
         });
 

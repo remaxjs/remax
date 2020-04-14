@@ -45,7 +45,7 @@ function getUsingComponents(modules: string[], options: RemaxOptions, compilatio
     } else {
       const usingPath = '/' + getNativeComponentAssetOutputPath(component.sourcePath, options);
       const ext = path.extname(usingPath);
-      config[component.id] = usingPath.replace(new RegExp(`${ext}$`), '');
+      config[component.id] = usingPath.replace(new RegExp(`\\${ext}$`), '');
     }
 
     return config;

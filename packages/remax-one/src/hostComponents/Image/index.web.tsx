@@ -6,12 +6,12 @@ import clsx from 'clsx';
 import './index.css';
 
 const Image: React.FC<ImageWebProps> = props => {
-  const { className, src, style, mode, onTap, onLoad, onError, ...restProps } = props;
+  const { className, src, style, mode, onTap, onLoad, onError, ...restProps } = filterProps<ImageWebProps>(props);
   const isWidthFixMode = mode === 'widthFix';
 
   return (
     <div
-      {...filterProps(restProps)}
+      {...restProps}
       onClick={onTap}
       className={clsx('remax-image', className)}
       style={{

@@ -1,10 +1,20 @@
 import * as React from 'react';
 import clsx from 'clsx';
 import { TextWebProps } from './props';
+import { filterProps } from '../../utils/isPlatformSpecifyProp';
 import './index.css';
 
 const Text: React.FC<TextWebProps> = props => {
-  const { onTap, onTouchStart, onTouchMove, onTouchEnd, onTouchCancel, className, selectable, ...restProps } = props;
+  const {
+    onTap,
+    onTouchStart,
+    onTouchMove,
+    onTouchEnd,
+    onTouchCancel,
+    className,
+    selectable,
+    ...restProps
+  } = filterProps(props);
   const hoveringRef = React.useRef(false);
 
   function handleTouchStart(e: any) {
@@ -41,10 +51,10 @@ const Text: React.FC<TextWebProps> = props => {
 
   return (
     <span
+      {...restProps}
       className={clsx(className, {
         'remax-text-selectable': selectable,
       })}
-      {...restProps}
       onClick={onTap}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}

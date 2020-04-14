@@ -1,0 +1,15 @@
+{
+  "name": "@remax/router",
+  "description": "Remax Router",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "history": "^4.10.1",
+    "react-router-cache-route": "^1.8.4",
+    "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.3"
+  }
+}

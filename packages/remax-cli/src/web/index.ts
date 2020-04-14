@@ -1,5 +1,6 @@
 import webpack from 'webpack';
 import middleware from 'webpack-dev-middleware';
+import history from 'connect-history-api-fallback';
 import express from 'express';
 import webpackConfig from './webpackConfig.web';
 import getConfig from '../getConfig';
@@ -19,10 +20,15 @@ export default async (argv: any) => {
   output.message(`🎯 平台 ${target}`, 'blue');
 
   if (argv.watch) {
-    output.message('🚀 启动 watch\n', 'blue');
+    output.message('🚀 启动 watch', 'blue');
+    output.message('📎 http://localhost:3000\n', 'blue');
+
     const app = express();
-    app.use(middleware(compiler));
-    app.listen(3000, () => console.log('Example app listening on port http://localhost:3000'));
+
+    app.use(history());
+    // 一定要设置 publicPath
+    app.use(middleware(compiler, { publicPath: webpackOptions.output!.publicPath! }));
+    app.listen(3000);
 
     try {
       require('remax-stats').run();

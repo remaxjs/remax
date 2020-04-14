@@ -4,6 +4,7 @@ import lowercase from './utils/lowercase';
 export type Callback = (...args: any[]) => any;
 
 export enum Lifecycle {
+  load = 'load',
   show = 'show',
   hide = 'hide',
   ready = 'ready',
@@ -20,6 +21,7 @@ export enum Lifecycle {
   tabItemTap = 'tabItemTap',
   beforeTabItemTap = 'beforeTabItemTap',
   resize = 'resize',
+  unload = 'unload',
 }
 
 export enum AppLifecycle {

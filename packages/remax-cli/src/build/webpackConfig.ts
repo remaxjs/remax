@@ -32,7 +32,7 @@ function prepare(options: RemaxOptions, target: Platform) {
     const ext = path.extname(entry);
     const name = winPath(entry)
       .replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '')
-      .replace(new RegExp(`${ext}$`), '');
+      .replace(new RegExp(`\\${ext}$`), '');
     m[name] = entry;
     return m;
   }, {});
@@ -68,6 +68,12 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .merge(['node_modules', path.join(__dirname, './webpack/loaders')])
     .end()
     .extensions.merge(['.js', '.ts']);
+  config.resolve.extensions.merge(
+    extensions
+      .map(ext => `.${target}${ext}`)
+      .concat(extensions.map(ext => `.mini${ext}`))
+      .concat(extensions)
+  );
   config.resolve.extensions.merge(extensions);
   config.resolve.alias.merge(alias(options, target));
   config.output.path(path.join(options.cwd, options.output));
@@ -246,12 +252,6 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .test(/\.(png|jpe?g|gif|svg)$/i)
     .use('file')
     .loader(require.resolve('file-loader'));
-
-  config.module
-    .rule('resolvePlatformFiles')
-    .test(matcher)
-    .use('resolve-platform')
-    .loader('resolvePlatform');
 
   if (options.progress) {
     config.plugin('progress').use(ProgressPlugin);

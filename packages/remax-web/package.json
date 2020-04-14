@@ -29,16 +29,16 @@
     "url": "https://github.com/remaxjs/remax/issues"
   },
   "dependencies": {
-    "@types/react": "^16.9.30",
-    "@types/react-dom": "^16.9.5",
-    "@types/react-router-dom": "^5.1.3",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.1.2",
+    "@remax/router": "^0.0.1",
+    "rmc-pull-to-refresh": "^1.0.12",
     "umi-hd": "^5.0.1"
   },
   "devDependencies": {
+    "@types/react": "^16.9.33",
+    "@types/react-dom": "^16.9.6",
     "concurrently": "^5.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "typescript": "^3.8.3"
   }
 }

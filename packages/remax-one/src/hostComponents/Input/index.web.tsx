@@ -5,7 +5,7 @@ import useWebPlaceholderStyle from '../../useWebPlaceholderStyle';
 import clsx from 'clsx';
 
 const Input: React.FC<InputWebProps> = props => {
-  const { password, type, onConfirm, onKeyPress, placeholderStyle, className, ...restProps } = props;
+  const { password, type, onConfirm, onKeyPress, placeholderStyle, className, ...restProps } = filterProps(props);
   const [placeholderStyleClassName] = useWebPlaceholderStyle(placeholderStyle);
 
   const inputType = password ? 'password' : type;
@@ -22,7 +22,7 @@ const Input: React.FC<InputWebProps> = props => {
 
   return (
     <input
-      {...filterProps(restProps)}
+      {...restProps}
       type={inputType}
       onKeyPress={handleKeyPress}
       className={clsx(className, placeholderStyleClassName)}

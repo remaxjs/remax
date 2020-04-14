@@ -16,6 +16,8 @@ import * as styleConfig from '../build/styleConfig';
 import alias from '../build/alias';
 import getEnvironment from '../build/env';
 import pageClass from './pageClass';
+import getAppConfig from './getAppConfig';
+import readManifest from '../readManifest';
 
 const config = new Config();
 
@@ -23,21 +25,25 @@ function prepare(options: RemaxOptions, target: Platform) {
   const entries = getEntries(options, target);
   const entryMap = [entries.app, ...entries.pages].reduce<any>((m, entry) => {
     const ext = path.extname(entry);
-    const name = entry.replace(path.join(options.cwd, options.rootDir) + '/', '').replace(new RegExp(`${ext}$`), '');
+    const name = entry.replace(path.join(options.cwd, options.rootDir) + '/', '').replace(new RegExp(`\\${ext}$`), '');
     m[name] = entry;
     return m;
   }, {});
   const env = getEnvironment(options, target);
+  const appConfig = getAppConfig(options);
+  const publicPath = '/';
 
   return {
     entries,
     entryMap,
     env,
+    appConfig,
+    publicPath,
   };
 }
 
 export default function webpackConfig(options: RemaxOptions, target: Platform): Configuration {
-  const { entries, env } = prepare(options, target);
+  const { entries, env, appConfig, publicPath } = prepare(options, target);
 
   config.entry('index').add('./src/remax-entry.js');
 
@@ -48,6 +54,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   config.devtool(process.env.NODE_ENV === 'development' ? 'cheap-module-source-map' : false);
   config.mode(process.env.NODE_ENV as 'development');
   config.context(options.cwd);
+  config.output.publicPath(publicPath);
   config.resolve.extensions.merge(extensions.map(ex => `.web${ex}`).concat(extensions));
   config.resolve.alias.merge(alias(options, target));
   config.output.path(path.join(options.cwd, options.output));
@@ -144,10 +151,20 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .loader(require.resolve('file-loader'));
 
   const entryTemplate = fs.readFileSync(path.resolve(__dirname, '../../template/entry.js.ejs'), 'utf-8');
+  const pages = entries.pages.map(p => {
+    const ext = path.extname(p);
+    return {
+      route: p.replace(path.join(options.cwd, options.rootDir) + '/', '').replace(new RegExp(`\\${ext}$`), ''),
+      path: p,
+      config: readManifest(p.replace(new RegExp(`\\${ext}$`), '.config'), 'web'),
+    };
+  });
+
   config.plugin('virtualModule').use(VirtualModulesPlugin, [
     {
       './src/remax-entry.js': ejs.render(entryTemplate, {
-        pages: entries.pages,
+        pages,
+        appConfig,
       }),
     },
   ]);

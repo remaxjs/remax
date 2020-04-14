@@ -1,12 +1,14 @@
 const isPlatformSpecifyProp = (prop: string) => prop.match(/^(alipay|wechat|toutiao)-/);
 
-export function filterProps(props: any) {
+const normalizeWebSpecifyProp = (prop: string) => prop.replace(/^web-/, '');
+
+export function filterProps<T>(props: T): T {
   return Object.keys(props).reduce<any>((acc, cur) => {
     if (isPlatformSpecifyProp(cur)) {
       return acc;
     }
 
-    acc[cur] = props[cur];
+    acc[normalizeWebSpecifyProp(cur)] = (props as any)[cur];
 
     return acc;
   }, {});

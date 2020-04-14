@@ -1,15 +1,7 @@
 import * as React from 'react';
 import './helpers/setupGlobals';
 import App from './helpers/App';
-import {
-  useAppShow,
-  useAppError,
-  useAppHide,
-  useAppLaunch,
-  useAppPageNotFound,
-  useAppShareAppMessage,
-  useAppEvent,
-} from '../hooks';
+import { useAppEvent } from '../hooks';
 import createAppConfig from '../createAppConfig';
 
 describe('app', () => {
@@ -73,10 +65,10 @@ describe('app', () => {
     const log: string[] = [];
 
     function Foo(props: any) {
-      useAppLaunch(() => {
+      useAppEvent('onLaunch', () => {
         log.push('launch');
       });
-      useAppShow(() => {
+      useAppEvent('onShow', () => {
         log.push('show');
 
         return () => {
@@ -86,16 +78,16 @@ describe('app', () => {
       useAppEvent('onShow', () => {
         log.push('appEventShow');
       });
-      useAppPageNotFound(() => {
+      useAppEvent('onPageNotFound', () => {
         log.push('pageNotFound');
       });
-      useAppShareAppMessage(() => {
+      useAppEvent('onShareAppMessage', () => {
         log.push('shareAppMessage');
       });
-      useAppError(() => {
+      useAppEvent('onError', () => {
         log.push('error');
       });
-      useAppHide(() => {
+      useAppEvent('onHide', () => {
         log.push('hide');
       });
       return props.children;
