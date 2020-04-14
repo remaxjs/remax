@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 
+if [[ "${SKIP_INTEGRATION_TEST_REPO}" ]]; then
+  echo "\033[41m Skip integration testing."
+  exit 0;
+fi
+
+
 if [[ -z "${REMAX_INTEGRATION_TEST_REPO}" ]]; then
   echo "请先设置环境变量 REMAX_INTEGRATION_TEST_REPO"
   exit 1
