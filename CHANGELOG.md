@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.21.0](https://github.com/remaxjs/remax/compare/v1.20.0...v1.21.0) (2020-04-14)
+
+### Bug Fixes
+
+- **alipay:** 修复钉钉小程序下没有 Function.prototype.apply 导致的白屏 ([#795](https://github.com/remaxjs/remax/issues/795)) ([17bde7d](https://github.com/remaxjs/remax/commit/17bde7d880d21dd27532909353cdd70c041efe48))
+
+### Features
+
+- **wechat:** 增加 API chooseMedia ([9a9037d](https://github.com/remaxjs/remax/commit/9a9037d29ad2b6228ba48df9aa46ef9c09777b1b))
+
 # [1.20.0](https://github.com/remaxjs/remax/compare/v1.19.8...v1.20.0) (2020-04-13)
 
 ### Bug Fixes
