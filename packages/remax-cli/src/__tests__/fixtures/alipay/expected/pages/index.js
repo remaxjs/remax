@@ -56,8 +56,11 @@ var _page = function _page() {
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
-    "data-foo": "bar"
-  }, props), "foo", obj === null || obj === void 0 ? void 0 : (_obj$a = obj.a) === null || _obj$a === void 0 ? void 0 : _obj$a.b, value), /*#__PURE__*/React.createElement(FunctionalPageNavigator, null), /*#__PURE__*/React.createElement(UnBindingComponent, null), TextElement);
+    "data-foo": "bar",
+    key: "my-view"
+  }, props, {
+    __key: "my-view"
+  }), "foo", obj === null || obj === void 0 ? void 0 : (_obj$a = obj.a) === null || _obj$a === void 0 ? void 0 : _obj$a.b, value), /*#__PURE__*/React.createElement(FunctionalPageNavigator, null), /*#__PURE__*/React.createElement(UnBindingComponent, null), TextElement);
 };
 
 var index = Page(index$1.createPageConfig(_page));

@@ -7,7 +7,8 @@
     "jsx": "react",
     "outDir": "esm",
     "types": ["@types/jest", "@types/node"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "downlevelIteration": true
   },
   "include": [
     "src/**/*",

@@ -278,18 +278,39 @@ for (var prop in isUnitlessNumber) {
   _loop_1(prop);
 }
 
-var __spreadArrays = undefined && undefined.__spreadArrays || function () {
-  for (var s = 0, i = 0, il = arguments.length; i < il; i++) {
-    s += arguments[i].length;
-  }
+var __read = undefined && undefined.__read || function (o, n) {
+  var m = typeof Symbol === "function" && o[Symbol.iterator];
+  if (!m) return o;
+  var i = m.call(o),
+      r,
+      ar = [],
+      e;
 
-  for (var r = Array(s), k = 0, i = 0; i < il; i++) {
-    for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++) {
-      r[k] = a[j];
+  try {
+    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
+      ar.push(r.value);
+    }
+  } catch (error) {
+    e = {
+      error: error
+    };
+  } finally {
+    try {
+      if (r && !r.done && (m = i["return"])) m.call(i);
+    } finally {
+      if (e) throw e.error;
     }
   }
 
-  return r;
+  return ar;
+};
+
+var __spread = undefined && undefined.__spread || function () {
+  for (var ar = [], i = 0; i < arguments.length; i++) {
+    ar = ar.concat(__read(arguments[i]));
+  }
+
+  return ar;
 };
 var vendorPrefixes = ['webkit', 'moz', 'ms', 'o'];
 
@@ -339,7 +360,7 @@ var plainStyle = function plainStyle(style) {
       value = value + 'rpx';
     }
 
-    return __spreadArrays(acc, [transformReactStyleKey(key) + ":" + ( transformPx(value) ) + ";"]);
+    return __spread(acc, [transformReactStyleKey(key) + ":" + ( transformPx(value) ) + ";"]);
   }, []).join('');
 };
 
@@ -1128,18 +1149,39 @@ function stopPropagation(node) {
   validate(node);
 }
 
-var __spreadArrays$1 = undefined && undefined.__spreadArrays || function () {
-  for (var s = 0, i = 0, il = arguments.length; i < il; i++) {
-    s += arguments[i].length;
-  }
+var __read$1 = undefined && undefined.__read || function (o, n) {
+  var m = typeof Symbol === "function" && o[Symbol.iterator];
+  if (!m) return o;
+  var i = m.call(o),
+      r,
+      ar = [],
+      e;
 
-  for (var r = Array(s), k = 0, i = 0; i < il; i++) {
-    for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++) {
-      r[k] = a[j];
+  try {
+    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
+      ar.push(r.value);
+    }
+  } catch (error) {
+    e = {
+      error: error
+    };
+  } finally {
+    try {
+      if (r && !r.done && (m = i["return"])) m.call(i);
+    } finally {
+      if (e) throw e.error;
     }
   }
 
-  return r;
+  return ar;
+};
+
+var __spread$1 = undefined && undefined.__spread || function () {
+  for (var ar = [], i = 0; i < arguments.length; i++) {
+    ar = ar.concat(__read$1(arguments[i]));
+  }
+
+  return ar;
 };
 
 function isSyntheticType(inputType) {
@@ -1180,7 +1222,7 @@ function createCallbackProxy(eventType, node, callback) {
       return;
     }
 
-    return callback.apply(void 0, __spreadArrays$1([syntheticEvent], restParams));
+    return callback.apply(void 0, __spread$1([syntheticEvent], restParams));
   };
 }
 
@@ -1280,25 +1322,56 @@ function diffProperties(lastRawProps, nextRawProps) {
   return updatePayload;
 }
 
+var __values = undefined && undefined.__values || function (o) {
+  var s = typeof Symbol === "function" && Symbol.iterator,
+      m = s && o[s],
+      i = 0;
+  if (m) return m.call(o);
+  if (o && typeof o.length === "number") return {
+    next: function next() {
+      if (o && i >= o.length) o = void 0;
+      return {
+        value: o && o[i++],
+        done: !o
+      };
+    }
+  };
+  throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
 var scheduleDeferredCallback = scheduler.unstable_scheduleCallback,
     cancelDeferredCallback = scheduler.unstable_cancelCallback,
     shouldYield = scheduler.unstable_shouldYield,
     now = scheduler.unstable_now;
 
 function processProps(newProps, node, id) {
+  var e_1, _a;
+
   var props = {};
 
-  for (var _i = 0, _a = Object.keys(newProps); _i < _a.length; _i++) {
-    var propKey = _a[_i];
+  try {
+    for (var _b = __values(Object.keys(newProps)), _c = _b.next(); !_c.done; _c = _b.next()) {
+      var propKey = _c.value;
 
-    if (typeof newProps[propKey] === 'function') {
-      var contextKey = REMAX_METHOD + "_" + id + "_" + propKey;
-      node.container.createCallback(contextKey, createCallbackProxy(propKey, node, newProps[propKey]));
-      props[propKey] = contextKey;
-    } else if (propKey === 'style') {
-      props[propKey] = newProps[propKey] || '';
-    } else if (propKey === 'children') ; else {
-      props[propKey] = newProps[propKey];
+      if (typeof newProps[propKey] === 'function') {
+        var contextKey = REMAX_METHOD + "_" + id + "_" + propKey;
+        node.container.createCallback(contextKey, createCallbackProxy(propKey, node, newProps[propKey]));
+        props[propKey] = contextKey;
+      } else if (propKey === 'style') {
+        props[propKey] = newProps[propKey] || '';
+      } else if (propKey === 'children') {// pass
+      } else {
+        props[propKey] = newProps[propKey];
+      }
+    }
+  } catch (e_1_1) {
+    e_1 = {
+      error: e_1_1
+    };
+  } finally {
+    try {
+      if (_c && !_c.done && (_a = _b["return"])) _a.call(_b);
+    } finally {
+      if (e_1) throw e_1.error;
     }
   }
 
@@ -1421,6 +1494,73 @@ function render(rootElement, container) {
   ReactReconcilerInst.updateContainer(rootElement, container._rootContainer, null, function () {// ignore
   });
   return getPublicRootInstance(container._rootContainer);
+}
+
+var __read$2 = undefined && undefined.__read || function (o, n) {
+  var m = typeof Symbol === "function" && o[Symbol.iterator];
+  if (!m) return o;
+  var i = m.call(o),
+      r,
+      ar = [],
+      e;
+
+  try {
+    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
+      ar.push(r.value);
+    }
+  } catch (error) {
+    e = {
+      error: error
+    };
+  } finally {
+    try {
+      if (r && !r.done && (m = i["return"])) m.call(i);
+    } finally {
+      if (e) throw e.error;
+    }
+  }
+
+  return ar;
+};
+
+var __spread$2 = undefined && undefined.__spread || function () {
+  for (var ar = [], i = 0; i < arguments.length; i++) {
+    ar = ar.concat(__read$2(arguments[i]));
+  }
+
+  return ar;
+};
+/* eslint-disable prefer-rest-params */
+
+
+if (typeof Function.prototype.call === 'undefined') {
+  Function.prototype.call = function (context) {
+    context = context || window;
+    context.fn = this;
+
+    var args = __spread$2(arguments).slice(1);
+
+    var result = context.fn.apply(context, __spread$2(args));
+    delete context.fn;
+    return result;
+  };
+}
+
+if (typeof Function.prototype.apply === 'undefined') {
+  Function.prototype.apply = function (context) {
+    context = context || window;
+    context.fn = this;
+    var result;
+
+    if (arguments[1]) {
+      result = context.fn.apply(context, __spread$2(arguments[1]));
+    } else {
+      result = context.fn();
+    }
+
+    delete context.fn;
+    return result;
+  };
 }
 
 var AppContainer =
@@ -1589,6 +1729,41 @@ var __extends = undefined && undefined.__extends || function () {
   };
 }();
 
+var __read$3 = undefined && undefined.__read || function (o, n) {
+  var m = typeof Symbol === "function" && o[Symbol.iterator];
+  if (!m) return o;
+  var i = m.call(o),
+      r,
+      ar = [],
+      e;
+
+  try {
+    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
+      ar.push(r.value);
+    }
+  } catch (error) {
+    e = {
+      error: error
+    };
+  } finally {
+    try {
+      if (r && !r.done && (m = i["return"])) m.call(i);
+    } finally {
+      if (e) throw e.error;
+    }
+  }
+
+  return ar;
+};
+
+var __spread$3 = undefined && undefined.__spread || function () {
+  for (var ar = [], i = 0; i < arguments.length; i++) {
+    ar = ar.concat(__read$3(arguments[i]));
+  }
+
+  return ar;
+};
+
 var DefaultAppComponent =
 /** @class */
 function (_super) {
@@ -1629,7 +1804,7 @@ function createAppConfig(App) {
         var callbacks = context.lifecycleCallback[lifecycle] || [];
         var result;
         callbacks.forEach(function (callback) {
-          result = callback.apply(void 0, args);
+          result = callback.apply(void 0, __spread$3(args));
         });
 
         if (result) {
@@ -1639,7 +1814,7 @@ function createAppConfig(App) {
         var callback = callbackName(lifecycle);
 
         if (this._instance.current && this._instance.current[callback]) {
-          return (_a = this._instance.current)[callback].apply(_a, args);
+          return (_a = this._instance.current)[callback].apply(_a, __spread$3(args));
         }
       },
       onLaunch: function onLaunch(options) {
@@ -1728,18 +1903,39 @@ var __extends$1 = undefined && undefined.__extends || function () {
   };
 }();
 
-var __spreadArrays$2 = undefined && undefined.__spreadArrays || function () {
-  for (var s = 0, i = 0, il = arguments.length; i < il; i++) {
-    s += arguments[i].length;
-  }
+var __read$4 = undefined && undefined.__read || function (o, n) {
+  var m = typeof Symbol === "function" && o[Symbol.iterator];
+  if (!m) return o;
+  var i = m.call(o),
+      r,
+      ar = [],
+      e;
 
-  for (var r = Array(s), k = 0, i = 0; i < il; i++) {
-    for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++) {
-      r[k] = a[j];
+  try {
+    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
+      ar.push(r.value);
+    }
+  } catch (error) {
+    e = {
+      error: error
+    };
+  } finally {
+    try {
+      if (r && !r.done && (m = i["return"])) m.call(i);
+    } finally {
+      if (e) throw e.error;
     }
   }
 
-  return r;
+  return ar;
+};
+
+var __spread$4 = undefined && undefined.__spread || function () {
+  for (var ar = [], i = 0; i < arguments.length; i++) {
+    ar = ar.concat(__read$4(arguments[i]));
+  }
+
+  return ar;
 };
 function createPageWrapper(Page, query) {
   return (
@@ -1763,7 +1959,7 @@ function createPageWrapper(Page, query) {
               args[_i] = arguments[_i];
             }
 
-            return _this.callLifecycle.apply(_this, __spreadArrays$2([phase], args));
+            return _this.callLifecycle.apply(_this, __spread$4([phase], args));
           };
         });
         return _this;
@@ -1781,7 +1977,7 @@ function createPageWrapper(Page, query) {
         var callback = callbackName(phase);
 
         if (this.pageComponentInstance && typeof this.pageComponentInstance[callback] === 'function') {
-          return (_a = this.pageComponentInstance)[callback].apply(_a, args);
+          return (_a = this.pageComponentInstance)[callback].apply(_a, __spread$4(args));
         }
       };
 
@@ -1876,18 +2072,39 @@ var Platform = {
 
 };
 
-var __spreadArrays$3 = undefined && undefined.__spreadArrays || function () {
-  for (var s = 0, i = 0, il = arguments.length; i < il; i++) {
-    s += arguments[i].length;
-  }
+var __read$5 = undefined && undefined.__read || function (o, n) {
+  var m = typeof Symbol === "function" && o[Symbol.iterator];
+  if (!m) return o;
+  var i = m.call(o),
+      r,
+      ar = [],
+      e;
 
-  for (var r = Array(s), k = 0, i = 0; i < il; i++) {
-    for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++) {
-      r[k] = a[j];
+  try {
+    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
+      ar.push(r.value);
+    }
+  } catch (error) {
+    e = {
+      error: error
+    };
+  } finally {
+    try {
+      if (r && !r.done && (m = i["return"])) m.call(i);
+    } finally {
+      if (e) throw e.error;
     }
   }
 
-  return r;
+  return ar;
+};
+
+var __spread$5 = undefined && undefined.__spread || function () {
+  for (var ar = [], i = 0; i < arguments.length; i++) {
+    ar = ar.concat(__read$5(arguments[i]));
+  }
+
+  return ar;
 };
 
 var Container =
@@ -1965,7 +2182,7 @@ function () {
             };
           }
 
-          _this.context.$spliceData((_a = {}, _a[update.path] = __spreadArrays$3([update.start, update.deleteCount], update.items), _a), callback);
+          _this.context.$spliceData((_a = {}, _a[update.path] = __spread$5([update.start, update.deleteCount], update.items), _a), callback);
         });
       });
       this.updateQueue = [];
@@ -2042,13 +2259,51 @@ function createPortal(children, containerInfo, key) {
   };
 }
 
+var __read$6 = undefined && undefined.__read || function (o, n) {
+  var m = typeof Symbol === "function" && o[Symbol.iterator];
+  if (!m) return o;
+  var i = m.call(o),
+      r,
+      ar = [],
+      e;
+
+  try {
+    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
+      ar.push(r.value);
+    }
+  } catch (error) {
+    e = {
+      error: error
+    };
+  } finally {
+    try {
+      if (r && !r.done && (m = i["return"])) m.call(i);
+    } finally {
+      if (e) throw e.error;
+    }
+  }
+
+  return ar;
+};
+
+var __spread$6 = undefined && undefined.__spread || function () {
+  for (var ar = [], i = 0; i < arguments.length; i++) {
+    ar = ar.concat(__read$6(arguments[i]));
+  }
+
+  return ar;
+};
 var idCounter = 0;
+
+function generatePageId() {
+  var id = idCounter;
+  var pageId = 'page_' + id;
+  idCounter += 1;
+  return pageId;
+} // for testing
 function createPageConfig(Page) {
   var app = getApp();
-  var id = idCounter;
-  idCounter += 1;
   var config = {
-    pageId: 'page_' + id,
     data: {
       action: {},
       root: {
@@ -2059,6 +2314,7 @@ function createPageConfig(Page) {
     lifecycleCallback: {},
     onLoad: function onLoad(query) {
       var PageWrapper = createPageWrapper(Page, query);
+      this.pageId = generatePageId();
       this.query = query;
       this.container = new Container(this);
       this.element = createPortal(React.createElement(PageWrapper, {
@@ -2099,7 +2355,7 @@ function createPageConfig(Page) {
       var callbacks = this.lifecycleCallback[lifecycle] || [];
       var result;
       callbacks.forEach(function (callback) {
-        result = callback.apply(void 0, args);
+        result = callback.apply(void 0, __spread$6(args));
       });
 
       if (result) {
@@ -2109,7 +2365,7 @@ function createPageConfig(Page) {
       var callback = callbackName(lifecycle);
 
       if (this.wrapperRef.current && this.wrapperRef.current[callback]) {
-        return (_a = this.wrapperRef.current)[callback].apply(_a, args);
+        return (_a = this.wrapperRef.current)[callback].apply(_a, __spread$6(args));
       }
     },
     onShow: function onShow() {

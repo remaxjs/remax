@@ -1,8 +1,11 @@
 import * as path from 'path';
+import events from 'events';
 import runWatcher from '../build/watcher';
 import { checkChokidar } from '../build/utils/checkChokidar';
 import { RemaxOptions, RollupOptions } from 'remax-types';
 import * as sander from 'sander';
+
+const buildEmitter = new events.EventEmitter();
 
 function wait(ms: number) {
   return new Promise(fulfil => {
@@ -66,7 +69,7 @@ const argv = { target: 'alipay' };
 
 describe('watcher', () => {
   it('works', async () => {
-    const { watcher, extraFilesWatcher } = runWatcher(options, rollupOptions, argv)!;
+    const { watcher, extraFilesWatcher } = runWatcher(options, rollupOptions, argv, buildEmitter)!;
 
     extraFilesWatcher.close();
 
@@ -117,12 +120,12 @@ describe('watcher', () => {
   });
 
   it('avoid rerun when watching', () => {
-    const { watcher, extraFilesWatcher } = runWatcher(options, rollupOptions, argv)!;
+    const { watcher, extraFilesWatcher } = runWatcher(options, rollupOptions, argv, buildEmitter)!;
 
     expect(watcher).toBeDefined();
     expect(extraFilesWatcher).toBeDefined();
 
-    expect(runWatcher(options, rollupOptions, argv)).toBeUndefined();
+    expect(runWatcher(options, rollupOptions, argv, buildEmitter)).toBeUndefined();
 
     watcher.close();
     extraFilesWatcher.close();
