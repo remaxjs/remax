@@ -98,6 +98,7 @@ export default function webpackConfig(
   config.optimization.splitChunks({
     chunks: 'initial',
   });
+  config.optimization.minimize(false);
 
   config.module
     .rule('createAppOrPageConfig')
