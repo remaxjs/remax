@@ -1,7 +1,9 @@
 ---
 title: 框架
-order: 0
+order: 21
 ---
+
+# 框架
 
 ## 应用
 
@@ -15,7 +17,7 @@ export default class App extends React.Component {
 }
 ```
 
-所有页面组件都会以 `App` 子组件的方式渲染，所以你可以很方便的通过 `Context` 来进行数据共享。
+所有页面组件都会以 `App` 子组件的方式渲染，所以你可以很方便地通过 `Context` 来进行数据共享。
 
 > 注意
 >
@@ -84,6 +86,24 @@ export default class App extends React.Component {
 }
 ```
 
+对于函数组件的 App, 可以通过 `useAppEvent` hook 来监听生命周期
+
+```jsx
+import { useAppEvent } from 'remax/macro';
+
+export default function App(props) {
+  useAppEvent('onShow', () => {
+    console.log('这个 hook 等同于 onShow');
+  });
+
+  useAppEvent('onShareAppMessage', () => {
+    console.log('这个 hook 等同于 onShareAppMessage');
+  });
+
+  return props.children;
+}
+```
+
 ## 页面
 
 Remax 中的页面当然也是一个 React 组件。
@@ -148,10 +168,10 @@ export default class IndexPage extends React.Component {
 }
 ```
 
-对于函数组件的页面  我们提供了 hooks 来监听生命周期。
+对于函数组件的页面, 我们提供了 hooks 来监听生命周期。
 
 ```jsx
-import { usePageEvent } from 'remax';
+import { usePageEvent } from 'remax/macro';
 
 export default () => {
   // onShow 生命周期
@@ -164,24 +184,6 @@ export default () => {
     console.log('onBack');
   });
 };
-```
-
-对于函数组件的 App, 为 `useAppEvent`
-
-```jsx
-import { useAppEvent } from 'remax';
-
-export default function App(props) {
-  useAppEvent('onShow', () => {
-    console.log('这个 hook 等用于 onShow');
-  });
-
-  useAppEvent('onShareAppMessage', () => {
-    console.log('这个 hook 等用于 onShareAppMessage');
-  });
-
-  return props.children;
-}
 ```
 
 > 注意

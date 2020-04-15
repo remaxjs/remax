@@ -3,6 +3,8 @@ title: 小程序 API
 order: 26
 ---
 
+# 小程序 API
+
 Remax 提供原生小程序 API 支持，如；
 
 ```js
