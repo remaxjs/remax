@@ -19,30 +19,28 @@ footer: Open-source MIT Licensed | Copyright © 2020<br />Powered by [dumi](http
 ## 示例
 
 <p align="center">
-  <iframe width="100%" height="641" style="border:none;" src="https://herbox-embed-pre.site.alipay.net/p/herbox-cli-test/remax-test" ></iframe>
+  <iframe width="100%" height="641" style="border:none;" src="https://herbox-embed-pre.site.alipay.net/p/herbox-cli-test/remax-test?defaultOpenedFiles=src/pages/index/index.js" ></iframe>
 </p>
 
 ## 案例
 
 <div style="display:flex;flex-direction:row;align-items:center;justify-content:space-around;width: 100%;">
-  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;border: 1px solid #eaeaea;width:300px;height:400px;">
-      <img width="300" src="https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*BLCUQ4lkwIgAAAAAAAAAAABkARQnAQ" />
-    </div>
-    <span style="margin-top:10px">支付宝小程序 - 爱情对对碰</span>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;border: 1px solid #eaeaea;width:300px;height:350px;">
+    <img width="260" src="https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*BLCUQ4lkwIgAAAAAAAAAAABkARQnAQ" >
   </div>
-
-  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;border: 1px solid #eaeaea;width:300px;height:400px;">
-      <img width="300" src="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*AQA3TIYlDFMAAAAAAAAAAABkARQnAQ" />
-    </div>
+  <span style="margin-top:10px">支付宝小程序 - 爱情对对碰</span>
+  </div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;border: 1px solid #eaeaea;width:300px;height:350px;">
+    <img width="260" src="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*AQA3TIYlDFMAAAAAAAAAAABkARQnAQ" />
+  </div>
     <span style="margin-top:10px">支付宝小程序 - 万里汇</span>
   </div>
-
-  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;border: 1px solid #eaeaea;width: 300px;height:400px;">
-      <img width="300" src="https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*KAd0RKNmPM4AAAAAAAAAAABkARQnAQ" />
-    </div>
+<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;border: 1px solid #eaeaea;width:300px;height:350px;">
+    <img width="260" src="https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*KAd0RKNmPM4AAAAAAAAAAABkARQnAQ" />
+  </div>
     <span style="margin-top:10px">微信小程序 - 菜鸟裹裹</span>
   </div>
 </div>

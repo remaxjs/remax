@@ -25,4 +25,6 @@ export default defineConfig({
     includes: ['../docs'],
     previewLangs: [],
   },
+  favicon:
+    'https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*uJJISqWJcMQAAAAAAAAAAABkARQnAQ',
 });
