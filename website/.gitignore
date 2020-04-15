@@ -17,3 +17,4 @@
 .umi
 .umi-production
 .env.local
+.cache
