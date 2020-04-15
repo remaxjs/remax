@@ -291,6 +291,7 @@ export default function webpackConfig(
   config
     .plugin('nativeFiles')
     .use(RemaxPlugins.NativeFiles, [options, entries]);
+  config.plugin('coverage-ignore').use(RemaxPlugins.CoverageIgnore);
 
   if (process.env.NODE_ENV === 'production') {
     config.plugin('clean').use(CleanWebpackPlugin);
