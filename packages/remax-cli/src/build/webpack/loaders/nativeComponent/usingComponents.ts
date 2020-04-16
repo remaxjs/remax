@@ -3,7 +3,7 @@ import path from 'path';
 import { loader } from 'webpack';
 import { getPath } from '../../../nativeComponent';
 import output from '../../../utils/output';
-import { RemaxOptions } from 'remax-types';
+import { RemaxOptions } from '@remax/types';
 
 const runWalk = (filePath: string, options: RemaxOptions, ctx: loader.LoaderContext) => {
   const walk = (filePath: string) => {

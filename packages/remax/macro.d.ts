@@ -1,1 +1,1 @@
-export * from 'remax.macro';
+export * from '@remax/macro';

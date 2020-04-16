@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from 'remax-one';
+import { View, Text } from '@remax/one';
 import { FunctionalPageNavigator as UnKnownComponent } from 'remax/wechat';
 import C from '@/components/C';
 import chooseImage from '@/api/chooseImage';

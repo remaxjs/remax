@@ -1,6 +1,6 @@
 import * as path from 'path';
 import { compilation } from 'webpack';
-import { RemaxOptions } from 'remax-types';
+import { RemaxOptions } from '@remax/types';
 import readManifest from '../../../../readManifest';
 import API from '../../../../API';
 import * as cacheable from './cacheable';

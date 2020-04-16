@@ -7,7 +7,7 @@ group:
 
 # Web 同构
 
-从 Remax 2.0 开发，`remax-one` 支持 web target，进行 web 同构。
+从 Remax 2.0 开发，`remax/one` 支持 web target，进行 web 同构。
 
 ```bash
 $ remax build -t web
@@ -89,4 +89,4 @@ web 平台也可以通过 `web-` 前缀来指明只在 web 平台中使用的属
 <View web-onClick={() => {}} />
 ```
 
-> web 平台只能通过 remax-one 来开发，因此 remax 给 web 平台提供的组件和 api 就是来自 remax-one 提供的组件和 api
+> web 平台只能通过 remax/one 来开发，因此 remax 给 web 平台提供的组件和 api 就是来自 remax/one 提供的组件和 api

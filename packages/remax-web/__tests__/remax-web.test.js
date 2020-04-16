@@ -2,6 +2,6 @@
 
 const remaxWeb = require('..');
 
-describe('remax-web', () => {
+describe('@remax/web', () => {
   it('needs tests');
 });

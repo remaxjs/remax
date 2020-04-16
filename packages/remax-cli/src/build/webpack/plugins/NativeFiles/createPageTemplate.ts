@@ -2,7 +2,7 @@ import * as path from 'path';
 import { sortBy } from 'lodash';
 import { compilation } from 'webpack';
 import ejs from 'ejs';
-import { RemaxOptions, Meta } from 'remax-types';
+import { RemaxOptions, Meta } from '@remax/types';
 import * as componentManifest from '../../../../build/babel/componentManifest';
 import winPath from '../../../../winPath';
 import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDepth';

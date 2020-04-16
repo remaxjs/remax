@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { RemaxOptions } from 'remax-types';
+import { RemaxOptions } from '@remax/types';
 
 type Env = Record<string, string | undefined>;
 

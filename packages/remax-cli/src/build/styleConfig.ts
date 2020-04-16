@@ -1,6 +1,6 @@
 import * as path from 'path';
 import { cosmiconfigSync } from 'cosmiconfig';
-import { RemaxOptions } from 'remax-types';
+import { RemaxOptions } from '@remax/types';
 
 export const styleMatcher = /\.(css|less|sass|stylus)$/i;
 

@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { Compiler, compilation } from 'webpack';
 import { ConcatSource } from 'webpack-sources';
-import { Meta } from 'remax-types';
+import { Meta } from '@remax/types';
 import winPath from '../../../winPath';
 
 const PLUGIN_NAME = 'RemaxOptimizeEntriesPlugin';

@@ -1,2 +1,2 @@
 import '@remax/miniprogram-api-typings';
-export * from 'remax-wechat';
+export * from '@remax/wechat';

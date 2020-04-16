@@ -6,7 +6,7 @@ import API from '../../../../API';
 import readManifest from '../../../../readManifest';
 import { isPluginPath } from '../../../nativeComponent';
 import { compilation } from 'webpack';
-import { RemaxOptions } from 'remax-types';
+import { RemaxOptions } from '@remax/types';
 import * as cacheable from './cacheable';
 import winPath from '../../../../winPath';
 

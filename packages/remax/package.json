@@ -35,18 +35,18 @@
     "@types/react": "^16.9.33"
   },
   "dependencies": {
+    "@remax/ali": "2.0.0-alpha.0",
+    "@remax/cli": "2.0.0-alpha.0",
+    "@remax/macro": "2.0.0-alpha.0",
     "@remax/miniprogram-api-typings": "^2.9.3",
+    "@remax/one": "2.0.0-alpha.0",
+    "@remax/toutiao": "2.0.0-alpha.0",
+    "@remax/web": "2.0.0-alpha.0",
+    "@remax/wechat": "2.0.0-alpha.0",
     "lodash.kebabcase": "^4.1.1",
     "mini-types": "^0.1.1",
     "qs": "^6.9.3",
     "react-reconciler": "0.25.1",
-    "remax-ali": "2.0.0-alpha.0",
-    "remax-cli": "2.0.0-alpha.0",
-    "remax-one": "2.0.0-alpha.0",
-    "remax-toutiao": "2.0.0-alpha.0",
-    "remax-web": "2.0.0-alpha.0",
-    "remax-wechat": "2.0.0-alpha.0",
-    "remax.macro": "2.0.0-alpha.0",
     "scheduler": "0.19.1"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PullToRefresh } from 'remax-web';
+import { PullToRefresh } from '@remax/web';
 import qs from 'qs';
 import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName } from './lifecycle';

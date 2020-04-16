@@ -1,1 +1,1 @@
-# remax.macro
+# @remax/macro

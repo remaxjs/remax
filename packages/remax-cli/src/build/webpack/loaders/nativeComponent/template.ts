@@ -3,7 +3,7 @@ import fs from 'fs';
 import API from '../../../../API';
 import { getPath } from '../../../nativeComponent';
 import output from '../../../utils/output';
-import { RemaxOptions } from 'remax-types';
+import { RemaxOptions } from '@remax/types';
 
 const templatePaths: Set<string> = new Set();
 

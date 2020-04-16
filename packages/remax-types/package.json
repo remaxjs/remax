@@ -1,5 +1,5 @@
 {
-  "name": "remax-types",
+  "name": "@remax/types",
   "version": "2.0.0-alpha.0",
   "description": "Remax Types",
   "typings": "index.d.ts",
@@ -10,5 +10,6 @@
     "@types/webpack": "^4.41.10",
     "@types/yargs": "^15.0.0",
     "webpack-chain": "^6.4.0"
-  }
+  },
+  "gitHead": "421a0c2b5a64c6f3210f2f056bf61406d6736f28"
 }

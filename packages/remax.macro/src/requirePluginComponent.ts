@@ -3,7 +3,7 @@ import { NodePath } from '@babel/traverse';
 import * as path from 'path';
 import { kebabCase } from 'lodash';
 import insertImportDeclaration from './utils/insertImportDeclaration';
-import { NativeComponent } from 'remax-types';
+import { NativeComponent } from '@remax/types';
 
 export const nativeComponents: Map<string, NativeComponent> = new Map();
 

@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { RemaxOptions } from 'remax-types';
+import { RemaxOptions } from '@remax/types';
 import { Platform } from './platform';
 
 interface Alias {

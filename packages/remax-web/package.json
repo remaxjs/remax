@@ -1,5 +1,5 @@
 {
-  "name": "remax-web",
+  "name": "@remax/web",
   "version": "2.0.0-alpha.0",
   "description": "Shim of web for remax",
   "author": "Wei Zhu <yesmeck@gmail.com>",
@@ -40,5 +40,6 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "typescript": "^3.8.3"
-  }
+  },
+  "gitHead": "421a0c2b5a64c6f3210f2f056bf61406d6736f28"
 }

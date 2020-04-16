@@ -89,7 +89,7 @@ exports.wechat = {
 };
 ```
 
-> 如果没有默认导出，`remax-cli` 就会去读取对应平台的配置信息。
+> 如果没有默认导出，`@remax/cli` 就会去读取对应平台的配置信息。
 
 ## 使用文件名后缀区分不同平台代码
 
@@ -116,7 +116,7 @@ export default options => {
 
 ```js
 // src/pages/index.js
-import { View } from 'remax-one';
+import { View } from 'remax/one';
 import showToast from '@/api/showToast';
 
 export default () => {
@@ -132,7 +132,7 @@ export default () => {
 };
 ```
 
-`remax-cli` 会优先读取 `[target].js` 文件，这个规则针对 CSS 等其他文件同样有效。
+`@remax/cli` 会优先读取 `[target].js` 文件，这个规则针对 CSS 等其他文件同样有效。
 
 > 注意：上面的例子中的 `src/api/showToast/index.js` 是必须的，也就是说不能只提供带有平台后缀的文件。
 
@@ -173,7 +173,7 @@ export default () => {
 
 ```jsx
 import * as React from 'react';
-import { View, TapEvent } from 'remax-one';
+import { View, TapEvent } from 'remax/one';
 
 export default () => {
   return (

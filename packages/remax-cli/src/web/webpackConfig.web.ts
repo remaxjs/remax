@@ -6,7 +6,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import pxToUnits from '@remax/postcss-px2units';
-import { RemaxOptions } from 'remax-types';
+import { RemaxOptions } from '@remax/types';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 import ejs from 'ejs';
 import { Platform } from '../build/platform';

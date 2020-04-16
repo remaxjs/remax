@@ -7,7 +7,7 @@ import traverse, { NodePath, VisitNodeFunction } from '@babel/traverse';
 import { get } from 'lodash';
 import resolve from 'resolve';
 import { getPath } from '../../../nativeComponent';
-import { RemaxOptions } from 'remax-types';
+import { RemaxOptions } from '@remax/types';
 import winPath from '../../../../winPath';
 
 const modules: Set<string> = new Set();

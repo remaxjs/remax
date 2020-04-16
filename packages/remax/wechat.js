@@ -1,1 +1,1 @@
-export * from 'remax-wechat';
+export * from '@remax/wechat';

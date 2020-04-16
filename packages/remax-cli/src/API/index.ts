@@ -1,6 +1,6 @@
 import { hostComponents } from 'remax/macro';
 import * as t from '@babel/types';
-import { RemaxOptions, RemaxNodePlugin, ExtendsCLIOptions, Meta, HostComponent } from 'remax-types';
+import { RemaxOptions, RemaxNodePlugin, ExtendsCLIOptions, Meta, HostComponent } from '@remax/types';
 import { merge } from 'lodash';
 
 class API {
@@ -115,7 +115,7 @@ class API {
     this.plugins.push(plugin);
 
     if (remaxConfig.one) {
-      const onePath = 'remax-one/node';
+      const onePath = '@remax/one/node';
 
       delete require.cache[onePath];
       const plugin = require(onePath).default || require(onePath);

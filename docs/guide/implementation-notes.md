@@ -5,7 +5,7 @@ order: 48
 
 # Remax 实现原理
 
-本文将向大家介绍 Remax 的实现原理，Remax 本身分为两个部分，`remax` 和 `remax-cli`，`remax` 提供运行时，`remax-cli` 提供构建功能，这里主要介绍运行时的部分。
+本文将向大家介绍 Remax 的实现原理，Remax 本身分为两个部分，`remax` 和 `@remax/cli`，`remax` 提供运行时，`@remax/cli` 提供构建功能，这里主要介绍运行时的部分。
 
 Remax 的运行时本质是一个通过 `react-reconciler` 实现的一个小程序端的渲染器。关于 `react-reconciler` 和 React 渲染器相关的内容推荐观看[这个视频](https://www.youtube.com/watch?v=CGpMlWVcHok)，这里不再赘述。
 
@@ -101,7 +101,7 @@ Remax 在渲染这个组件时，会把它渲染成如下的 `VNode` 结构：
 
 上面讲到我们的 React 组件最终会被渲染成一个我们称之为 `VNode` 的 JSON 对象，并且这个对象会作为小程序 `Page` 的 `data`。现在我们要做的就是在小程序的模板里怎么把这个 `data` 给显示出来了。
 
-我们在 `remax-cli` 构建我们的 Remax 代码时  生成一个页面模板显示这个 `VNode`，这个模板大概是下面这个样子：
+我们在 `@remax/cli` 构建我们的 Remax 代码时  生成一个页面模板显示这个 `VNode`，这个模板大概是下面这个样子：
 
 ```xml
 <block a:for="{{root.children}}" a:key="{{item.id}}">

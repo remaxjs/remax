@@ -4,7 +4,7 @@ import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import pxToUnits from '@remax/postcss-px2units';
-import { RemaxOptions } from 'remax-types';
+import { RemaxOptions } from '@remax/types';
 import { Platform } from './platform';
 import extensions, { matcher } from '../extensions';
 import getEntries from '../getEntries';

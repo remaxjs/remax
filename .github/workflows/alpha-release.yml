@@ -19,7 +19,7 @@ jobs:
       - run: git checkout master
       - name: Install
         run: yarn install --ignore-scripts
-      - name: Release remax.macro
+      - name: Release @remax/macro
         run: |
           cd packages/remax.macro
           yarn install
@@ -27,7 +27,7 @@ jobs:
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-      - name: Release remax-ali
+      - name: Release @remax/ali
         run: |
           cd packages/remax-ali 
           yarn install
@@ -35,7 +35,7 @@ jobs:
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-      - name: Release remax-wechat
+      - name: Release @remax/wechat
         run: |
           cd packages/remax-wechat 
           yarn install
@@ -43,7 +43,7 @@ jobs:
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-      - name: Release remax-toutiao
+      - name: Release @remax/toutiao
         run: |
           cd packages/remax-toutiao 
           yarn install
@@ -51,7 +51,7 @@ jobs:
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-      - name: Release remax-one
+      - name: Release @remax/one
         run: |
           cd packages/remax-one 
           yarn install
@@ -63,7 +63,7 @@ jobs:
         run: |
           cd packages/remax 
           yarn install
-          yarn add remax.macro@alpha remax-ali@alpha remax-wechat@alpha remax-toutiao@alpha remax-one@alpha
+          yarn add @remax/macro@alpha @remax/ali@alpha @remax/wechat@alpha @remax/toutiao@alpha @remax/one@alpha
           yarn build
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:
@@ -76,7 +76,7 @@ jobs:
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-      - name: Release remax-cli
+      - name: Release @remax/cli
         run: |
           cd packages/remax-cli 
           yarn install

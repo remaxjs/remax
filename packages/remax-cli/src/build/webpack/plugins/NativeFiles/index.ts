@@ -1,6 +1,6 @@
 import * as path from 'path';
 import { Compiler } from 'webpack';
-import { RemaxOptions, Entries } from 'remax-types';
+import { RemaxOptions, Entries } from '@remax/types';
 import API from '../../../../API';
 import createAppManifest from './createAppManifest';
 import createPageTemplate, { createBaseTemplate } from './createPageTemplate';

@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import esm from 'esm';
 import defaultOptions from './defaultOptions';
-import { RemaxOptions, RemaxConfig } from 'remax-types';
+import { RemaxOptions, RemaxConfig } from '@remax/types';
 import validateOptions from 'schema-utils';
 import schema from './RemaxOptionsSchema.json';
 import API from './API';

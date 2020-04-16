@@ -1,5 +1,5 @@
 {
-  "name": "remax-one",
+  "name": "@remax/one",
   "version": "2.0.0-alpha.0",
   "description": "Remax 小程序多端方案",
   "main": "./cjs/index.js",
@@ -23,6 +23,7 @@
     "@types/react": "^16.9.33"
   },
   "devDependencies": {
+    "@remax/types": "2.0.0-alpha.0",
     "@types/jest": "^24.0.24",
     "@types/react": "^16.9.33",
     "@types/react-dom": "^16.9.6",
@@ -34,7 +35,6 @@
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.12.0",
     "remax": "^1.19.8",
-    "remax-types": "2.0.0-alpha.0",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
   },

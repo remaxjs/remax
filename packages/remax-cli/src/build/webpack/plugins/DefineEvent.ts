@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { ReplaceSource } from 'webpack-sources';
 import { Compiler, compilation } from 'webpack';
-import { RemaxOptions, Entries } from 'remax-types';
+import { RemaxOptions, Entries } from '@remax/types';
 import { appEvents, pageEvents } from 'remax/macro';
 import winPath from './../../../winPath';
 import { matcher } from '../../../extensions';

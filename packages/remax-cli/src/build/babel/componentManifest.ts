@@ -1,6 +1,6 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
-import { HostComponent, RemaxOptions } from 'remax-types';
+import { HostComponent, RemaxOptions } from '@remax/types';
 import { kebabCase } from 'lodash';
 import { registerNativeComponent } from 'remax/macro';
 import { LEAF, ENTRY } from './compiler/static/constants';

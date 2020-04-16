@@ -1,7 +1,7 @@
 import * as path from 'path';
 import ejs from 'ejs';
 import { compilation } from 'webpack';
-import { Meta, RemaxOptions } from 'remax-types';
+import { Meta, RemaxOptions } from '@remax/types';
 import API from '../../../../API';
 import { pageUID } from './createPageTemplate';
 import * as cacheable from './cacheable';

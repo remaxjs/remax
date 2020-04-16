@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { RemaxOptions, AppConfig } from 'remax-types';
+import { RemaxOptions, AppConfig } from '@remax/types';
 import readManifest from '../readManifest';
 
 export function searchFile(file: string) {

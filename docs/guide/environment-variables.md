@@ -5,7 +5,7 @@ order: 31
 
 # 环境变量
 
-`remax-cli` 会在编译时注入 `NODE_ENV` 以及所有 `REMAX_APP_` 开头的环境变量，你可以通过 `process.env` 来读取这些环境变量。
+`@remax/cli` 会在编译时注入 `NODE_ENV` 以及所有 `REMAX_APP_` 开头的环境变量，你可以通过 `process.env` 来读取这些环境变量。
 
 > 注意，只有 `REMAX_APP_` 开头的环境变量才会被注入。
 
@@ -43,7 +43,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 ## 使用 .env 文件管理环境变量
 
-为了方便管理环境变量，`remax-cli` 内置了 [dotenv](https://github.com/motdotla/dotenv)，你可以通过在项目根目录下创建 `.env` 文件方便地定义环境变量:
+为了方便管理环境变量，`@remax/cli` 内置了 [dotenv](https://github.com/motdotla/dotenv)，你可以通过在项目根目录下创建 `.env` 文件方便地定义环境变量:
 
 ```
 REMAX_APP_BASE_URL=https://example.com/api
