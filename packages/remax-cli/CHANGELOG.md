@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.0](https://github.com/remaxjs/remax/compare/v1.19.7...v2.0.0-alpha.0) (2020-04-16)
+
+### Bug Fixes
+
+- 修正 css-loader 找不到的问题 ([f541399](https://github.com/remaxjs/remax/commit/f5413996985ae419554fd3e9fb7eed459c0d7177))
+
+### Features
+
+- add basic web support ([#757](https://github.com/remaxjs/remax/issues/757)) ([b3b48b1](https://github.com/remaxjs/remax/commit/b3b48b111cd5889f17d3ec15f1c39437a9dc7fc4))
+- add CoverageIgnorePlugin ([f49997f](https://github.com/remaxjs/remax/commit/f49997f4abe6cb1cbb6894dad391e5870b521f01))
+
+### Reverts
+
+- Revert "fix winpath" ([00951cb](https://github.com/remaxjs/remax/commit/00951cb9dfcdd584afb05536e91e4d2352e0f49f))
+- Revert "make lint happy" ([f9f6194](https://github.com/remaxjs/remax/commit/f9f6194ba09bfc4c962391e4e8bd74522187c1d3))
+
 ## [1.19.7](https://github.com/remaxjs/remax/compare/v1.19.6...v1.19.7) (2020-04-08)
 
 ### Bug Fixes

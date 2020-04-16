@@ -1,6 +1,6 @@
 {
   "name": "remax-web",
-  "version": "0.0.1",
+  "version": "2.0.0-alpha.0",
   "description": "Shim of web for remax",
   "author": "Wei Zhu <yesmeck@gmail.com>",
   "homepage": "https://github.com/remaxjs/remax#readme",
@@ -29,7 +29,7 @@
     "url": "https://github.com/remaxjs/remax/issues"
   },
   "dependencies": {
-    "@remax/router": "^0.0.1",
+    "@remax/router": "2.0.0-alpha.0",
     "rmc-pull-to-refresh": "^1.0.12",
     "umi-hd": "^5.0.1"
   },
