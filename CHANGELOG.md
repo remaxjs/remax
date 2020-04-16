@@ -5,23 +5,55 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [2.0.0-alpha.1](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2020-04-16)
 
-**Note:** Version bump only for package root
+## 重大特性
 
-# [2.0.0-alpha.0](https://github.com/remaxjs/remax/compare/v1.19.7...v2.0.0-alpha.0) (2020-04-16)
+### 使用 Webpack 作为切换工具
 
-### Bug Fixes
+为了支持 H5 同构，Remax Cli 从 rollup 切换到 webpack。
 
-- 修正 css-loader 找不到的问题 ([f541399](https://github.com/remaxjs/remax/commit/f5413996985ae419554fd3e9fb7eed459c0d7177))
+### 支持 H5 应用
 
-### Features
+Remax One 现在支持 web 平台，可以开发 H5 应用了。
 
-- add basic web support ([#757](https://github.com/remaxjs/remax/issues/757)) ([b3b48b1](https://github.com/remaxjs/remax/commit/b3b48b111cd5889f17d3ec15f1c39437a9dc7fc4))
-- add CoverageIgnorePlugin ([f49997f](https://github.com/remaxjs/remax/commit/f49997f4abe6cb1cbb6894dad391e5870b521f01))
+```bash
+$ remax build -t web
+```
 
-### Reverts
+### 一个依赖
 
-- Revert "fix winpath" ([00951cb](https://github.com/remaxjs/remax/commit/00951cb9dfcdd584afb05536e91e4d2352e0f49f))
-- Revert "make lint happy" ([f9f6194](https://github.com/remaxjs/remax/commit/f9f6194ba09bfc4c962391e4e8bd74522187c1d3))
+现在只需要安装 `remax` 一个依赖即可
+
+```bash
+$ yarn add remax@next
+```
+
+## 其他改动
+
+- 去除 native 目录支持（可以配置 webpack copy 插件达到同样的效果）
+- 去掉以纯 class 定义 App 的方式
+- remax.config.js 配置改动
+  - 去掉 rollupOptions (改为 configWebpack，用于修改 webpack 配置)
+  - 去掉 postcss，cssModules，alias 项（皆可通过 configWebpack 配置）
+  - 新增 minimize 选项用于文件压缩，去掉 compressTemplate
+- css 中图片引用方式，参照 [css-loader](https://github.com/webpack-contrib/css-loader#url) 的规则
+- `remax/macro` 引入 `requirePlugin` `requirePluginComponent` 用于使用小程序插件
+- `remax/macro` 引入 `useAppEvent` `usePageEvent` 用于生命周期 hook。废弃 `useShow` `useHide` 等冗余的生命周期 hook。
+- `remax/one` 组件 `Image` 去除 `lazyLoad` 属性
+- `remax/one` 支持的全平台生命周期（在每个平台都可用，并且尽量保证了行为一致）:
+  - onShow
+  - onHide
+  - onPullDownRefresh，在 `remax/one` 中，onPullDownRefresh 回调支持返回 Promise 以控制关闭下拉刷新行为。
+  - onReachBottom
+  - onPageScroll
+- `remax/one` 中的事件将 `originalEvent` 字段改为 `nativeEvent` ，与 React 事件对齐
+- `remax` 中 `unstable_useNativeEffect` 重命名为 -> `useNativeEffect`
+- `remax` 中 `Platform` 废除，平台判断用 `process.env.REMAX_PLATFORM`
+
+## 全新的网站
+
+更多完整的文档和指南请访问 https://remax-git-next.remaxjs.now.sh/
+
+目前 Remax 2.0 还处于预发布状态，欢迎安装 `remax@next` 尝鲜，但请勿用于生产环境
 
 ## [1.19.7](https://github.com/remaxjs/remax/compare/v1.19.6...v1.19.7) (2020-04-08)
 
