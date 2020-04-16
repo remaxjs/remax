@@ -11,7 +11,7 @@ describe('page', () => {
     const Foo = () => {
       return <View>foo</View>;
     };
-    const page = Page(createPageConfig(Foo));
+    const page = Page(createPageConfig(Foo, ''));
     page.load();
     expect(page.config.wrapper).not.toBeNull();
   });
@@ -90,7 +90,7 @@ describe('page', () => {
 
         return <View>foo</View>;
       };
-      const page = Page(createPageConfig(Foo));
+      const page = Page(createPageConfig(Foo, ''));
       page.load();
       page.ready();
       page.pullDownRefresh();
@@ -139,7 +139,7 @@ describe('page', () => {
         return <View>foo</View>;
       };
       const Bar = () => <Foo />;
-      const page = Page(createPageConfig(Bar));
+      const page = Page(createPageConfig(Bar, ''));
       page.load();
       expect(log).toEqual(['onShow']);
     });
@@ -164,7 +164,7 @@ describe('page', () => {
 
         return <View>foo</View>;
       });
-      const page = Page(createPageConfig(() => <Foo ref={foo} />));
+      const page = Page(createPageConfig(() => <Foo ref={foo} />, ''));
       page.load();
       foo.current.forceUpdate();
       page.shareAppMessage();
@@ -233,7 +233,7 @@ describe('page', () => {
       }
     }
 
-    const page = Page(createPageConfig(Foo));
+    const page = Page(createPageConfig(Foo, ''));
     page.load();
     page.pullDownRefresh();
     page.pullIntercept();

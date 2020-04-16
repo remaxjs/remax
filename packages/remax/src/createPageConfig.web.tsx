@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { PullToRefresh } from 'remax-web';
+import qs from 'qs';
 import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName } from './lifecycle';
-import { PullToRefresh } from 'remax-web';
 
 interface LifeCycleCallback {
   [key: string]: Function[];
@@ -51,7 +52,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     constructor(props: any) {
       super(props);
 
-      page.callLifecycle(Lifecycle.load);
+      page.query = qs.parse(window.location.search.replace(/^\?/, ''));
       props.cacheLifecycles.didCache(this.componentDidCache);
       props.cacheLifecycles.didRecover(this.componentDidRecover);
     }
@@ -67,8 +68,6 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     }
 
     componentWillUnmount() {
-      page.callLifecycle(Lifecycle.unload);
-
       window.removeEventListener('scroll', this.scrollEvent);
     }
 

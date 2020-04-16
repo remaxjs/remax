@@ -3,7 +3,6 @@ import { generate } from './instanceId';
 import { generate as generateActionId } from './actionId';
 import { FiberRoot } from 'react-reconciler';
 import nativeEffector from './nativeEffect';
-import Platform from './Platform';
 
 interface SpliceUpdate {
   path: string;
@@ -31,7 +30,13 @@ export default class Container {
     this.root.mounted = true;
   }
 
-  requestUpdate(path: string, start: number, deleteCount: number, immediately: boolean, ...items: RawNode[]) {
+  requestUpdate(
+    path: string,
+    start: number,
+    deleteCount: number,
+    immediately: boolean,
+    ...items: RawNode[]
+  ) {
     const update: SpliceUpdate = {
       path,
       start,
@@ -73,16 +78,22 @@ export default class Container {
               nativeEffector.run();
               /* istanbul ignore next */
               if (__REMAX_DEBUG__) {
-                console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`);
+                console.log(
+                  `setData => 回调时间：${new Date().getTime() - startTime}ms`,
+                );
               }
             };
           }
 
           this.context.$spliceData(
             {
-              [update.path]: [update.start, update.deleteCount, ...update.items],
+              [update.path]: [
+                update.start,
+                update.deleteCount,
+                ...update.items,
+              ],
             },
-            callback
+            callback,
           );
         });
       });
@@ -104,7 +115,7 @@ export default class Container {
       id: generateActionId(),
     };
 
-    if (Platform.isToutiao) {
+    if (process.env.REMAX_PLATFORM === 'toutiao') {
       action = {
         root: this.root.toJSON(),
       };
@@ -118,9 +129,12 @@ export default class Container {
         nativeEffector.run();
         /* istanbul ignore next */
         if (__REMAX_DEBUG__) {
-          console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`, action);
+          console.log(
+            `setData => 回调时间：${new Date().getTime() - startTime}ms`,
+            action,
+          );
         }
-      }
+      },
     );
 
     this.updateQueue = [];
@@ -129,7 +143,7 @@ export default class Container {
   clearUpdate() {
     this.stopUpdate = true;
 
-    if (Platform.isWechat) {
+    if (process.env.REMAX_PLATFORM === 'wechat') {
       this.context.setData({
         action: { type: 'clear' },
       });

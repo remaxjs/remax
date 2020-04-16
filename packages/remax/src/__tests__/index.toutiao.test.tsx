@@ -6,7 +6,7 @@ import { reset as resetInstanceId } from '../instanceId';
 import { reset as resetActionId } from '../actionId';
 import Container from '../Container';
 // eslint-disable-next-line @typescript-eslint/camelcase
-import { unstable_useNativeEffect } from '../hooks';
+import { useNativeEffect } from '../hooks';
 
 const p = {
   setData(state: any, callback: Function) {
@@ -130,14 +130,18 @@ describe('remax render', () => {
   });
 
   it('renders style', () => {
-    const Page = () => <View style={{ width: '100px', height: '100px' }}>hello</View>;
+    const Page = () => (
+      <View style={{ width: '100px', height: '100px' }}>hello</View>
+    );
     const container = new Container(p);
     render(<Page />, container);
     expect(container.root).toMatchSnapshot();
   });
 
   it('renders vendor prefix style', () => {
-    const Page = () => <View style={{ WebkitLineClamp: 2, height: '100px' }}>hello</View>;
+    const Page = () => (
+      <View style={{ WebkitLineClamp: 2, height: '100px' }}>hello</View>
+    );
     const container = new Container(p);
     render(<Page />, container);
     expect(container.root).toMatchSnapshot();
@@ -194,7 +198,14 @@ describe('remax render', () => {
     };
 
     const container = new Container(p);
-    render(<NativeComponent fooBar="fooBar" onClick={() => void 0} className="class" />, container);
+    render(
+      <NativeComponent
+        fooBar="fooBar"
+        onClick={() => void 0}
+        className="class"
+      />,
+      container,
+    );
 
     expect(actions).toMatchSnapshot();
   });
@@ -206,7 +217,13 @@ it('create proxy for onClick callback', () => {
   const handleAnimationStart = () => void 0;
   class Page extends React.Component {
     render() {
-      return <View ref={view} onClick={handleClick} onAnimationStart={handleAnimationStart} />;
+      return (
+        <View
+          ref={view}
+          onClick={handleClick}
+          onAnimationStart={handleAnimationStart}
+        />
+      );
     }
   }
   const container = new Container(p);
@@ -237,11 +254,11 @@ it('useEffect works', done => {
   render(<Page />, container);
 });
 
-it('unstable_useNativeEffect once works', done => {
+it('useNativeEffect once works', done => {
   let count = 0;
   const Page = () => {
     const [width, setWidth] = React.useState(0);
-    unstable_useNativeEffect(() => {
+    useNativeEffect(() => {
       count += 1;
 
       setTimeout(() => {
@@ -262,12 +279,12 @@ it('unstable_useNativeEffect once works', done => {
   render(<Page />, container);
 });
 
-it('unstable_useNativeEffect deps works', done => {
+it('useNativeEffect deps works', done => {
   let count = 0;
   const Page = () => {
     const [width, setWidth] = React.useState(0);
     const [height, setheight] = React.useState(0);
-    unstable_useNativeEffect(() => {
+    useNativeEffect(() => {
       count += 1;
 
       if (count === 2) {

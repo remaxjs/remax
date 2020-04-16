@@ -1,18 +1,18 @@
 import * as React from 'react';
 import createPageWrapper from './createPageWrapper';
-import { Lifecycle, callbackName } from './lifecycle';
+import { Lifecycle, callbackName, pageEvents } from './lifecycle';
 import stopPullDownRefresh from './stopPullDownRefresh';
 import Container from './Container';
 import { createPortal } from './ReactPortal';
 
 let idCounter = 0;
 
-export default function createPageConfig(Page: React.ComponentType<any>) {
+export default function createPageConfig(Page: React.ComponentType<any>, entry: string) {
   const app = getApp() as any;
   const id = idCounter;
   idCounter += 1;
 
-  const config = {
+  const config: any = {
     pageId: 'page_' + id,
 
     data: {
@@ -46,6 +46,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       this.unloaded = true;
       this.container.clearUpdate();
       app._unmount(this);
+      return this.callLifecycle(Lifecycle.load);
     },
 
     /**
@@ -77,6 +78,37 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       }
     },
 
+    events: {
+      // 页面返回时触发
+      onBack(this: any, e: any) {
+        return config.callLifecycle(Lifecycle.back, e);
+      },
+
+      // 键盘高度变化时触发
+      onKeyboardHeight(this: any, e: any) {
+        return config.callLifecycle(Lifecycle.keyboardHeight, e);
+      },
+
+      onTabItemTap(this: any, e: any) {
+        return config.callLifecycle(Lifecycle.tabItemTap, e);
+      },
+
+      // 点击但切换tabItem前触发
+      beforeTabItemTap(this: any) {
+        return config.callLifecycle(Lifecycle.beforeTabItemTap);
+      },
+
+      onResize(this: any, e: any) {
+        return config.callLifecycle(Lifecycle.resize, e);
+      },
+    },
+
+    /**
+     * lifecycle end
+     */
+  };
+
+  const lifecycleEvents: any = {
     onShow() {
       return this.callLifecycle(Lifecycle.show);
     },
@@ -126,36 +158,13 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     onPullIntercept() {
       return this.callLifecycle(Lifecycle.pullIntercept);
     },
-
-    events: {
-      // 页面返回时触发
-      onBack(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.back, e);
-      },
-
-      // 键盘高度变化时触发
-      onKeyboardHeight(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.keyboardHeight, e);
-      },
-
-      onTabItemTap(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.tabItemTap, e);
-      },
-
-      // 点击但切换tabItem前触发
-      beforeTabItemTap(this: any) {
-        return config.callLifecycle(Lifecycle.beforeTabItemTap);
-      },
-
-      onResize(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.resize, e);
-      },
-    },
-
-    /**
-     * lifecycle end
-     */
   };
+
+  pageEvents(entry).forEach(eventName => {
+    if (lifecycleEvents[eventName]) {
+      config[eventName] = lifecycleEvents[eventName].bind(config);
+    }
+  });
 
   return config;
 }

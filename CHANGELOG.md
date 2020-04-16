@@ -299,7 +299,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 - 新增 useQuery，用于在组件中获取页面 query ([3603139](https://github.com/remaxjs/remax/commit/3603139))
-- 引入 unstable_useNativeEffect ([#557](https://github.com/remaxjs/remax/issues/557)) ([be40751](https://github.com/remaxjs/remax/commit/be40751)), closes [#310](https://github.com/remaxjs/remax/issues/310) [#255](https://github.com/remaxjs/remax/issues/255)
+- 引入 useNativeEffect ([#557](https://github.com/remaxjs/remax/issues/557)) ([be40751](https://github.com/remaxjs/remax/commit/be40751)), closes [#310](https://github.com/remaxjs/remax/issues/310) [#255](https://github.com/remaxjs/remax/issues/255)
 
 ### Performance Improvements
 

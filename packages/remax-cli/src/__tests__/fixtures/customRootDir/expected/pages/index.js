@@ -56,7 +56,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(39);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageInstance", function() { return _hooks__WEBPACK_IMPORTED_MODULE_6__["usePageInstance"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "unstable_useNativeEffect", function() { return _hooks__WEBPACK_IMPORTED_MODULE_6__["unstable_useNativeEffect"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useNativeEffect", function() { return _hooks__WEBPACK_IMPORTED_MODULE_6__["useNativeEffect"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useShow", function() { return _hooks__WEBPACK_IMPORTED_MODULE_6__["useShow"]; });
 
@@ -2779,7 +2779,7 @@ function createNativeComponent(name) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "usePageInstance", function() { return usePageInstance; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unstable_useNativeEffect", function() { return unstable_useNativeEffect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useNativeEffect", function() { return useNativeEffect; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useShow", function() { return useShow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useReady", function() { return useReady; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useHide", function() { return useHide; });
@@ -2827,7 +2827,7 @@ function usePageInstance() {
   return Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_PageInstanceContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
 } // eslint-disable-next-line @typescript-eslint/camelcase
 
-function unstable_useNativeEffect(listener, deps) {
+function useNativeEffect(listener, deps) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useLayoutEffect"])(function () {
     return _nativeEffect__WEBPACK_IMPORTED_MODULE_4__["default"].connect(listener, !!deps);
   }, deps);
@@ -3420,7 +3420,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _esm_hooks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(39);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageInstance", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["usePageInstance"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "unstable_useNativeEffect", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["unstable_useNativeEffect"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useNativeEffect", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useNativeEffect"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useShow", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useShow"]; });
 

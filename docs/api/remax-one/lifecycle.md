@@ -58,18 +58,6 @@ useAppEvent('onError', () => {});
 
 ## Page 生命周期
 
-## onLoad
-
-页面创建时触发。
-
-```js
-import { usePageEvent } from 'remax/macro';
-
-...
-
-usePageEvent('onLoad', () => {});
-```
-
 ## onShow
 
 页面可见时触发。
@@ -92,18 +80,6 @@ import { usePageEvent } from 'remax/macro';
 ...
 
 usePageEvent('onHide', () => {});
-```
-
-## onUnload
-
-页面销毁时。
-
-```js
-import { usePageEvent } from 'remax/macro';
-
-...
-
-usePageEvent('onUnload', () => {});
 ```
 
 ## onPullDownRefresh

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createPageConfig } from 'remax';
+import { createPageConfig, createAppConfig } from 'remax';
 import { Router, CacheSwitch, CacheRoute, Route, Redirect, Link, browserHistory as history, render, hd } from 'remax/web';
 import 'remax/normalize.css';
 import 'remax/app.css';
@@ -14,6 +14,8 @@ hd();
 
 <% const tabBarConfig = appConfig.tabBar %>
 <% const hasTabBar = tabBarConfig && tabBarConfig.items && tabBarConfig.items.length > 0; %>
+
+const AppConfig = createAppConfig(App);
 
 function TabBar() {
   const [currentPath, setCurrentPath] = React.useState(null);
@@ -51,7 +53,7 @@ function TabBar() {
 }
 
 render(
-  <App>
+  <AppConfig>
     <Router history={history}>
       <CacheSwitch>
         <Route exact path="/">
@@ -67,6 +69,6 @@ render(
       <TabBar />
     <% } %>
     </Router>
-  </App>,
+  </AppConfig>,
   document.getElementById('remax-app'),
 );

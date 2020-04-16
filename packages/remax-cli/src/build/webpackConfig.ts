@@ -36,12 +36,16 @@ function prepare(options: RemaxOptions, target: Platform) {
     m[name] = entry;
     return m;
   }, {});
+  const pageEntries = entries.pages.reduce<any[]>((m, entry) => {
+    const ext = path.extname(entry);
+    const name = winPath(entry)
+      .replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '')
+      .replace(new RegExp(`\\${ext}$`), '');
+    return m.concat([{ key: name, path: entry }]);
+  }, []);
   const stubModules = platform.mini
     .filter(name => API.adapter.target !== name)
-    .reduce<string[]>(
-      (acc, name) => [...acc, `${name}/esm/api`, `${name}/esm/hostComponents`],
-      [],
-    );
+    .reduce<string[]>((acc, name) => [...acc, `${name}/esm/api`, `${name}/esm/hostComponents`], []);
 
   const env = getEnvironment(options, target);
   const publicPath = '/';
@@ -51,25 +55,18 @@ function prepare(options: RemaxOptions, target: Platform) {
     turboPagesEnabled,
     entries,
     entryMap,
+    pageEntries,
     stubModules,
     env,
     publicPath,
   };
 }
 
-export default function webpackConfig(
-  options: RemaxOptions,
-  target: Platform,
-): Configuration {
-  const {
-    meta,
-    turboPagesEnabled,
-    entries,
-    entryMap,
-    stubModules,
-    env,
-    publicPath,
-  } = prepare(options, target);
+export default function webpackConfig(options: RemaxOptions, target: Platform): Configuration {
+  const { meta, turboPagesEnabled, entries, entryMap, pageEntries, stubModules, env, publicPath } = prepare(
+    options,
+    target
+  );
 
   for (const entry in entryMap) {
     config.entry(entry).add(entryMap[entry]);
@@ -86,7 +83,7 @@ export default function webpackConfig(
     extensions
       .map(ext => `.${target}${ext}`)
       .concat(extensions.map(ext => `.mini${ext}`))
-      .concat(extensions),
+      .concat(extensions)
   );
   config.resolve.extensions.merge(extensions);
   config.resolve.alias.merge(alias(options, target));
@@ -110,7 +107,7 @@ export default function webpackConfig(
     .use('babel')
     .loader('babel')
     .options({
-      usePlugins: [app(entries.app), page(entries.pages)],
+      usePlugins: [app(entries.app), page(pageEntries)],
       reactPreset: false,
     });
 
@@ -191,9 +188,7 @@ export default function webpackConfig(
   let stylesRule = config.module
     .rule('styles')
     .test(styleConfig.styleMatcher)
-    .exclude.add(
-      cssModuleConfig.enabled ? cssModuleConfig.cssModuleMatcher : '',
-    )
+    .exclude.add(cssModuleConfig.enabled ? cssModuleConfig.cssModuleMatcher : '')
     .end()
     .use('cssExtract')
     .loader(MiniCssExtractPlugin.loader)
@@ -284,13 +279,10 @@ export default function webpackConfig(
   }
 
   config.plugin('define').use(DefinePlugin, [env.stringified]);
-  config
-    .plugin('cssExtract')
-    .use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
+  config.plugin('cssExtract').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('optimizeEntries').use(RemaxPlugins.OptimizeEntries, [meta]);
-  config
-    .plugin('nativeFiles')
-    .use(RemaxPlugins.NativeFiles, [options, entries]);
+  config.plugin('nativeFiles').use(RemaxPlugins.NativeFiles, [options, entries]);
+  config.plugin('defineEvents').use(RemaxPlugins.DefineEvent, [options, entries]);
 
   if (process.env.NODE_ENV === 'production') {
     config.plugin('clean').use(CleanWebpackPlugin);

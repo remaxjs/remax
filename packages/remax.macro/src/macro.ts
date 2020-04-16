@@ -2,21 +2,24 @@ import * as React from 'react';
 import { NodePath } from '@babel/traverse';
 import { createMacro } from 'babel-plugin-macros';
 import createHostComponentMacro, { hostComponents } from './createHostComponent';
-import requirePluginComponentMacro, { nativeComponents, register } from './requirePluginComponent';
+import requirePluginComponentMacro, {
+  nativeComponents,
+  register as registerNativeComponent,
+} from './requirePluginComponent';
 import requirePluginMacro from './requirePlugin';
+import usePageEventMacro, { pageEvents } from './usePageEvent';
+import useAppEventMacro, { appEvents } from './useAppEvent';
 
 function remax({ references, state }: { references: { [name: string]: NodePath[] }; state: any }) {
-  if (references.createHostComponent) {
-    references.createHostComponent.forEach(path => createHostComponentMacro(path, state));
-  }
+  references.createHostComponent?.forEach(path => createHostComponentMacro(path, state));
 
-  if (references.requirePluginComponent) {
-    references.requirePluginComponent.forEach(path => requirePluginComponentMacro(path, state));
-  }
+  references.requirePluginComponent?.forEach(path => requirePluginComponentMacro(path, state));
 
-  if (references.requirePlugin) {
-    references.requirePlugin.forEach(path => requirePluginMacro(path));
-  }
+  references.requirePlugin?.forEach(path => requirePluginMacro(path));
+
+  references.useAppEvent?.forEach(path => useAppEventMacro(path, state));
+
+  references.usePageEvent?.forEach(path => usePageEventMacro(path, state));
 }
 
 export declare function createHostComponent<P = any>(
@@ -28,7 +31,10 @@ export declare function requirePluginComponent<P = any>(pluginName: string): Rea
 
 export declare function requirePlugin<P = any>(pluginName: string): P;
 
-export const registerNativeComponent = register;
-export { hostComponents, nativeComponents };
+export declare function usePageEvent(eventName: string, callback: (...params: any[]) => any): void;
+
+export declare function useAppEvent(eventName: string, callback: (...params: any[]) => any): void;
+
+export { hostComponents, nativeComponents, registerNativeComponent, pageEvents, appEvents };
 
 export default createMacro(remax);
