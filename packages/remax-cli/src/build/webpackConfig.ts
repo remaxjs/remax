@@ -283,6 +283,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   config.plugin('optimizeEntries').use(RemaxPlugins.OptimizeEntries, [meta]);
   config.plugin('nativeFiles').use(RemaxPlugins.NativeFiles, [options, entries]);
   config.plugin('defineEvents').use(RemaxPlugins.DefineEvent, [options, entries]);
+  config.plugin('coverage-ignore').use(RemaxPlugins.CoverageIgnore);
 
   if (process.env.NODE_ENV === 'production') {
     config.plugin('clean').use(CleanWebpackPlugin);
