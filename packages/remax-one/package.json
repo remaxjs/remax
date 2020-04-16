@@ -44,5 +44,8 @@
     "react-autosize-textarea": "^7.0.0",
     "react-lazyload": "^2.6.7",
     "rmc-feedback": "^2.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

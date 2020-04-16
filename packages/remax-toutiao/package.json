@@ -30,5 +30,7 @@
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
   },
-  "gitHead": "421a0c2b5a64c6f3210f2f056bf61406d6736f28"
+  "publishConfig": {
+    "access": "public"
+  }
 }

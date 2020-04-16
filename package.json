@@ -17,7 +17,7 @@
     "postinstall": "lerna bootstrap",
     "lint": "eslint \"packages/*/src/**/*.{ts,tsx}\"",
     "prerelease": "./scripts/prerelease",
-    "release": "lerna publish --force-publish --create-release=github",
+    "release": "lerna publish --force-publish --create-release=github --exact",
     "postrelease": "./scripts/postrelease",
     "site:build": "lerna run --scope website --stream build",
     "site:deploy": "lerna run --scope website --stream deploy",

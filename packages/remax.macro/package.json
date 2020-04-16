@@ -39,5 +39,7 @@
     "@remax/types": "2.0.0-alpha.1",
     "@types/babel__traverse": "^7.0.8"
   },
-  "gitHead": "421a0c2b5a64c6f3210f2f056bf61406d6736f28"
+  "publishConfig": {
+    "access": "public"
+  }
 }
