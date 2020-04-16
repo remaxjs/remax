@@ -1,13 +1,13 @@
 ---
-title: 支付宝小程序
+title: 阿里（支付宝）小程序
 order: 0
 ---
 
-# 快速上手支付宝小程序
+# 快速上手阿里小程序
 
-让我们在一分钟内开启一个支付宝小程序项目吧！
+让我们在一分钟内开启一个阿里小程序项目吧！
 
-> 钉钉小程序直接使用支付宝模式即可
+> Remax 支持所有阿里系小程序，包括支付宝，钉钉，淘宝等。
 
 ## 创建项目
 
@@ -22,7 +22,7 @@ $ cd my-app && npm install
 $ npm run dev
 ```
 
-打开支付宝小程序开发者工具，选中项目根目录，你将看到
+打开小程序开发者工具，选中项目根目录，你将看到
 
 <img src="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*Ig_sQarBrgIAAAAAAAAAAABkARQnAQ" width="240" />
 
@@ -74,7 +74,7 @@ module.exports = {
 
 ```jsx
 import * as React from 'react';
-import { View, Text } from 'remax/alipay';
+import { View, Text } from 'remax/ali';
 import './index.module.css';
 
 export default () => {
@@ -88,7 +88,7 @@ export default () => {
 
 > 默认导出的的 React 组件就是当前的页面，关于生命周期的使用方式参考 [指南 - 生命周期](/guide/framework#生命周期-1)
 >
-> Remax 针对不同平台有对应的实现，如 `remax/alipay`，`remax/wechat`，`remax/toutiao` 等等，开发者可根据需要选择对应的平台。关于跨平台开发解决方案请查看：[跨平台开发](/guide/one)。
+> Remax 针对不同平台有对应的实现，如 `remax/ali`，`remax/wechat`，`remax/toutiao` 等等，开发者可根据需要选择对应的平台。关于跨平台开发解决方案请查看：[跨平台开发](/guide/one)。
 
 `index.module.css` 页面样式文件，关于样式请参考 [指南 - 样式](/guide/style)
 

@@ -12,13 +12,13 @@ order: 31
 使用环境变量启动构建：
 
 ```
-$ REMAX_APP_BASE_URL=https://example.com/api remax build -t alipay
+$ REMAX_APP_BASE_URL=https://example.com/api remax build -t ali
 ```
 
 **Windows** 用户建议使用 [cross-env](https://www.npmjs.com/package/cross-env) 来设置环境变量：
 
 ```
-$ cross-env REMAX_APP_BASE_URL=https://example.com/api remax build -t alipay
+$ cross-env REMAX_APP_BASE_URL=https://example.com/api remax build -t ali
 ```
 
 读取环境变量：

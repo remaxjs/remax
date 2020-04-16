@@ -24,7 +24,7 @@ export default () => {
   const [count, setCount] = React.useState(0);
 
   return (
-    <View alipay-onAppear={() => console.log('Aha!')}>
+    <View ali-onAppear={() => console.log('Aha!')}>
       <View>{count}</View>
       <Button onTap={() => setCount(count + 1)}>+1</Button>
     </View>
@@ -32,7 +32,7 @@ export default () => {
 };
 ```
 
-可以看到，对于 `onTap` 这样通用的属性我们进行了统一，而支付宝独有的 `onAppear` 属性，则需要加上 `alipay-` 的前缀。
+可以看到，对于 `onTap` 这样通用的属性我们进行了统一，而阿里小程序独有的 `onAppear` 属性，则需要加上 `ali-` 的前缀。
 
 [完整的示例项目](https://github.com/remaxjs/examples/tree/master/one)
 
@@ -70,9 +70,9 @@ const title = '小程序标题';
 const bgColor = '#fff';
 const pages = ['pages/index/index'];
 
-// 支付宝
-exports.alipay = {
-  pages: ['pages/alipay/index', ...pages],
+// 阿里
+exports.ali = {
+  pages: ['pages/ali/index', ...pages],
   window: {
     defaultTitle: 'Alipay Todo App',
     titleBarColor: backgroundColor,
@@ -97,7 +97,7 @@ exports.wechat = {
 
 ```js
 // src/api/showToast/index.js
-import { showToast } from 'remax/alipay';
+import { showToast } from 'remax/ali';
 
 export default showToast;
 ```
@@ -180,7 +180,7 @@ export default () => {
     <View
       id="id"
       className="class"
-      alipay-onAppear={() => {}}
+      ali-onAppear={() => {}}
       wechat-bindanimationend={() => {}}
       wechat-disable-scroll={true}
       onTap={(event: TapEvent) => {

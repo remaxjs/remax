@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Fragment } from 'react';
-import { View, View as CustomView, Text } from 'remax/alipay';
+import { View, View as CustomView, Text } from 'remax/ali';
 import { createHostComponent } from 'remax/macro';
-import * as Remax from 'remax/alipay';
+import * as Remax from 'remax/ali';
 import NativeComponent from '@/components/nativeComponent';
 import RemaxWindow from 'remax-window';
 
@@ -25,9 +25,7 @@ function ReactComp({ children }) {
           <Text>Text inside Fragment</Text>
         </>
         {<View>View inside Expression</View>}
-        {React.Children.map(children, (child, index) =>
-          React.cloneElement(child, { id: 'reactComp' + index })
-        )}
+        {React.Children.map(children, (child, index) => React.cloneElement(child, { id: 'reactComp' + index }))}
       </View>
     </>
   );
@@ -75,8 +73,8 @@ export default function Index() {
       ))}
       <View {...props}>Spread Attributes View</View>
       <Text>
-        long long long long long long long long long long long long text long
-        long long long long long long long long long long long text
+        long long long long long long long long long long long long text long long long long long long long long long
+        long long long text
       </Text>
       <RemaxWindow />
       {'Literal Expression'}

@@ -84,7 +84,7 @@ export default function createAppConfig(this: any, App: any) {
         return this.callLifecycle(AppLifecycle.error, error);
       },
 
-      // 支付宝
+      // 阿里
       onShareAppMessage(options: any) {
         return this.callLifecycle(AppLifecycle.shareAppMessage, options);
       },

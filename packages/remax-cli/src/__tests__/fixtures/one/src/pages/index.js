@@ -4,7 +4,7 @@ import { FunctionalPageNavigator as UnKnownComponent } from 'remax/wechat';
 import C from '@/components/C';
 import chooseImage from '@/api/chooseImage';
 import chooseImageMini from '@/api/chooseImageMini';
-import chooseImageAlipay from '@/api/chooseImageAlipay';
+import chooseImageAli from '@/api/chooseImageAli';
 import styles from './index.module.css';
 
 export default () => {
@@ -14,7 +14,7 @@ export default () => {
   async function handleClick() {
     chooseImage();
     chooseImageMini();
-    chooseImageAlipay();
+    chooseImageAli();
     await Promise.resolve(1);
   }
 

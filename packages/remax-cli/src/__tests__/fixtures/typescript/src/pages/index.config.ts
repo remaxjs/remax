@@ -1,9 +1,9 @@
 import { PageConfig as WechatPageConfig } from 'remax/wechat';
-import { PageConfig as AlipayPageConfig } from 'remax/alipay';
+import { PageConfig as AliPageConfig } from 'remax/ali';
 import { PageConfig as ToutiaoPageConfig } from 'remax/toutiao';
 
-export const alipay: AlipayPageConfig = {
-  defaultTitle: 'Alipay Page',
+export const ali: AliPageConfig = {
+  defaultTitle: 'Ali Page',
   titleBarColor: '#323239',
 };
 

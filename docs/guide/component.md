@@ -27,7 +27,7 @@ Remax
 <view class="view" style="display: flex;" bindtap="handleClick"></view>
 ```
 
-对应支付宝小程序
+对应阿里小程序
 
 ```html
 <view class="view" style="display: flex;" onTap="handleClick"></view>

@@ -19,6 +19,6 @@ else
 fi
 cd $TEST_DIR
 ayarn
-yarn link remax remax-cli remax-alipay
+yarn link remax remax-cli remax-ali
 yarn build
 yarn test

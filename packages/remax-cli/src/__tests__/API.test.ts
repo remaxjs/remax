@@ -11,7 +11,7 @@ const remaxOptions = getConfig(false);
 describe('API', () => {
   beforeAll(() => {
     API.registerNodePlugins(remaxOptions);
-    API.registerAdapterPlugins('alipay', remaxOptions);
+    API.registerAdapterPlugins('ali', remaxOptions);
   });
 
   it('install plugins in a variety of ways', () => {
@@ -19,9 +19,9 @@ describe('API', () => {
   });
 
   it('install adapter plugin', () => {
-    expect(API.adapter.name).toEqual('alipay');
-    expect(API.adapter.target).toEqual('alipay');
-    expect(API.adapter.packageName).toEqual('remax-alipay');
+    expect(API.adapter.name).toEqual('ali');
+    expect(API.adapter.target).toEqual('ali');
+    expect(API.adapter.packageName).toEqual('remax-ali');
   });
 
   it('extends CLI', () => {

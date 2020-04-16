@@ -27,9 +27,9 @@ jobs:
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-      - name: Release remax-alipay
+      - name: Release remax-ali
         run: |
-          cd packages/remax-alipay 
+          cd packages/remax-ali 
           yarn install
           yarn build
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
@@ -63,7 +63,7 @@ jobs:
         run: |
           cd packages/remax 
           yarn install
-          yarn add remax.macro@alpha remax-alipay@alpha remax-wechat@alpha remax-toutiao@alpha remax-one@alpha
+          yarn add remax.macro@alpha remax-ali@alpha remax-wechat@alpha remax-toutiao@alpha remax-one@alpha
           yarn build
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:

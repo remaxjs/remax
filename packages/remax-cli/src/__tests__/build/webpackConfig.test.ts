@@ -13,7 +13,7 @@ describe('webpackConfig', () => {
   it('custom webpack options', () => {
     const remaxOptions = getConfig(false);
     const mode = 'production';
-    API.registerAdapterPlugins('alipay', remaxOptions);
+    API.registerAdapterPlugins('ali', remaxOptions);
     const options = webpackConfig(
       {
         ...defaultOptions,
@@ -21,7 +21,7 @@ describe('webpackConfig', () => {
           config.mode(mode);
         },
       },
-      Platform.alipay
+      Platform.ali
     );
 
     expect(options.mode).toBe(mode);

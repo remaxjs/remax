@@ -44,8 +44,8 @@ export default async (argv: any) => {
         output.warn(info.warnings.join('\n'));
       }
 
-      // 适配支付宝小程序 IDE
-      if (target === 'alipay') {
+      // 适配阿里小程序 IDE
+      if (target === 'ali') {
         output.message('Watching for changes...', 'green', options.notify);
       }
 

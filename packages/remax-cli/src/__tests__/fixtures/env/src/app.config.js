@@ -1,7 +1,7 @@
 module.exports = {
   pages: ['pages/index'],
   window: {
-    defaultTitle: 'Alipay App',
+    defaultTitle: 'Ali App',
     titleBarColor: '#323239',
   },
 };

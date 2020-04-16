@@ -1,3 +1,3 @@
-# Remax Alipay
+# Remax Ali
 
-Remax adapter plugin for alipay
+Remax adapter plugin for ali

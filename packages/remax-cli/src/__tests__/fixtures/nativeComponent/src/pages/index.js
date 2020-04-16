@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { requirePluginComponent } from 'remax/macro';
-import { View } from 'remax/alipay';
+import { View } from 'remax/ali';
 import A from '../components/a';
 import B from '@/components/b';
 import C from '../components/c/index';

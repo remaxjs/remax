@@ -42,7 +42,7 @@ export function isHostComponentElement(node: t.JSXElement | t.JSXFragment, path:
 
   /**
    * case:
-   * import { View, View as CustomView } from 'remax/alipay';
+   * import { View, View as CustomView } from 'remax/ali';
    * <View></View>
    * <CustomView></CustomView>
    */
@@ -75,7 +75,7 @@ export function isHostComponentElement(node: t.JSXElement | t.JSXFragment, path:
 
   /**
    * case:
-   * import * as Remax from 'remax/alipay';
+   * import * as Remax from 'remax/ali';
    * <Remax.View></Remax.View>
    */
   if (t.isJSXMemberExpression(node.openingElement.name)) {

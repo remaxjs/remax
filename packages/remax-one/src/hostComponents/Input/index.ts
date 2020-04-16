@@ -20,7 +20,7 @@ export default class Input extends React.Component<InputProps, InputState> {
 
   state: InputState = {
     value: '',
-    // 支付宝
+    // 阿里
     controlled: false,
   };
 

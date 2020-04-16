@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from 'remax/alipay';
+import { View, Text } from 'remax/ali';
 import { FunctionalPageNavigator as UnKnownComponent } from 'remax/wechat';
 
 export default () => {
@@ -16,13 +16,7 @@ export default () => {
 
   return (
     <View>
-      <View
-        onClick={handleClick}
-        onTouchStart={handleTouchStart}
-        id="view"
-        data-foo="bar"
-        {...props}
-      >
+      <View onClick={handleClick} onTouchStart={handleTouchStart} id="view" data-foo="bar" {...props}>
         foo
         {obj?.a?.b}
         {value}

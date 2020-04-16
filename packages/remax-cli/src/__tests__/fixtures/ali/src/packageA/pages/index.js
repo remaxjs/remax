@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from 'remax-alipay';
+import { View, Text } from 'remax-ali';
 import C from '@/components/C';
 import './index.css';
 
@@ -14,13 +14,7 @@ export default () => {
   return (
     <View className="pageA-index">
       <C className="a" />
-      <View
-        onClick={handleClick}
-        onTouchStart={handleTouchStart}
-        id="view"
-        data-foo="bar"
-        {...props}
-      >
+      <View onClick={handleClick} onTouchStart={handleTouchStart} id="view" data-foo="bar" {...props}>
         foo
       </View>
       {TextElement}

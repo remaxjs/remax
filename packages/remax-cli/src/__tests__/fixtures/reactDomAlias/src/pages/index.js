@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from 'remax/alipay';
+import { View } from 'remax/ali';
 import { unstable_batchedUpdates } from 'react-dom';
 
 unstable_batchedUpdates(() => {});

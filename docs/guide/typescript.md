@@ -16,10 +16,10 @@ $ npx degit remaxjs/template-wechat-typescript my-app
 $ cd my-app
 ```
 
-支付宝
+阿里
 
 ```bash
-$ npx degit remaxjs/template-alipay-typescript my-app
+$ npx degit remaxjs/template-ali-typescript my-app
 $ cd my-app
 ```
 

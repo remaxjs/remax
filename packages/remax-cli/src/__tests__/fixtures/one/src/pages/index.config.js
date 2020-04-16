@@ -1,4 +1,4 @@
 module.exports = {
-  defaultTitle: 'Alipay App',
+  defaultTitle: 'Ali App',
   titleBarColor: '#323239',
 };

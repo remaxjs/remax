@@ -10,12 +10,12 @@ group:
 
 ```jsx
 import { View, Text, Image, WebView } from 'remax/wechat';
-import { View, Text, Image, WebView } from 'remax/alipay';
+import { View, Text, Image, WebView } from 'remax/ali';
 import { View, Text, Image, WebView } from 'remax/toutiao';
 ```
 
 [微信官方组件文档](https://developers.weixin.qq.com/miniprogram/dev/component/)
 
-[支付宝官方组件文档](https://opendocs.alipay.com/mini/component)
+[阿里官方组件文档](https://opendocs.alipay.com/mini/component)
 
 [字节跳动官方组件文档](https://microapp.bytedance.com/dev/cn/mini-app/develop/component/introduction/basic-component)

@@ -62,8 +62,8 @@ describe('props alias', () => {
   });
 
   it('transform platform props', () => {
-    process.env.REMAX_PLATFORM = 'alipay';
-    expect(getAlias('alipay-prop', 'any')).toBe('prop');
+    process.env.REMAX_PLATFORM = 'ali';
+    expect(getAlias('ali-prop', 'any')).toBe('prop');
     process.env.REMAX_PLATFORM = '';
   });
 });

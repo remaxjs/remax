@@ -1,5 +1,5 @@
 const platformAlias: any = {
-  alipay: {
+  ali: {
     onLoad: 'onLoad',
     onError: 'onError',
     onTap: 'onTap',

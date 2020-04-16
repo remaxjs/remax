@@ -145,8 +145,8 @@ exports.wechat = {
   navigationBarTitleText: title,
 };
 
-// 支付宝
-exports.alipay = {
+// 阿里
+exports.ali = {
   defaultTitle: title,
 };
 ```

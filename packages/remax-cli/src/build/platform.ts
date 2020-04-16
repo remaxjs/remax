@@ -1,12 +1,12 @@
 export const wechat = 'wechat';
-export const alipay = 'alipay';
+export const ali = 'ali';
 export const toutiao = 'toutiao';
-export const mini = [wechat, alipay, toutiao];
+export const mini = [wechat, ali, toutiao];
 
 export enum Platform {
   'web' = 'web',
   'wechat' = 'wechat',
-  'alipay' = 'alipay',
+  'ali' = 'ali',
   'toutiao' = 'toutiao',
 }
 

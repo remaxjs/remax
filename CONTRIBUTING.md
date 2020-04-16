@@ -45,7 +45,7 @@ $ yarn link
 $ cd path/to/remax/packages/remax-cli
 $ yarn link
 $ git clone git@github.com:remaxjs/examples.git remax-examples
-$ cd remax-examples/alipay # 找一个你要调试的例子
+$ cd remax-examples/ali # 找一个你要调试的例子
 $ yarn link remax remax-cli
 $ yarn dev
 ```

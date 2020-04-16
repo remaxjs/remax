@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { requirePluginComponent, requirePlugin } from 'remax/macro';
-import { View } from 'remax/alipay';
+import { View } from 'remax/ali';
 
 const Plugin = requirePlugin('plugin://myPlugin');
 

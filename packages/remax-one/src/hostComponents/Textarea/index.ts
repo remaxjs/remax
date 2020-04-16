@@ -21,7 +21,7 @@ export default class Textarea extends React.Component<TextareaProps, TextareaSta
 
   state: TextareaState = {
     value: '',
-    // 支付宝
+    // 阿里
     controlled: false,
   };
 

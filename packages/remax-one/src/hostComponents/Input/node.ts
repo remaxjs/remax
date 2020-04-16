@@ -1,5 +1,5 @@
 const platformAlias: any = {
-  alipay: {
+  ali: {
     onInput: 'onInput',
     onConfirm: 'onConfirm',
     onFocus: 'onFocus',

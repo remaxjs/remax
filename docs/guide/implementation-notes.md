@@ -45,7 +45,7 @@ interface VNode {
 
 ```javascript
 import React from 'react';
-import { View, Text } from 'remax/alipay';
+import { View, Text } from 'remax/ali';
 
 const IndexPage = () => {
   return (

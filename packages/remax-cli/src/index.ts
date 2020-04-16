@@ -41,7 +41,7 @@ export function run(args: any, callback?: yargs.ParseCallback) {
       default: false,
     })
     .option('target', {
-      describe: '目标平台，如 wechat，alipay',
+      describe: '目标平台，如 wechat，ali',
       alias: 't',
       type: 'string',
       required: true,
