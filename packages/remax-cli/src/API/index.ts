@@ -104,7 +104,7 @@ class API {
     this.adapter.target = targetName;
 
     this.adapter.name = targetName;
-    this.adapter.packageName = 'remax-' + targetName;
+    this.adapter.packageName = '@remax/' + targetName;
 
     const packagePath = this.adapter.packageName + '/node';
 
