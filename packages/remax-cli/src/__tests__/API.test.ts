@@ -21,7 +21,7 @@ describe('API', () => {
   it('install adapter plugin', () => {
     expect(API.adapter.name).toEqual('ali');
     expect(API.adapter.target).toEqual('ali');
-    expect(API.adapter.packageName).toEqual('remax-ali');
+    expect(API.adapter.packageName).toEqual('@remax/ali');
   });
 
   it('extends CLI', () => {
@@ -50,17 +50,17 @@ describe('API', () => {
     const extensions = API.getMeta();
     expect(extensions.jsHelper).toMatchInlineSnapshot(`
       Object {
-        "extension": "",
-        "src": "",
-        "tag": "",
+        "extension": ".sjs",
+        "src": "from",
+        "tag": "import-sjs",
       }
     `);
-    expect(extensions.style).toMatchInlineSnapshot(`""`);
+    expect(extensions.style).toMatchInlineSnapshot(`".acss"`);
     expect(extensions.template).toMatchInlineSnapshot(`
       Object {
-        "extension": "",
-        "src": "",
-        "tag": "",
+        "extension": ".axml",
+        "src": "src",
+        "tag": "import",
       }
     `);
   });

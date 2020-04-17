@@ -1,4 +1,7 @@
-@import "./index~pages/index.acss";
+.c {
+  background-color: red;
+}
+
 .pageA-index {
   background-color: aliceblue;
 }

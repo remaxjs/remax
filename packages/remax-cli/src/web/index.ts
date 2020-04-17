@@ -5,7 +5,7 @@ import express from 'express';
 import webpackConfig from './webpackConfig.web';
 import getConfig from '../getConfig';
 import output from '../build/utils/output';
-import { remaxVersion } from '../checkVersions';
+import remaxVersion from '../remaxVersion';
 
 export default async (argv: any) => {
   const target = argv.target;

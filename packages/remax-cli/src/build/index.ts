@@ -3,7 +3,7 @@ import webpackConfig from './webpackConfig';
 import API from '../API';
 import getConfig from '../getConfig';
 import output from './utils/output';
-import { remaxVersion } from '../checkVersions';
+import remaxVersion from '../remaxVersion';
 import { Platform } from './platform';
 import buildWeb from '../web';
 

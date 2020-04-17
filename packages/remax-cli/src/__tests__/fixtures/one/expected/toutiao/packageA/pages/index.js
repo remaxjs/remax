@@ -1,48 +1,48 @@
 require('./../../runtime.js');
-require('./../../app~packageA/pages/index~pages/index.js');
 require('./index~pages/index.js');
 (tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[3],{
 
-/***/ 14:
+/***/ 2:
 /***/ (function(module, exports) {
 
-module.exports = react;
+module.exports = remax;
 
 /***/ }),
 
-/***/ 4:
+/***/ 23:
 /***/ (function(module, exports) {
 
-module.exports = react-reconciler;
+module.exports = remax/toutiao;
 
 /***/ }),
 
-/***/ 6:
+/***/ 26:
 /***/ (function(module, exports) {
 
-module.exports = scheduler;
+module.exports = remax/ali;
 
 /***/ }),
 
-/***/ 69:
+/***/ 32:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(70);
+module.exports = __webpack_require__(33);
 
 
 /***/ }),
 
-/***/ 70:
+/***/ 33:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(remax__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var remax_one__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(43);
-/* harmony import */ var _components_C__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(59);
-/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(71);
+/* harmony import */ var _remax_one__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
+/* harmony import */ var _components_C__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(25);
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(34);
 /* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_4__);
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -54,17 +54,17 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 var _page = function _page() {
   var props = {};
-  var TextElement = react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_one__WEBPACK_IMPORTED_MODULE_2__["Text"], null));
+  var TextElement = react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_remax_one__WEBPACK_IMPORTED_MODULE_2__["Text"], null));
 
   function handleTap() {}
 
   function handleTouchStart() {}
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_one__WEBPACK_IMPORTED_MODULE_2__["View"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_remax_one__WEBPACK_IMPORTED_MODULE_2__["View"], {
     className: "pageA-index"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_C__WEBPACK_IMPORTED_MODULE_3__["default"], {
     className: "a"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_one__WEBPACK_IMPORTED_MODULE_2__["View"], _extends({
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_remax_one__WEBPACK_IMPORTED_MODULE_2__["View"], _extends({
     onTap: handleTap,
     onTouchStart: handleTouchStart,
     id: "view",
@@ -72,15 +72,22 @@ var _page = function _page() {
   }, props), "foo"), TextElement);
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Page(Object(remax__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page)));
+/* harmony default export */ __webpack_exports__["default"] = (Page(Object(remax__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "packageA/pages/index")));
 
 /***/ }),
 
-/***/ 71:
+/***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
+/***/ }),
+
+/***/ 4:
+/***/ (function(module, exports) {
+
+module.exports = react;
+
 /***/ })
 
-},[[69,0,5,4]]]);
+},[[32,0,4]]]);

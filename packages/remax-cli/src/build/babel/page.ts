@@ -19,7 +19,7 @@ export default function page(entries: Array<{ path: string; key: string }>) {
 
       if (!skip) {
         // 这里 find 肯定有值
-        entry = entries.find(e => e.path !== state.opts.filename)?.key!;
+        entry = entries.find(e => e.path === state.opts.filename)?.key!;
       }
     },
     visitor: {
