@@ -10,10 +10,8 @@ export interface InputState {
 
 export default class Input extends React.Component<InputProps, InputState> {
   static defaultProps = {
-    'toutiao-maxlength': 140,
     'toutiao-selection-end': 999,
     'toutiao-selection-start': 999,
-    'wechat-maxlength': 140,
     'wechat-selection-end': 999,
     'wechat-selection-start': 999,
   };
@@ -74,6 +72,10 @@ export default class Input extends React.Component<InputProps, InputState> {
 
     if (inputProps.onBlur) {
       inputProps.onBlur = createCallback(this.props.onBlur, createInputEvent);
+    }
+
+    if (process.env.REMAX_PLATFORM === 'wechat' || process.env.REMAX_PLATFORM === 'toutiao') {
+      inputProps.maxlength = inputProps.maxlength ?? 140;
     }
 
     return React.createElement('input', {
