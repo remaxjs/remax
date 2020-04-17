@@ -83,6 +83,7 @@ describe('app', () => {
       });
       useAppEvent('onShareAppMessage', () => {
         log.push('shareAppMessage');
+        return {};
       });
       useAppEvent('onError', () => {
         log.push('error');

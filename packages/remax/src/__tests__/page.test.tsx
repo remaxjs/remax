@@ -6,12 +6,16 @@ import { PageProps } from '../createPageWrapper';
 import View from './helpers/View';
 import Page from './helpers/Page';
 
+jest.mock('../stopPullDownRefresh', () => () => void 0);
+
+const TEST_PAGE = 'pages/test/index';
+
 describe('page', () => {
   it('create page config', () => {
     const Foo = () => {
       return <View>foo</View>;
     };
-    const page = Page(createPageConfig(Foo, ''));
+    const page = Page(createPageConfig(Foo, TEST_PAGE));
     page.load();
     expect(page.config.wrapper).not.toBeNull();
   });
@@ -46,6 +50,8 @@ describe('page', () => {
         usePageEvent('onShareAppMessage', object => {
           log.push(object.from);
           log.push('useShareAppMessage');
+
+          return {};
         });
 
         usePageEvent('onTitleClick', () => {
@@ -90,7 +96,7 @@ describe('page', () => {
 
         return <View>foo</View>;
       };
-      const page = Page(createPageConfig(Foo, ''));
+      const page = Page(createPageConfig(Foo, TEST_PAGE));
       page.load();
       page.ready();
       page.pullDownRefresh();
@@ -139,7 +145,7 @@ describe('page', () => {
         return <View>foo</View>;
       };
       const Bar = () => <Foo />;
-      const page = Page(createPageConfig(Bar, ''));
+      const page = Page(createPageConfig(Bar, TEST_PAGE));
       page.load();
       expect(log).toEqual(['onShow']);
     });
@@ -164,7 +170,7 @@ describe('page', () => {
 
         return <View>foo</View>;
       });
-      const page = Page(createPageConfig(() => <Foo ref={foo} />, ''));
+      const page = Page(createPageConfig(() => <Foo ref={foo} />, TEST_PAGE));
       page.load();
       foo.current.forceUpdate();
       page.shareAppMessage();
@@ -233,7 +239,7 @@ describe('page', () => {
       }
     }
 
-    const page = Page(createPageConfig(Foo, ''));
+    const page = Page(createPageConfig(Foo, TEST_PAGE));
     page.load();
     page.pullDownRefresh();
     page.pullIntercept();

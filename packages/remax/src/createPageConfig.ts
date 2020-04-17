@@ -19,10 +19,10 @@ export function resetPageId() {
   idCounter = 0;
 }
 
-export default function createPageConfig(Page: React.ComponentType<any>) {
+export default function createPageConfig(Page: React.ComponentType<any>, entry: string) {
   const app = getApp() as any;
 
-  const config = {
+  const config: any = {
     data: {
       action: {},
       root: {
