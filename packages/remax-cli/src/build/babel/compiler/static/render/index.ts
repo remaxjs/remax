@@ -119,7 +119,7 @@ function renderTemplates(path: NodePath<t.JSXElement | t.JSXFragment>, state: an
     return;
   }
 
-  const nodes = sortNodes(path.node);
+  const nodes = sortNodes(path.node).sort();
 
   nodes.forEach(node => {
     // case: JSXExpressionContainer 已经都被包裹在 block 里面，entry 中不会有

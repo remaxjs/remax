@@ -2128,51 +2128,7 @@ var __spread = undefined && undefined.__spread || function () {
   return ar;
 };
 
-var ENTRY_INFO = [
-  {
-    "name": "pages/index",
-    "modules": [
-      "/Users/yuzhi/Workspaces/remax/packages/remax-cli/src/__tests__/fixtures/reactDomAlias/src/pages/index.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax-cli/src/__tests__/fixtures/reactDomAlias/node_modules/remax/esm/index.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/index.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/render.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/hostConfig/index.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/constants.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/instanceId.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/VNode.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/propsAlias.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/utils/plainStyle/index.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/utils/plainStyle/CSSProperty.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/createHostComponent.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/SyntheticEvent/createCallbackProxy.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/SyntheticEvent/stopPropagation.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/SyntheticEvent/constants.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/hostConfig/diffProperties.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/createAppConfig.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/polyfills/Function.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/AppContainer.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/utils/isClassComponent.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/lifecycle/index.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/utils/capitalize.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/utils/lowercase.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/lifecycle/events.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/AppInstanceContext.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/ReactIs.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/createPageConfig.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/createPageWrapper.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/PageInstanceContext.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/stopPullDownRefresh/index.ali.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/Container.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/actionId.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/nativeEffect.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/ReactPortal.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/createNativeComponent.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/hooks/index.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax/esm/hooks/useNativeEffect.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax-cli/src/__tests__/fixtures/reactDomAlias/src/pages/index.js"
-    ]
-  }
-]
+var ENTRY_INFO = []
 var PAGE_EVENTS = {}
 var APP_EVENTS = []
 function pageEvents(entry) {

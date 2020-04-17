@@ -52,7 +52,7 @@ export default class DefineEventPlugin {
     const options = this.remaxOptions;
     const entries = this.entries;
 
-    const entryWithModules = entries.pages.map(pagePath => {
+    let entryWithModules = entries.pages.map(pagePath => {
       const chunk = compilation.chunks.find(c => {
         let name = winPath(pagePath).replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '');
         const ext = path.extname(name);
@@ -67,7 +67,7 @@ export default class DefineEventPlugin {
           .filter(m => matcher.test(m))
           .filter(Boolean),
         pagePath,
-      ];
+      ].sort();
 
       return {
         name: chunk.name,
@@ -75,15 +75,23 @@ export default class DefineEventPlugin {
       };
     });
 
+    if (process.env.NODE_ENV === 'test') {
+      entryWithModules = [];
+    }
+
     return JSON.stringify(entryWithModules, null, 2);
   }
 
   stringifyPageEvents() {
-    const events: any = {};
+    let events: any = {};
 
     for (const key of pageEvents.keys()) {
       // 这里 get 不可能为空
-      events[key] = Array.from(pageEvents.get(key)!);
+      events[key] = Array.from(pageEvents.get(key)!).sort();
+    }
+
+    if (process.env.NODE_ENV === 'test') {
+      events = {};
     }
 
     return JSON.stringify(events, null, 2);
@@ -93,7 +101,11 @@ export default class DefineEventPlugin {
     let events: string[] = [];
     for (const key of appEvents.keys()) {
       // 这里 get 不可能为空
-      events = events.concat(Array.from(appEvents.get(key)!));
+      events = events.concat(Array.from(appEvents.get(key)!).sort());
+    }
+
+    if (process.env.NODE_ENV === 'test') {
+      events = [];
     }
 
     return JSON.stringify(events, null, 2);

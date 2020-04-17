@@ -58,6 +58,7 @@ interface Options {
 export default async function build(app: string, target: Platform, options: Partial<Options> = {}) {
   const cwd = path.resolve(__dirname, `../fixtures/${app}`);
   process.chdir(cwd);
+  process.env.NODE_ENV = 'test';
   process.env.REMAX_PLATFORM = target;
   const remaxOptions = getConfig();
   if (target !== Platform.web) {
