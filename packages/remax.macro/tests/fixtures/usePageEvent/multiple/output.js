@@ -1,4 +1,4 @@
-import { createHostComponent } from 'remax';
-createHostComponent('host-component-a');
-createHostComponent('host-component-b');
-createHostComponent('host-component-c');
+import { usePageEvent } from 'remax';
+usePageEvent('onShow', () => {});
+usePageEvent('onHide', function onHide() {});
+usePageEvent('onUnload', () => {});

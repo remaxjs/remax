@@ -1,2 +1,2 @@
-import { createHostComponent } from 'remax';
-createHostComponent('host-component');
+import { usePageEvent } from 'remax';
+usePageEvent('onShow', () => {});
