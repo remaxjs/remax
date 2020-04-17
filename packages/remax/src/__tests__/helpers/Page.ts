@@ -38,7 +38,7 @@ class Page {
   }
 
   pullDownRefresh() {
-    this.config.onPullDownRefresh();
+    return this.config.onPullDownRefresh();
   }
 
   reachBottom() {
