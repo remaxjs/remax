@@ -259,6 +259,7 @@ function (_super) {
   };
 
   Input.prototype.render = function () {
+
     var inputProps = __assign$1(__assign$1({}, this.props), {
       onInput: createCallback(this.handleInput, createInputEvent)
     });
@@ -279,10 +280,8 @@ function (_super) {
   };
 
   Input.defaultProps = {
-    'toutiao-maxlength': 140,
     'toutiao-selection-end': 999,
     'toutiao-selection-start': 999,
-    'wechat-maxlength': 140,
     'wechat-selection-end': 999,
     'wechat-selection-start': 999
   };
