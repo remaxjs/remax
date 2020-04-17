@@ -27,7 +27,7 @@ export default async (argv: any) => {
 
     app.use(history());
     // 一定要设置 publicPath
-    app.use(middleware(compiler, { publicPath: webpackOptions.output!.publicPath! }));
+    app.use(middleware(compiler as any, { publicPath: webpackOptions.output!.publicPath! }));
     app.listen(3000);
 
     try {

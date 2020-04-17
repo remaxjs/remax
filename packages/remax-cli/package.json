@@ -99,7 +99,7 @@
     "@types/resolve": "^1.14.0",
     "@types/semver": "^7.1.0",
     "@types/universal-analytics": "^0.4.4",
-    "@types/webpack": "^4.41.10",
+    "@types/webpack": "^4.41.11",
     "@types/webpack-sources": "^0.1.7",
     "@types/yargs": "^15.0.0",
     "babel-plugin-loop-optimizer": "^1.4.1",
