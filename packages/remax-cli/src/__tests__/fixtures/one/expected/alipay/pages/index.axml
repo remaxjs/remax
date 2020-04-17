@@ -384,6 +384,7 @@
     
     
     id="{{item.props['id']}}"
+<<<<<<< HEAD
     
     
     
@@ -391,6 +392,8 @@
     
     
     
+=======
+>>>>>>> next
     mode="{{item.props['mode']}}"
     
     
@@ -1442,6 +1445,7 @@
   <text 
     
     class="{{item.props['class']}}"
+<<<<<<< HEAD
     
     
     
@@ -1449,6 +1453,8 @@
     
     
     
+=======
+>>>>>>> next
     id="{{item.props['id']}}"
     
     
@@ -1677,6 +1683,7 @@
     
     
     class="{{item.props['class']}}"
+<<<<<<< HEAD
     
     
     
@@ -1684,6 +1691,8 @@
     
     
     
+=======
+>>>>>>> next
     hover-class="{{item.props['hover-class']}}"
     
     
@@ -1693,6 +1702,7 @@
     
     
     hover-stay-time="{{item.props['hover-stay-time']}}"
+<<<<<<< HEAD
     
     
     
@@ -1708,6 +1718,9 @@
     
     
     
+=======
+    id="{{item.props['id']}}"
+>>>>>>> next
     onLongTap="{{item.props['onLongTap']}}"
     
     

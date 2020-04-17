@@ -1,7 +1,7 @@
-import { PageConfig as AlipayPageConfig } from 'remax/alipay';
+import { PageConfig as AliPageConfig } from 'remax/ali';
 
-const config: AlipayPageConfig = {
-  defaultTitle: 'Alipay Page',
+const config: AliPageConfig = {
+  defaultTitle: 'Ali Page',
   titleBarColor: '#323239',
 };
 

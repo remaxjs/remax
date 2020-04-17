@@ -1,5 +1,5 @@
 const platformAlias: any = {
-  alipay: {
+  ali: {
     onSubmit: 'onSubmit',
     onReset: 'onReset',
   },

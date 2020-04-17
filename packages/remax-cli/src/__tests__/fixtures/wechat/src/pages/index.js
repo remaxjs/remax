@@ -1,13 +1,6 @@
 import * as React from 'react';
-import {
-  ScrollView,
-  Swiper,
-  SwiperItem,
-  View,
-  Text,
-  Input,
-} from 'remax/wechat';
-import { Lifestyle as UnknownComponent } from 'remax/alipay';
+import { ScrollView, Swiper, SwiperItem, View, Text, Input } from 'remax/wechat';
+import { Lifestyle as UnknownComponent } from 'remax/ali';
 
 export default () => {
   const props = {};
@@ -21,13 +14,7 @@ export default () => {
 
   return (
     <View>
-      <View
-        onClick={handleClick}
-        onTouchStart={handleTouchStart}
-        id="view"
-        data-foo="bar"
-        {...props}
-      >
+      <View onClick={handleClick} onTouchStart={handleTouchStart} id="view" data-foo="bar" {...props}>
         foo
       </View>
       {TextElement}

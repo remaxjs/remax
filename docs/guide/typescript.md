@@ -5,6 +5,8 @@ metaDescription: '在 Remax 中使用 TypeScript'
 order: 29
 ---
 
+# TypeScript 支持
+
 Remax 默认支持用 TypeScript 开发。我们亦提供了 TypeScript 模板帮助你快速创建项目。
 
 微信
@@ -14,10 +16,17 @@ $ npx degit remaxjs/template-wechat-typescript my-app
 $ cd my-app
 ```
 
-支付宝
+阿里
 
 ```bash
-$ npx degit remaxjs/template-alipay-typescript my-app
+$ npx degit remaxjs/template-ali-typescript my-app
+$ cd my-app
+```
+
+字节跳动
+
+```bash
+$ npx degit remaxjs/template-toutiao-typescript my-app
 $ cd my-app
 ```
 

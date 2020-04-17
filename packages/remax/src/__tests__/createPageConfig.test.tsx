@@ -37,7 +37,7 @@ describe('page query hook', () => {
       receivedQuery = query;
       return <div>{query.id}</div>;
     };
-    const page = Page(createPageConfig(TestPage));
+    const page = Page(createPageConfig(TestPage, ''));
     page.onLoad(pageQuery);
     expect(receivedQuery).toBe(pageQuery);
     expect(receivedQuery.id).toBe(1);

@@ -1,0 +1,27 @@
+export declare const alias: {
+  id: string;
+  className: string;
+  style: string;
+  indicatorDots: string;
+  indicatorColor: string;
+  indicatorActiveColor: string;
+  activeClass: string;
+  activeClassName: string;
+  changingClass: string;
+  changingClassName: string;
+  autoplay: string;
+  current: string;
+  duration: string;
+  interval: string;
+  circular: string;
+  vertical: string;
+  previousMargin: string;
+  nextMargin: string;
+  acceleration: string;
+  disableProgrammaticAnimation: string;
+  onChange: string;
+  onTransition: string;
+  onAnimationEnd: string;
+  disableTouch: string;
+};
+export declare const props: string[];

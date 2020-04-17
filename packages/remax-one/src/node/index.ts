@@ -1,4 +1,4 @@
-import { RemaxNodePlugin } from 'remax-types';
+import { RemaxNodePlugin } from '@remax/types';
 import hostComponents from '../hostComponents/node';
 
 const plugin = (): RemaxNodePlugin => {

@@ -1,465 +1,85 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var index$1 = require('../index-chunk.js');
-require('react-reconciler');
-require('scheduler');
-var React = require('react');
-var regeneratorRuntime = _interopDefault(require('regenerator-runtime'));
-
-var __assign = undefined && undefined.__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-function createTarget(target, detail) {
-  return {
-    id: target.id,
-    offsetLeft: target.offsetLeft,
-    offsetTop: target.offsetTop,
-    dataset: target.targetDataset || target.dataset,
-    value: detail === null || detail === void 0 ? void 0 : detail.value
-  };
-}
-function createCurrentTarget(currentTarget) {
-  return {
-    id: currentTarget.id,
-    offsetLeft: currentTarget.offsetLeft,
-    offsetTop: currentTarget.offsetTop,
-    dataset: currentTarget.dataset
-  };
-}
-var createTapEvent = function createTapEvent(originalEvent) {
-  return {
-    type: originalEvent.type,
-    stopPropagation: originalEvent.stopPropagation,
-    target: createTarget(originalEvent.target, originalEvent.detail),
-    currentTarget: createCurrentTarget(originalEvent.currentTarget),
-    originalEvent: originalEvent
-  };
-};
-var createTouchEvent = function createTouchEvent(originalEvent) {
-  return {
-    type: originalEvent.type,
-    target: createTarget(originalEvent.target, originalEvent.detail),
-    currentTarget: createCurrentTarget(originalEvent.currentTarget),
-    touches: originalEvent.touches,
-    changedTouches: originalEvent.touches,
-    originalEvent: originalEvent
-  };
-};
-var createImageEvent = function createImageEvent(originalEvent) {
-  return {
-    type: originalEvent.type,
-    target: createTarget(originalEvent.target, originalEvent.detail),
-    currentTarget: createCurrentTarget(originalEvent.currentTarget),
-    originalEvent: originalEvent
-  };
-};
-function createCallback(fn, eventCreator) {
-  if (typeof fn !== 'function') {
-    return undefined;
-  }
-
-  return function (originalEvent) {
-    return fn(eventCreator(originalEvent));
-  };
-}
-var createInputEvent = function createInputEvent(originalEvent) {
-  return {
-    type: originalEvent.type,
-    target: createTarget(originalEvent.target, originalEvent.detail),
-    currentTarget: createCurrentTarget(originalEvent.currentTarget),
-    originalEvent: originalEvent
-  };
-};
-var createFormEvent = function createFormEvent(originalEvent) {
-  return {
-    type: originalEvent.type,
-    target: createTarget(originalEvent.target, originalEvent.detail),
-    currentTarget: createCurrentTarget(originalEvent.currentTarget),
-    originalEvent: originalEvent
-  };
-};
-function createHostComponent(name) {
-  var Component = function Component(props, ref) {
-    var inputProps = __assign({}, props);
-
-    if (props.onLongTap) {
-      inputProps.onLongTap = createCallback(inputProps.onLongTap, createTapEvent);
-    }
-
-    if (inputProps.onTap) {
-      inputProps.onTap = createCallback(inputProps.onTap, createTapEvent);
-    }
-
-    if (inputProps.onTouchStart) {
-      inputProps.onTouchStart = createCallback(inputProps.onTouchStart, createTouchEvent);
-    }
-
-    if (inputProps.onTouchMove) {
-      inputProps.onTouchMove = createCallback(inputProps.onTouchMove, createTouchEvent);
-    }
-
-    if (inputProps.onTouchEnd) {
-      inputProps.onTouchEnd = createCallback(inputProps.onTouchEnd, createTouchEvent);
-    }
-
-    if (inputProps.onTouchCancel) {
-      inputProps.onTouchCancel = createCallback(inputProps.onTouchCancel, createTouchEvent);
-    }
-
-    if (inputProps.onChange) {
-      inputProps.onChange = createCallback(inputProps.onChange, createInputEvent);
-    }
-
-    if (inputProps.onInput) {
-      inputProps.onInput = createCallback(inputProps.onInput, createInputEvent);
-    }
-
-    if (inputProps.onConfirm) {
-      inputProps.onConfirm = createCallback(inputProps.onConfirm, createInputEvent);
-    }
-
-    if (inputProps.onFocus) {
-      inputProps.onFocus = createCallback(inputProps.onFocus, createInputEvent);
-    }
-
-    if (inputProps.onBlur) {
-      inputProps.onBlur = createCallback(inputProps.onBlur, createInputEvent);
-    }
-
-    if (inputProps.onSubmit) {
-      inputProps.onSubmit = createCallback(inputProps.onSubmit, createFormEvent);
-    }
-
-    if (inputProps.onReset) {
-      inputProps.onReset = createCallback(inputProps.onReset, createFormEvent);
-    }
-
-    if (name === 'image') {
-      if (inputProps.onLoad) {
-        inputProps.onLoad = createCallback(props.onLoad, createImageEvent);
-      }
-
-      if (inputProps.onError) {
-        inputProps.onError = createCallback(props.onError, createImageEvent);
-      }
-    }
-
-    return React.createElement(name, __assign(__assign({}, inputProps), {
-      ref: ref
-    }));
-  };
-
-  return React.forwardRef(Component);
-}
-
-var Button = createHostComponent('button');
-
-var Form = createHostComponent('form');
-
-var Image = createHostComponent('image');
-
-var __extends = undefined && undefined.__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
-var __assign$1 = undefined && undefined.__assign || function () {
-  __assign$1 = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign$1.apply(this, arguments);
-};
-
-var Input =
-/** @class */
-function (_super) {
-  __extends(Input, _super);
-
-  function Input(props) {
-    var _this = _super.call(this, props) || this;
-
-    _this.state = {
-      value: '',
-      // 支付宝
-      controlled: false
-    };
-
-    _this.handleInput = function (e) {
-      var controlled = _this.state.controlled;
-
-      if (!controlled) {
-        _this.setState({
-          value: e.target.value
-        });
-      }
-
-      if (typeof _this.props.onInput === 'function') {
-        return _this.props.onInput(e);
-      } // 微信
-      // 注意，微信要对 input 受控，必须要在 onInput 方法返回值
-
-
-      return controlled ? _this.props.value : e.target.value;
-    };
-
-    var controlled = props.value !== undefined;
-    var value = controlled ? props.value : props.defaultValue;
-    _this.state = {
-      value: value,
-      controlled: controlled
-    };
-    return _this;
-  }
-
-  Input.prototype.componentDidUpdate = function () {
-    if (this.props.value !== undefined && this.props.value !== this.state.value) {
-      this.setState({
-        value: this.props.value
-      });
-    }
-  };
-
-  Input.prototype.render = function () {
-    var inputProps = __assign$1(__assign$1({}, this.props), {
-      onInput: createCallback(this.handleInput, createInputEvent)
-    });
-
-    if (inputProps.onConfirm) {
-      inputProps.onConfirm = createCallback(this.props.onConfirm, createInputEvent);
-    }
-
-    if (inputProps.onFocus) {
-      inputProps.onFocus = createCallback(this.props.onFocus, createInputEvent);
-    }
-
-    if (inputProps.onBlur) {
-      inputProps.onBlur = createCallback(this.props.onBlur, createInputEvent);
-    }
-
-    return React.createElement('input', __assign$1(__assign$1({}, inputProps), this.state));
-  };
-
-  Input.defaultProps = {
-    'toutiao-maxlength': 140,
-    'toutiao-selection-end': 999,
-    'toutiao-selection-start': 999,
-    'wechat-maxlength': 140,
-    'wechat-selection-end': 999,
-    'wechat-selection-start': 999
-  };
-  return Input;
-}(React.Component);
-
-createHostComponent('label');
-
-createHostComponent('radio');
-
-createHostComponent('radio-group');
-
-var Text = createHostComponent('text');
-
-var __extends$1 = undefined && undefined.__extends || function () {
-  var _extendStatics = function extendStatics(d, b) {
-    _extendStatics = Object.setPrototypeOf || {
-      __proto__: []
-    } instanceof Array && function (d, b) {
-      d.__proto__ = b;
-    } || function (d, b) {
-      for (var p in b) {
-        if (b.hasOwnProperty(p)) d[p] = b[p];
-      }
-    };
-
-    return _extendStatics(d, b);
-  };
-
-  return function (d, b) {
-    _extendStatics(d, b);
-
-    function __() {
-      this.constructor = d;
-    }
-
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-  };
-}();
-
-var __assign$2 = undefined && undefined.__assign || function () {
-  __assign$2 = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign$2.apply(this, arguments);
-};
-
-var Textarea =
-/** @class */
-function (_super) {
-  __extends$1(Textarea, _super);
-
-  function Textarea(props) {
-    var _this = _super.call(this, props) || this;
-
-    _this.state = {
-      value: '',
-      // 支付宝
-      controlled: false
-    };
-
-    _this.handleInput = function (e) {
-      var controlled = _this.state.controlled;
-
-      if (!controlled) {
-        _this.setState({
-          value: e.target.value
-        });
-      }
-
-      if (typeof _this.props.onInput === 'function') {
-        return _this.props.onInput(e);
-      } // 微信
-      // 注意，微信要对 input 受控，必须要在 onInput 方法返回值
-
-
-      return controlled ? _this.props.value : e.target.value;
-    };
-
-    var controlled = props.value !== undefined;
-    var value = controlled ? props.value : props.defaultValue;
-    _this.state = {
-      value: value,
-      controlled: controlled
-    };
-    return _this;
-  }
-
-  Textarea.prototype.componentDidUpdate = function () {
-    if (this.props.value !== undefined && this.props.value !== this.state.value) {
-      this.setState({
-        value: this.props.value
-      });
-    }
-  };
-
-  Textarea.prototype.render = function () {
-    var inputProps = __assign$2(__assign$2({}, this.props), {
-      onInput: createCallback(this.handleInput, createInputEvent)
-    });
-
-    if (inputProps.onConfirm) {
-      inputProps.onConfirm = createCallback(this.props.onConfirm, createInputEvent);
-    }
-
-    if (inputProps.onFocus) {
-      inputProps.onFocus = createCallback(this.props.onFocus, createInputEvent);
-    }
-
-    if (inputProps.onBlur) {
-      inputProps.onBlur = createCallback(this.props.onBlur, createInputEvent);
-    }
-
-    return React.createElement('textarea', __assign$2(__assign$2({}, inputProps), this.state));
-  };
-
-  Textarea.defaultProps = {
-    'toutiao-maxlength': -1,
-    'toutiao-selection-end': 999,
-    'toutiao-selection-start': 999,
-    'wechat-maxlength': -1,
-    'wechat-selection-end': 999,
-    'wechat-selection-start': 999,
-    'wechat-fixed': false
-  };
-  return Textarea;
-}(React.Component);
-
-var View = createHostComponent('view');
-
-var WebView = createHostComponent('web-view');
-
-var FunctionalPageNavigator = function FunctionalPageNavigator() {};
-
-var View$1 = function View() {};
-
-var C = (function (_ref) {
-  var className = _ref.className;
-  return /*#__PURE__*/React.createElement(View$1, {
-    className: "c ".concat(className)
-  }, "c");
-});
-
-var styles = {"page-index":"index-module_page-index__1ZW9Y"};
+require('./../runtime.js');
+require('./../app~packageA/pages/index~pages/index.js');
+require('./../packageA/pages/index~pages/index.js');
+(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[2],{
+
+/***/ 14:
+/***/ (function(module, exports) {
+
+module.exports = react;
+
+/***/ }),
+
+/***/ 4:
+/***/ (function(module, exports) {
+
+module.exports = react-reconciler;
+
+/***/ }),
+
+/***/ 40:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(41);
+
+
+/***/ }),
+
+/***/ 41:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(42);
+/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var remax_one__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(43);
+/* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(55);
+/* harmony import */ var _components_C__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(59);
+/* harmony import */ var _api_chooseImage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(65);
+/* harmony import */ var _api_chooseImageMini__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(66);
+/* harmony import */ var _api_chooseImageAlipay__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(67);
+/* harmony import */ var _index_module_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(68);
+/* harmony import */ var _index_module_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_index_module_css__WEBPACK_IMPORTED_MODULE_9__);
+
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+
+
+
+
+
+
 
 var _page = function _page() {
   var _, _obj$a;
 
   var props = {};
-  var TextElement = React.cloneElement( /*#__PURE__*/React.createElement(Text, null));
+  var TextElement = react__WEBPACK_IMPORTED_MODULE_2__["cloneElement"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](remax_one__WEBPACK_IMPORTED_MODULE_3__["Text"], null));
 
   function handleClick() {
     return _handleClick.apply(this, arguments);
   }
 
   function _handleClick() {
-    _handleClick = index$1._asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-      return regeneratorRuntime.wrap(function _callee$(_context) {
+    _handleClick = _asyncToGenerator( /*#__PURE__*/regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              Object(_api_chooseImage__WEBPACK_IMPORTED_MODULE_6__["default"])();
+              Object(_api_chooseImageMini__WEBPACK_IMPORTED_MODULE_7__["default"])();
+              Object(_api_chooseImageAlipay__WEBPACK_IMPORTED_MODULE_8__["default"])();
               _context.next = 5;
               return Promise.resolve(1);
 
@@ -477,18 +97,184 @@ var _page = function _page() {
 
   var obj = {};
   var value = (_ = 0) !== null && _ !== void 0 ? _ : 1;
-  return /*#__PURE__*/React.createElement(View, {
-    className: styles['page-index']
-  }, /*#__PURE__*/React.createElement(C, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](remax_one__WEBPACK_IMPORTED_MODULE_3__["View"], {
+    className: _index_module_css__WEBPACK_IMPORTED_MODULE_9___default.a['page-index']
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_components_C__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: "b"
-  }), /*#__PURE__*/React.createElement(View, index$1._extends({
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](remax_one__WEBPACK_IMPORTED_MODULE_3__["View"], _extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo", obj === null || obj === void 0 ? void 0 : (_obj$a = obj.a) === null || _obj$a === void 0 ? void 0 : _obj$a.b, value), /*#__PURE__*/React.createElement(FunctionalPageNavigator, null), /*#__PURE__*/React.createElement(UnBindingComponent, null), TextElement);
+  }, props), "foo", obj === null || obj === void 0 ? void 0 : (_obj$a = obj.a) === null || _obj$a === void 0 ? void 0 : _obj$a.b, value), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_4__["FunctionalPageNavigator"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](UnBindingComponent, null), TextElement);
 };
 
-var index = Page(index$1.createPageConfig(_page));
+/* harmony default export */ __webpack_exports__["default"] = (Page(Object(remax__WEBPACK_IMPORTED_MODULE_1__["createPageConfig"])(_page)));
 
-exports.default = index;
+/***/ }),
+
+/***/ 42:
+/***/ (function(module, exports) {
+
+module.exports = regenerator-runtime;
+
+/***/ }),
+
+/***/ 55:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(56);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in remax_wechat__WEBPACK_IMPORTED_MODULE_0__) if(["render","createAppConfig","createPageConfig","createHostComponent","Platform","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return remax_wechat__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _esm_render__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _esm_render__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony import */ var _esm_createAppConfig__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createAppConfig", function() { return _esm_createAppConfig__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+/* harmony import */ var _esm_createPageConfig__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(28);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createPageConfig", function() { return _esm_createPageConfig__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
+/* harmony import */ var _esm_createHostComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(13);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createHostComponent", function() { return _esm_createHostComponent__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+
+/* harmony import */ var _esm_Platform__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(34);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Platform", function() { return _esm_Platform__WEBPACK_IMPORTED_MODULE_5__["default"]; });
+
+/* harmony import */ var _esm_hooks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(37);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageInstance", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["usePageInstance"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useNativeEffect", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useNativeEffect"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useShow", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useShow"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useReady", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useReady"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useHide", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useHide"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePullDownRefresh", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["usePullDownRefresh"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useReachBottom", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useReachBottom"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageScroll", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["usePageScroll"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useShareAppMessage", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useShareAppMessage"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useTitleClick", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useTitleClick"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useOptionMenuClick", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useOptionMenuClick"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePopMenuClick", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["usePopMenuClick"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePullIntercept", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["usePullIntercept"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useQuery", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useQuery"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageEvent", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["usePageEvent"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useAppEvent", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useAppEvent"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useAppShow", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useAppShow"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useAppLaunch", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useAppLaunch"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useAppError", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useAppError"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useAppHide", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useAppHide"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useAppPageNotFound", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useAppPageNotFound"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useAppShareAppMessage", function() { return _esm_hooks__WEBPACK_IMPORTED_MODULE_6__["useAppShareAppMessage"]; });
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ 56:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _hostComponents__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(57);
+/* harmony import */ var _hostComponents__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_hostComponents__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _hostComponents__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _hostComponents__WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(58);
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_api__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _api__WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _api__WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+
+/***/ }),
+
+/***/ 57:
+/***/ (function(module, exports) {
+
+module.exports = {
+  stub: true
+};
+
+/***/ }),
+
+/***/ 58:
+/***/ (function(module, exports) {
+
+module.exports = {
+  stub: true
+};
+
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports) {
+
+module.exports = scheduler;
+
+/***/ }),
+
+/***/ 65:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var remax_alipay__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(60);
+
+/* harmony default export */ __webpack_exports__["default"] = (remax_alipay__WEBPACK_IMPORTED_MODULE_0__["chooseImage"]);
+
+/***/ }),
+
+/***/ 66:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function () {// ignore
+});
+
+/***/ }),
+
+/***/ 67:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function () {// ignore
+});
+
+/***/ }),
+
+/***/ 68:
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+module.exports = {"page-index":"_1ZW9Y8KCrSK23n2M-ZMy7g"};
+
+/***/ })
+
+},[[40,0,5,4]]]);

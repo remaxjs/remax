@@ -1,22 +1,28 @@
 const platformAlias: any = {
-  alipay: {
+  ali: {
     onInput: 'onInput',
     onConfirm: 'onConfirm',
     onFocus: 'onFocus',
     onBlur: 'onBlur',
     controlled: 'controlled',
+    maxLength: 'maxlength',
   },
   wechat: {
     onInput: 'bindinput',
     onConfirm: 'bindconfirm',
     onFocus: 'bindfocus',
     onBlur: 'bindblur',
+    maxLength: 'maxlength',
   },
   toutiao: {
     onInput: 'bindinput',
     onConfirm: 'bindconfirm',
     onFocus: 'bindfocus',
     onBlur: 'bindblur',
+    maxLength: 'maxlength',
+  },
+  web: {
+    maxLength: 'maxLength',
   },
 };
 
@@ -31,7 +37,6 @@ const defaultAlias = {
   password: 'password',
   placeholder: 'placeholder',
   disabled: 'disabled',
-  maxlength: 'maxlength',
   focus: 'focus',
   confirmType: 'confirm-type',
   confirmHold: 'confirm-hold',

@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { RemaxOptions, Entries } from 'remax-types';
+import { RemaxOptions, Entries } from '@remax/types';
 import { isMatch } from 'micromatch';
 import { rename } from '../extensions';
 import winPath from '../winPath';

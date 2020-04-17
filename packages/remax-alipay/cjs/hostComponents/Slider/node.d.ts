@@ -1,0 +1,20 @@
+export declare const alias: {
+  id: string;
+  className: string;
+  style: string;
+  name: string;
+  min: string;
+  max: string;
+  step: string;
+  disabled: string;
+  value: string;
+  showValue: string;
+  activeColor: string;
+  backgroundColor: string;
+  trackSize: string;
+  handleSize: string;
+  handleColor: string;
+  onChange: string;
+  onChanging: string;
+};
+export declare const props: string[];

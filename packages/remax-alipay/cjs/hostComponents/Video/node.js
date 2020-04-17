@@ -1,0 +1,33 @@
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+exports.alias = {
+  className: 'class',
+  src: 'src',
+  id: 'id',
+  poster: 'poster',
+  objectFit: 'objectFit',
+  initialTime: 'initial-time',
+  duration: 'duration',
+  controls: 'controls',
+  autoplay: 'autoplay',
+  direction: 'direction',
+  loop: 'loop',
+  muted: 'muted',
+  showFullscreenBtn: 'show-fullscreen-btn',
+  showPlayBtn: 'show-play-btn',
+  showCenterPlayBtn: 'show-center-play-btn',
+  showMuteBtn: 'show-mute-btn',
+  enableProgressGesture: 'enableProgressGesture',
+  mobilenetHintType: 'mobilenetHintType',
+  onPlay: 'onPlay',
+  onPause: 'onPause',
+  onEnded: 'onEnded',
+  onTimeUpdate: 'onTimeUpdate',
+  onLoading: 'onLoading',
+  onError: 'onError',
+  onFullScreenChange: 'onFullScreenChange',
+  onTap: 'onTap',
+  onClick: 'onTap',
+  onUserAction: 'onUserAction',
+};
+exports.props = Object.values(exports.alias);

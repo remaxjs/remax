@@ -20,30 +20,30 @@ function preset(api: any, presetOption: PresetOption) {
   const throwIfNamespace =
     typeof presetOption['throw-if-namespace'] === 'undefined' ? false : presetOption['throw-if-namespace'];
 
-  const presets = [require('@babel/preset-env')];
+  const presets: any[] = [require.resolve('@babel/preset-env')];
 
   if (typescript) {
-    presets.push([require('@babel/preset-typescript'), typeof typescript === 'object' ? typescript : {}]);
+    presets.push([require.resolve('@babel/preset-typescript'), typeof typescript === 'object' ? typescript : {}]);
   }
 
   if (react) {
-    presets.push([require('@babel/preset-react'), { throwIfNamespace }]);
+    presets.push([require.resolve('@babel/preset-react'), { throwIfNamespace }]);
   }
 
   return {
     presets,
     plugins: [
-      require('babel-plugin-macros'),
-      require('@babel/plugin-proposal-object-rest-spread'),
-      require('@babel/plugin-proposal-optional-chaining'),
-      require('@babel/plugin-proposal-nullish-coalescing-operator'),
-      [require('@babel/plugin-syntax-jsx'), { throwIfNamespace }],
-      [require('@babel/plugin-proposal-decorators'), decorators],
-      [require('@babel/plugin-proposal-class-properties'), classProperties],
+      require.resolve('babel-plugin-macros'),
+      require.resolve('@babel/plugin-proposal-object-rest-spread'),
+      require.resolve('@babel/plugin-proposal-optional-chaining'),
+      require.resolve('@babel/plugin-proposal-nullish-coalescing-operator'),
+      [require.resolve('@babel/plugin-syntax-jsx'), { throwIfNamespace }],
+      [require.resolve('@babel/plugin-proposal-decorators'), decorators],
+      [require.resolve('@babel/plugin-proposal-class-properties'), classProperties],
       [
-        require('babel-plugin-auto-import'),
+        require.resolve('babel-plugin-auto-import'),
         {
-          declarations: [{ default: 'regeneratorRuntime', path: 'regenerator-runtime' }],
+          declarations: [{ default: 'regeneratorRuntime', path: require.resolve('regenerator-runtime') }],
         },
       ],
     ],

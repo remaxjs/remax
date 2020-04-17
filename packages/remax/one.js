@@ -1,1 +1,1 @@
-export * from 'remax-one';
+export * from '@remax/one';

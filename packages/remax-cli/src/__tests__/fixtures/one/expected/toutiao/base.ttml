@@ -137,7 +137,6 @@
     bindtouchstart="{{i.props['bindtouchstart']}}" 
     class="{{i.props['class']}}" 
     id="{{i.props['id']}}" 
-    lazy-load="{{i.props['lazy-load']}}" 
     mode="{{i.props['mode']}}" 
     src="{{i.props['src']}}" 
     style="{{i.props['style']}}" 
@@ -324,6 +323,7 @@
 
   <template name="REMAX_TPL_radio">
   <radio 
+    animation="{{i.props['animation']}}" 
     checked="{{i.props['checked']}}" 
     class="{{i.props['class']}}" 
     color="{{i.props['color']}}" 
@@ -343,6 +343,7 @@
 
   <template name="REMAX_TPL_radio-group">
   <radio-group 
+    animation="{{i.props['animation']}}" 
     bindchange="{{i.props['bindchange']}}" 
     class="{{i.props['class']}}" 
     id="{{i.props['id']}}" 
@@ -509,7 +510,6 @@
   <text 
     bindtap="{{i.props['bindtap']}}" 
     class="{{i.props['class']}}" 
-    decode="{{i.props['decode']}}" 
     id="{{i.props['id']}}" 
     selectable="{{i.props['selectable']}}" 
     style="{{i.props['style']}}" 
@@ -605,14 +605,10 @@
   <view 
     animation="{{i.props['animation']}}" 
     class="{{i.props['class']}}" 
-    data-foo="{{i.props['data-foo']}}" 
     hover-class="{{i.props['hover-class']}}" 
     hover-start-time="{{i.props['hover-start-time']}}" 
     hover-stay-time="{{i.props['hover-stay-time']}}" 
-    hover-stop-propagation="{{i.props['hover-stop-propagation']}}" 
     id="{{i.props['id']}}" 
-    onClick="{{i.props['onClick']}}" 
-    onTouchStart="{{i.props['onTouchStart']}}" 
     role="{{i.props['role']}}" 
     style="{{i.props['style']}}" 
   >

@@ -1,0 +1,22 @@
+export declare const alias: {
+  id: string;
+  className: string;
+  size: string;
+  type: string;
+  plain: string;
+  disabled: string;
+  loading: string;
+  hoverClass: string;
+  hoverClassName: string;
+  hoverStartTime: string;
+  hoverStayTime: string;
+  hoverStopPropagation: string;
+  formType: string;
+  openType: string;
+  scope: string;
+  onClick: string;
+  onTap: string;
+  appParameter: string;
+  publicId: string;
+};
+export declare const props: string[];

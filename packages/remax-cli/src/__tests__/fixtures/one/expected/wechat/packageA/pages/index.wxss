@@ -1,0 +1,9 @@
+@import "./index~pages/index.wxss";
+.pageA-index {
+  background-color: aliceblue;
+}
+
+.a {
+  background-color: blue;
+}
+

@@ -7,6 +7,7 @@
 </template>
 
 
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_a-0">
   <a-0 
     
@@ -93,6 +94,8 @@
 </template>
 
   
+=======
+>>>>>>> next
   <template name="REMAX_TPL_1_button">
   <button 
     
@@ -174,6 +177,7 @@
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_c-0">
   <c-0 
     ref="{{item.props['__ref']}}"
@@ -200,6 +204,8 @@
 </template>
 
   
+=======
+>>>>>>> next
   <template name="REMAX_TPL_1_canvas">
   <canvas 
     
@@ -339,10 +345,63 @@
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_cjs-0">
   <cjs-0 
     ref="{{item.props['__ref']}}"
   >
+=======
+  <template name="REMAX_TPL_1_contact-button">
+  <contact-button 
+    card-no="{{item.props['card-no']}}"
+    class="{{item.props['class']}}"
+    color="{{item.props['color']}}"
+    icon="{{item.props['icon']}}"
+    id="{{item.props['id']}}"
+    scene="{{item.props['scene']}}"
+    size="{{item.props['size']}}"
+    style="{{item.props['style']}}"
+    tnt-inst-id="{{item.props['tnt-inst-id']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+    </block>
+    
+  </contact-button>
+</template>
+  
+  <template name="REMAX_TPL_1_cover-image">
+  <cover-image 
+    class="{{item.props['class']}}"
+    id="{{item.props['id']}}"
+    onTap="{{item.props['onTap']}}"
+    src="{{item.props['src']}}"
+    style="{{item.props['style']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+    </block>
+    
+  </cover-image>
+</template>
+  
+  <template name="REMAX_TPL_1_cover-view">
+  <cover-view 
+    class="{{item.props['class']}}"
+    id="{{item.props['id']}}"
+    onTap="{{item.props['onTap']}}"
+    style="{{item.props['style']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+    </block>
+    
+  </cover-view>
+</template>
+  
+  <template name="REMAX_TPL_1_dddd">
+  <dddd ref="{{item.props['__ref']}}">
+>>>>>>> next
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -361,14 +420,76 @@
       </block>
     </block>
     
-  </cjs-0>
+  </dddd>
+</template>
+  
+  <template name="REMAX_TPL_1_form">
+  <form 
+    class="{{item.props['class']}}"
+    id="{{item.props['id']}}"
+    onReset="{{item.props['onReset']}}"
+    onSubmit="{{item.props['onSubmit']}}"
+    report-submit="{{item.props['report-submit']}}"
+    style="{{item.props['style']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+    </block>
+    
+  </form>
+</template>
+  
+  <template name="REMAX_TPL_1_icon">
+  <icon 
+    class="{{item.props['class']}}"
+    color="{{item.props['color']}}"
+    id="{{item.props['id']}}"
+    size="{{item.props['size']}}"
+    style="{{item.props['style']}}"
+    type="{{item.props['type']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+    </block>
+    
+  </icon>
+</template>
+  
+  <template name="REMAX_TPL_1_image">
+  <image 
+    class="{{item.props['class']}}"
+    id="{{item.props['id']}}"
+    lazy-load="{{item.props['lazy-load']}}"
+    mode="{{item.props['mode']}}"
+    onError="{{item.props['onError']}}"
+    onLoad="{{item.props['onLoad']}}"
+    onTap="{{item.props['onTap']}}"
+    onTouchCancel="{{item.props['onTouchCancel']}}"
+    onTouchEnd="{{item.props['onTouchEnd']}}"
+    onTouchMove="{{item.props['onTouchMove']}}"
+    onTouchStart="{{item.props['onTouchStart']}}"
+    src="{{item.props['src']}}"
+    style="{{item.props['style']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+    </block>
+    
+  </image>
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_complex-0">
   <complex-0 
     ref="{{item.props['__ref']}}"
   >
+=======
+  <template name="REMAX_TPL_1_index">
+  <index 
+    foo="{{item.props['foo']}}"
+    title="{{item.props['title']}}"ref="{{item.props['__ref']}}">
+>>>>>>> next
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -387,10 +508,11 @@
       </block>
     </block>
     
-  </complex-0>
+  </index>
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_contact-button">
   <contact-button 
     
@@ -431,15 +553,33 @@
     
     
   >
+=======
+  <template name="REMAX_TPL_1_index0">
+  <index0 ref="{{item.props['__ref']}}">
+>>>>>>> next
     
     <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          class="{{item.props['class']}}" 
+          id="{{item.props['id']}}" 
+          ns:attr="{{item.props['ns:attr']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
     </block>
     
-  </contact-button>
+  </index0>
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_cover-image">
   <cover-image 
     
@@ -464,15 +604,33 @@
     
     
   >
+=======
+  <template name="REMAX_TPL_1_index1">
+  <index1 ref="{{item.props['__ref']}}">
+>>>>>>> next
     
     <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          class="{{item.props['class']}}" 
+          id="{{item.props['id']}}" 
+          ns:attr="{{item.props['ns:attr']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
     </block>
     
-  </cover-image>
+  </index1>
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_cover-view">
   <cover-view 
     
@@ -493,19 +651,64 @@
     
     
   >
+=======
+  <template name="REMAX_TPL_1_index2">
+  <index2 ref="{{item.props['__ref']}}">
     
     <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          class="{{item.props['class']}}" 
+          id="{{item.props['id']}}" 
+          ns:attr="{{item.props['ns:attr']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
     </block>
     
-  </cover-view>
+  </index2>
+</template>
+  
+  <template name="REMAX_TPL_1_index3">
+  <index3 ref="{{item.props['__ref']}}">
+>>>>>>> next
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          class="{{item.props['class']}}" 
+          id="{{item.props['id']}}" 
+          ns:attr="{{item.props['ns:attr']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </index3>
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_d-0">
   <d-0 
     ref="{{item.props['__ref']}}"
   >
+=======
+  <template name="REMAX_TPL_1_index4">
+  <index4 ref="{{item.props['__ref']}}">
+>>>>>>> next
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -524,14 +727,19 @@
       </block>
     </block>
     
-  </d-0>
+  </index4>
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_e-0">
   <e-0 
     ref="{{item.props['__ref']}}"
   >
+=======
+  <template name="REMAX_TPL_1_index5">
+  <index5 ref="{{item.props['__ref']}}">
+>>>>>>> next
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -550,14 +758,19 @@
       </block>
     </block>
     
-  </e-0>
+  </index5>
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_f-0">
   <f-0 
     ref="{{item.props['__ref']}}"
   >
+=======
+  <template name="REMAX_TPL_1_index6">
+  <index6 ref="{{item.props['__ref']}}">
+>>>>>>> next
     
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -576,10 +789,11 @@
       </block>
     </block>
     
-  </f-0>
+  </index6>
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_form">
   <form 
     
@@ -608,15 +822,33 @@
     
     
   >
+=======
+  <template name="REMAX_TPL_1_index7">
+  <index7 ref="{{item.props['__ref']}}">
+>>>>>>> next
     
     <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          class="{{item.props['class']}}" 
+          id="{{item.props['id']}}" 
+          ns:attr="{{item.props['ns:attr']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
     </block>
     
-  </form>
+  </index7>
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_icon">
   <icon 
     
@@ -645,15 +877,33 @@
     
     
   >
+=======
+  <template name="REMAX_TPL_1_index8">
+  <index8 ref="{{item.props['__ref']}}">
+>>>>>>> next
     
     <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          class="{{item.props['class']}}" 
+          id="{{item.props['id']}}" 
+          ns:attr="{{item.props['ns:attr']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
     </block>
     
-  </icon>
+  </index8>
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_image">
   <image 
     
@@ -710,12 +960,29 @@
     
     
   >
+=======
+  <template name="REMAX_TPL_1_index9">
+  <index9 ref="{{item.props['__ref']}}">
+>>>>>>> next
     
     <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          class="{{item.props['class']}}" 
+          id="{{item.props['id']}}" 
+          ns:attr="{{item.props['ns:attr']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
     </block>
     
-  </image>
+  </index9>
 </template>
 
   
@@ -1085,6 +1352,7 @@
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_my-plugin-0">
   <my-plugin-0 
     ref="{{item.props['__ref']}}"
@@ -1137,6 +1405,8 @@
 </template>
 
   
+=======
+>>>>>>> next
   <template name="REMAX_TPL_1_navigator">
   <navigator 
     
@@ -1182,6 +1452,7 @@
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_not-in-jsx-0">
   <not-in-jsx-0 
     ref="{{item.props['__ref']}}"
@@ -1208,6 +1479,8 @@
 </template>
 
   
+=======
+>>>>>>> next
   <template name="REMAX_TPL_1_picker">
   <picker 
     
@@ -1660,6 +1933,7 @@
 </template>
 
   
+<<<<<<< HEAD
   <template name="REMAX_TPL_1_slot-0">
   <slot-0 
     ref="{{item.props['__ref']}}"
@@ -1764,6 +2038,8 @@
 </template>
 
   
+=======
+>>>>>>> next
   <template name="REMAX_TPL_1_swiper">
   <swiper 
     
@@ -2298,6 +2574,29 @@
   </web-view>
 </template>
 
+  
+  <template name="REMAX_TPL_1_xx">
+  <xx ref="{{item.props['__ref']}}">
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          class="{{item.props['class']}}" 
+          id="{{item.props['id']}}" 
+          ns:attr="{{item.props['ns:attr']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </xx>
+</template>
   
 
 <template name="REMAX_TPL_1_plain-text">

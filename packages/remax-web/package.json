@@ -1,0 +1,47 @@
+{
+  "name": "@remax/web",
+  "version": "2.0.0-alpha.2",
+  "description": "Shim of web for remax",
+  "author": "Wei Zhu <yesmeck@gmail.com>",
+  "homepage": "https://github.com/remaxjs/remax#readme",
+  "license": "MIT",
+  "main": "./cjs/index.js",
+  "esnext": "./esm/index.js",
+  "module": "./esm/index.js",
+  "typings": "./esm/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remaxjs/remax.git"
+  },
+  "scripts": {
+    "watch": "concurrently \"npm:watch:*\"",
+    "watch:esm": "npm run build:esm -- -w",
+    "watch:cjs": "npm run build:cjs -- -w",
+    "prebuild": "rm -rf cjs esm",
+    "build:cjs": "tsc",
+    "build:esm": "tsc --module ESNext --outDir esm",
+    "build": "npm run build:cjs && npm run build:esm"
+  },
+  "bugs": {
+    "url": "https://github.com/remaxjs/remax/issues"
+  },
+  "dependencies": {
+    "@remax/router": "2.0.0-alpha.2",
+    "rmc-pull-to-refresh": "^1.0.12",
+    "umi-hd": "^5.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.33",
+    "@types/react-dom": "^16.9.6",
+    "concurrently": "^5.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "^3.8.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

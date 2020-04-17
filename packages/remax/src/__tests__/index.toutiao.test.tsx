@@ -6,7 +6,7 @@ import { reset as resetInstanceId } from '../instanceId';
 import { reset as resetActionId } from '../actionId';
 import Container from '../Container';
 // eslint-disable-next-line @typescript-eslint/camelcase
-import { unstable_useNativeEffect } from '../hooks';
+import { useNativeEffect } from '../hooks';
 
 const p = {
   setData(state: any, callback: Function) {
@@ -237,11 +237,11 @@ it('useEffect works', done => {
   render(<Page />, container);
 });
 
-it('unstable_useNativeEffect once works', done => {
+it('useNativeEffect once works', done => {
   let count = 0;
   const Page = () => {
     const [width, setWidth] = React.useState(0);
-    unstable_useNativeEffect(() => {
+    useNativeEffect(() => {
       count += 1;
 
       setTimeout(() => {
@@ -262,12 +262,12 @@ it('unstable_useNativeEffect once works', done => {
   render(<Page />, container);
 });
 
-it('unstable_useNativeEffect deps works', done => {
+it('useNativeEffect deps works', done => {
   let count = 0;
   const Page = () => {
     const [width, setWidth] = React.useState(0);
     const [height, setheight] = React.useState(0);
-    unstable_useNativeEffect(() => {
+    useNativeEffect(() => {
       count += 1;
 
       if (count === 2) {

@@ -1,13 +1,13 @@
 import { AppConfig as WechatAppConfig } from 'remax/wechat';
-import { AppConfig as AlipayAppConfig } from 'remax/alipay';
+import { AppConfig as AliAppConfig } from 'remax/ali';
 import { AppConfig as ToutiaoAppConfig } from 'remax/toutiao';
 
 const pages = ['pages/index', 'pages/page2/index', 'pages/page3/index'];
 
-export const alipay: AlipayAppConfig = {
+export const ali: AliAppConfig = {
   pages,
   window: {
-    defaultTitle: 'Alipay App',
+    defaultTitle: 'Ali App',
     titleBarColor: '#323239',
   },
 };

@@ -1,5 +1,6 @@
 import runTest from './helpers/runTest';
+import { Platform } from '../build/platform';
 
 describe('build wechat app', () => {
-  runTest('wechat', 'wechat');
+  runTest('wechat', Platform.wechat);
 });

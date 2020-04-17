@@ -1,33 +1,51 @@
 {
-  "name": "remax-one",
-  "version": "1.21.0",
+  "name": "@remax/one",
+  "version": "2.0.0-alpha.2",
   "description": "Remax 小程序多端方案",
   "main": "./cjs/index.js",
   "esnext": "./esm/index.js",
   "module": "./esm/index.js",
   "typings": "./esm/index.d.ts",
   "scripts": {
+    "watch": "concurrently \"npm:watch:*\"",
     "watch:esm": "npm run build:esm -- -w",
     "watch:cjs": "npm run build:cjs -- -w",
     "prebuild": "rm -rf cjs esm",
     "build": "npm run build:esm && npm run build:cjs",
+    "postbuild": "node ./scripts/postbuild.js",
     "build:esm": "tsc --module ESNext --outDir esm",
     "build:cjs": "tsc --module CommonJS --outDir cjs",
-    "test": "jest",
-    "test:cov": "jest --coverage"
+    "test": "jest"
   },
   "repository": "git+https://github.com/remaxjs/remax.git",
   "license": "MIT",
+  "resolutions": {
+    "@types/react": "^16.9.33"
+  },
   "devDependencies": {
+    "@remax/types": "2.0.0-alpha.2",
     "@types/jest": "^24.0.24",
-    "@types/react": "^16.9.17",
+    "@types/react": "^16.9.33",
+    "@types/react-dom": "^16.9.6",
+    "@types/react-lazyload": "^2.6.0",
     "@types/react-test-renderer": "^16.9.1",
     "concurrently": "^5.0.0",
     "jest": "^24.9.0",
     "react": "^16.12.0",
+    "react-dom": "^16.13.1",
     "react-test-renderer": "^16.12.0",
-    "remax-types": "^1.21.0",
+    "remax": "^1.19.8",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "@remax/router": "2.0.0-alpha.2",
+    "clsx": "^1.1.0",
+    "react-autosize-textarea": "^7.0.0",
+    "react-lazyload": "^2.6.7",
+    "rmc-feedback": "^2.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
