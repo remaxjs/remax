@@ -1,5 +1,4 @@
 {
-  "defaultTitle": "Ali App",
-  "titleBarColor": "#323239",
+  "navigationBarTitleText": "Wechat App",
   "usingComponents": {}
 }

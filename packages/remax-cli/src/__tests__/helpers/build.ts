@@ -4,6 +4,7 @@ import { createFsFromVolume, Volume, IFs } from 'memfs';
 import joinPath from 'memory-fs/lib/join';
 import API from '../../API';
 import webpackConfig from '../../build/webpackConfig';
+import webpackWebConfig from '../../web/webpackConfig.web';
 import getConfig from '../../getConfig';
 import winPath from '../../winPath';
 import { Platform } from '../../build/platform';
@@ -59,8 +60,12 @@ export default async function build(app: string, target: Platform, options: Part
   process.chdir(cwd);
   process.env.REMAX_PLATFORM = target;
   const remaxOptions = getConfig();
-  API.registerAdapterPlugins(target, remaxOptions);
-  const webpackOptions = webpackConfig(
+  if (target !== Platform.web) {
+    API.registerAdapterPlugins(target, remaxOptions);
+  }
+
+  const webpackConfigFn = target === Platform.web ? webpackWebConfig : webpackConfig;
+  const webpackOptions = webpackConfigFn(
     {
       ...remaxOptions,
       cwd,
