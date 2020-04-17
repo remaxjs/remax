@@ -1,31 +1,36 @@
 require('./../runtime.js');
-require('./../app~pages/index.js');
-(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[3],{
+(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[2],[
+/* 0 */,
+/* 1 */,
+/* 2 */
+/***/ (function(module, exports) {
 
-/***/ 14:
+module.exports = remax;
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = react;
 
 /***/ }),
-
-/***/ 38:
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(39);
+module.exports = __webpack_require__(5);
 
 
 /***/ }),
-
-/***/ 39:
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(remax__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var custom_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(40);
+/* harmony import */ var custom_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
 
 
 
@@ -41,33 +46,19 @@ var _page = function _page() {
   }));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Page(Object(remax__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page)));
+/* harmony default export */ __webpack_exports__["default"] = (Page(Object(remax__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "pages/index")));
 
 /***/ }),
-
-/***/ 4:
-/***/ (function(module, exports) {
-
-module.exports = react-reconciler;
-
-/***/ }),
-
-/***/ 40:
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* istanbul ignore next */
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(remax__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(remax__WEBPACK_IMPORTED_MODULE_0__["createHostComponent"])('custom-component'));
 
-/***/ }),
-
-/***/ 6:
-/***/ (function(module, exports) {
-
-module.exports = scheduler;
-
 /***/ })
-
-},[[38,0,2]]]);
+],[[4,0]]]);

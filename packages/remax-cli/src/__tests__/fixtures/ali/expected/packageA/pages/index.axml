@@ -230,7 +230,7 @@
   <template name="REMAX_TPL_1_contact-button">
   <contact-button 
     
-    card-no="{{item.props['card-no']}}"
+    alipay-card-no="{{item.props['alipay-card-no']}}"
     
     
     

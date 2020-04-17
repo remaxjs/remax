@@ -218,6 +218,16 @@ function registerProps(id: string, node?: t.JSXElement, isNative?: boolean) {
         propName = prop.namespace.name + ':' + prop.name.name;
       }
 
+      /**
+       * React 运行时读不到 key
+       * 所以在这里如果发现组件上设置了 key
+       * 就再设置一个别名 __key
+       * 然后在模板里写死 key="{{item.props.__key}}"
+       */
+      if (propName === 'key') {
+        node.openingElement.attributes.push(t.jsxAttribute(t.jsxIdentifier('__key'), attr.value));
+      }
+
       props.push(propName);
     });
   }

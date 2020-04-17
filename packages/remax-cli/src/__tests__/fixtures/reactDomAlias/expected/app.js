@@ -1,22 +1,20 @@
 require('./runtime.js');
-require('./app~pages/index.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[1],{
-
-/***/ 0:
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[1],[
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(1);
 
 
 /***/ }),
-
-/***/ 1:
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(15);
+/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(remax__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -67,26 +65,16 @@ var _App = /*#__PURE__*/function (_React$Component) {
 /* harmony default export */ __webpack_exports__["default"] = (App(Object(remax__WEBPACK_IMPORTED_MODULE_0__["createAppConfig"])(_App)));
 
 /***/ }),
+/* 2 */
+/***/ (function(module, exports) {
 
-/***/ 15:
+module.exports = remax;
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = react;
 
-/***/ }),
-
-/***/ 5:
-/***/ (function(module, exports) {
-
-module.exports = react-reconciler;
-
-/***/ }),
-
-/***/ 7:
-/***/ (function(module, exports) {
-
-module.exports = scheduler;
-
 /***/ })
-
-},[[0,0,2]]]);
+],[[0,0]]]);

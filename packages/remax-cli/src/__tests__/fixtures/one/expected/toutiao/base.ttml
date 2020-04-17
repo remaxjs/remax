@@ -198,25 +198,14 @@
 
   <template name="REMAX_TPL_navigator">
   <navigator 
-    animation="{{i.props['animation']}}" 
-    app-id="{{i.props['app-id']}}" 
-    bindcomplete="{{i.props['bindcomplete']}}" 
-    bindfail="{{i.props['bindfail']}}" 
-    bindsuccess="{{i.props['bindsuccess']}}" 
     class="{{i.props['class']}}" 
-    delta="{{i.props['delta']}}" 
-    extra-data="{{i.props['extra-data']}}" 
     hover-class="{{i.props['hover-class']}}" 
     hover-start-time="{{i.props['hover-start-time']}}" 
     hover-stay-time="{{i.props['hover-stay-time']}}" 
-    hover-stop-propagation="{{i.props['hover-stop-propagation']}}" 
     id="{{i.props['id']}}" 
     open-type="{{i.props['open-type']}}" 
-    path="{{i.props['path']}}" 
     style="{{i.props['style']}}" 
-    target="{{i.props['target']}}" 
     url="{{i.props['url']}}" 
-    version="{{i.props['version']}}" 
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">

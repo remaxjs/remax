@@ -3,7 +3,6 @@ import { Entries as EntriesType, RemaxOptions as RemaxOptionsType, RemaxConfig a
 export { default as logger } from './build/utils/output';
 import yargs from 'yargs';
 import build from './build';
-import { checkRemaxVersion } from './checkVersions';
 import analytics from './analytics';
 
 export type Entries = EntriesType;
@@ -13,8 +12,6 @@ export type RemaxConfig = RemaxConfigType;
 export let cli = yargs;
 
 export function run(args: any, callback?: yargs.ParseCallback) {
-  checkRemaxVersion();
-
   cli = yargs
     .scriptName('remax-cli')
     .usage('Usage: $0 <command> [options]')

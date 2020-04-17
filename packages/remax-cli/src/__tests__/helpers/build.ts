@@ -79,6 +79,12 @@ export default async function build(app: string, target: Platform, options: Part
             'react-reconciler': 'react-reconciler',
             scheduler: 'scheduler',
             'regenerator-runtime': 'regenerator-runtime',
+            remax: 'remax',
+            'remax/ali': 'remax/ali',
+            'remax/wechat': 'remax/wechat',
+            'remax/toutiao': 'remax/toutiao',
+            'remax/router': 'remax/router',
+            'remax/web': 'remax/web',
           });
 
         if (typeof remaxOptions.configWebpack === 'function') {
