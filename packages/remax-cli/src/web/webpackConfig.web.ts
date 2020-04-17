@@ -18,6 +18,7 @@ import getEnvironment from '../build/env';
 import pageClass from './pageClass';
 import getAppConfig from './getAppConfig';
 import readManifest from '../readManifest';
+import winPath from '../winPath';
 
 const config = new Config();
 
@@ -153,9 +154,11 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   const entryTemplate = fs.readFileSync(path.resolve(__dirname, '../../template/entry.js.ejs'), 'utf-8');
   const pages = entries.pages.map(p => {
     const ext = path.extname(p);
+    const ROOT = winPath(path.join(options.cwd, options.rootDir)) + '/';
+    p = winPath(p);
     return {
-      route: p.replace(path.join(options.cwd, options.rootDir) + '/', '').replace(new RegExp(`\\${ext}$`), ''),
-      path: p.replace(path.join(options.cwd, options.rootDir) + '/', './'),
+      route: p.replace(ROOT, '').replace(new RegExp(`\\${ext}$`), ''),
+      path: p.replace(ROOT, './'),
       config: readManifest(p.replace(new RegExp(`\\${ext}$`), '.config'), 'web'),
     };
   });
