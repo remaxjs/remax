@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.1](https://github.com/remaxjs/remax/compare/v1.21.0...v1.21.1) (2020-04-17)
+
+### Bug Fixes
+
+- **wechat:** 修复 remax/one 的 Input[maxlength] 设置不生效的问题 ([8829bae](https://github.com/remaxjs/remax/commit/8829bae742138b40080378dab4456ae221ba3f7c))
+
 # [1.21.0](https://github.com/remaxjs/remax/compare/v1.20.0...v1.21.0) (2020-04-14)
 
 **Note:** Version bump only for package remax-one
