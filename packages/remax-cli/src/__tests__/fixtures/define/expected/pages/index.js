@@ -597,17 +597,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v3", function() { return v3; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v5", function() { return v5; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v6", function() { return v6; });
-var v3 = [
-  {
-    "name": "pages/index",
-    "modules": [
-      "/Users/yuzhi/Workspaces/remax/packages/remax-cli/src/__tests__/fixtures/define/src/pages/index.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax-cli/src/__tests__/fixtures/define/src/pages/createHostComponent.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax-cli/src/__tests__/fixtures/define/src/pages/lifecycle.js",
-      "/Users/yuzhi/Workspaces/remax/packages/remax-cli/src/__tests__/fixtures/define/src/pages/index.js"
-    ]
-  }
-]
+var v3 = []
 var v5 = []
 var v6 = {}
 

@@ -1,5 +1,4 @@
 require('./../runtime.js');
-require('./../vendors~pages/index.js');
 (wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[2],[
 /* 0 */,
 /* 1 */,
@@ -28,15 +27,15 @@ module.exports = __webpack_require__(6);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Users_yuzhi_Workspaces_remax_packages_babel_preset_remax_node_modules_regenerator_runtime_runtime_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
-/* harmony import */ var _Users_yuzhi_Workspaces_remax_packages_babel_preset_remax_node_modules_regenerator_runtime_runtime_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Users_yuzhi_Workspaces_remax_packages_babel_preset_remax_node_modules_regenerator_runtime_runtime_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
+/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(remax__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
+/* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8);
 /* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(remax_wechat__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var remax_ali__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
+/* harmony import */ var remax_ali__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9);
 /* harmony import */ var remax_ali__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(remax_ali__WEBPACK_IMPORTED_MODULE_4__);
 
 
@@ -60,8 +59,8 @@ var _page = function _page() {
   }
 
   function _handleClick() {
-    _handleClick = _asyncToGenerator( /*#__PURE__*/_Users_yuzhi_Workspaces_remax_packages_babel_preset_remax_node_modules_regenerator_runtime_runtime_js__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-      return _Users_yuzhi_Workspaces_remax_packages_babel_preset_remax_node_modules_regenerator_runtime_runtime_js__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+    _handleClick = _asyncToGenerator( /*#__PURE__*/regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      return regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
@@ -99,18 +98,22 @@ var _page = function _page() {
 /* harmony default export */ __webpack_exports__["default"] = (Page(Object(remax__WEBPACK_IMPORTED_MODULE_1__["createPageConfig"])(_page, "pages/index")));
 
 /***/ }),
-/* 7 */,
-/* 8 */,
-/* 9 */
+/* 7 */
+/***/ (function(module, exports) {
+
+module.exports = regenerator-runtime;
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = remax/wechat;
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = remax/ali;
 
 /***/ })
-],[[5,0,4]]]);
+],[[5,0]]]);

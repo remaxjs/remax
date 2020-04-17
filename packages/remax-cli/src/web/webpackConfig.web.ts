@@ -155,7 +155,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     const ext = path.extname(p);
     return {
       route: p.replace(path.join(options.cwd, options.rootDir) + '/', '').replace(new RegExp(`\\${ext}$`), ''),
-      path: p,
+      path: p.replace(path.join(options.cwd, options.rootDir) + '/', './'),
       config: readManifest(p.replace(new RegExp(`\\${ext}$`), '.config'), 'web'),
     };
   });

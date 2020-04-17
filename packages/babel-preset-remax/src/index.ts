@@ -43,7 +43,7 @@ function preset(api: any, presetOption: PresetOption) {
       [
         require.resolve('babel-plugin-auto-import'),
         {
-          declarations: [{ default: 'regeneratorRuntime', path: require.resolve('regenerator-runtime') }],
+          declarations: [{ default: 'regeneratorRuntime', path: 'regenerator-runtime' }],
         },
       ],
     ],
