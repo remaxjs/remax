@@ -1,2 +1,2 @@
-import { createHostComponent as createHC } from 'remax';
-createHC('host-component');
+import { usePageEvent as uae } from 'remax';
+uae('onReady', () => {});
