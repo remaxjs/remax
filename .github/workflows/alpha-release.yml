@@ -76,6 +76,14 @@ jobs:
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
+      - name: Release @remax/types
+        run: |
+          cd packages/remax-types
+          yarn install
+          yarn build
+          yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
       - name: Release @remax/cli
         run: |
           cd packages/remax-cli
