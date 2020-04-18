@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.4](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.2...v2.0.0-alpha.4) (2020-04-18)
+
+# [1.21.0](https://github.com/remaxjs/remax/compare/v1.20.0...v1.21.0) (2020-04-14)
+
+### Bug Fixes
+
+- **alipay:** 修复钉钉小程序下没有 Function.prototype.apply 导致的白屏 ([#795](https://github.com/remaxjs/remax/issues/795)) ([17bde7d](https://github.com/remaxjs/remax/commit/17bde7d880d21dd27532909353cdd70c041efe48))
+
+### Features
+
+- **wechat:** 增加 API chooseMedia ([9a9037d](https://github.com/remaxjs/remax/commit/9a9037d29ad2b6228ba48df9aa46ef9c09777b1b))
+
+# [1.20.0](https://github.com/remaxjs/remax/compare/v1.19.8...v1.20.0) (2020-04-13)
+
+### Bug Fixes
+
+- 修复同一页面不能重复渲染的问题 ([#791](https://github.com/remaxjs/remax/issues/791)) ([14dbc28](https://github.com/remaxjs/remax/commit/14dbc2801e2a605d28c25a340ad0951cd403767c))
+
+### Features
+
+- 返回编译事件，方便跟其他工具集成 ([#784](https://github.com/remaxjs/remax/issues/784)) ([f8bed58](https://github.com/remaxjs/remax/commit/f8bed580a01493c89dd5ab4051f7184cf5fa6e70))
+
+## [1.19.8](https://github.com/remaxjs/remax/compare/v1.19.7...v1.19.8) (2020-04-09)
+
+### Bug Fixes
+
+- **alipay:** 修复不同的 key 渲染了相同元素的问题 ([#783](https://github.com/remaxjs/remax/issues/783)) ([3cae6c2](https://github.com/remaxjs/remax/commit/3cae6c266038aacbe778a411be04938c57de2eb1))
+
 # [1.21.0](https://github.com/remaxjs/remax/compare/v1.20.0...v1.21.0) (2020-04-14)
 
 ### Bug Fixes

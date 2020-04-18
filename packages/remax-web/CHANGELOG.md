@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.4](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.2...v2.0.0-alpha.4) (2020-04-18)
+
+### Bug Fixes
+
+- **web:** 修复文件不存在的问题 ([fcee347](https://github.com/remaxjs/remax/commit/fcee3476cb09b7e6a750bbb04e5bb264a8bb1090))
+
 # [2.0.0-alpha.3](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2020-04-16)
 
 ### Bug Fixes
