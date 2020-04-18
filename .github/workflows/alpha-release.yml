@@ -88,7 +88,8 @@ jobs:
         run: |
           cd packages/remax-cli
           yarn install
-          yarn add babel-preset-remax@alpha remax@alpha @remax/types@alpha @remax/macro
+          yarn add babel-preset-remax@alpha remax@alpha @remax/types@alpha
+          yarn add remax@alpha -D
           yarn build
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:
