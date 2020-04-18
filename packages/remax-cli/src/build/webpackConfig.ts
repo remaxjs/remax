@@ -3,12 +3,10 @@ import { Configuration, ProgressPlugin, DefinePlugin } from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import pxToUnits from '@remax/postcss-px2units';
 import { RemaxOptions } from '@remax/types';
 import { Platform } from './platform';
 import extensions, { matcher } from '../extensions';
 import getEntries from '../getEntries';
-import * as styleConfig from './styleConfig';
 import * as TurboPages from './turboPages';
 import * as staticCompiler from './babel/compiler/static';
 import app from './babel/app';
@@ -21,6 +19,7 @@ import API from '../API';
 import getEnvironment from './env';
 import * as platform from './platform';
 import winPath from '../winPath';
+import cssConfig from './webpack/config/css';
 
 export const config = new Config();
 
@@ -162,78 +161,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
       remaxOptions: options,
     });
 
-  const cssModuleConfig = styleConfig.getCssModuleConfig(options.cssModules);
-  const preprocessCssRules = [
-    {
-      name: 'postcss',
-      loader: require.resolve('postcss-loader'),
-      options: {
-        plugins: [options.pxToRpx && pxToUnits()].filter(Boolean),
-      },
-    },
-    styleConfig.enabled('less') && {
-      name: 'less',
-      loader: require.resolve('less-loader'),
-    },
-    styleConfig.enabled('node-sass') && {
-      name: 'sass',
-      loader: require.resolve('sass-loader'),
-    },
-    styleConfig.enabled('stylus') && {
-      name: 'stylus',
-      loader: require.resolve('stylus-loader'),
-    },
-  ].filter(Boolean) as any[];
-
-  let stylesRule = config.module
-    .rule('styles')
-    .test(styleConfig.styleMatcher)
-    .exclude.add(cssModuleConfig.enabled ? cssModuleConfig.cssModuleMatcher : '')
-    .end()
-    .use('cssExtract')
-    .loader(MiniCssExtractPlugin.loader)
-    .end()
-    .use('css')
-    .loader(require.resolve('css-loader'))
-    .options({
-      importLoaders: preprocessCssRules.length,
-    })
-    .end();
-
-  preprocessCssRules.forEach(rule => {
-    stylesRule = stylesRule
-      .use(rule.name)
-      .loader(rule.loader)
-      .options(rule.options || {})
-      .end();
-  });
-
-  // Css Modules
-  if (cssModuleConfig.enabled) {
-    stylesRule = config.module
-      .rule('cssModulesStyles')
-      .test(cssModuleConfig.cssModuleMatcher)
-      .include.add(cssModuleConfig.cssModuleMatcher)
-      .end()
-      .use(MiniCssExtractPlugin.loader)
-      .loader(MiniCssExtractPlugin.loader)
-      .end()
-      .use('css')
-      .loader(require.resolve('css-loader'))
-      .options({
-        importLoaders: preprocessCssRules.length,
-        modules: true,
-      })
-      .end();
-
-    preprocessCssRules.forEach(rule => {
-      stylesRule = stylesRule
-        .use(rule.name)
-        .loader(rule.loader)
-        .options(rule.options || {})
-        .end();
-    });
-  }
+  cssConfig(config, options, false);
 
   config.module
     .rule('watchManifest')

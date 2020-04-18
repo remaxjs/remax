@@ -4,7 +4,6 @@ import * as t from '@babel/types';
 
 export interface RemaxOptions {
   turboPages: string[];
-  cssModules: boolean | RegExp;
   pxToRpx: boolean;
   cwd: string;
   progress: boolean;

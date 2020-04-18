@@ -46,6 +46,7 @@ function preset(api: any, presetOption: PresetOption) {
           declarations: [{ default: 'regeneratorRuntime', path: 'regenerator-runtime' }],
         },
       ],
+      require.resolve('@umijs/babel-plugin-auto-css-modules'),
     ],
   };
 }

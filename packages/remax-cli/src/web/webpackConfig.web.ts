@@ -5,20 +5,18 @@ import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import pxToUnits from '@remax/postcss-px2units';
 import { RemaxOptions } from '@remax/types';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 import ejs from 'ejs';
 import { Platform } from '../build/platform';
 import extensions, { matcher } from '../extensions';
 import getEntries from '../getEntries';
-import * as styleConfig from '../build/styleConfig';
 import alias from '../build/alias';
 import getEnvironment from '../build/env';
-import pageClass from './pageClass';
 import getAppConfig from './getAppConfig';
 import readManifest from '../readManifest';
 import winPath from '../winPath';
+import cssConfig from '../build/webpack/config/css';
 
 const config = new Config();
 
@@ -72,66 +70,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
       reactPreset: true,
     });
 
-  const preprocessCssRules = [
-    {
-      name: 'postcss',
-      loader: require.resolve('postcss-loader'),
-      options: {
-        config: {
-          path: styleConfig.resolvePostcssConfig(options),
-        },
-        plugins: [pxToUnits({ targetUnits: 'rem', divisor: 100 }), pageClass()].filter(Boolean),
-      },
-    },
-    styleConfig.enabled('less') && { name: 'less', loader: require.resolve('less-loader') },
-    styleConfig.enabled('node-sass') && { name: 'sass', loader: require.resolve('sass-loader') },
-    styleConfig.enabled('stylus') && { name: 'stylus', loader: require.resolve('stylus-loader') },
-  ].filter(Boolean) as any[];
-
-  let modulStylesRule = config.module
-    .rule('module-styles')
-    .test(/\.module\.(css|less|sass|stylus)$/i)
-    .use('cssExtract')
-    .loader(MiniCssExtractPlugin.loader)
-    .end()
-    .use('css')
-    .loader(require.resolve('css-loader'))
-    .options({
-      modules: true,
-      importLoaders: preprocessCssRules.length,
-    })
-    .end();
-
-  preprocessCssRules.forEach(rule => {
-    modulStylesRule = modulStylesRule
-      .use(rule.name)
-      .loader(rule.loader)
-      .options(rule.options || {})
-      .end();
-  });
-
-  let styleRule = config.module
-    .rule('styles')
-    .test(/\.(css|less|sass|stylus)$/i)
-    .exclude.add(/\.module\.(css|less|sass|stylus)$/i)
-    .end()
-    .use('cssExtract')
-    .loader(MiniCssExtractPlugin.loader)
-    .end()
-    .use('css')
-    .loader(require.resolve('css-loader'))
-    .options({
-      importLoaders: preprocessCssRules.length,
-    })
-    .end();
-
-  preprocessCssRules.forEach(rule => {
-    styleRule = styleRule
-      .use(rule.name)
-      .loader(rule.loader)
-      .options(rule.options || {})
-      .end();
-  });
+  cssConfig(config, options, true);
 
   config.module
     .rule('json')
