@@ -3,7 +3,10 @@ import fs from 'fs';
 
 function readTypescriptManifest(path: string, target: string) {
   require('@babel/register')({
-    presets: [['@babel/preset-env', { modules: 'commonjs' }], '@babel/preset-typescript'],
+    presets: [
+      [require.resolve('@babel/preset-env'), { modules: 'commonjs' }],
+      require.resolve('@babel/preset-typescript'),
+    ],
     extensions: ['.ts'],
     cache: false,
   });

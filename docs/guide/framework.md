@@ -1,7 +1,9 @@
 ---
 title: 框架
-order: 0
+order: 21
 ---
+
+# 框架
 
 ## 应用
 
@@ -15,7 +17,7 @@ export default class App extends React.Component {
 }
 ```
 
-所有页面组件都会以 `App` 子组件的方式渲染，所以你可以很方便的通过 `Context` 来进行数据共享。
+所有页面组件都会以 `App` 子组件的方式渲染，所以你可以很方便地通过 `Context` 来进行数据共享。
 
 > 注意
 >
@@ -53,8 +55,8 @@ exports.wechat = {
   },
 };
 
-// 支付宝
-exports.alipay = {
+// 阿里
+exports.ali = {
   window: {
     defaultTitle: title,
   },
@@ -81,6 +83,24 @@ export default class App extends React.Component {
   render() {
     return this.props.children;
   }
+}
+```
+
+对于函数组件的 App, 可以通过 `useAppEvent` hook 来监听生命周期
+
+```jsx
+import { useAppEvent } from 'remax/macro';
+
+export default function App(props) {
+  useAppEvent('onShow', () => {
+    console.log('这个 hook 等同于 onShow');
+  });
+
+  useAppEvent('onShareAppMessage', () => {
+    console.log('这个 hook 等同于 onShareAppMessage');
+  });
+
+  return props.children;
 }
 ```
 
@@ -148,10 +168,10 @@ export default class IndexPage extends React.Component {
 }
 ```
 
-对于函数组件的页面  我们提供了 hooks 来监听生命周期。
+对于函数组件的页面, 我们提供了 hooks 来监听生命周期。
 
 ```jsx
-import { usePageEvent } from 'remax';
+import { usePageEvent } from 'remax/macro';
 
 export default () => {
   // onShow 生命周期
@@ -164,24 +184,6 @@ export default () => {
     console.log('onBack');
   });
 };
-```
-
-对于函数组件的 App, 为 `useAppEvent`
-
-```jsx
-import { useAppEvent } from 'remax';
-
-export default function App(props) {
-  useAppEvent('onShow', () => {
-    console.log('这个 hook 等用于 onShow');
-  });
-
-  useAppEvent('onShareAppMessage', () => {
-    console.log('这个 hook 等用于 onShareAppMessage');
-  });
-
-  return props.children;
-}
 ```
 
 > 注意
@@ -220,11 +222,11 @@ export default () => {
 ### 小程序渲染 Effect
 
 一般在 React 里，我们通过在 `useEffect` 来进行页面渲染成后需要处理的逻辑。但是在 Remax 中，`useEffect` 只是代表了 Remax 虚拟 DOM 处理完成，并不代表小程序渲染完成。
-为了支持开发者可以触及小程序渲染完成的时机，我们添加了一个新的 hook：`unstable_useNativeEffect`。
+为了支持开发者可以触及小程序渲染完成的时机，我们添加了一个新的 hook：`useNativeEffect`。
 
 ```jsx
 import * as React from 'react';
-import { unstable_useNativeEffect, useShow } from 'remax';
+import { useNativeEffect, useShow } from 'remax';
 
 export default () => {
   const [width, setWidth] = React.useState(width, 0);
@@ -239,7 +241,7 @@ export default () => {
       setHeight(100)
     }, 3000)
   });
-  unstable_useNativeEffect(() => {
+  useNativeEffect(() => {
     console.log('width', width, 'height', height);
     // 只有在 width 变化时，才执行这个逻辑。
     // 建议一定要写 hooks 依赖，否则所有 setData 回调后，都会在这里执行

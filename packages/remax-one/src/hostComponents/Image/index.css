@@ -1,0 +1,8 @@
+.remax-image {
+  background-repeat: no-repeat;
+  display: inline-block;
+  overflow: hidden;
+  font-size: 0;
+  width: 300px;
+  height: 225px;
+}

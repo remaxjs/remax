@@ -11,17 +11,17 @@ const remaxOptions = getConfig(false);
 describe('API', () => {
   beforeAll(() => {
     API.registerNodePlugins(remaxOptions);
-    API.registerAdapterPlugins('alipay', remaxOptions);
+    API.registerAdapterPlugins('ali', remaxOptions);
   });
 
   it('install plugins in a variety of ways', () => {
-    expect(API.plugins).toHaveLength(6);
+    expect(API.plugins).toHaveLength(5);
   });
 
   it('install adapter plugin', () => {
-    expect(API.adapter.name).toEqual('alipay');
-    expect(API.adapter.target).toEqual('alipay');
-    expect(API.adapter.packageName).toEqual('remax-alipay');
+    expect(API.adapter.name).toEqual('ali');
+    expect(API.adapter.target).toEqual('ali');
+    expect(API.adapter.packageName).toEqual('@remax/ali');
   });
 
   it('extends CLI', () => {
@@ -29,28 +29,6 @@ describe('API', () => {
     const argv = newYargs.parse();
 
     expect(argv.cat).toEqual(33);
-  });
-
-  it('getEntries', () => {
-    const defaultPage = 'defaultPageFile';
-    const defaultImage = 'defaultImage';
-    const entries = API.getEntries(
-      {
-        app: 'defaultApp',
-        pages: [defaultPage],
-        images: [defaultImage],
-      },
-      {
-        pages: [defaultPage],
-      },
-      remaxOptions
-    );
-
-    expect(entries).toEqual({
-      app: remaxOptions.cwd,
-      pages: [defaultPage, 'page'],
-      images: [defaultImage, remaxOptions.cwd],
-    });
   });
 
   it('processProps', () => {
@@ -62,18 +40,6 @@ describe('API', () => {
   it('shouldHostComponentRegister', () => {
     expect(API.shouldHostComponentRegister('view', 'import', false)).toBeTruthy();
     expect(API.shouldHostComponentRegister('swiper-item', 'import', false)).toBeFalsy();
-  });
-
-  it('extendsRollupConfig', () => {
-    const rollupConfig = API.extendsRollupConfig({
-      rollupConfig: {
-        treeshake: true,
-      },
-    });
-
-    expect(rollupConfig).toEqual({
-      treeshake: false,
-    });
   });
 
   it('getHostComponents', () => {

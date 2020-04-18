@@ -1,8 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "module": "commonjs",
-    "lib": ["es2015", "dom"],
-    "outDir": "lib"
-  },
-}

@@ -3,7 +3,6 @@ import { generate } from './instanceId';
 import { generate as generateActionId } from './actionId';
 import { FiberRoot } from 'react-reconciler';
 import nativeEffector from './nativeEffect';
-import Platform from './Platform';
 
 interface SpliceUpdate {
   path: string;
@@ -104,7 +103,7 @@ export default class Container {
       id: generateActionId(),
     };
 
-    if (Platform.isToutiao) {
+    if (process.env.REMAX_PLATFORM === 'toutiao') {
       action = {
         root: this.root.toJSON(),
       };
@@ -129,7 +128,7 @@ export default class Container {
   clearUpdate() {
     this.stopUpdate = true;
 
-    if (Platform.isWechat) {
+    if (process.env.REMAX_PLATFORM === 'wechat') {
       this.context.setData({
         action: { type: 'clear' },
       });

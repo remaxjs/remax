@@ -1,4 +1,5 @@
 /* eslint-disable prefer-rest-params */
+/* istanbul ignore next */
 if (typeof Function.prototype.call === 'undefined') {
   Function.prototype.call = function(context: any) {
     context = context || window;
@@ -10,6 +11,7 @@ if (typeof Function.prototype.call === 'undefined') {
   };
 }
 
+/* istanbul ignore next */
 if (typeof Function.prototype.apply === 'undefined') {
   Function.prototype.apply = function(context) {
     context = context || window;

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "xx": "plugin://myPlugin/xx",
+    "dddd": "plugin://myPlugin/dddd"
+  }
+}

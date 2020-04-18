@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import esm from 'esm';
 import defaultOptions from './defaultOptions';
-import { RemaxOptions, RemaxConfig } from 'remax-types';
+import { RemaxOptions, RemaxConfig } from '@remax/types';
 import validateOptions from 'schema-utils';
 import schema from './RemaxOptionsSchema.json';
 import API from './API';
@@ -26,12 +26,12 @@ function readJavascriptConfig(path: string) {
 
 function validateTurboPages(config: RemaxConfig) {
   // adapter name 还不存在，说明 adapter plugin 还没有初始化
-  if (!API.adapter.target || API.adapter.target === 'alipay') {
+  if (!API.adapter.target || API.adapter.target === 'ali') {
     return;
   }
 
   if (config.turboPages && config.turboPages.length > 0) {
-    throw new Error('turboPages 目前仅支持 alipay 平台开启');
+    throw new Error('turboPages 目前仅支持 ali 平台开启');
   }
 }
 

@@ -1,5 +1,5 @@
 const platformAlias: any = {
-  alipay: {
+  ali: {
     onMessage: 'onMessage',
   },
   wechat: {

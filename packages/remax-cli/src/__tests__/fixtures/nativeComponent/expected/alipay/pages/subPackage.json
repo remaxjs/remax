@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "sub-plugin-0": "plugin://subPlugin/xx",
-    "sub-plugin-1": "plugin://subPlugin/dddd"
-  }
-}

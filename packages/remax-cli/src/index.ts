@@ -1,9 +1,8 @@
 import API from './API';
-import { Entries as EntriesType, RemaxOptions as RemaxOptionsType, RemaxConfig as RemaxConfigType } from 'remax-types';
+import { Entries as EntriesType, RemaxOptions as RemaxOptionsType, RemaxConfig as RemaxConfigType } from '@remax/types';
 export { default as logger } from './build/utils/output';
 import yargs from 'yargs';
 import build from './build';
-import { checkRemaxVersion } from './checkVersions';
 import analytics from './analytics';
 
 export type Entries = EntriesType;
@@ -12,9 +11,7 @@ export type RemaxConfig = RemaxConfigType;
 
 export let cli = yargs;
 
-export function run(args: any, context?: any, callback?: yargs.ParseCallback) {
-  checkRemaxVersion();
-
+export function run(args: any, callback?: yargs.ParseCallback) {
   cli = yargs
     .scriptName('remax-cli')
     .usage('Usage: $0 <command> [options]')
@@ -27,7 +24,7 @@ export function run(args: any, context?: any, callback?: yargs.ParseCallback) {
       },
       (argv: any) => {
         analytics.event('cli', 'build', argv.target).send();
-        build(argv, context);
+        build(argv);
       }
     );
 
@@ -41,7 +38,7 @@ export function run(args: any, context?: any, callback?: yargs.ParseCallback) {
       default: false,
     })
     .option('target', {
-      describe: '目标平台，如 wechat，alipay',
+      describe: '目标平台，如 wechat，ali',
       alias: 't',
       type: 'string',
       required: true,

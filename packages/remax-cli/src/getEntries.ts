@@ -1,11 +1,10 @@
 import fs from 'fs';
 import path from 'path';
-import API from './API';
-import { RemaxOptions, AppConfig, Entries } from 'remax-types';
+import { RemaxOptions, AppConfig, Entries } from '@remax/types';
 import readManifest from './readManifest';
-import { Context } from './types';
+import { Platform } from './build/platform';
 
-export function searchFile(file: string, strict?: boolean) {
+export function searchFile(file: string) {
   const exts = ['ts', 'tsx', 'js', 'jsx'];
 
   for (const e of exts) {
@@ -18,41 +17,42 @@ export function searchFile(file: string, strict?: boolean) {
   return '';
 }
 
-export const getAppConfig = (options: RemaxOptions) => {
+export const getAppConfig = (options: RemaxOptions, target: Platform) => {
   const appConfigPath: string = path.join(options.cwd, options.rootDir, 'app.config');
 
-  return readManifest(appConfigPath, API.adapter.target, true) as AppConfig;
+  return readManifest(appConfigPath, target, true) as AppConfig;
 };
 
-// TODO: getEntries 处理 context 的逻辑要去掉
-export default function getEntries(options: RemaxOptions, context?: Context): Entries {
-  let pages: any = [];
-  let subpackages: any = [];
+export default function getEntries(options: RemaxOptions, target: Platform): Entries {
+  const appConfig = getAppConfig(options, target);
+  const ROOT_DIR = path.join(options.cwd, options.rootDir);
+  const pages = appConfig.pages;
+  const subPackages = appConfig.subPackages || appConfig.subpackages || [];
 
-  const appConfig = getAppConfig(options);
-
-  if (context) {
-    pages = context?.pages?.map(p => p.path) || [];
-    subpackages = context?.app?.subpackages || context?.app?.subPackages || [];
+  if (!pages || pages.length === 0) {
+    throw new Error('app.config.js|ts 并未配置页面参数');
   }
 
   const entries: Entries = {
     app: searchFile(path.join(options.cwd, options.rootDir, 'app')),
     pages: [],
-    images: [],
   };
 
-  entries.pages = pages.reduce((ret: Array<{ path: string; file: string }>, page: string) => {
-    return [...ret, searchFile(path.join(options.cwd, options.rootDir, page))];
-  }, []);
+  // 页面
+  entries.pages = pages.reduce(
+    (ret: string[], page: string) => [...ret, searchFile(path.join(ROOT_DIR, page))].filter(page => !!page),
+    []
+  );
 
-  subpackages.forEach((pack: { pages: string[]; root: string }) => {
+  // 分包页面
+  subPackages.forEach((pack: { pages: string[]; root: string }) => {
     entries.pages = entries.pages.concat(
-      pack.pages.reduce((ret: string[], page) => {
-        return [...ret, searchFile(path.join(options.cwd, options.rootDir, pack.root, page))];
-      }, [])
+      pack.pages.reduce(
+        (ret: string[], page) => [...ret, searchFile(path.join(ROOT_DIR, pack.root, page))].filter(page => !!page),
+        []
+      )
     );
   });
 
-  return API.getEntries(entries, appConfig, options);
+  return entries;
 }

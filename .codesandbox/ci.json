@@ -2,9 +2,11 @@
   "packages": [
     "packages/remax-types",
     "packages/remax.macro",
-    "packages/remax-alipay",
+    "packages/remax-ali",
     "packages/remax-wechat",
     "packages/remax-toutiao",
+    "packages/remax-router",
+    "packages/remax-web",
     "packages/remax-one",
     "packages/babel-preset-remax",
     "packages/remax",

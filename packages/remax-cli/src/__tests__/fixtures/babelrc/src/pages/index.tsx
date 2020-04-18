@@ -1,6 +1,6 @@
 import * as React from 'react';
 import A from '@/components/a';
-import { View } from 'remax/alipay';
+import { View } from 'remax/ali';
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
 namespace N {

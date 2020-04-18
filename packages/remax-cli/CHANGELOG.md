@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<<<<<<< HEAD
+
 # [1.21.0](https://github.com/remaxjs/remax/compare/v1.20.0...v1.21.0) (2020-04-14)
 
 ### Bug Fixes
@@ -27,7 +29,34 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **alipay:** 修复不同的 key 渲染了相同元素的问题 ([#783](https://github.com/remaxjs/remax/issues/783)) ([3cae6c2](https://github.com/remaxjs/remax/commit/3cae6c266038aacbe778a411be04938c57de2eb1))
+- # **alipay:** 修复不同的 key 渲染了相同元素的问题 ([#783](https://github.com/remaxjs/remax/issues/783)) ([3cae6c2](https://github.com/remaxjs/remax/commit/3cae6c266038aacbe778a411be04938c57de2eb1))
+
+# [2.0.0-alpha.2](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2020-04-16)
+
+### Bug Fixes
+
+- **cli:** 修复 adapter 引入错误的问题 ([906c93d](https://github.com/remaxjs/remax/commit/906c93da8ac02541d9a56973b1f375a4926b78e3))
+
+# [2.0.0-alpha.1](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.0...v2.0.0-alpha.1) (2020-04-16)
+
+**Note:** Version bump only for package @remax/cli
+
+# [2.0.0-alpha.0](https://github.com/remaxjs/remax/compare/v1.19.7...v2.0.0-alpha.0) (2020-04-16)
+
+### Bug Fixes
+
+- 修正 css-loader 找不到的问题 ([f541399](https://github.com/remaxjs/remax/commit/f5413996985ae419554fd3e9fb7eed459c0d7177))
+
+### Features
+
+- add basic web support ([#757](https://github.com/remaxjs/remax/issues/757)) ([b3b48b1](https://github.com/remaxjs/remax/commit/b3b48b111cd5889f17d3ec15f1c39437a9dc7fc4))
+- add CoverageIgnorePlugin ([f49997f](https://github.com/remaxjs/remax/commit/f49997f4abe6cb1cbb6894dad391e5870b521f01))
+
+### Reverts
+
+- Revert "fix winpath" ([00951cb](https://github.com/remaxjs/remax/commit/00951cb9dfcdd584afb05536e91e4d2352e0f49f))
+- Revert "make lint happy" ([f9f6194](https://github.com/remaxjs/remax/commit/f9f6194ba09bfc4c962391e4e8bd74522187c1d3))
+  > > > > > > > next
 
 ## [1.19.7](https://github.com/remaxjs/remax/compare/v1.19.6...v1.19.7) (2020-04-08)
 

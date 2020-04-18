@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/index",
+    "pages/page2/index",
+    "pages/page3/index"
+  ],
+  "window": {
+    "defaultTitle": "Ali App",
+    "titleBarColor": "#323239"
+  }
+}

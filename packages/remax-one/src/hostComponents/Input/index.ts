@@ -1,35 +1,7 @@
 import * as React from 'react';
 import { InputEvent } from '../../types';
 import { createCallback, createInputEvent } from '../../createHostComponent';
-
-export interface InputProps {
-  // 通用属性
-  readonly dataset?: DOMStringMap;
-  id?: string;
-  className?: string;
-  style?: React.CSSProperties;
-  /** 输入框的初始内容 */
-  defaultValue?: string;
-  value?: string;
-  name?: string;
-  /** input 的类型 */
-  type?: string;
-  /** 是否是密码类型 */
-  password?: boolean;
-  /** 输入框为空时占位符 */
-  placeholder?: string;
-  placeholderStyle?: React.CSSProperties;
-  /** 是否禁用 */
-  disabled?: boolean;
-  /** 最大输入长度，设置为 -1 的时候不限制最大长度 */
-  maxlength?: number;
-  /** 获取焦点 */
-  focus?: boolean;
-  onInput?: (e: InputEvent) => any;
-  onConfirm?: (e: InputEvent) => void;
-  onFocus?: (e: InputEvent) => void;
-  onBlur?: (e: InputEvent) => void;
-}
+import { InputProps } from './props';
 
 export interface InputState {
   value?: string;
@@ -38,17 +10,15 @@ export interface InputState {
 
 export default class Input extends React.Component<InputProps, InputState> {
   static defaultProps = {
-    'toutiao-maxlength': 140,
     'toutiao-selection-end': 999,
     'toutiao-selection-start': 999,
-    'wechat-maxlength': 140,
     'wechat-selection-end': 999,
     'wechat-selection-start': 999,
   };
 
   state: InputState = {
     value: '',
-    // 支付宝
+    // 阿里
     controlled: false,
   };
 
@@ -102,6 +72,10 @@ export default class Input extends React.Component<InputProps, InputState> {
 
     if (inputProps.onBlur) {
       inputProps.onBlur = createCallback(this.props.onBlur, createInputEvent);
+    }
+
+    if (process.env.REMAX_PLATFORM === 'wechat' || process.env.REMAX_PLATFORM === 'toutiao') {
+      inputProps.maxlength = inputProps.maxlength ?? 140;
     }
 
     return React.createElement('input', {

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import createPageWrapper from './createPageWrapper';
-import { Lifecycle, callbackName } from './lifecycle';
+import { Lifecycle, callbackName, pageEvents } from './lifecycle';
+import stopPullDownRefresh from './stopPullDownRefresh';
 import Container from './Container';
 import { createPortal } from './ReactPortal';
 
@@ -18,10 +19,10 @@ export function resetPageId() {
   idCounter = 0;
 }
 
-export default function createPageConfig(Page: React.ComponentType<any>) {
+export default function createPageConfig(Page: React.ComponentType<any>, entry: string) {
   const app = getApp() as any;
 
-  const config = {
+  const config: any = {
     data: {
       action: {},
       root: {
@@ -55,6 +56,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       this.unloaded = true;
       this.container.clearUpdate();
       app._unmount(this);
+      return this.callLifecycle(Lifecycle.load);
     },
 
     /**
@@ -86,50 +88,6 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       }
     },
 
-    onShow() {
-      return this.callLifecycle(Lifecycle.show);
-    },
-
-    onHide() {
-      return this.callLifecycle(Lifecycle.hide);
-    },
-
-    onReady() {
-      return this.callLifecycle(Lifecycle.ready);
-    },
-
-    onPullDownRefresh(e: any) {
-      return this.callLifecycle(Lifecycle.pullDownRefresh, e);
-    },
-
-    onReachBottom() {
-      return this.callLifecycle(Lifecycle.reachBottom);
-    },
-
-    onPageScroll(e: any) {
-      return this.callLifecycle(Lifecycle.pageScroll, e);
-    },
-
-    onShareAppMessage(options: any) {
-      return this.callLifecycle(Lifecycle.shareAppMessage, options) || {};
-    },
-
-    onTitleClick() {
-      return this.callLifecycle(Lifecycle.titleClick);
-    },
-
-    onOptionMenuClick(e: any) {
-      return this.callLifecycle(Lifecycle.optionMenuClick, e);
-    },
-
-    onPopMenuClick(e: any) {
-      return this.callLifecycle(Lifecycle.popMenuClick, e);
-    },
-
-    onPullIntercept() {
-      return this.callLifecycle(Lifecycle.pullIntercept);
-    },
-
     events: {
       // 页面返回时触发
       onBack(this: any, e: any) {
@@ -159,6 +117,64 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
      * lifecycle end
      */
   };
+
+  const lifecycleEvents: any = {
+    onShow() {
+      return this.callLifecycle(Lifecycle.show);
+    },
+
+    onHide() {
+      return this.callLifecycle(Lifecycle.hide);
+    },
+
+    onReady() {
+      return this.callLifecycle(Lifecycle.ready);
+    },
+
+    onPullDownRefresh(e: any) {
+      const result = this.callLifecycle(Lifecycle.pullDownRefresh, e);
+
+      if (result && typeof result.then === 'function') {
+        Promise.resolve(result).then(() => {
+          stopPullDownRefresh();
+        });
+      }
+    },
+
+    onReachBottom() {
+      return this.callLifecycle(Lifecycle.reachBottom);
+    },
+
+    onPageScroll(e: any) {
+      return this.callLifecycle(Lifecycle.pageScroll, e);
+    },
+
+    onShareAppMessage(options: any) {
+      return this.callLifecycle(Lifecycle.shareAppMessage, options) || {};
+    },
+
+    onTitleClick() {
+      return this.callLifecycle(Lifecycle.titleClick);
+    },
+
+    onOptionMenuClick(e: any) {
+      return this.callLifecycle(Lifecycle.optionMenuClick, e);
+    },
+
+    onPopMenuClick(e: any) {
+      return this.callLifecycle(Lifecycle.popMenuClick, e);
+    },
+
+    onPullIntercept() {
+      return this.callLifecycle(Lifecycle.pullIntercept);
+    },
+  };
+
+  pageEvents(entry).forEach(eventName => {
+    if (lifecycleEvents[eventName]) {
+      config[eventName] = lifecycleEvents[eventName].bind(config);
+    }
+  });
 
   return config;
 }

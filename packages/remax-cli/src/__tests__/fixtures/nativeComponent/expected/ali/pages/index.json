@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+    "xx": "plugin://myPlugin/xx",
+    "dddd": "plugin://myPlugin/dddd",
+    "index": "/remaxVendors/components/a/index",
+    "index0": "/remaxVendors/components/b/index",
+    "index1": "/remaxVendors/components/c/index",
+    "index2": "/remaxVendors/components/d/index",
+    "index3": "/remaxVendors/components/e/index",
+    "index4": "/remaxVendors/components/complex/index",
+    "index5": "/remaxVendors/components/slot/index",
+    "index6": "/remaxVendors/components/_foo/a/index",
+    "index7": "/remaxVendors/components/src/index",
+    "index8": "/remaxVendors/npm/cjs/index"
+  }
+}

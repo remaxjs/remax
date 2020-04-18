@@ -4,7 +4,7 @@ const defaultAlias = {
   id: 'id',
   className: 'class',
   style: 'style',
-  for: 'for',
+  htmlFor: 'for',
 };
 
 export const alias = { ...defaultAlias, ...platformAlias[process.env.REMAX_PLATFORM!] };

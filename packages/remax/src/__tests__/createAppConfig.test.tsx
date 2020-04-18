@@ -10,7 +10,7 @@ describe('createAppConfig', () => {
 
   it('get App ref', () => {
     const appConfig = createAppConfig(App);
-    appConfig.onLaunch();
+    appConfig.onLaunch({});
     expect(appConfig._instance.current).toBeInstanceOf(App);
   });
 
@@ -21,35 +21,15 @@ describe('createAppConfig', () => {
       });
     };
     const appConfig = createAppConfig(hoc(App));
-    appConfig.onLaunch();
+    appConfig.onLaunch({});
     expect(appConfig._instance.current).toBeInstanceOf(App);
   });
 
   it('does not pass ref to FC', () => {
     const FCApp: React.FC = props => props.children as React.ReactElement;
     const appConfig = createAppConfig(FCApp);
-    appConfig.onLaunch();
+    appConfig.onLaunch({});
     expect(appConfig._instance.current).toBeNull();
-  });
-
-  it('backwards compatible, use App as an es6 class', () => {
-    function _classCallCheck(instance: any, Constructor: any) {
-      if (!(instance instanceof Constructor)) {
-        throw new TypeError('Cannot call a class as a function');
-      }
-    }
-
-    const App = (function() {
-      function App(this: any) {
-        _classCallCheck(this, App);
-      }
-
-      App.prototype.foo = 'bar';
-      return App;
-    })();
-
-    const appConfig = createAppConfig(App);
-    expect(appConfig.foo).toBe('bar');
   });
 
   it('use default App', () => {

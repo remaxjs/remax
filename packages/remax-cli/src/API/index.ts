@@ -1,17 +1,7 @@
 import { hostComponents } from 'remax/macro';
 import * as t from '@babel/types';
-import {
-  AppConfig,
-  RemaxOptions,
-  RemaxNodePlugin,
-  ExtendsCLIOptions,
-  ExtendsRollupConfigOptions,
-  Entries,
-  Meta,
-} from 'remax-types';
-import { RollupOptions } from 'rollup';
+import { RemaxOptions, RemaxNodePlugin, ExtendsCLIOptions, Meta, HostComponent } from '@remax/types';
 import { merge } from 'lodash';
-import { searchFile } from '../getEntries';
 
 class API {
   public plugins: RemaxNodePlugin[] = [];
@@ -22,6 +12,7 @@ class API {
     options: {},
   };
   public meta = {
+    global: '',
     template: {
       extension: '',
       tag: '',
@@ -51,6 +42,7 @@ class API {
 
   public getMeta() {
     let meta: Meta = {
+      global: '',
       template: {
         extension: '',
         tag: '',
@@ -78,25 +70,7 @@ class API {
     return hostComponents;
   }
 
-  public getEntries(entries: Entries, appManifest: AppConfig, remaxOptions: RemaxOptions) {
-    this.plugins.forEach(plugin => {
-      if (typeof plugin.getEntries === 'function') {
-        const currentEntries = plugin.getEntries({
-          remaxOptions,
-          appManifest,
-          getEntryPath: (entryPath: string) => searchFile(entryPath),
-        });
-
-        entries.app = currentEntries.app || entries.app;
-        entries.pages = [...entries.pages, ...currentEntries.pages];
-        entries.images = [...entries.images, ...currentEntries.images];
-      }
-    });
-
-    return entries;
-  }
-
-  public processProps(componentName: string, props: string[], additional?: boolean, node?: t.JSXElement | undefined) {
+  public processProps(componentName: string, props: string[], additional?: boolean, node?: t.JSXElement) {
     let nextProps = props;
     this.plugins.forEach(plugin => {
       if (typeof plugin.processProps === 'function') {
@@ -126,22 +100,11 @@ class API {
     }, true);
   }
 
-  public extendsRollupConfig(options: ExtendsRollupConfigOptions): RollupOptions {
-    let { rollupConfig } = options;
-    this.plugins.forEach(plugin => {
-      if (typeof plugin.extendsRollupConfig === 'function') {
-        rollupConfig = plugin.extendsRollupConfig({ ...options, rollupConfig });
-      }
-    });
-
-    return rollupConfig;
-  }
-
   public registerAdapterPlugins(targetName: string, remaxConfig: RemaxOptions) {
     this.adapter.target = targetName;
 
     this.adapter.name = targetName;
-    this.adapter.packageName = 'remax-' + targetName;
+    this.adapter.packageName = '@remax/' + targetName;
 
     const packagePath = this.adapter.packageName + '/node';
 
@@ -152,7 +115,7 @@ class API {
     this.plugins.push(plugin);
 
     if (remaxConfig.one) {
-      const onePath = 'remax-one/node';
+      const onePath = '@remax/one/node';
 
       delete require.cache[onePath];
       const plugin = require(onePath).default || require(onePath);
@@ -171,13 +134,13 @@ class API {
     });
   }
 
-  private registerHostComponents(components?: Map<string, any>) {
+  private registerHostComponents(components?: Map<string, HostComponent>) {
     if (!components) {
       return;
     }
 
     for (const key of components.keys()) {
-      hostComponents.set(key, components.get(key));
+      hostComponents.set(key, components.get(key)!);
     }
   }
 }

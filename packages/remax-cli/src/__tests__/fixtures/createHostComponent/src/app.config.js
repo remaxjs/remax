@@ -1,7 +1,7 @@
-exports.alipay = {
+exports.ali = {
   pages: ['pages/index'],
   window: {
-    defaultTitle: 'Alipay App',
+    defaultTitle: 'Ali App',
     titleBarColor: '#323239',
   },
 };

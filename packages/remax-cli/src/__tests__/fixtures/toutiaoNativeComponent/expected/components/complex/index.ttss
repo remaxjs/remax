@@ -1,5 +1,0 @@
-@import "./button.ttss";
-
-.foo {
-  color: red;
-}

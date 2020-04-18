@@ -1,5 +1,5 @@
 const platformAlias: any = {
-  alipay: {
+  ali: {
     onLoad: 'onLoad',
     onError: 'onError',
     onTap: 'onTap',
@@ -34,7 +34,6 @@ export const defaultAlias = {
   mode: 'mode',
   className: 'class',
   style: 'style',
-  lazyLoad: 'lazy-load',
 };
 
 export const alias = { ...defaultAlias, ...platformAlias[process.env.REMAX_PLATFORM!] };

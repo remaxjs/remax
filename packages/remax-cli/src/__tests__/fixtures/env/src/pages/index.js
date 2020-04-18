@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from 'remax/alipay';
+import { View, Text } from 'remax/ali';
 
 export default () => {
   if (process.env.NODE_ENV === 'production') {

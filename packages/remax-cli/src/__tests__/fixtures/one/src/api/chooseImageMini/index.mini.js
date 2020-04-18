@@ -1,3 +1,3 @@
-import { chooseImage } from 'remax/alipay';
+import { chooseImage } from 'remax/ali';
 
 export default chooseImage;

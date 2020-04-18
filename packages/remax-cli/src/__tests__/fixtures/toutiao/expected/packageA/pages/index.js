@@ -1,22 +1,63 @@
-'use strict';
+require('./../../runtime.js');
+(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[3],[
+/* 0 */,
+/* 1 */,
+/* 2 */
+/***/ (function(module, exports) {
 
-Object.defineProperty(exports, '__esModule', { value: true });
+module.exports = remax;
 
-var index$1 = require('../../index-chunk.js');
-require('react-reconciler');
-require('scheduler');
-var React = require('react');
-var wechat = require('../../wechat-chunk.js');
+/***/ }),
+/* 3 */,
+/* 4 */
+/***/ (function(module, exports) {
+
+module.exports = react;
+
+/***/ }),
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = remax/wechat;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(11);
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(remax__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
+/* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(remax_wechat__WEBPACK_IMPORTED_MODULE_2__);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+
 
 var _page = function _page() {
   var props = {};
-  var TextElement = React.cloneElement( /*#__PURE__*/React.createElement(wechat.Text, null));
+  var TextElement = react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_2__["Text"], null));
 
   function handleClick() {}
 
   function handleTouchStart() {}
 
-  return /*#__PURE__*/React.createElement(wechat.View, null, /*#__PURE__*/React.createElement(wechat.View, index$1._extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_2__["View"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_2__["View"], _extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
@@ -24,6 +65,7 @@ var _page = function _page() {
   }, props), "foo"), TextElement);
 };
 
-var index = Page(index$1.createPageConfig(_page));
+/* harmony default export */ __webpack_exports__["default"] = (Page(Object(remax__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "packageA/pages/index")));
 
-exports.default = index;
+/***/ })
+],[[10,0]]]);

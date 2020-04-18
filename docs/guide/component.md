@@ -3,6 +3,8 @@ title: 组件
 order: 23
 ---
 
+# 组件
+
 Remax 用驼峰的方式来命令小程序组件，如：
 
 ```js
@@ -25,7 +27,7 @@ Remax
 <view class="view" style="display: flex;" bindtap="handleClick"></view>
 ```
 
-对应支付宝小程序
+对应阿里小程序
 
 ```html
 <view class="view" style="display: flex;" onTap="handleClick"></view>

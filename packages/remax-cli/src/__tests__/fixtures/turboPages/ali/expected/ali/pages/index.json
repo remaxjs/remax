@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "Ali App",
+  "titleBarColor": "#323239",
+  "usingComponents": {
+    "index": "/remaxVendors/components/nativeComponent/index"
+  }
+}

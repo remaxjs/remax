@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PullToRefresh render correctly 1`] = `
+<div
+  className="rmc-pull-to-refresh rmc-pull-to-refresh-down"
+  scale={0.6}
+>
+  <div
+    className="rmc-pull-to-refresh-content-wrapper"
+  >
+    <div
+      className="rmc-pull-to-refresh-content rmc-pull-to-refresh-transition"
+    >
+      <div
+        className="rmc-pull-to-refresh-indicator"
+      >
+        <svg
+          className="remax-pull-to-refresh-loading"
+          viewBox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="0"
+            cy="16"
+            r="0"
+            transform="translate(8 0)"
+          >
+            <animate
+              attributeName="r"
+              begin="0"
+              calcMode="spline"
+              dur="1.2s"
+              keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8"
+              keyTimes="0;0.2;0.7;1"
+              repeatCount="indefinite"
+              values="2; 2; 2; 2"
+            />
+          </circle>
+          <circle
+            cx="0"
+            cy="16"
+            r="0"
+            transform="translate(16 0)"
+          >
+            <animate
+              attributeName="r"
+              begin="0.3"
+              calcMode="spline"
+              dur="1.2s"
+              keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8"
+              keyTimes="0;0.2;0.7;1"
+              repeatCount="indefinite"
+              values="2; 2; 2; 2"
+            />
+          </circle>
+          <circle
+            cx="0"
+            cy="16"
+            r="0"
+            transform="translate(24 0)"
+          >
+            <animate
+              attributeName="r"
+              begin="0.6"
+              calcMode="spline"
+              dur="1.2s"
+              keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8"
+              keyTimes="0;0.2;0.7;1"
+              repeatCount="indefinite"
+              values="2; 2; 2; 2"
+            />
+          </circle>
+        </svg>
+      </div>
+      <div />
+    </div>
+  </div>
+</div>
+`;
