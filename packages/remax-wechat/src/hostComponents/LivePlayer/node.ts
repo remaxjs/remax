@@ -19,6 +19,10 @@ export const alias = {
   onFullScreenChange: 'bindfullscreenchange',
   onNetStatus: 'bindnetstatus',
   animation: 'animation',
+  pictureInPictureMode: 'picture-in-picture-mode',
+  onAudioVolumeNotify: 'bindaudiovolumenotify',
+  onEnterPictureInPicture: 'bindenterpictureinpicture',
+  onLeavePictureInPicture: 'bindleavepictureinpicture',
 };
 
 export const props = Object.values(alias);

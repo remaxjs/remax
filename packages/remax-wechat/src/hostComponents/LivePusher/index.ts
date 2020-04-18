@@ -10,6 +10,12 @@ export interface LivePusherProps extends BaseProps {
   autopush?: boolean;
   /** (default: false) 是否静音 1.7.0  */
   muted?: boolean;
+  /** (default: true) 开启或关闭麦克风 2.10.0  */
+  enableMic?: boolean;
+  /** (default: false) 是否开启音频自动增益 2.10.0  */
+  enableAgc?: boolean;
+  /** (default: false) 是否开启音频噪声抑制 2.10.0  */
+  enableAns?: boolean;
   /** (default: true) 开启摄像头 1.7.0  */
   enableCamera?: boolean;
   /** (default: true) 自动聚集 1.7.0  */
@@ -37,7 +43,15 @@ export interface LivePusherProps extends BaseProps {
   /** (default: false) 进入后台时是否静音 1.7.0 */
   backgroundMute?: boolean;
   /** (default: false) 设置推流画面是否镜像，产生的效果在 live-player 反应到 2.7.0 */
-  mirror?: boolean;
+  remoteMirror?: boolean;
+  /** (default: 0) 音频混响类型 2.10.0 */
+  audioReverbType?: number;
+  /** (default: voicecall) 音量类型 2.10.0 */
+  audioVolumeType?: string;
+  /** (default: 360) 上推的视频流的分辨率宽度 2.10.0 */
+  videoWidth?: number;
+  /** (default: 640) 上推的视频流的分辨率高度 */
+  videoHeight?: number;
   /** 状态变化事件，detail = {code} 1.7.0 */
   onStateChange?: (event: any) => any;
   /** 网络状态通知，detail = {info} 1.9.0 */
