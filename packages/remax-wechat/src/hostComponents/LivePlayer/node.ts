@@ -16,7 +16,6 @@ export const alias = {
   autoPauseIfOpenNative: 'auto-pause-if-open-native',
   onStateChange: 'bindstatechange',
   onFullscreenChange: 'bindfullscreenchange',
-  onFullScreenChange: 'bindfullscreenchange',
   onNetStatus: 'bindnetstatus',
   animation: 'animation',
   pictureInPictureMode: 'picture-in-picture-mode',
