@@ -32,6 +32,8 @@ export interface LivePlayerProps extends BaseProps {
   onFullScreenChange?: (event: any) => any;
   /** 网络状态通知，detail = {info} 1.9.0  */
   onNetStatus?: (event: any) => any;
+  /** 设置小窗模式： push, pop，空字符串或通过数组形式设置多种模式（如： ["push", "pop"]）2.10.3 */
+  pictureInPictureMode?: string | string[];
   /** 播放音量大小通知，detail = {} 2.10.0  */
   onAudioVolumeNotify?: (event: any) => any;
   /** 播放器进入小窗 2.11.0  */
