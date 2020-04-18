@@ -412,6 +412,8 @@ function (_super) {
   };
 
   Input.prototype.render = function () {
+    var _a;
+
     var inputProps = __assign(__assign({}, this.props), {
       onInput: Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_1__["createCallback"])(this.handleInput, _createHostComponent__WEBPACK_IMPORTED_MODULE_1__["createInputEvent"])
     });
@@ -428,14 +430,16 @@ function (_super) {
       inputProps.onBlur = Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_1__["createCallback"])(this.props.onBlur, _createHostComponent__WEBPACK_IMPORTED_MODULE_1__["createInputEvent"]);
     }
 
+    if (true) {
+      inputProps.maxLength = (_a = inputProps.maxLength) !== null && _a !== void 0 ? _a : 140;
+    }
+
     return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]('input', __assign(__assign({}, inputProps), this.state));
   };
 
   Input.defaultProps = {
-    'toutiao-maxlength': 140,
     'toutiao-selection-end': 999,
     'toutiao-selection-start': 999,
-    'wechat-maxlength': 140,
     'wechat-selection-end': 999,
     'wechat-selection-start': 999
   };
