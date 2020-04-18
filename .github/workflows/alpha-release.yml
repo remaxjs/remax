@@ -23,6 +23,7 @@ jobs:
         run: |
           cd packages/remax.macro
           yarn install
+          yarn add @remax/types@alpha
           yarn build
           yarn publish --prepatch --preid "$(git rev-parse --short HEAD)" --tag alpha --no-git-tag-version
         env:
