@@ -5,37 +5,35 @@ order: 24
 
 # 样式
 
-Remax 默认支持 css/less/sass/stylus，安装你需要的样式处理器，即可使用。如：
+Remax 默认支持 css/less/sass/stylus，安装你需要的样式处理器即可使用。如：
 
 ```bash
-  npm install less --save  # less 用户
-  npm install node-sass --save  # sass 用户
+$ npm install less --save  # less 用户
+$ npm install node-sass --save  # sass 用户
 ```
 
-```js
-import './index.css';
-import './index.less';
-import './index.scss';
-```
+Remax 会自动把 `px` 转换成小程序 `rpx`，（如果编译到 web，`px` 则会变成 `rem`，转换比例是 100 : 1）。
 
-Remax 会自动把 `px` 转换成小程序 `rpx`，（如果转换到 web，`px` 则会变成 `rem`，转换比例是 100 : 1）：
+比如：
 
 ```css
-.view {
+.foo {
   height: 16px;
 }
 ```
 
+编译到小程序时：
+
 ```css
-/* 小程序 */
-.view {
+.foo {
   height: 16rpx;
 }
 ```
 
+编译到 Web 时：
+
 ```css
-/* web */
-.view {
+.foo {
   height: 0.16rem;
 }
 ```
@@ -43,36 +41,28 @@ Remax 会自动把 `px` 转换成小程序 `rpx`，（如果转换到 web，`px`
 如果你不想转换 `px` ，就写成 `PX`，如：
 
 ```css
-.view {
+.foo {
   height: 16PX:
 }
 ```
 
 如果整个项目都不想转换 `px` 则可以在配置中将 `pxToRpx` 选项置为 `false`。
 
-Remax 同时也支持 [CSS Modules](https://github.com/css-modules/css-modules)
+## CSS Modules
 
-所有以 `module.css|less` 结尾的文件都将按照 **CSS Modules** 处理。如：
+Remax 会自动识别 CSS Modules，当你把一个 css 文件当成 CSS Modules 来用时这个文件就会自动被作为 CSS Modules 处理。
 
-```css
-/* index.module.css */
-
-.view {
-  display: flex;
-}
-```
+比如：
 
 ```js
-import styles from './index.module.css';
+// 会自动识别 foo.css 为 CSS Modules
+import styles from './foo.css';
 
-export default function() {
-  return <View className={styles.view}> view </View>;
-}
+// 会自动识 bar.css 别为全局样式
+import './bar.css';
 ```
 
-你也可以通过 `remax.config.js` 修改 webpack 配置以采用不同的 CSS Modules 匹配规则，关于 Remax 配置请参考 [指南 - 配置](/guide/config)
-
-### 样式中引用图片
+## 引用图片
 
 css 中图片引用问题
 

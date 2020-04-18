@@ -301,8 +301,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _api_chooseImage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(75);
 /* harmony import */ var _api_chooseImageMini__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(76);
 /* harmony import */ var _api_chooseImageAli__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(77);
-/* harmony import */ var _index_module_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(78);
-/* harmony import */ var _index_module_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_index_module_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _index_module_css_modules__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(78);
+/* harmony import */ var _index_module_css_modules__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_index_module_css_modules__WEBPACK_IMPORTED_MODULE_8__);
 
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -356,7 +356,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   var obj = {};
   var value = (_ = 0) !== null && _ !== void 0 ? _ : 1;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_remax_one__WEBPACK_IMPORTED_MODULE_2__["View"], {
-    className: _index_module_css__WEBPACK_IMPORTED_MODULE_8___default.a['page-index']
+    className: _index_module_css_modules__WEBPACK_IMPORTED_MODULE_8___default.a['page-index']
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_C__WEBPACK_IMPORTED_MODULE_4__["default"], {
     className: "b"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_remax_one__WEBPACK_IMPORTED_MODULE_2__["View"], _extends({
@@ -8926,7 +8926,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"page-index":"_1ZW9Y8KCrSK23n2M-ZMy7g"};
+module.exports = {"page-index":"page-index___1ZW9Y"};
 
 /***/ }),
 /* 79 */
