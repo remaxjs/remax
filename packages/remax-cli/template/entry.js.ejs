@@ -17,6 +17,7 @@ hd();
 
 const AppConfig = createAppConfig(App);
 
+ <% if (hasTabBar) { %>
 function TabBar() {
   const [currentPath, setCurrentPath] = React.useState(null);
   React.useEffect(() => {
@@ -51,6 +52,7 @@ function TabBar() {
     </div>
   )
 }
+ <% } %>
 
 render(
   <AppConfig>
