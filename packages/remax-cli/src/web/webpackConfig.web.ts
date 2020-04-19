@@ -5,6 +5,7 @@ import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ProgressBarWebpackPlugin from 'progress-bar-webpack-plugin';
 import { RemaxOptions } from '@remax/types';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 import ejs from 'ejs';
@@ -68,6 +69,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .loader('babel')
     .options({
       reactPreset: true,
+      compact: process.env.NODE_ENV === 'production' ? true : false,
     });
 
   cssConfig(config, options, true);
@@ -127,6 +129,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
       filename: 'index.css',
     },
   ]);
+  config.plugin('progress').use(ProgressBarWebpackPlugin);
 
   if (process.env.NODE_ENV === 'production') {
     config.plugin('clean').use(new CleanWebpackPlugin() as any);

@@ -3,6 +3,7 @@ import { Configuration, ProgressPlugin, DefinePlugin } from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import ProgressBarWebpackPlugin from 'progress-bar-webpack-plugin';
 import { RemaxOptions } from '@remax/types';
 import { Platform } from './platform';
 import extensions, { matcher } from '../extensions';
@@ -150,6 +151,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .options({
       usePlugins: [componentManifest(options), fixRegeneratorRuntime()],
       reactPreset: true,
+      compact: process.env.NODE_ENV === 'production' ? true : false,
     });
 
   config.module
@@ -206,6 +208,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     config.plugin('progress').use(ProgressPlugin);
   }
 
+  config.plugin('progress').use(ProgressBarWebpackPlugin);
   config.plugin('define').use(DefinePlugin, [env.stringified]);
   config.plugin('cssExtract').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('optimizeEntries').use(RemaxPlugins.OptimizeEntries, [meta]);
