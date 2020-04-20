@@ -1,0 +1,44 @@
+name: Remax
+
+trigger: none
+
+pr:
+  autoCancel: true
+  branches:
+    exclude:
+      - gh-pages
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: site
+  jobs:
+    - job: Build_Site
+      steps:
+        - checkout: self
+          displayName: 'Checkout'
+          clean: true
+          fetchDepth: 1
+        - task: NodeTool@0
+          displayName: 'Install Node.js'
+          inputs:
+            versionSpec: '12.13.1'
+        - script: npm install
+          displayName: 'Install modules'
+        - script: npm run site:build
+          displayName: 'Build site'
+        - script: ls -al website/dist
+          displayName: 'List build'
+        - script: |
+            export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-remax.surge.sh
+            echo "Deploy to $DEPLOY_DOMAIN"
+            npx surge --project ./_site --domain $DEPLOY_DOMAIN
+          displayName: 'Deploy Site'
+        - script: |
+            export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-remax.surge.sh
+            curl -X "POST" "https://github-comment-webhook.herokuapp.com" \
+                 -H 'Content-Type: application/x-www-form-urlencoded; charset=utf-8' \
+                 --data-urlencode "id=${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}" \
+                 --data-urlencode "url=${DEPLOY_DOMAIN}"
+          displayName: 'Comment on github'
