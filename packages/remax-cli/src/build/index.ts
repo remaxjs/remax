@@ -48,8 +48,6 @@ export default async (argv: any) => {
       if (target === 'ali') {
         output.message('Watching for changes...', 'green', options.notify);
       }
-
-      output.message('💡 完成', 'green');
     });
 
     try {
