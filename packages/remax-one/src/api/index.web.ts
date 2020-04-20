@@ -1,4 +1,4 @@
-import { browserHistory as history } from '@remax/router/web';
+import { history } from '@remax/router/web';
 import { NavigateToParams, RedirectToParams, NavigateBackParams, ReLaunchParams, SwitchTabParams } from './types';
 
 export function navigateTo(params: NavigateToParams) {

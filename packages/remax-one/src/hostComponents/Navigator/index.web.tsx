@@ -1,6 +1,6 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { browserHistory as history } from '@remax/router/web';
+import { history } from '@remax/router/web';
 import { NavigatorProps } from './props';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
 

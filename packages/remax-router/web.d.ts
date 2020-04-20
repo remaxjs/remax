@@ -1,5 +1,5 @@
 import { History } from 'history';
 
-export const browserHistory: History;
+export const history: History;
 
 export * from 'react-router-dom';
