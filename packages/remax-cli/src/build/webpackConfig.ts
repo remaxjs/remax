@@ -6,7 +6,7 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import ProgressBarWebpackPlugin from 'progress-bar-webpack-plugin';
 import { RemaxOptions } from '@remax/types';
 import { Platform } from './platform';
-import extensions, { matcher } from '../extensions';
+import extensions, { moduleMatcher } from '../extensions';
 import getEntries from '../getEntries';
 import * as TurboPages from './turboPages';
 import * as staticCompiler from './babel/compiler/static';
@@ -100,7 +100,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   config.module
     .rule('createAppOrPageConfig')
     .pre()
-    .test(matcher)
+    .test(moduleMatcher)
     .include.add(entries.app)
     .merge(entries.pages)
     .end()
@@ -124,7 +124,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
         reactPreset: false,
       })
       .end()
-      .test(matcher)
+      .test(moduleMatcher)
       .use('tuboPagesRender')
       .loader('babel')
       .options({
@@ -132,7 +132,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
         reactPreset: false,
       })
       .end()
-      .test(matcher)
+      .test(moduleMatcher)
       .include.merge(TurboPages.filter(entries, options))
       .end()
       .use('tuboPagesPreprocess')
@@ -145,7 +145,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
 
   config.module
     .rule('compilation')
-    .test(matcher)
+    .test(moduleMatcher)
     .use('babel')
     .loader('babel')
     .options({
@@ -156,7 +156,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
 
   config.module
     .rule('nativeComponent')
-    .test(matcher)
+    .test(moduleMatcher)
     .use('nativeComponent')
     .loader('nativeComponent')
     .options({
@@ -167,7 +167,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
 
   config.module
     .rule('watchManifest')
-    .test(matcher)
+    .test(moduleMatcher)
     .include.add(entries.app)
     .merge(entries.pages)
     .end()
@@ -176,18 +176,9 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
 
   config.module
     .rule('stub')
-    .test(matcher)
+    .test(moduleMatcher)
     .use('stub')
     .loader('stub')
-    .options({
-      modules: stubModules,
-    });
-
-  config.module
-    .rule('json')
-    .test(/\.json$/)
-    .use('json')
-    .loader(require.resolve('json-loader'))
     .options({
       modules: stubModules,
     });
