@@ -184,12 +184,6 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     });
 
   config.module
-    .rule('remaxDefineVariables')
-    .test(/createHostComponent.js/i)
-    .use('remax-define')
-    .loader('remaxDefine');
-
-  config.module
     .rule('images')
     .test(/\.(png|jpe?g|gif|svg)$/i)
     .use('file')
@@ -203,7 +197,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   config.plugin('cssExtract').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('optimizeEntries').use(RemaxPlugins.OptimizeEntries, [meta]);
   config.plugin('nativeFiles').use(RemaxPlugins.NativeFiles, [options, entries]);
-  config.plugin('defineEvents').use(RemaxPlugins.DefineEvent, [options, entries]);
+  config.plugin('remaxDefine').use(RemaxPlugins.Define, [options, entries]);
   config.plugin('coverage-ignore').use(RemaxPlugins.CoverageIgnore);
 
   if (process.env.NODE_ENV === 'production') {

@@ -8,6 +8,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ProgressBarWebpackPlugin from 'progress-bar-webpack-plugin';
 import { RemaxOptions } from '@remax/types';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
+import * as RemaxPlugins from '../build/webpack/plugins';
 import ejs from 'ejs';
 import { Platform } from '../build/platform';
 import extensions, { moduleMatcher } from '../extensions';
@@ -85,12 +86,6 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .loader(require.resolve('json-loader'));
 
   config.module
-    .rule('remaxDefineVariables')
-    .test(/remax\/esm\/createHostComponent.js/i)
-    .use('remax-define')
-    .loader('remaxDefine');
-
-  config.module
     .rule('images')
     .test(/\.(png|jpe?g|gif|svg)$/i)
     .use('file')
@@ -133,6 +128,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
       filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].css' : '[name].css',
     },
   ]);
+  config.plugin('remaxDefine').use(RemaxPlugins.Define, [options, entries]);
 
   if (process.env.NODE_ENV === 'production') {
     config.plugin('clean').use(new CleanWebpackPlugin() as any);
