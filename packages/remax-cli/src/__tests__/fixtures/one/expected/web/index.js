@@ -56,7 +56,7 @@ var page_0 = Object(remax_web__WEBPACK_IMPORTED_MODULE_2__["loadable"])(function
   });
 });
 var page_1 = Object(remax_web__WEBPACK_IMPORTED_MODULE_2__["loadable"])(function () {
-  return Promise.all(/* import() | packageA/pages/index */[__webpack_require__.e(5), __webpack_require__.e(2), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, 82)).then(function (_ref2) {
+  return Promise.all(/* import() | packageA/pages/index */[__webpack_require__.e(5), __webpack_require__.e(2), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, 75)).then(function (_ref2) {
     var c = _ref2.default;
     return Object(remax__WEBPACK_IMPORTED_MODULE_1__["createPageConfig"])(c);
   });
@@ -220,6 +220,20 @@ module.exports = remax/web;
 
 /***/ }),
 
+/***/ 67:
+/***/ (function(module, exports) {
+
+module.exports = remax/wechat;
+
+/***/ }),
+
+/***/ 69:
+/***/ (function(module, exports) {
+
+module.exports = remax/ali;
+
+/***/ }),
+
 /***/ 7:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -291,20 +305,6 @@ var App = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
 
-
-/***/ }),
-
-/***/ 74:
-/***/ (function(module, exports) {
-
-module.exports = remax/wechat;
-
-/***/ }),
-
-/***/ 76:
-/***/ (function(module, exports) {
-
-module.exports = remax/ali;
 
 /***/ }),
 

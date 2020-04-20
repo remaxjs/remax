@@ -431,7 +431,7 @@ function (_super) {
     }
 
     if (true) {
-      inputProps.maxLength = (_a = inputProps.maxLength) !== null && _a !== void 0 ? _a : 140;
+      inputProps.maxlength = (_a = inputProps.maxLength || inputProps.maxlength) !== null && _a !== void 0 ? _a : 140;
     }
 
     return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]('input', __assign(__assign({}, inputProps), this.state));
