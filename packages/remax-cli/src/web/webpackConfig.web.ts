@@ -10,7 +10,7 @@ import { RemaxOptions } from '@remax/types';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 import ejs from 'ejs';
 import { Platform } from '../build/platform';
-import extensions, { matcher } from '../extensions';
+import extensions, { moduleMatcher } from '../extensions';
 import getEntries from '../getEntries';
 import alias from '../build/alias';
 import getEnvironment from '../build/env';
@@ -66,7 +66,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
 
   config.module
     .rule('compilation')
-    .test(matcher)
+    .test(moduleMatcher)
     .exclude.add(/\.ejs/)
     .end()
     .use('babel')

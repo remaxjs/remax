@@ -2,6 +2,8 @@ import * as React from 'react';
 import { View, Text } from 'remax/ali';
 import { FunctionalPageNavigator as UnKnownComponent } from 'remax/wechat';
 import C from '@/components/C';
+// 测试引用 json 模块
+import dataJson from './data.json';
 import styles from './index.module.css';
 
 export default () => {
@@ -13,7 +15,6 @@ export default () => {
   }
 
   function handleTouchStart() {}
-  const obj = {};
   const value = 0 ?? 1;
 
   return (
@@ -21,7 +22,7 @@ export default () => {
       <C className="b" />
       <View onClick={handleClick} onTouchStart={handleTouchStart} id="view" data-foo="bar" key="my-view" {...props}>
         foo
-        {obj?.a?.b}
+        {dataJson?.data}
         {value}
       </View>
       <UnKnownComponent />

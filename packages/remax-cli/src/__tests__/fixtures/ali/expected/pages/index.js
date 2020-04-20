@@ -39,8 +39,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
 /* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(remax_wechat__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _components_C__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(11);
-/* harmony import */ var _index_module_css_modules__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(13);
-/* harmony import */ var _index_module_css_modules__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_index_module_css_modules__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _data_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(13);
+var _data_json__WEBPACK_IMPORTED_MODULE_6___namespace = /*#__PURE__*/__webpack_require__.t(13, 1);
+/* harmony import */ var _index_module_css_modules__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(14);
+/* harmony import */ var _index_module_css_modules__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_index_module_css_modules__WEBPACK_IMPORTED_MODULE_7__);
 
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -53,11 +55,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+ // 测试引用 json 模块
+
 
 
 
 var _page = function _page() {
-  var _, _obj$a;
+  var _;
 
   var props = {};
   var TextElement = react__WEBPACK_IMPORTED_MODULE_2__["cloneElement"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_3__["Text"], null));
@@ -87,10 +91,9 @@ var _page = function _page() {
 
   function handleTouchStart() {}
 
-  var obj = {};
   var value = (_ = 0) !== null && _ !== void 0 ? _ : 1;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_3__["View"], {
-    className: _index_module_css_modules__WEBPACK_IMPORTED_MODULE_6___default.a['page-index']
+    className: _index_module_css_modules__WEBPACK_IMPORTED_MODULE_7___default.a['page-index']
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_components_C__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: "b"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_3__["View"], _extends({
@@ -101,7 +104,7 @@ var _page = function _page() {
     key: "my-view"
   }, props, {
     __key: "my-view"
-  }), "foo", obj === null || obj === void 0 ? void 0 : (_obj$a = obj.a) === null || _obj$a === void 0 ? void 0 : _obj$a.b, value), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_4__["FunctionalPageNavigator"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](UnBindingComponent, null), TextElement);
+  }), "foo", _data_json__WEBPACK_IMPORTED_MODULE_6__ === null || _data_json__WEBPACK_IMPORTED_MODULE_6__ === void 0 ? void 0 : _data_json__WEBPACK_IMPORTED_MODULE_6__.data, value), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](remax_wechat__WEBPACK_IMPORTED_MODULE_4__["FunctionalPageNavigator"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](UnBindingComponent, null), TextElement);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Page(Object(remax__WEBPACK_IMPORTED_MODULE_1__["createPageConfig"])(_page, "pages/index")));
@@ -155,6 +158,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 /* 13 */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"data\":\"value\"}");
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
