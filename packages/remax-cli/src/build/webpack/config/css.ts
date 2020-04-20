@@ -1,5 +1,6 @@
 import Config from 'webpack-chain';
 import pxToUnits from '@remax/postcss-px2units';
+import postcssPresetEnv from 'postcss-preset-env';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { RemaxOptions } from '@remax/types';
 import * as styleConfig from '../../styleConfig';
@@ -7,7 +8,7 @@ import pageClass from '../../../web/pageClass';
 
 function applyLoaders(
   rule: Config.Rule<Config.Rule<Config.Module>>,
-  preprocessors: Array<{ name: string; loader: string; options?: any }>,
+  preProcessors: Array<{ name: string; loader: string; options?: any }>,
   cssModules: boolean
 ) {
   rule.use('mini-css-extract-loader').loader(MiniCssExtractPlugin.loader);
@@ -16,7 +17,7 @@ function applyLoaders(
     .use('css-loader')
     .loader(require.resolve('css-loader'))
     .options({
-      importLoaders: preprocessors.length,
+      importLoaders: preProcessors.length,
       modules: cssModules
         ? {
             localIdentName: '[local]___[hash:base64:5]',
@@ -24,7 +25,7 @@ function applyLoaders(
         : false,
     });
 
-  preprocessors.forEach(preprocessor => {
+  preProcessors.forEach(preprocessor => {
     rule
       .use(preprocessor.name)
       .loader(preprocessor.loader)
@@ -34,7 +35,7 @@ function applyLoaders(
 
 export default function cssConfig(webpackConfig: Config, options: RemaxOptions, web: boolean) {
   const rule = webpackConfig.module.rule('css').test(styleConfig.styleMatcher);
-  const preprocessors = [
+  const preProcessors = [
     {
       name: 'postcss-loader',
       loader: require.resolve('postcss-loader'),
@@ -43,7 +44,13 @@ export default function cssConfig(webpackConfig: Config, options: RemaxOptions, 
           path: styleConfig.resolvePostcssConfig(options),
         },
         plugins: web
-          ? [pxToUnits({ targetUnits: 'rem', divisor: 100 }), pageClass()]
+          ? [
+              postcssPresetEnv({
+                browsers: ['chrome >= 49', 'edge >= 13', 'ios >= 8', 'Android >= 4.4'],
+              }),
+              pxToUnits({ targetUnits: 'rem', divisor: 100 }),
+              pageClass(),
+            ]
           : [options.pxToRpx && (web ? pxToUnits() : pxToUnits())].filter(Boolean),
       },
     },
@@ -61,6 +68,6 @@ export default function cssConfig(webpackConfig: Config, options: RemaxOptions, 
     },
   ].filter(Boolean) as any[];
 
-  applyLoaders(rule.oneOf('modules').resourceQuery(/modules/), preprocessors, true);
-  applyLoaders(rule.oneOf('normal'), preprocessors, false);
+  applyLoaders(rule.oneOf('modules').resourceQuery(/modules/), preProcessors, true);
+  applyLoaders(rule.oneOf('normal'), preProcessors, false);
 }

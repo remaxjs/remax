@@ -113,7 +113,8 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -457,7 +458,9 @@ html {
 }
 
 body {
-  user-select: none;
+  -webkit-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   font-size: 0.16rem;
   font-family: PingFang SC, Helvetica Neue;
   background: transparent;
@@ -491,7 +494,9 @@ a {
 }
 
 .rmc-pull-to-refresh-transition {
+  transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
 }
 
 .rmc-pull-to-refresh-wrapper {
@@ -520,18 +525,26 @@ a {
   left: 0;
   right: 0;
   background-color: #fff;
+  display: -webkit-flex;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
   z-index: 999999;
 }
 
 .remax-tab-bar .remax-tab-item {
+  display: -webkit-flex;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
   height: 100%;
 }
 
@@ -546,7 +559,8 @@ a {
 .remax-tab-bar .remax-tab-item .remax-tab-item-title {
   font-size: 0.12rem;
   color: #333;
-  transform: scale(0.7);
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
 }
 
 .remax-tab-bar .remax-tab-item .remax-tab-item-title.active {
