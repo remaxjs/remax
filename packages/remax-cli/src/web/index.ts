@@ -42,9 +42,9 @@ export default async (argv: any) => {
         })
       );
     });
-
     server.listen(3000, '0.0.0.0', error => {
       if (error) {
+        console.error(error);
         process.exit(1);
       }
     });
