@@ -75,7 +75,7 @@ export default class Input extends React.Component<InputProps, InputState> {
     }
 
     if (process.env.REMAX_PLATFORM === 'wechat' || process.env.REMAX_PLATFORM === 'toutiao') {
-      inputProps.maxLength = inputProps.maxLength ?? 140;
+      inputProps.maxlength = (inputProps.maxLength || inputProps.maxlength) ?? 140;
     }
 
     return React.createElement('input', {

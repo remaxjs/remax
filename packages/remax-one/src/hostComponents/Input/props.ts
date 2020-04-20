@@ -22,6 +22,7 @@ interface CommonProps {
   disabled?: boolean;
   /** 最大输入长度，设置为 -1 的时候不限制最大长度 */
   maxLength?: number;
+  maxlength?: number;
   /** 获取焦点 */
   focus?: boolean;
 }
