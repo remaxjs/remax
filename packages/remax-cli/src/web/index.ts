@@ -1,8 +1,7 @@
 import webpack from 'webpack';
-import middleware from 'webpack-dev-middleware';
-import history from 'connect-history-api-fallback';
-import express from 'express';
+import WebpackDevServer from 'webpack-dev-server';
 import webpackConfig from './webpackConfig.web';
+import address from 'address';
 import getConfig from '../getConfig';
 import output from '../build/utils/output';
 import remaxVersion from '../remaxVersion';
@@ -21,14 +20,34 @@ export default async (argv: any) => {
 
   if (argv.watch) {
     output.message('🚀 启动 watch', 'blue');
-    output.message('📎 http://localhost:3000\n', 'blue');
+    output.message('📎 http://localhost:3000', 'blue');
+    output.message(`📎 http://${address.ip()}:3000\n`, 'blue');
 
-    const app = express();
+    const server = new WebpackDevServer(compiler, {
+      publicPath: webpackOptions.output!.publicPath!,
+      compress: true,
+      hot: true,
+      open: false,
+      historyApiFallback: true,
+      port: 3000,
+      noInfo: true,
+    });
 
-    app.use(history());
-    // 一定要设置 publicPath
-    app.use(middleware(compiler as any, { publicPath: webpackOptions.output!.publicPath! }));
-    app.listen(3000);
+    compiler.hooks.done.tap('web-dev', stats => {
+      console.log(
+        stats.toString({
+          colors: true,
+          modules: false,
+          children: false,
+        })
+      );
+    });
+    server.listen(3000, '0.0.0.0', error => {
+      if (error) {
+        console.error(error);
+        process.exit(1);
+      }
+    });
 
     try {
       require('remax-stats').run();

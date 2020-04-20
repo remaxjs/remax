@@ -1,10 +1,11 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import { Configuration, ProgressPlugin, DefinePlugin } from 'webpack';
+import { Configuration, DefinePlugin } from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ProgressBarWebpackPlugin from 'progress-bar-webpack-plugin';
 import { RemaxOptions } from '@remax/types';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 import ejs from 'ejs';
@@ -68,6 +69,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .loader('babel')
     .options({
       reactPreset: true,
+      compact: process.env.NODE_ENV === 'production' ? true : false,
     });
 
   cssConfig(config, options, true);
@@ -118,7 +120,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   ]);
 
   if (options.progress) {
-    config.plugin('progress').use(new ProgressPlugin());
+    config.plugin('progress').use(ProgressBarWebpackPlugin);
   }
 
   config.plugin('define').use(new DefinePlugin(env.stringified));
