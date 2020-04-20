@@ -109,7 +109,7 @@
     "babel-plugin-loop-optimizer": "^1.4.1",
     "eol": "^0.9.1",
     "fs-readdir-recursive": "^1.1.0",
-    "jest": "^24.8.0",
+    "jest": "^25.4.0",
     "memfs": "^3.1.2",
     "memory-fs": "^0.5.0",
     "postcss-url": "^8.0.0",
