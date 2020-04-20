@@ -51,13 +51,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 Object(remax_web__WEBPACK_IMPORTED_MODULE_2__["hd"])();
 var page_0 = Object(remax_web__WEBPACK_IMPORTED_MODULE_2__["loadable"])(function () {
   return Promise.all(/* import() | pages/index */[__webpack_require__.e(5), __webpack_require__.e(2), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, 10)).then(function (_ref) {
-    var c = _ref["default"];
+    var c = _ref.default;
     return Object(remax__WEBPACK_IMPORTED_MODULE_1__["createPageConfig"])(c);
   });
 });
 var page_1 = Object(remax_web__WEBPACK_IMPORTED_MODULE_2__["loadable"])(function () {
   return Promise.all(/* import() | packageA/pages/index */[__webpack_require__.e(5), __webpack_require__.e(2), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, 82)).then(function (_ref2) {
-    var c = _ref2["default"];
+    var c = _ref2.default;
     return Object(remax__WEBPACK_IMPORTED_MODULE_1__["createPageConfig"])(c);
   });
 });

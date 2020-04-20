@@ -18,6 +18,7 @@ function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
 
   const defaultOptions = {
     react,
+    targets: {},
   };
 
   const existOptions = remaxPresetIndex !== -1 ? presets[remaxPresetIndex].options : {};
