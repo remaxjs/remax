@@ -34,7 +34,7 @@
     "eslint-plugin-react": "^7.14.3",
     "husky": "^4.2.3",
     "lerna": "^3.4.3",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.4",
     "typescript": "^3.7.3"
   },
   "husky": {
