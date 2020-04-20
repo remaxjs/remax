@@ -78,8 +78,6 @@ export default async (argv: any) => {
           output.warn(warning);
         });
       }
-
-      output.message('💡 完成', 'green');
     });
   }
 };
