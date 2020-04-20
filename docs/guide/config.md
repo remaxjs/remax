@@ -21,7 +21,7 @@ module.exports = {
   // build 目录，默认 dist
   output: 'dist',
   // 是否开启 wxml/axml, js 文件压缩
-  minimize: process.env.NODE_ENV === 'production',
+  compressTemplate: process.env.NODE_ENV === 'production',
   // 是否将 px 转换为 rpx, 默认是 true
   pxToRpx: true,
   // 是否开启命令行通知
