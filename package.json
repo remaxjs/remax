@@ -51,5 +51,9 @@
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/remax"
-  }
+  },
+  "workspaces": [
+    "packages/*",
+    "website"
+  ]
 }
