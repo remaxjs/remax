@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.5](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2020-04-20)
+
+### Features
+
+- 自动识别 CSS Modules ([#807](https://github.com/remaxjs/remax/issues/807)) ([b81303c](https://github.com/remaxjs/remax/commit/b81303c6ad8b6890ccf0c09ba9aaff6da2e14123)), closes [#800](https://github.com/remaxjs/remax/issues/800)
+
 # [2.0.0-alpha.4](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.2...v2.0.0-alpha.4) (2020-04-18)
 
 # [1.21.0](https://github.com/remaxjs/remax/compare/v1.20.0...v1.21.0) (2020-04-14)

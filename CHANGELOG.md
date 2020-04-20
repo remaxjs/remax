@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.5](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2020-04-20)
+
+### Bug Fixes
+
+- 修复 web 平台下没有配置 tabbar 出错的问题 ([de442c0](https://github.com/remaxjs/remax/commit/de442c08fe6ac3d266cc7ca087f6b0c9ce5a99f7))
+- 修复 windows 下无法启动 web 应用的问题 ([#816](https://github.com/remaxjs/remax/issues/816)) ([f6a9a05](https://github.com/remaxjs/remax/commit/f6a9a05e08433601f57259c0b775b702e59a7a37)), closes [#806](https://github.com/remaxjs/remax/issues/806)
+- 修复引入 JSON 文件报错的问题 ([ec4c29f](https://github.com/remaxjs/remax/commit/ec4c29fc39568047ddbd0d98aba3d6c4e0a2272c))
+
+### Features
+
+- **web:** web 添加浏览器兼容支持 ([1baf5f2](https://github.com/remaxjs/remax/commit/1baf5f28af07978445b5bc47ced8e830e49eb67f)), closes [#808](https://github.com/remaxjs/remax/issues/808)
+- 自动识别 CSS Modules ([#807](https://github.com/remaxjs/remax/issues/807)) ([b81303c](https://github.com/remaxjs/remax/commit/b81303c6ad8b6890ccf0c09ba9aaff6da2e14123)), closes [#800](https://github.com/remaxjs/remax/issues/800)
+- web 平台 watch 模式支持 hot reload ([#811](https://github.com/remaxjs/remax/issues/811)) ([34507d3](https://github.com/remaxjs/remax/commit/34507d3768a1e3ef2110ced9e604c93c8446d853))
+
 # [2.0.0-alpha.4](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.2...v2.0.0-alpha.4) (2020-04-18)
 
 ### Bug Fixes
