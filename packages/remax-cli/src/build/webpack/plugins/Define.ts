@@ -2,13 +2,13 @@ import * as path from 'path';
 import { ReplaceSource } from 'webpack-sources';
 import { Compiler, compilation } from 'webpack';
 import { RemaxOptions, Entries } from '@remax/types';
-import { appEvents, pageEvents } from 'remax/macro';
+import { appEvents, pageEvents, hostComponents } from 'remax/macro';
 import winPath from './../../../winPath';
 import { matcher } from '../../../extensions';
 
-const PLUGIN_NAME = 'RemaxDefineEventPlugin';
+const PLUGIN_NAME = 'RemaxDefinePlugin';
 
-export default class DefineEventPlugin {
+export default class DefinePlugin {
   remaxOptions: RemaxOptions;
   entries: Entries;
 
@@ -19,27 +19,29 @@ export default class DefineEventPlugin {
 
   apply(compiler: Compiler) {
     compiler.hooks.compilation.tap(PLUGIN_NAME, compilation => {
-      compilation.moduleTemplates.javascript.hooks.render.tap(PLUGIN_NAME, (moduleSource, module) => {
-        if (/lifecycle/.test(module.resource)) {
-          const source = new ReplaceSource(moduleSource);
+      compilation.moduleTemplates.javascript.hooks.render.tap(PLUGIN_NAME, moduleSource => {
+        const source = new ReplaceSource(moduleSource);
 
-          const startA = this.getReplaceStartIndex(source, /__REMAX_ENTRY_INFO__/);
-          const startB = this.getReplaceStartIndex(source, /__REMAX_APP_EVENTS__/);
-          const startC = this.getReplaceStartIndex(source, /__REMAX_PAGE_EVENTS__/);
+        const startA = this.getReplaceStartIndex(source, /__REMAX_ENTRY_INFO__/);
+        const startB = this.getReplaceStartIndex(source, /__REMAX_APP_EVENTS__/);
+        const startC = this.getReplaceStartIndex(source, /__REMAX_PAGE_EVENTS__/);
+        const startD = this.getReplaceStartIndex(source, /__REMAX_HOST_COMPONENTS__/);
 
-          if (startA) {
-            source.replace(startA, startA + 20, this.stringifyEntryInfo(compilation));
-          }
-          if (startB) {
-            source.replace(startB, startB + 20, this.stringifyAppEvents());
-          }
-          if (startC) {
-            source.replace(startC, startC + 21, this.stringifyPageEvents());
-          }
-
-          return source;
+        if (startA) {
+          source.replace(startA, startA + 19, this.stringifyEntryInfo(compilation));
         }
-        return moduleSource;
+        if (startB) {
+          source.replace(startB, startB + 19, this.stringifyAppEvents());
+        }
+        if (startC) {
+          source.replace(startC, startC + 20, this.stringifyPageEvents());
+        }
+
+        if (startD) {
+          source.replace(startD, startD + 24, this.stringifyHostComponents());
+        }
+
+        return source;
       });
     });
   }
@@ -109,5 +111,19 @@ export default class DefineEventPlugin {
     }
 
     return JSON.stringify(events, null, 2);
+  }
+
+  stringifyHostComponents() {
+    return JSON.stringify(
+      [...hostComponents.keys()].reduce((obj, key) => {
+        obj[key] = {
+          alias: hostComponents.get(key)?.alias || {},
+        };
+
+        return obj;
+      }, {} as any),
+      null,
+      2
+    );
   }
 }
