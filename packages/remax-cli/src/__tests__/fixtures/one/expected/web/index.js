@@ -180,7 +180,7 @@ function TabBar() {
 
   react__WEBPACK_IMPORTED_MODULE_0__["useEffect"](function () {
     setCurrentPath(window.location.pathname);
-    return remax_web__WEBPACK_IMPORTED_MODULE_2__["browserHistory"].listen(function (location, action) {
+    return remax_web__WEBPACK_IMPORTED_MODULE_2__["history"].listen(function (location, action) {
       setCurrentPath(location.pathname);
     });
   }, []);
@@ -228,7 +228,7 @@ function TabBar() {
 }
 
 Object(remax_web__WEBPACK_IMPORTED_MODULE_2__["render"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](AppConfig, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_web__WEBPACK_IMPORTED_MODULE_2__["Router"], {
-  history: remax_web__WEBPACK_IMPORTED_MODULE_2__["browserHistory"]
+  history: remax_web__WEBPACK_IMPORTED_MODULE_2__["history"]
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_web__WEBPACK_IMPORTED_MODULE_2__["CacheSwitch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_web__WEBPACK_IMPORTED_MODULE_2__["Route"], {
   exact: true,
   path: "/"
@@ -3498,15 +3498,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _remax_router_web__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(44);
 
 function navigateTo(params) {
-  _remax_router_web__WEBPACK_IMPORTED_MODULE_0__["browserHistory"].push(params.url);
+  _remax_router_web__WEBPACK_IMPORTED_MODULE_0__["history"].push(params.url);
   return Promise.resolve();
 }
 function navigateBack(params) {
-  _remax_router_web__WEBPACK_IMPORTED_MODULE_0__["browserHistory"].go(-((params === null || params === void 0 ? void 0 : params.delta) || 1));
+  _remax_router_web__WEBPACK_IMPORTED_MODULE_0__["history"].go(-((params === null || params === void 0 ? void 0 : params.delta) || 1));
   return Promise.resolve();
 }
 function redirectTo(params) {
-  _remax_router_web__WEBPACK_IMPORTED_MODULE_0__["browserHistory"].replace(params.url);
+  _remax_router_web__WEBPACK_IMPORTED_MODULE_0__["history"].replace(params.url);
   return Promise.resolve();
 }
 function reLaunch(params) {
@@ -3522,7 +3522,7 @@ function switchTab(params) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "browserHistory", function() { return browserHistory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "history", function() { return history; });
 /* harmony import */ var history__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(45);
 /* harmony import */ var react_router_cache_route__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(51);
 /* harmony import */ var react_router_cache_route__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_cache_route__WEBPACK_IMPORTED_MODULE_1__);
@@ -3571,7 +3571,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var browserHistory = Object(history__WEBPACK_IMPORTED_MODULE_0__["createBrowserHistory"])();
+var history = Object(history__WEBPACK_IMPORTED_MODULE_0__["createHashHistory"])();
 
 
 /***/ }),
