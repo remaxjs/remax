@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import { Configuration, ProgressPlugin, DefinePlugin } from 'webpack';
+import { Configuration, DefinePlugin } from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
@@ -120,7 +120,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   ]);
 
   if (options.progress) {
-    config.plugin('progress').use(new ProgressPlugin());
+    config.plugin('progress').use(ProgressBarWebpackPlugin);
   }
 
   config.plugin('define').use(new DefinePlugin(env.stringified));
@@ -129,7 +129,6 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
       filename: 'index.css',
     },
   ]);
-  config.plugin('progress').use(ProgressBarWebpackPlugin);
 
   if (process.env.NODE_ENV === 'production') {
     config.plugin('clean').use(new CleanWebpackPlugin() as any);
