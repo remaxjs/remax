@@ -1533,10 +1533,6 @@
   <template name="REMAX_TPL_1_text">
   <text 
     
-    _tid="{{item.props['_tid']}}"
-    
-    
-    
     class="{{item.props['class']}}"
     
     

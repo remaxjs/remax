@@ -16,10 +16,6 @@ function createAttributeValueTemplate(
   value?: t.StringLiteral | t.JSXExpressionContainer
 ) {
   let template = '';
-  // case: 无 value，当做 true 处理
-  if (value === null) {
-    template = 'true';
-  }
 
   // case: Literal
   // 直接静态化
@@ -41,7 +37,7 @@ function createAttributeValueTemplate(
   }
 
   // 附加的一些默认属性，没有 value
-  if (!value) {
+  if (value === null || value === undefined) {
     template = `{{${dataPath}.props['${attributeName}']}}`;
   }
 
