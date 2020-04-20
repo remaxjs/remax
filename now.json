@@ -8,11 +8,17 @@
     }
   ],
   "routes": [
-    { "handle": "filesystem" },
+    {
+      "src": "/umi.js",
+      "dest": "/website/umi.js"
+    },
+    {
+      "src": "/umi.css",
+      "dest": "/website/umi.css"
+    },
     {
       "src": "/(.*)",
-      "dest": "/website/index.html",
-      "continue": true
+      "dest": "/website/index.html"
     }
   ]
 }
