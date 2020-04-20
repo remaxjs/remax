@@ -553,40 +553,6 @@ a {
   color: #108ee9;
 }
 
-.remax-image {
-  background-repeat: no-repeat;
-  display: inline-block;
-  overflow: hidden;
-  font-size: 0;
-  width: 3rem;
-  height: 2.25rem;
-}
-
-.remax-text-selectable {
-  user-select: text;
-}
-
-.remax-web-view {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.c {
-  background-color: red;
-}
-
-.page-index___1ZW9Y {
-  background-color: aliceblue;
-}
-
-.pageA-index {
-  background-color: aliceblue;
-}
-
-.a {
-  background-color: blue;
-}
-
 .remax-page {
   background-image: url('/assets/images/dont-exist.jpg');
   background: #eee;
