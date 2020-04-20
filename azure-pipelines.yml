@@ -24,16 +24,18 @@ stages:
           displayName: 'Install Node.js'
           inputs:
             versionSpec: '12.13.1'
+        - script: cd website
+          displayName: 'Cd website'
         - script: npm install
           displayName: 'Install modules'
-        - script: npm run site:build
+        - script: npm run build
           displayName: 'Build site'
-        - script: ls -al website/dist
+        - script: ls -al dist
           displayName: 'List build'
         - script: |
             export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-remax.surge.sh
             echo "Deploy to $DEPLOY_DOMAIN"
-            npx surge --project ./_site --domain $DEPLOY_DOMAIN
+            npx surge --project ./dist --domain $DEPLOY_DOMAIN
           displayName: 'Deploy Site'
         - script: |
             export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-remax.surge.sh
