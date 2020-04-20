@@ -13,7 +13,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/website/dist/index.html",
+      "dest": "/website/index.html",
       "continue": true
     }
   ]
