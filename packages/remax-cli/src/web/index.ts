@@ -30,14 +30,24 @@ export default async (argv: any) => {
       open: false,
       historyApiFallback: true,
       port: 3000,
-      stats: {
-        colors: true,
-        modules: false,
-        children: false,
-      },
+      noInfo: true,
     });
 
-    server.listen(3000, '0.0.0.0');
+    compiler.hooks.done.tap('web-dev', stats => {
+      console.log(
+        stats.toString({
+          colors: true,
+          modules: false,
+          children: false,
+        })
+      );
+    });
+
+    server.listen(3000, '0.0.0.0', error => {
+      if (error) {
+        process.exit(1);
+      }
+    });
 
     try {
       require('remax-stats').run();
