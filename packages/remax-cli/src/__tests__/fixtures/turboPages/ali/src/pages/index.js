@@ -38,50 +38,52 @@ export default function Index() {
   const [showPlainText] = React.useState(true);
   const plainText = 'plain-text-leaf';
   return (
-    <>
-      {'expression entry'}
-      <Fragment>
-        <Text>Fragment Text 1</Text>
-        <Text>Fragment Text 2</Text>
+    <View entry>
+      <>
+        {'expression entry'}
         <Fragment>
-          <Text>Fragment Text 3</Text>
-          <Text>Fragment Text 4</Text>
+          <Text>Fragment Text 1</Text>
+          <Text>Fragment Text 2</Text>
+          <Fragment>
+            <Text>Fragment Text 3</Text>
+            <Text>Fragment Text 4</Text>
+          </Fragment>
         </Fragment>
-      </Fragment>
-      {/* 注释 */}
-      <Fragment>Fragment</Fragment>
-      <React.Fragment>React.Fragment</React.Fragment>
-      <DDD />
-      <Remax.Text>Remax.Text</Remax.Text>
-      <NativeComponent />
-      <ReactComp>
-        <View>React Component First Child</View>
-        {'React Component Second Child'}
-      </ReactComp>
-      <View className="className">Count: {count}</View>
-      <View id={count} className={'class'}>
-        view
-      </View>
-      <CustomView>custom view</CustomView>
-      {React.createElement('view', { id: 'view' }, [
-        <View key="1">create element children 1</View>,
-        React.createElement('view', { key: '2' }),
-      ])}
-      {[1, 2, 3].map(item => (
-        <View key={item}>array map: {item}</View>
-      ))}
-      <View {...props}>Spread Attributes View</View>
-      <Text>
-        long long long long long long long long long long long long text long long long long long long long long long
-        long long long text
-      </Text>
-      <RemaxWindow />
-      {'Literal Expression'}
-      <Deep.Object.View>Deep Object View</Deep.Object.View>
-      <RenameView>Rename View</RenameView>
-      {show && <View>Conditional View</View>}
-      <Text leaf>{showPlainText && plainText}</Text>
-      <View ns:attr="1" />
-    </>
+        {/* 注释 */}
+        <Fragment>Fragment</Fragment>
+        <React.Fragment>React.Fragment</React.Fragment>
+        <DDD />
+        <Remax.Text>Remax.Text</Remax.Text>
+        <NativeComponent />
+        <ReactComp>
+          <View>React Component First Child</View>
+          {'React Component Second Child'}
+        </ReactComp>
+        <View className="className">Count: {count}</View>
+        <View id={count} className={'class'}>
+          view
+        </View>
+        <CustomView>custom view</CustomView>
+        {React.createElement('view', { id: 'view' }, [
+          <View key="1">create element children 1</View>,
+          React.createElement('view', { key: '2' }),
+        ])}
+        {[1, 2, 3].map(item => (
+          <View key={item}>array map: {item}</View>
+        ))}
+        <View {...props}>Spread Attributes View</View>
+        <Text>
+          long long long long long long long long long long long long text long long long long long long long long long
+          long long long text
+        </Text>
+        <RemaxWindow />
+        {'Literal Expression'}
+        <Deep.Object.View>Deep Object View</Deep.Object.View>
+        <RenameView>Rename View</RenameView>
+        {show && <View>Conditional View</View>}
+        <Text leaf>{showPlainText && plainText}</Text>
+        <View ns:attr="1" />
+      </>
+    </View>
   );
 }

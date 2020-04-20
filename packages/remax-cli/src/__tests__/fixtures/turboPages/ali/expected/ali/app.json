@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index",
-    "pages/entry/index",
     "pages/turboPageDisabled"
   ],
   "window": {
