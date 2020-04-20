@@ -1,0 +1,22 @@
+.remax-image {
+  background-repeat: no-repeat;
+  display: inline-block;
+  overflow: hidden;
+  font-size: 0;
+  width: 3rem;
+  height: 2.25rem;
+}
+
+.remax-text-selectable {
+  user-select: text;
+}
+
+.remax-web-view {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.c {
+  background-color: red;
+}
+

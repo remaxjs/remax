@@ -58,7 +58,11 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   config.resolve.extensions.merge(extensions.map(ex => `.web${ex}`).concat(extensions));
   config.resolve.alias.merge(alias(options, target));
   config.output.path(path.join(options.cwd, options.output));
-  config.output.filename('[name].js');
+  config.output.filename(process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].js' : '[name].js');
+  const runtimeHash = new Date().getTime();
+  config.optimization.runtimeChunk({
+    name: () => (process.env.NODE_ENV === 'test' ? 'runtime' : `runtime-${runtimeHash}`),
+  });
 
   config.module
     .rule('compilation')
@@ -126,7 +130,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   config.plugin('define').use(new DefinePlugin(env.stringified));
   config.plugin('css-extract-plugin').use(MiniCssExtractPlugin, [
     {
-      filename: 'index.css',
+      filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].css' : '[name].css',
     },
   ]);
 
