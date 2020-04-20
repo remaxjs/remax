@@ -28,17 +28,17 @@ export default class DefinePlugin {
         const startD = this.getReplaceStartIndex(source, /__REMAX_HOST_COMPONENTS__/);
 
         if (startA) {
-          source.replace(startA, startA + 20, this.stringifyEntryInfo(compilation));
+          source.replace(startA, startA + 19, this.stringifyEntryInfo(compilation));
         }
         if (startB) {
-          source.replace(startB, startB + 20, this.stringifyAppEvents());
+          source.replace(startB, startB + 19, this.stringifyAppEvents());
         }
         if (startC) {
-          source.replace(startC, startC + 21, this.stringifyPageEvents());
+          source.replace(startC, startC + 20, this.stringifyPageEvents());
         }
 
         if (startD) {
-          source.replace(startD, startD + 25, this.stringifyHostComponents());
+          source.replace(startD, startD + 24, this.stringifyHostComponents());
         }
 
         return source;
@@ -121,7 +121,9 @@ export default class DefinePlugin {
         };
 
         return obj;
-      }, {} as any)
+      }, {} as any),
+      null,
+      2
     );
   }
 }

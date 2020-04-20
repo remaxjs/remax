@@ -2128,9 +2128,9 @@ var __spread = undefined && undefined.__spread || function () {
   return ar;
 };
 
-var ENTRY_INFO = []
-var PAGE_EVENTS = {}
-var APP_EVENTS = []
+var ENTRY_INFO = [];
+var PAGE_EVENTS = {};
+var APP_EVENTS = [];
 function pageEvents(entry) {
   var entryInfo = ENTRY_INFO.find(function (e) {
     return e.name === entry;
