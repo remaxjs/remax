@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.6](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2020-04-21)
+
+### Bug Fixes
+
+- **web:** 修复 web 端 title 配置不生效的问题 ([ce21382](https://github.com/remaxjs/remax/commit/ce213826efbcfa85583c05565192f74fd19458b0))
+- **web:** web 端 button 字体大小与小程序统一 ([3b88837](https://github.com/remaxjs/remax/commit/3b888370dda752e886baead8e123a936b0a4b59f))
+- **wechat:** 使用微信官方的 api 类型 ([4f13453](https://github.com/remaxjs/remax/commit/4f13453765172023212125bff624090539090f07))
+
 # [2.0.0-alpha.5](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2020-04-20)
 
 **Note:** Version bump only for package remax

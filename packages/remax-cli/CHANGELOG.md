@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.6](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2020-04-21)
+
+### Bug Fixes
+
+- **cli:** 修复 app.config.ts 和 [page].config.ts 没有触发重新编译的问题 ([232ff43](https://github.com/remaxjs/remax/commit/232ff43eb8c5ead784e186297134f16682f66f6e)), closes [#831](https://github.com/remaxjs/remax/issues/831)
+- **web:** web 端 button 字体大小与小程序统一 ([3b88837](https://github.com/remaxjs/remax/commit/3b888370dda752e886baead8e123a936b0a4b59f))
+- 修复使用 scss 出错的问题 ([6f205f0](https://github.com/remaxjs/remax/commit/6f205f082a64995c96f8b412c9537ac063ffa3a9)), closes [#827](https://github.com/remaxjs/remax/issues/827)
+
+### Performance Improvements
+
+- 简化 web watch 模式输出的信息 ([#835](https://github.com/remaxjs/remax/issues/835)) ([c9c24d7](https://github.com/remaxjs/remax/commit/c9c24d725bc37ee9fcbde77ea9d9acdc8611a288))
+
 # [2.0.0-alpha.5](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2020-04-20)
 
 ### Bug Fixes
