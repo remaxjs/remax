@@ -66,7 +66,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   });
 
   config.module
-    .rule('compilation')
+    .rule('js')
     .test(moduleMatcher)
     .exclude.add(/\.ejs/)
     .end()
@@ -89,13 +89,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .loader('manifest');
 
   config.module
-    .rule('json')
-    .test(/\.json$/)
-    .use('json')
-    .loader(require.resolve('json-loader'));
-
-  config.module
-    .rule('images')
+    .rule('image')
     .test(/\.(png|jpe?g|gif|svg)$/i)
     .use('file')
     .loader(require.resolve('file-loader'));
@@ -118,29 +112,31 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     }),
   });
 
-  config.plugin('virtualModule').use(virtualModules);
+  config.plugin('webpack-virtual-modules').use(virtualModules);
 
-  config.plugin('html').use(HtmlWebpackPlugin, [
+  config.plugin('html-webpack-plugin').use(HtmlWebpackPlugin, [
     {
       template: path.resolve(__dirname, '../../template/index.html.ejs'),
     },
   ]);
 
   if (options.progress) {
-    config.plugin('progress').use(ProgressBarWebpackPlugin);
+    config.plugin('progress-bar-webpack-plugin').use(ProgressBarWebpackPlugin);
   }
 
-  config.plugin('entryWatcher').use(RemaxPlugins.WebEntryWatcher, [virtualModules, entryTemplate, entries, options]);
-  config.plugin('define').use(new DefinePlugin(env.stringified));
-  config.plugin('css-extract-plugin').use(MiniCssExtractPlugin, [
+  config
+    .plugin('remax-web-entry-watcher-plugin')
+    .use(RemaxPlugins.WebEntryWatcher, [virtualModules, entryTemplate, entries, options]);
+  config.plugin('webpack-define-plugin').use(new DefinePlugin(env.stringified));
+  config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [
     {
       filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].css' : '[name].css',
     },
   ]);
-  config.plugin('remaxDefine').use(RemaxPlugins.Define, [options, entries]);
+  config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options, entries]);
 
   if (process.env.NODE_ENV === 'production') {
-    config.plugin('clean').use(new CleanWebpackPlugin() as any);
+    config.plugin('clean-webpack-plugin').use(new CleanWebpackPlugin() as any);
   }
 
   if (typeof options.configWebpack === 'function') {
