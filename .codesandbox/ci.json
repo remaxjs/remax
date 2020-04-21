@@ -12,5 +12,5 @@
     "packages/remax",
     "packages/remax-cli"
   ],
-  "sandboxes": ["remax-one-web-eo17m"]
+  "sandboxes": ["remax-one-web-e4801"]
 }
