@@ -80,6 +80,15 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   cssConfig(config, options, true);
 
   config.module
+    .rule('watchManifest')
+    .test(moduleMatcher)
+    .include.add(entries.app)
+    .merge(entries.pages)
+    .end()
+    .use('manifest')
+    .loader('manifest');
+
+  config.module
     .rule('json')
     .test(/\.json$/)
     .use('json')
@@ -102,15 +111,14 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
       config: readManifest(p.replace(new RegExp(`\\${ext}$`), '.config'), 'web'),
     };
   });
+  const virtualModules = new VirtualModulesPlugin({
+    './src/remax-entry.js': ejs.render(entryTemplate, {
+      pages,
+      appConfig,
+    }),
+  });
 
-  config.plugin('virtualModule').use(VirtualModulesPlugin, [
-    {
-      './src/remax-entry.js': ejs.render(entryTemplate, {
-        pages,
-        appConfig,
-      }),
-    },
-  ]);
+  config.plugin('virtualModule').use(virtualModules);
 
   config.plugin('html').use(HtmlWebpackPlugin, [
     {
@@ -122,6 +130,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     config.plugin('progress').use(ProgressBarWebpackPlugin);
   }
 
+  config.plugin('entryWatcher').use(RemaxPlugins.WebEntryWatcher, [virtualModules, entryTemplate, entries, options]);
   config.plugin('define').use(new DefinePlugin(env.stringified));
   config.plugin('css-extract-plugin').use(MiniCssExtractPlugin, [
     {
