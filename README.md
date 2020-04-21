@@ -4,7 +4,7 @@
 
 <p align="center">
 	<span>Learn once, write anywhere</span><br/>
-	<strong>使用真正的 React 构建小程序</strong>
+	<strong>使用真正的 React 构建小程序~</strong>
 </p>
 
 <p class="badges" align="center">
