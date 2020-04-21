@@ -19,7 +19,7 @@ exports[`Input should have maxlength when PLATFORM is wechat or toutiao 1`] = `
 <input
   className="class"
   controlled={false}
-  maxlength={140}
+  maxLength={140}
   onBlur={[Function]}
   onConfirm={[Function]}
   onFocus={[Function]}
