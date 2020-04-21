@@ -61,6 +61,8 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       refreshing: true,
     };
 
+    title = this.props.pageConfig.title || this.props.appConfig.title || document.title;
+
     componentDidMount() {
       this.setTitle();
       page.callLifecycle(Lifecycle.ready);
@@ -72,18 +74,18 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       window.removeEventListener('scroll', this.scrollEvent);
     }
 
-    componentDidCache() {
+    componentDidCache = () => {
+      this.title = document.title;
       page.callLifecycle(Lifecycle.hide);
-    }
+    };
 
-    componentDidRecover() {
+    componentDidRecover = () => {
       this.setTitle();
       page.callLifecycle(Lifecycle.show);
-    }
+    };
 
     setTitle = () => {
-      const { pageConfig, appConfig } = this.props;
-      document.title = pageConfig.title || appConfig.title || '';
+      document.title = this.title;
     };
 
     isPullDownRefreshEnabled = () => {
