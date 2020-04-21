@@ -14,5 +14,11 @@ export default function manifest(this: loader.LoaderContext, source: string) {
     this.addDependency(manifestFilePath);
   }
 
+  const manifestTsFilePath = id.replace(extRegExp, `.config.ts`);
+
+  if (fs.existsSync(manifestTsFilePath)) {
+    this.addDependency(manifestTsFilePath);
+  }
+
   return source;
 }
