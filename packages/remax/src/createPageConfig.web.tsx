@@ -62,6 +62,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     };
 
     componentDidMount() {
+      this.setTitle();
       page.callLifecycle(Lifecycle.ready);
 
       this.handlePageScroll();
@@ -76,8 +77,14 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     }
 
     componentDidRecover() {
+      this.setTitle();
       page.callLifecycle(Lifecycle.show);
     }
+
+    setTitle = () => {
+      const { pageConfig, appConfig } = this.props;
+      document.title = pageConfig.title || appConfig.title || '';
+    };
 
     isPullDownRefreshEnabled = () => {
       const { appConfig, pageConfig } = this.props;
