@@ -15,7 +15,7 @@ exports[`Input render correctly 1`] = `
 />
 `;
 
-exports[`Input should have maxlenth when PLATFORM is wechat or toutiao 1`] = `
+exports[`Input should have maxlength when PLATFORM is wechat or toutiao 1`] = `
 <input
   className="class"
   controlled={false}
