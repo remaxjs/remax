@@ -98,7 +98,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   config.optimization.minimize(false);
 
   config.module
-    .rule('createAppOrPageConfig')
+    .rule('config')
     .pre()
     .test(moduleMatcher)
     .include.add(entries.app)
@@ -115,7 +115,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   if (turboPagesEnabled) {
     // webpack chain 的配置顺序是反过来的
     config.module
-      .rule('staticCompilation')
+      .rule('turbo-page')
       .pre()
       .use('tuboPagesPostProcess')
       .loader('babel')
@@ -144,7 +144,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   }
 
   config.module
-    .rule('compilation')
+    .rule('js')
     .test(moduleMatcher)
     .use('babel')
     .loader('babel')
@@ -155,7 +155,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     });
 
   config.module
-    .rule('nativeComponent')
+    .rule('native-component')
     .test(moduleMatcher)
     .use('nativeComponent')
     .loader('nativeComponent')
@@ -184,24 +184,24 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     });
 
   config.module
-    .rule('images')
+    .rule('image')
     .test(/\.(png|jpe?g|gif|svg)$/i)
     .use('file')
     .loader(require.resolve('file-loader'));
 
   if (options.progress) {
-    config.plugin('progress').use(ProgressBarWebpackPlugin);
+    config.plugin('progress-bar-webpack-plugin').use(ProgressBarWebpackPlugin);
   }
 
-  config.plugin('define').use(DefinePlugin, [env.stringified]);
-  config.plugin('cssExtract').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
-  config.plugin('optimizeEntries').use(RemaxPlugins.OptimizeEntries, [meta]);
-  config.plugin('nativeFiles').use(RemaxPlugins.NativeFiles, [options, entries]);
-  config.plugin('remaxDefine').use(RemaxPlugins.Define, [options, entries]);
-  config.plugin('coverage-ignore').use(RemaxPlugins.CoverageIgnore);
+  config.plugin('webpack-define-plugin').use(DefinePlugin, [env.stringified]);
+  config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
+  config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
+  config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [options, entries]);
+  config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options, entries]);
+  config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
 
   if (process.env.NODE_ENV === 'production') {
-    config.plugin('clean').use(CleanWebpackPlugin);
+    config.plugin('clean-webpack-plugin').use(CleanWebpackPlugin);
   }
 
   if (typeof options.configWebpack === 'function') {
