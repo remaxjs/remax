@@ -16,6 +16,6 @@
     "./node_modules/mini-types/types/app.d.ts",
     "./node_modules/mini-types/types/page.d.ts",
     "./node_modules/mini-types/types/api/index.d.ts",
-    "./node_modules/@remax/miniprogram-api-typings/index.d.ts"
+    "./node_modules/miniprogram-api-typings/types/wx/lib.wx.api.d.ts"
   ]
 }
