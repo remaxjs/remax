@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "website",
+  "version": "1.0.0",
   "scripts": {
     "start": "dumi dev",
     "build": "dumi build",
