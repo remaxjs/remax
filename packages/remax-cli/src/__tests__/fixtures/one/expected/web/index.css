@@ -418,6 +418,10 @@ a {
   text-decoration: none;
   outline: none;
 }
+button {
+  /* prettier-ignore */
+  font-size: 18PX;
+}
 .remax-page.with-tab-bar {
   padding-bottom: 0.96rem;
 }

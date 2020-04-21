@@ -29,6 +29,11 @@ a {
   outline: none;
 }
 
+button {
+  /* prettier-ignore */
+  font-size: 18PX;
+}
+
 .remax-page.with-tab-bar {
   padding-bottom: 96px;
 }
