@@ -4,7 +4,6 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ${{ matrix.os }}
 
     strategy:
@@ -14,21 +13,21 @@ jobs:
       fail-fast: false
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: install
-      run: yarn install
-    - name: build
-      run: yarn build
-    - name: test
-      run: yarn test:cov
-      env:
-        CI: true
-    - name: Upload coverage to Codecov
-      if: success() && runner.os == 'Linux'
-      run: curl -s https://codecov.io/bash | bash -s -- -t $CODECOV_TOKEN
-      env:
-        CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install
+        run: yarn install --no-lockfile
+      - name: build
+        run: yarn build
+      - name: test
+        run: yarn test:cov
+        env:
+          CI: true
+      - name: Upload coverage to Codecov
+        if: success() && runner.os == 'Linux'
+        run: curl -s https://codecov.io/bash | bash -s -- -t $CODECOV_TOKEN
+        env:
+          CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
