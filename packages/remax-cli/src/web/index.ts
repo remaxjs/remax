@@ -39,6 +39,8 @@ export default async (argv: any) => {
           colors: true,
           modules: false,
           children: false,
+          assets: false,
+          entrypoints: false,
         })
       );
     });
