@@ -1,9 +1,11 @@
 import * as path from 'path';
+import { DefinePlugin } from 'webpack';
 import Config from 'webpack-chain';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import { RemaxOptions } from '../..';
+import { RemaxOptions } from '@remax/types';
 import alias from '../utils/alias';
 import { Platform } from '../utils/platform';
+import getEnvironment from '../utils/env';
 
 export default function baseConfig(config: Config, options: RemaxOptions, target: Platform) {
   config.resolveLoader.modules
@@ -18,6 +20,9 @@ export default function baseConfig(config: Config, options: RemaxOptions, target
   config.resolve.alias.merge(alias(options, target));
 
   config.output.path(path.join(options.cwd, options.output));
+
+  const env = getEnvironment(options, target);
+  config.plugin('webpack-define-plugin').use(DefinePlugin, [env.stringified]);
 
   if (process.env.NODE_ENV === 'production') {
     config.plugin('clean-webpack-plugin').use(CleanWebpackPlugin);

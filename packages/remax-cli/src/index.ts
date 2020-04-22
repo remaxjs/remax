@@ -1,13 +1,8 @@
 import API from './API';
-import { Entries as EntriesType, RemaxOptions as RemaxOptionsType, RemaxConfig as RemaxConfigType } from '@remax/types';
 export { default as logger } from './build/utils/output';
 import yargs from 'yargs';
-import build from './build';
+import { build } from './build';
 import analytics from './analytics';
-
-export type Entries = EntriesType;
-export type RemaxOptions = RemaxOptionsType;
-export type RemaxConfig = RemaxConfigType;
 
 export let cli = yargs;
 
@@ -43,6 +38,12 @@ export function run(args: any, callback?: yargs.ParseCallback) {
       type: 'string',
       required: true,
       requiresArg: true,
+    })
+    .option('notify', {
+      describe: '编译错误提醒',
+      alias: 'n',
+      type: 'boolean',
+      default: false,
     })
     .showHelpOnFail(false);
 

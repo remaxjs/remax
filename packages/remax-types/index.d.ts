@@ -3,7 +3,7 @@ import Config from 'webpack-chain';
 import * as t from '@babel/types';
 
 export interface RemaxOptions {
-  turboPages: string[];
+  turboPages?: string[];
   pxToRpx: boolean;
   cwd: string;
   progress: boolean;
@@ -15,6 +15,8 @@ export interface RemaxOptions {
   plugins: RemaxNodePlugin[];
   one?: boolean;
   notify?: boolean;
+  watch?: boolean;
+  target?: Platform;
 }
 
 export type RemaxConfig = Partial<RemaxOptions>;

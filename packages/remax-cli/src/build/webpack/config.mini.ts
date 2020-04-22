@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { Configuration, DefinePlugin } from 'webpack';
+import { Configuration } from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ProgressBarWebpackPlugin from 'progress-bar-webpack-plugin';
@@ -15,7 +15,6 @@ import fixRegeneratorRuntime from '../babel/fixRegeneratorRuntime';
 import componentManifest from '../babel/componentManifest';
 import * as RemaxPlugins from './plugins';
 import API from '../../API';
-import getEnvironment from '../utils/env';
 import * as platform from '../utils/platform';
 import winPath from '../../winPath';
 import cssConfig from './config/css';
@@ -46,7 +45,6 @@ function prepare(options: RemaxOptions, target: Platform) {
     .filter(name => API.adapter.target !== name)
     .reduce<string[]>((acc, name) => [...acc, `${name}/esm/api`, `${name}/esm/hostComponents`], []);
 
-  const env = getEnvironment(options, target);
   const publicPath = '/';
 
   return {
@@ -56,7 +54,6 @@ function prepare(options: RemaxOptions, target: Platform) {
     entryMap,
     pageEntries,
     stubModules,
-    env,
     publicPath,
   };
 }
@@ -64,10 +61,7 @@ function prepare(options: RemaxOptions, target: Platform) {
 export default function webpackConfig(options: RemaxOptions, target: Platform): Configuration {
   baseConfig(config, options, target);
 
-  const { meta, turboPagesEnabled, entries, entryMap, pageEntries, stubModules, env, publicPath } = prepare(
-    options,
-    target
-  );
+  const { meta, turboPagesEnabled, entries, entryMap, pageEntries, stubModules, publicPath } = prepare(options, target);
 
   for (const entry in entryMap) {
     config.entry(entry).add(entryMap[entry]);
@@ -187,7 +181,6 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     config.plugin('progress-bar-webpack-plugin').use(ProgressBarWebpackPlugin);
   }
 
-  config.plugin('webpack-define-plugin').use(DefinePlugin, [env.stringified]);
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
   config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [options, entries]);

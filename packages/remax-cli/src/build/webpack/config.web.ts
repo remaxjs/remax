@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import { Configuration, DefinePlugin } from 'webpack';
+import { Configuration } from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -12,7 +12,6 @@ import ejs from 'ejs';
 import { Platform } from '../utils/platform';
 import extensions, { moduleMatcher } from '../../extensions';
 import getEntries from '../../getEntries';
-import getEnvironment from '../utils/env';
 import getAppConfig from '../utils/getAppConfig';
 import readManifest from '../../readManifest';
 import winPath from '../../winPath';
@@ -21,31 +20,29 @@ import baseConfig from './baseConfig';
 
 export const config = new Config();
 
-function prepare(options: RemaxOptions, target: Platform) {
-  const entries = getEntries(options, target);
+function prepare(options: RemaxOptions) {
+  const entries = getEntries(options, Platform.web);
   const entryMap = [entries.app, ...entries.pages].reduce<any>((m, entry) => {
     const ext = path.extname(entry);
     const name = entry.replace(path.join(options.cwd, options.rootDir) + '/', '').replace(new RegExp(`\\${ext}$`), '');
     m[name] = entry;
     return m;
   }, {});
-  const env = getEnvironment(options, target);
   const appConfig = getAppConfig(options);
   const publicPath = '/';
 
   return {
     entries,
     entryMap,
-    env,
     appConfig,
     publicPath,
   };
 }
 
-export default function webpackConfig(options: RemaxOptions, target: Platform): Configuration {
-  baseConfig(config, options, target);
+export default function webpackConfig(options: RemaxOptions): Configuration {
+  baseConfig(config, options, Platform.web);
 
-  const { entries, env, appConfig, publicPath } = prepare(options, target);
+  const { entries, appConfig, publicPath } = prepare(options);
 
   config.entry('index').add('./src/remax-entry.js');
 
@@ -119,7 +116,6 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   config
     .plugin('remax-web-entry-watcher-plugin')
     .use(RemaxPlugins.WebEntryWatcher, [virtualModules, entryTemplate, entries, options]);
-  config.plugin('webpack-define-plugin').use(new DefinePlugin(env.stringified));
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [
     {
       filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].css' : '[name].css',

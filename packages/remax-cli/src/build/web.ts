@@ -1,20 +1,15 @@
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
+import { RemaxOptions } from '@remax/types';
 import webpackConfig from './webpack/config.web';
 import address from 'address';
-import getConfig from '../getConfig';
 import output from './utils/output';
 
-export default async (argv: any) => {
-  const target = argv.target;
-  process.env.REMAX_PLATFORM = target;
-
-  const options = getConfig();
-
-  const webpackOptions: webpack.Configuration = webpackConfig(options, target);
+export default async (options: RemaxOptions) => {
+  const webpackOptions: webpack.Configuration = webpackConfig(options);
   const compiler = webpack(webpackOptions);
 
-  if (argv.watch) {
+  if (options.watch) {
     output.message('🚀 启动 watch', 'blue');
     output.message('📎 http://localhost:3000', 'blue');
     output.message(`📎 http://${address.ip()}:3000\n`, 'blue');

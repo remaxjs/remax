@@ -10,7 +10,7 @@ export function validate(route: string, options: RemaxOptions) {
   }
   const page = rename(winPath(route).replace(winPath(path.join(options.cwd, options.rootDir)) + '/', ''), '');
 
-  return isMatch(page, options.turboPages);
+  return isMatch(page, options.turboPages ?? []);
 }
 
 export function filter(entries: Entries, options: RemaxOptions) {

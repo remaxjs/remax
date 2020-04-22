@@ -1,22 +1,18 @@
 import webpack from 'webpack';
 import events from 'events';
+import { RemaxOptions } from '@remax/types';
 import webpackConfig from './webpack/config.mini';
 import API from '../API';
-import getConfig from '../getConfig';
 import output from './utils/output';
+import { Platform } from './utils/platform';
 
-export default async function buildMini(argv: any, buildEvent: events.EventEmitter) {
-  const target = argv.target;
-  process.env.REMAX_PLATFORM = target;
-
-  const options = getConfig();
-
+export default async function buildMini(options: RemaxOptions, target: Platform, buildEvent: events.EventEmitter) {
   API.registerAdapterPlugins(target, options);
 
   const webpackOptions: webpack.Configuration = webpackConfig(options, target);
   const compiler = webpack(webpackOptions);
 
-  if (argv.watch) {
+  if (options.watch) {
     output.message('🚀 启动 watch\n', 'blue');
     compiler.watch({}, (error, stats) => {
       buildEvent.emit('event', {
