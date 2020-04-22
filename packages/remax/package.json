@@ -26,7 +26,7 @@
     "@remax/cli": "2.0.0-alpha.6",
     "@remax/macro": "2.0.0-alpha.6",
     "@remax/one": "2.0.0-alpha.6",
-    "@remax/runtime": "^2.0.0-alpha.6",
+    "@remax/runtime": "2.0.0-alpha.6",
     "@remax/toutiao": "2.0.0-alpha.6",
     "@remax/web": "2.0.0-alpha.6",
     "@remax/wechat": "2.0.0-alpha.6",

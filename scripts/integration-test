@@ -25,6 +25,6 @@ else
 fi
 cd $TEST_DIR
 ayarn
-yarn link remax @remax/cli @remax/ali
+yarn link remax @remax/cli @remax/ali @remax/runtime
 yarn build
 yarn test

@@ -10,6 +10,7 @@
     "packages/remax-one",
     "packages/babel-preset-remax",
     "packages/remax",
+    "packages/remax-runtime",
     "packages/remax-cli"
   ],
   "sandboxes": ["remax-one-web-e4801"]
