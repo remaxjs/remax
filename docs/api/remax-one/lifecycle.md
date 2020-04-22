@@ -1,5 +1,6 @@
 ---
 title: 生命周期
+order: 2
 group:
   title: remax/one
 ---

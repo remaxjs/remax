@@ -1,5 +1,6 @@
 ---
 title: babel-preset-remax
+order: 4
 ---
 
 `babel-preset-remax` 是 Remax 提供的 babel preset.
@@ -21,6 +22,7 @@ title: babel-preset-remax
         },
         'throw-if-namespace': true,
         targets: ['chrome >= 49', 'firefox >= 64', 'ios >= 8', 'Android > 4.4'],
+        react: true,
       },
     ],
   ];
@@ -43,4 +45,8 @@ title: babel-preset-remax
 
 ### targets
 
-[babel-preset-env](https://www.babeljs.cn/docs/babel-preset-env#targets) 中关于 targets 的配置
+[babel-preset-env](https://www.babeljs.io/docs/en/babel-preset-env#targets) 中关于 targets 的配置
+
+### react
+
+使用启用 [babel-preset-react](https://www.babeljs.io/docs/en/babel-preset-react)

@@ -1,5 +1,6 @@
 ---
 title: remax/macro
+order: 3
 ---
 
 `remax/macro` 下包含的是 [bable-plugin-macros](https://github.com/kentcdodds/babel-plugin-macros) 相关的宏。
