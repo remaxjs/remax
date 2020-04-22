@@ -3,7 +3,6 @@ import * as fs from 'fs';
 import { Configuration, DefinePlugin } from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ProgressBarWebpackPlugin from 'progress-bar-webpack-plugin';
 import { RemaxOptions } from '@remax/types';
@@ -13,14 +12,14 @@ import ejs from 'ejs';
 import { Platform } from '../utils/platform';
 import extensions, { moduleMatcher } from '../../extensions';
 import getEntries from '../../getEntries';
-import alias from '../utils/alias';
 import getEnvironment from '../utils/env';
 import getAppConfig from '../utils/getAppConfig';
 import readManifest from '../../readManifest';
 import winPath from '../../winPath';
 import cssConfig from './config/css';
+import baseConfig from './baseConfig';
 
-const config = new Config();
+export const config = new Config();
 
 function prepare(options: RemaxOptions, target: Platform) {
   const entries = getEntries(options, target);
@@ -44,25 +43,18 @@ function prepare(options: RemaxOptions, target: Platform) {
 }
 
 export default function webpackConfig(options: RemaxOptions, target: Platform): Configuration {
+  baseConfig(config, options, target);
+
   const { entries, env, appConfig, publicPath } = prepare(options, target);
 
   config.entry('index').add('./src/remax-entry.js');
 
-  config.resolveLoader.modules
-    .merge(['node_modules', path.join(__dirname, './loaders')])
-    .end()
-    .extensions.merge(['.js', '.ts']);
   config.devtool(process.env.NODE_ENV === 'development' ? 'cheap-module-source-map' : false);
-  config.mode(process.env.NODE_ENV as 'development');
-  config.context(options.cwd);
   config.output.publicPath(publicPath);
   config.resolve.extensions.merge(extensions.map(ex => `.web${ex}`).concat(extensions));
-  config.resolve.alias.merge(alias(options, target));
-  config.output.path(path.join(options.cwd, options.output));
   config.output.filename(process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].js' : '[name].js');
-  const runtimeHash = new Date().getTime();
   config.optimization.runtimeChunk({
-    name: () => (process.env.NODE_ENV === 'test' ? 'runtime' : `runtime-${runtimeHash}`),
+    name: 'runtime',
   });
 
   config.module
@@ -80,7 +72,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   cssConfig(config, options, true);
 
   config.module
-    .rule('watchManifest')
+    .rule('watch-manifest')
     .test(moduleMatcher)
     .include.add(entries.app)
     .merge(entries.pages)
@@ -134,10 +126,6 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     },
   ]);
   config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options, entries]);
-
-  if (process.env.NODE_ENV === 'production') {
-    config.plugin('clean-webpack-plugin').use(new CleanWebpackPlugin() as any);
-  }
 
   if (typeof options.configWebpack === 'function') {
     options.configWebpack(config);

@@ -2,7 +2,6 @@ import * as path from 'path';
 import { Configuration, DefinePlugin } from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import ProgressBarWebpackPlugin from 'progress-bar-webpack-plugin';
 import { RemaxOptions } from '@remax/types';
 import { Platform } from '../utils/platform';
@@ -15,12 +14,12 @@ import page from '../babel/page';
 import fixRegeneratorRuntime from '../babel/fixRegeneratorRuntime';
 import componentManifest from '../babel/componentManifest';
 import * as RemaxPlugins from './plugins';
-import alias from '../utils/alias';
 import API from '../../API';
 import getEnvironment from '../utils/env';
 import * as platform from '../utils/platform';
 import winPath from '../../winPath';
 import cssConfig from './config/css';
+import baseConfig from './baseConfig';
 
 export const config = new Config();
 
@@ -63,6 +62,8 @@ function prepare(options: RemaxOptions, target: Platform) {
 }
 
 export default function webpackConfig(options: RemaxOptions, target: Platform): Configuration {
+  baseConfig(config, options, target);
+
   const { meta, turboPagesEnabled, entries, entryMap, pageEntries, stubModules, env, publicPath } = prepare(
     options,
     target
@@ -73,12 +74,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   }
 
   config.devtool(false);
-  config.mode((process.env.NODE_ENV as any) || 'development');
-  config.context(options.cwd);
-  config.resolveLoader.modules
-    .merge(['node_modules', path.join(__dirname, './loaders')])
-    .end()
-    .extensions.merge(['.js', '.ts']);
+
   config.resolve.extensions.merge(
     extensions
       .map(ext => `.${target}${ext}`)
@@ -86,8 +82,6 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
       .concat(extensions)
   );
   config.resolve.extensions.merge(extensions);
-  config.resolve.alias.merge(alias(options, target));
-  config.output.path(path.join(options.cwd, options.output));
   config.output.filename('[name].js');
   config.output.globalObject(meta.global);
   config.output.publicPath(publicPath);
@@ -166,7 +160,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   cssConfig(config, options, false);
 
   config.module
-    .rule('watchManifest')
+    .rule('watch-manifest')
     .test(moduleMatcher)
     .include.add(entries.app)
     .merge(entries.pages)
@@ -199,10 +193,6 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [options, entries]);
   config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options, entries]);
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
-
-  if (process.env.NODE_ENV === 'production') {
-    config.plugin('clean-webpack-plugin').use(CleanWebpackPlugin);
-  }
 
   if (typeof options.configWebpack === 'function') {
     options.configWebpack(config);
