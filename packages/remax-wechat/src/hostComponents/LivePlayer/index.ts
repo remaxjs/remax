@@ -26,12 +26,20 @@ export interface LivePlayerProps extends BaseProps {
   autoPauseIfNavigate?: boolean;
   /** (default: true) 当跳转到其它微信原生页面时，是否自动暂停本页面的实时音视频播放 2.5.0  */
   autoPauseIfOpenNative?: boolean;
+  /** 设置小窗模式： push, pop，空字符串或通过数组形式设置多种模式（如： ["push", "pop"]） 2.10.3 */
+  pictureInPictureMode?: string | string[];
   /** 播放状态变化事件，detail = {code} 1.7.0  */
   onStateChange?: (event: any) => any;
   /** 全屏变化事件，detail = {direction, fullScreen} 1.7.0  */
   onFullScreenChange?: (event: any) => any;
   /** 网络状态通知，detail = {info} 1.9.0  */
   onNetStatus?: (event: any) => any;
+  /** 播放音量大小通知，detail = {}	2.10.0 */
+  onAudioVolumeNotify: (event: any) => any;
+  /** 播放器进入小窗	2.11.0 */
+  onEnterPictureInPicture: (event: any) => any;
+  /** 播放器退出小窗	2.11.0 */
+  onLeavePictureInPicture: (event: any) => any;
 }
 
 export default createHostComponent<LivePlayerProps>('live-player');

@@ -14,10 +14,13 @@ export const alias = {
   soundMode: 'sound-mode',
   autoPauseIfNavigate: 'auto-pause-if-navigate',
   autoPauseIfOpenNative: 'auto-pause-if-open-native',
+  pictureInPictureMode: 'picture-in-picture-mode',
   onStateChange: 'bindstatechange',
   onFullscreenChange: 'bindfullscreenchange',
-  onFullScreenChange: 'bindfullscreenchange',
   onNetStatus: 'bindnetstatus',
+  onAudioVolumeNotify: 'bindaudiovolumenotify',
+  onEnterPictureInPicture: 'bindenterpictureinpicture',
+  onLeavePictureInPicture: 'bindleavepictureinpicture',
   animation: 'animation',
 };
 

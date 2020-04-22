@@ -38,6 +38,24 @@ export interface LivePusherProps extends BaseProps {
   backgroundMute?: boolean;
   /** (default: false) 设置推流画面是否镜像，产生的效果在 live-player 反应到 2.7.0 */
   mirror?: boolean;
+  /** (default: false) 同 mirror 属性，后续 mirror 将废弃	2.10.0 */
+  remoteMirro?: boolean;
+  /** (default: auto) 控制本地预览画面是否镜像	2.10.0 */
+  localMirror?: 'auto' | 'enable' | 'disable';
+  /** (default: 0) 音频混响类型	2.10.0 */
+  audioReverbType?: number;
+  /** (default: true) 开启或关闭麦克风	2.10.0 */
+  enableMic?: boolean;
+  /** (default: false) 是否开启音频自动增益	2.10.0 */
+  enableAgc?: boolean;
+  /** (default: false) 是否开启音频噪声抑制	2.10.0 */
+  enableAns?: boolean;
+  /** (default: voicecall) 音量类型	2.10.0 */
+  audioVolumeType?: 'media' | 'voicecall';
+  /** (default: 360) 上推的视频流的分辨率宽度	2.10.0 */
+  videoWidth?: number;
+  /** (default: 640) 上推的视频流的分辨率高度	2.10.0 */
+  videoHeight?: number;
   /** 状态变化事件，detail = {code} 1.7.0 */
   onStateChange?: (event: any) => any;
   /** 网络状态通知，detail = {info} 1.9.0 */
