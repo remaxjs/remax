@@ -15,32 +15,20 @@ const hasSymbol = typeof Symbol === 'function' && Symbol.for;
 const REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
 const REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
 const REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
-const REACT_STRICT_MODE_TYPE = hasSymbol
-  ? Symbol.for('react.strict_mode')
-  : 0xeacc;
+const REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
 const REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
 const REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
 const REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace; // TODO: We don't use AsyncMode or ConcurrentMode anymore. They were temporary
 // (unstable) APIs that have been removed. Can we remove the symbols?
 
-const REACT_ASYNC_MODE_TYPE = hasSymbol
-  ? Symbol.for('react.async_mode')
-  : 0xeacf;
-const REACT_CONCURRENT_MODE_TYPE = hasSymbol
-  ? Symbol.for('react.concurrent_mode')
-  : 0xeacf;
-const REACT_FORWARD_REF_TYPE = hasSymbol
-  ? Symbol.for('react.forward_ref')
-  : 0xead0;
+const REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
+const REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
+const REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
 const REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
-const REACT_SUSPENSE_LIST_TYPE = hasSymbol
-  ? Symbol.for('react.suspense_list')
-  : 0xead8;
+const REACT_SUSPENSE_LIST_TYPE = hasSymbol ? Symbol.for('react.suspense_list') : 0xead8;
 const REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
 const REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
-const REACT_FUNDAMENTAL_TYPE = hasSymbol
-  ? Symbol.for('react.fundamental')
-  : 0xead5;
+const REACT_FUNDAMENTAL_TYPE = hasSymbol ? Symbol.for('react.fundamental') : 0xead5;
 const REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for('react.responder') : 0xead6;
 const REACT_SCOPE_TYPE = hasSymbol ? Symbol.for('react.scope') : 0xead7;
 
@@ -84,13 +72,7 @@ let lowPriorityWarningWithoutStack: any = function() {};
 
 {
   const printWarning = function(format: any) {
-    for (
-      var _len = arguments.length,
-        args = new Array(_len > 1 ? _len - 1 : 0),
-        _key = 1;
-      _key < _len;
-      _key++
-    ) {
+    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       args[_key - 1] = arguments[_key];
     }
 
@@ -116,16 +98,13 @@ let lowPriorityWarningWithoutStack: any = function() {};
   lowPriorityWarningWithoutStack = function(condition: any, format: any) {
     if (format === undefined) {
       throw new Error(
-        '`lowPriorityWarningWithoutStack(condition, format, ...args)` requires a warning ' +
-          'message argument'
+        '`lowPriorityWarningWithoutStack(condition, format, ...args)` requires a warning ' + 'message argument'
       );
     }
 
     if (!condition) {
       for (
-        var _len2 = arguments.length,
-          args = new Array(_len2 > 2 ? _len2 - 2 : 0),
-          _key2 = 2;
+        var _len2 = arguments.length, args = new Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2;
         _key2 < _len2;
         _key2++
       ) {
@@ -220,11 +199,7 @@ export function isContextProvider(object: any) {
   return typeOf(object) === REACT_PROVIDER_TYPE;
 }
 export function isElement(object: any) {
-  return (
-    typeof object === 'object' &&
-    object !== null &&
-    object.$$typeof === REACT_ELEMENT_TYPE
-  );
+  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
 }
 export function isForwardRef(object: any) {
   return typeOf(object) === REACT_FORWARD_REF_TYPE;
