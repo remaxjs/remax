@@ -1,10 +1,11 @@
 import webpack from 'webpack';
+import events from 'events';
 import webpackConfig from './webpack/config.mini';
 import API from '../API';
 import getConfig from '../getConfig';
 import output from './utils/output';
 
-export default async function buildMini(argv: any) {
+export default async function buildMini(argv: any, buildEvent: events.EventEmitter) {
   const target = argv.target;
   process.env.REMAX_PLATFORM = target;
 
@@ -18,6 +19,11 @@ export default async function buildMini(argv: any) {
   if (argv.watch) {
     output.message('🚀 启动 watch\n', 'blue');
     compiler.watch({}, (error, stats) => {
+      buildEvent.emit('event', {
+        code: error ? 'ERROR' : 'END',
+        error,
+        stats,
+      });
       if (error) {
         output.error(`[${name}]: ${error.message}`);
         throw error;
@@ -43,6 +49,11 @@ export default async function buildMini(argv: any) {
   } else {
     output.message('🚀 启动 build\n', 'blue');
     compiler.run((error, stats) => {
+      buildEvent.emit('event', {
+        code: error ? 'ERROR' : 'END',
+        error,
+        stats,
+      });
       if (error) {
         output.error(error.message);
         throw error;
