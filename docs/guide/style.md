@@ -74,6 +74,20 @@ css 中图片引用问题
 
 3. `../../assets/image.png` 相对路径也会被识别为 module，webpack 会处理。
 
+global assets 配置 copy 的参考
+
+```js
+// remax.config.js
+const CopyPlugin = require('copy-webpack-plugin');
+
+module.exports = {
+  configWebpack: function(config) {
+    config.plugin('copy').use(CopyPlugin, [[{ from: 'src/path/to/assets', to: 'path/to/assets' }]]);
+    return config;
+  },
+};
+```
+
 ## 小程序自定义组件样式
 
 Remax 使用的是 React 组件特性，因此没有自定义组件的概念，你无须关心小程序自定义组件样式的问题
