@@ -1,10 +1,9 @@
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
-import webpackConfig from './webpackConfig.web';
+import webpackConfig from './webpack/config.web';
 import address from 'address';
 import getConfig from '../getConfig';
-import output from '../build/utils/output';
-import remaxVersion from '../remaxVersion';
+import output from './utils/output';
 
 export default async (argv: any) => {
   const target = argv.target;
@@ -14,9 +13,6 @@ export default async (argv: any) => {
 
   const webpackOptions: webpack.Configuration = webpackConfig(options, target);
   const compiler = webpack(webpackOptions);
-
-  output.message(`\n⌨️  Remax v${remaxVersion()}\n`, 'green');
-  output.message(`🎯 平台 ${target}`, 'blue');
 
   if (argv.watch) {
     output.message('🚀 启动 watch', 'blue');
@@ -50,12 +46,6 @@ export default async (argv: any) => {
         process.exit(1);
       }
     });
-
-    try {
-      require('remax-stats').run();
-    } catch (e) {
-      // ignore
-    }
   } else {
     output.message('🚀 启动 build\n', 'blue');
     compiler.run((error, stats) => {

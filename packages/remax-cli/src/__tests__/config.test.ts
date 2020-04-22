@@ -2,7 +2,7 @@ import * as path from 'path';
 import getConfig from '../getConfig';
 import readManifest from '../readManifest';
 import build from './helpers/build';
-import { Platform } from '../build/platform';
+import { Platform } from '../build/utils/platform';
 
 describe('remax config', () => {
   it('override output', () => {

@@ -5,22 +5,22 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import ProgressBarWebpackPlugin from 'progress-bar-webpack-plugin';
 import { RemaxOptions } from '@remax/types';
-import { Platform } from './platform';
-import extensions, { moduleMatcher } from '../extensions';
-import getEntries from '../getEntries';
-import * as TurboPages from './turboPages';
-import * as staticCompiler from './babel/compiler/static';
-import app from './babel/app';
-import page from './babel/page';
-import fixRegeneratorRuntime from './babel/fixRegeneratorRuntime';
-import componentManifest from './babel/componentManifest';
-import * as RemaxPlugins from './webpack/plugins';
-import alias from './alias';
-import API from '../API';
-import getEnvironment from './env';
-import * as platform from './platform';
-import winPath from '../winPath';
-import cssConfig from './webpack/config/css';
+import { Platform } from '../utils/platform';
+import extensions, { moduleMatcher } from '../../extensions';
+import getEntries from '../../getEntries';
+import * as TurboPages from '../utils/turboPages';
+import * as staticCompiler from '../babel/compiler/static';
+import app from '../babel/app';
+import page from '../babel/page';
+import fixRegeneratorRuntime from '../babel/fixRegeneratorRuntime';
+import componentManifest from '../babel/componentManifest';
+import * as RemaxPlugins from './plugins';
+import alias from '../utils/alias';
+import API from '../../API';
+import getEnvironment from '../utils/env';
+import * as platform from '../utils/platform';
+import winPath from '../../winPath';
+import cssConfig from './config/css';
 
 export const config = new Config();
 
@@ -76,7 +76,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   config.mode((process.env.NODE_ENV as any) || 'development');
   config.context(options.cwd);
   config.resolveLoader.modules
-    .merge(['node_modules', path.join(__dirname, './webpack/loaders')])
+    .merge(['node_modules', path.join(__dirname, './loaders')])
     .end()
     .extensions.merge(['.js', '.ts']);
   config.resolve.extensions.merge(

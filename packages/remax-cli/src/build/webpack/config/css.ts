@@ -3,8 +3,8 @@ import pxToUnits from '@remax/postcss-px2units';
 import postcssPresetEnv from 'postcss-preset-env';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { RemaxOptions } from '@remax/types';
-import * as styleConfig from '../../styleConfig';
-import pageClass from '../../../web/pageClass';
+import * as styleConfig from '../../utils/styleConfig';
+import pageClass from '../../postcss/pageClass';
 
 function applyLoaders(
   rule: Config.Rule<Config.Rule<Config.Module>>,

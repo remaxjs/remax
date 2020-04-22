@@ -1,5 +1,5 @@
 import postcss from 'postcss';
-import output from '../build/utils/output';
+import output from '../utils/output';
 
 export default postcss.plugin('postcss-remax-page-plugin', opts => {
   opts = opts || {};

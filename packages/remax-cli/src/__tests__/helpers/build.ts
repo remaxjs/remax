@@ -3,11 +3,11 @@ import webpack, { Configuration } from 'webpack';
 import { createFsFromVolume, Volume, IFs } from 'memfs';
 import joinPath from 'memory-fs/lib/join';
 import API from '../../API';
-import webpackConfig from '../../build/webpackConfig';
-import webpackWebConfig from '../../web/webpackConfig.web';
+import webpackConfig from '../../build/webpack/config.mini';
+import webpackWebConfig from '../../build/webpack/config.web';
 import getConfig from '../../getConfig';
 import winPath from '../../winPath';
-import { Platform } from '../../build/platform';
+import { Platform } from '../../build/utils/platform';
 
 function ensureWebpackMemoryFs(fs: IFs) {
   const nextFs = Object.create(fs);

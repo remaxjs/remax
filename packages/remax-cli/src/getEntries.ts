@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { RemaxOptions, AppConfig, Entries } from '@remax/types';
 import readManifest from './readManifest';
-import { Platform } from './build/platform';
+import { Platform } from './build/utils/platform';
 
 export function searchFile(file: string) {
   const exts = ['ts', 'tsx', 'js', 'jsx'];

@@ -6,7 +6,7 @@ import * as babelParser from '@babel/parser';
 import traverse, { NodePath, VisitNodeFunction } from '@babel/traverse';
 import { get } from 'lodash';
 import resolve from 'resolve';
-import { getPath } from '../../../nativeComponent';
+import { getPath } from '../../../utils/nativeComponent';
 import { RemaxOptions } from '@remax/types';
 import winPath from '../../../../winPath';
 

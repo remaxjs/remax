@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'fs';
 import postcss from 'postcss';
 import API from '../../../../API';
-import { getPath } from '../../../nativeComponent';
+import { getPath } from '../../../utils/nativeComponent';
 import output from '../../../utils/output';
 
 const cssPaths: Set<string> = new Set();

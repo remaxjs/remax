@@ -4,7 +4,7 @@ import { nativeComponents } from 'remax/macro';
 import { matcher } from '../../../../extensions';
 import API from '../../../../API';
 import readManifest from '../../../../readManifest';
-import { isPluginPath } from '../../../nativeComponent';
+import { isPluginPath } from '../../../utils/nativeComponent';
 import { compilation } from 'webpack';
 import { RemaxOptions } from '@remax/types';
 import * as cacheable from './cacheable';

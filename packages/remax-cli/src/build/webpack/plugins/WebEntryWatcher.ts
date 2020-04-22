@@ -4,7 +4,7 @@ import { Compiler } from 'webpack';
 import { Entries, RemaxOptions } from '@remax/types';
 import winPath from '../../../winPath';
 import readManifest from '../../../readManifest';
-import getAppConfig from '../../../web/getAppConfig';
+import getAppConfig from '../../utils/getAppConfig';
 
 const PLUGIN_NAME = 'RemaxWebEntryWatcherPlugin';
 

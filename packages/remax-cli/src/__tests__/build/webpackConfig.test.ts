@@ -1,7 +1,7 @@
 import API from '../../API';
-import webpackConfig from '../../build/webpackConfig';
+import webpackConfig from '../../build/webpack/config.mini';
 import defaultOptions from '../../defaultOptions';
-import { Platform } from '../../build/platform';
+import { Platform } from '../../build/utils/platform';
 import getConfig from '../../getConfig';
 
 jest.mock('../../getEntries', () => () => ({

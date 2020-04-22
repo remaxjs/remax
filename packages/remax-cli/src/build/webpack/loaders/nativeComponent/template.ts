@@ -1,7 +1,7 @@
 import * as htmlparser2 from 'htmlparser2';
 import fs from 'fs';
 import API from '../../../../API';
-import { getPath } from '../../../nativeComponent';
+import { getPath } from '../../../utils/nativeComponent';
 import output from '../../../utils/output';
 import { RemaxOptions } from '@remax/types';
 

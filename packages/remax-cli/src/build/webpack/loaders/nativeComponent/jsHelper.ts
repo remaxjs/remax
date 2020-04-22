@@ -4,7 +4,7 @@ import traverse from '@babel/traverse';
 import * as htmlparser2 from 'htmlparser2';
 import { get } from 'lodash';
 import API from '../../../../API';
-import { getPath } from '../../../nativeComponent';
+import { getPath } from '../../../utils/nativeComponent';
 import output from '../../../utils/output';
 
 const jsHelpers: Set<string> = new Set();

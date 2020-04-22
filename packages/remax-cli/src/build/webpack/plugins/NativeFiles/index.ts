@@ -7,7 +7,7 @@ import createPageTemplate, { createBaseTemplate } from './createPageTemplate';
 import createTurboPageTemplate from './createTurboPageTemplate';
 import createPageManifest from './createPageManifest';
 import createPageHelperFile from './createPageHelperFile';
-import * as turboPages from '../../../turboPages';
+import * as turboPages from '../../../utils/turboPages';
 import winPath from '../../../../winPath';
 
 const PLUGIN_NAME = 'RemaxNativeFilesPlugin';

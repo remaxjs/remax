@@ -1,8 +1,8 @@
 import * as path from 'path';
 import { RemaxOptions, Entries } from '@remax/types';
 import { isMatch } from 'micromatch';
-import { rename } from '../extensions';
-import winPath from '../winPath';
+import { rename } from '../../extensions';
+import winPath from '../../winPath';
 
 export function validate(route: string, options: RemaxOptions) {
   if (!route) {

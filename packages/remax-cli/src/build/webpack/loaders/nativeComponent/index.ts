@@ -1,7 +1,7 @@
 import utils from 'loader-utils';
 import { loader } from 'webpack';
 import { registerNativeComponent as register } from 'remax/macro';
-import { isNativeComponent } from '../../../nativeComponent';
+import { isNativeComponent } from '../../../utils/nativeComponent';
 import jsHelper, { getJsHelpers } from './jsHelper';
 import jsModule, { getJsModules } from './modules';
 import style, { getcssPaths } from './style';

@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 import path from 'path';
 import resolve from 'enhanced-resolve';
-import winPath from '../winPath';
-import { config } from './webpackConfig';
+import winPath from '../../winPath';
+import { config } from '../webpack/config.mini';
 
 export const getSourcePath = (source: string, importer: string) => {
   const resolveConfig = config.toConfig().resolve;

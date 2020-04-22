@@ -1,83 +1,21 @@
-import webpack from 'webpack';
-import webpackConfig from './webpackConfig';
-import API from '../API';
-import getConfig from '../getConfig';
 import output from './utils/output';
 import remaxVersion from '../remaxVersion';
-import { Platform } from './platform';
-import buildWeb from '../web';
+import buildWeb from './web';
+import buildMini from './mini';
+import { Platform } from './utils/platform';
 
-export default async (argv: any) => {
-  const target = argv.target;
-  if (target === Platform.web) {
-    return buildWeb(argv);
-  }
-  process.env.REMAX_PLATFORM = target;
-
-  const options = getConfig();
-
-  API.registerAdapterPlugins(target, options);
-
-  const webpackOptions: webpack.Configuration = webpackConfig(options, target);
-  const compiler = webpack(webpackOptions);
-
+export default function build(argv: any) {
+  const { target } = argv;
   output.message(`\n⌨️  Remax v${remaxVersion()}\n`, 'green');
   output.message(`🎯 平台 ${target}`, 'blue');
 
-  if (argv.watch) {
-    output.message('🚀 启动 watch\n', 'blue');
-    compiler.watch({}, (error, stats) => {
-      if (error) {
-        output.error(`[${name}]: ${error.message}`);
-        throw error;
-      }
+  const result = target === Platform.web ? buildWeb(argv) : buildMini(argv);
 
-      const info = stats.toJson();
-
-      if (stats.hasErrors()) {
-        info.errors.forEach(error => {
-          output.error(error);
-        });
-      }
-
-      if (stats.hasWarnings()) {
-        output.warn(info.warnings.join('\n'));
-      }
-
-      // 适配阿里小程序 IDE
-      if (target === 'ali') {
-        output.message('Watching for changes...', 'green', options.notify);
-      }
-    });
-
-    try {
-      require('remax-stats').run();
-    } catch (e) {
-      // ignore
-    }
-  } else {
-    output.message('🚀 启动 build\n', 'blue');
-    compiler.run((error, stats) => {
-      if (error) {
-        output.error(error.message);
-        throw error;
-      }
-
-      const info = stats.toJson();
-
-      if (stats.hasErrors()) {
-        info.errors.forEach(error => {
-          output.error(error);
-        });
-
-        process.exit(1);
-      }
-
-      if (stats.hasWarnings()) {
-        info.warnings.forEach(warning => {
-          output.warn(warning);
-        });
-      }
-    });
+  try {
+    require('remax-stats').run();
+  } catch (e) {
+    // ignore
   }
-};
+
+  return result;
+}

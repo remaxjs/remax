@@ -8,17 +8,17 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ProgressBarWebpackPlugin from 'progress-bar-webpack-plugin';
 import { RemaxOptions } from '@remax/types';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
-import * as RemaxPlugins from '../build/webpack/plugins';
+import * as RemaxPlugins from './plugins';
 import ejs from 'ejs';
-import { Platform } from '../build/platform';
-import extensions, { moduleMatcher } from '../extensions';
-import getEntries from '../getEntries';
-import alias from '../build/alias';
-import getEnvironment from '../build/env';
-import getAppConfig from './getAppConfig';
-import readManifest from '../readManifest';
-import winPath from '../winPath';
-import cssConfig from '../build/webpack/config/css';
+import { Platform } from '../utils/platform';
+import extensions, { moduleMatcher } from '../../extensions';
+import getEntries from '../../getEntries';
+import alias from '../utils/alias';
+import getEnvironment from '../utils/env';
+import getAppConfig from '../utils/getAppConfig';
+import readManifest from '../../readManifest';
+import winPath from '../../winPath';
+import cssConfig from './config/css';
 
 const config = new Config();
 
@@ -49,7 +49,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   config.entry('index').add('./src/remax-entry.js');
 
   config.resolveLoader.modules
-    .merge(['node_modules', path.join(__dirname, '../build/webpack/loaders')])
+    .merge(['node_modules', path.join(__dirname, './loaders')])
     .end()
     .extensions.merge(['.js', '.ts']);
   config.devtool(process.env.NODE_ENV === 'development' ? 'cheap-module-source-map' : false);
@@ -94,7 +94,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .use('file')
     .loader(require.resolve('file-loader'));
 
-  const entryTemplate = fs.readFileSync(path.resolve(__dirname, '../../template/entry.js.ejs'), 'utf-8');
+  const entryTemplate = fs.readFileSync(path.resolve(__dirname, '../../../template/entry.js.ejs'), 'utf-8');
   const pages = entries.pages.map(p => {
     const ext = path.extname(p);
     const ROOT = winPath(path.join(options.cwd, options.rootDir)) + '/';
@@ -116,7 +116,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
 
   config.plugin('html-webpack-plugin').use(HtmlWebpackPlugin, [
     {
-      template: path.resolve(__dirname, '../../template/index.html.ejs'),
+      template: path.resolve(__dirname, '../../../template/index.html.ejs'),
     },
   ]);
 
