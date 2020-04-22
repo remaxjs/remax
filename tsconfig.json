@@ -5,6 +5,7 @@
     "noImplicitAny": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "skipLibCheck": true
   }
 }
