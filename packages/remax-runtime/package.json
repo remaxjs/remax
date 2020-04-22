@@ -1,8 +1,9 @@
 {
-  "name": "remax",
+  "name": "@remax/runtime",
   "version": "2.0.0-alpha.6",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
-  "main": "index.js",
+  "main": "cjs",
+  "module": "esm",
   "keywords": [
     "react",
     "miniapp",
@@ -18,25 +19,32 @@
     "url": "git+https://github.com/remaxjs/remax.git"
   },
   "homepage": "https://remaxjs.org",
+  "scripts": {
+    "clean": "rm -rf esm cjs",
+    "watch": "concurrently \"npm:watch:*\"",
+    "watch:esm": "npm run build:esm -- -w",
+    "watch:cjs": "npm run build:cjs -- -w",
+    "prebuild": "npm run clean",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module CommonJS --outDir cjs",
+    "test": "jest",
+    "test:debug": "npx --node-arg=--inspect-brk jest -i"
+  },
   "resolutions": {
     "@types/react": "^16.9.33"
   },
   "dependencies": {
-    "@remax/ali": "2.0.0-alpha.6",
-    "@remax/cli": "2.0.0-alpha.6",
-    "@remax/macro": "2.0.0-alpha.6",
-    "@remax/one": "2.0.0-alpha.6",
-    "@remax/runtime": "^2.0.0-alpha.6",
-    "@remax/toutiao": "2.0.0-alpha.6",
     "@remax/web": "2.0.0-alpha.6",
-    "@remax/wechat": "2.0.0-alpha.6",
-    "mini-types": "^0.1.1",
-    "miniprogram-api-typings": "^2.10.4"
+    "qs": "^6.9.3",
+    "react-reconciler": "0.25.1",
+    "scheduler": "0.19.1"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "@types/node": "^13.1.6",
     "@types/react": "^16.9.33",
+    "@types/react-reconciler": "^0.18.0",
     "@types/react-test-renderer": "^16.9.2",
     "concurrently": "^5.0.0",
     "jest": "^25.4.0",
