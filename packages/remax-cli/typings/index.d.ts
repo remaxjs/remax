@@ -11,7 +11,6 @@ declare module 'slash2';
 declare module 'esm';
 declare module 'sander';
 declare module 'webpack-virtual-modules';
-declare module 'progress-bar-webpack-plugin';
 
 declare namespace jest {
   interface Matchers<R, T> {

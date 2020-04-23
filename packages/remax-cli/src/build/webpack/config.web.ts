@@ -4,7 +4,7 @@ import { Configuration } from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ProgressBarWebpackPlugin from 'progress-bar-webpack-plugin';
+import WebapckBar from 'webpackbar';
 import { RemaxOptions } from '@remax/types';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 import * as RemaxPlugins from './plugins';
@@ -110,7 +110,7 @@ export default function webpackConfig(options: RemaxOptions): Configuration {
   ]);
 
   if (options.progress) {
-    config.plugin('progress-bar-webpack-plugin').use(ProgressBarWebpackPlugin);
+    config.plugin('webpackbar').use(WebapckBar, [{ name: 'web' }]);
   }
 
   config

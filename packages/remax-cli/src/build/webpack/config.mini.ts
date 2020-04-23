@@ -2,7 +2,7 @@ import * as path from 'path';
 import { Configuration } from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import ProgressBarWebpackPlugin from 'progress-bar-webpack-plugin';
+import WebpackBar from 'webpackbar';
 import { RemaxOptions } from '@remax/types';
 import { Platform } from '../utils/platform';
 import extensions, { moduleMatcher } from '../../extensions';
@@ -178,7 +178,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .loader(require.resolve('file-loader'));
 
   if (options.progress) {
-    config.plugin('progress-bar-webpack-plugin').use(ProgressBarWebpackPlugin);
+    config.plugin('webpackbar').use(WebpackBar, [{ name: target }]);
   }
 
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
