@@ -72,4 +72,24 @@ describe('Textarea', () => {
 
     expect(instance.props.value).toEqual('2');
   });
+
+  it('should have maxlength when PLATFORM is wechat or toutiao', () => {
+    process.env.REMAX_PLATFORM = 'wechat';
+
+    const testRenderer = TestRenderer.create(
+      <Textarea
+        className="class"
+        onBlur={() => {
+          // ignore
+        }}
+        onFocus={() => {
+          // ignore
+        }}
+        onConfirm={() => {
+          // ignore
+        }}
+      />
+    );
+    expect(testRenderer.toJSON()).toMatchSnapshot();
+  });
 });
