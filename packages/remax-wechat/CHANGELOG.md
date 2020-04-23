@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.7](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.6...v2.0.0-alpha.7) (2020-04-23)
+
+
+### Bug Fixes
+
+* **wechat:** 更新 LivePlayer、LivePusher 属性 ([#839](https://github.com/remaxjs/remax/issues/839)) ([14c4c85](https://github.com/remaxjs/remax/commit/14c4c85ef989e87ba08c34b06c68eead5af675ad))
+
+
+
+
+
 # [2.0.0-alpha.6](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2020-04-21)
 
 ### Bug Fixes
