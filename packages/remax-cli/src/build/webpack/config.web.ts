@@ -50,8 +50,9 @@ export default function webpackConfig(options: RemaxOptions): Configuration {
   config.output.publicPath(publicPath);
   config.resolve.extensions.merge(extensions.map(ex => `.web${ex}`).concat(extensions));
   config.output.filename(process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].js' : '[name].js');
+  const runtimeHash = new Date().getTime();
   config.optimization.runtimeChunk({
-    name: 'runtime',
+    name: 'runtime-' + runtimeHash,
   });
 
   config.module
