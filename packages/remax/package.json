@@ -3,6 +3,9 @@
   "version": "2.0.0-alpha.6",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "index.js",
+  "bin": {
+    "remax": "./bin/remax"
+  },
   "keywords": [
     "react",
     "miniapp",
