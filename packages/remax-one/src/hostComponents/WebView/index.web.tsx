@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
-import './index.css';
 
 export interface WebViewProps extends React.AriaAttributes {
   id?: string;

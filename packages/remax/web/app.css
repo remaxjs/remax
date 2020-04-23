@@ -29,9 +29,77 @@ a {
   outline: none;
 }
 
-button {
+.remax-button {
   /* prettier-ignore */
   font-size: 18PX;
+  /* prettier-ignore */
+  height: 47PX;
+  /* prettier-ignore */
+  line-height: 47PX;
+  /* prettier-ignore */
+  border-radius: 2PX;
+  display: block;
+  outline: 0;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  padding: 0;
+  text-align: center;
+  /* prettier-ignore */
+  border-radius: 2PX;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  white-space: nowrap;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  /* prettier-ignore */
+  border: 1PX solid rgb(238, 238, 238);
+}
+
+.remax-input {
+  /* prettier-ignore */
+  font-size: 17PX;
+  /* prettier-ignore */
+  height: 25PX;
+  display: inline-block;
+  background-color: rgb(255, 255, 255);
+  /* prettier-ignore */
+  padding: 2px 5px;
+  color: rgb(0, 0, 0);
+  box-sizing: content-box;
+}
+
+.remax-textarea {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  /* prettier-ignore */
+  padding: 2px 5px;
+  color: rgb(0, 0, 0);
+  /* prettier-ignore */
+  font-size: 17px;
+  /* prettier-ignore */
+  height: 42px;
+  line-height: 1.4;
+}
+
+.remax-image {
+  background-repeat: no-repeat;
+  display: inline-block;
+  overflow: hidden;
+  font-size: 0;
+  /* prettier-ignore */
+  width: 300PX;
+  /* prettier-ignore */
+  height: 225PX;
+}
+
+.remax-text-selectable {
+  user-select: text;
+}
+
+.remax-web-view {
+  width: 100%;
+  min-height: 100vh;
 }
 
 .remax-page.with-tab-bar {

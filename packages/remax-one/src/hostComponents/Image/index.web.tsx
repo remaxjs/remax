@@ -3,7 +3,6 @@ import { ImageWebProps } from './props';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
 import modeStyle from './modeStyle';
 import clsx from 'clsx';
-import './index.css';
 
 const Image: React.FC<ImageWebProps> = props => {
   const { className, src, style, mode, onTap, onLoad, onError, ...restProps } = filterProps<ImageWebProps>(props);

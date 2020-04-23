@@ -25,7 +25,7 @@ const Input: React.FC<InputWebProps> = props => {
       {...restProps}
       type={inputType}
       onKeyPress={handleKeyPress}
-      className={clsx(className, placeholderStyleClassName)}
+      className={clsx('remax-input', className, placeholderStyleClassName)}
     />
   );
 };

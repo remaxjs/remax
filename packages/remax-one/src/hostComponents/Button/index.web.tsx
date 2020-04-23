@@ -35,7 +35,7 @@ const Button: React.FC<ButtonWebProps> = props => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       onTouchCancel={handleTouchCancel}
-      className={clsx(className, { [hoverClassName || '']: hovered })}
+      className={clsx('remax-button', className, { [hoverClassName || '']: hovered })}
       onClick={onTap}
     />
   );

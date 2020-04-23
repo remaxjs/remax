@@ -2,7 +2,6 @@ import * as React from 'react';
 import clsx from 'clsx';
 import { TextWebProps } from './props';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
-import './index.css';
 
 const Text: React.FC<TextWebProps> = props => {
   const {

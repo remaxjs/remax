@@ -10,10 +10,8 @@ export interface TextareaState {
 
 export default class Textarea extends React.Component<TextareaProps, TextareaState> {
   static defaultProps = {
-    'toutiao-maxlength': -1,
     'toutiao-selection-end': 999,
     'toutiao-selection-start': 999,
-    'wechat-maxlength': -1,
     'wechat-selection-end': 999,
     'wechat-selection-start': 999,
     'wechat-fixed': false,
@@ -75,6 +73,10 @@ export default class Textarea extends React.Component<TextareaProps, TextareaSta
 
     if (inputProps.onBlur) {
       inputProps.onBlur = createCallback(this.props.onBlur, createInputEvent);
+    }
+
+    if (process.env.REMAX_PLATFORM === 'wechat' || process.env.REMAX_PLATFORM === 'toutiao') {
+      inputProps.maxLength = inputProps.maxLength ?? 140;
     }
 
     return React.createElement('textarea', {
