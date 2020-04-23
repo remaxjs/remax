@@ -8,10 +8,7 @@ module.exports = {
         module: 'ESNext',
       },
       babelConfig: {
-        plugins: [
-          'babel-plugin-macros',
-          '@babel/plugin-transform-modules-commonjs',
-        ],
+        plugins: ['babel-plugin-macros', '@babel/plugin-transform-modules-commonjs'],
       },
     },
   },
