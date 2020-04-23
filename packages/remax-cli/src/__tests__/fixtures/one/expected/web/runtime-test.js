@@ -69,7 +69,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"2":"packageA/pages/index~pages/index","3":"pages/index","4":"packageA/pages/index","5":"vendors~packageA/pages/index~pages/index"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"2":"pages/index","3":"packageA/pages/index~pages/index","4":"packageA/pages/index","5":"vendors~packageA/pages/index~pages/index"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -107,7 +107,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"2":"packageA/pages/index~pages/index","3":"pages/index","4":"packageA/pages/index","5":"vendors~packageA/pages/index~pages/index"}[chunkId]||chunkId) + ".css";
+/******/ 				var href = "" + ({"2":"pages/index","3":"packageA/pages/index~pages/index","4":"packageA/pages/index","5":"vendors~packageA/pages/index~pages/index"}[chunkId]||chunkId) + ".css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

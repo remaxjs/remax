@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[3],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[2],{
 
 /***/ 10:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -7,16 +7,16 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
 /* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _remax_one__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
-/* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(67);
+/* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(64);
 /* harmony import */ var remax_wechat__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(remax_wechat__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _components_C__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(68);
-/* harmony import */ var _api_chooseImage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(71);
-/* harmony import */ var _api_chooseImageMini__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(72);
-/* harmony import */ var _api_chooseImageAli__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(73);
-/* harmony import */ var _index_module_css_modules__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(74);
+/* harmony import */ var _components_C__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(65);
+/* harmony import */ var _api_chooseImage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(68);
+/* harmony import */ var _api_chooseImageMini__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(69);
+/* harmony import */ var _api_chooseImageAli__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(70);
+/* harmony import */ var _index_module_css_modules__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(71);
 /* harmony import */ var _index_module_css_modules__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_index_module_css_modules__WEBPACK_IMPORTED_MODULE_8__);
 
 
@@ -84,19 +84,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
-/***/ 71:
+/***/ 68:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var remax_ali__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(69);
+/* harmony import */ var remax_ali__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(66);
 /* harmony import */ var remax_ali__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(remax_ali__WEBPACK_IMPORTED_MODULE_0__);
 
 /* harmony default export */ __webpack_exports__["default"] = (remax_ali__WEBPACK_IMPORTED_MODULE_0__["chooseImage"]);
 
 /***/ }),
 
-/***/ 72:
+/***/ 69:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -106,7 +106,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 73:
+/***/ 70:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -116,7 +116,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 74:
+/***/ 71:
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
