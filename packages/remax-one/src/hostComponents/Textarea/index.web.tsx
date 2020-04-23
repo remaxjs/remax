@@ -5,7 +5,7 @@ import useWebPlaceholderStyle from '../../useWebPlaceholderStyle';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
 import clsx from 'clsx';
 
-const Input: React.FC<TextareaWebProps> = props => {
+const Textarea: React.FC<TextareaWebProps> = props => {
   const { onConfirm, onKeyPress, autoHeight, className, placeholderStyle, ...restProps } = filterProps(props);
   const [placeholderStyleClassName] = useWebPlaceholderStyle(placeholderStyle);
 
@@ -19,7 +19,7 @@ const Input: React.FC<TextareaWebProps> = props => {
     }
   }
 
-  const textareaClassName = clsx(className, placeholderStyleClassName);
+  const textareaClassName = clsx('remax-textarea', className, placeholderStyleClassName);
 
   if (autoHeight) {
     return <TextareaAutoSize {...restProps} className={textareaClassName} onKeyPress={handleKeyPress} />;
@@ -27,8 +27,8 @@ const Input: React.FC<TextareaWebProps> = props => {
 
   return <textarea {...restProps} className={textareaClassName} onKeyPress={handleKeyPress} />;
 };
-export default Input;
+export default Textarea;
 
-Input.defaultProps = {
+Textarea.defaultProps = {
   onChange: () => void 0,
 };
