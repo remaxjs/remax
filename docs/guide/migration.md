@@ -19,6 +19,47 @@ Remax 2.0 只需要你安装一个依赖 `remax` ，因此先删除 `remax-cli` 
 }
 ```
 
+## alipay -> ali
+
+2.0 将 alipay 重名为 ali，表示支持所有阿里小程序
+
+因此原本和 `alipay` 相关的内容都需要改成 `ali`
+
+`remax/alipay` -> `remax/ali`
+
+```diff
+import {
+  View, naviageTo
+- } from 'remax/alipay'
++ } from 'remax/ali'
+```
+
+App 和页面配置 `alipay` 平台变成 `ali`
+
+```diff
+- exports.alipay = {
++ exports.ali = {
+  defaultTitle: '',
+  ...
+}
+```
+
+文件同构后缀名 `alipay.js` 变成 `ali.js`
+
+```diff
+- index.alipay.js
++ index.ali.js
+```
+
+`remax/one` 组件的平台前缀 `alipay-` 变成 `ali-`
+
+```diff
+<View
+-  alipay-onFirstAppear={() => {}}
++  ali-onFirstAppear={() => {}}
+>
+```
+
 ## remax.config.js
 
 [详细配置文档](/guide/config)

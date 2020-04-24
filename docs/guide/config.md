@@ -20,7 +20,7 @@ module.exports = {
   rootDir: 'src',
   // build 目录，默认 dist
   output: 'dist',
-  // 是否开启 wxml/axml, js 文件压缩
+  // 是否开启 wxml/axml 文件压缩
   compressTemplate: process.env.NODE_ENV === 'production',
   // 是否将 px 转换为 rpx, 默认是 true
   pxToRpx: true,
