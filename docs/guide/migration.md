@@ -77,7 +77,7 @@ App 和页面配置 `alipay` 平台变成 `ali`
 
 ### 用 `configWebpack` 代替 `rollupOptions`
 
-2.0 将构建工具从 `Rollup` 切换到 `Webpack`，因此废弃 `rollupOptions`，通过 `configWebpack` 可以修改 `webpack config`。`configWebpack` 方法将传入一个 [webpack-chain](https://github.com/neutrinojs/webpack-chain) 的 `Config` 对象。
+2.0 将构建工具从 `Rollup` 切换到 `Webpack`，因此废弃 `rollupOptions`，通过 `configWebpack` 可以修改 webpack 配置。`configWebpack` 方法将传入一个 [webpack-chain](https://github.com/neutrinojs/webpack-chain) 的 `Config` 对象。
 
 ```js
 // remax.config.js
