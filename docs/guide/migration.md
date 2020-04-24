@@ -21,7 +21,7 @@ Remax 2.0 只需要你安装一个依赖 `remax`。
 
 ## alipay -> ali
 
-2.0 将 alipay 重名为 ali，表示支持所有阿里小程序
+2.0 将 `alipay` 重名为 `ali`，表示支持所有阿里小程序。
 
 因此原本和 `alipay` 相关的内容都需要改成 `ali`
 
