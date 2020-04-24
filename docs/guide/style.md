@@ -88,9 +88,9 @@ module.exports = {
 };
 ```
 
-## 修改 PostCss 配置
+## 修改 PostCSS 配置
 
-在项目根目录新建 `postcss.config.js`，就可以修改 PostCss 配置:
+在项目根目录新建 `postcss.config.js`，就可以修改 PostCSS 配置:
 
 ```js
 // 在项目根目录下新建 postcss.config.js
