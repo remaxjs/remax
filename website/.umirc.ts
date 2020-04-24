@@ -4,7 +4,7 @@ export default defineConfig({
   title: 'Remax',
   mode: 'site',
   logo:
-    'https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*uJJISqWJcMQAAAAAAAAAAABkARQnAQ',
+    'https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*1NHAQYduQiQAAAAAAAAAAABkARQnAQ',
   locales: [['zh-CN', '中文']],
   navs: [
     null, // null 值代表保留约定式生成的导航，只做增量配置
@@ -26,6 +26,6 @@ export default defineConfig({
     previewLangs: [],
   },
   favicon:
-    'https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*uJJISqWJcMQAAAAAAAAAAABkARQnAQ',
+    'https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*1NHAQYduQiQAAAAAAAAAAABkARQnAQ',
   exportStatic: {},
 });

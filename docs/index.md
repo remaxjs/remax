@@ -8,7 +8,7 @@ hero:
       link: /guide/quick-start
 features:
   - title: 真正的 React
-    desc: 基于运行时的 React 方案，你可以不受限制地使用 React 所有特性。
+    desc: 基于运行时的 React 方案，让你可以不受限制地使用 React 所有特性。
   - title: 多平台支持
     desc: 支持阿里程序、微信小程序、头条小程序以及 Web 应用的开发。
   - title: TypeScript 支持
