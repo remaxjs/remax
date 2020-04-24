@@ -88,6 +88,22 @@ module.exports = {
 };
 ```
 
+## 修改 PostCSS 配置
+
+在项目根目录新建 `postcss.config.js`，就可以修改 PostCSS 配置:
+
+```js
+// 在项目根目录下新建 postcss.config.js
+module.exports = ({ options }) => ({
+  plugins: {
+    // 应用 remax 默认的插件配置
+    ...options.plugins,
+    // 添加其他插件
+    'postcss-url': { url: 'inline', maxSize: 15 },
+  },
+});
+```
+
 ## 小程序自定义组件样式
 
 Remax 使用的是 React 组件特性，因此没有自定义组件的概念，你无须关心小程序自定义组件样式的问题

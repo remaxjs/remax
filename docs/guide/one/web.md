@@ -95,7 +95,7 @@ web 平台也可以通过 `web-` 前缀来指明只在 web 平台中使用的属
 
 ### 样式隔离
 
-与小程序不同，web 中页面之间的样式是没有隔离的，因此建议用 (css modules)[/guide/style#css-modules] 来解决这个问题。
+与小程序不同，web 中页面之间的样式是没有隔离的，因此建议用 [CSS modules](/guide/style#css-modules) 来解决这个问题。
 
 ### page 选择器
 

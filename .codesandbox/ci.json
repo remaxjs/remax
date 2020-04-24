@@ -11,6 +11,7 @@
     "packages/babel-preset-remax",
     "packages/remax",
     "packages/remax-runtime",
+    "packages/postcss-remax-tag",
     "packages/remax-cli"
   ],
   "sandboxes": ["remax-one-web-e4801"]

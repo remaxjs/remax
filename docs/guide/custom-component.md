@@ -24,6 +24,20 @@ export default () => (
 );
 ```
 
+在项目中使用自定义组件：
+
+```js
+import React from 'react';
+import { View } from 'remax/ali';
+import NativeCard from './native-card'; // native-card 是一个原生自定义组件
+
+export default () => (
+  <View>
+    <NativeCard />
+  </View>
+);
+```
+
 ## 注意事项
 
 请按照自定义组件的定义方式声明属性（并非所有组件都采用驼峰的方式命名属性）。

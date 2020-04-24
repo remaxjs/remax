@@ -1,10 +1,7 @@
 import Config from 'webpack-chain';
-import pxToUnits from '@remax/postcss-px2units';
-import postcssPresetEnv from 'postcss-preset-env';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { RemaxOptions } from '@remax/types';
 import * as styleConfig from '../../utils/styleConfig';
-import pageClass from '../../postcss/pageClass';
 
 function applyLoaders(
   rule: Config.Rule<Config.Rule<Config.Module>>,
@@ -42,16 +39,23 @@ export default function cssConfig(webpackConfig: Config, options: RemaxOptions, 
       options: {
         config: {
           path: styleConfig.resolvePostcssConfig(options),
-        },
-        plugins: web
-          ? [
-              postcssPresetEnv({
+          ctx: {
+            plugins: {
+              [require.resolve('postcss-preset-env')]: web && {
                 browsers: ['chrome >= 49', 'edge >= 13', 'ios >= 8', 'Android >= 4.4'],
-              }),
-              pxToUnits({ targetUnits: 'rem', divisor: 100 }),
-              pageClass(),
-            ]
-          : [options.pxToRpx && (web ? pxToUnits() : pxToUnits())].filter(Boolean),
+              },
+              [require.resolve('@remax/postcss-px2units')]:
+                options.pxToRpx &&
+                (web
+                  ? {
+                      targetUnits: 'rem',
+                      divisor: 100,
+                    }
+                  : {}),
+              [require.resolve('@remax/postcss-tag')]: web && {},
+            },
+          },
+        },
       },
     },
     styleConfig.enabled('less') && {

@@ -49,7 +49,6 @@ export default async function createPageTemplate(
     rmWhitespace: options.compressTemplate,
   });
 
-  // TODO 用 uglify 替代 compressTemplate
   /* istanbul ignore next */
   if (options.compressTemplate) {
     source = source.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
@@ -81,7 +80,6 @@ export async function createBaseTemplate(options: RemaxOptions, meta: Meta, comp
     }
   );
 
-  // TODO 用 uglify 替代 compressTemplate
   /* istanbul ignore next */
   if (options.compressTemplate) {
     source = source.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
