@@ -25,6 +25,17 @@ Remax 2.0 只需要你安装一个依赖 `remax` ，因此先删除 `remax-cli` 
 
 因此原本和 `alipay` 相关的内容都需要改成 `ali`
 
+package.json 中 build target 从 `alipay` 改成 `ali`
+
+```diff
+"scripts": {
+-  "dev“: "remax build -t alipay -w",
+-  "build“: "cross-env NODE_ENV=production remax build -t alipay",
++  "dev“: "remax build -t ali -w",
++  "build“: "cross-env NODE_ENV=production remax build -t ali",
+}
+```
+
 `remax/alipay` -> `remax/ali`
 
 ```diff
