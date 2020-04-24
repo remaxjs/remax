@@ -1,0 +1,14 @@
+{
+  "name": "@remax/postcss-tag",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:remaxjs/remax.git",
+  "author": "Caihuanyu <eterlf41@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "postcss": "^7.0.27"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
