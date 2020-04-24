@@ -12,8 +12,8 @@ Remax 2.0 只需要你安装一个依赖 `remax`。
 {
   ...,
   "dependencies": {
--    "remax-cl": "^1.0.0",
 -    "remax": "^1.0.0",
+-    "remax-cli": "^1.0.0",
 +    "remax": "^2.0.0",
   }
 }
