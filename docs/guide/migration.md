@@ -260,10 +260,6 @@ function handleTap(event) {
 >
 ```
 
-### 开发 web 应用
-
-2.0 中 Remax One 支持开发 web 应用了。详情请查看：[开发 web 应用](/guide/one/web)
-
 ## 使用原生插件
 
 原本直接引入插件的用法废弃，改为使用 `remax/macro` 提供的 `requirePlugin` 和 `requirePluginComponent` 方法使用
