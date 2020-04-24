@@ -30,6 +30,8 @@ import { Button } from 'remax/one';
 | formType        | 'submit' \| 'reset'                                          | 用于 form 组件，点击分别会触发 form 组件的 submit/reset 事件 |
 | onTap           | ((event: [TapEvent](/api/remax-one/event#tapevent))) => void | 点击事件                                                     |
 
+> 注意
+>
 > 微信中，由于受控行为不一致，在 Form 中执行 reset 后，即使表单组件受控后，value 也会被清空
 
 ## Form
@@ -105,7 +107,9 @@ import { Input } from 'remax/one';
 | onFocus          | ((event: [InputEvent](/api/remax-one/event#inputevent))) => void | focus 事件          |
 | onBlur           | ((event: [InputEvent](/api/remax-one/event#inputevent))) => void | blur 事件           |
 
-> 注意：受微信平台限制，在微信里 Input 必须通过 `onInput` 事件的返回值做受控，详见[微信文档](https://developers.weixin.qq.com/miniprogram/dev/component/input.html)。
+> 注意
+>
+> 受微信平台限制，在微信里 Input 必须通过 `onInput` 事件的返回值做受控，详见[微信文档](https://developers.weixin.qq.com/miniprogram/dev/component/input.html)。
 >
 > Input 的 type 类型在 web 中没有 'idcard' 和 'digit' 这两个选项
 
@@ -171,7 +175,9 @@ import { Textarea } from 'remax/one';
 | onFocus          | ((event: [InputEvent](/api/remax-one/event#inputevent))) => void | focus 事件             |
 | onBlur           | ((event: [InputEvent](/api/remax-one/event#inputevent))) => void | blur 事件              |
 
-> 注意：受微信平台限制，Textarea 在微信里无法受控。
+> 注意
+>
+> 受微信平台限制，Textarea 在微信里无法受控。
 
 ## View
 

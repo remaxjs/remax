@@ -82,13 +82,15 @@ import module from './module';
 
 ## web 平台特有属性
 
-web 平台也可以通过 `web-` 前缀来指明只在 web 平台中使用的属性
+web 平台也可以通过 `web-` 前缀来指明只在 web 平台中使用的属性。
 
 ```jsx
-// 表明 onClick 只在 web 平台使用
-<View web-onClick={() => {}} />
+// 表明 `required` 只在 web 平台下使用。
+<Input web-required />
 ```
 
+> 注意
+>
 > web 平台只能通过 remax/one 来开发，因此 remax 给 web 平台提供的组件和 api 就是来自 remax/one 提供的组件和 api
 
 ## 样式
@@ -97,10 +99,8 @@ web 平台也可以通过 `web-` 前缀来指明只在 web 平台中使用的属
 
 与小程序不同，web 中页面之间的样式是没有隔离的，因此建议用 [CSS modules](/guide/style#css-modules) 来解决这个问题。
 
-### page 选择器
+另外要避免使用 `page` 选择器。
 
-由于 web 平台并没有 `page` 选择器，因此如果有跨 web 平台开发的需求，请不要使用 `page` 选择器。
-
-### 注意： TabBar 的问题
+### TabBar 的问题
 
 在小程序中如果你启用了 TabBar ，视图的高度是缩小的。但是在 web 中，视图的高度不变，这意味着 `vh` 单位在小程序和 web 中表现不同。

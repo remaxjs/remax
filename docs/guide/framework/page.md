@@ -1,110 +1,9 @@
 ---
-title: 框架
-order: 21
+title: 页面
+order: 1
 ---
 
-# 框架
-
-## 应用
-
-应用的默认入口文件为 `src/app.js`。不同于原生小程序中的 `app.js`，Remax 中的 `app.js` 是一个 React 组件。
-
-```js
-export default class App extends React.Component {
-  render() {
-    return this.props.children;
-  }
-}
-```
-
-所有页面组件都会以 `App` 子组件的方式渲染，所以你可以很方便地通过 `Context` 来进行数据共享。
-
-> 注意
->
-> 在 Remax 中使用 `getApp` 是获取不到 `src/app.js` 中定义的 `App` 组件的。 我们建议你忘记 `getApp`， 改用 `Context` 来共享状态。
->
-> App 组件中必须渲染 `props.children`，且不支持写原生组件。
-
-### 应用配置
-
-应用配置通过 `app.config.js` 实现，对应原生小程序中的 `app.json`。
-
-例如：
-
-```js
-// app.config.js
-
-module.exports = {
-  window: {
-    navigationBarTitleText: '这是一个标题',
-  },
-};
-```
-
-Remax 优先读取默认导出的配置，如果你开发的是多端共用的项目，则可以改为：
-
-```js
-// app.config.js
-
-const title = '这是一个标题';
-
-// 微信
-exports.wechat = {
-  window: {
-    navigationBarTitleText: title,
-  },
-};
-
-// 阿里
-exports.ali = {
-  window: {
-    defaultTitle: title,
-  },
-};
-```
-
-Remax 会根据构建的目标平台自动选择配置。
-
-### 生命周期
-
-应用的生命周期可以直接写在 `App` 组件上。
-
-```js
-export default class App extends React.Component {
-  // did mount 的触发时机是在 onLaunch 的时候
-  componentDidMount() {
-    console.log('App launch');
-  }
-
-  onShow(options) {
-    console.log('onShow', options);
-  }
-
-  render() {
-    return this.props.children;
-  }
-}
-```
-
-对于函数组件的 App, 可以通过 `useAppEvent` hook 来监听生命周期
-
-```jsx
-import { useAppEvent } from 'remax/macro';
-
-export default function App(props) {
-  useAppEvent('onShow', () => {
-    console.log('这个 hook 等同于 onShow');
-  });
-
-  useAppEvent('onShareAppMessage', () => {
-    console.log('这个 hook 等同于 onShareAppMessage');
-  });
-
-  return props.children;
-}
-```
-
-## 页面
+# 页面
 
 Remax 中的页面当然也是一个 React 组件。
 
@@ -116,7 +15,7 @@ const IndexPage = () => {
 export default IndexPage;
 ```
 
-### 页面配置
+## 页面配置
 
 假设你的页面文件是 `src/pages/index.js`，那么这个页面的配置文件就是 `src/pages/index.config.js`。
 
@@ -128,24 +27,11 @@ module.exports = {
 };
 ```
 
-### 页面实例
+> 注意
+>
+> Remax 在页面实例上设置了一些内部逻辑相关的属性（包括 data 上面的值），不要随意修改实例上的属性。
 
-通过 `usePageInstance` 可以获取 Page 实例
-
-```jsx
-import { usePageInstance } from 'remax'
-
-export default () => {
-  const instance = usePageInstance();
-
-  ...
-}
-```
-
-> Remax 在 instance 上设置了一些内部逻辑相关的属性，（包括 data 上面的值），不要随意修改实例上的属性。
-> 这个 hook 是为了方便调用页面实例上的方法，如 `selectComponent`
-
-### 生命周期
+## 生命周期
 
 对于 class 组件的页面你可以直接在 class 上监听页面的生命周期。
 
@@ -190,12 +76,12 @@ export default () => {
 >
 > class 组件的生命周期回调只能用在页面组件上，但是 hooks 可以用在任意的组件上。
 
-### 页面参数
+## 页面参数
 
 Remax 将页面参数通过 `props` 传递给页面组件，如：
 
 ```js
-export default props => {
+export default (props) => {
   // 页面参数
   console.log(props.location.query);
 
@@ -217,9 +103,25 @@ export default () => {
 };
 ```
 
-你也可以通过小程序原生的方式获取参数（通常在 `onLoad` 方法里获取），包括场景值也是。
+你也可以通过小程序原生的方式获取参数（通常在 `onLoad` 生命周期里获取），包括场景值也是。
 
-### 小程序渲染 Effect
+## 获取页面实例
+
+通过 `usePageInstance` 可以获取 Page 实例。
+
+这个 hook 是为了方便调用页面实例上的方法，如微信的 `selectComponent`。
+
+```jsx
+import { usePageInstance } from 'remax'
+
+export default () => {
+  const page = usePageInstance();
+
+  ...
+}
+```
+
+## 小程序渲染 Effect
 
 一般在 React 里，我们通过在 `useEffect` 来进行页面渲染成后需要处理的逻辑。但是在 Remax 中，`useEffect` 只是代表了 Remax 虚拟 DOM 处理完成，并不代表小程序渲染完成。
 为了支持开发者可以触及小程序渲染完成的时机，我们添加了一个新的 hook：`useNativeEffect`。

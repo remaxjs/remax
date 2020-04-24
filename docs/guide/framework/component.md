@@ -1,33 +1,35 @@
 ---
 title: 组件
-order: 23
+order: 2
 ---
 
 # 组件
 
-Remax 用驼峰的方式来命令小程序组件，如：
+## 组件名
+
+ 所有组件名称都是首字母大写的驼峰形式，如：
 
 ```js
 import { View, Text, Image, ... } from 'remax/wechat'
 ```
 
-## Props
+## 组件属性
 
-Remax 遵循 React 规范来命名小程序属性，如：
+Remax 按照 React 的风格来命名小程序属性，如：
 
-Remax
+Remax：
 
 ```jsx
-<View className="view" style={{ display: 'flex' }} onClick={handleClick} />
+<View className="view" style={{ display: 'flex' }} onTap={handleClick} />
 ```
 
-对应微信小程序
+对应微信小程序：
 
 ```html
 <view class="view" style="display: flex;" bindtap="handleClick"></view>
 ```
 
-对应阿里小程序
+对应阿里小程序：
 
 ```html
 <view class="view" style="display: flex;" onTap="handleClick"></view>
@@ -37,7 +39,7 @@ Remax
 
 如果小程序添加了新的组件，而你所用的 Remax 版本还没提供该组件的支持，Remax 允许你自己创建一个新的基础组件。
 
-假设小程序新增了一个 `<foo-bar>` 组件，你可以这么做以让 Remax 提前支持：
+假设小程序新增了一个 `<foo-bar>` 组件，你可以通过 `createHostComponent` 这个方法把这个组件注册到 Remax 中：
 
 ```jsx
 import { createHostComponent } from 'remax/macro';
@@ -76,6 +78,8 @@ function Page() {
 }
 ```
 
+> 注意
+>
 > 组件名称和组件属性不能是动态变量，以下写法是错误的。
 
 ```jsx

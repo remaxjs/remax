@@ -1,9 +1,11 @@
 ---
 title: 样式
-order: 24
+order: 6
 ---
 
 # 样式
+
+## 预处理器
 
 Remax 默认支持 css/less/sass/stylus，安装你需要的样式处理器即可使用。如：
 
@@ -11,6 +13,8 @@ Remax 默认支持 css/less/sass/stylus，安装你需要的样式处理器即�
 $ npm install less --save  # less 用户
 $ npm install node-sass --save  # sass 用户
 ```
+
+## px 转换
 
 Remax 会自动把 `px` 转换成小程序 `rpx`，（如果编译到 web，`px` 则会变成 `rem`，转换比例是 100 : 1）。
 
@@ -81,32 +85,12 @@ global assets 配置 copy 的参考
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  configWebpack: function(config) {
+  configWebpack: function (config) {
     config.plugin('copy').use(CopyPlugin, [[{ from: 'src/path/to/assets', to: 'path/to/assets' }]]);
     return config;
   },
 };
 ```
-
-## 修改 PostCSS 配置
-
-在项目根目录新建 `postcss.config.js`，就可以修改 PostCSS 配置:
-
-```js
-// 在项目根目录下新建 postcss.config.js
-module.exports = ({ options }) => ({
-  plugins: {
-    // 应用 remax 默认的插件配置
-    ...options.plugins,
-    // 添加其他插件
-    'postcss-url': { url: 'inline', maxSize: 15 },
-  },
-});
-```
-
-## 小程序自定义组件样式
-
-Remax 使用的是 React 组件特性，因此没有自定义组件的概念，你无须关心小程序自定义组件样式的问题
 
 ## 样式补全
 

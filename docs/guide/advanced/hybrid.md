@@ -14,14 +14,13 @@ order: 46
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  configWebpack: function(config) {
+  configWebpack(config) {
     config.plugin('copy').use(CopyPlugin, [
       [
         // 表示将 native 目录整个输出到 output 目录下
         { from: 'src/native', to: './' },
       ],
     ]);
-    return config;
   },
 };
 ```

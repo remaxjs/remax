@@ -1,11 +1,14 @@
 ---
 title: 小程序自定义组件
 order: 28
+group:
+  title: 基础指南
+  order: 4
 ---
 
 # 小程序自定义组件
 
-Remax 允许你在 React 组件中引用小程序的自定义组件。包括支持原生 UI 组件库，如：[weui](https://github.com/wechat-miniprogram/weui-miniprogram), [min-antui](https://github.com/ant-mini-program/mini-antui)
+你可以在 React 组件中直接使用小程序的自定义组件。包括支持原生 UI 组件库，如：[weui](https://github.com/wechat-miniprogram/weui-miniprogram), [min-ali-ui](https://github.com/Alibaba-mp/mini-ali-ui)
 等等
 
 以阿里小程序的 [Badge](https://docs.alipay.com/mini/component-ext/badge) 组件为例：
@@ -24,7 +27,7 @@ export default () => (
 );
 ```
 
-在项目中使用自定义组件：
+使用项目中的自定义组件：
 
 ```js
 import React from 'react';
@@ -40,7 +43,7 @@ export default () => (
 
 ## 注意事项
 
-请按照自定义组件的定义方式声明属性（并非所有组件都采用驼峰的方式命名属性）。
+### 请按照自定义组件的定义方式声明属性（并非所有组件都采用驼峰的方式命名属性）。
 
 **错误：**
 
@@ -79,7 +82,7 @@ export default () => {
 };
 ```
 
-对于带有具名 `slot` 的组件，具名 `slot` 部分的最外层只能用 `View` 组件。
+### 对于带有具名 `slot` 的组件，具名 `slot` 部分的最外层只能用 `View` 组件。
 
 **错误：**
 
@@ -113,7 +116,7 @@ export default () => (
 );
 ```
 
-不能在小程序自定义组件上使用 “Spread Attributes”。
+### 不能在小程序自定义组件上使用 “Spread Attributes”。
 
 **错误：**
 

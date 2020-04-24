@@ -9,9 +9,7 @@ group:
 `remax/[平台]` 导出了各个平台下提供的所有组件，并封装成 React 组件以及重命名为驼峰风格。 如：
 
 ```jsx
-import { View, Text, Image, WebView } from 'remax/wechat';
 import { View, Text, Image, WebView } from 'remax/ali';
-import { View, Text, Image, WebView } from 'remax/toutiao';
 ```
 
 [微信官方组件文档](https://developers.weixin.qq.com/miniprogram/dev/component/)

@@ -5,7 +5,7 @@ order: 31
 
 # 环境变量
 
-`@remax/cli` 会在编译时注入 `NODE_ENV` 以及所有 `REMAX_APP_` 开头的环境变量，你可以通过 `process.env` 来读取这些环境变量。
+Remax 会在编译时注入 `NODE_ENV` 以及所有 `REMAX_APP_` 开头的环境变量，你可以通过 `process.env` 来读取这些环境变量。
 
 > 注意，只有 `REMAX_APP_` 开头的环境变量才会被注入。
 

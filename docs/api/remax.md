@@ -12,9 +12,11 @@ _带有 `?` 的选项表示非必填项_
 ```jsx
 import { useQuery } from 'remax';
 
-...
+export default () => {
+  const query = useQuery();
 
-const query = useQuery();
+  ...
+}
 ```
 
 #### 参数
@@ -23,7 +25,7 @@ const query = useQuery();
 
 #### 返回值
 
-返回一个页面参数键值对对象。
+返回一个页面参数键值对象。
 
 ## usePageInstance()
 
@@ -32,9 +34,11 @@ const query = useQuery();
 ```js
 import { usePageInstance } from 'remax';
 
-...
+export default () => {
+  const instance= usePageInstance();
 
-const instance= usePageInstance();
+  ...
+}
 ```
 
 #### 参数
@@ -54,17 +58,19 @@ const instance= usePageInstance();
 import * as React from 'react';
 import { useNativeEffect } from 'remax';
 
-...
-const [width, setWidth] = React.useState();
+export default () => {
+  const [width, setWidth] = React.useState();
 
-React.useEffect(() => {
-  console.log('width 更新在 React 中生效了');
+  React.useEffect(() => {
+    console.log('width 更新在 React 中生效了');
+  }, [width])
+
+  useNativeEffect(() => {
+    console.log('width 更新在小程序中真正生效了');
 }, [width])
 
-useNativeEffect(() => {
-  console.log('width 更新在小程序中真正生效了');
-}, [width])
-
+  ...
+}
 ```
 
 #### 参数

@@ -9,7 +9,7 @@ order: 2
 import { Input } from 'remax/one';
 
 export default () => {
-  const handleInput = event => {
+  const handleInput = (event) => {
     console.log(event.target.value);
   };
 
@@ -19,7 +19,9 @@ export default () => {
 
 不同于小程序中通过 `e.detail.value` 来取值，我们把 `event` 对象往标准的 DOM 事件做了抹平，以此方便和 H5 同构。
 
-> 注意：只有 `remax/one` 中的事件回调做了处理，平台特定的组件以及平台特定的属性依然沿用小程序原来的事件对象。
+> 注意
+>
+> 只有 `remax/one` 中的事件回调做了处理，平台特定的组件以及平台特定的属性依然沿用小程序原来的事件对象。
 
 ## Event
 

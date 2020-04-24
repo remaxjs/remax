@@ -1,8 +1,9 @@
 ---
 title: 'TypeScript'
-metaTitle: '在 Remax 中使用 TypeScript'
-metaDescription: '在 Remax 中使用 TypeScript'
 order: 29
+group:
+  title: 进阶指南
+  order: 5
 ---
 
 # TypeScript 支持

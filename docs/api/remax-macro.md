@@ -2,9 +2,55 @@
 title: remax/macro
 ---
 
-`remax/macro` 下包含的是 [bable-plugin-macros](https://github.com/kentcdodds/babel-plugin-macros) 相关的宏。
+`remax/macro` 下包含的是基于 [bable-plugin-macros](https://github.com/kentcdodds/babel-plugin-macros) 的宏。
 
 _带有 `?` 的选项表示非必填项_
+
+## useAppEvent(eventName, callback)
+
+App 生命周期 hook
+
+```jsx
+import { useAppEvent } from 'remax/macro';
+
+...
+
+useAppEvent('onShow', () => {
+  console.log('on show');
+})
+```
+
+## usePageEvent(eventName, callback)
+
+Page 生命周期 hook
+
+```jsx
+import { usePageEvent } from 'remax/macro';
+
+...
+
+usePageEvent('onShow', () => {
+  console.log('on show');
+})
+```
+
+#### 参数
+
+1. `eventName` 生命周期名称
+2. `callback` 回调函数，各个生命周期回调函数的具体签名，参考各个平台对应的文档。
+
+#### 返回值
+
+无
+
+#### 参数
+
+1. `eventName` 生命周期名称
+2. `callback` 回调函数，各个生命周期回调函数的具体签名，参考各个平台对应的文档。
+
+#### 返回值
+
+无
 
 ## createHostComponent(name, props)
 
@@ -76,49 +122,3 @@ const PluginComponent = requirePluginComponent('plugin://xxxx');
 #### 返回值
 
 返回一个封装好的 React 组件
-
-## usePageEvent(eventName, callback)
-
-Page 生命周期 hook
-
-```jsx
-import { usePageEvent } from 'remax/macro';
-
-...
-
-usePageEvent('onShow', () => {
-  console.log('on show');
-})
-```
-
-#### 参数
-
-1. `eventName` 生命周期名称
-2. `callback` 回调函数，各个生命周期回调函数的具体签名，参考各个平台对应的文档。
-
-#### 返回值
-
-无
-
-## useAppEvent(eventName, callback)
-
-App 生命周期 hook
-
-```jsx
-import { useAppEvent } from 'remax/macro';
-
-...
-
-useAppEvent('onShow', () => {
-  console.log('on show');
-})
-```
-
-#### 参数
-
-1. `eventName` 生命周期名称
-2. `callback` 回调函数，各个生命周期回调函数的具体签名，参考各个平台对应的文档。
-
-#### 返回值
-
-无

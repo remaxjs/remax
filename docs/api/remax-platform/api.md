@@ -3,14 +3,10 @@ title: API
 order: 1
 ---
 
-`remax/[平台]` 导出了各个平台下提供的所有 API，并做了 promise 支持。 如：
+`remax/[平台]` 导出了各个平台下提供的所有 API，并做了 Promise 支持。 如：
 
 ```jsx
-import { navigateTo, chooseImage } from 'remax/wechat';
 import { navigateTo, chooseImage } from 'remax/ali';
-import { navigateTo, chooseImage } from 'remax/toutiao';
-
-...
 
 chooseImage(...).then(...)
 ```

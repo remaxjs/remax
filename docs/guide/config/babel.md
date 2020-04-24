@@ -1,6 +1,27 @@
 ---
-title: babel-preset-remax
+title: Babel 配置
+order: 1
 ---
+
+# Babel 配置
+
+通过 `babel.config.js` 修改 Babel 配置。
+
+```js
+// babel.config.js
+module.exports = {
+  plugins: ['loop-optimizer'], // 新增 `loop-optimizer` 插件
+  presets: [['remax']],
+};
+```
+
+> 注意
+>
+> 请使用 `babel.config.js` 文件而不是 `.babelrc`
+>
+> 记得安装 `babel-preset-remax`，并将它加入到 presets 配置中
+
+## babel-preset-remax
 
 `babel-preset-remax` 是 Remax 提供的 babel preset.
 
@@ -27,7 +48,7 @@ title: babel-preset-remax
 }
 ```
 
-## 选项
+### 配置
 
 ### typescript
 

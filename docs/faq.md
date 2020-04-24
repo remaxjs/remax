@@ -3,32 +3,30 @@ title: 常见问题
 sidemenu: false
 nav:
   title: FAQ
-  order: 2
+  order: 3
 ---
 
 # 常见问题
 
 ## 我可以使用 React Hooks / Redux / Dva / 其他 React 特性 吗？
 
-如果你使用 Remax 官方模板开始开发，应该会注意到以下代码：
-
-![直接依赖官方 React](https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*OOYyTobuq84AAAAAAAAAAABkARQnAQ)
-
-![直接引入 官方 React](https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*tm8iTqC6pxkAAAAAAAAAAABkARQnAQ)
-
-**Remax 本身没有提供类 React DSL 或者自己去实现 React**。 你使用的就是 React 官方库，可以自己选择 React 版本，选择 React 相关的 store 方案，表单管理方案等等。而像 React Hooks 等特性自然都可以正常使用。
+可以。
 
 ## 我可以使用 Ant Design / Ant Design Mobile / 其他 React DOM 依赖类库吗？
 
-**小程序平台不是 Web 环境**，Remax 相当于 React DOM / React Native。正如 web 平台的类库不能在 react native 中使用一样，小程序中也应该使用小程序的类库。目前 React 在 小程序的生态圈还不够完善，这也给了开发者们很大的空间去发挥。
+不可以。
+
+小程序中没有 DOM，无法使用基于 React DOM 的 UI 库。
 
 ## 既然 web 的现成方案不能直接使用，我应该怎么快速开发 UI 组件？
 
-**Remax 支持直接使用原生组件库**。具体请参考 [指南 - 小程序自定义组件](/guide/custom-component)。目前得知社区中已有开发者在开发 React 小程序组件库，值得期待。
+Remax 支持直接使用原生组件库。具体请参考 [小程序自定义组件](/guide/basic/custom-component)。
 
 ## Remax 支持跨平台开发吗？
 
-**支持，具体可参考 [跨平台开发](/guide/one)**。
+支持。
+
+具体可参考 [跨平台开发](/guide/one)。
 
 ## 使用高阶组件导致页面的生命周期未调用
 
@@ -38,7 +36,8 @@ nav:
 
 ```jsx
 import React, { forwardRef } from 'react';
-import { View } from 'remax/alipay';
+import { View } from 'remax/ali';
+
 class IndexPage extends React.Component {
   onReady() {
     console.log('onReady被调用');
@@ -50,7 +49,7 @@ class IndexPage extends React.Component {
 }
 
 // HOC 的容器是一个函数式组件
-const HOC = Component => {
+const HOC = (Component) => {
   const Wrapped = (props, ref) => {
     // 一些高阶组件的逻辑
     return <Component {...props} ref={ref} />;
@@ -60,7 +59,7 @@ const HOC = Component => {
 };
 
 // 另一种情况，HOC 容器是一个 class component
-const ClazzHOC = Component => {
+const ClazzHOC = (Component) => {
   class Wrapped extends React.Component {
     // 另一些高阶组件的逻辑
     render() {

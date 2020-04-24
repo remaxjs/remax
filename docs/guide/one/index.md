@@ -106,7 +106,7 @@ export default showToast;
 // src/api/showToast/index.wechat.js
 import { showToast } from 'remax/wechat';
 
-export default options => {
+export default (options) => {
   showToast({
     ...options,
     title: options.content,
@@ -146,7 +146,9 @@ if (process.env.REMAX_PLATFORM === 'wechat') {
 }
 ```
 
-> 出于代码压缩的角度考虑，请直接写明 `process.env.REMAX_PLATFORM`，而不是封装一个方法使用，或者赋值变量。
+> 注意
+>
+> 这里需要直接使用 `process.env.REMAX_PLATFORM`，这样在代码压缩时就可以把没用到的平台代码删除。
 
 ## 组件
 
