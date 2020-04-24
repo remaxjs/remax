@@ -160,7 +160,7 @@ import './index.css';
 
 ### css 中的图片
 
-1.0 中，css 不支持相对路径引入图片，绝对路径 remax 则会自动复制图片到输出目录的对应位置。
+1.0 中，CSS 不支持相对路径引入图片，绝对路径 remax 则会自动复制图片到输出目录的对应位置。
 
 与 1.0 不同，2.0 中我们将遵循 [css-loader](https://github.com/webpack-contrib/css-loader#url) 的规则：
 
