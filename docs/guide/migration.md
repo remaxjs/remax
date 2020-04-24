@@ -6,7 +6,7 @@ title: 2.0 迁移指南
 
 ## 升级依赖
 
-Remax 2.0 只需要你安装一个依赖 `remax` ，因此先删除 `remax-cli` 依赖，再升级 `remax`。
+Remax 2.0 只需要你安装一个依赖 `remax`。
 
 ```diff
 {
