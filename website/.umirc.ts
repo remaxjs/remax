@@ -27,4 +27,5 @@ export default defineConfig({
   },
   favicon:
     'https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*uJJISqWJcMQAAAAAAAAAAABkARQnAQ',
+  exportStatic: {},
 });
