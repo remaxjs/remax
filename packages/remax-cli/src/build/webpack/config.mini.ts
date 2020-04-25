@@ -42,7 +42,7 @@ function prepare(options: RemaxOptions, target: Platform) {
     return m.concat([{ key: name, path: entry }]);
   }, []);
   const stubModules = platform.mini
-    .filter((name) => API.adapter.target !== name)
+    .filter(name => API.adapter.target !== name)
     .reduce<string[]>((acc, name) => [...acc, `${name}/esm/api`, `${name}/esm/hostComponents`], []);
 
   const publicPath = '/';
@@ -71,8 +71,8 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
 
   config.resolve.extensions.merge(
     extensions
-      .map((ext) => `.${target}${ext}`)
-      .concat(extensions.map((ext) => `.mini${ext}`))
+      .map(ext => `.${target}${ext}`)
+      .concat(extensions.map(ext => `.mini${ext}`))
       .concat(extensions)
   );
   config.resolve.extensions.merge(extensions);

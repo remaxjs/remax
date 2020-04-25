@@ -9,7 +9,7 @@ import * as helpers from '../helpers';
  * @param {NodePath} path
  * @returns
  */
-export default function(path: NodePath<t.JSXExpressionContainer>) {
+export default function (path: NodePath<t.JSXExpressionContainer>) {
   const node = path.node;
   // 清除空表达式
   if (t.isJSXEmptyExpression(node.expression)) {

@@ -17,7 +17,7 @@ import { EXPRESSION_BLOCK } from '../../constants';
  * @param {Function} createTemplate
  * @returns
  */
-export default function(
+export default function (
   node: RenderNode<t.JSXElement>,
   path: NodePath,
   dataPath: Array<string | number>,

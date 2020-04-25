@@ -26,7 +26,7 @@ export function createCallbackProxy(eventType: string, node: VNode, callback: (.
     return callback;
   }
 
-  return function(nativeEvent: any, ...restParams: any) {
+  return function (nativeEvent: any, ...restParams: any) {
     const syntheticEvent = createBaseSyntheticEvent(node, nativeEvent);
 
     if (isPropagationStopped) {

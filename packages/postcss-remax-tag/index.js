@@ -1,8 +1,8 @@
 const postcss = require('postcss');
 
-module.exports = postcss.plugin('postcss-remax-tag-plugin', function(opts) {
+module.exports = postcss.plugin('postcss-remax-tag-plugin', function (opts) {
   opts = opts || {};
-  return function(root) {
+  return function (root) {
     let warned = false;
     root.walkRules(rule => {
       if (rule.selector === 'page') {

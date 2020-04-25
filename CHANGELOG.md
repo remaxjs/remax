@@ -5,21 +5,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [2.0.0-alpha.7](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.6...v2.0.0-alpha.7) (2020-04-23)
 
-
 ### Bug Fixes
 
-* 修复 remax 命令可能执行出错的问题 ([83ba129](https://github.com/remaxjs/remax/commit/83ba129c68c7457db078e22fd3921d5b4c775b25))
-* 修复 web 下  App 不是第一个 entry 的问题 ([31cccdc](https://github.com/remaxjs/remax/commit/31cccdc4c9c5dbc93c506feefbc039b66c1dfbff))
-* **wechat:** 更新 LivePlayer、LivePusher 属性 ([#839](https://github.com/remaxjs/remax/issues/839)) ([14c4c85](https://github.com/remaxjs/remax/commit/14c4c85ef989e87ba08c34b06c68eead5af675ad))
-
+- 修复 remax 命令可能执行出错的问题 ([83ba129](https://github.com/remaxjs/remax/commit/83ba129c68c7457db078e22fd3921d5b4c775b25))
+- 修复 web 下 App 不是第一个 entry 的问题 ([31cccdc](https://github.com/remaxjs/remax/commit/31cccdc4c9c5dbc93c506feefbc039b66c1dfbff))
+- **wechat:** 更新 LivePlayer、LivePusher 属性 ([#839](https://github.com/remaxjs/remax/issues/839)) ([14c4c85](https://github.com/remaxjs/remax/commit/14c4c85ef989e87ba08c34b06c68eead5af675ad))
 
 ### Features
 
-* 返回编译事件，方便跟其他工具集成 ([901bc6e](https://github.com/remaxjs/remax/commit/901bc6ef046194c80b102a1165b0349362c7b59b))
-
-
-
-
+- 返回编译事件，方便跟其他工具集成 ([901bc6e](https://github.com/remaxjs/remax/commit/901bc6ef046194c80b102a1165b0349362c7b59b))
 
 # [2.0.0-alpha.6](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2020-04-21)
 

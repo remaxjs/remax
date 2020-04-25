@@ -11,13 +11,7 @@ const pageA = () => {
 
   return (
     <View>
-      <View
-        onClick={handleClick}
-        onTouchStart={handleTouchStart}
-        id="view"
-        data-foo="bar"
-        {...props}
-      >
+      <View onClick={handleClick} onTouchStart={handleTouchStart} id="view" data-foo="bar" {...props}>
         foo
       </View>
       {TextElement}
