@@ -21,9 +21,6 @@
     "url": "git+https://github.com/remaxjs/remax.git"
   },
   "homepage": "https://remaxjs.org",
-  "resolutions": {
-    "@types/react": "^16.9.33"
-  },
   "dependencies": {
     "@remax/ali": "2.0.0-alpha.7",
     "@remax/cli": "2.0.0-alpha.7",
@@ -35,19 +32,6 @@
     "@remax/wechat": "2.0.0-alpha.7",
     "mini-types": "^0.1.1",
     "miniprogram-api-typings": "^2.10.4"
-  },
-  "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "@types/node": "^13.1.6",
-    "@types/react": "^16.9.33",
-    "@types/react-test-renderer": "^16.9.2",
-    "concurrently": "^5.0.0",
-    "jest": "^25.4.0",
-    "object-path-immutable": "^4.0.2",
-    "react": "^16.8.6",
-    "react-test-renderer": "^16.9.0",
-    "ts-jest": "^25.4.0",
-    "typescript": "^3.7.3"
   },
   "gitHead": "06dcaa3df31f6bde22b6d07a979c361dc137351f"
 }
