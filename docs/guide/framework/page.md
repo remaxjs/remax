@@ -81,7 +81,7 @@ export default () => {
 Remax 将页面参数通过 `props` 传递给页面组件，如：
 
 ```js
-export default (props) => {
+export default props => {
   // 页面参数
   console.log(props.location.query);
 

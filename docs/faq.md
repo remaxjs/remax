@@ -49,7 +49,7 @@ class IndexPage extends React.Component {
 }
 
 // HOC 的容器是一个函数式组件
-const HOC = (Component) => {
+const HOC = Component => {
   const Wrapped = (props, ref) => {
     // 一些高阶组件的逻辑
     return <Component {...props} ref={ref} />;
@@ -59,7 +59,7 @@ const HOC = (Component) => {
 };
 
 // 另一种情况，HOC 容器是一个 class component
-const ClazzHOC = (Component) => {
+const ClazzHOC = Component => {
   class Wrapped extends React.Component {
     // 另一些高阶组件的逻辑
     render() {

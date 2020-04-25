@@ -4,3 +4,4 @@ singleQuote: true
 trailingComma: es5
 indent: 2
 printWidth: 120
+arrowParens: 'avoid'

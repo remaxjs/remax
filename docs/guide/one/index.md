@@ -106,7 +106,7 @@ export default showToast;
 // src/api/showToast/index.wechat.js
 import { showToast } from 'remax/wechat';
 
-export default (options) => {
+export default options => {
   showToast({
     ...options,
     title: options.content,

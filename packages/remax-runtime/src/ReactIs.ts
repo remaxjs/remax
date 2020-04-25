@@ -68,10 +68,10 @@ export function isValidElementType(type: any) {
  * paths. Removing the logging code for production environments will keep the
  * same logic and follow the same code paths.
  */
-let lowPriorityWarningWithoutStack: any = function() {};
+let lowPriorityWarningWithoutStack: any = function () {};
 
 {
-  const printWarning = function(format: any) {
+  const printWarning = function (format: any) {
     for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
       args[_key - 1] = arguments[_key];
     }
@@ -79,7 +79,7 @@ let lowPriorityWarningWithoutStack: any = function() {};
     let argIndex = 0;
     const message =
       'Warning: ' +
-      format.replace(/%s/g, function() {
+      format.replace(/%s/g, function () {
         return args[argIndex++];
       });
 
@@ -95,7 +95,7 @@ let lowPriorityWarningWithoutStack: any = function() {};
     } catch (x) {}
   };
 
-  lowPriorityWarningWithoutStack = function(condition: any, format: any) {
+  lowPriorityWarningWithoutStack = function (condition: any, format: any) {
     if (format === undefined) {
       throw new Error(
         '`lowPriorityWarningWithoutStack(condition, format, ...args)` requires a warning ' + 'message argument'

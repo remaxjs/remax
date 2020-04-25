@@ -48,7 +48,7 @@ export default function webpackConfig(options: RemaxOptions): Configuration {
 
   config.devtool(process.env.NODE_ENV === 'development' ? 'cheap-module-source-map' : false);
   config.output.publicPath(publicPath);
-  config.resolve.extensions.merge(extensions.map((ex) => `.web${ex}`).concat(extensions));
+  config.resolve.extensions.merge(extensions.map(ex => `.web${ex}`).concat(extensions));
   config.output.filename(process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].js' : '[name].js');
   config.optimization.runtimeChunk({
     name: 'runtime',
@@ -84,7 +84,7 @@ export default function webpackConfig(options: RemaxOptions): Configuration {
     .loader(require.resolve('file-loader'));
 
   const entryTemplate = fs.readFileSync(path.resolve(__dirname, '../../../template/entry.js.ejs'), 'utf-8');
-  const pages = entries.pages.map((p) => {
+  const pages = entries.pages.map(p => {
     const ext = path.extname(p);
     const ROOT = winPath(path.join(options.cwd, options.rootDir)) + '/';
     p = winPath(p);

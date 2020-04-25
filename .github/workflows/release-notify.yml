@@ -2,33 +2,33 @@ name: Release notify
 
 on:
   release:
-    types: [published] 
+    types: [published]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Send dingding notify
-      uses: zcong1993/actions-ding@master
-      with:
-        dingToken: ${{ secrets.DING_TOKEN }}
-        body: |
-          {
-            "msgtype": "markdown",
-            "markdown": {
-                "title": "Remax ${{github.event.release.tag_name}} 发布公告",
-                "text": "# Remax [${{github.event.release.tag_name}}](${{github.event.release.html_url}}) 发布公告\n${{github.event.release.body}}",
+      - name: Send dingding notify
+        uses: zcong1993/actions-ding@master
+        with:
+          dingToken: ${{ secrets.DING_TOKEN }}
+          body: |
+            {
+              "msgtype": "markdown",
+              "markdown": {
+                  "title": "Remax ${{github.event.release.tag_name}} 发布公告",
+                  "text": "# Remax [${{github.event.release.tag_name}}](${{github.event.release.html_url}}) 发布公告\n${{github.event.release.body}}",
+              }
             }
-          }
-    - name: Send dingding-inc notify
-      uses: zcong1993/actions-ding@master
-      with:
-        dingToken: ${{ secrets.DING_INC_TOKEN }}
-        body: |
-          {
-            "msgtype": "markdown",
-            "markdown": {
-                "title": "Remax ${{github.event.release.tag_name}} 发布公告",
-                "text": "# Remax [${{github.event.release.tag_name}}](${{github.event.release.html_url}}) 发布公告\n${{github.event.release.body}}",
+      - name: Send dingding-inc notify
+        uses: zcong1993/actions-ding@master
+        with:
+          dingToken: ${{ secrets.DING_INC_TOKEN }}
+          body: |
+            {
+              "msgtype": "markdown",
+              "markdown": {
+                  "title": "Remax ${{github.event.release.tag_name}} 发布公告",
+                  "text": "# Remax [${{github.event.release.tag_name}}](${{github.event.release.html_url}}) 发布公告\n${{github.event.release.body}}",
+              }
             }
-          }

@@ -9,7 +9,7 @@ const transformReactStyleKey = (key: string) => {
     return key;
   }
 
-  let styleValue = key.replace(/\.?([A-Z]+)/g, function(_x: any, y: string) {
+  let styleValue = key.replace(/\.?([A-Z]+)/g, function (_x: any, y: string) {
     return '-' + y.toLowerCase();
   });
 
@@ -31,7 +31,7 @@ const transformPx = (value: string) => {
     return value;
   }
 
-  return value.replace(/\b(\d+(\.\d+)?)px\b/g, function(match, x) {
+  return value.replace(/\b(\d+(\.\d+)?)px\b/g, function (match, x) {
     const targetUnit = 'rem';
     const size = Number(x / 100);
     return size % 1 === 0 ? size + targetUnit : size.toFixed(2) + targetUnit;

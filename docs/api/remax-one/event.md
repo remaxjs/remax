@@ -9,7 +9,7 @@ order: 2
 import { Input } from 'remax/one';
 
 export default () => {
-  const handleInput = (event) => {
+  const handleInput = event => {
     console.log(event.target.value);
   };
 

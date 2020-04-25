@@ -4,16 +4,15 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12
-    - name: install
-      run: yarn install
-    - name: lint
-      run: yarn lint
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: install
+        run: yarn install
+      - name: lint
+        run: yarn lint
