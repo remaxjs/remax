@@ -2,7 +2,7 @@ var tree = {
   root: {
     children: [],
   },
-  lastActionId: -1
+  lastActionId: -1,
 };
 
 function reduce(action) {
@@ -15,18 +15,14 @@ function reduce(action) {
   switch (action.type) {
     case 'clear':
       tree.root = {
-        children: []
+        children: [],
       };
       return tree;
     case 'splice':
       for (var i = 0; i < action.payload.length; i += 1) {
         var value = get(tree, action.payload[i].path);
         if (action.payload[i].item) {
-          value.splice(
-            action.payload[i].start,
-            action.payload[i].deleteCount,
-            action.payload[i].item
-          );
+          value.splice(action.payload[i].start, action.payload[i].deleteCount, action.payload[i].item);
         } else {
           value.splice(action.payload[i].start, action.payload[i].deleteCount);
         }
@@ -99,5 +95,5 @@ function get(obj, path) {
 }
 
 module.exports = {
-  reduce: reduce
+  reduce: reduce,
 };
