@@ -39,11 +39,11 @@
     "@types/react-dom": "^16.9.6",
     "@types/react-test-renderer": "^16.9.2",
     "concurrently": "^5.1.0",
-    "jest": "^25.3.0",
+    "jest": "^25.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
-    "ts-jest": "^25.3.1",
+    "ts-jest": "^25.4.0",
     "typescript": "^3.8.3"
   },
   "publishConfig": {
