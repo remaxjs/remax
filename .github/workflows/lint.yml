@@ -16,3 +16,5 @@ jobs:
         run: yarn install
       - name: lint
         run: yarn lint
+      - name: prettier
+        run: yarn prettier --check packages/*/src/**/*.{ts,tsx}
