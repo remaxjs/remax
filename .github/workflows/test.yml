@@ -19,11 +19,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install
-        run: yarn install --no-lockfile
+        run: npm install
       - name: build
-        run: yarn build
+        run: npm run build
       - name: test
-        run: yarn test:cov
+        run: npm run test:cov
         env:
           CI: true
       - name: Upload coverage to Codecov
