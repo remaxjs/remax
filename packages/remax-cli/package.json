@@ -41,7 +41,6 @@
     "babel-preset-remax": "2.0.0-alpha.13",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.1.1",
-    "cosmiconfig": "^6.0.0",
     "css-loader": "^3.4.2",
     "dotenv": "^8.2.0",
     "dotenv-expand": "^5.1.0",

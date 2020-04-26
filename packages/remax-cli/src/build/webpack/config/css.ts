@@ -1,15 +1,14 @@
 import * as path from 'path';
+import * as fs from 'fs';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { RemaxOptions } from '@remax/types';
-import { cosmiconfigSync } from 'cosmiconfig';
 import winPath from '../../../winPath';
 
 const styleMatcher = /\.(css|less|s[ac]ss|styl(us)?)$/i;
 
 function resolvePostcssConfig(options: RemaxOptions) {
-  const customConfig = cosmiconfigSync('postcss').search(options.cwd);
-  if (customConfig && !customConfig.isEmpty) {
+  if (fs.existsSync(path.join(options.cwd, 'postcss.config.js'))) {
     return options.cwd;
   }
 
