@@ -1,7 +1,29 @@
+import * as path from 'path';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { RemaxOptions } from '@remax/types';
-import * as styleConfig from '../../utils/styleConfig';
+import { cosmiconfigSync } from 'cosmiconfig';
+import winPath from '../../../winPath';
+
+const styleMatcher = /\.(css|less|s[ac]ss|styl(us)?)$/i;
+
+function resolvePostcssConfig(options: RemaxOptions) {
+  const customConfig = cosmiconfigSync('postcss').search(options.cwd);
+  if (customConfig && !customConfig.isEmpty) {
+    return options.cwd;
+  }
+
+  return winPath(path.resolve(__dirname, '../../../..'));
+}
+
+function enabled(module: string) {
+  try {
+    require.resolve(module);
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 function applyLoaders(
   rule: Config.Rule<Config.Rule<Config.Module>>,
@@ -31,14 +53,14 @@ function applyLoaders(
 }
 
 export default function cssConfig(webpackConfig: Config, options: RemaxOptions, web: boolean) {
-  const rule = webpackConfig.module.rule('css').test(styleConfig.styleMatcher);
+  const rule = webpackConfig.module.rule('css').test(styleMatcher);
   const preProcessors = [
     {
       name: 'postcss-loader',
       loader: require.resolve('postcss-loader'),
       options: {
         config: {
-          path: styleConfig.resolvePostcssConfig(options),
+          path: resolvePostcssConfig(options),
           ctx: {
             plugins: {
               [require.resolve('postcss-preset-env')]: web && {
@@ -58,15 +80,15 @@ export default function cssConfig(webpackConfig: Config, options: RemaxOptions, 
         },
       },
     },
-    styleConfig.enabled('less') && {
+    enabled('less') && {
       name: 'less-loader',
       loader: require.resolve('less-loader'),
     },
-    styleConfig.enabled('node-sass') && {
+    enabled('node-sass') && {
       name: 'sass-loader',
       loader: require.resolve('sass-loader'),
     },
-    styleConfig.enabled('stylus') && {
+    enabled('stylus') && {
       name: 'stylus-loader',
       loader: require.resolve('stylus-loader'),
     },
