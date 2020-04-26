@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.8](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.7...v2.0.0-alpha.8) (2020-04-26)
+
+### Bug Fixes
+
+- **wechat:** 修复 connectSocket 没有返回 SocketTask 的问题 ([b4e6cfd](https://github.com/remaxjs/remax/commit/b4e6cfd5e388c2ece009d005c945b18a6aaacee9))
+
 # [2.0.0-alpha.7](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.6...v2.0.0-alpha.7) (2020-04-23)
 
 ### Bug Fixes
