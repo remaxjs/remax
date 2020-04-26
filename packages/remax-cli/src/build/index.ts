@@ -2,8 +2,6 @@ import { RemaxOptions } from '@remax/types';
 import events from 'events';
 import output from './utils/output';
 import remaxVersion from '../remaxVersion';
-import buildWeb from './web';
-import buildMini from './mini';
 import { Platform } from './utils/platform';
 import getConfig from '../getConfig';
 
@@ -17,8 +15,11 @@ export function run(options: RemaxOptions, target: Platform) {
   const buildEvent = new events.EventEmitter();
 
   if (target === Platform.web) {
+    // 兼容 herbox 所以用 require
+    const buildWeb = require('./web');
     buildWeb(options);
   } else {
+    const buildMini = require('./mini');
     buildMini(options, target, buildEvent);
   }
 
