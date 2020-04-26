@@ -167,7 +167,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .use('file')
     .loader(require.resolve('file-loader'));
 
-  config.plugin('webpack-bar').use(WebpackBar, [{ name: target }]);
+  config.plugin('webpackbar').use(WebpackBar, [{ name: target }]);
 
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
