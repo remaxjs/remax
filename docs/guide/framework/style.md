@@ -85,9 +85,8 @@ global assets 配置 copy 的参考
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  configWebpack: function (config) {
+  configWebpack({ config }) {
     config.plugin('copy').use(CopyPlugin, [[{ from: 'src/path/to/assets', to: 'path/to/assets' }]]);
-    return config;
   },
 };
 ```

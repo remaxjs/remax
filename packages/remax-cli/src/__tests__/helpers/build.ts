@@ -71,7 +71,7 @@ export default async function build(app: string, target: Platform, options: Part
       ...remaxOptions,
       cwd,
       progress: false,
-      configWebpack: config => {
+      configWebpack: ({ config }) => {
         config
           .mode('none')
           .resolve.alias.merge({
@@ -95,7 +95,7 @@ export default async function build(app: string, target: Platform, options: Part
           });
 
         if (typeof remaxOptions.configWebpack === 'function') {
-          remaxOptions.configWebpack(config);
+          remaxOptions.configWebpack({ config });
         }
       },
     },

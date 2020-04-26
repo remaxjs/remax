@@ -17,7 +17,7 @@ describe('webpackConfig', () => {
     const options = webpackConfig(
       {
         ...defaultOptions,
-        configWebpack: config => {
+        configWebpack: ({ config }) => {
           config.mode(mode);
         },
       },

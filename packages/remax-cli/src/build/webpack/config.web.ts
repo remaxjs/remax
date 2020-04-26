@@ -122,7 +122,7 @@ export default function webpackConfig(options: RemaxOptions): Configuration {
   config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options, entries]);
 
   if (typeof options.configWebpack === 'function') {
-    options.configWebpack(config);
+    options.configWebpack({ config });
   }
 
   return config.toConfig();

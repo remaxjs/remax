@@ -11,7 +11,7 @@ export interface RemaxOptions {
   rootDir: string;
   compressTemplate?: boolean;
   UNSAFE_wechatTemplateDepth: number | { [key: string]: number };
-  configWebpack?: (config: Config) => void;
+  configWebpack?: (params: { config: Config }) => void;
   plugins: RemaxNodePlugin[];
   one?: boolean;
   notify?: boolean;

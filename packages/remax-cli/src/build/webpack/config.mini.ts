@@ -176,7 +176,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
 
   if (typeof options.configWebpack === 'function') {
-    options.configWebpack(config);
+    options.configWebpack({ config });
   }
 
   return config.toConfig();

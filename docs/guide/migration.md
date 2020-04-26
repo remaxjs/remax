@@ -82,9 +82,9 @@ App 和页面配置 `alipay` 平台变成 `ali`
 ```js
 // remax.config.js
 module.exports = {
-  configWebpack: config => {
-    // webpack-chain 的 Config 对象
-    console.log(config);
+  configWebpack({ config }) {
+    // config 是 webpack-chain 的 Config 对象
+    config.plugins.delete('webpackbar'); // 删除 webpackbar 插件
   },
 };
 ```
@@ -96,7 +96,7 @@ module.exports = {
 ```js
 // remax.config.js
 module.exports = {
-  configWebpack: config => {
+  configWebpack({ config }) {
     config.resolve.alias
       .merge({
         '@components': path.resolve(cwd, 'src/components'),
@@ -177,7 +177,7 @@ import './index.css';
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  configWebpack: function (config) {
+  configWebpack({ config }) => {
     // 详细配置参考 copy-webpack-plugin
     config.plugin('copy').use(CopyPlugin, [[{ from: 'src/assets', to: 'assets' }]]);
   },

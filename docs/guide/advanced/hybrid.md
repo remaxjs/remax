@@ -14,7 +14,7 @@ order: 46
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  configWebpack(config) {
+  configWebpack({ config }) {
     config.plugin('copy').use(CopyPlugin, [
       [
         // 表示将 native 目录整个输出到 output 目录下
