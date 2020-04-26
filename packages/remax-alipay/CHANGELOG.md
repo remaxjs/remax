@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.3](https://github.com/remaxjs/remax/compare/v1.21.2...v1.21.3) (2020-04-26)
+
+**Note:** Version bump only for package remax-alipay
+
 ## [1.21.2](https://github.com/remaxjs/remax/compare/v1.21.1...v1.21.2) (2020-04-22)
 
 **Note:** Version bump only for package remax-alipay
