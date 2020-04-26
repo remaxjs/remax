@@ -1,6 +1,9 @@
 ---
 title: remax
 order: 0
+nav:
+  title: API
+  order: 1
 ---
 
 _带有 `?` 的选项表示非必填项_

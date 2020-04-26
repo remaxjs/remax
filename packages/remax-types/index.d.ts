@@ -3,7 +3,7 @@ import Config from 'webpack-chain';
 import * as webpack from 'webpack';
 import * as t from '@babel/types';
 
-export interface RemaxOptions {
+export interface Options {
   turboPages?: string[];
   pxToRpx: boolean;
   cwd: string;
@@ -20,7 +20,7 @@ export interface RemaxOptions {
   target?: Platform;
 }
 
-export type RemaxConfig = Partial<RemaxOptions>;
+export type Config = Partial<Options>;
 
 export interface Entries {
   app: string;
@@ -81,7 +81,7 @@ export type Meta = {
 };
 
 export type MetaOptions = {
-  remaxOptions: RemaxOptions;
+  remaxOptions: Options;
 };
 
 export type ProcessPropsOptions = {
@@ -110,7 +110,7 @@ export interface NativeComponent {
   assets: string[];
 }
 
-export interface RemaxNodePlugin {
+export interface Plugin {
   /** 插件名称 */
   name: string;
   meta?: Meta;
@@ -136,4 +136,4 @@ export interface RemaxNodePlugin {
   shouldHostComponentRegister?: (options: ShouldHostComponentRegister) => boolean;
 }
 
-export type RemaxNodePluginConstructor = (options?: any) => RemaxNodePlugin;
+export type RemaxNodePluginConstructor = (options?: any) => Plugin;

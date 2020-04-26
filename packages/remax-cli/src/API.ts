@@ -1,10 +1,10 @@
 import { hostComponents } from '@remax/macro';
 import * as t from '@babel/types';
-import { RemaxOptions, RemaxNodePlugin, ExtendsCLIOptions, Meta, HostComponent } from '@remax/types';
+import { Options, Plugin, ExtendsCLIOptions, Meta, HostComponent } from '@remax/types';
 import { merge } from 'lodash';
 
 class API {
-  public plugins: RemaxNodePlugin[] = [];
+  public plugins: Plugin[] = [];
   public adapter = {
     name: '',
     target: '',
@@ -100,7 +100,7 @@ class API {
     }, true);
   }
 
-  public registerAdapterPlugins(targetName: string, remaxConfig: RemaxOptions) {
+  public registerAdapterPlugins(targetName: string, remaxConfig: Options) {
     this.adapter.target = targetName;
 
     this.adapter.name = targetName;
@@ -125,7 +125,7 @@ class API {
     }
   }
 
-  public registerNodePlugins(remaxConfig: RemaxOptions) {
+  public registerNodePlugins(remaxConfig: Options) {
     remaxConfig.plugins.forEach(plugin => {
       if (plugin) {
         this.registerHostComponents(plugin.hostComponents);
