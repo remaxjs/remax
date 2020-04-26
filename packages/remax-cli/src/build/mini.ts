@@ -5,7 +5,7 @@ import webpackConfig from './webpack/config.mini';
 import API from '../API';
 import output from './utils/output';
 
-export default async function buildMini(options: RemaxOptions, buildEvent: events.EventEmitter) {
+export default function buildMini(options: RemaxOptions, buildEvent: events.EventEmitter) {
   const { target } = options;
 
   API.registerAdapterPlugins(target, options);
