@@ -11,16 +11,16 @@ interface Argv {
   notify?: boolean;
 }
 
-export function run(options: RemaxOptions, target: Platform) {
+export function run(options: RemaxOptions) {
   const buildEvent = new events.EventEmitter();
 
-  if (target === Platform.web) {
+  if (options.target === Platform.web) {
     // 兼容 herbox 所以用 require
-    const buildWeb = require('./web');
+    const buildWeb = require('./web').default;
     buildWeb(options);
   } else {
-    const buildMini = require('./mini');
-    buildMini(options, target, buildEvent);
+    const buildMini = require('./mini').default;
+    buildMini(options, buildEvent);
   }
 
   return buildEvent;
@@ -36,7 +36,7 @@ export function build(argv: Argv) {
   output.message(`\n⌨️  Remax v${remaxVersion()}\n`, 'green');
   output.message(`🎯 平台 ${target}`, 'blue');
 
-  const result = run({ ...options, ...argv }, target);
+  const result = run({ ...options, ...argv });
 
   try {
     require('remax-stats').run();

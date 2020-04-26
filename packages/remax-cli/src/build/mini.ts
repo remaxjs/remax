@@ -4,9 +4,10 @@ import { RemaxOptions } from '@remax/types';
 import webpackConfig from './webpack/config.mini';
 import API from '../API';
 import output from './utils/output';
-import { Platform } from './utils/platform';
 
-export default async function buildMini(options: RemaxOptions, target: Platform, buildEvent: events.EventEmitter) {
+export default async function buildMini(options: RemaxOptions, buildEvent: events.EventEmitter) {
+  const { target } = options;
+
   API.registerAdapterPlugins(target, options);
 
   const webpackOptions: webpack.Configuration = webpackConfig(options, target);
