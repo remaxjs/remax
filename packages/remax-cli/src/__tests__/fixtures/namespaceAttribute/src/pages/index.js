@@ -7,7 +7,7 @@ export default function Index() {
   const props = {};
   return (
     <>
-      <View ns:prop="ns:value" />
+      <View />
       <NativeComponent ns:prop="ns:value" {...props} />
     </>
   );

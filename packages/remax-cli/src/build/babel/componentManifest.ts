@@ -3,7 +3,7 @@ import { NodePath } from '@babel/traverse';
 import { HostComponent, RemaxOptions } from '@remax/types';
 import { kebabCase } from 'lodash';
 import { registerNativeComponent } from 'remax/macro';
-import { LEAF, ENTRY } from './compiler/static/constants';
+import { LEAF, ENTRY, TEMPLATE_ID } from './compiler/static/constants';
 import { getSourcePath, isNativeComponent } from '../utils/nativeComponent';
 import API from '../../API';
 
@@ -138,6 +138,11 @@ function getRemaxHostComponentName(path: NodePath<t.JSXElement>) {
 function shouldRegisterProp(propName: string, isNative: boolean, hostComponent?: HostComponent) {
   // key 属性
   if (propName === 'key') {
+    return true;
+  }
+
+  // turboPages 模板 ID
+  if (propName === TEMPLATE_ID) {
     return true;
   }
 

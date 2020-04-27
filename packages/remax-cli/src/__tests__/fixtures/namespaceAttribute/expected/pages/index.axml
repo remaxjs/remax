@@ -1811,10 +1811,6 @@
     
     
     
-    ns:prop="{{item.props['ns:prop']}}"
-    
-    
-    
     onAnimationEnd="{{item.props['onAnimationEnd']}}"
     
     

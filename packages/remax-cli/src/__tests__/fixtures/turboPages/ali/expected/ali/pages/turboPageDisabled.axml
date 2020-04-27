@@ -492,6 +492,10 @@
   
   <template name="REMAX_TPL_1_index">
   <index 
+    
+    ns:attr="{{item.props['ns:attr']}}"
+    
+    
     ref="{{item.props['__ref']}}"
   >
     
@@ -1825,10 +1829,6 @@
     
     
     key="{{item.props.__key}}"
-    
-    
-    
-    ns:attr="{{item.props['ns:attr']}}"
     
     
     
