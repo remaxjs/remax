@@ -4,9 +4,7 @@ import API from '../../../../API';
 import { getPath } from '../../../utils/nativeComponent';
 import output from '../../../utils/output';
 
-const cssPaths: Set<string> = new Set();
-
-export const walk = (filePath: string) => {
+export const walk = (filePath: string, cssPaths: Set<string>) => {
   if (!existsSync(filePath)) {
     return;
   }
@@ -29,17 +27,16 @@ export const walk = (filePath: string) => {
         return;
       }
 
-      walk(file);
+      walk(file, cssPaths);
     }
   });
 };
 
-export const getcssPaths = () => {
-  return cssPaths;
-};
-
 export default (id: string) => {
+  const cssPaths: Set<string> = new Set();
   const filePath = id.replace(/\.js$/, API.getMeta().style);
 
-  walk(filePath);
+  walk(filePath, cssPaths);
+
+  return Array.from(cssPaths);
 };

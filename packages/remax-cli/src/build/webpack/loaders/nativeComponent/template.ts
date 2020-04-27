@@ -5,9 +5,7 @@ import { getPath } from '../../../utils/nativeComponent';
 import output from '../../../utils/output';
 import { RemaxOptions } from '@remax/types';
 
-const templatePaths: Set<string> = new Set();
-
-export function walk(filePath: string, options: RemaxOptions) {
+export function walk(filePath: string, templatePaths: Set<string>, options: RemaxOptions) {
   if (!fs.existsSync(filePath)) {
     output.error(`文件 ${filePath} 不存在`, options.notify);
     return;
@@ -24,9 +22,9 @@ export function walk(filePath: string, options: RemaxOptions) {
 
   parser._cbs.onopentag = (name, attrs) => {
     if (name === tag && attrs[src]) {
-      walk(getPath(filePath, attrs[src]), options);
+      walk(getPath(filePath, attrs[src]), templatePaths, options);
     } else if (['include', 'import'].includes(name) && attrs.src) {
-      walk(getPath(filePath, attrs.src), options);
+      walk(getPath(filePath, attrs.src), templatePaths, options);
     }
   };
 
@@ -35,12 +33,11 @@ export function walk(filePath: string, options: RemaxOptions) {
   parser.end();
 }
 
-export const getTemplatePaths = () => {
-  return templatePaths;
-};
-
 export default (options: RemaxOptions, id: string) => {
+  const templatePaths: Set<string> = new Set();
   const filePath = id.replace(/\.js$/, API.getMeta().template.extension);
 
-  walk(filePath, options);
+  walk(filePath, templatePaths, options);
+
+  return Array.from(templatePaths);
 };

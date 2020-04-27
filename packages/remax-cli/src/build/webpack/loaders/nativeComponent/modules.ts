@@ -10,8 +10,6 @@ import { getPath } from '../../../utils/nativeComponent';
 import { RemaxOptions } from '@remax/types';
 import winPath from '../../../../winPath';
 
-const modules: Set<string> = new Set();
-
 export function resolveModulesInCode(code: string, filePath: string, options: RemaxOptions) {
   const magicString = new MagicString(code);
   const ast = babelParser.parse(code, {
@@ -57,7 +55,7 @@ export function resolveModulesInCode(code: string, filePath: string, options: Re
   return magicString.toString();
 }
 
-const walk = (jsPath: string, options: RemaxOptions) => {
+const walk = (jsPath: string, modules: Set<string>, options: RemaxOptions) => {
   const jsContent = fs.readFileSync(jsPath).toString();
   const ast = babelParser.parse(jsContent, {
     sourceType: 'module',
@@ -92,7 +90,7 @@ const walk = (jsPath: string, options: RemaxOptions) => {
 
     modules.add(absolutePath);
 
-    walk(absolutePath, options);
+    walk(absolutePath, modules, options);
   };
 
   traverse(ast, {
@@ -101,15 +99,16 @@ const walk = (jsPath: string, options: RemaxOptions) => {
   });
 };
 
-const parseTemplate = (filePath: string, options: RemaxOptions) => {
-  walk(filePath, options);
+const parseTemplate = (filePath: string, modules: Set<string>, options: RemaxOptions) => {
+  walk(filePath, modules, options);
   modules.add(filePath);
 };
 
 export default function jsModule(options: RemaxOptions, id: string) {
   const templatePath = id;
+  const modules: Set<string> = new Set();
 
-  parseTemplate(templatePath, options);
+  parseTemplate(templatePath, modules, options);
+
+  return Array.from(modules);
 }
-
-export const getJsModules = () => Array.from(modules);

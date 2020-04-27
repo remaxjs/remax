@@ -2,20 +2,7 @@ import utils from 'loader-utils';
 import { loader } from 'webpack';
 import { registerNativeComponent as register } from 'remax/macro';
 import { isNativeComponent } from '../../../utils/nativeComponent';
-import jsHelper, { getJsHelpers } from './jsHelper';
-import jsModule, { getJsModules } from './modules';
-import style, { getcssPaths } from './style';
-import json, { getjsonPaths } from './json';
-import usingComponents from './usingComponents';
-import template, { getTemplatePaths } from './template';
-
-const getAssets = () => [
-  ...getcssPaths(),
-  ...getjsonPaths(),
-  ...getTemplatePaths(),
-  ...getJsHelpers(),
-  ...getJsModules(),
-];
+import getAssets from './getAssets';
 
 export default function nativeComponent(this: loader.LoaderContext, source: string) {
   if (this.cacheable) {
@@ -25,26 +12,19 @@ export default function nativeComponent(this: loader.LoaderContext, source: stri
   const resourcePath = this.resourcePath;
   const { remaxOptions } = utils.getOptions(this);
 
-  if (isNativeComponent(resourcePath)) {
-    jsModule(remaxOptions, resourcePath);
-    jsHelper(resourcePath);
-    style(resourcePath);
-    json(resourcePath);
-    template(remaxOptions, resourcePath);
-    usingComponents(resourcePath, remaxOptions, this);
-
-    const assets = getAssets();
-
-    assets.forEach(file => {
-      this.addDependency(file);
-    });
-
-    const type = register(resourcePath, '', assets);
-
-    return `import { createNativeComponent } from 'remax';
-export default createNativeComponent('${type}')
-`;
+  if (!isNativeComponent(resourcePath)) {
+    return source;
   }
 
-  return source;
+  const assets = getAssets(resourcePath, remaxOptions);
+
+  assets.forEach(file => {
+    this.addDependency(file);
+  });
+
+  const type = register(resourcePath, '', assets);
+
+  return `import { createNativeComponent } from 'remax';
+export default createNativeComponent('${type}')
+`;
 }
