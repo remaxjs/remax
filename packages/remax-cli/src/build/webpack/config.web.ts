@@ -63,7 +63,7 @@ export default function webpackConfig(options: RemaxOptions): Configuration {
     .loader('babel')
     .options({
       reactPreset: true,
-      compact: process.env.NODE_ENV === 'production' ? true : false,
+      compact: process.env.NODE_ENV === 'production',
     });
 
   cssConfig(config, options, true);
