@@ -75,7 +75,6 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
       .concat(extensions.map(ext => `.mini${ext}`))
       .concat(extensions)
   );
-  config.resolve.extensions.merge(extensions);
   config.output.filename('[name].js');
   config.output.globalObject(meta.global);
   config.output.publicPath(publicPath);
@@ -139,7 +138,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .options({
       usePlugins: [componentManifest(options), fixRegeneratorRuntime()],
       reactPreset: true,
-      compact: process.env.NODE_ENV === 'production' ? true : false,
+      compact: process.env.NODE_ENV === 'production',
     });
 
   config.module.rule('native-component').test(moduleMatcher).use('nativeComponent').loader('nativeComponent').options({
