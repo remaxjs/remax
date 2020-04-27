@@ -1,5 +1,4 @@
-import { RemaxOptions } from '@remax/types';
-import events from 'events';
+import { RemaxOptions, BuildCallback } from '@remax/types';
 import output from './utils/output';
 import remaxVersion from '../remaxVersion';
 import { Platform } from './utils/platform';
@@ -11,19 +10,15 @@ interface Argv {
   notify?: boolean;
 }
 
-export function run(options: RemaxOptions) {
-  const buildEvent = new events.EventEmitter();
-
+export function run(options: RemaxOptions, callback?: BuildCallback) {
   if (options.target === Platform.web) {
     // 兼容 herbox 所以用 require
     const buildWeb = require('./web').default;
-    buildWeb(options);
+    buildWeb(options, callback);
   } else {
     const buildMini = require('./mini').default;
-    buildMini(options, buildEvent);
+    buildMini(options, callback);
   }
-
-  return buildEvent;
 }
 
 export function build(argv: Argv) {

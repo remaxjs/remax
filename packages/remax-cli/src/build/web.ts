@@ -1,13 +1,17 @@
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
-import { RemaxOptions } from '@remax/types';
+import { RemaxOptions, BuildCallback } from '@remax/types';
 import webpackConfig from './webpack/config.web';
 import address from 'address';
 import output from './utils/output';
 
-export default async (options: RemaxOptions) => {
+export default async (options: RemaxOptions, callback?: BuildCallback) => {
   const webpackOptions: webpack.Configuration = webpackConfig(options);
   const compiler = webpack(webpackOptions);
+
+  if (typeof callback === 'function') {
+    callback({ compiler });
+  }
 
   if (options.watch) {
     output.message('🚀 启动 watch', 'blue');
