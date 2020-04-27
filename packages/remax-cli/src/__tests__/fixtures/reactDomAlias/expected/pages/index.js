@@ -2623,6 +2623,12 @@ function createPageConfig(Page, entry) {
     },
     onPullIntercept: function onPullIntercept() {
       return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].pullIntercept);
+    },
+    onTabItemTap: function onTabItemTap(e) {
+      return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].tabItemTap, e);
+    },
+    onResize: function onResize(e) {
+      return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].resize, e);
     }
   };
   Object(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["pageEvents"])(entry).forEach(function (eventName) {
