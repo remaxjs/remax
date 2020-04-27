@@ -137,7 +137,3 @@ export interface RemaxNodePlugin {
 }
 
 export type RemaxNodePluginConstructor = (options?: any) => RemaxNodePlugin;
-
-export interface BuildCallback {
-  (params: { compiler: webpack.Compiler }): void;
-}

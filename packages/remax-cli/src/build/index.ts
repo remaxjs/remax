@@ -1,8 +1,9 @@
-import { RemaxOptions, BuildCallback } from '@remax/types';
+import { RemaxOptions } from '@remax/types';
 import output from './utils/output';
 import remaxVersion from '../remaxVersion';
 import { Platform } from './utils/platform';
 import getConfig from '../getConfig';
+import * as webpack from 'webpack';
 
 interface Argv {
   target: Platform;
@@ -10,14 +11,14 @@ interface Argv {
   notify?: boolean;
 }
 
-export function run(options: RemaxOptions, callback?: BuildCallback) {
+export function run(options: RemaxOptions): webpack.Compiler {
   if (options.target === Platform.web) {
     // 兼容 herbox 所以用 require
     const buildWeb = require('./web').default;
-    buildWeb(options, callback);
+    return buildWeb(options);
   } else {
     const buildMini = require('./mini').default;
-    buildMini(options, callback);
+    return buildMini(options);
   }
 }
 
