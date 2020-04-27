@@ -45,9 +45,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function _Index() {
   var props = {};
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_2__["View"], {
-    "ns:prop": "ns:value"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_native_component__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_2__["View"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_native_component__WEBPACK_IMPORTED_MODULE_3__["default"], _extends({
     "ns:prop": "ns:value"
   }, props)));
 }

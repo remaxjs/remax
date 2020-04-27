@@ -145,8 +145,6 @@
 
 <text >{{ node.children[23].children[0].text }}
 </text>
-
-<view ns:attr="1"></view>
 </view>
 
 </template>
@@ -370,6 +368,7 @@
   
 <template name="TPL_index">
   <index 
+    ns:attr="{{node.props['ns:attr']}}"
     ref="{{node.props['__ref']}}">
     <block a:for="{{node.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
@@ -844,7 +843,6 @@
     hover-stop-propagation="{{node.props['hover-stop-propagation']}}" 
     id="{{node.props['id']}}" 
     key="{{node.props['key']}}" 
-    ns:attr="{{node.props['ns:attr']}}" 
     onAnimationEnd="{{node.props['onAnimationEnd']}}" 
     onAnimationIteration="{{node.props['onAnimationIteration']}}" 
     onAnimationStart="{{node.props['onAnimationStart']}}" 

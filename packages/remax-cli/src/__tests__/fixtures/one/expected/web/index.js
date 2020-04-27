@@ -56,7 +56,7 @@ var page_0 = Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["loadable"])(function
   });
 });
 var page_1 = Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["loadable"])(function () {
-  return Promise.all(/* import() | packageA/pages/index */[__webpack_require__.e(5), __webpack_require__.e(3), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, 72)).then(function (_ref2) {
+  return Promise.all(/* import() | packageA/pages/index */[__webpack_require__.e(5), __webpack_require__.e(3), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, 73)).then(function (_ref2) {
     var c = _ref2.default;
     return Object(remax__WEBPACK_IMPORTED_MODULE_2__["createPageConfig"])(c);
   });
@@ -289,14 +289,14 @@ module.exports = remax;
 
 /***/ }),
 
-/***/ 64:
+/***/ 65:
 /***/ (function(module, exports) {
 
 module.exports = remax/wechat;
 
 /***/ }),
 
-/***/ 66:
+/***/ 67:
 /***/ (function(module, exports) {
 
 module.exports = remax/ali;

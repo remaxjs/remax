@@ -20,7 +20,15 @@ export default () => {
   return (
     <View className={styles['page-index']}>
       <C className="b" />
-      <View onClick={handleClick} onTouchStart={handleTouchStart} id="view" data-foo="bar" key="my-view" {...props}>
+      <View
+        onClick={handleClick}
+        onTouchStart={handleTouchStart}
+        id="view"
+        unrecognized-props=""
+        data-foo="bar"
+        key="my-view"
+        {...props}
+      >
         foo
         {dataJson?.data}
         {value}

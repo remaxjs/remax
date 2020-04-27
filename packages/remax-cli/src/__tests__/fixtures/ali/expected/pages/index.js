@@ -100,6 +100,7 @@ var _page = function _page() {
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
+    "unrecognized-props": "",
     "data-foo": "bar",
     key: "my-view"
   }, props, {

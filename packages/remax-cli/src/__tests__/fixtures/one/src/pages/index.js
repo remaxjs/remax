@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from '@remax/one';
+import { View, Text, Image } from 'remax/one';
 import { FunctionalPageNavigator as UnKnownComponent } from 'remax/wechat';
 import C from '@/components/C';
 import chooseImage from '@/api/chooseImage';
@@ -30,6 +30,7 @@ export default () => {
         {obj?.a?.b}
         {value}
       </View>
+      <Image wechat-bindtap={handleClick} />
       <UnKnownComponent />
       <UnBindingComponent />
       {TextElement}

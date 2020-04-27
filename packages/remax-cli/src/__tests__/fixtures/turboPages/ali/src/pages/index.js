@@ -54,7 +54,7 @@ export default function Index() {
         <React.Fragment>React.Fragment</React.Fragment>
         <DDD />
         <Remax.Text>Remax.Text</Remax.Text>
-        <NativeComponent />
+        <NativeComponent ns:attr="1" />
         <ReactComp>
           <View>React Component First Child</View>
           {'React Component Second Child'}
@@ -82,7 +82,6 @@ export default function Index() {
         <RenameView>Rename View</RenameView>
         {show && <View>Conditional View</View>}
         <Text leaf>{showPlainText && plainText}</Text>
-        <View ns:attr="1" />
       </>
     </View>
   );

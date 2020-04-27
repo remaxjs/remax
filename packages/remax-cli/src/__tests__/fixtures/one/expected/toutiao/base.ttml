@@ -594,6 +594,7 @@
   <view 
     animation="{{i.props['animation']}}" 
     class="{{i.props['class']}}" 
+    data-foo="{{i.props['data-foo']}}" 
     hover-class="{{i.props['hover-class']}}" 
     hover-start-time="{{i.props['hover-start-time']}}" 
     hover-stay-time="{{i.props['hover-stay-time']}}" 

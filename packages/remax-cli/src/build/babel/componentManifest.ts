@@ -3,7 +3,7 @@ import { NodePath } from '@babel/traverse';
 import { HostComponent, RemaxOptions } from '@remax/types';
 import { kebabCase } from 'lodash';
 import { registerNativeComponent } from 'remax/macro';
-import { LEAF, ENTRY } from './compiler/static/constants';
+import { LEAF, ENTRY, TEMPLATE_ID } from './compiler/static/constants';
 import { getSourcePath, isNativeComponent } from '../utils/nativeComponent';
 import API from '../../API';
 
@@ -135,6 +135,42 @@ function getRemaxHostComponentName(path: NodePath<t.JSXElement>) {
   return false;
 }
 
+function shouldRegisterProp(propName: string, isNative: boolean, hostComponent?: HostComponent) {
+  // key 属性
+  if (propName === 'key') {
+    return true;
+  }
+
+  // turboPages 模板 ID
+  if (propName === TEMPLATE_ID) {
+    return true;
+  }
+
+  // 原生组件的属性都要注册
+  if (isNative) {
+    return true;
+  }
+
+  // host component 上的标准属性
+  if (hostComponent?.alias?.[propName]) {
+    return true;
+  }
+
+  const prefix = `${API.adapter.target}-`;
+
+  // 平台特定属性
+  if (propName.startsWith(prefix)) {
+    return true;
+  }
+
+  // data 属性
+  if (propName.startsWith('data-')) {
+    return true;
+  }
+
+  return false;
+}
+
 function aliasProp(propName: string, hostComponent?: HostComponent) {
   const prefix = `${API.adapter.target}-`;
 
@@ -226,6 +262,10 @@ function registerProps(id: string, node?: t.JSXElement, isNative?: boolean) {
        */
       if (propName === 'key') {
         node.openingElement.attributes.push(t.jsxAttribute(t.jsxIdentifier('__key'), attr.value));
+      }
+
+      if (!shouldRegisterProp(propName, !!isNative, hostComponent)) {
+        return;
       }
 
       props.push(propName);
