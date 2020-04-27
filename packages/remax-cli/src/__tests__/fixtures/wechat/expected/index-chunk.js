@@ -2690,6 +2690,12 @@ function createPageConfig(Page) {
     onPullIntercept: function onPullIntercept() {
       return this.callLifecycle(Lifecycle.pullIntercept);
     },
+    onTabItemTap: function onTabItemTap(e) {
+      return config.callLifecycle(Lifecycle.tabItemTap, e);
+    },
+    onResize: function onResize(e) {
+      return config.callLifecycle(Lifecycle.resize, e);
+    },
     events: {
       // 页面返回时触发
       onBack: function onBack(e) {
