@@ -1,20 +1,16 @@
 import webpack from 'webpack';
-import { RemaxOptions, BuildCallback } from '@remax/types';
+import { RemaxOptions } from '@remax/types';
 import webpackConfig from './webpack/config.mini';
 import API from '../API';
 import output from './utils/output';
 
-export default function buildMini(options: RemaxOptions, callback?: BuildCallback) {
+export default function buildMini(options: RemaxOptions): webpack.Compiler {
   const { target } = options;
 
   API.registerAdapterPlugins(target, options);
 
   const webpackOptions: webpack.Configuration = webpackConfig(options, target);
   const compiler = webpack(webpackOptions);
-
-  if (typeof callback === 'function') {
-    callback({ compiler });
-  }
 
   if (options.watch) {
     output.message('🚀 启动 watch\n', 'blue');
@@ -66,4 +62,6 @@ export default function buildMini(options: RemaxOptions, callback?: BuildCallbac
       }
     });
   }
+
+  return compiler;
 }
