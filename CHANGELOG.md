@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.14](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.13...v2.0.0-alpha.14) (2020-04-27)
+
+### Bug Fixes
+
+- 修复自定义组件中 usingComponent 没有被处理的问题 ([a068a33](https://github.com/remaxjs/remax/commit/a068a335595d7f969902d6a2f97cfd86f537c480)), closes [#845](https://github.com/remaxjs/remax/issues/845)
+- 修复自定义组件引用 npm 模块失效的问题 ([00762db](https://github.com/remaxjs/remax/commit/00762db978bb4583088953eb6ccf1547adfd68b5)), closes [#762](https://github.com/remaxjs/remax/issues/762)
+
 # [2.0.0-alpha.13](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.12...v2.0.0-alpha.13) (2020-04-26)
 
 **Note:** Version bump only for package root
