@@ -130,6 +130,14 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       return this.callLifecycle(Lifecycle.pullIntercept);
     },
 
+    onTabItemTap(this: any, e: any) {
+      return config.callLifecycle(Lifecycle.tabItemTap, e);
+    },
+
+    onResize(this: any, e: any) {
+      return config.callLifecycle(Lifecycle.resize, e);
+    },
+
     events: {
       // 页面返回时触发
       onBack(this: any, e: any) {
