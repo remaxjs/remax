@@ -234,6 +234,14 @@ describe('page', () => {
         log.push('onPullIntercept');
       }
 
+      onResize() {
+        log.push('onResize');
+      }
+
+      onTabItemTap() {
+        log.push('onTabItemTap');
+      }
+
       render() {
         return <View>foo</View>;
       }

@@ -168,6 +168,14 @@ export default function createPageConfig(Page: React.ComponentType<any>, entry: 
     onPullIntercept() {
       return this.callLifecycle(Lifecycle.pullIntercept);
     },
+
+    onTabItemTap(this: any, e: any) {
+      return this.callLifecycle(Lifecycle.tabItemTap, e);
+    },
+
+    onResize(this: any, e: any) {
+      return this.callLifecycle(Lifecycle.resize, e);
+    },
   };
 
   pageEvents(entry).forEach(eventName => {
