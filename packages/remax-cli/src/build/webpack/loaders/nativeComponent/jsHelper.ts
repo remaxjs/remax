@@ -7,9 +7,7 @@ import API from '../../../../API';
 import { getPath } from '../../../utils/nativeComponent';
 import output from '../../../utils/output';
 
-const jsHelpers: Set<string> = new Set();
-
-const walk = (jsHelperPath: string) => {
+const walk = (jsHelperPath: string, jsHelpers: Set<string>) => {
   const jsHelperContent = fs.readFileSync(jsHelperPath).toString();
   const ast = babelParser.parse(jsHelperContent, {
     sourceType: 'module',
@@ -27,7 +25,7 @@ const walk = (jsHelperPath: string) => {
 
     jsHelpers.add(absolutePath);
 
-    walk(absolutePath);
+    walk(absolutePath, jsHelpers);
   };
 
   traverse(ast, {
@@ -36,7 +34,7 @@ const walk = (jsHelperPath: string) => {
   });
 };
 
-const parseTemplate = (filePath: string, jsHelper: any) => {
+const parseTemplate = (filePath: string, jsHelpers: Set<string>, jsHelper: any) => {
   const parser = new htmlparser2.Parser({});
 
   const { tag, src } = jsHelper!;
@@ -52,7 +50,7 @@ const parseTemplate = (filePath: string, jsHelper: any) => {
         return;
       }
 
-      walk(jsHelperPath);
+      walk(jsHelperPath, jsHelpers);
 
       jsHelpers.add(jsHelperPath);
     }
@@ -64,14 +62,15 @@ const parseTemplate = (filePath: string, jsHelper: any) => {
 };
 
 export default function jsHelper(id: string) {
+  const jsHelpers: Set<string> = new Set();
   const { jsHelper, template } = API.getMeta();
 
   if (!jsHelper) {
-    return;
+    return [];
   }
   const templatePath = id.replace(/\.js$/, template.extension);
 
-  parseTemplate(templatePath, jsHelper);
-}
+  parseTemplate(templatePath, jsHelpers, jsHelper);
 
-export const getJsHelpers = () => Array.from(jsHelpers);
+  return Array.from(jsHelpers);
+}
