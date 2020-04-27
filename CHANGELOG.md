@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.4](https://github.com/remaxjs/remax/compare/v1.21.3...v1.21.4) (2020-04-27)
+
+### Bug Fixes
+
+- **wechat:** 修复 onResize onTabItemTap 生命周期不生效的问题 ([c7c3aa6](https://github.com/remaxjs/remax/commit/c7c3aa6b9181b93c2cac28db74c107a1a8f404fb))
+
 ## [1.21.3](https://github.com/remaxjs/remax/compare/v1.21.2...v1.21.3) (2020-04-26)
 
 ### Bug Fixes
