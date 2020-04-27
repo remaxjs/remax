@@ -1,5 +1,6 @@
 import yargs from 'yargs';
 import Config from 'webpack-chain';
+import * as webpack from 'webpack';
 import * as t from '@babel/types';
 
 export interface RemaxOptions {
@@ -136,3 +137,7 @@ export interface RemaxNodePlugin {
 }
 
 export type RemaxNodePluginConstructor = (options?: any) => RemaxNodePlugin;
+
+export interface BuildCallback {
+  (params: { compiler: webpack.Compiler }): void;
+}
