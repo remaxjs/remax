@@ -34,6 +34,8 @@ module.exports = {
         'onOptionMenuClick',
         'onPopMenuClick',
         'onReady',
+        'onResize',
+        'onTabItemTap',
       ],
     },
     __REMAX_PX2RPX__: true,

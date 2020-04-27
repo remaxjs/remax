@@ -130,7 +130,11 @@ describe('page', () => {
         'useEventOnBack',
         'useEventOnKeyboardHeight',
         'useEventOnTabItemTap',
+        // 测试了微信和阿里两个hook，所以有两个
+        'useEventOnTabItemTap',
         'useEventBeforeTabItemTap',
+        'useEventOnResize',
+        // 测试了微信和阿里两个hook，所以有两个
         'useEventOnResize',
         'useHide',
       ]);
@@ -242,6 +246,18 @@ describe('page', () => {
         log.push('onTabItemTap');
       }
 
+      onKeyboardHeight() {
+        log.push('onKeyboardHeight');
+      }
+
+      onBack() {
+        log.push('onBack');
+      }
+
+      BeforeTabItemTap() {
+        log.push('beforeTabItemTap');
+      }
+
       render() {
         return <View>foo</View>;
       }
@@ -258,12 +274,12 @@ describe('page', () => {
     page.optionMenuClick();
     page.popMenuClick();
     page.hide();
-    page.unload();
     page.back();
     page.keyboardHeight();
-    page.tabItemTap();
     page.beforeTabItemTap();
+    page.tabItemTap();
     page.resize();
+    page.unload();
 
     expect(log).toEqual([
       'componentWillMount',
@@ -279,6 +295,13 @@ describe('page', () => {
       'onOptionMenuClick',
       'onPopMenuClick',
       'onHide',
+      'onBack',
+      'onKeyboardHeight',
+      'beforeTabItemTap',
+      'onTabItemTap',
+      'onTabItemTap',
+      'onResize',
+      'onResize',
       'componentWillUnmount',
     ]);
   });

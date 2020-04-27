@@ -82,12 +82,14 @@ class Page {
   }
   tabItemTap() {
     this.config.events.onTabItemTap();
+    this.config.onTabItemTap();
   }
   beforeTabItemTap() {
     this.config.events.beforeTabItemTap();
   }
   resize() {
     this.config.events.onResize();
+    this.config.onResize();
   }
 }
 
