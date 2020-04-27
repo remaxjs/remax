@@ -135,6 +135,37 @@ function getRemaxHostComponentName(path: NodePath<t.JSXElement>) {
   return false;
 }
 
+function shouldRegisterProp(propName: string, isNative: boolean, hostComponent?: HostComponent) {
+  // key 属性
+  if (propName === 'key') {
+    return true;
+  }
+
+  // 原生组件的属性都要注册
+  if (isNative) {
+    return true;
+  }
+
+  // host component 上的标准属性
+  if (hostComponent?.alias?.[propName]) {
+    return true;
+  }
+
+  const prefix = `${API.adapter.target}-`;
+
+  // 平台特定属性
+  if (propName.startsWith(prefix)) {
+    return true;
+  }
+
+  // data 属性
+  if (propName.startsWith('data-')) {
+    return true;
+  }
+
+  return false;
+}
+
 function aliasProp(propName: string, hostComponent?: HostComponent) {
   const prefix = `${API.adapter.target}-`;
 
@@ -143,6 +174,8 @@ function aliasProp(propName: string, hostComponent?: HostComponent) {
   }
 
   return hostComponent?.alias?.[propName] || propName;
+
+  return '';
 }
 
 function registerSlotViewProps(node: t.JSXElement) {
@@ -226,6 +259,10 @@ function registerProps(id: string, node?: t.JSXElement, isNative?: boolean) {
        */
       if (propName === 'key') {
         node.openingElement.attributes.push(t.jsxAttribute(t.jsxIdentifier('__key'), attr.value));
+      }
+
+      if (!shouldRegisterProp(propName, !!isNative, hostComponent)) {
+        return;
       }
 
       props.push(propName);
