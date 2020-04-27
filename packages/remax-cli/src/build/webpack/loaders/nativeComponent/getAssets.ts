@@ -1,4 +1,4 @@
-import { RemaxOptions } from 'remax-types';
+import { RemaxOptions } from '@remax/types';
 import jsHelper from './jsHelper';
 import jsModule from './modules';
 import style from './style';
