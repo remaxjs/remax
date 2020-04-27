@@ -174,8 +174,6 @@ function aliasProp(propName: string, hostComponent?: HostComponent) {
   }
 
   return hostComponent?.alias?.[propName] || propName;
-
-  return '';
 }
 
 function registerSlotViewProps(node: t.JSXElement) {
