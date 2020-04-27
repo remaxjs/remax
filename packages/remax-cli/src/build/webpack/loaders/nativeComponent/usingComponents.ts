@@ -1,4 +1,5 @@
 import { existsSync } from 'fs';
+import resolve from 'resolve';
 import { getPath } from '../../../utils/nativeComponent';
 import output from '../../../utils/output';
 import { RemaxOptions } from '@remax/types';
@@ -16,6 +17,13 @@ const runWalk = (filePath: string, components: Set<string>, options: RemaxOption
         const componentPath = getPath(filePath, value as string);
         componentJsPath = `${componentPath}.js`;
         componentJsonPath = `${componentPath}.json`;
+      }
+
+      try {
+        componentJsPath = resolve.sync(value as string, { basedir: options.cwd });
+        componentJsonPath = componentJsPath.replace(/\.js/, '.json');
+      } catch {
+        // ignore
       }
 
       if (!existsSync(componentJsPath) || !existsSync(componentJsonPath)) {
