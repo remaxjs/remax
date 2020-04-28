@@ -9,6 +9,7 @@ import createPageManifest from './createPageManifest';
 import createPageHelperFile from './createPageHelperFile';
 import * as turboPages from '../../../utils/turboPages';
 import winPath from '../../../../winPath';
+import getModules from '../../../utils/modules';
 
 const PLUGIN_NAME = 'RemaxNativeFilesPlugin';
 
@@ -43,12 +44,7 @@ export default class NativeFilesPlugin {
           });
 
           // TODO: 应该有更好的获取 modules 的方式？
-          const modules = [
-            ...Array.from(chunk._modules)
-              .map((m: any) => m.resource)
-              .filter(Boolean),
-            pagePath,
-          ];
+          const modules = [...getModules(chunk), pagePath];
 
           if (turboPages.validate(pagePath, options)) {
             // turbo page

@@ -4,7 +4,7 @@ import { Compiler, compilation } from 'webpack';
 import { RemaxOptions, Entries } from '@remax/types';
 import { appEvents, pageEvents, hostComponents } from '@remax/macro';
 import winPath from './../../../winPath';
-import { matcher } from '../../../extensions';
+import getModules from '../../utils/modules';
 
 const PLUGIN_NAME = 'RemaxDefinePlugin';
 
@@ -63,13 +63,7 @@ export default class DefinePlugin {
       });
 
       // TODO: 应该有更好的获取 modules 的方式？
-      const modules = [
-        ...Array.from(chunk._modules)
-          .map((m: any) => m.resource)
-          .filter(m => matcher.test(m))
-          .filter(Boolean),
-        pagePath,
-      ].sort();
+      const modules = getModules(chunk);
 
       return {
         name: chunk.name,
