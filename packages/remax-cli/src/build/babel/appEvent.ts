@@ -24,6 +24,11 @@ export default (entry: string) => {
           return;
         }
 
+        // 非函数定义不处理
+        if (!t.isFunctionDeclaration(path.parentPath.node)) {
+          return;
+        }
+
         appEvents.set(entry, appEvents.get(entry)?.add(node.name) ?? new Set([node.name]));
       },
     },

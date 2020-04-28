@@ -45,6 +45,11 @@ export default (entries: Array<{ path: string; key: string }>) => {
           return;
         }
 
+        // 非函数定义不处理
+        if (!t.isFunctionExpression(path.parentPath.node)) {
+          return;
+        }
+
         pageEvents.set(entry, pageEvents.get(entry)?.add(node.name) ?? new Set([node.name]));
       },
     },
