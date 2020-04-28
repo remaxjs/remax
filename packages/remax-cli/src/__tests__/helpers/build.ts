@@ -56,20 +56,24 @@ interface Options {
 }
 
 export default async function build(app: string, target: Platform, options: Partial<Options> = {}) {
+  const runCwd = process.cwd();
   const cwd = path.resolve(__dirname, `../fixtures/${app}`);
   process.chdir(cwd);
   process.env.NODE_ENV = 'test';
   process.env.REMAX_PLATFORM = target;
   const remaxOptions = getConfig();
+  const isDefaultCwd = runCwd === remaxOptions.cwd;
+
   if (target !== Platform.web) {
     API.registerAdapterPlugins(target, remaxOptions);
   }
 
   const webpackConfigFn = target === Platform.web ? webpackWebConfig : webpackConfig;
+
   const webpackOptions = webpackConfigFn(
     {
       ...remaxOptions,
-      cwd,
+      cwd: isDefaultCwd ? cwd : remaxOptions.cwd,
       progress: false,
       configWebpack: ({ config }) => {
         config

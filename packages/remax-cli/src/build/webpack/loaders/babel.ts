@@ -64,7 +64,6 @@ export default babelLoader.custom((babelCore: any) => ({
 
   config(cfg: PartialConfig, { customOptions }: { customOptions: CustomOptions }) {
     const presets = processPresets(cfg.options.presets as ConfigItem[], babelCore, customOptions.reactPreset);
-
     return {
       ...cfg.options,
       babelrc: false,
