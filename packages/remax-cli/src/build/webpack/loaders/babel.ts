@@ -1,21 +1,9 @@
 import babelLoader from 'babel-loader';
 import { PartialConfig, ConfigItem } from '@babel/core';
 import { merge } from 'lodash';
-import { RemaxOptions } from '@remax/types';
-import path from 'path';
-import fs from 'fs';
-
 interface CustomOptions {
   reactPreset: boolean;
   usePlugins: any[];
-  remaxOptions: RemaxOptions;
-}
-
-function resolveBabelConfig(options: RemaxOptions) {
-  if (fs.existsSync(path.join(options.cwd, 'babel.config.js'))) {
-    return path.join(options.cwd, 'babel.config.js');
-  }
-  return false;
 }
 
 function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
@@ -51,12 +39,11 @@ function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
 }
 
 export default babelLoader.custom((babelCore: any) => ({
-  customOptions({ reactPreset, usePlugins, remaxOptions, ...loaderOptions }: CustomOptions) {
+  customOptions({ reactPreset, usePlugins, ...loaderOptions }: CustomOptions) {
     return {
       custom: {
         reactPreset,
         usePlugins,
-        remaxOptions,
       },
       loader: loaderOptions,
     };
@@ -66,8 +53,6 @@ export default babelLoader.custom((babelCore: any) => ({
     const presets = processPresets(cfg.options.presets as ConfigItem[], babelCore, customOptions.reactPreset);
     return {
       ...cfg.options,
-      babelrc: false,
-      configFile: resolveBabelConfig(customOptions.remaxOptions),
       presets,
       plugins: [...(cfg.options.plugins || []), ...(customOptions.usePlugins || [])],
     };
