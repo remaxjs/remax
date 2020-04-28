@@ -70,10 +70,12 @@ export default async function build(app: string, target: Platform, options: Part
 
   const webpackConfigFn = target === Platform.web ? webpackWebConfig : webpackConfig;
 
+  const projectCwd = isDefaultCwd ? cwd : remaxOptions.cwd;
+
   const webpackOptions = webpackConfigFn(
     {
       ...remaxOptions,
-      cwd: isDefaultCwd ? cwd : remaxOptions.cwd,
+      cwd: projectCwd,
       progress: false,
       configWebpack: ({ config }) => {
         config
@@ -135,7 +137,8 @@ export default async function build(app: string, target: Platform, options: Part
       const include = options.include || [];
       const includeRegExp = new RegExp(`(${include.join('|')})`);
       const excludeRegExp = new RegExp(`(${exclude.join('|')})`);
-      const outputDir = path.join(cwd, remaxOptions.output);
+      const outputDir = path.join(projectCwd, remaxOptions.output);
+
       const output = getFilesInDir(fs, outputDir + '/', outputDir).filter(
         c =>
           (include.length > 0 && includeRegExp.test(c.fileName)) ||
