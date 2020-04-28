@@ -96,6 +96,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .use('babel')
     .loader('babel')
     .options({
+      remaxOptions: options,
       usePlugins: [app(entries.app), page(pageEntries)],
       reactPreset: false,
     });
@@ -138,6 +139,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .use('babel')
     .loader('babel')
     .options({
+      remaxOptions: options,
       usePlugins: [appEvent(entries.app), pageEvent(pageEntries), componentManifest(options), fixRegeneratorRuntime()],
       reactPreset: true,
       compact: process.env.NODE_ENV === 'production',
