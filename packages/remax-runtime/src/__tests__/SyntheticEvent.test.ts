@@ -83,7 +83,7 @@ describe('synthetic event', () => {
       });
       const newOnTap = createCallbackProxy('onClick', node, onTap);
 
-      expect(newOnTap()).not.toThrow();
+      expect(() => newOnTap()).not.toThrow();
     });
 
     it('stop at first', () => {
