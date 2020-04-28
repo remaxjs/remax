@@ -16,7 +16,7 @@ export default function buildMini(options: RemaxOptions): webpack.Compiler {
     output.message('🚀 启动 watch\n', 'blue');
     compiler.watch({}, (error, stats) => {
       if (error) {
-        output.error(`[${name}]: ${error.message}`);
+        output.error(error.message);
         throw error;
       }
 
