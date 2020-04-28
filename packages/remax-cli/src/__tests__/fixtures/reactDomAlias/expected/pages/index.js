@@ -1491,7 +1491,11 @@ function isSyntheticType(inputType) {
 }
 
 function createBaseSyntheticEvent(node, nativeEvent) {
-  // 添加阻止冒泡方法
+  if (!nativeEvent) {
+    return;
+  } // 添加阻止冒泡方法
+
+
   nativeEvent.stopPropagation = function () {
     Object(_stopPropagation__WEBPACK_IMPORTED_MODULE_0__["default"])(node);
   };
