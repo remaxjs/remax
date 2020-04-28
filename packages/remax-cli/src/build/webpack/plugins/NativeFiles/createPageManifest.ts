@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import { nativeComponents } from 'remax/macro';
+import { nativeComponents } from '@remax/macro';
 import { matcher } from '../../../../extensions';
 import API from '../../../../API';
 import readManifest from '../../../../readManifest';
