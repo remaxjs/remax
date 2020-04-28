@@ -13,6 +13,10 @@ function isSyntheticType(inputType: string) {
 }
 
 function createBaseSyntheticEvent(node: VNode, nativeEvent: any) {
+  if (!nativeEvent) {
+    return;
+  }
+
   // 添加阻止冒泡方法
   nativeEvent.stopPropagation = () => {
     stopPropagation(node);
