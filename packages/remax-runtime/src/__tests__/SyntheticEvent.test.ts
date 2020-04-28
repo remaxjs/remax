@@ -72,6 +72,20 @@ describe('synthetic event', () => {
       expect(third).toBeCalled();
     });
 
+    it('works if no event param', () => {
+      const onTap = () => void 0;
+
+      const node = new VNode({
+        id: 1,
+        type: 'view',
+        container: new Container({}),
+        props: {},
+      });
+      const newOnTap = createCallbackProxy('onClick', node, onTap);
+
+      expect(newOnTap()).not.toThrow();
+    });
+
     it('stop at first', () => {
       const first = jest.fn();
       const second = jest.fn();
