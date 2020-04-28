@@ -60,6 +60,8 @@ export default function buildMini(options: RemaxOptions): webpack.Compiler {
           output.warn(warning);
         });
       }
+
+      process.exit(0);
     });
   }
 
