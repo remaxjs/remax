@@ -11,6 +11,8 @@ import * as TurboPages from '../utils/turboPages';
 import * as staticCompiler from '../babel/compiler/static';
 import app from '../babel/app';
 import page from '../babel/page';
+import pageEvent from '../babel/pageEvent';
+import appEvent from '../babel/appEvent';
 import fixRegeneratorRuntime from '../babel/fixRegeneratorRuntime';
 import componentManifest from '../babel/componentManifest';
 import * as RemaxPlugins from './plugins';
@@ -137,7 +139,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .use('babel')
     .loader('babel')
     .options({
-      usePlugins: [componentManifest(options), fixRegeneratorRuntime()],
+      usePlugins: [appEvent(entries.app), pageEvent(pageEntries), componentManifest(options), fixRegeneratorRuntime()],
       reactPreset: true,
       compact: process.env.NODE_ENV === 'production' ? true : false,
     });
