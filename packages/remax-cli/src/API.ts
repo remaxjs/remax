@@ -1,4 +1,4 @@
-import { hostComponents } from 'remax/macro';
+import { hostComponents } from '@remax/macro';
 import * as t from '@babel/types';
 import { RemaxOptions, RemaxNodePlugin, ExtendsCLIOptions, Meta, HostComponent } from '@remax/types';
 import { merge } from 'lodash';

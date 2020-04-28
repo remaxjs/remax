@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { compilation } from 'webpack';
 import ejs from 'ejs';
-import { nativeComponents } from 'remax/macro';
+import { nativeComponents } from '@remax/macro';
 import { RemaxOptions, Meta } from '@remax/types';
 import { TEMPLATE_ID } from '../../../babel/compiler/static/constants';
 import { templateInfoMap } from '../../../babel/compiler/static/render/templates';

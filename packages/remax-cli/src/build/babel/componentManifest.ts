@@ -2,7 +2,7 @@ import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { HostComponent, RemaxOptions } from '@remax/types';
 import { kebabCase } from 'lodash';
-import { registerNativeComponent } from 'remax/macro';
+import { registerNativeComponent } from '@remax/macro';
 import { LEAF, ENTRY, TEMPLATE_ID } from './compiler/static/constants';
 import { getSourcePath, isNativeComponent } from '../utils/nativeComponent';
 import API from '../../API';

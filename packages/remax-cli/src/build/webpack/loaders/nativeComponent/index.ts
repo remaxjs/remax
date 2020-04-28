@@ -1,6 +1,6 @@
 import utils from 'loader-utils';
 import { loader } from 'webpack';
-import { registerNativeComponent as register } from 'remax/macro';
+import { registerNativeComponent as register } from '@remax/macro';
 import { isNativeComponent } from '../../../utils/nativeComponent';
 import getAssets from './getAssets';
 
