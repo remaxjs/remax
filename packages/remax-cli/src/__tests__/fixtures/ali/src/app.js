@@ -7,6 +7,10 @@ export default class App extends React.Component {
   // case https://github.com/remaxjs/remax/pull/666
   image = image;
 
+  onHide() {
+    console.log('on hide');
+  }
+
   render() {
     return this.props.children;
   }

@@ -1,5 +1,5 @@
 module.exports = {
-  pages: ['pages/index', 'pages/dont-exist/index'],
+  pages: ['pages/index', 'pages/dont-exist/index', 'pages/classPage'],
   window: {
     defaultTitle: 'Ali App',
     titleBarColor: '#323239',
