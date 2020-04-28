@@ -12,6 +12,25 @@ export default (entry: string) => {
       skip = entry !== state.opts.filename;
     },
     visitor: {
+      // 解析 class properties 编译后的代码
+      StringLiteral: (path: NodePath<t.StringLiteral>) => {
+        if (skip) {
+          return;
+        }
+
+        const { node } = path;
+
+        // 只要生命周期 Literal 存在就标记为用到了生命周期
+        if (!lifecycleEvents.includes(node.value)) {
+          return;
+        }
+
+        const parentNode = path.parentPath.node;
+
+        if (t.isCallExpression(parentNode) && (parentNode.callee as any)?.name === '_defineProperty') {
+          appEvents.set(entry, appEvents.get(entry)?.add(node.value) ?? new Set([node.value]));
+        }
+      },
       Identifier: (path: NodePath<t.Identifier>) => {
         if (skip) {
           return;
@@ -25,7 +44,8 @@ export default (entry: string) => {
         }
 
         // 非函数定义不处理
-        if (!t.isFunctionDeclaration(path.parentPath.node)) {
+        // 非函数定义不处理
+        if (!t.isFunctionExpression(path.parentPath.node)) {
           return;
         }
 

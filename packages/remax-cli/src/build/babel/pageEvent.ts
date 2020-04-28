@@ -33,6 +33,25 @@ export default (entries: Array<{ path: string; key: string }>) => {
       skip = !entry;
     },
     visitor: {
+      // 解析 class properties 编译后的代码
+      StringLiteral: (path: NodePath<t.StringLiteral>) => {
+        if (skip) {
+          return;
+        }
+
+        const { node } = path;
+
+        // 只要生命周期 Literal 存在就标记为用到了生命周期
+        if (!lifecycleEvents.includes(node.value)) {
+          return;
+        }
+
+        const parentNode = path.parentPath.node;
+
+        if (t.isCallExpression(parentNode) && (parentNode.callee as any)?.name === '_defineProperty') {
+          pageEvents.set(entry, pageEvents.get(entry)?.add(node.value) ?? new Set([node.value]));
+        }
+      },
       Identifier: (path: NodePath<t.Identifier>) => {
         if (skip) {
           return;
