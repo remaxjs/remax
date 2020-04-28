@@ -59,6 +59,14 @@ export default function createPageConfig(Page: React.ComponentType<any>, entry: 
       return this.callLifecycle(Lifecycle.load);
     },
 
+    onTabItemTap(this: any, e: any) {
+      return this.callLifecycle(Lifecycle.tabItemTap, e);
+    },
+
+    onResize(this: any, e: any) {
+      return this.callLifecycle(Lifecycle.resize, e);
+    },
+
     /**
      * Lifecycle start
      */

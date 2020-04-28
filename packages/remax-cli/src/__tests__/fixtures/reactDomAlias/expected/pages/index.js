@@ -2525,6 +2525,12 @@ function createPageConfig(Page, entry) {
 
       return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].load);
     },
+    onTabItemTap: function onTabItemTap(e) {
+      return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].tabItemTap, e);
+    },
+    onResize: function onResize(e) {
+      return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].resize, e);
+    },
 
     /**
      * Lifecycle start
