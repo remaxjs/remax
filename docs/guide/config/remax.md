@@ -69,21 +69,3 @@ _默认值：_`[]`
 是否对生成的模板文件进行压缩，如果在预览小程序是碰到体积超限，可以超时开启这个选项。
 
 _默认值：_`process.env.NODE_ENV === 'production'`
-
-## Babel 配置
-
-通过 `babel.config.js` 修改 Babel 配置。
-
-```js
-// babel.config.js
-module.exports = {
-  plugins: ['loop-optimizer'], // 新增 `loop-optimizer` 插件
-  presets: [['remax']],
-};
-```
-
-> 注意
->
-> 请使用 `babel.config.js` 文件而不是 `.babelrc`
->
-> 记得安装 `babel-preset-remax`，并将它加入到 presets 配置中

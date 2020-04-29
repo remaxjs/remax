@@ -8,7 +8,7 @@ export let cli = yargs;
 
 export { default as buildMini } from './build/mini';
 export { default as buildWeb } from './build/web';
-export { default as defaultOptions } from './defaultOptions';
+export { getDefaultOptions } from './defaultOptions';
 
 export function run(args: any, callback?: yargs.ParseCallback) {
   cli = yargs

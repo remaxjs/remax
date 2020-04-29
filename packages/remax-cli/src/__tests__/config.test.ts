@@ -57,6 +57,6 @@ describe('manifest', () => {
   });
 
   it('throw error when missing pages config in app.config', async () => {
-    await expect(build('exception', Platform.ali)).rejects.toThrow();
+    await expect(build('exception', Platform.ali)).rejects.toThrow('app.config.js|ts 并未配置页面参数');
   });
 });

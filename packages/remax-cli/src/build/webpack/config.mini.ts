@@ -21,12 +21,14 @@ import * as platform from '../utils/platform';
 import winPath from '../../winPath';
 import cssConfig from './config/css';
 import baseConfig from './baseConfig';
+import fs from 'fs';
 
 export const config = new Config();
 
 function prepare(options: RemaxOptions, target: Platform) {
   const meta = API.getMeta();
   const turboPagesEnabled = options.turboPages && options.turboPages.length > 0;
+
   const entries = getEntries(options, target);
   const entryMap = [entries.app, ...entries.pages].reduce<any>((m, entry) => {
     const ext = path.extname(entry);
@@ -58,6 +60,13 @@ function prepare(options: RemaxOptions, target: Platform) {
     stubModules,
     publicPath,
   };
+}
+
+function resolveBabelConfig(options: RemaxOptions) {
+  if (fs.existsSync(path.join(options.cwd, 'babel.config.js'))) {
+    return path.join(options.cwd, 'babel.config.js');
+  }
+  return false;
 }
 
 export default function webpackConfig(options: RemaxOptions, target: Platform): Configuration {
@@ -96,6 +105,8 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .use('babel')
     .loader('babel')
     .options({
+      babelrc: false,
+      configFile: resolveBabelConfig(options),
       usePlugins: [app(entries.app), page(pageEntries)],
       reactPreset: false,
     });
@@ -138,6 +149,8 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .use('babel')
     .loader('babel')
     .options({
+      babelrc: false,
+      configFile: resolveBabelConfig(options),
       usePlugins: [appEvent(entries.app), pageEvent(pageEntries), componentManifest(options), fixRegeneratorRuntime()],
       reactPreset: true,
       compact: process.env.NODE_ENV === 'production',

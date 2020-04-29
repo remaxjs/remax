@@ -61,15 +61,16 @@ export default async function build(app: string, target: Platform, options: Part
   process.env.NODE_ENV = 'test';
   process.env.REMAX_PLATFORM = target;
   const remaxOptions = getConfig();
+
   if (target !== Platform.web) {
     API.registerAdapterPlugins(target, remaxOptions);
   }
-
+  console.log(remaxOptions.cwd);
   const webpackConfigFn = target === Platform.web ? webpackWebConfig : webpackConfig;
+
   const webpackOptions = webpackConfigFn(
     {
       ...remaxOptions,
-      cwd,
       progress: false,
       configWebpack: ({ config }) => {
         config
@@ -131,7 +132,8 @@ export default async function build(app: string, target: Platform, options: Part
       const include = options.include || [];
       const includeRegExp = new RegExp(`(${include.join('|')})`);
       const excludeRegExp = new RegExp(`(${exclude.join('|')})`);
-      const outputDir = path.join(cwd, remaxOptions.output);
+      const outputDir = path.join(remaxOptions.cwd, remaxOptions.output);
+
       const output = getFilesInDir(fs, outputDir + '/', outputDir).filter(
         c =>
           (include.length > 0 && includeRegExp.test(c.fileName)) ||

@@ -1,6 +1,6 @@
 import API from '../../API';
 import webpackConfig from '../../build/webpack/config.mini';
-import defaultOptions from '../../defaultOptions';
+import { getDefaultOptions } from '../../defaultOptions';
 import { Platform } from '../../build/utils/platform';
 import getConfig from '../../getConfig';
 
@@ -16,7 +16,7 @@ describe('webpackConfig', () => {
     API.registerAdapterPlugins('ali', remaxOptions);
     const options = webpackConfig(
       {
-        ...defaultOptions,
+        ...getDefaultOptions(),
         configWebpack: ({ config }) => {
           config.mode(mode);
         },
