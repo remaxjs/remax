@@ -1,2 +1,2 @@
-import { createNativeComponent } from 'remax/runtime';
+import { createNativeComponent } from '@remax/runtime';
 createNativeComponent('component');
