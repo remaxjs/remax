@@ -3,7 +3,7 @@ import { NodePath } from '@babel/traverse';
 import { addNamed } from '@babel/helper-module-imports';
 
 function pageConfigExpression(path: NodePath<t.ExportDefaultDeclaration>, id: t.Identifier, entry: t.StringLiteral) {
-  const createId = addNamed(path, 'createPageConfig', 'remax');
+  const createId = addNamed(path, 'createPageConfig', '@remax/runtime');
   path.insertAfter(
     t.exportDefaultDeclaration(t.callExpression(t.identifier('Page'), [t.callExpression(createId, [id, entry])]))
   );
