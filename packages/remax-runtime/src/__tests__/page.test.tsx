@@ -254,7 +254,7 @@ describe('page', () => {
         log.push('onBack');
       }
 
-      BeforeTabItemTap() {
+      beforeTabItemTap() {
         log.push('beforeTabItemTap');
       }
 
