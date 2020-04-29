@@ -39,6 +39,9 @@
   },
   "dependencies": {
     "@remax/router": "2.0.0-alpha.15",
+    "@remax/ali": "2.0.0-alpha.15",
+    "@remax/wechat": "2.0.0-alpha.15",
+    "@remax/toutiao": "2.0.0-alpha.15",
     "clsx": "^1.1.0",
     "react-autosize-textarea": "^7.0.0",
     "react-lazyload": "^2.6.7",

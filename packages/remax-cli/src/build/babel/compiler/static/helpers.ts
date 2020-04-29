@@ -42,7 +42,7 @@ export function isHostComponentElement(node: t.JSXElement | t.JSXFragment, path:
 
   /**
    * case:
-   * import { View, View as CustomView } from 'remax/ali';
+   * import { View, View as CustomView } from '@remax/ali';
    * <View></View>
    * <CustomView></CustomView>
    */
@@ -65,7 +65,7 @@ export function isHostComponentElement(node: t.JSXElement | t.JSXFragment, path:
       importPath &&
       t.isImportSpecifier(importPath.node) &&
       t.isImportDeclaration(importPath.parent) &&
-      importPath.parent.source.value.startsWith('remax/')
+      /^@?remax\//.test(importPath.parent.source.value)
     ) {
       return true;
     }
@@ -75,7 +75,7 @@ export function isHostComponentElement(node: t.JSXElement | t.JSXFragment, path:
 
   /**
    * case:
-   * import * as Remax from 'remax/ali';
+   * import * as Remax from '@remax/ali';
    * <Remax.View></Remax.View>
    */
   if (t.isJSXMemberExpression(node.openingElement.name)) {
@@ -96,7 +96,7 @@ export function isHostComponentElement(node: t.JSXElement | t.JSXFragment, path:
       importPath &&
       t.isImportNamespaceSpecifier(importPath.node) &&
       t.isImportDeclaration(importPath.parent) &&
-      importPath.parent.source.value.startsWith('remax/')
+      /^@?remax\//.test(importPath.parent.source.value)
     ) {
       return true;
     }

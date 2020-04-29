@@ -1,1 +1,1 @@
-export { navigateTo, navigateBack, redirectTo, reLaunch, switchTab } from 'remax/toutiao';
+export { navigateTo, navigateBack, redirectTo, reLaunch, switchTab } from '@remax/toutiao';
