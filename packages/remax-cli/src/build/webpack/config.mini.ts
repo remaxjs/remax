@@ -28,6 +28,7 @@ export const config = new Config();
 function prepare(options: RemaxOptions, target: Platform) {
   const meta = API.getMeta();
   const turboPagesEnabled = options.turboPages && options.turboPages.length > 0;
+
   const entries = getEntries(options, target);
   const entryMap = [entries.app, ...entries.pages].reduce<any>((m, entry) => {
     const ext = path.extname(entry);

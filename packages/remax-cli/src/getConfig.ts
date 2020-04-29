@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import esm from 'esm';
-import defaultOptions from './defaultOptions';
+import { getDefaultOptions } from './defaultOptions';
 import { RemaxOptions, RemaxConfig } from '@remax/types';
 import validateOptions from 'schema-utils';
 import schema from './RemaxOptionsSchema.json';
@@ -25,7 +25,7 @@ function readJavascriptConfig(path: string) {
 }
 
 function validateTurboPages(config: RemaxConfig) {
-  // adapter name 还不存在，说明 adapter plugin 还没有初始化
+  // adapter name 还不存在，说明 adapter plugin 还没有初始化\
   if (!API.adapter.target || API.adapter.target === 'ali') {
     return;
   }
@@ -37,6 +37,7 @@ function validateTurboPages(config: RemaxConfig) {
 
 export default function getConfig(validate = true): RemaxOptions {
   const configPath: string = path.join(process.cwd(), './remax.config');
+  console.log(configPath);
   let options = {};
 
   if (fs.existsSync(configPath + '.js')) {
@@ -52,7 +53,7 @@ export default function getConfig(validate = true): RemaxOptions {
   }
 
   return {
-    ...defaultOptions,
+    ...getDefaultOptions(),
     ...options,
   };
 }
