@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.5](https://github.com/remaxjs/remax/compare/v1.21.4...v1.21.5) (2020-04-29)
+
+### Bug Fixes
+
+- **alipay:** 修复 Input 组件的 enableNative 属性不生效的问题 ([fc0ec21](https://github.com/remaxjs/remax/commit/fc0ec21a0194a021ecab314314bb33d066062f28))
+
 ## [1.21.4](https://github.com/remaxjs/remax/compare/v1.21.3...v1.21.4) (2020-04-27)
 
 **Note:** Version bump only for package remax-alipay
