@@ -65,19 +65,11 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createPageConfig", function() { return _node_modules_remax__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createHostComponent", function() { return _node_modules_remax__WEBPACK_IMPORTED_MODULE_0__["createHostComponent"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createNativeComponent", function() { return _node_modules_remax__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PageProps", function() { return _node_modules_remax__WEBPACK_IMPORTED_MODULE_0__["PageProps"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageInstance", function() { return _node_modules_remax__WEBPACK_IMPORTED_MODULE_0__["usePageInstance"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useQuery", function() { return _node_modules_remax__WEBPACK_IMPORTED_MODULE_0__["useQuery"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useNativeEffect", function() { return _node_modules_remax__WEBPACK_IMPORTED_MODULE_0__["useNativeEffect"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageEvent", function() { return _node_modules_remax__WEBPACK_IMPORTED_MODULE_0__["usePageEvent"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useAppEvent", function() { return _node_modules_remax__WEBPACK_IMPORTED_MODULE_0__["useAppEvent"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "unstable_batchedUpdates", function() { return _node_modules_remax__WEBPACK_IMPORTED_MODULE_0__["unstable_batchedUpdates"]; });
 
@@ -101,19 +93,11 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createPageConfig", function() { return _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createHostComponent", function() { return _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createHostComponent"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createNativeComponent", function() { return _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PageProps", function() { return _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["PageProps"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageInstance", function() { return _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["usePageInstance"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useQuery", function() { return _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["useQuery"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useNativeEffect", function() { return _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["useNativeEffect"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageEvent", function() { return _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["usePageEvent"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useAppEvent", function() { return _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["useAppEvent"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "unstable_batchedUpdates", function() { return _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["unstable_batchedUpdates"]; });
 
