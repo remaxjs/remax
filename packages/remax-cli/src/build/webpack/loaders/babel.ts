@@ -9,11 +9,7 @@ interface CustomOptions {
 
 function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
   const remaxPresetIndex = presets.findIndex(
-    preset =>
-      preset.file &&
-      (preset.file.resolved.includes(`${path.sep}babel-preset-remax${path.sep}`) ||
-        preset.file.request === 'remax' ||
-        preset.file.request === 'babel-preset-remax')
+    preset => preset.file && preset.file.resolved.includes(`${path.sep}babel-preset-remax${path.sep}`)
   );
 
   const defaultOptions = {
