@@ -18,7 +18,7 @@ const lifecycleEvents = [
   'onBack',
   'onKeyboardHeight',
   'onTabItemTap',
-  'BeforeTabItemTap',
+  'beforeTabItemTap',
   'onResize',
   'onUnload',
 ];

@@ -42,7 +42,7 @@ export function lifeCycleName(name: string): Lifecycle {
 
 export function callbackName(name: string) {
   if (name.startsWith('before')) {
-    return capitalize(name);
+    return name;
   }
   return 'on' + capitalize(name);
 }
