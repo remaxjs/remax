@@ -109,7 +109,7 @@ export default function webpackConfig(options: RemaxOptions): Configuration {
     },
   ]);
 
-  config.plugin('webpack-bar').use(WebapckBar, [{ name: 'web' }]);
+  config.plugin('webpackbar').use(WebapckBar, [{ name: 'web' }]);
 
   config
     .plugin('remax-web-entry-watcher-plugin')

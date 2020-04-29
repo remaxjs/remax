@@ -75,7 +75,7 @@ export default async function build(app: string, target: Platform, options: Part
       configWebpack: ({ config }) => {
         config
           .mode('none')
-          .plugins.delete('webpack-bar')
+          .plugins.delete('webpackbar')
           .end()
           .resolve.alias.merge({
             '@components': path.resolve(cwd, 'src/components'),

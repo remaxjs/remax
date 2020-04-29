@@ -1,2 +1,3 @@
+import { createHostComponent } from 'remax/runtime';
 import { createHostComponent as createHC } from 'remax';
-createHC('host-component');
+createHostComponent('host-component');

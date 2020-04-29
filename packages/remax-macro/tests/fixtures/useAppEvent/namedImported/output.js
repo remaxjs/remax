@@ -1,2 +1,3 @@
+import { useAppEvent } from 'remax/runtime';
 import { useAppEvent as uae } from 'remax';
-uae('onReady', () => {});
+useAppEvent('onReady', () => {});

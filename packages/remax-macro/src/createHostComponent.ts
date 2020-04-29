@@ -3,7 +3,7 @@ import { NodePath } from '@babel/traverse';
 import { HostComponent } from '@remax/types';
 import insertImportDeclaration from './utils/insertImportDeclaration';
 
-const PACKAGE_NAME = 'remax';
+const PACKAGE_NAME = 'remax/runtime';
 const FUNCTION_NAME = 'createHostComponent';
 
 export const hostComponents: Map<string, HostComponent> = new Map();

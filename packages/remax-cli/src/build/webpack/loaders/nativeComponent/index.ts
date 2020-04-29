@@ -24,7 +24,7 @@ export default function nativeComponent(this: loader.LoaderContext, source: stri
 
   const type = register(resourcePath, '', assets);
 
-  return `import { createNativeComponent } from 'remax';
+  return `import { createNativeComponent } from 'remax/runtime';
 export default createNativeComponent('${type}')
 `;
 }

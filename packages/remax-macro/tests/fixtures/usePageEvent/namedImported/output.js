@@ -1,2 +1,3 @@
+import { usePageEvent } from 'remax/runtime';
 import { usePageEvent as uae } from 'remax';
-uae('onReady', () => {});
+usePageEvent('onReady', () => {});

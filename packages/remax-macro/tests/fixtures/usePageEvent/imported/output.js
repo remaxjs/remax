@@ -1,2 +1,3 @@
-import { usePageEvent } from 'remax';
+import { usePageEvent } from 'remax/runtime';
+import 'remax';
 usePageEvent('onShow', () => {});
