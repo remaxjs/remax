@@ -65,7 +65,6 @@ export default async function build(app: string, target: Platform, options: Part
   if (target !== Platform.web) {
     API.registerAdapterPlugins(target, remaxOptions);
   }
-  console.log(remaxOptions.cwd);
   const webpackConfigFn = target === Platform.web ? webpackWebConfig : webpackConfig;
 
   const webpackOptions = webpackConfigFn(

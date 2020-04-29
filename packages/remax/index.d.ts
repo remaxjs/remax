@@ -2,7 +2,6 @@ export {
   render,
   createAppConfig,
   createPageConfig,
-  PageProps,
   usePageInstance,
   useQuery,
   // eslint-disable-next-line
