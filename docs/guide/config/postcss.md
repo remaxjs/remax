@@ -5,7 +5,7 @@ order: 2
 
 # PostCSS 配置
 
-在项目根目录新建 postcss.config.js，就可以修改 PostCSS 配置:
+在[项目路径](/guide/remax#cwd)下新建 `postcss.config.js`，就可以修改 PostCSS 配置:
 
 ```js
 // postcss.config.js
