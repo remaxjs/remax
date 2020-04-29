@@ -2020,7 +2020,7 @@ function lifeCycleName(name) {
 }
 function callbackName(name) {
   if (name.startsWith('before')) {
-    return Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_0__["default"])(name);
+    return name;
   }
 
   return 'on' + Object(_utils_capitalize__WEBPACK_IMPORTED_MODULE_0__["default"])(name);
