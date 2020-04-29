@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.16](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.15...v2.0.0-alpha.16) (2020-04-29)
+
+### Bug Fixes
+
+- 修复 usePageEvent 不生效的问题 ([a470d15](https://github.com/remaxjs/remax/commit/a470d1523c917d35d8ff5b109dae4699916b723c))
+- 修复遗失的 useNativeEffect 导出 ([ab19468](https://github.com/remaxjs/remax/commit/ab19468824b225cc8de4624ca2a8ef0517b6f63e))
+
 # [2.0.0-alpha.15](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.14...v2.0.0-alpha.15) (2020-04-29)
 
 ### Bug Fixes
