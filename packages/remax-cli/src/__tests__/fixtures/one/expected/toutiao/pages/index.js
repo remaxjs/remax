@@ -174,7 +174,7 @@ __webpack_require__.r(__webpack_exports__);
 /* 23 */
 /***/ (function(module, exports) {
 
-module.exports = remax/toutiao;
+module.exports = @remax/toutiao;
 
 /***/ }),
 /* 24 */

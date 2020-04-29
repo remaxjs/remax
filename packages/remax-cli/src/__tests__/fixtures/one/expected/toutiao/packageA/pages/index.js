@@ -12,7 +12,7 @@ module.exports = @remax/runtime;
 /***/ 23:
 /***/ (function(module, exports) {
 
-module.exports = remax/toutiao;
+module.exports = @remax/toutiao;
 
 /***/ }),
 
