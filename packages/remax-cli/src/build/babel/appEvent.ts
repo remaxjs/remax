@@ -1,6 +1,6 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
-import { appEvents } from 'remax/macro';
+import { appEvents } from '@remax/macro';
 
 const lifecycleEvents = ['onLaunch', 'onShow', 'onHide', 'onError', 'onShareAppMessage', 'onPageNotFound'];
 

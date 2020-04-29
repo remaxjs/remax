@@ -127,7 +127,7 @@ function getRemaxHostComponentName(path: NodePath<t.JSXElement>) {
   if (t.isImportDeclaration(importPath)) {
     const importNode = importPath.node as t.ImportDeclaration;
 
-    if (importNode.source.value.startsWith('remax/')) {
+    if (/^@?remax\//.test(importNode.source.value)) {
       return kebabCase(bindingPath.node.imported.name);
     }
   }

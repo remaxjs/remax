@@ -1,6 +1,6 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
-import { pageEvents } from 'remax/macro';
+import { pageEvents } from '@remax/macro';
 
 const lifecycleEvents = [
   'onLoad',
