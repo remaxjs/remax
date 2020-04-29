@@ -180,7 +180,7 @@ export default function createPageConfig(Page: React.ComponentType<any>, entry: 
 
   pageEvents(entry).forEach(eventName => {
     if (lifecycleEvents[eventName]) {
-      config[eventName] = lifecycleEvents[eventName].bind(config);
+      config[eventName] = lifecycleEvents[eventName];
     }
   });
 

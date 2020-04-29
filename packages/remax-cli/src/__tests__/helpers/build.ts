@@ -88,6 +88,7 @@ export default async function build(app: string, target: Platform, options: Part
             scheduler: 'scheduler',
             'regenerator-runtime': 'regenerator-runtime',
             remax: 'remax',
+            '@remax/runtime': '@remax/runtime',
             'remax/runtime': 'remax/runtime',
             'remax/ali': 'remax/ali',
             'remax/wechat': 'remax/wechat',
