@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.15](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.14...v2.0.0-alpha.15) (2020-04-29)
+
+### Bug Fixes
+
+- 修复生产环境 build 结束命令不退出的问题 ([7102a90](https://github.com/remaxjs/remax/commit/7102a90d8b5120f3c8c5ae81797e5bc19f7aa137))
+- 修复生产环境打包会丢失自定义组件的问题 ([92df12d](https://github.com/remaxjs/remax/commit/92df12ddfc905428d3d59a04a0311d841ea660f0))
+- **cli:** 修复 @remax/cli 缺少 @remax/macro 依赖的问题 ([#867](https://github.com/remaxjs/remax/issues/867)) ([1d5e322](https://github.com/remaxjs/remax/commit/1d5e32218bf43dac1bab28802455a4852a8cfaa5))
+- **wechat:** 修复 onResize 和 onTabItemTap 不生效的问题 ([#857](https://github.com/remaxjs/remax/issues/857)) ([0a1a94a](https://github.com/remaxjs/remax/commit/0a1a94a667071fc777d4985416a4fbbb725a5a91))
+- 两份 extensions 配置 ([c6ac704](https://github.com/remaxjs/remax/commit/c6ac704148b4328276cb2a30a6022567d46cc1b0))
+
+### Features
+
+- 自定义组件也支持 stopPropagation ([#870](https://github.com/remaxjs/remax/issues/870)) ([3fb7d46](https://github.com/remaxjs/remax/commit/3fb7d46d907128372b6dabe7548afac074c7c579))
+
 # [2.0.0-alpha.14](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.13...v2.0.0-alpha.14) (2020-04-27)
 
 ### Bug Fixes

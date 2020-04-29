@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.15](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.14...v2.0.0-alpha.15) (2020-04-29)
+
+### Bug Fixes
+
+- **wechat:** 修复 onResize 和 onTabItemTap 不生效的问题 ([#857](https://github.com/remaxjs/remax/issues/857)) ([0a1a94a](https://github.com/remaxjs/remax/commit/0a1a94a667071fc777d4985416a4fbbb725a5a91))
+
+### Features
+
+- 自定义组件也支持 stopPropagation ([#870](https://github.com/remaxjs/remax/issues/870)) ([3fb7d46](https://github.com/remaxjs/remax/commit/3fb7d46d907128372b6dabe7548afac074c7c579))
+
 # [2.0.0-alpha.14](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.13...v2.0.0-alpha.14) (2020-04-27)
 
 **Note:** Version bump only for package @remax/runtime
