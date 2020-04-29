@@ -98,7 +98,7 @@ export default function createAppConfig(this: any, App: any) {
 
     appEvents().forEach(eventName => {
       if (lifecycleEvent[eventName]) {
-        config[eventName] = lifecycleEvent[eventName].bind(config);
+        config[eventName] = lifecycleEvent[eventName];
       }
     });
 

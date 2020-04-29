@@ -13,7 +13,7 @@ export default (options: RemaxOptions, target: Platform) => {
   };
 
   if (target !== Platform.web) {
-    config['react-dom'] = path.resolve(options.cwd, 'node_modules', '@remax/runtime');
+    config['react-dom'] = '@remax/runtime';
   }
 
   return config;
