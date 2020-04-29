@@ -69,6 +69,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useQuery", function() { return _node_modules_remax__WEBPACK_IMPORTED_MODULE_0__["useQuery"]; });
 
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useNativeEffect", function() { return _node_modules_remax__WEBPACK_IMPORTED_MODULE_0__["useNativeEffect"]; });
+
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "unstable_batchedUpdates", function() { return _node_modules_remax__WEBPACK_IMPORTED_MODULE_0__["unstable_batchedUpdates"]; });
 
 // export const unstable_batchedUpdates = (fn) => {
@@ -94,6 +96,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageInstance", function() { return _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["usePageInstance"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useQuery", function() { return _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["useQuery"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useNativeEffect", function() { return _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["useNativeEffect"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "unstable_batchedUpdates", function() { return _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["unstable_batchedUpdates"]; });
 
@@ -2617,7 +2621,7 @@ function createPageConfig(Page, entry) {
   };
   Object(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["pageEvents"])(entry).forEach(function (eventName) {
     if (lifecycleEvents[eventName]) {
-      config[eventName] = lifecycleEvents[eventName].bind(config);
+      config[eventName] = lifecycleEvents[eventName];
     }
   });
   return config;
