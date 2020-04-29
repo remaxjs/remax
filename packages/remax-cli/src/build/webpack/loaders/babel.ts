@@ -1,6 +1,7 @@
 import babelLoader from 'babel-loader';
 import { PartialConfig, ConfigItem } from '@babel/core';
 import { merge } from 'lodash';
+import path from 'path';
 interface CustomOptions {
   reactPreset: boolean;
   usePlugins: any[];
@@ -10,7 +11,7 @@ function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
   const remaxPresetIndex = presets.findIndex(
     preset =>
       preset.file &&
-      (preset.file.resolved === require.resolve('babel-preset-remax') ||
+      (preset.file.resolved.includes(`${path.sep}babel-preset-remax${path.sep}`) ||
         preset.file.request === 'remax' ||
         preset.file.request === 'babel-preset-remax')
   );
