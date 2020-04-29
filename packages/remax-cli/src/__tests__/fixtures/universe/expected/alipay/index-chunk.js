@@ -22,6 +22,42 @@ function _typeof(obj) {
   return _typeof(obj);
 }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -42,6 +78,24 @@ function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
   return Constructor;
+}
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
 }
 
 function _inherits(subClass, superClass) {
@@ -2368,6 +2422,12 @@ function createPageConfig(Page) {
     onPullIntercept: function onPullIntercept() {
       return this.callLifecycle(Lifecycle.pullIntercept);
     },
+    onTabItemTap: function onTabItemTap(e) {
+      return config.callLifecycle(Lifecycle.tabItemTap, e);
+    },
+    onResize: function onResize(e) {
+      return config.callLifecycle(Lifecycle.resize, e);
+    },
     events: {
       // 页面返回时触发
       onBack: function onBack(e) {
@@ -2407,29 +2467,15 @@ var __assign$1 = undefined && undefined.__assign || function () {
 
   return __assign$1.apply(this, arguments);
 };
-function createNativeComponent(name) {
-  return React.forwardRef(function (props, ref) {
-    if (typeof ref === 'string') {
-      console.error('不支持使用 string 获取小程序组件 ref，请使用回调或 React.createRef/React.useRef');
-    }
-
-    var newProps = __assign$1({}, props);
-
-    newProps.__ref = typeof ref === 'function' ? ref : function (e) {
-      if (ref) {
-        ref.current = e;
-      }
-    };
-    return React.createElement(name, newProps, props.children);
-  });
-}
 
 var unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;
 
+exports.Platform = Platform;
+exports._asyncToGenerator = _asyncToGenerator;
 exports._classCallCheck = _classCallCheck;
 exports._createClass = _createClass;
 exports._createSuper = _createSuper;
+exports._extends = _extends;
 exports._inherits = _inherits;
 exports.createAppConfig = createAppConfig;
-exports.createNativeComponent = createNativeComponent;
 exports.createPageConfig = createPageConfig;

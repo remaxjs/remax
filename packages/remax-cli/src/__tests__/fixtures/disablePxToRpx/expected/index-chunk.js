@@ -271,18 +271,6 @@ var transformReactStyleKey = function transformReactStyleKey(key) {
   return styleValue;
 };
 
-var transformPx = function transformPx(value) {
-  if (typeof value !== 'string') {
-    return value;
-  }
-
-  return value.replace(/\b(\d+(\.\d+)?)px\b/g, function (match, x) {
-    var targetUnit = 'rpx';
-    var size = Number(x);
-    return size % 1 === 0 ? size + targetUnit : size.toFixed(2) + targetUnit;
-  });
-};
-
 var plainStyle = function plainStyle(style) {
   return Object.keys(style).reduce(function (acc, key) {
     var value = style[key];
@@ -291,7 +279,7 @@ var plainStyle = function plainStyle(style) {
       value = value + 'rpx';
     }
 
-    return __spread(acc, [transformReactStyleKey(key) + ":" + ( transformPx(value) ) + ";"]);
+    return __spread(acc, [transformReactStyleKey(key) + ":" + ( value) + ";"]);
   }, []).join('');
 };
 
@@ -2368,6 +2356,12 @@ function createPageConfig(Page) {
     onPullIntercept: function onPullIntercept() {
       return this.callLifecycle(Lifecycle.pullIntercept);
     },
+    onTabItemTap: function onTabItemTap(e) {
+      return config.callLifecycle(Lifecycle.tabItemTap, e);
+    },
+    onResize: function onResize(e) {
+      return config.callLifecycle(Lifecycle.resize, e);
+    },
     events: {
       // 页面返回时触发
       onBack: function onBack(e) {
@@ -2407,22 +2401,6 @@ var __assign$1 = undefined && undefined.__assign || function () {
 
   return __assign$1.apply(this, arguments);
 };
-function createNativeComponent(name) {
-  return React.forwardRef(function (props, ref) {
-    if (typeof ref === 'string') {
-      console.error('不支持使用 string 获取小程序组件 ref，请使用回调或 React.createRef/React.useRef');
-    }
-
-    var newProps = __assign$1({}, props);
-
-    newProps.__ref = typeof ref === 'function' ? ref : function (e) {
-      if (ref) {
-        ref.current = e;
-      }
-    };
-    return React.createElement(name, newProps, props.children);
-  });
-}
 
 var unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;
 
@@ -2431,5 +2409,4 @@ exports._createClass = _createClass;
 exports._createSuper = _createSuper;
 exports._inherits = _inherits;
 exports.createAppConfig = createAppConfig;
-exports.createNativeComponent = createNativeComponent;
 exports.createPageConfig = createPageConfig;

@@ -23,6 +23,7 @@ export interface InputProps {
   selectionEnd?: number;
   randomNumber?: boolean;
   controlled?: boolean;
+  enableNative?: boolean;
   onInput?: (e: any) => void;
   onConfirm?: (e: any) => void;
   onFocus?: (e: any) => void;

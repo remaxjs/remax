@@ -44,6 +44,24 @@ function _createClass(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
 function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
     throw new TypeError("Super expression must either be null or a function");
@@ -119,6 +137,62 @@ function _createSuper(Derived) {
 
     return _possibleConstructorReturn(this, result);
   };
+}
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArrayLimit(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(n);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+  return arr2;
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
 var REMAX_METHOD = '$$REMAX_METHOD';
@@ -833,8 +907,26 @@ var hostComponents = {
       "onClick": "onTap",
       "onUserAction": "onUserAction"
     }
+  },
+  "ddd": {
+    "alias": {}
   }
 } || {};
+function createHostComponent(name, component) {
+  if (component) {
+    return component;
+  }
+
+  var Component = function Component(props, ref) {
+    var _a = props.children,
+        children = _a === void 0 ? [] : _a;
+    return React.createElement(name, __assign(__assign({}, props), {
+      ref: ref
+    }), children);
+  };
+
+  return React.forwardRef(Component);
+}
 
 function getAlias(prop, type) {
   var _a, _b;
@@ -2368,6 +2460,12 @@ function createPageConfig(Page) {
     onPullIntercept: function onPullIntercept() {
       return this.callLifecycle(Lifecycle.pullIntercept);
     },
+    onTabItemTap: function onTabItemTap(e) {
+      return config.callLifecycle(Lifecycle.tabItemTap, e);
+    },
+    onResize: function onResize(e) {
+      return config.callLifecycle(Lifecycle.resize, e);
+    },
     events: {
       // 页面返回时触发
       onBack: function onBack(e) {
@@ -2429,7 +2527,10 @@ var unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;
 exports._classCallCheck = _classCallCheck;
 exports._createClass = _createClass;
 exports._createSuper = _createSuper;
+exports._extends = _extends;
 exports._inherits = _inherits;
+exports._slicedToArray = _slicedToArray;
 exports.createAppConfig = createAppConfig;
+exports.createHostComponent = createHostComponent;
 exports.createNativeComponent = createNativeComponent;
 exports.createPageConfig = createPageConfig;

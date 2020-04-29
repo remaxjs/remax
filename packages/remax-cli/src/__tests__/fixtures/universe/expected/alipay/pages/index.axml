@@ -227,29 +227,6 @@
 </template>
 
   
-  <template name="REMAX_TPL_1_cjs-0">
-  <cjs-0 
-    ref="{{item.props['__ref']}}"
-  >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </cjs-0>
-</template>
-
-  
   <template name="REMAX_TPL_1_contact-button">
   <contact-button 
     

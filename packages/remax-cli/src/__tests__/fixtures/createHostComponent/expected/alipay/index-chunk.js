@@ -833,8 +833,34 @@ var hostComponents = {
       "onClick": "onTap",
       "onUserAction": "onUserAction"
     }
+  },
+  "foo-bar": {
+    "alias": {
+      "foo": "foo",
+      "className": "class"
+    }
+  },
+  "custom-component": {
+    "alias": {
+      "foo": "foo"
+    }
   }
 } || {};
+function createHostComponent(name, component) {
+  if (component) {
+    return component;
+  }
+
+  var Component = function Component(props, ref) {
+    var _a = props.children,
+        children = _a === void 0 ? [] : _a;
+    return React.createElement(name, __assign(__assign({}, props), {
+      ref: ref
+    }), children);
+  };
+
+  return React.forwardRef(Component);
+}
 
 function getAlias(prop, type) {
   var _a, _b;
@@ -2368,6 +2394,12 @@ function createPageConfig(Page) {
     onPullIntercept: function onPullIntercept() {
       return this.callLifecycle(Lifecycle.pullIntercept);
     },
+    onTabItemTap: function onTabItemTap(e) {
+      return config.callLifecycle(Lifecycle.tabItemTap, e);
+    },
+    onResize: function onResize(e) {
+      return config.callLifecycle(Lifecycle.resize, e);
+    },
     events: {
       // 页面返回时触发
       onBack: function onBack(e) {
@@ -2407,22 +2439,6 @@ var __assign$1 = undefined && undefined.__assign || function () {
 
   return __assign$1.apply(this, arguments);
 };
-function createNativeComponent(name) {
-  return React.forwardRef(function (props, ref) {
-    if (typeof ref === 'string') {
-      console.error('不支持使用 string 获取小程序组件 ref，请使用回调或 React.createRef/React.useRef');
-    }
-
-    var newProps = __assign$1({}, props);
-
-    newProps.__ref = typeof ref === 'function' ? ref : function (e) {
-      if (ref) {
-        ref.current = e;
-      }
-    };
-    return React.createElement(name, newProps, props.children);
-  });
-}
 
 var unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;
 
@@ -2431,5 +2447,5 @@ exports._createClass = _createClass;
 exports._createSuper = _createSuper;
 exports._inherits = _inherits;
 exports.createAppConfig = createAppConfig;
-exports.createNativeComponent = createNativeComponent;
+exports.createHostComponent = createHostComponent;
 exports.createPageConfig = createPageConfig;
