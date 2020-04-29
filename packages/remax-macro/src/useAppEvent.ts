@@ -2,7 +2,7 @@ import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import insertImportDeclaration from './utils/insertImportDeclaration';
 
-const PACKAGE_NAME = 'remax/runtime';
+const PACKAGE_NAME = '@remax/runtime';
 const FUNCTION_NAME = 'useAppEvent';
 
 type Events = Set<string>;
