@@ -1,2 +1,3 @@
-import { useAppEvent } from 'remax';
+import { useAppEvent } from 'remax/runtime';
+import 'remax';
 useAppEvent('onShow', () => {});
