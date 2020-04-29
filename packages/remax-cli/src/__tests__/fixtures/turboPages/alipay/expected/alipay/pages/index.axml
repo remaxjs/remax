@@ -439,6 +439,7 @@
     controlled="{{node.props['controlled']}}" 
     cursor="{{node.props['cursor']}}" 
     disabled="{{node.props['disabled']}}" 
+    enableNative="{{node.props['enableNative']}}" 
     focus="{{node.props['focus']}}" 
     id="{{node.props['id']}}" 
     maxlength="{{node.props['maxlength']}}" 

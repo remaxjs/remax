@@ -484,6 +484,7 @@ var hostComponents = {
       "selectionEnd": "selection-end",
       "randomNumber": "randomNumber",
       "controlled": "controlled",
+      "enableNative": "enableNative",
       "onInput": "onInput",
       "onConfirm": "onConfirm",
       "onFocus": "onFocus",
