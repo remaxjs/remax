@@ -1,6 +1,6 @@
 export const alias = {
-  onLoad: 'onLoad',
-  onError: 'onError',
+  onLoad: 'bindload',
+  onError: 'binderror',
 };
 
 export const props = Object.values(alias);

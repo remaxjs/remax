@@ -828,8 +828,8 @@ var hostComponents = {
   },
   "official-account": {
     "alias": {
-      "onLoad": "onLoad",
-      "onError": "onError"
+      "onLoad": "bindload",
+      "onError": "binderror"
     }
   },
   "open-data": {
