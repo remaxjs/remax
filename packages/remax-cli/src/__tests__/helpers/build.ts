@@ -90,10 +90,15 @@ export default async function build(app: string, target: Platform, options: Part
             remax: 'remax',
             '@remax/runtime': '@remax/runtime',
             'remax/runtime': 'remax/runtime',
+            '@remax/ali': '@remax/ali',
             'remax/ali': 'remax/ali',
+            '@remax/wechat': '@remax/wechat',
             'remax/wechat': 'remax/wechat',
+            '@remax/toutiao': '@remax/toutiao',
             'remax/toutiao': 'remax/toutiao',
+            '@remax/router': '@remax/router',
             'remax/router': 'remax/router',
+            '@remax/web': '@remax/web',
             'remax/web': 'remax/web',
           });
 
