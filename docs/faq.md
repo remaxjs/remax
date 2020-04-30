@@ -28,9 +28,13 @@ Remax 支持直接使用原生组件库。具体请参考 [小程序自定义组
 
 具体可参考 [跨平台开发](/guide/one)。
 
-## Webstorm IDE编辑器下api类型无提示问题
+## WebStorm IDE 编辑器下 api 类型无提示问题
 
-原因是 remax-wechat 不是项目的直接依赖，WebStorm 就不会去索引它。所以我们进行以下操作即可（把 node_modules/remax-wechat 这个目录设置为 “not excluded” 就可以了。[相关issue链接](https://github.com/remaxjs/remax/issues/598)）
+原因是非项目的直接依赖，WebStorm 就不会去索引它。以 wechat 平台为例，我们进行以下操作即可:
+
+把 node_modules/@remax/wechat 这个目录设置为 “not excluded”
+
+[相关 issue 链接](https://github.com/remaxjs/remax/issues/598)
 
 <img width="800" src="https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*HkStQ4JvAyYAAAAAAAAAAABkARQnAQ" />
 
