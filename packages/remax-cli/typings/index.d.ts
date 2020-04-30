@@ -8,7 +8,6 @@ declare module 'postcss-preset-env';
 declare module '@babel/helper-module-imports';
 declare module 'scheduler';
 declare module 'slash2';
-declare module 'esm';
 declare module 'sander';
 declare module 'webpack-virtual-modules';
 

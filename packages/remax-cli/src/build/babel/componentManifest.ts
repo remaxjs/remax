@@ -1,6 +1,6 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
-import { HostComponent, RemaxOptions } from '@remax/types';
+import { HostComponent } from '@remax/types';
 import { kebabCase } from 'lodash';
 import { registerNativeComponent } from '@remax/macro';
 import { LEAF, ENTRY, TEMPLATE_ID } from './compiler/static/constants';
@@ -135,7 +135,7 @@ function getRemaxHostComponentName(path: NodePath<t.JSXElement>) {
   return false;
 }
 
-function shouldRegisterProp(propName: string, isNative: boolean, hostComponent?: HostComponent) {
+function shouldRegisterProp(api: API, propName: string, isNative: boolean, hostComponent?: HostComponent) {
   // key 属性
   if (propName === 'key') {
     return true;
@@ -156,7 +156,7 @@ function shouldRegisterProp(propName: string, isNative: boolean, hostComponent?:
     return true;
   }
 
-  const prefix = `${API.adapter.target}-`;
+  const prefix = `${api.adapter.target}-`;
 
   // 平台特定属性
   if (propName.startsWith(prefix)) {
@@ -171,8 +171,8 @@ function shouldRegisterProp(propName: string, isNative: boolean, hostComponent?:
   return false;
 }
 
-function aliasProp(propName: string, hostComponent?: HostComponent) {
-  const prefix = `${API.adapter.target}-`;
+function aliasProp(api: API, propName: string, hostComponent?: HostComponent) {
+  const prefix = `${api.adapter.target}-`;
 
   if (propName.startsWith(prefix)) {
     return propName.replace(new RegExp(`^${prefix}`), '');
@@ -181,11 +181,11 @@ function aliasProp(propName: string, hostComponent?: HostComponent) {
   return hostComponent?.alias?.[propName] || propName;
 }
 
-function registerSlotViewProps(node: t.JSXElement) {
+function registerSlotViewProps(api: API, node: t.JSXElement) {
   let props: string[] = [];
   node.openingElement.attributes.forEach(attr => {
     if (t.isJSXSpreadAttribute(attr)) {
-      props = [...props, ...(API.getHostComponents().get('view')?.props || [])];
+      props = [...props, ...(api.getHostComponents().get('view')?.props || [])];
       return;
     }
 
@@ -207,7 +207,7 @@ function registerSlotViewProps(node: t.JSXElement) {
     props
       // 无需收集 slot 字段
       .filter(p => p !== 'slot')
-      .map(prop => aliasProp(prop, API.getHostComponents().get('view')))
+      .map(prop => aliasProp(api, prop, api.getHostComponents().get('view')))
       .sort()
   );
 }
@@ -224,8 +224,8 @@ function isSlotView(componentName: string, node?: t.JSXElement) {
   return false;
 }
 
-function registerProps(id: string, node?: t.JSXElement, isNative?: boolean) {
-  const hostComponent = API.getHostComponents().get(id);
+function registerProps(api: API, id: string, node?: t.JSXElement, isNative?: boolean) {
+  const hostComponent = api.getHostComponents().get(id);
 
   if (!isNative && !hostComponent) {
     return;
@@ -234,7 +234,7 @@ function registerProps(id: string, node?: t.JSXElement, isNative?: boolean) {
   let props: string[] = [];
 
   if (hostComponent) {
-    props = API.processProps(id, hostComponent.props.slice(), hostComponent.additional, node);
+    props = api.processProps(id, hostComponent.props.slice(), hostComponent.additional, node);
   }
 
   if (node) {
@@ -264,7 +264,7 @@ function registerProps(id: string, node?: t.JSXElement, isNative?: boolean) {
         node.openingElement.attributes.push(t.jsxAttribute(t.jsxIdentifier('__key'), attr.value));
       }
 
-      if (!shouldRegisterProp(propName, !!isNative, hostComponent)) {
+      if (!shouldRegisterProp(api, propName, !!isNative, hostComponent)) {
         return;
       }
 
@@ -293,13 +293,13 @@ function registerProps(id: string, node?: t.JSXElement, isNative?: boolean) {
         .filter(p => p !== LEAF)
         .filter(p => p !== ENTRY)
         .filter(Boolean)
-        .map(prop => aliasProp(prop, hostComponent))
+        .map(prop => aliasProp(api, prop, hostComponent))
     )
   ).sort();
 }
 
-function registerNativeComponentManifest(id: string, node: t.JSXElement) {
-  const props = registerProps(id, node, true) || [];
+function registerNativeComponentManifest(api: API, id: string, node: t.JSXElement) {
+  const props = registerProps(api, id, node, true) || [];
 
   const component = {
     id,
@@ -317,8 +317,14 @@ function registerNativeComponentManifest(id: string, node: t.JSXElement) {
   nativeComponentManifests.set(id, component);
 }
 
-function registerHostComponentManifest(id: string, phase: 'jsx' | 'extra', node?: t.JSXElement, additional?: boolean) {
-  if (!API.shouldHostComponentRegister(id, phase, additional)) {
+function registerHostComponentManifest(
+  api: API,
+  id: string,
+  phase: 'jsx' | 'extra',
+  node?: t.JSXElement,
+  additional?: boolean
+) {
+  if (!api.shouldHostComponentRegister(id, phase, additional)) {
     return;
   }
 
@@ -326,13 +332,13 @@ function registerHostComponentManifest(id: string, phase: 'jsx' | 'extra', node?
 
   if (isSlotView(id, node)) {
     // isSlotView 确保了 node 一定存在
-    props = registerSlotViewProps(node!);
+    props = registerSlotViewProps(api, node!);
 
     SlotView.props = Array.from(new Set([...SlotView.props, ...props]));
 
     return;
   } else {
-    props = registerProps(id, node);
+    props = registerProps(api, id, node);
   }
 
   if (!props) {
@@ -358,7 +364,7 @@ function registerHostComponentManifest(id: string, phase: 'jsx' | 'extra', node?
   nativeComponentManifests.set(id, component);
 }
 
-export default function hostComponent(options: RemaxOptions) {
+export default function hostComponent(api: API) {
   return {
     visitor: {
       JSXElement: (path: NodePath<t.JSXElement>, state: any) => {
@@ -366,23 +372,23 @@ export default function hostComponent(options: RemaxOptions) {
         let name: any = getRemaxHostComponentName(path);
 
         if (name) {
-          registerHostComponentManifest(name, 'jsx', path.node);
+          registerHostComponentManifest(api, name, 'jsx', path.node);
           return;
         }
 
         name = getNativeComponentName(path, importer) || getNativePluginComponentName(path);
 
         if (name) {
-          registerNativeComponentManifest(name, path.node);
+          registerNativeComponentManifest(api, name, path.node);
         }
       },
     },
   };
 }
 
-export function values() {
-  API.getHostComponents().forEach((component, id) => {
-    registerHostComponentManifest(id, 'extra', undefined, component.additional);
+export function values(api: API) {
+  api.getHostComponents().forEach((component, id) => {
+    registerHostComponentManifest(api, id, 'extra', undefined, component.additional);
   });
 
   return [...hostComponentManifests.values(), ...nativeComponentManifests.values()];

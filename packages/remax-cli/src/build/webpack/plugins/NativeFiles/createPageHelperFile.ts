@@ -1,14 +1,13 @@
 import * as path from 'path';
 import ejs from 'ejs';
 import { compilation } from 'webpack';
-import { Meta, RemaxOptions } from '@remax/types';
-import API from '../../../../API';
+import { Meta, Options } from '@remax/types';
 import { pageUID } from './createPageTemplate';
 import * as cacheable from './cacheable';
 import winPath from '../../../../winPath';
 
 export default async function createHelperFile(
-  options: RemaxOptions,
+  options: Options,
   pagePath: string,
   meta: Meta,
   compilation: compilation.Compilation
@@ -20,7 +19,7 @@ export default async function createHelperFile(
   pagePath = winPath(pagePath).replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '');
 
   const source: string = await ejs.renderFile(meta.ejs.jsHelper, {
-    target: API.adapter.target,
+    target: options.target,
   });
 
   const fileName = winPath(path.join(path.dirname(pagePath), `${pageUID(pagePath)}_helper${meta.jsHelper.extension}`));

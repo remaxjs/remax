@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.17](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.16...v2.0.0-alpha.17) (2020-04-30)
+
+### Bug Fixes
+
+- **wechat:** 修复 OfficialAccount 属性问题 ([4b80e6d](https://github.com/remaxjs/remax/commit/4b80e6d393f150fe1c5e2f41b1dc8cccabe66410))
+
 # [2.0.0-alpha.16](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.15...v2.0.0-alpha.16) (2020-04-29)
 
 **Note:** Version bump only for package @remax/wechat

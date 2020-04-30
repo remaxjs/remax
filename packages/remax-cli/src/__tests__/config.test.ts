@@ -2,7 +2,7 @@ import * as path from 'path';
 import getConfig from '../getConfig';
 import readManifest from '../readManifest';
 import build from './helpers/build';
-import { Platform } from '../build/utils/platform';
+import { Platform } from '@remax/types';
 
 describe('remax config', () => {
   it('override output', () => {
@@ -16,27 +16,7 @@ describe('remax config', () => {
 
     expect(() => {
       getConfig();
-    }).toThrowErrorMatchingInlineSnapshot(`
-"Invalid configuration object. remax has been initialized using a configuration object that does not match the API schema.
- - configuration has an unknown property 'plugins'. These properties are valid:
-   object { turboPages?, notify?, pxToRpx?, cwd?, progress?, compressTemplate?, output?, rootDir?, UNSAFE_wechatTemplateDepth?, one?, configWebpack? }
- - configuration.turboPages should be an array:
-   [any, ...]
- - configuration.notify should be a boolean.
- - configuration.pxToRpx should be a boolean.
- - configuration.cwd should be a string.
- - configuration.progress should be a boolean.
- - configuration.compressTemplate should be a boolean.
- - configuration.output should be a string.
- - configuration.rootDir should be a string.
- - configuration.UNSAFE_wechatTemplateDepth should be one of these:
-   object { … } | number
-   Details:
-    * configuration.UNSAFE_wechatTemplateDepth should be an object:
-      object { … }
-    * configuration.UNSAFE_wechatTemplateDepth should be a number.
- - configuration.configWebpack should be an instance of function."
-`);
+    }).toThrowErrorMatchingSnapshot();
   });
 });
 

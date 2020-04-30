@@ -1,9 +1,6 @@
 ---
 title: 组件
 order: 1
-nav:
-  title: API
-  order: 1
 ---
 
 `remax/one` 导出的组件，意味着在所有 Remax 支持的平台都可以使用，并且 Remax 尽量保证了行为一致。

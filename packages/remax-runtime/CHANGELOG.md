@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.17](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.16...v2.0.0-alpha.17) (2020-04-30)
+
+### Bug Fixes
+
+- 修复 beforeTabItemTap hook 不生效的问题 ([3dd4ba7](https://github.com/remaxjs/remax/commit/3dd4ba7668f7f916dbbf5a77b71dda4655a1a079))
+
 # [2.0.0-alpha.16](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.15...v2.0.0-alpha.16) (2020-04-29)
 
 ### Bug Fixes

@@ -2,9 +2,12 @@ import babelLoader from 'babel-loader';
 import { PartialConfig, ConfigItem } from '@babel/core';
 import { merge } from 'lodash';
 import path from 'path';
+import API from '../../../API';
+
 interface CustomOptions {
   reactPreset: boolean;
   usePlugins: any[];
+  api: API;
 }
 
 function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
@@ -36,22 +39,30 @@ function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
 }
 
 export default babelLoader.custom((babelCore: any) => ({
-  customOptions({ reactPreset, usePlugins, ...loaderOptions }: CustomOptions) {
+  customOptions({ reactPreset, usePlugins, api, ...loaderOptions }: CustomOptions) {
     return {
       custom: {
         reactPreset,
         usePlugins,
+        api,
       },
       loader: loaderOptions,
     };
   },
 
   config(cfg: PartialConfig, { customOptions }: { customOptions: CustomOptions }) {
-    const presets = processPresets(cfg.options.presets as ConfigItem[], babelCore, customOptions.reactPreset);
-    return {
+    const { reactPreset, api, usePlugins } = customOptions;
+    const presets = processPresets(cfg.options.presets as ConfigItem[], babelCore, reactPreset);
+    const config = {
       ...cfg.options,
       presets,
-      plugins: [...(cfg.options.plugins || []), ...(customOptions.usePlugins || [])],
+      plugins: [...(cfg.options.plugins || []), ...(usePlugins || [])],
     };
+
+    if (api) {
+      api.configBabel({ config });
+    }
+
+    return config;
   },
 }));

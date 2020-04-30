@@ -54,12 +54,13 @@ function createAttributeValueTemplate(
  * @returns
  */
 export function createAttributesTemplate(
+  api: API,
   componentType: string,
   dataPath: string,
   attributes: Array<t.JSXAttribute | t.JSXSpreadAttribute>
 ) {
   const SEPARATOR = '\n  ';
-  const hostComponent = API.getHostComponents().get(componentType);
+  const hostComponent = api.getHostComponents().get(componentType);
   let template: Array<[string, string]> = [];
 
   // case: Spread Attributes

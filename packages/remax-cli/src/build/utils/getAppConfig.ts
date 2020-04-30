@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { RemaxOptions, AppConfig } from '@remax/types';
+import { Options, AppConfig } from '@remax/types';
 import readManifest from '../../readManifest';
 
 export function searchFile(file: string) {
@@ -16,7 +16,7 @@ export function searchFile(file: string) {
   return '';
 }
 
-export const getAppConfig = (options: RemaxOptions) => {
+export const getAppConfig = (options: Options) => {
   const appConfigPath: string = path.join(options.cwd, options.rootDir, 'app.config');
 
   return readManifest(appConfigPath, 'web', true) as AppConfig;
