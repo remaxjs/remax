@@ -47,7 +47,6 @@
     "dotenv-expand": "^5.1.0",
     "ejs": "^3.0.1",
     "enhanced-resolve": "^4.1.1",
-    "esm": "^3.2.25",
     "express": "^4.17.1",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.0.4",

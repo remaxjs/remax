@@ -6,7 +6,6 @@ import { Options } from '@remax/types';
 
 const runWalk = (filePath: string, components: Set<string>, options: Options) => {
   const walk = (filePath: string) => {
-    delete require.cache[filePath];
     const { usingComponents = {} } = require(filePath);
 
     Object.values(usingComponents).forEach(value => {

@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import esm from 'esm';
 import { getDefaultOptions } from './defaultOptions';
 import { Options } from '@remax/types';
 import validateOptions from 'schema-utils';
@@ -11,15 +10,7 @@ export interface CliOptions {
 }
 
 function readJavascriptConfig(path: string) {
-  // eslint-disable-next-line
-  require = esm(module, {
-    cjs: {
-      dedefault: true,
-    },
-  });
-  delete require.cache[require.resolve(path)];
   const config = require(path);
-
   return config || {};
 }
 

@@ -116,7 +116,6 @@ export default class API {
 
     const packagePath = this.adapter.packageName + '/node';
 
-    delete require.cache[packagePath];
     let plugin = require(packagePath).default || require(packagePath);
     plugin = typeof plugin === 'function' ? plugin() : plugin;
     this.registerHostComponents(plugin.hostComponents);
@@ -125,7 +124,6 @@ export default class API {
     if (remaxConfig.one) {
       const onePath = '@remax/one/node';
 
-      delete require.cache[onePath];
       const plugin = require(onePath).default || require(onePath);
       const one = plugin();
       this.registerHostComponents(one.hostComponents);
