@@ -110,7 +110,6 @@ export default class API {
 
   public registerAdapterPlugins(targetName: Platform, remaxConfig: Options) {
     this.adapter.target = targetName;
-
     this.adapter.name = targetName;
     this.adapter.packageName = '@remax/' + targetName;
 

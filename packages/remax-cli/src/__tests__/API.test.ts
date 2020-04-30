@@ -1,19 +1,39 @@
-import * as path from 'path';
-
-process.chdir(path.join(__dirname, 'fixtures/api'));
-
-import getConfig from '../getConfig';
 import API from '../API';
-import { Platform } from '@remax/types';
+import { Platform, Plugin } from '@remax/types';
 
-const remaxOptions = getConfig(false);
+function entries(): Plugin {
+  return {
+    name: 'entries',
+  };
+}
+
+function props1(): Plugin {
+  return {
+    name: 'props1',
+    processProps({ props }) {
+      return [...props, 'p1'];
+    },
+  };
+}
+
+function props2(): Plugin {
+  return {
+    name: 'props2',
+    processProps({ props }) {
+      return [...props, 'p2'];
+    },
+  };
+}
 
 describe('api', () => {
   const api = new API();
 
   beforeAll(() => {
-    api.registerPlugins(remaxOptions);
-    api.registerAdapterPlugins(Platform.ali, remaxOptions);
+    const options: any = {
+      plugins: [entries(), props1(), props2()],
+    };
+    api.registerPlugins(options);
+    api.registerAdapterPlugins(Platform.ali, options);
   });
 
   it('install plugins in a variety of ways', () => {
