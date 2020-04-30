@@ -1,29 +1,17 @@
 import * as path from 'path';
-import webpack, { Configuration } from 'webpack';
 import { createFsFromVolume, Volume, IFs } from 'memfs';
 import joinPath from 'memory-fs/lib/join';
 import API from '../../API';
-import webpackConfig from '../../build/webpack/config.mini';
-import webpackWebConfig from '../../build/webpack/config.web';
 import getConfig from '../../getConfig';
 import winPath from '../../winPath';
-import { Platform } from '../../build/utils/platform';
+import { Platform } from '@remax/types';
+import { run } from '../../build';
 
 function ensureWebpackMemoryFs(fs: IFs) {
   const nextFs = Object.create(fs);
   nextFs.join = joinPath;
 
   return nextFs;
-}
-
-function buildWebpackCompiler(fs: IFs, webpackConfig: Configuration) {
-  const webpackFs = ensureWebpackMemoryFs(fs);
-
-  const compiler = webpack(webpackConfig);
-
-  compiler.outputFileSystem = webpackFs;
-
-  return compiler;
 }
 
 interface OutputFile {
@@ -60,66 +48,56 @@ export default async function build(app: string, target: Platform, options: Part
   process.chdir(cwd);
   process.env.NODE_ENV = 'test';
   process.env.REMAX_PLATFORM = target;
-  const remaxOptions = getConfig();
 
-  if (target !== Platform.web) {
-    API.registerAdapterPlugins(target, remaxOptions);
-  }
-  const webpackConfigFn = target === Platform.web ? webpackWebConfig : webpackConfig;
+  const config = getConfig();
+  const api = new API();
 
-  const webpackOptions = webpackConfigFn(
-    {
-      ...remaxOptions,
-      progress: false,
-      configWebpack: ({ config }) => {
-        config
-          .mode('none')
-          .plugins.delete('webpackbar')
-          .end()
-          .resolve.alias.merge({
-            '@components': path.resolve(cwd, 'src/components'),
-            '@c': path.resolve(cwd, 'src/components'),
-          })
-          .end()
-          .end()
-          .externals({
-            react: 'react',
-            'react-reconciler': 'react-reconciler',
-            scheduler: 'scheduler',
-            'regenerator-runtime': 'regenerator-runtime',
-            remax: 'remax',
-            '@remax/runtime': '@remax/runtime',
-            'remax/runtime': 'remax/runtime',
-            '@remax/ali': '@remax/ali',
-            'remax/ali': 'remax/ali',
-            '@remax/wechat': '@remax/wechat',
-            'remax/wechat': 'remax/wechat',
-            '@remax/toutiao': '@remax/toutiao',
-            'remax/toutiao': 'remax/toutiao',
-            '@remax/router': '@remax/router',
-            'remax/router': 'remax/router',
-            '@remax/web': '@remax/web',
-            'remax/web': 'remax/web',
-          });
+  api.registerPlugins(config);
 
-        if (typeof remaxOptions.configWebpack === 'function') {
-          remaxOptions.configWebpack({ config });
-        }
-      },
+  const remaxOptions = {
+    ...config,
+    target,
+    configWebpack({ config: webpackConfig }: any) {
+      webpackConfig
+        .mode('none')
+        .plugins.delete('webpackbar')
+        .end()
+        .resolve.alias.merge({
+          '@components': path.resolve(cwd, 'src/components'),
+          '@c': path.resolve(cwd, 'src/components'),
+        })
+        .end()
+        .end()
+        .externals({
+          react: 'react',
+          'react-reconciler': 'react-reconciler',
+          scheduler: 'scheduler',
+          'regenerator-runtime': 'regenerator-runtime',
+          remax: 'remax',
+          '@remax/runtime': '@remax/runtime',
+          'remax/ali': 'remax/ali',
+          '@remax/ali': '@remax/ali',
+          'remax/wechat': 'remax/wechat',
+          '@remax/wechat': '@remax/wechat',
+          'remax/toutiao': 'remax/toutiao',
+          '@remax/toutiao': '@remax/toutiao',
+          'remax/router': 'remax/router',
+          'remax/web': 'remax/web',
+        });
+
+      if (typeof config.configWebpack === 'function') {
+        config.configWebpack({ config: webpackConfig });
+      }
     },
-    target
-  );
+  };
 
   const fs = createFsFromVolume(new Volume());
-  const compiler = buildWebpackCompiler(fs, webpackOptions);
+  const webpackFs = ensureWebpackMemoryFs(fs);
+  const compiler = run(remaxOptions);
+  compiler.outputFileSystem = webpackFs;
 
   return new Promise(resolve => {
-    compiler.run((error, stats) => {
-      if (error) {
-        console.error(error.message);
-        throw error;
-      }
-
+    compiler.hooks.done.tap('done', stats => {
       const info = stats.toJson();
 
       if (stats.hasErrors()) {
@@ -146,6 +124,11 @@ export default async function build(app: string, target: Platform, options: Part
       );
 
       resolve(output);
+    });
+
+    compiler.hooks.failed.tap('failed', error => {
+      console.error(error.message);
+      throw error;
     });
   });
 }

@@ -10,13 +10,13 @@ export default function nativeComponent(this: loader.LoaderContext, source: stri
   }
 
   const resourcePath = this.resourcePath;
-  const { remaxOptions } = utils.getOptions(this);
+  const { remaxOptions, api } = utils.getOptions(this);
 
   if (!isNativeComponent(resourcePath)) {
     return source;
   }
 
-  const assets = getAssets(resourcePath, remaxOptions);
+  const assets = getAssets(api, resourcePath, remaxOptions);
 
   assets.forEach(file => {
     this.addDependency(file);

@@ -1,9 +1,11 @@
 import { hostComponents } from '@remax/macro';
 import * as t from '@babel/types';
-import { Options, Plugin, ExtendsCLIOptions, Meta, HostComponent } from '@remax/types';
+import { Options, Plugin, Meta, HostComponent, Platform } from '@remax/types';
 import { merge } from 'lodash';
+import Config from 'webpack-chain';
+import { RuleConfig } from './build/webpack/config/css';
 
-class API {
+export default class API {
   public plugins: Plugin[] = [];
   public adapter = {
     name: '',
@@ -29,16 +31,6 @@ class API {
       src: '',
     },
   };
-  public extendsCLI(options: ExtendsCLIOptions) {
-    let { cli } = options;
-    this.plugins.forEach(plugin => {
-      if (typeof plugin.extendsCLI === 'function') {
-        cli = plugin.extendsCLI({ ...options, cli });
-      }
-    });
-
-    return cli;
-  }
 
   public getMeta() {
     let meta: Meta = {
@@ -100,7 +92,23 @@ class API {
     }, true);
   }
 
-  public registerAdapterPlugins(targetName: string, remaxConfig: Options) {
+  configWebpack(params: { config: Config; addCSSRule: (ruleConfig: RuleConfig) => void }) {
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.configWebpack === 'function') {
+        plugin.configWebpack(params);
+      }
+    });
+  }
+
+  configBabel(params: { config: any }) {
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.configBabel === 'function') {
+        plugin.configBabel(params);
+      }
+    });
+  }
+
+  public registerAdapterPlugins(targetName: Platform, remaxConfig: Options) {
     this.adapter.target = targetName;
 
     this.adapter.name = targetName;
@@ -125,8 +133,9 @@ class API {
     }
   }
 
-  public registerNodePlugins(remaxConfig: Options) {
-    remaxConfig.plugins.forEach(plugin => {
+  public registerPlugins(options: Options) {
+    options.plugins?.forEach(plugin => {
+      console.log(plugin);
       if (plugin) {
         this.registerHostComponents(plugin.hostComponents);
         this.plugins.push(plugin);
@@ -144,5 +153,3 @@ class API {
     }
   }
 }
-
-export default new API();

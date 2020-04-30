@@ -2,17 +2,16 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { nativeComponents } from '@remax/macro';
 import { matcher } from '../../../../extensions';
-import API from '../../../../API';
 import readManifest from '../../../../readManifest';
 import { isPluginPath } from '../../../utils/nativeComponent';
 import { compilation } from 'webpack';
-import { RemaxOptions } from '@remax/types';
+import { Options } from '@remax/types';
 import * as cacheable from './cacheable';
 import winPath from '../../../../winPath';
 
 const NATIVE_COMPONENT_OUTPUT_DIR = 'remaxVendors';
 
-function getNativeComponentAssetOutputPath(sourcePath: string, options: RemaxOptions) {
+function getNativeComponentAssetOutputPath(sourcePath: string, options: Options) {
   return (
     NATIVE_COMPONENT_OUTPUT_DIR +
     '/' +
@@ -24,7 +23,7 @@ function getNativeComponentAssetOutputPath(sourcePath: string, options: RemaxOpt
   );
 }
 
-function getUsingComponents(modules: string[], options: RemaxOptions, compilation: compilation.Compilation) {
+function getUsingComponents(modules: string[], options: Options, compilation: compilation.Compilation) {
   const components = Array.from(nativeComponents.values()).filter(component =>
     component.importers.some(importer => modules.includes(importer))
   );
@@ -53,7 +52,7 @@ function getUsingComponents(modules: string[], options: RemaxOptions, compilatio
 }
 
 export default function createPageManifest(
-  options: RemaxOptions,
+  options: Options,
   pagePath: string,
   modules: string[],
   compilation: compilation.Compilation
@@ -61,7 +60,7 @@ export default function createPageManifest(
   const rootPath = winPath(path.join(options.cwd, options.rootDir)) + '/';
   const configPath = pagePath.replace(matcher, '.config');
   const manifestPath = winPath(pagePath).replace(matcher, '.json').replace(rootPath, '');
-  const config = readManifest(configPath, API.adapter.target);
+  const config = readManifest(configPath, options.target!);
   const usingComponents = getUsingComponents(modules, options, compilation);
 
   config.usingComponents = {

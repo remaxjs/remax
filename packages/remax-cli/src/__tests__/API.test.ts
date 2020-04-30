@@ -1,53 +1,48 @@
 import * as path from 'path';
 
-process.chdir(path.join(__dirname, 'fixtures/API'));
+process.chdir(path.join(__dirname, 'fixtures/api'));
 
-import yargs from 'yargs';
 import getConfig from '../getConfig';
 import API from '../API';
+import { Platform } from '@remax/types';
 
 const remaxOptions = getConfig(false);
 
-describe('API', () => {
+describe('api', () => {
+  const api = new API();
+
   beforeAll(() => {
-    API.registerNodePlugins(remaxOptions);
-    API.registerAdapterPlugins('ali', remaxOptions);
+    api.registerPlugins(remaxOptions);
+    api.registerAdapterPlugins(Platform.ali, remaxOptions);
   });
 
   it('install plugins in a variety of ways', () => {
-    expect(API.plugins).toHaveLength(5);
+    expect(api.plugins).toHaveLength(4);
   });
 
   it('install adapter plugin', () => {
-    expect(API.adapter.name).toEqual('ali');
-    expect(API.adapter.target).toEqual('ali');
-    expect(API.adapter.packageName).toEqual('@remax/ali');
-  });
-
-  it('extends CLI', () => {
-    const newYargs = API.extendsCLI({ cli: yargs });
-    const argv = newYargs.parse();
-
-    expect(argv.cat).toEqual(33);
+    expect(api.adapter.name).toEqual('ali');
+    expect(api.adapter.target).toEqual('ali');
+    expect(api.adapter.packageName).toEqual('@remax/ali');
   });
 
   it('processProps', () => {
-    const props = API.processProps('text', []);
+    const props = api.processProps('text', []);
 
     expect(props).toEqual(['p1', 'p2']);
   });
 
   it('shouldHostComponentRegister', () => {
-    expect(API.shouldHostComponentRegister('view', 'import', false)).toBeTruthy();
-    expect(API.shouldHostComponentRegister('swiper-item', 'import', false)).toBeFalsy();
+    expect(api.shouldHostComponentRegister('view', 'import', false)).toBeTruthy();
+    expect(api.shouldHostComponentRegister('swiper-item', 'import', false)).toBeFalsy();
   });
 
   it('getHostComponents', () => {
-    expect(API.getHostComponents()).toBeDefined();
+    expect(api.getHostComponents()).toBeDefined();
   });
 
   it('getMeta', () => {
-    const extensions = API.getMeta();
+    const extensions = api.getMeta();
     expect(extensions.jsHelper).toMatchInlineSnapshot(`
       Object {
         "extension": ".sjs",

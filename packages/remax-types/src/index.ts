@@ -1,7 +1,13 @@
 import yargs from 'yargs';
-import Config from 'webpack-chain';
-import * as webpack from 'webpack';
+import WebpackConfig from 'webpack-chain';
 import * as t from '@babel/types';
+
+export enum Platform {
+  'web' = 'web',
+  'wechat' = 'wechat',
+  'ali' = 'ali',
+  'toutiao' = 'toutiao',
+}
 
 export interface Options {
   turboPages?: string[];
@@ -12,8 +18,8 @@ export interface Options {
   rootDir: string;
   compressTemplate?: boolean;
   UNSAFE_wechatTemplateDepth: number | { [key: string]: number };
-  configWebpack?: (params: { config: Config }) => void;
-  plugins: RemaxNodePlugin[];
+  configWebpack?: (params: { config: WebpackConfig }) => void;
+  plugins: Plugin[];
   one?: boolean;
   notify?: boolean;
   watch?: boolean;
@@ -116,10 +122,6 @@ export interface Plugin {
   meta?: Meta;
   hostComponents?: Map<string, HostComponent>;
   /**
-   * 扩展 CLI 命令
-   */
-  extendsCLI?: (options: ExtendsCLIOptions) => CLI;
-  /**
    * 自定义组件属性
    * options.componentName 组件名称
    * options.props 组件属性
@@ -134,6 +136,16 @@ export interface Plugin {
    * options.phase 组件被引入的阶段，import | jsx | extra
    */
   shouldHostComponentRegister?: (options: ShouldHostComponentRegister) => boolean;
+
+  /**
+   * 修改 webpack 配置
+   */
+  configWebpack?: (params: { config: WebpackConfig }) => void;
+
+  /**
+   * 修改 babel 配置
+   */
+  configBabel?: (params: { config: any }) => void;
 }
 
-export type RemaxNodePluginConstructor = (options?: any) => Plugin;
+export type PluginConstructor = (options?: any) => Plugin;

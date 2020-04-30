@@ -1,12 +1,11 @@
 import * as path from 'path';
-import { RemaxOptions } from '@remax/types';
-import { Platform } from './platform';
+import { Options, Platform } from '@remax/types';
 
 interface Alias {
   [key: string]: string;
 }
 
-export default (options: RemaxOptions, target: Platform) => {
+export default (options: Options, target: Platform) => {
   const config: Alias = {
     '@': path.resolve(options.cwd, options.rootDir),
     react: path.resolve(options.cwd, 'node_modules', 'react'),

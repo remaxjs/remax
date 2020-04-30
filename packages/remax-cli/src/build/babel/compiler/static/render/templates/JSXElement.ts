@@ -6,6 +6,7 @@ import { createAttributesTemplate } from './attributes';
 import stringPath from './stringPath';
 import { RenderNode } from '../../types';
 import { EXPRESSION_BLOCK } from '../../constants';
+import API from '../../../../../../API';
 
 /**
  *  创建 JSXElement 对应的模板
@@ -17,7 +18,8 @@ import { EXPRESSION_BLOCK } from '../../constants';
  * @param {Function} createTemplate
  * @returns
  */
-export default function (
+export default function JSXElement(
+  api: API,
   node: RenderNode<t.JSXElement>,
   path: NodePath,
   dataPath: Array<string | number>,
@@ -55,11 +57,16 @@ export default function (
       // 剔除空 JSXText 标签
       .filter(child => !helpers.isEmptyText(child.node))
       .map((child, index) =>
-        createTemplate(child, path, module, isExpressionBlock ? dataPath : [...dataPath, 'children', index])
+        createTemplate(api, child, path, isExpressionBlock ? dataPath : [...dataPath, 'children', index])
       )
       .join('\n');
   }
 
   // 生成模板
-  return `<${tag} ${createAttributesTemplate(tag, stringPath(dataPath), attributes)}>${childrenTemplate}</${tag}>\n`;
+  return `<${tag} ${createAttributesTemplate(
+    api,
+    tag,
+    stringPath(dataPath),
+    attributes
+  )}>${childrenTemplate}</${tag}>\n`;
 }

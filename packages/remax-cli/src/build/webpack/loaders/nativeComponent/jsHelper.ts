@@ -61,9 +61,9 @@ const parseTemplate = (filePath: string, jsHelpers: Set<string>, jsHelper: any) 
   parser.end();
 };
 
-export default function jsHelper(id: string) {
+export default function jsHelper(api: API, id: string) {
   const jsHelpers: Set<string> = new Set();
-  const { jsHelper, template } = API.getMeta();
+  const { jsHelper, template } = api.getMeta();
 
   if (!jsHelper) {
     return [];

@@ -2,12 +2,12 @@ import * as path from 'path';
 import { DefinePlugin } from 'webpack';
 import Config from 'webpack-chain';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-import { RemaxOptions } from '@remax/types';
+import { Options } from '@remax/types';
 import alias from '../utils/alias';
-import { Platform } from '../utils/platform';
+import { Platform } from '@remax/types';
 import getEnvironment from '../utils/env';
 
-export default function baseConfig(config: Config, options: RemaxOptions, target: Platform) {
+export default function baseConfig(config: Config, options: Options, target: Platform) {
   config.resolveLoader.modules
     .merge(['node_modules', path.join(__dirname, './loaders')])
     .end()

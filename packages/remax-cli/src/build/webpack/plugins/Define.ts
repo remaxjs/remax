@@ -1,7 +1,7 @@
 import * as path from 'path';
 import { ReplaceSource } from 'webpack-sources';
 import { Compiler, compilation } from 'webpack';
-import { RemaxOptions, Entries } from '@remax/types';
+import { Options, Entries } from '@remax/types';
 import { appEvents, pageEvents, hostComponents } from '@remax/macro';
 import winPath from './../../../winPath';
 import getModules from '../../utils/modules';
@@ -9,10 +9,10 @@ import getModules from '../../utils/modules';
 const PLUGIN_NAME = 'RemaxDefinePlugin';
 
 export default class DefinePlugin {
-  remaxOptions: RemaxOptions;
+  remaxOptions: Options;
   entries: Entries;
 
-  constructor(options: RemaxOptions, entries: Entries) {
+  constructor(options: Options, entries: Entries) {
     this.remaxOptions = options;
     this.entries = entries;
   }

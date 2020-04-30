@@ -4,9 +4,9 @@ import traverse from '@babel/traverse';
 import { get } from 'lodash';
 import resolve from 'resolve';
 import { getPath } from '../../../utils/nativeComponent';
-import { RemaxOptions } from '@remax/types';
+import { Options } from '@remax/types';
 
-const walk = (jsPath: string, modules: Set<string>, options: RemaxOptions) => {
+const walk = (jsPath: string, modules: Set<string>, options: Options) => {
   const jsContent = fs.readFileSync(jsPath).toString();
   const ast = babelParser.parse(jsContent, {
     sourceType: 'module',
@@ -50,12 +50,12 @@ const walk = (jsPath: string, modules: Set<string>, options: RemaxOptions) => {
   });
 };
 
-const parseTemplate = (filePath: string, modules: Set<string>, options: RemaxOptions) => {
+const parseTemplate = (filePath: string, modules: Set<string>, options: Options) => {
   walk(filePath, modules, options);
   modules.add(filePath);
 };
 
-export default function jsModule(options: RemaxOptions, id: string) {
+export default function jsModule(options: Options, id: string) {
   const templatePath = id;
   const modules: Set<string> = new Set();
 

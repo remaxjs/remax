@@ -1,15 +1,15 @@
 import webpack from 'webpack';
-import { RemaxOptions } from '@remax/types';
+import { Options } from '@remax/types';
 import webpackConfig from './webpack/config.mini';
 import API from '../API';
 import output from './utils/output';
 
-export default function buildMini(options: RemaxOptions): webpack.Compiler {
+export default function buildMini(api: API, options: Options): webpack.Compiler {
   const { target } = options;
 
-  API.registerAdapterPlugins(target, options);
+  api.registerAdapterPlugins(target!, options);
 
-  const webpackOptions: webpack.Configuration = webpackConfig(options, target);
+  const webpackOptions: webpack.Configuration = webpackConfig(api, options, target!);
   const compiler = webpack(webpackOptions);
 
   if (options.watch) {
@@ -60,8 +60,6 @@ export default function buildMini(options: RemaxOptions): webpack.Compiler {
           output.warn(warning);
         });
       }
-
-      process.exit(0);
     });
   }
 

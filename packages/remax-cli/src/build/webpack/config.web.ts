@@ -5,22 +5,23 @@ import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebapckBar from 'webpackbar';
-import { RemaxOptions } from '@remax/types';
+import { Options } from '@remax/types';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 import * as RemaxPlugins from './plugins';
 import ejs from 'ejs';
-import { Platform } from '../utils/platform';
+import { Platform } from '@remax/types';
 import extensions, { moduleMatcher } from '../../extensions';
 import getEntries from '../../getEntries';
 import getAppConfig from '../utils/getAppConfig';
 import readManifest from '../../readManifest';
 import winPath from '../../winPath';
-import cssConfig from './config/css';
+import { cssConfig, addCSSRule, RuleConfig } from './config/css';
 import baseConfig from './baseConfig';
+import API from '../../API';
 
 export const config = new Config();
 
-function prepare(options: RemaxOptions) {
+function prepare(options: Options) {
   const entries = getEntries(options, Platform.web);
   const entryMap = [entries.app, ...entries.pages].reduce<any>((m, entry) => {
     const ext = path.extname(entry);
@@ -39,7 +40,7 @@ function prepare(options: RemaxOptions) {
   };
 }
 
-export default function webpackConfig(options: RemaxOptions): Configuration {
+export default function webpackConfig(api: API, options: Options): Configuration {
   baseConfig(config, options, Platform.web);
 
   const { entries, appConfig, publicPath } = prepare(options);
@@ -63,6 +64,7 @@ export default function webpackConfig(options: RemaxOptions): Configuration {
     .loader('babel')
     .options({
       reactPreset: true,
+      api,
       compact: process.env.NODE_ENV === 'production',
     });
 
@@ -124,6 +126,13 @@ export default function webpackConfig(options: RemaxOptions): Configuration {
   if (typeof options.configWebpack === 'function') {
     options.configWebpack({ config });
   }
+
+  api.configWebpack({
+    config,
+    addCSSRule: (ruleConfig: RuleConfig) => {
+      addCSSRule(config, options, false, ruleConfig);
+    },
+  });
 
   return config.toConfig();
 }

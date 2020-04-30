@@ -1,4 +1,3 @@
-import API from './API';
 export { default as logger } from './build/utils/output';
 import yargs from 'yargs';
 import { build } from './build';
@@ -26,8 +25,6 @@ export function run(args: any, callback?: yargs.ParseCallback) {
         build(argv);
       }
     );
-
-  cli = API.extendsCLI({ cli });
 
   cli
     .option('watch', {

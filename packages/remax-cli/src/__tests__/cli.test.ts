@@ -6,7 +6,7 @@ describe('CLI', () => {
     expect.assertions(1);
 
     run(' help', (err, argv, output) => {
-      expect(output).toMatch('Usage: remax-cli');
+      expect(output).toMatch('Usage: remax');
       done();
     });
   });

@@ -32,11 +32,11 @@ export const walk = (filePath: string, cssPaths: Set<string>) => {
   });
 };
 
-export default (id: string) => {
+export default function style(api: API, id: string) {
   const cssPaths: Set<string> = new Set();
-  const filePath = id.replace(/\.js$/, API.getMeta().style);
+  const filePath = id.replace(/\.js$/, api.getMeta().style);
 
   walk(filePath, cssPaths);
 
   return Array.from(cssPaths);
-};
+}

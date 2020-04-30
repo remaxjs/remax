@@ -2,9 +2,9 @@ import { existsSync } from 'fs';
 import resolve from 'resolve';
 import { getPath } from '../../../utils/nativeComponent';
 import output from '../../../utils/output';
-import { RemaxOptions } from '@remax/types';
+import { Options } from '@remax/types';
 
-const runWalk = (filePath: string, components: Set<string>, options: RemaxOptions) => {
+const runWalk = (filePath: string, components: Set<string>, options: Options) => {
   const walk = (filePath: string) => {
     delete require.cache[filePath];
     const { usingComponents = {} } = require(filePath);
@@ -38,7 +38,7 @@ const runWalk = (filePath: string, components: Set<string>, options: RemaxOption
   walk(filePath);
 };
 
-export default function usingComponents(id: string, options: RemaxOptions) {
+export default function usingComponents(id: string, options: Options) {
   const components = new Set<string>();
   const filePath = id.replace(/\.js$/, '.json');
   if (!existsSync(filePath)) {
