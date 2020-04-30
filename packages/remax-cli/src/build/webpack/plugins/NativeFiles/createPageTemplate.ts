@@ -2,11 +2,12 @@ import * as path from 'path';
 import { sortBy } from 'lodash';
 import { compilation } from 'webpack';
 import ejs from 'ejs';
-import { RemaxOptions, Meta } from '@remax/types';
+import { Options, Meta } from '@remax/types';
 import * as componentManifest from '../../../../build/babel/componentManifest';
 import winPath from '../../../../winPath';
 import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDepth';
 import * as cacheable from './cacheable';
+import API from '../../../../API';
 
 export function pageUID(pagePath: string) {
   let value = winPath(pagePath).replace('/', '_');
@@ -16,9 +17,9 @@ export function pageUID(pagePath: string) {
   return value;
 }
 
-export function createRenderOptions() {
+export function createRenderOptions(api: API) {
   return {
-    components: sortBy(componentManifest.values(), 'id'),
+    components: sortBy(componentManifest.values(api), 'id'),
     slotView: {
       props: [...new Set(componentManifest.SlotView.props || [])].sort(),
     },
@@ -26,7 +27,8 @@ export function createRenderOptions() {
 }
 
 export default async function createPageTemplate(
-  options: RemaxOptions,
+  api: API,
+  options: Options,
   pageFile: string,
   meta: Meta,
   compilation: compilation.Compilation
@@ -37,7 +39,7 @@ export default async function createPageTemplate(
   );
 
   const ejsOptions: { [props: string]: any } = {
-    ...createRenderOptions(),
+    ...createRenderOptions(api),
     baseTemplate: `/base${meta.template.extension}`,
   };
 
@@ -64,7 +66,7 @@ export default async function createPageTemplate(
   };
 }
 
-export async function createBaseTemplate(options: RemaxOptions, meta: Meta, compilation: compilation.Compilation) {
+export async function createBaseTemplate(api: API, options: Options, meta: Meta, compilation: compilation.Compilation) {
   if (!meta.ejs.base) {
     return null;
   }
@@ -72,7 +74,7 @@ export async function createBaseTemplate(options: RemaxOptions, meta: Meta, comp
   let source: string = await ejs.renderFile(
     meta.ejs.base,
     {
-      ...createRenderOptions(),
+      ...createRenderOptions(api),
       depth: ensureDepth(options.UNSAFE_wechatTemplateDepth),
     },
     {

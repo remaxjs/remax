@@ -1,10 +1,12 @@
 import { hostComponents } from '@remax/macro';
 import * as t from '@babel/types';
-import { RemaxOptions, RemaxNodePlugin, ExtendsCLIOptions, Meta, HostComponent } from '@remax/types';
+import { Options, Plugin, Meta, HostComponent, Platform } from '@remax/types';
 import { merge } from 'lodash';
+import Config from 'webpack-chain';
+import { RuleConfig } from './build/webpack/config/css';
 
-class API {
-  public plugins: RemaxNodePlugin[] = [];
+export default class API {
+  public plugins: Plugin[] = [];
   public adapter = {
     name: '',
     target: '',
@@ -29,16 +31,6 @@ class API {
       src: '',
     },
   };
-  public extendsCLI(options: ExtendsCLIOptions) {
-    let { cli } = options;
-    this.plugins.forEach(plugin => {
-      if (typeof plugin.extendsCLI === 'function') {
-        cli = plugin.extendsCLI({ ...options, cli });
-      }
-    });
-
-    return cli;
-  }
 
   public getMeta() {
     let meta: Meta = {
@@ -100,15 +92,29 @@ class API {
     }, true);
   }
 
-  public registerAdapterPlugins(targetName: string, remaxConfig: RemaxOptions) {
-    this.adapter.target = targetName;
+  configWebpack(params: { config: Config; addCSSRule: (ruleConfig: RuleConfig) => void }) {
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.configWebpack === 'function') {
+        plugin.configWebpack(params);
+      }
+    });
+  }
 
+  configBabel(params: { config: any }) {
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.configBabel === 'function') {
+        plugin.configBabel(params);
+      }
+    });
+  }
+
+  public registerAdapterPlugins(targetName: Platform, remaxConfig: Options) {
+    this.adapter.target = targetName;
     this.adapter.name = targetName;
     this.adapter.packageName = '@remax/' + targetName;
 
     const packagePath = this.adapter.packageName + '/node';
 
-    delete require.cache[packagePath];
     let plugin = require(packagePath).default || require(packagePath);
     plugin = typeof plugin === 'function' ? plugin() : plugin;
     this.registerHostComponents(plugin.hostComponents);
@@ -117,7 +123,6 @@ class API {
     if (remaxConfig.one) {
       const onePath = '@remax/one/node';
 
-      delete require.cache[onePath];
       const plugin = require(onePath).default || require(onePath);
       const one = plugin();
       this.registerHostComponents(one.hostComponents);
@@ -125,8 +130,9 @@ class API {
     }
   }
 
-  public registerNodePlugins(remaxConfig: RemaxOptions) {
-    remaxConfig.plugins.forEach(plugin => {
+  public registerPlugins(options: Options) {
+    options.plugins?.forEach(plugin => {
+      console.log(plugin);
       if (plugin) {
         this.registerHostComponents(plugin.hostComponents);
         this.plugins.push(plugin);
@@ -144,5 +150,3 @@ class API {
     }
   }
 }
-
-export default new API();

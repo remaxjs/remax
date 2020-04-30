@@ -2,12 +2,17 @@ import * as path from 'path';
 import * as fs from 'fs';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { RemaxOptions } from '@remax/types';
+import { Options } from '@remax/types';
 import winPath from '../../../winPath';
 
-const styleMatcher = /\.(css|less|s[ac]ss|styl(us)?)$/i;
+export interface RuleConfig {
+  name: string;
+  test: RegExp;
+  loader?: string;
+  options?: any;
+}
 
-function resolvePostcssConfig(options: RemaxOptions) {
+function resolvePostcssConfig(options: Options) {
   if (fs.existsSync(path.join(options.cwd, 'postcss.config.js'))) {
     return options.cwd;
   }
@@ -15,49 +20,28 @@ function resolvePostcssConfig(options: RemaxOptions) {
   return winPath(path.resolve(__dirname, '../../../..'));
 }
 
-function enabled(module: string) {
-  try {
-    require.resolve(module);
-    return true;
-  } catch {
-    return false;
-  }
-}
+export function addCSSRule(webpackConfig: Config, options: Options, web: boolean, ruleConfig: RuleConfig) {
+  const rule = webpackConfig.module.rule(ruleConfig.name).test(ruleConfig.test);
 
-function applyLoaders(
-  rule: Config.Rule<Config.Rule<Config.Module>>,
-  preProcessors: Array<{ name: string; loader: string; options?: any }>,
-  cssModules: boolean
-) {
-  rule.use('mini-css-extract-loader').loader(MiniCssExtractPlugin.loader);
+  function applyLoaders(rule: Config.Rule<Config.Rule<Config.Module>>, cssModules: boolean) {
+    rule.use('mini-css-extract-loader').loader(MiniCssExtractPlugin.loader);
 
-  rule
-    .use('css-loader')
-    .loader(require.resolve('css-loader'))
-    .options({
-      importLoaders: preProcessors.length,
-      modules: cssModules
-        ? {
-            localIdentName: '[local]___[hash:base64:5]',
-          }
-        : false,
-    });
-
-  preProcessors.forEach(preprocessor => {
     rule
-      .use(preprocessor.name)
-      .loader(preprocessor.loader)
-      .options(preprocessor.options ?? {});
-  });
-}
+      .use('css-loader')
+      .loader(require.resolve('css-loader'))
+      .options({
+        importLoaders: ruleConfig.loader ? 2 : 1,
+        modules: cssModules
+          ? {
+              localIdentName: '[local]___[hash:base64:5]',
+            }
+          : false,
+      });
 
-export default function cssConfig(webpackConfig: Config, options: RemaxOptions, web: boolean) {
-  const rule = webpackConfig.module.rule('css').test(styleMatcher);
-  const preProcessors = [
-    {
-      name: 'postcss-loader',
-      loader: require.resolve('postcss-loader'),
-      options: {
+    rule
+      .use('postcss-loader')
+      .loader(require.resolve('postcss-loader'))
+      .options({
         config: {
           path: resolvePostcssConfig(options),
           ctx: {
@@ -77,22 +61,20 @@ export default function cssConfig(webpackConfig: Config, options: RemaxOptions, 
             },
           },
         },
-      },
-    },
-    enabled('less') && {
-      name: 'less-loader',
-      loader: require.resolve('less-loader'),
-    },
-    enabled('node-sass') && {
-      name: 'sass-loader',
-      loader: require.resolve('sass-loader'),
-    },
-    enabled('stylus') && {
-      name: 'stylus-loader',
-      loader: require.resolve('stylus-loader'),
-    },
-  ].filter(Boolean) as any[];
+      });
 
-  applyLoaders(rule.oneOf('modules').resourceQuery(/modules/), preProcessors, true);
-  applyLoaders(rule.oneOf('normal'), preProcessors, false);
+    if (ruleConfig.loader) {
+      rule.use(ruleConfig.loader).loader(require.resolve(ruleConfig.loader)).options(ruleConfig.options);
+    }
+  }
+
+  applyLoaders(rule.oneOf('modules').resourceQuery(/modules/), true);
+  applyLoaders(rule.oneOf('normal'), false);
+}
+
+export function cssConfig(webpackConfig: Config, options: Options, web: boolean) {
+  addCSSRule(webpackConfig, options, web, {
+    name: 'css',
+    test: /\.css(\?.*)?$/,
+  });
 }

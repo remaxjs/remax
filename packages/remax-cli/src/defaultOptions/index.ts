@@ -1,7 +1,7 @@
-import { RemaxOptions } from '@remax/types';
+import { Options } from '@remax/types';
 import UNSAFE_wechatTemplateDepth from './UNSAFE_wechatTemplateDepth';
 
-export function getDefaultOptions(): RemaxOptions {
+export function getDefaultOptions(): Options {
   return {
     turboPages: [],
     pxToRpx: true,

@@ -1,6 +1,6 @@
 import * as path from 'path';
 import build, { JEST_BUILD_TIMEOUT } from './build';
-import { Platform } from '../../build/utils/platform';
+import { Platform } from '@remax/types';
 
 export default function runTest(app: string, target: Platform = Platform.ali, outputPath?: string, options?: any) {
   it(

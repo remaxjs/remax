@@ -1,7 +1,7 @@
 import * as path from 'path';
 import ejs from 'ejs';
 import { Compiler } from 'webpack';
-import { Entries, RemaxOptions } from '@remax/types';
+import { Entries, Options } from '@remax/types';
 import winPath from '../../../winPath';
 import readManifest from '../../../readManifest';
 import getAppConfig from '../../utils/getAppConfig';
@@ -18,9 +18,9 @@ export default class WebEntryWatcherPlugin {
     config: string;
     originalPath: string;
   }>;
-  remaxOptions: RemaxOptions;
+  remaxOptions: Options;
 
-  constructor(virtualModules: any, entryTemplate: string, entries: Entries, options: RemaxOptions) {
+  constructor(virtualModules: any, entryTemplate: string, entries: Entries, options: Options) {
     this.virtualModules = virtualModules;
     this.entryTemplate = entryTemplate;
     this.entries = entries;

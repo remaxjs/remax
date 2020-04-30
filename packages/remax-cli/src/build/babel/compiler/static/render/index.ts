@@ -4,6 +4,7 @@ import { TEMPLATE_ID, ENTRY } from '../constants';
 import { createTemplate, templateInfoMap } from '../render/templates';
 import { JSXNode, RenderNode } from '../types';
 import * as helpers from '../helpers';
+import API from '../../../../../API';
 
 /**
  * 判断 JSX 元素是否处于一段 JSX 片段的顶部
@@ -108,46 +109,46 @@ function sortNodes(node: JSXNode): RenderNode[] {
 }
 
 /**
- * 遍历 JSX 元素，生成所有模板
- *
- * @param {(NodePath<t.JSXElement | t.JSXFragment>)} path
- * @param {*} state
- * @returns
- */
-function renderTemplates(path: NodePath<t.JSXElement | t.JSXFragment>, state: any) {
-  if (!isRootPath(path)) {
-    return;
-  }
-
-  const nodes = sortNodes(path.node).sort();
-
-  nodes.forEach(node => {
-    // case: JSXExpressionContainer 已经都被包裹在 block 里面，entry 中不会有
-    // case: JSXFragment 已经被 sortNodes 方法处理掉了，不会出现
-    // case: JSXText TODO: 由于 JSXText 无法记录 template id，这里先不处理
-    // case: JSXSpreadChild 未知使用场景
-    if (!t.isJSXElement(node.node)) {
-      return;
-    }
-
-    const module = state.filename;
-    const templateID = markTemplateID(node.node.openingElement);
-
-    if (templateInfoMap.has(templateID)) {
-      return;
-    }
-
-    templateInfoMap.set(templateID, createTemplate(node, path, module, ['node']), module, isEntry(path.node));
-  });
-}
-
-/**
  * 将 JSX 片段保存起来，用于生成静态化的原生模板
  *
  * @export
  * @returns
  */
-export default function render() {
+export default function render(api: API) {
+  /**
+   * 遍历 JSX 元素，生成所有模板
+   *
+   * @param {(NodePath<t.JSXElement | t.JSXFragment>)} path
+   * @param {*} state
+   * @returns
+   */
+  function renderTemplates(path: NodePath<t.JSXElement | t.JSXFragment>, state: any) {
+    if (!isRootPath(path)) {
+      return;
+    }
+
+    const nodes = sortNodes(path.node).sort();
+
+    nodes.forEach(node => {
+      // case: JSXExpressionContainer 已经都被包裹在 block 里面，entry 中不会有
+      // case: JSXFragment 已经被 sortNodes 方法处理掉了，不会出现
+      // case: JSXText TODO: 由于 JSXText 无法记录 template id，这里先不处理
+      // case: JSXSpreadChild 未知使用场景
+      if (!t.isJSXElement(node.node)) {
+        return;
+      }
+
+      const module = state.filename;
+      const templateID = markTemplateID(node.node.openingElement);
+
+      if (templateInfoMap.has(templateID)) {
+        return;
+      }
+
+      templateInfoMap.set(templateID, createTemplate(api, node, path, ['node']), module, isEntry(path.node));
+    });
+  }
+
   return {
     pre(state: any) {
       templateInfoMap.remove(state.opts.filename);

@@ -2,21 +2,23 @@ import * as path from 'path';
 import { compilation } from 'webpack';
 import ejs from 'ejs';
 import { nativeComponents } from '@remax/macro';
-import { RemaxOptions, Meta } from '@remax/types';
+import { Options, Meta } from '@remax/types';
 import { TEMPLATE_ID } from '../../../babel/compiler/static/constants';
 import { templateInfoMap } from '../../../babel/compiler/static/render/templates';
 import { createRenderOptions } from './createPageTemplate';
 import { ComponentManifest } from '../../../babel/componentManifest';
 import winPath from '../../../../winPath';
+import API from '../../../../API';
 
 export default async function createTurboPageTemplate(
-  options: RemaxOptions,
+  api: API,
+  options: Options,
   pageFile: string,
   modules: string[],
   meta: Meta,
   compilation: compilation.Compilation
 ) {
-  const renderOptions: any = createRenderOptions();
+  const renderOptions: any = createRenderOptions(api);
   const pagePath = winPath(pageFile).replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '');
   const fileName = winPath(
     `${path.dirname(pagePath)}/${path.basename(pagePath, path.extname(pagePath))}${meta.template.extension}`

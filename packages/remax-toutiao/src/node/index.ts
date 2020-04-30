@@ -1,10 +1,10 @@
 import * as path from 'path';
 import hostComponents from '../hostComponents/node';
-import { RemaxNodePluginConstructor } from '@remax/types';
+import { PluginConstructor } from '@remax/types';
 
 const EJS_TPL_ROOT = path.join(__dirname, '../../templates');
 
-const plugin: RemaxNodePluginConstructor = () => {
+const plugin: PluginConstructor = () => {
   return {
     name: 'remax-toutiao',
     meta: {

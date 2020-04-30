@@ -1,12 +1,11 @@
 import * as path from 'path';
 import { compilation } from 'webpack';
-import { RemaxOptions } from '@remax/types';
+import { Options } from '@remax/types';
 import readManifest from '../../../../readManifest';
-import API from '../../../../API';
 import * as cacheable from './cacheable';
 
-export default function createAppManifest(options: RemaxOptions, compilation: compilation.Compilation) {
-  const config = readManifest(path.resolve(options.cwd, `${options.rootDir}/app.config`), API.adapter.target);
+export default function createAppManifest(options: Options, compilation: compilation.Compilation) {
+  const config = readManifest(path.resolve(options.cwd, `${options.rootDir}/app.config`), options.target!);
   const source = Buffer.from(JSON.stringify(config, null, 2));
 
   const fileName = 'app.json';

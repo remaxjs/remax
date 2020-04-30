@@ -1,11 +1,11 @@
 import * as path from 'path';
 import hostComponents from '../hostComponents/node';
-import { RemaxNodePluginConstructor } from '@remax/types';
+import { PluginConstructor } from '@remax/types';
 
 const TPL_DEFAULT_ROOT = path.join(__dirname, '../../templates', 'default');
 const TPL_STATIC_ROOT = path.join(__dirname, '../../templates', 'static');
 
-const plugin: RemaxNodePluginConstructor = () => {
+const plugin: PluginConstructor = () => {
   return {
     name: 'remax-ali',
     meta: {

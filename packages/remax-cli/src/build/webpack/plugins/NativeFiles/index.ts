@@ -1,6 +1,6 @@
 import * as path from 'path';
 import { Compiler } from 'webpack';
-import { RemaxOptions, Entries } from '@remax/types';
+import { Options, Entries } from '@remax/types';
 import API from '../../../../API';
 import createAppManifest from './createAppManifest';
 import createPageTemplate, { createBaseTemplate } from './createPageTemplate';
@@ -14,10 +14,12 @@ import getModules from '../../../utils/modules';
 const PLUGIN_NAME = 'RemaxNativeFilesPlugin';
 
 export default class NativeFilesPlugin {
-  remaxOptions: RemaxOptions;
+  api: API;
+  remaxOptions: Options;
   entries: Entries;
 
-  constructor(options: RemaxOptions, entries: Entries) {
+  constructor(api: API, options: Options, entries: Entries) {
+    this.api = api;
     this.remaxOptions = options;
     this.entries = entries;
   }
@@ -26,13 +28,13 @@ export default class NativeFilesPlugin {
     compiler.hooks.emit.tapAsync(PLUGIN_NAME, async (compilation, callback) => {
       const options = this.remaxOptions;
       const entries = this.entries;
-      const meta = API.getMeta();
+      const meta = this.api.getMeta();
 
       // app.json
       await createAppManifest(options, compilation);
 
       // base template
-      await createBaseTemplate(options, meta, compilation);
+      await createBaseTemplate(this.api, options, meta, compilation);
 
       Promise.all(
         entries.pages.map(async pagePath => {
@@ -48,10 +50,10 @@ export default class NativeFilesPlugin {
 
           if (turboPages.validate(pagePath, options)) {
             // turbo page
-            await createTurboPageTemplate(options, pagePath, modules, meta, compilation);
+            await createTurboPageTemplate(this.api, options, pagePath, modules, meta, compilation);
           } else {
             // page template
-            await createPageTemplate(options, pagePath, meta, compilation);
+            await createPageTemplate(this.api, options, pagePath, meta, compilation);
             // page helper
             await createPageHelperFile(options, pagePath, meta, compilation);
           }

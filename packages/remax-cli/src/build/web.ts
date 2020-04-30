@@ -1,12 +1,13 @@
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
-import { RemaxOptions } from '@remax/types';
+import { Options } from '@remax/types';
 import webpackConfig from './webpack/config.web';
 import address from 'address';
 import output from './utils/output';
+import API from '../API';
 
-export default function buildWeb(options: RemaxOptions): webpack.Compiler {
-  const webpackOptions: webpack.Configuration = webpackConfig(options);
+export default function buildWeb(api: API, options: Options): webpack.Compiler {
+  const webpackOptions: webpack.Configuration = webpackConfig(api, options);
   const compiler = webpack(webpackOptions);
 
   if (options.watch) {

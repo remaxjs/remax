@@ -3,8 +3,8 @@ import { Configuration } from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import WebpackBar from 'webpackbar';
-import { RemaxOptions } from '@remax/types';
-import { Platform } from '../utils/platform';
+import { Options } from '@remax/types';
+import { Platform } from '@remax/types';
 import extensions, { moduleMatcher } from '../../extensions';
 import getEntries from '../../getEntries';
 import * as TurboPages from '../utils/turboPages';
@@ -17,16 +17,15 @@ import fixRegeneratorRuntime from '../babel/fixRegeneratorRuntime';
 import componentManifest from '../babel/componentManifest';
 import * as RemaxPlugins from './plugins';
 import API from '../../API';
-import * as platform from '../utils/platform';
 import winPath from '../../winPath';
-import cssConfig from './config/css';
+import { cssConfig, addCSSRule, RuleConfig } from './config/css';
 import baseConfig from './baseConfig';
 import fs from 'fs';
 
 export const config = new Config();
 
-function prepare(options: RemaxOptions, target: Platform) {
-  const meta = API.getMeta();
+function prepare(api: API, options: Options, target: Platform) {
+  const meta = api.getMeta();
   const turboPagesEnabled = options.turboPages && options.turboPages.length > 0;
 
   const entries = getEntries(options, target);
@@ -45,8 +44,8 @@ function prepare(options: RemaxOptions, target: Platform) {
       .replace(new RegExp(`\\${ext}$`), '');
     return m.concat([{ key: name, path: entry }]);
   }, []);
-  const stubModules = platform.mini
-    .filter(name => API.adapter.target !== name)
+  const stubModules = [Platform.ali, Platform.toutiao, Platform.wechat]
+    .filter(name => target !== name)
     .reduce<string[]>((acc, name) => [...acc, `${name}/esm/api`, `${name}/esm/hostComponents`], []);
 
   const publicPath = '/';
@@ -62,17 +61,21 @@ function prepare(options: RemaxOptions, target: Platform) {
   };
 }
 
-function resolveBabelConfig(options: RemaxOptions) {
+function resolveBabelConfig(options: Options) {
   if (fs.existsSync(path.join(options.cwd, 'babel.config.js'))) {
     return path.join(options.cwd, 'babel.config.js');
   }
   return false;
 }
 
-export default function webpackConfig(options: RemaxOptions, target: Platform): Configuration {
+export default function webpackConfig(api: API, options: Options, target: Platform): Configuration {
   baseConfig(config, options, target);
 
-  const { meta, turboPagesEnabled, entries, entryMap, pageEntries, stubModules, publicPath } = prepare(options, target);
+  const { meta, turboPagesEnabled, entries, entryMap, pageEntries, stubModules, publicPath } = prepare(
+    api,
+    options,
+    target
+  );
 
   for (const entry in entryMap) {
     config.entry(entry).add(entryMap[entry]);
@@ -117,7 +120,7 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     config.module
       .rule('turbo-page')
       .pre()
-      .use('tuboPagesPostProcess')
+      .use('turbo-page-postprocess')
       .loader('babel')
       .options({
         usePlugins: [staticCompiler.postProcess],
@@ -125,17 +128,17 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
       })
       .end()
       .test(moduleMatcher)
-      .use('tuboPagesRender')
+      .use('turbo-page-render')
       .loader('babel')
       .options({
-        usePlugins: [staticCompiler.render],
+        usePlugins: [staticCompiler.render.bind(null, api)],
         reactPreset: false,
       })
       .end()
       .test(moduleMatcher)
       .include.merge(TurboPages.filter(entries, options))
       .end()
-      .use('tuboPagesPreprocess')
+      .use('turbo-page-preprocess')
       .loader('babel')
       .options({
         usePlugins: [staticCompiler.preprocess],
@@ -151,13 +154,15 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
     .options({
       babelrc: false,
       configFile: resolveBabelConfig(options),
-      usePlugins: [appEvent(entries.app), pageEvent(pageEntries), componentManifest(options), fixRegeneratorRuntime()],
+      usePlugins: [appEvent(entries.app), pageEvent(pageEntries), componentManifest(api), fixRegeneratorRuntime()],
       reactPreset: true,
+      api,
       compact: process.env.NODE_ENV === 'production',
     });
 
-  config.module.rule('native-component').test(moduleMatcher).use('nativeComponent').loader('nativeComponent').options({
+  config.module.rule('native-component').test(moduleMatcher).use('native-component').loader('nativeComponent').options({
     remaxOptions: options,
+    api,
   });
 
   cssConfig(config, options, false);
@@ -185,13 +190,20 @@ export default function webpackConfig(options: RemaxOptions, target: Platform): 
 
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
-  config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [options, entries]);
+  config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [api, options, entries]);
   config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options, entries]);
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
 
   if (typeof options.configWebpack === 'function') {
     options.configWebpack({ config });
   }
+
+  api.configWebpack({
+    config,
+    addCSSRule: (ruleConfig: RuleConfig) => {
+      addCSSRule(config, options, false, ruleConfig);
+    },
+  });
 
   return config.toConfig();
 }

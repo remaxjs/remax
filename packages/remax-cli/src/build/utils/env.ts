@@ -1,10 +1,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { RemaxOptions } from '@remax/types';
+import { Options } from '@remax/types';
 
 type Env = Record<string, string | undefined>;
 
-export default function getEnvironment(options: RemaxOptions, target: string) {
+export default function getEnvironment(options: Options, target: string) {
   const envFilePath = path.join(options.cwd, '.env');
 
   process.env.NODE_ENV = process.env.NODE_ENV || 'development';

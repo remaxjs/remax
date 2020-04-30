@@ -5,6 +5,7 @@ import JSXElement from './JSXElement';
 import JSXExpressionContainer from './JSXExpressionContainer';
 import TemplateInfoMap from './TemplateInfoMap';
 import { RenderNode } from '../../types';
+import API from '../../../../../../API';
 
 export const templateInfoMap = new TemplateInfoMap();
 
@@ -18,13 +19,13 @@ export const templateInfoMap = new TemplateInfoMap();
  * @returns {string}
  */
 export function createTemplate(
+  api: API,
   element: RenderNode,
   path: NodePath<any>,
-  module: string,
   dataPath: Array<string | number>
 ): string {
   if (t.isJSXElement(element.node)) {
-    return JSXElement(element as RenderNode<t.JSXElement>, path, dataPath, createTemplate);
+    return JSXElement(api, element as RenderNode<t.JSXElement>, path, dataPath, createTemplate);
   }
 
   if (t.isJSXExpressionContainer(element.node)) {
