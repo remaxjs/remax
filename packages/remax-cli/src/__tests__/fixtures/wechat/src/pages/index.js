@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ScrollView, Swiper, SwiperItem, View, Text, Input } from 'remax/wechat';
+import { ScrollView, Swiper, SwiperItem, View, Text, Input, OfficialAccount } from 'remax/wechat';
 import { Lifestyle as UnknownComponent } from 'remax/ali';
 
 export default () => {
@@ -46,6 +46,7 @@ export default () => {
           </Text>
         </View>
       </View>
+      <OfficialAccount onLoad={() => {}} onError={() => {}} />
     </View>
   );
 };
