@@ -85,6 +85,12 @@ export default function webpackConfig(api: API, options: Options): Configuration
     .use('file')
     .loader(require.resolve('file-loader'));
 
+  config.module
+    .rule('font')
+    .test(/\.(ttf|eot|woff|woff2)$/i)
+    .use('file')
+    .loader(require.resolve('file-loader'));
+
   const entryTemplate = fs.readFileSync(path.resolve(__dirname, '../../../template/entry.js.ejs'), 'utf-8');
   const pages = entries.pages.map(p => {
     const ext = path.extname(p);

@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'iconfont';
+  src: url('data:font/ttf;base64,') format('truetype');
+}
+
+
 .a {
   /* 避免添加 postcss 插件后删除了 remax 自身的插件，测试 px to rpx 功能 */
   height: 10rpx;

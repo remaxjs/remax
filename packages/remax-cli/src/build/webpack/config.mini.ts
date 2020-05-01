@@ -186,6 +186,12 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .use('file')
     .loader(require.resolve('file-loader'));
 
+  config.module
+    .rule('font')
+    .test(/\.(ttf|eot|woff|woff2)$/i)
+    .use('file')
+    .loader(require.resolve('file-loader'));
+
   config.plugin('webpackbar').use(WebpackBar, [{ name: target }]);
 
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
