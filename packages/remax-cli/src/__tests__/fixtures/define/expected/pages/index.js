@@ -219,6 +219,7 @@ __webpack_require__.r(__webpack_exports__);
       "selectionEnd": "selection-end",
       "randomNumber": "randomNumber",
       "controlled": "controlled",
+      "enableNative": "enableNative",
       "onInput": "onInput",
       "onConfirm": "onConfirm",
       "onFocus": "onFocus",
