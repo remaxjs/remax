@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.18...v2.0.0) (2020-05-05)
+
+### Bug Fixes
+
+- **ali:** 修复 Input 组件的 enableNative 属性不生效的问题 ([f428027](https://github.com/remaxjs/remax/commit/f42802796fd1be93cbdfde47dd8c6060cac19f04))
+
 # [2.0.0-alpha.18](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.17...v2.0.0-alpha.18) (2020-05-05)
 
 ### Features
