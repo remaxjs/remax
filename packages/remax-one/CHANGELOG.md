@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-alpha.18](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.17...v2.0.0-alpha.18) (2020-05-05)
+
+### Features
+
+- 完善插件机制 ([#850](https://github.com/remaxjs/remax/issues/850)) ([0897cbf](https://github.com/remaxjs/remax/commit/0897cbf0d427362981d3d9523ff38259ff4abebb))
+
 # [2.0.0-alpha.17](https://github.com/remaxjs/remax/compare/v2.0.0-alpha.16...v2.0.0-alpha.17) (2020-04-30)
 
 **Note:** Version bump only for package @remax/one

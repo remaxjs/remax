@@ -1,6 +1,6 @@
 {
   "name": "@remax/web",
-  "version": "2.0.0-alpha.17",
+  "version": "2.0.0-alpha.18",
   "description": "Shim of web for remax",
   "author": "Wei Zhu <yesmeck@gmail.com>",
   "homepage": "https://github.com/remaxjs/remax#readme",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@loadable/component": "^5.12.0",
-    "@remax/router": "2.0.0-alpha.17",
+    "@remax/router": "2.0.0-alpha.18",
     "rmc-pull-to-refresh": "^1.0.12",
     "umi-hd": "^5.0.1"
   },
