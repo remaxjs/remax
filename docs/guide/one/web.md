@@ -7,7 +7,7 @@ group:
 
 # Web 同构
 
-从 Remax 2.0 开发，`remax/one` 支持 web target，进行 web 同构。
+从 Remax 2.0 开发，`remax/one` 支持 web 应用的构建。
 
 ```bash
 $ remax build -t web
@@ -19,7 +19,7 @@ $ remax build -t web
 
 ```js
 // app.config.js
-exports.web = {
+module.exports.web = {
   // 页面默认标题
   title: '页面默认标题',
   // 配置的页面
@@ -59,7 +59,7 @@ exports.web = {
 
 ```js
 // app.config.js
-exports.web = {
+module.exports.web = {
   // 页面标题
   title: '页面标题',
   // 是否开启下拉刷新

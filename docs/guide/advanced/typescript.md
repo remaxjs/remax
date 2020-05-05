@@ -37,5 +37,3 @@ $ cd my-app
 $ npx degit remaxjs/template-one-typescript my-app
 $ cd my-app
 ```
-
-Remax 也将提供组件和 API 的 type 定义。

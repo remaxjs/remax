@@ -1,6 +1,6 @@
 ---
 title: Remax 配置
-order: 0
+order: 1
 group:
   title: 配置
   order: 3

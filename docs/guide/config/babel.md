@@ -1,6 +1,6 @@
 ---
 title: Babel 配置
-order: 1
+order: 2
 ---
 
 # Babel 配置

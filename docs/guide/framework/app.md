@@ -1,6 +1,6 @@
 ---
 title: App
-order: 0
+order: 1
 group:
   title: 框架
   order: 1
@@ -43,7 +43,7 @@ module.exports = {
 };
 ```
 
-Remax 优先读取默认导出的配置，如果你开发的是多端共用的项目，则可以改为：
+Remax 优先读取默认导出的配置，如果你开发的是一个跨平台的的项目，则可以改为：
 
 ```js
 // app.config.js

@@ -7,12 +7,18 @@ order: 6
 
 ## 预处理器
 
-Remax 默认支持 css/less/sass/stylus，安装你需要的样式处理器即可使用。如：
+Remax 支持通过插件的添加 CSS 预处理器，以 Less 为例：
 
-```bash
-$ npm install less --save  # less 用户
-$ npm install node-sass --save  # sass 用户
+```js
+// remax.config.js
+const less = require('@remax/plugin-less');
+
+module.exports = {
+  plugins: [less()],
+};
 ```
+
+更多插件的用法可以参考[《使用插件》](https://remaxjs.org/guide/advanced/plugin)。
 
 ## px 转换
 

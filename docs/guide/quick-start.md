@@ -30,7 +30,7 @@ $ cd my-app && npm install
 $ npm run dev
 ```
 
-打开小程序开发者工具，选中项目根目录，你将看到
+打开小程序开发者工具，选中项目下的 `dist` 目录，你将看到
 
 <img src="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*Ig_sQarBrgIAAAAAAAAAAABkARQnAQ" width="240" />
 
@@ -81,7 +81,7 @@ module.exports = {
 ```jsx
 import * as React from 'react';
 import { View, Text } from 'remax/ali';
-import './index.module.css';
+import './index.css';
 
 export default () => {
   return (

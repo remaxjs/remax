@@ -5,9 +5,10 @@ order: 1
 
 # 页面
 
-Remax 中的页面当然也是一个 React 组件。
+Remax 中的页面也是一个 React 组件。
 
 ```js
+// src/pages/index.js
 const IndexPage = () => {
   return <View>Hello world!</View>;
 };
@@ -17,7 +18,7 @@ export default IndexPage;
 
 ## 页面配置
 
-假设你的页面文件是 `src/pages/index.js`，那么这个页面的配置文件就是 `src/pages/index.config.js`。
+假设你的页面文件是 `src/pages/index.js`，那么这个页面对应的配置文件就是 `src/pages/index.config.js`。
 
 同 `app.config.js` 一样，你可以默认导出一个配置，也可以为不同的平台导出不同的配置。
 
@@ -27,15 +28,11 @@ module.exports = {
 };
 ```
 
-> 注意
->
-> Remax 在页面实例上设置了一些内部逻辑相关的属性（包括 data 上面的值），不要随意修改实例上的属性。
-
 ## 生命周期
 
 对于 class 组件的页面你可以直接在 class 上监听页面的生命周期。
 
-[小程序生命周期未调用？](/faq)
+[小程序生命周期未调用？](/faq#使用高阶组件导致页面的生命周期未调用)
 
 ```jsx
 export default class IndexPage extends React.Component {
@@ -74,7 +71,7 @@ export default () => {
 
 > 注意
 >
-> class 组件的生命周期回调只能用在页面组件上，但是 hooks 可以用在任意的组件上。
+> class 组件的生命周期回调只能用在页面组件上，但是 hooks 可以用在任意的函数组件上。
 
 ## 页面参数
 
@@ -120,6 +117,10 @@ export default () => {
   ...
 }
 ```
+
+> 注意
+>
+> Remax 在页面实例上设置了一些内部逻辑相关的属性（包括 data 上面的值），不要修改实例上的属性。
 
 ## 小程序渲染 Effect
 

@@ -16,15 +16,13 @@ features:
 footer: Open-source MIT Licensed | Copyright © 2020<br />Powered by [dumi](https://d.umijs.org/)
 ---
 
-## 示例
-
 <!-- ### 支付宝
 
 <p align="center">
   <iframe width="100%" height="641" style="border:none;" src="https://herbox-embed-pre.site.alipay.net/p/herbox-cli-test/remax-test?defaultOpenedFiles=src/pages/index/index.js" ></iframe>
 </p> -->
 
-### Web
+### Web 应用支持
 
 <p align="center">
 <iframe
