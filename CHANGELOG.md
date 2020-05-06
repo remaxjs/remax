@@ -44,6 +44,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - 去除 native 目录支持，[可以配置 webpack copy 插件达到同样的效果](https://remaxjs.org/guide/advanced/hybrid#%E5%8E%9F%E7%94%9F%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91)
 - `unstable_useNativeEffect` 重命名为 `useNativeEffect`。
 - 废弃 `Platform`，平台判断请改用 `process.env.REMAX_PLATFORM`。
+- 去掉了 `app.config.js` 和页面配置文件的 ES Modules 支持。
 
 <hr />
 
