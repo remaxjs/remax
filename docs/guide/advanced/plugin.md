@@ -40,7 +40,7 @@ Remax 的插件是一个简单的方法，这个方法返回一个对象，对�
 const lessPlugin = options => {
   return {
     configWebpack({ config, addCSSRule }) {
-      createCSSRule({
+      addCSSRule({
         name: 'less',
         test: /\.less(\?.*)?$/,
         loader: require.resolve('less-loader'),
@@ -63,7 +63,7 @@ export default lessPlugin;
 
 - `params`
   - `config` - `webpack-chain` 的 `Config 对象`。
-  - `createCSSRule` - 创建一条 CSS 处理规则。
+  - `addCSSRule` - 新增一条 CSS 处理规则。
 
 ### configBabel
 
