@@ -27,7 +27,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Breaking Changes
 
 - 构建工具从 Rollup 切换到 Webpack。
-- 废弃 `remax-cli`，现在主要 `remax` 一个依赖即可。
+- 废弃 `remax-cli`，现在只要 `remax` 一个依赖即可。
 - `alipay` 平台重命名为 `ali`。
 - remax.config.js
   - 去掉 rollupOptions (改为 configWebpack，用于修改 webpack 配置)。
