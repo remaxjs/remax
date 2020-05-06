@@ -5,7 +5,10 @@ function getModule(module: any): string[] {
   return Array.from(
     new Set([
       module.resource,
-      ...(module.dependencies as any[]).reduce<string[]>((acc, d) => [...acc, d.originModule?.resource], []),
+      ...(module.dependencies as any[]).reduce<string[]>(
+        (acc, d) => [...acc, d.module?.resource, ...getModule(d.module)],
+        []
+      ),
     ])
   );
 }
