@@ -22,6 +22,12 @@ export default function createAppConfig(this: any, App: any) {
 
       _instance: React.createRef<any>(),
 
+      onLaunch(options: any) {
+        this._render();
+
+        return this.callLifecycle(AppLifecycle.launch, options);
+      },
+
       callLifecycle(lifecycle: AppLifecycle, ...args: any[]) {
         const callbacks = AppInstanceContext.lifecycleCallback[lifecycle] || [];
         let result;
@@ -67,12 +73,6 @@ export default function createAppConfig(this: any, App: any) {
     };
 
     const lifecycleEvent: any = {
-      onLaunch(options: any) {
-        this._render();
-
-        return this.callLifecycle(AppLifecycle.launch, options);
-      },
-
       onShow(options: any) {
         return this.callLifecycle(AppLifecycle.show, options);
       },

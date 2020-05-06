@@ -25,11 +25,7 @@ export default (entry: string) => {
           return;
         }
 
-        const parentNode = path.parentPath.node;
-
-        if (t.isCallExpression(parentNode) && (parentNode.callee as any)?.name === '_defineProperty') {
-          appEvents.set(entry, appEvents.get(entry)?.add(node.value) ?? new Set([node.value]));
-        }
+        appEvents.set(entry, appEvents.get(entry)?.add(node.value) ?? new Set([node.value]));
       },
       Identifier: (path: NodePath<t.Identifier>) => {
         if (skip) {
@@ -40,12 +36,6 @@ export default (entry: string) => {
 
         // 只要生命周期 Identifer 存在就标记为用到了生命周期
         if (!lifecycleEvents.includes(node.name)) {
-          return;
-        }
-
-        // 非函数定义不处理
-        // 非函数定义不处理
-        if (!t.isFunctionExpression(path.parentPath.node)) {
           return;
         }
 
