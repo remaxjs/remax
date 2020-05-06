@@ -52,4 +52,26 @@ export default defineConfig({
       margin-bottom: 0;
     }`,
   ],
+  scripts: [
+    'https://www.googletagmanager.com/gtag/js?id=UA-145491804-1',
+    `
+    window.GATSBY_GTAG_PLUGIN_GA_TRACKING_ID = (
+      'UA-145491804-1'
+    );
+    window.GATSBY_GTAG_PLUGIN_ANONYMIZE = false;
+
+    var options = {
+      send_page_view: false
+    };
+    if (false) {
+      options.anonymize_ip = true;
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'UA-145491804-1', options);
+    `,
+  ],
 });
