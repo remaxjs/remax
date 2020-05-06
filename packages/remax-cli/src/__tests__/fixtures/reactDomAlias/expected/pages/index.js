@@ -1732,6 +1732,11 @@ function createAppConfig(App) {
       _container: new _AppContainer__WEBPACK_IMPORTED_MODULE_3__["default"](_this),
       _pages: [],
       _instance: react__WEBPACK_IMPORTED_MODULE_1__["createRef"](),
+      onLaunch: function onLaunch(options) {
+        this._render();
+
+        return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_5__["AppLifecycle"].launch, options);
+      },
       callLifecycle: function callLifecycle(lifecycle) {
         var _a;
 
@@ -1780,11 +1785,6 @@ function createAppConfig(App) {
       }
     };
     var lifecycleEvent = {
-      onLaunch: function onLaunch(options) {
-        this._render();
-
-        return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_5__["AppLifecycle"].launch, options);
-      },
       onShow: function onShow(options) {
         return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_5__["AppLifecycle"].show, options);
       },
