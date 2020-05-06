@@ -55,7 +55,7 @@ export default lessPlugin;
 
 ## Hooks
 
-### configWebpack
+### configWebpack
 
 修改 Webpack 配置。
 
