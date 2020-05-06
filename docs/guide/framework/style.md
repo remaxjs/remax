@@ -7,7 +7,7 @@ order: 6
 
 ## 预处理器
 
-Remax 支持通过插件的添加 CSS 预处理器，以 Less 为例：
+Remax 支持通过插件的方式添加 CSS 预处理器，以 Less 为例：
 
 ```js
 // remax.config.js

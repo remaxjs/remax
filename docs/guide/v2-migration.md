@@ -158,6 +158,13 @@ import './index.css';
 
 ## 样式
 
+### 通过插件支持 CSS 预处理器
+
+2.0 不再默认支持 Less、Sass 和 Stylus，需要通过对应的插件来支持。
+
+[使用插件](https://remaxjs.org/guide/advanced/plugin)
+[插件列表](https://github.com/remaxjs/plugins#%E6%8F%92%E4%BB%B6%E5%88%97%E8%A1%A8)
+
 ### CSS 中的图片
 
 1.0 中，CSS 不支持相对路径引入图片，绝对路径 remax 则会自动复制图片到输出目录的对应位置。
