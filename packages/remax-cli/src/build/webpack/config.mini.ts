@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { Configuration } from 'webpack';
+import * as webpack from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import WebpackBar from 'webpackbar';
@@ -68,7 +68,7 @@ function resolveBabelConfig(options: Options) {
   return false;
 }
 
-export default function webpackConfig(api: API, options: Options, target: Platform): Configuration {
+export default function webpackConfig(api: API, options: Options, target: Platform): webpack.Configuration {
   baseConfig(config, options, target);
 
   const { meta, turboPagesEnabled, entries, entryMap, pageEntries, stubModules, publicPath } = prepare(
@@ -201,11 +201,12 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
 
   if (typeof options.configWebpack === 'function') {
-    options.configWebpack({ config });
+    options.configWebpack({ config, webpack });
   }
 
   api.configWebpack({
     config,
+    webpack,
     addCSSRule: (ruleConfig: RuleConfig) => {
       addCSSRule(config, options, false, ruleConfig);
     },

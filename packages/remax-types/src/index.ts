@@ -18,7 +18,7 @@ export interface Options {
   rootDir: string;
   compressTemplate?: boolean;
   UNSAFE_wechatTemplateDepth: number | { [key: string]: number };
-  configWebpack?: (params: { config: WebpackConfig }) => void;
+  configWebpack?: (params: { config: WebpackConfig; webpack: any }) => void;
   plugins: Plugin[];
   one?: boolean;
   notify?: boolean;

@@ -63,6 +63,7 @@ export default lessPlugin;
 
 - `params`
   - `config` - `webpack-chain` 的 `Config 对象`。
+  - `webpack` - Webpack 实例，用于获取 Webpack 内置插件。
   - `addCSSRule` - 新增一条 CSS 处理规则。
 
 ### configBabel

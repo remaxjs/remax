@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import { Configuration } from 'webpack';
+import * as webpack from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -40,7 +40,7 @@ function prepare(options: Options) {
   };
 }
 
-export default function webpackConfig(api: API, options: Options): Configuration {
+export default function webpackConfig(api: API, options: Options): webpack.Configuration {
   baseConfig(config, options, Platform.web);
 
   const { entries, appConfig, publicPath } = prepare(options);
@@ -130,11 +130,12 @@ export default function webpackConfig(api: API, options: Options): Configuration
   config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options, entries]);
 
   if (typeof options.configWebpack === 'function') {
-    options.configWebpack({ config });
+    options.configWebpack({ config, webpack });
   }
 
   api.configWebpack({
     config,
+    webpack,
     addCSSRule: (ruleConfig: RuleConfig) => {
       addCSSRule(config, options, false, ruleConfig);
     },

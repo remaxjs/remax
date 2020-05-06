@@ -49,9 +49,14 @@ _默认值：_ `true`
 // remax.config.js
 
 module.exports = {
-  configWebpack({ config }) {
+  configWebpack({ config, webpack }) {
     // config 是的 [webpack-chain](https://github.com/neutrinojs/webpack-chain) Config 对象。
     config.plugins.delete('webpackbar'); // 去掉进度条
+    config.plugin('custom-define').use(webpack.DefinePlugin, [
+      {
+        __MOCK__: JSON.stringify(process.env.MOCK),
+      },
+    ]); // 新增一个 define 插件
   },
 };
 ```
