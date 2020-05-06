@@ -132,7 +132,6 @@ export default class API {
 
   public registerPlugins(options: Options) {
     options.plugins?.forEach(plugin => {
-      console.log(plugin);
       if (plugin) {
         this.registerHostComponents(plugin.hostComponents);
         this.plugins.push(plugin);
