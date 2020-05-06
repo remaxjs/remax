@@ -94,7 +94,15 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   config.output.publicPath(publicPath);
   config.optimization.runtimeChunk({ name: 'runtime' });
   config.optimization.splitChunks({
-    chunks: 'initial',
+    cacheGroups: {
+      remaxVendors: {
+        name: 'remax-vendors',
+        test: moduleMatcher,
+        chunks: 'initial',
+        minChunks: 2,
+        minSize: 0,
+      },
+    },
   });
   config.optimization.minimize(false);
 

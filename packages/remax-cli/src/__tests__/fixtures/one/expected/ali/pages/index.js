@@ -1,5 +1,5 @@
 require('./../runtime.js');
-require('./../packageA/pages/index~pages/index.js');
+require('./../remax-vendors.js');
 (my["webpackJsonp"] = my["webpackJsonp"] || []).push([[2],[
 /* 0 */,
 /* 1 */,
@@ -190,7 +190,12 @@ module.exports = remax/wechat;
 module.exports = remax/ali;
 
 /***/ }),
-/* 27 */,
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
 /* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 

@@ -1,4 +1,4 @@
-(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[4],[
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[4],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
@@ -431,9 +431,7 @@ function (_super) {
       inputProps.onBlur = Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_1__["createCallback"])(this.props.onBlur, _createHostComponent__WEBPACK_IMPORTED_MODULE_1__["createInputEvent"]);
     }
 
-    if (true) {
-      inputProps.maxLength = (_a = inputProps.maxLength) !== null && _a !== void 0 ? _a : 140;
-    }
+    if (false) {}
 
     return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]('input', __assign(__assign({}, inputProps), this.state));
   };
@@ -592,9 +590,7 @@ function (_super) {
       inputProps.onBlur = Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_1__["createCallback"])(this.props.onBlur, _createHostComponent__WEBPACK_IMPORTED_MODULE_1__["createInputEvent"]);
     }
 
-    if (true) {
-      inputProps.maxLength = (_a = inputProps.maxLength) !== null && _a !== void 0 ? _a : 140;
-    }
+    if (false) {}
 
     return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]('textarea', __assign(__assign({}, inputProps), this.state));
   };
@@ -640,17 +636,17 @@ var WebView = Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _remax_toutiao__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(23);
-/* harmony import */ var _remax_toutiao__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_remax_toutiao__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "navigateTo", function() { return _remax_toutiao__WEBPACK_IMPORTED_MODULE_0__["navigateTo"]; });
+/* harmony import */ var _remax_ali__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(23);
+/* harmony import */ var _remax_ali__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_remax_ali__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "navigateTo", function() { return _remax_ali__WEBPACK_IMPORTED_MODULE_0__["navigateTo"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "navigateBack", function() { return _remax_toutiao__WEBPACK_IMPORTED_MODULE_0__["navigateBack"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "navigateBack", function() { return _remax_ali__WEBPACK_IMPORTED_MODULE_0__["navigateBack"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "redirectTo", function() { return _remax_toutiao__WEBPACK_IMPORTED_MODULE_0__["redirectTo"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "redirectTo", function() { return _remax_ali__WEBPACK_IMPORTED_MODULE_0__["redirectTo"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "reLaunch", function() { return _remax_toutiao__WEBPACK_IMPORTED_MODULE_0__["reLaunch"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "reLaunch", function() { return _remax_ali__WEBPACK_IMPORTED_MODULE_0__["reLaunch"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "switchTab", function() { return _remax_toutiao__WEBPACK_IMPORTED_MODULE_0__["switchTab"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "switchTab", function() { return _remax_ali__WEBPACK_IMPORTED_MODULE_0__["switchTab"]; });
 
 
 
@@ -678,13 +674,6 @@ __webpack_require__.r(__webpack_exports__);
     className: "c ".concat(className)
   }, "c");
 });
-
-/***/ }),
-/* 26 */,
-/* 27 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ })
 ]]);

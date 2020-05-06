@@ -1,4 +1,7 @@
-@import "./index~pages/index.wxss";
+.c {
+  background-color: red;
+}
+
 .pageA-index {
   background-color: aliceblue;
 }
