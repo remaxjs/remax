@@ -40,11 +40,16 @@ export default () => {
 
 ## 使用
 
-从模板创建：
+使用 `create-remax-app` 创建：
 
 ```bash
-$ npx degit remaxjs/template-one my-app
-$ cd my-app
+$ npx create-remax-app my-app
+$ cd my-app && npm install
+
+or
+
+$ yarn create remax-app my-app
+$ cd my-app && yarn
 ```
 
 或者在已有的项目中引入：
