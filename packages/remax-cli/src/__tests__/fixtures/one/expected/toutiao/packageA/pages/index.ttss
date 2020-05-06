@@ -1,4 +1,7 @@
-@import "./index~pages/index.ttss";
+.c {
+  background-color: red;
+}
+
 .pageA-index {
   background-color: aliceblue;
 }

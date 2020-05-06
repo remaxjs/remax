@@ -1,5 +1,6 @@
 require('./../runtime.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[5],[
+require('./../remax-vendors.js');
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[3],[
 /* 0 */,
 /* 1 */,
 /* 2 */
@@ -25,17 +26,7 @@ module.exports = remax/ali;
 /* 7 */,
 /* 8 */,
 /* 9 */,
-/* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index2'));
-
-/***/ }),
+/* 10 */,
 /* 11 */,
 /* 12 */,
 /* 13 */,
@@ -123,4 +114,4 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index9'));
 
 /***/ })
-],[[18,0]]]);
+],[[18,0,7]]]);

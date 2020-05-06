@@ -1,5 +1,5 @@
 require('./../../runtime.js');
-require('./index~pages/index.js');
+require('./../../remax-vendors.js');
 (tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[3],{
 
 /***/ 2:
@@ -20,6 +20,13 @@ module.exports = @remax/toutiao;
 /***/ (function(module, exports) {
 
 module.exports = remax/ali;
+
+/***/ }),
+
+/***/ 27:
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ }),
 
