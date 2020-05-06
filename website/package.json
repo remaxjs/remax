@@ -4,12 +4,16 @@
   "version": "2.0.0",
   "scripts": {
     "start": "dumi dev",
-    "build": "dumi build"
+    "build": "dumi build",
+    "postbuild": "echo remaxjs.org > dist/CNAME",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
   "dependencies": {
-    "dumi": "^1.0.7"
+    "dumi": "^1.0.7",
+    "gh-pages": "^2.2.0"
   }
 }
