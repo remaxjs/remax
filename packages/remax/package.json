@@ -1,6 +1,6 @@
 {
   "name": "remax",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "index.js",
   "bin": {
@@ -22,14 +22,14 @@
   },
   "homepage": "https://remaxjs.org",
   "dependencies": {
-    "@remax/ali": "2.0.1",
-    "@remax/cli": "2.0.1",
-    "@remax/macro": "2.0.1",
-    "@remax/one": "2.0.1",
-    "@remax/runtime": "2.0.1",
-    "@remax/toutiao": "2.0.1",
-    "@remax/web": "2.0.1",
-    "@remax/wechat": "2.0.1",
+    "@remax/ali": "2.0.2",
+    "@remax/cli": "2.0.2",
+    "@remax/macro": "2.0.2",
+    "@remax/one": "2.0.2",
+    "@remax/runtime": "2.0.2",
+    "@remax/toutiao": "2.0.2",
+    "@remax/web": "2.0.2",
+    "@remax/wechat": "2.0.2",
     "mini-types": "^0.1.1",
     "miniprogram-api-typings": "^2.10.4"
   },
