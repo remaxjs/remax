@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import { TextWebProps } from './props';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
 
+export type TextProps = TextWebProps;
+
 const Text: React.FC<TextWebProps> = props => {
   const {
     onTap,

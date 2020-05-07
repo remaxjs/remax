@@ -618,7 +618,6 @@ function (_super) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
-/* eslint-disable @typescript-eslint/camelcase */
 
 var View = Object(_createHostComponent__WEBPACK_IMPORTED_MODULE_0__["default"])('view');
 /* harmony default export */ __webpack_exports__["default"] = (View);

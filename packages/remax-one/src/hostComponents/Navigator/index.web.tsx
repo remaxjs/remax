@@ -4,6 +4,8 @@ import { history } from '@remax/router/web';
 import { NavigatorProps } from './props';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
 
+export type { NavigatorProps };
+
 const Navigator: React.FC<NavigatorProps> = props => {
   const { className, url, action, hoverClassName, hoverStartTime, hoverStayTime, ...restProps } = filterProps(props);
 

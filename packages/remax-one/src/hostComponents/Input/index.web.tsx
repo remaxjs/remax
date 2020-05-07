@@ -4,6 +4,8 @@ import { filterProps } from '../../utils/isPlatformSpecifyProp';
 import useWebPlaceholderStyle from '../../useWebPlaceholderStyle';
 import clsx from 'clsx';
 
+export type InputProps = InputWebProps;
+
 const Input: React.FC<InputWebProps> = props => {
   const { password, type, onConfirm, onKeyPress, placeholderStyle, className, ...restProps } = filterProps(props);
   const [placeholderStyleClassName] = useWebPlaceholderStyle(placeholderStyle);

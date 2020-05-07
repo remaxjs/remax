@@ -3,6 +3,8 @@ import { InputEvent } from '../../types';
 import { createCallback, createInputEvent } from '../../createHostComponent';
 import { InputProps } from './props';
 
+export type { InputProps };
+
 export interface InputState {
   value?: string;
   controlled: boolean;

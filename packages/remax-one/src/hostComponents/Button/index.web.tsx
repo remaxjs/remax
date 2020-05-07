@@ -4,6 +4,8 @@ import { ButtonWebProps } from './props';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
 import useWebTouch from '../useWebTouch';
 
+export type ButtonProps = ButtonWebProps;
+
 const Button: React.FC<ButtonWebProps> = props => {
   const {
     hoverClassName,

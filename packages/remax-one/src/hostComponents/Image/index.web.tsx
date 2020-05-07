@@ -4,6 +4,8 @@ import { filterProps } from '../../utils/isPlatformSpecifyProp';
 import modeStyle from './modeStyle';
 import clsx from 'clsx';
 
+export type ImageProps = ImageWebProps;
+
 const Image: React.FC<ImageWebProps> = props => {
   const { className, src, style, mode, onTap, onLoad, onError, ...restProps } = filterProps<ImageWebProps>(props);
   const isWidthFixMode = mode === 'widthFix';
