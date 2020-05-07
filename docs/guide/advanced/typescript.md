@@ -8,32 +8,19 @@ group:
 
 # TypeScript 支持
 
-Remax 默认支持用 TypeScript 开发。我们亦提供了 TypeScript 模板帮助你快速创建项目。
+Remax 默认支持用 TypeScript 开发。在 `create-remax-app` 中我们亦提供了 TypeScript 模板帮助你快速创建项目。
+根据你的需要选择对应的小程序模版。
 
-微信
+你可以通过 npx 安装：
 
 ```bash
-$ npx degit remaxjs/template-wechat-typescript my-app
-$ cd my-app
+$ npx create-remax-app my-app-ts -t
+$ cd my-app-ts && npm i
 ```
 
-阿里
+使用 yarn 的方式：
 
 ```bash
-$ npx degit remaxjs/template-ali-typescript my-app
-$ cd my-app
-```
-
-字节跳动
-
-```bash
-$ npx degit remaxjs/template-toutiao-typescript my-app
-$ cd my-app
-```
-
-跨平台
-
-```bash
-$ npx degit remaxjs/template-one-typescript my-app
-$ cd my-app
+$ yarn create remax-app my-app-ts -t
+$ cd my-app-ts && yarn
 ```

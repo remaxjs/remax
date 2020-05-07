@@ -8,26 +8,30 @@ nav:
 
 # 快速上手
 
-这里以阿里（支付宝）小程序为例，其他小程序都是同样的打开方式。
+使用 `create-remax-app` 选择你要创建的小程序。
+
+受支持的小程序列表：
+
+- 阿里系小程序
+- 微信小程序
+- 头条小程序
+- 跨平台（支持以上所有）
 
 > Remax 支持所有阿里系小程序，包括支付宝，钉钉，淘宝等。
 
 ## 创建项目
 
 ```bash
-$ npx degit remaxjs/template-ali my-app
+$ npx create-remax-app my-app
 $ cd my-app && npm install
 ```
-
-其他小程序平台的模板：
-
-- 微信：`npx degit remaxjs/template-wechat my-app`
-- 头条：`npx degit remaxjs/template-toutiao my-app`
 
 ## 运行项目
 
 ```bash
-$ npm run dev
+$ npm run dev # 非跨平台
+or
+$ npm run dev <platform> # 跨平台，如：要在阿里小程序环境运行，则 npm run dev ali
 ```
 
 打开小程序开发者工具，选中项目下的 `dist` 目录，你将看到
@@ -40,7 +44,7 @@ $ npm run dev
 
 现在我们来看一下 Remax 应用的结构：
 
-```
+```bash
 my-app/
 ┳ package.json
 ┣ dist/
