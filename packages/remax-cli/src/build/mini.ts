@@ -29,7 +29,7 @@ export default function buildMini(api: API, options: Options): webpack.Compiler 
       }
 
       if (stats.hasWarnings()) {
-        output.warn(info.warnings.join('\n'));
+        console.warn(info.warnings.join('\n'));
       }
 
       // 适配阿里小程序 IDE
@@ -57,7 +57,7 @@ export default function buildMini(api: API, options: Options): webpack.Compiler 
 
       if (stats.hasWarnings()) {
         info.warnings.forEach(warning => {
-          output.warn(warning);
+          console.warn(warning);
         });
       }
     });

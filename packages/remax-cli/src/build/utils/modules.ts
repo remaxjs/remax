@@ -1,21 +1,30 @@
-function getModule(module: any): string[] {
+function getModule(module: any, modules: string[]): string[] {
   if (!module) {
     return [];
   }
   return Array.from(
     new Set([
       module.resource,
-      ...(module.dependencies as any[]).reduce<string[]>(
-        (acc, d) => [...acc, d.module?.resource, ...getModule(d.module)],
-        []
-      ),
+      ...(module.dependencies as any[]).reduce<string[]>((acc, d) => {
+        const newModules = [...acc, ...modules];
+
+        if (!d.module?.resource) {
+          return acc;
+        }
+
+        if (newModules.includes(d.module?.resource)) {
+          return acc;
+        }
+
+        return [...acc, d.module.resource, ...getModule(d.module, [...newModules, d.module.resource])];
+      }, []),
     ])
   );
 }
 
 export default function getModules(chunk: any) {
   const modules = Array.from(chunk._modules)
-    .reduce<string[]>((acc, cur) => [...acc, ...getModule(cur)], [])
+    .reduce<string[]>((acc, cur) => [...acc, ...getModule(cur, acc)], [])
     .filter(Boolean)
     .sort();
 
