@@ -3,6 +3,8 @@ import { InputEvent } from '../../types';
 import { createCallback, createInputEvent } from '../../createHostComponent';
 import { TextareaProps } from './props';
 
+export type { TextareaProps };
+
 export interface TextareaState {
   value?: string;
   controlled: boolean;

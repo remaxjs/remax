@@ -5,6 +5,8 @@ import useWebPlaceholderStyle from '../../useWebPlaceholderStyle';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
 import clsx from 'clsx';
 
+export type TextareaProps = TextareaWebProps;
+
 const Textarea: React.FC<TextareaWebProps> = props => {
   const { onConfirm, onKeyPress, autoHeight, className, placeholderStyle, ...restProps } = filterProps(props);
   const [placeholderStyleClassName] = useWebPlaceholderStyle(placeholderStyle);

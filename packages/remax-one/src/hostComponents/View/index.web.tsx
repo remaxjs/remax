@@ -4,6 +4,8 @@ import { ViewWebProps } from './props';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
 import useWebTouch from '../useWebTouch';
 
+export type ViewProps = ViewWebProps;
+
 const View: React.FC<ViewWebProps> = props => {
   const {
     hoverClassName,
