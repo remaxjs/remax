@@ -24,11 +24,3 @@ $ cd my-app-ts && npm i
 $ yarn create remax-app my-app-ts -t
 $ cd my-app-ts && yarn
 ```
-
-全局安装
-
-```bash
-$ npm i -g create-remax-app
-$ create-remax-app my-app-ts -t
-$ cd my-app-ts && npm i
-```

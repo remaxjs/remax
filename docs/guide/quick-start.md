@@ -12,10 +12,10 @@ nav:
 
 受支持的小程序列表：
 
-* 阿里系小程序
-* 微信小程序
-* 头条小程序
-* 跨平台（支持以上所有）
+- 阿里系小程序
+- 微信小程序
+- 头条小程序
+- 跨平台（支持以上所有）
 
 > Remax 支持所有阿里系小程序，包括支付宝，钉钉，淘宝等。
 
@@ -49,9 +49,6 @@ my-app/
 ┳ package.json
 ┣ dist/
 ┣ node_modules/
-┣ mini.project.json
-┣ remax.config.js
-┣ app.json
 ┣ src/
 ┗━┓ app.js
   ┣ app.css
