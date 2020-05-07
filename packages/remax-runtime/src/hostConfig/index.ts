@@ -13,6 +13,12 @@ const {
   unstable_now: now,
 } = scheduler;
 
+const DOM_TAG_MAP: { [name: string]: string } = {
+  span: 'text',
+  div: 'view',
+  img: 'image',
+};
+
 function processProps(newProps: any, node: VNode, id: number) {
   const props: any = {};
   for (const propKey of Object.keys(newProps)) {
@@ -66,7 +72,7 @@ export default {
     const id = generate();
     const node = new VNode({
       id,
-      type,
+      type: DOM_TAG_MAP[type] ?? type,
       props: {},
       container,
     });
