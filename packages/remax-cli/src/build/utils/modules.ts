@@ -1,7 +1,4 @@
 function getModule(module: any, modules: string[]): string[] {
-  if (!module) {
-    return [];
-  }
   return Array.from(
     new Set([
       module.resource,
