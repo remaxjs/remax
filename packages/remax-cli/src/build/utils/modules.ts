@@ -1,19 +1,43 @@
+function getModuleResource(module: any) {
+  if (!module) {
+    return '';
+  }
+
+  // 跳过 css 模块
+  if (module.constructor.name === 'CssModule') {
+    return '';
+  }
+
+  // TODO: 针对不同类型的 module 做处理
+
+  return module.resource || module.rootModule?.resource;
+}
+
 function getModule(module: any, modules: string[]): string[] {
+  const resource = getModuleResource(module);
+
+  if (!resource) {
+    return [];
+  }
+
   return Array.from(
     new Set([
-      module.resource,
+      resource,
       ...(module.dependencies as any[]).reduce<string[]>((acc, d) => {
         const newModules = [...acc, ...modules];
+        const module = d.module || d.originModule;
 
-        if (!d.module?.resource) {
+        const resource = getModuleResource(module);
+
+        if (!resource) {
           return acc;
         }
 
-        if (newModules.includes(d.module?.resource)) {
+        if (newModules.includes(resource)) {
           return acc;
         }
 
-        return [...acc, d.module.resource, ...getModule(d.module, [...newModules, d.module.resource])];
+        return [...acc, resource, ...getModule(module, [...newModules, resource])];
       }, []),
     ])
   );
