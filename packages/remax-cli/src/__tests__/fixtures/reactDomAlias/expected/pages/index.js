@@ -1801,6 +1801,14 @@ function createAppConfig(App) {
       // 微信
       onPageNotFound: function onPageNotFound(options) {
         return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_5__["AppLifecycle"].pageNotFound, options);
+      },
+      // 微信
+      onUnhandledRejection: function onUnhandledRejection(options) {
+        return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_5__["AppLifecycle"].unhandledRejection, options);
+      },
+      // 微信
+      onThemeChange: function onThemeChange(options) {
+        return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_5__["AppLifecycle"].themeChange, options);
       }
     };
     Object(_lifecycle__WEBPACK_IMPORTED_MODULE_5__["appEvents"])().forEach(function (eventName) {
@@ -2010,6 +2018,8 @@ var AppLifecycle;
   AppLifecycle["error"] = "error";
   AppLifecycle["shareAppMessage"] = "shareAppMessage";
   AppLifecycle["pageNotFound"] = "pageNotFound";
+  AppLifecycle["unhandledRejection"] = "unhandledRejection";
+  AppLifecycle["themeChange"] = "themeChange";
 })(AppLifecycle || (AppLifecycle = {}));
 
 function lifeCycleName(name) {
