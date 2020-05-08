@@ -35,6 +35,14 @@ describe('app', () => {
         log.push('onPageNotFound');
       }
 
+      onUnhandledRejection() {
+        log.push('onUnhandledRejection');
+      }
+
+      onThemeChange() {
+        log.push('onThemeChange');
+      }
+
       render() {
         return <React.Fragment>{this.props.children}</React.Fragment>;
       }
@@ -46,6 +54,8 @@ describe('app', () => {
     app.shareAppMessage();
     app.pageNotFound();
     app.error();
+    app.unhandledRejection();
+    app.themeChange();
     app.hide();
 
     expect(log).toEqual([
@@ -57,6 +67,8 @@ describe('app', () => {
       'onPageNotFound',
       'error',
       'onError',
+      'onUnhandledRejection',
+      'onThemeChange',
       'onHide',
     ]);
   });
@@ -100,6 +112,8 @@ describe('app', () => {
     app.pageNotFound();
     app.shareAppMessage();
     app.error();
+    app.unhandledRejection();
+    app.themeChange();
     app.hide();
 
     expect(log).toEqual(['launch', 'show', 'appEventShow', 'pageNotFound', 'shareAppMessage', 'error', 'hide']);

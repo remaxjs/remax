@@ -94,6 +94,16 @@ export default function createAppConfig(this: any, App: any) {
       onPageNotFound(options: any) {
         return this.callLifecycle(AppLifecycle.pageNotFound, options);
       },
+
+      // 微信
+      onUnhandledRejection(options: any) {
+        return this.callLifecycle(AppLifecycle.unhandledRejection, options);
+      },
+
+      // 微信
+      onThemeChange(options: any) {
+        return this.callLifecycle(AppLifecycle.themeChange, options);
+      },
     };
 
     appEvents().forEach(eventName => {

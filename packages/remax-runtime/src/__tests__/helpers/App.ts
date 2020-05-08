@@ -21,6 +21,14 @@ class App {
     this.config.onError('error');
   }
 
+  themeChange() {
+    this.config.onThemeChange();
+  }
+
+  unhandledRejection() {
+    this.config.onUnhandledRejection();
+  }
+
   pageNotFound() {
     this.config.onPageNotFound({
       path: 'path',
