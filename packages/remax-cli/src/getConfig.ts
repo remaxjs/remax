@@ -10,6 +10,7 @@ export interface CliOptions {
 }
 
 function readJavascriptConfig(path: string) {
+  delete require.cache[path];
   const config = require(path);
   return config || {};
 }
