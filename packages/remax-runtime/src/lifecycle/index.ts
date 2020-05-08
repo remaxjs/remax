@@ -31,6 +31,8 @@ export enum AppLifecycle {
   error = 'error',
   shareAppMessage = 'shareAppMessage',
   pageNotFound = 'pageNotFound',
+  unhandledRejection = 'unhandledRejection',
+  themeChange = 'themeChange',
 }
 
 export function lifeCycleName(name: string): Lifecycle {

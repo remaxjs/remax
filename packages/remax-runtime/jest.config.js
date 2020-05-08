@@ -20,7 +20,16 @@ module.exports = {
       },
     ],
     __REMAX_APP_ENTRY_INFO__: {},
-    __REMAX_APP_EVENTS__: ['onLaunch', 'onShow', 'onHide', 'onShareAppMessage', 'onPageNotFound', 'onError'],
+    __REMAX_APP_EVENTS__: [
+      'onLaunch',
+      'onShow',
+      'onHide',
+      'onShareAppMessage',
+      'onPageNotFound',
+      'onError',
+      'onUnhandledRejection',
+      'onThemeChange',
+    ],
     __REMAX_PAGE_EVENTS__: {
       '/path/to/test/index': ['onShow'],
       '/path/to/test/index2': [
