@@ -1,20 +1,17 @@
-import * as path from 'path';
 import { ReplaceSource } from 'webpack-sources';
 import { Compiler, compilation } from 'webpack';
-import { Options, Entries } from '@remax/types';
+import { Options } from '@remax/types';
 import { appEvents, pageEvents, hostComponents } from '@remax/macro';
-import winPath from './../../../winPath';
 import getModules from '../../utils/modules';
+import { getPages } from '../../../getEntries';
 
 const PLUGIN_NAME = 'RemaxDefinePlugin';
 
 export default class DefinePlugin {
   remaxOptions: Options;
-  entries: Entries;
 
-  constructor(options: Options, entries: Entries) {
+  constructor(options: Options) {
     this.remaxOptions = options;
-    this.entries = entries;
   }
 
   apply(compiler: Compiler) {
@@ -51,15 +48,9 @@ export default class DefinePlugin {
   }
 
   stringifyEntryInfo(compilation: compilation.Compilation) {
-    const options = this.remaxOptions;
-    const entries = this.entries;
-
-    let entryWithModules = entries.pages.map(pagePath => {
+    let entryWithModules = getPages(this.remaxOptions).map(page => {
       const chunk = compilation.chunks.find(c => {
-        let name = winPath(pagePath).replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '');
-        const ext = path.extname(name);
-        name = name.replace(new RegExp(`\\${ext}$`), '');
-        return c.name === name;
+        return c.name === page.name;
       });
 
       // TODO: 应该有更好的获取 modules 的方式？

@@ -1,4 +1,4 @@
-const cacheStorage: any = {};
+let cacheStorage: any = {};
 
 export function invalid(key: string, source: string) {
   const currentSource = cacheStorage[key];
@@ -10,4 +10,8 @@ export function invalid(key: string, source: string) {
   }
 
   return false;
+}
+
+export function reset() {
+  cacheStorage = {};
 }

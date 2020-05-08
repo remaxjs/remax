@@ -1,25 +1,9 @@
-import fs from 'fs';
-import path from 'path';
-import { Options, AppConfig } from '@remax/types';
+import { Options, AppConfig, Platform } from '@remax/types';
 import readManifest from '../../readManifest';
-
-export function searchFile(file: string) {
-  const exts = ['ts', 'tsx', 'js', 'jsx'];
-
-  for (const e of exts) {
-    const extFile = file + '.' + e;
-    if (fs.existsSync(extFile)) {
-      return extFile;
-    }
-  }
-
-  return '';
-}
+import { appConfigFile } from './paths';
 
 export const getAppConfig = (options: Options) => {
-  const appConfigPath: string = path.join(options.cwd, options.rootDir, 'app.config');
-
-  return readManifest(appConfigPath, 'web', true) as AppConfig;
+  return readManifest(appConfigFile(options), Platform.web, true) as AppConfig;
 };
 
 export default getAppConfig;

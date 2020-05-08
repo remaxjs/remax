@@ -9,41 +9,22 @@ import extensions, { moduleMatcher } from '../../extensions';
 import getEntries from '../../getEntries';
 import * as TurboPages from '../utils/turboPages';
 import * as staticCompiler from '../babel/compiler/static';
-import app from '../babel/app';
-import page from '../babel/page';
+import appEntry from '../babel/app';
+import pageEntry from '../babel/page';
 import pageEvent from '../babel/pageEvent';
 import appEvent from '../babel/appEvent';
 import fixRegeneratorRuntime from '../babel/fixRegeneratorRuntime';
 import componentManifest from '../babel/componentManifest';
 import * as RemaxPlugins from './plugins';
 import API from '../../API';
-import winPath from '../../winPath';
 import { cssConfig, addCSSRule, RuleConfig } from './config/css';
 import baseConfig from './baseConfig';
 import fs from 'fs';
-
-export const config = new Config();
 
 function prepare(api: API, options: Options, target: Platform) {
   const meta = api.getMeta();
   const turboPagesEnabled = options.turboPages && options.turboPages.length > 0;
 
-  const entries = getEntries(options, target);
-  const entryMap = [entries.app, ...entries.pages].reduce<any>((m, entry) => {
-    const ext = path.extname(entry);
-    const name = winPath(entry)
-      .replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '')
-      .replace(new RegExp(`\\${ext}$`), '');
-    m[name] = entry;
-    return m;
-  }, {});
-  const pageEntries = entries.pages.reduce<any[]>((m, entry) => {
-    const ext = path.extname(entry);
-    const name = winPath(entry)
-      .replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '')
-      .replace(new RegExp(`\\${ext}$`), '');
-    return m.concat([{ key: name, path: entry }]);
-  }, []);
   const stubModules = [Platform.ali, Platform.toutiao, Platform.wechat]
     .filter(name => target !== name)
     .reduce<string[]>((acc, name) => [...acc, `${name}/esm/api`, `${name}/esm/hostComponents`], []);
@@ -53,9 +34,6 @@ function prepare(api: API, options: Options, target: Platform) {
   return {
     meta,
     turboPagesEnabled,
-    entries,
-    entryMap,
-    pageEntries,
     stubModules,
     publicPath,
   };
@@ -69,17 +47,17 @@ function resolveBabelConfig(options: Options) {
 }
 
 export default function webpackConfig(api: API, options: Options, target: Platform): webpack.Configuration {
+  const config = new Config();
+
   baseConfig(config, options, target);
 
-  const { meta, turboPagesEnabled, entries, entryMap, pageEntries, stubModules, publicPath } = prepare(
-    api,
-    options,
-    target
-  );
+  const { meta, turboPagesEnabled, stubModules, publicPath } = prepare(api, options, target);
+  const { app, pages } = getEntries(options);
 
-  for (const entry in entryMap) {
-    config.entry(entry).add(entryMap[entry]);
-  }
+  config.entry(app.name).add(app.filename);
+  pages.forEach(p => {
+    config.entry(p.name).add(p.filename);
+  });
 
   config.devtool(false);
 
@@ -109,16 +87,22 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   config.module
     .rule('config')
     .pre()
-    .test(moduleMatcher)
-    .include.add(entries.app)
-    .merge(entries.pages)
-    .end()
+    .test(filename => {
+      const { app, pages } = getEntries(options);
+      if (filename === app.filename) {
+        return true;
+      }
+      if (pages.find(p => p.filename === filename)) {
+        return true;
+      }
+      return false;
+    })
     .use('babel')
     .loader('babel')
     .options({
       babelrc: false,
       configFile: resolveBabelConfig(options),
-      usePlugins: [app(entries.app), page(pageEntries)],
+      usePlugins: [appEntry(app.filename), pageEntry(options)],
       reactPreset: false,
     });
 
@@ -143,9 +127,10 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
         reactPreset: false,
       })
       .end()
-      .test(moduleMatcher)
-      .include.merge(TurboPages.filter(entries, options))
-      .end()
+      .test(filename => {
+        const { pages } = getEntries(options);
+        return !!TurboPages.filter(pages, options).find(p => p.filename === filename);
+      })
       .use('turbo-page-preprocess')
       .loader('babel')
       .options({
@@ -162,7 +147,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .options({
       babelrc: false,
       configFile: resolveBabelConfig(options),
-      usePlugins: [appEvent(entries.app), pageEvent(pageEntries), componentManifest(api), fixRegeneratorRuntime()],
+      usePlugins: [appEvent(app.filename), pageEvent(options), componentManifest(api, config), fixRegeneratorRuntime()],
       reactPreset: true,
       api,
       compact: process.env.NODE_ENV === 'production',
@@ -174,15 +159,6 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   });
 
   cssConfig(config, options, false);
-
-  config.module
-    .rule('watch-manifest')
-    .test(moduleMatcher)
-    .include.add(entries.app)
-    .merge(entries.pages)
-    .end()
-    .use('manifest')
-    .loader('manifest');
 
   config.module.rule('stub').test(moduleMatcher).use('stub').loader('stub').options({
     modules: stubModules,
@@ -204,8 +180,8 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
 
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
-  config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [api, options, entries]);
-  config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options, entries]);
+  config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [api, options]);
+  config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options]);
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
 
   if (typeof options.configWebpack === 'function') {
