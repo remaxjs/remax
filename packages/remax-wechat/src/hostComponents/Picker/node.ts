@@ -2,6 +2,7 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  mode: 'mode',
   range: 'range',
   rangeKey: 'range-key',
   value: 'value',
