@@ -1,26 +1,24 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { addNamed } from '@babel/helper-module-imports';
+import { Options } from '@remax/types';
+import { getPages } from '../../getEntries';
 
-function pageConfigExpression(path: NodePath<t.ExportDefaultDeclaration>, id: t.Identifier, entry: t.StringLiteral) {
+function pageConfigExpression(path: NodePath<t.ExportDefaultDeclaration>, id: t.Identifier, name: t.StringLiteral) {
   const createId = addNamed(path, 'createPageConfig', '@remax/runtime');
   path.insertAfter(
-    t.exportDefaultDeclaration(t.callExpression(t.identifier('Page'), [t.callExpression(createId, [id, entry])]))
+    t.exportDefaultDeclaration(t.callExpression(t.identifier('Page'), [t.callExpression(createId, [id, name])]))
   );
 }
 
-export default function page(entries: Array<{ path: string; key: string }>) {
+export default function page(options: Options) {
   let skip = false;
-  let entry = '';
+  let name = '';
 
   return {
     pre(state: any) {
-      skip = entries.every(e => e.path !== state.opts.filename);
-
-      if (!skip) {
-        // 这里 find 肯定有值
-        entry = entries.find(e => e.path === state.opts.filename)?.key!;
-      }
+      name = getPages(options).find(e => e.filename === state.opts.filename)?.name || '';
+      skip = !name;
     },
     visitor: {
       ExportDefaultDeclaration: (path: NodePath<t.ExportDefaultDeclaration>, state: any) => {
@@ -32,14 +30,14 @@ export default function page(entries: Array<{ path: string; key: string }>) {
           const pageId = path.scope.generateUidIdentifier('page');
           const declaration = path.node.declaration;
           path.replaceWith(t.variableDeclaration('const', [t.variableDeclarator(pageId, declaration)]));
-          pageConfigExpression(path, pageId, t.stringLiteral(entry));
+          pageConfigExpression(path, pageId, t.stringLiteral(name));
           path.stop();
         } else if (t.isFunctionDeclaration(path.node.declaration) || t.isClassDeclaration(path.node.declaration)) {
           const declaration = path.node.declaration;
           const pageId = path.scope.generateUidIdentifierBasedOnNode(path.node);
           declaration.id = pageId;
           path.replaceWith(declaration);
-          pageConfigExpression(path, pageId, t.stringLiteral(entry));
+          pageConfigExpression(path, pageId, t.stringLiteral(name));
           path.stop();
         }
       },

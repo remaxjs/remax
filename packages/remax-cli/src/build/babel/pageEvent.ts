@@ -1,6 +1,8 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { pageEvents } from '@remax/macro';
+import { Options } from '@remax/types';
+import { getPages } from '../../getEntries';
 
 const lifecycleEvents = [
   'onLoad',
@@ -23,13 +25,13 @@ const lifecycleEvents = [
   'onUnload',
 ];
 
-export default (entries: Array<{ path: string; key: string }>) => {
+export default (options: Options) => {
   let skip = false;
   let entry: string;
 
   return {
     pre(state: any) {
-      entry = entries.find(e => e.path === state.opts.filename)?.path || '';
+      entry = getPages(options).find(e => e.filename === state.opts.filename)?.filename || '';
       skip = !entry;
     },
     visitor: {

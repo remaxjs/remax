@@ -1,6 +1,8 @@
-import fs from 'fs';
+import * as fs from 'fs';
+import path from 'path';
+import { Platform } from '@remax/types';
 
-function readTypescriptManifest(path: string, target: string) {
+function readTypescriptManifest(path: string, target: Platform) {
   require('@babel/register')({
     presets: [
       [require.resolve('@babel/preset-env'), { modules: 'commonjs' }],
@@ -9,31 +11,29 @@ function readTypescriptManifest(path: string, target: string) {
     extensions: ['.ts'],
     cache: false,
   });
+  delete require.cache[path];
   const config = require(path)[target] || require(path).default || require(path);
 
   return config;
 }
 
-function readJavascriptManifest(path: string, target: string) {
+function readJavascriptManifest(path: string, target: Platform) {
+  delete require.cache[path];
   const config = require(path)[target] || require(path).default || require(path);
 
   return config;
 }
 
-export default function readManifest(path: string, target: string, strict = false) {
-  const tsPath = path + '.ts';
-  if (fs.existsSync(tsPath)) {
-    return readTypescriptManifest(tsPath, target);
+export default function readManifest(filename: string, target: Platform, strict = false) {
+  if (!fs.existsSync(filename)) {
+    if (strict) {
+      throw new Error(`${path}.ts|js 文件不存在，请先创建配置文件，参考 https://remaxjs.org/guide/config`);
+    }
+    return {};
   }
-
-  const jsPath = path + '.js';
-  if (fs.existsSync(jsPath)) {
-    return readJavascriptManifest(jsPath, target);
+  if (path.extname(filename) === '.ts') {
+    return readTypescriptManifest(filename, target);
+  } else {
+    return readJavascriptManifest(filename, target);
   }
-
-  if (strict) {
-    throw new Error(`${path}.ts|js 文件不存在，请先创建配置文件，参考 https://remaxjs.org/guide/config`);
-  }
-
-  return {};
 }
