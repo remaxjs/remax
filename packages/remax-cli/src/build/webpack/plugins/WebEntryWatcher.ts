@@ -3,7 +3,7 @@ import { Compiler } from 'webpack';
 import { Options } from '@remax/types';
 import getAppConfig from '../../utils/getAppConfig';
 import getEntries from '../../../getEntries';
-import { generatePageRoutesInfo } from '../../utils/web';
+import { generatePageRoutesInfo, entryName } from '../../utils/web';
 
 const PLUGIN_NAME = 'RemaxWebEntryWatcherPlugin';
 
@@ -29,7 +29,7 @@ export default class WebEntryWatcherPlugin {
     const appConfig = getAppConfig(this.remaxOptions);
 
     this.virtualModules.writeModule(
-      './src/remax-entry.js',
+      entryName(this.remaxOptions),
       ejs.render(this.entryTemplate, {
         pages: generatePageRoutesInfo(this.remaxOptions, entries.pages),
         appConfig,

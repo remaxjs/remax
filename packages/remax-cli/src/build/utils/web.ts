@@ -16,3 +16,7 @@ export function generatePageRoutesInfo(options: Options, pages: EntryInfo[]) {
     };
   });
 }
+
+export function entryName(options: Options) {
+  return `./${options.rootDir}/remax-entry.js`;
+}
