@@ -16,7 +16,7 @@ import getAppConfig from '../utils/getAppConfig';
 import { cssConfig, addCSSRule, RuleConfig } from './config/css';
 import baseConfig from './baseConfig';
 import API from '../../API';
-import { generatePageRoutesInfo } from '../utils/web';
+import { generatePageRoutesInfo, entryName } from '../utils/web';
 
 function prepare(options: Options) {
   const entries = getEntries(options);
@@ -37,7 +37,7 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
 
   const { entries, appConfig, publicPath } = prepare(options);
 
-  config.entry('index').add('./src/remax-entry.js');
+  config.entry('index').add(entryName(options));
 
   config.devtool(process.env.NODE_ENV === 'development' ? 'cheap-module-source-map' : false);
   config.output.publicPath(publicPath);
@@ -76,7 +76,7 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
 
   const entryTemplate = fs.readFileSync(path.resolve(__dirname, '../../../template/entry.js.ejs'), 'utf-8');
   const virtualModules = new VirtualModulesPlugin({
-    './src/remax-entry.js': ejs.render(entryTemplate, {
+    [entryName(options)]: ejs.render(entryTemplate, {
       pages: generatePageRoutesInfo(options, entries.pages),
       appConfig,
     }),
