@@ -19,7 +19,7 @@ export function resetPageId() {
   idCounter = 0;
 }
 
-export default function createPageConfig(Page: React.ComponentType<any>, entry: string) {
+export default function createPageConfig(Page: React.ComponentType<any>, name: string) {
   const app = getApp() as any;
 
   const config: any = {
@@ -178,7 +178,7 @@ export default function createPageConfig(Page: React.ComponentType<any>, entry: 
     },
   };
 
-  pageEvents(entry).forEach(eventName => {
+  pageEvents(name).forEach(eventName => {
     if (lifecycleEvents[eventName]) {
       config[eventName] = lifecycleEvents[eventName];
     }

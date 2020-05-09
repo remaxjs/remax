@@ -15,30 +15,35 @@ export default class DefinePlugin {
   }
 
   apply(compiler: Compiler) {
-    compiler.hooks.compilation.tap(PLUGIN_NAME, compilation => {
-      compilation.moduleTemplates.javascript.hooks.render.tap(PLUGIN_NAME, moduleSource => {
-        const source = new ReplaceSource(moduleSource);
+    compiler.hooks.thisCompilation.tap(PLUGIN_NAME, (compilation: compilation.Compilation) => {
+      compilation.hooks.optimizeChunkAssets.tapAsync(PLUGIN_NAME, (chunks, callback) => {
+        compilation.chunkGroups.forEach(group => {
+          group.chunks.forEach((chunk: any) => {
+            const chunkPath = chunk.name + '.js';
+            const source = new ReplaceSource(compilation.assets[chunkPath]);
 
-        const startA = this.getReplaceStartIndex(source, /__REMAX_ENTRY_INFO__/);
-        const startB = this.getReplaceStartIndex(source, /__REMAX_APP_EVENTS__/);
-        const startC = this.getReplaceStartIndex(source, /__REMAX_PAGE_EVENTS__/);
-        const startD = this.getReplaceStartIndex(source, /__REMAX_HOST_COMPONENTS__/);
+            const startB = this.getReplaceStartIndex(source, /__REMAX_APP_EVENTS__/);
+            const startC = this.getReplaceStartIndex(source, /__REMAX_PAGE_EVENTS__/);
+            const startD = this.getReplaceStartIndex(source, /__REMAX_HOST_COMPONENTS__/);
 
-        if (startA) {
-          source.replace(startA, startA + 19, this.stringifyEntryInfo(compilation));
-        }
-        if (startB) {
-          source.replace(startB, startB + 19, this.stringifyAppEvents());
-        }
-        if (startC) {
-          source.replace(startC, startC + 20, this.stringifyPageEvents());
-        }
+            if (startB) {
+              source.replace(startB, startB + 19, this.stringifyAppEvents());
+            }
+            if (startC) {
+              source.replace(startC, startC + 20, this.stringifyPageEvents(compilation));
+            }
 
-        if (startD) {
-          source.replace(startD, startD + 24, this.stringifyHostComponents());
-        }
+            if (startD) {
+              source.replace(startD, startD + 24, this.stringifyHostComponents());
+            }
+            compilation.assets[chunkPath] = source;
+          });
+        });
 
-        return source;
+        appEvents.clear();
+        pageEvents.clear();
+
+        callback();
       });
     });
   }
@@ -47,8 +52,10 @@ export default class DefinePlugin {
     return regExp.exec(source.source())?.index;
   }
 
-  stringifyEntryInfo(compilation: compilation.Compilation) {
-    let entryWithModules = getPages(this.remaxOptions).map(page => {
+  stringifyPageEvents(compilation: compilation.Compilation) {
+    const events: any = {};
+
+    getPages(this.remaxOptions).map(page => {
       const chunk = compilation.chunks.find(c => {
         return c.name === page.name;
       });
@@ -56,30 +63,10 @@ export default class DefinePlugin {
       // TODO: 应该有更好的获取 modules 的方式？
       const modules = getModules(chunk);
 
-      return {
-        name: chunk.name,
-        modules,
-      };
+      events[page.name] = modules.reduce<string[]>((acc, cur) => {
+        return [...acc, ...(pageEvents.get(cur) || [])];
+      }, []);
     });
-
-    if (process.env.NODE_ENV === 'test') {
-      entryWithModules = [];
-    }
-
-    return JSON.stringify(entryWithModules, null, 2);
-  }
-
-  stringifyPageEvents() {
-    let events: any = {};
-
-    for (const key of pageEvents.keys()) {
-      // 这里 get 不可能为空
-      events[key] = Array.from(pageEvents.get(key)!).sort();
-    }
-
-    if (process.env.NODE_ENV === 'test') {
-      events = {};
-    }
 
     return JSON.stringify(events, null, 2);
   }
