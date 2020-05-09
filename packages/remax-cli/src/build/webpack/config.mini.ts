@@ -20,6 +20,7 @@ import API from '../../API';
 import { cssConfig, addCSSRule, RuleConfig } from './config/css';
 import baseConfig from './baseConfig';
 import fs from 'fs';
+import winPath from '../../winPath';
 
 function prepare(api: API, options: Options, target: Platform) {
   const meta = api.getMeta();
@@ -89,10 +90,10 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .pre()
     .test(filename => {
       const { app, pages } = getEntries(options);
-      if (filename === app.filename) {
+      if (winPath(filename) === app.filename) {
         return true;
       }
-      if (pages.find(p => p.filename === filename)) {
+      if (pages.find(p => p.filename === winPath(filename))) {
         return true;
       }
       return false;
@@ -129,7 +130,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
       .end()
       .test(filename => {
         const { pages } = getEntries(options);
-        return !!TurboPages.filter(pages, options).find(p => p.filename === filename);
+        return !!TurboPages.filter(pages, options).find(p => p.filename === winPath(filename));
       })
       .use('turbo-page-preprocess')
       .loader('babel')

@@ -3,6 +3,7 @@ import { NodePath } from '@babel/traverse';
 import { pageEvents } from '@remax/macro';
 import { Options } from '@remax/types';
 import { getPages } from '../../getEntries';
+import winPath from '../../winPath';
 
 const lifecycleEvents = [
   'onLoad',
@@ -31,7 +32,7 @@ export default (options: Options) => {
 
   return {
     pre(state: any) {
-      entry = getPages(options).find(e => e.filename === state.opts.filename)?.filename || '';
+      entry = getPages(options).find(e => e.filename === winPath(state.opts.filename))?.filename || '';
       skip = !entry;
     },
     visitor: {

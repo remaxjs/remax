@@ -1,6 +1,7 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { addNamed } from '@babel/helper-module-imports';
+import winPath from '../../winPath';
 
 function appConfigExpression(path: NodePath<t.ExportDefaultDeclaration>, id: t.Identifier) {
   const createId = addNamed(path, 'createAppConfig', '@remax/runtime');
@@ -14,7 +15,7 @@ export default (entry: string) => {
 
   return {
     pre(state: any) {
-      skip = entry !== state.opts.filename;
+      skip = entry !== winPath(state.opts.filename);
     },
     visitor: {
       ExportDefaultDeclaration: (path: NodePath<t.ExportDefaultDeclaration>) => {

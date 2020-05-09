@@ -2,6 +2,7 @@ import path from 'path';
 import { Options, EntryInfo, AppConfig, Entries } from '@remax/types';
 import readManifest from './readManifest';
 import { appConfigFile, searchJSFile } from './build/utils/paths';
+import winPath from './winPath';
 
 export const getAppConfig = (options: Options) => {
   return readManifest(appConfigFile(options), options.target!, true) as AppConfig;
@@ -22,7 +23,7 @@ export function getPages(options: Options): EntryInfo[] {
       ...ret,
       {
         name: page,
-        filename: searchJSFile(path.join(ROOT_DIR, page)),
+        filename: winPath(searchJSFile(path.join(ROOT_DIR, page))),
       },
     ],
     []
@@ -35,8 +36,8 @@ export function getPages(options: Options): EntryInfo[] {
         (ret: EntryInfo[], page) => [
           ...ret,
           {
-            name: path.join(pack.root, page),
-            filename: searchJSFile(path.join(ROOT_DIR, pack.root, page)),
+            name: winPath(path.join(pack.root, page)),
+            filename: winPath(searchJSFile(path.join(ROOT_DIR, pack.root, page))),
           },
         ],
         []
@@ -51,7 +52,7 @@ export default function getEntries(options: Options): Entries {
   const entries: Entries = {
     app: {
       name: 'app',
-      filename: searchJSFile(path.join(options.cwd, options.rootDir, 'app')),
+      filename: winPath(searchJSFile(path.join(options.cwd, options.rootDir, 'app'))),
     },
     pages: getPages(options),
   };
