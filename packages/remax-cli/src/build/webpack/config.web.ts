@@ -13,31 +13,39 @@ import { Platform } from '@remax/types';
 import extensions, { moduleMatcher } from '../../extensions';
 import getEntries from '../../getEntries';
 import getAppConfig from '../utils/getAppConfig';
+import readManifest from '../../readManifest';
+import winPath from '../../winPath';
 import { cssConfig, addCSSRule, RuleConfig } from './config/css';
 import baseConfig from './baseConfig';
 import API from '../../API';
-import { generatePageRoutesInfo, entryName } from '../utils/web';
+
+export const config = new Config();
 
 function prepare(options: Options) {
-  const entries = getEntries(options);
+  const entries = getEntries(options, Platform.web);
+  const entryMap = [entries.app, ...entries.pages].reduce<any>((m, entry) => {
+    const ext = path.extname(entry);
+    const name = entry.replace(path.join(options.cwd, options.rootDir) + '/', '').replace(new RegExp(`\\${ext}$`), '');
+    m[name] = entry;
+    return m;
+  }, {});
   const appConfig = getAppConfig(options);
   const publicPath = '/';
 
   return {
     entries,
+    entryMap,
     appConfig,
     publicPath,
   };
 }
 
 export default function webpackConfig(api: API, options: Options): webpack.Configuration {
-  const config = new Config();
-
   baseConfig(config, options, Platform.web);
 
   const { entries, appConfig, publicPath } = prepare(options);
 
-  config.entry('index').add(entryName(options));
+  config.entry('index').add('./src/remax-entry.js');
 
   config.devtool(process.env.NODE_ENV === 'development' ? 'cheap-module-source-map' : false);
   config.output.publicPath(publicPath);
@@ -63,6 +71,15 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
   cssConfig(config, options, true);
 
   config.module
+    .rule('watch-manifest')
+    .test(moduleMatcher)
+    .include.add(entries.app)
+    .merge(entries.pages)
+    .end()
+    .use('manifest')
+    .loader('manifest');
+
+  config.module
     .rule('image')
     .test(/\.(png|jpe?g|gif|svg)$/i)
     .use('file')
@@ -75,9 +92,19 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
     .loader(require.resolve('file-loader'));
 
   const entryTemplate = fs.readFileSync(path.resolve(__dirname, '../../../template/entry.js.ejs'), 'utf-8');
+  const pages = entries.pages.map(p => {
+    const ext = path.extname(p);
+    const ROOT = winPath(path.join(options.cwd, options.rootDir)) + '/';
+    p = winPath(p);
+    return {
+      route: p.replace(ROOT, '').replace(new RegExp(`\\${ext}$`), ''),
+      path: p.replace(ROOT, './'),
+      config: readManifest(p.replace(new RegExp(`\\${ext}$`), '.config'), 'web'),
+    };
+  });
   const virtualModules = new VirtualModulesPlugin({
-    [entryName(options)]: ejs.render(entryTemplate, {
-      pages: generatePageRoutesInfo(options, entries.pages),
+    './src/remax-entry.js': ejs.render(entryTemplate, {
+      pages,
       appConfig,
     }),
   });
@@ -94,13 +121,13 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
 
   config
     .plugin('remax-web-entry-watcher-plugin')
-    .use(RemaxPlugins.WebEntryWatcher, [virtualModules, entryTemplate, options]);
+    .use(RemaxPlugins.WebEntryWatcher, [virtualModules, entryTemplate, entries, options]);
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [
     {
       filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].css' : '[name].css',
     },
   ]);
-  config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options]);
+  config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options, entries]);
 
   if (typeof options.configWebpack === 'function') {
     options.configWebpack({ config, webpack });

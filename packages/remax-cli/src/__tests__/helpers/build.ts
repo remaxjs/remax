@@ -6,7 +6,6 @@ import getConfig from '../../getConfig';
 import winPath from '../../winPath';
 import { Platform } from '@remax/types';
 import { run } from '../../build';
-import { reset } from '../../build/webpack/plugins/NativeFiles/cacheable';
 
 function ensureWebpackMemoryFs(fs: IFs) {
   const nextFs = Object.create(fs);
@@ -49,8 +48,6 @@ export default async function build(app: string, target: Platform, options: Part
   process.chdir(cwd);
   process.env.NODE_ENV = 'test';
   process.env.REMAX_PLATFORM = target;
-
-  reset();
 
   const config = getConfig();
   const api = new API();

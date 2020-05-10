@@ -6,7 +6,6 @@ import { registerNativeComponent } from '@remax/macro';
 import { LEAF, ENTRY, TEMPLATE_ID } from './compiler/static/constants';
 import { getSourcePath, isNativeComponent } from '../utils/nativeComponent';
 import API from '../../API';
-import Config from 'webpack-chain';
 
 export const SlotView: ComponentManifest = {
   id: 'slot-view',
@@ -61,7 +60,7 @@ function getNativePluginComponentName(path: NodePath<t.JSXElement>) {
   return arg0.value;
 }
 
-function getNativeComponentName(path: NodePath<t.JSXElement>, importer: string, config: Config) {
+function getNativeComponentName(path: NodePath<t.JSXElement>, importer: string) {
   const node = path.node;
   const openingElement = node.openingElement;
 
@@ -89,7 +88,7 @@ function getNativeComponentName(path: NodePath<t.JSXElement>, importer: string, 
     const importNode = importPath.node as t.ImportDeclaration;
 
     const source = importNode.source.value;
-    const sourcePath = getSourcePath(source, importer, config);
+    const sourcePath = getSourcePath(source, importer);
 
     if (!isNativeComponent(sourcePath)) {
       return;
@@ -365,7 +364,7 @@ function registerHostComponentManifest(
   nativeComponentManifests.set(id, component);
 }
 
-export default function hostComponent(api: API, config: Config) {
+export default function hostComponent(api: API) {
   return {
     visitor: {
       JSXElement: (path: NodePath<t.JSXElement>, state: any) => {
@@ -377,7 +376,7 @@ export default function hostComponent(api: API, config: Config) {
           return;
         }
 
-        name = getNativeComponentName(path, importer, config) || getNativePluginComponentName(path);
+        name = getNativeComponentName(path, importer) || getNativePluginComponentName(path);
 
         if (name) {
           registerNativeComponentManifest(api, name, path.node);

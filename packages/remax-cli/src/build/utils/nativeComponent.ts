@@ -2,9 +2,9 @@ import * as fs from 'fs';
 import path from 'path';
 import resolve from 'enhanced-resolve';
 import winPath from '../../winPath';
-import Config from 'webpack-chain';
+import { config } from '../webpack/config.mini';
 
-export const getSourcePath = (source: string, importer: string, config: Config) => {
+export const getSourcePath = (source: string, importer: string) => {
   const resolveConfig = config.toConfig().resolve;
   const webpackResolver = resolve.create.sync(resolveConfig);
   const sourcePath = webpackResolver(path.dirname(importer), source);

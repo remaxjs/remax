@@ -1,7 +1,6 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { appEvents } from '@remax/macro';
-import winPath from '../../winPath';
 
 const lifecycleEvents = ['onLaunch', 'onShow', 'onHide', 'onError', 'onShareAppMessage', 'onPageNotFound'];
 
@@ -10,7 +9,7 @@ export default (entry: string) => {
 
   return {
     pre(state: any) {
-      skip = entry !== winPath(state.opts.filename);
+      skip = entry !== state.opts.filename;
     },
     visitor: {
       // 解析 class properties 编译后的代码

@@ -1,39 +1,71 @@
+import * as path from 'path';
 import ejs from 'ejs';
 import { Compiler } from 'webpack';
-import { Options } from '@remax/types';
+import { Entries, Options } from '@remax/types';
+import winPath from '../../../winPath';
+import readManifest from '../../../readManifest';
 import getAppConfig from '../../utils/getAppConfig';
-import getEntries from '../../../getEntries';
-import { generatePageRoutesInfo, entryName } from '../../utils/web';
 
 const PLUGIN_NAME = 'RemaxWebEntryWatcherPlugin';
 
 export default class WebEntryWatcherPlugin {
   virtualModules: any;
   entryTemplate: string;
+  entries: Entries;
+  pages: Array<{
+    route: string;
+    path: string;
+    config: string;
+    originalPath: string;
+  }>;
   remaxOptions: Options;
 
-  constructor(virtualModules: any, entryTemplate: string, options: Options) {
+  constructor(virtualModules: any, entryTemplate: string, entries: Entries, options: Options) {
     this.virtualModules = virtualModules;
     this.entryTemplate = entryTemplate;
+    this.entries = entries;
     this.remaxOptions = options;
+    this.pages = this.readPageConfig();
   }
 
   apply(compiler: Compiler) {
-    compiler.hooks.watchRun.tap(PLUGIN_NAME, () => {
-      this.invalidEntry();
+    compiler.hooks.invalid.tap(PLUGIN_NAME, (fileName: string) => {
+      this.invalidEntry(fileName, this.entries.app);
+
+      this.pages.find(p => {
+        this.invalidEntry(fileName, p.originalPath);
+      });
     });
   }
 
-  invalidEntry() {
-    const entries = getEntries(this.remaxOptions);
-    const appConfig = getAppConfig(this.remaxOptions);
+  readPageConfig = () => {
+    return this.entries.pages.map(p => {
+      const ext = path.extname(p);
+      const ROOT = winPath(path.join(this.remaxOptions.cwd, this.remaxOptions.rootDir)) + '/';
+      p = winPath(p);
+      return {
+        originalPath: p,
+        route: p.replace(ROOT, '').replace(new RegExp(`\\${ext}$`), ''),
+        path: p.replace(ROOT, './'),
+        config: readManifest(p.replace(new RegExp(`\\${ext}$`), '.config'), 'web'),
+      };
+    });
+  };
 
-    this.virtualModules.writeModule(
-      entryName(this.remaxOptions),
-      ejs.render(this.entryTemplate, {
-        pages: generatePageRoutesInfo(this.remaxOptions, entries.pages),
-        appConfig,
-      })
-    );
-  }
+  invalidEntry = (invalidFileName: string, entryFilePath: string) => {
+    const ext = path.extname(entryFilePath);
+    const configPath = entryFilePath.replace(new RegExp(`\\${ext}$`), '.config.');
+
+    if (invalidFileName.indexOf(configPath) !== -1) {
+      const appConfig = getAppConfig(this.remaxOptions);
+
+      this.virtualModules.writeModule(
+        './src/remax-entry.js',
+        ejs.render(this.entryTemplate, {
+          pages: this.readPageConfig(),
+          appConfig,
+        })
+      );
+    }
+  };
 }

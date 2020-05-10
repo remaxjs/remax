@@ -1,9 +1,6 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { pageEvents } from '@remax/macro';
-import { Options } from '@remax/types';
-import { getPages } from '../../getEntries';
-import winPath from '../../winPath';
 
 const lifecycleEvents = [
   'onLoad',
@@ -26,13 +23,13 @@ const lifecycleEvents = [
   'onUnload',
 ];
 
-export default (options: Options) => {
+export default (entries: Array<{ path: string; key: string }>) => {
   let skip = false;
   let entry: string;
 
   return {
     pre(state: any) {
-      entry = getPages(options).find(e => e.filename === winPath(state.opts.filename))?.filename || '';
+      entry = entries.find(e => e.path === state.opts.filename)?.path || '';
       skip = !entry;
     },
     visitor: {
@@ -49,7 +46,11 @@ export default (options: Options) => {
           return;
         }
 
-        pageEvents.set(entry, pageEvents.get(entry)?.add(node.value) ?? new Set([node.value]));
+        const parentNode = path.parentPath.node;
+
+        if (t.isCallExpression(parentNode) && (parentNode.callee as any)?.name === '_defineProperty') {
+          pageEvents.set(entry, pageEvents.get(entry)?.add(node.value) ?? new Set([node.value]));
+        }
       },
       Identifier: (path: NodePath<t.Identifier>) => {
         if (skip) {
@@ -60,6 +61,11 @@ export default (options: Options) => {
 
         // 只要生命周期 Identifer 存在就标记为用到了生命周期
         if (!lifecycleEvents.includes(node.name)) {
+          return;
+        }
+
+        // 非函数定义不处理
+        if (!t.isFunctionExpression(path.parentPath.node)) {
           return;
         }
 

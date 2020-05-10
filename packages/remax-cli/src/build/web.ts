@@ -5,7 +5,6 @@ import webpackConfig from './webpack/config.web';
 import address from 'address';
 import output from './utils/output';
 import API from '../API';
-import watch from './watch';
 
 export default function buildWeb(api: API, options: Options): webpack.Compiler {
   const webpackOptions: webpack.Configuration = webpackConfig(api, options);
@@ -43,8 +42,6 @@ export default function buildWeb(api: API, options: Options): webpack.Compiler {
         process.exit(1);
       }
     });
-
-    watch(options, compiler, server);
   } else {
     output.message('🚀 启动 build\n', 'blue');
     compiler.run((error, stats) => {

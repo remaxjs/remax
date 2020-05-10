@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'remax/ali';
-import styles from './index.css';
+import styles from './index.less';
 
 function timesTwo(arr) {
   return arr.map(n => n * 2);

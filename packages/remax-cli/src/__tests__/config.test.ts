@@ -22,22 +22,18 @@ describe('remax config', () => {
 
 describe('manifest', () => {
   it('throw error when file not exists with strict mode enabled', () => {
-    expect(readManifest('', Platform.ali)).toEqual({});
+    expect(readManifest('', 'ali')).toEqual({});
     expect(() => {
-      readManifest('', Platform.ali, true);
+      readManifest('', 'ali', true);
     }).toThrow();
   });
 
   it('return empty object when javascript manifest file contains no config', () => {
-    expect(
-      readManifest(path.join(__dirname, './fixtures/exception/manifest.js/app.config'), Platform.ali)
-    ).toMatchObject({});
+    expect(readManifest(path.join(__dirname, './fixtures/exception/manifest.js/app.config'), 'ali')).toMatchObject({});
   });
 
   it('return empty object when typescript manifest file contains no config', () => {
-    expect(
-      readManifest(path.join(__dirname, './fixtures/exception/manifest.ts/app.config'), Platform.ali)
-    ).toMatchObject({});
+    expect(readManifest(path.join(__dirname, './fixtures/exception/manifest.ts/app.config'), 'ali')).toMatchObject({});
   });
 
   it('throw error when missing pages config in app.config', async () => {
