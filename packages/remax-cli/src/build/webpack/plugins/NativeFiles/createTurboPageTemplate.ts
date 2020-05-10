@@ -28,9 +28,7 @@ export default async function createTurboPageTemplate(
     return modules.includes(t.module);
   });
 
-  const entries = templateInfoMap
-    .values()
-    .filter((template: any) => template.isEntry && winPath(template.module) === pageFile);
+  const entries = templateInfoMap.values().filter((template: any) => template.isEntry && template.module === pageFile);
 
   renderOptions.components = (renderOptions.components as ComponentManifest[]).filter(c => {
     if (c.type !== 'native') {

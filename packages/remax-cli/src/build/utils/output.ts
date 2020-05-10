@@ -8,7 +8,7 @@ const COLORS = {
 };
 const RESET = '\x1b[0m';
 
-export const output = (content: string | string[], color: 'red' | 'green' | 'blue' | 'yellow', notify = false) => {
+export const output = (content: string | string[], color: 'red' | 'green' | 'blue' | 'yellow', notify?: boolean) => {
   const message = Array.isArray(content) ? content : [content];
   console.log(`${COLORS[color]}%s${RESET}`, ...message);
 

@@ -28,14 +28,9 @@ export interface Options {
 
 export type Config = Partial<Options>;
 
-export interface EntryInfo {
-  name: string;
-  filename: string;
-}
-
 export interface Entries {
-  app: EntryInfo;
-  pages: EntryInfo[];
+  app: string;
+  pages: string[];
 }
 
 export interface AppConfigPlugins {
