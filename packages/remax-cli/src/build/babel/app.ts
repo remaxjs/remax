@@ -41,7 +41,6 @@ export default (entry: string) => {
       Identifier(path: NodePath<t.Identifier>) {
         // 防止跟小程序的  App 冲突
         if (path.node.name === 'App') {
-          console.log(path.node.name);
           path.scope.rename('App', path.scope.generateUidIdentifier('App').name);
           return;
         }
