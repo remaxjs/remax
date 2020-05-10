@@ -9,17 +9,6 @@ module.exports = {
       isolatedModules: true,
     },
     __REMAX_HOST_COMPONENTS__: {},
-    __REMAX_ENTRY_INFO__: [
-      {
-        name: 'pages/test/index',
-        modules: ['/path/to/test/index', '/path/to/test/index2'],
-      },
-      {
-        name: 'pages/test/only/onshow',
-        modules: ['/path/to/test/index'],
-      },
-    ],
-    __REMAX_APP_ENTRY_INFO__: {},
     __REMAX_APP_EVENTS__: [
       'onLaunch',
       'onShow',
@@ -31,8 +20,9 @@ module.exports = {
       'onThemeChange',
     ],
     __REMAX_PAGE_EVENTS__: {
-      '/path/to/test/index': ['onShow'],
-      '/path/to/test/index2': [
+      'pages/test/only/onshow': ['onShow'],
+      'pages/test/index': [
+        'onShow',
         'onHide',
         'onPullDownRefresh',
         'onPullIntercept',
