@@ -72,20 +72,20 @@ export default async function build(app: string, target: Platform, options: Part
         .end()
         .end()
         .externals({
-          react: 'react',
-          'react-reconciler': 'react-reconciler',
-          scheduler: 'scheduler',
-          'regenerator-runtime': 'regenerator-runtime',
-          remax: 'remax',
-          '@remax/runtime': '@remax/runtime',
-          'remax/ali': 'remax/ali',
-          '@remax/ali': '@remax/ali',
-          'remax/wechat': 'remax/wechat',
-          '@remax/wechat': '@remax/wechat',
-          'remax/toutiao': 'remax/toutiao',
-          '@remax/toutiao': '@remax/toutiao',
-          'remax/router': 'remax/router',
-          'remax/web': 'remax/web',
+          react: JSON.stringify('react'),
+          'react-reconciler': JSON.stringify('react-reconciler'),
+          scheduler: JSON.stringify('scheduler'),
+          'regenerator-runtime': JSON.stringify('regenerator-runtime'),
+          remax: JSON.stringify('remax'),
+          '@remax/runtime': JSON.stringify('@remax/runtime'),
+          'remax/ali': JSON.stringify('remax/ali'),
+          '@remax/ali': JSON.stringify('@remax/ali'),
+          'remax/wechat': JSON.stringify('remax/wechat'),
+          '@remax/wechat': JSON.stringify('@remax/wechat'),
+          'remax/toutiao': JSON.stringify('remax/toutiao'),
+          '@remax/toutiao': JSON.stringify('@remax/toutiao'),
+          'remax/router': JSON.stringify('remax/router'),
+          'remax/web': JSON.stringify('remax/web'),
         });
 
       if (typeof config.configWebpack === 'function') {

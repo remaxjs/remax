@@ -5,14 +5,14 @@ require('./../runtime.js');
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = @remax/runtime;
+module.exports = "@remax/runtime";
 
 /***/ }),
 /* 3 */,
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = react;
+module.exports = "react";
 
 /***/ }),
 /* 5 */
@@ -93,19 +93,19 @@ var _page = function _page() {
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = regenerator-runtime;
+module.exports = "regenerator-runtime";
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports) {
 
-module.exports = remax/toutiao;
+module.exports = "remax/toutiao";
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports) {
 
-module.exports = remax/wechat;
+module.exports = "remax/wechat";
 
 /***/ })
 ],[[5,0]]]);

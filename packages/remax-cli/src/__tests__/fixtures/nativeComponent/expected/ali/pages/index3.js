@@ -5,7 +5,7 @@ require('./../remax-vendors.js');
 /***/ 2:
 /***/ (function(module, exports) {
 
-module.exports = @remax/runtime;
+module.exports = "@remax/runtime";
 
 /***/ }),
 
@@ -47,14 +47,14 @@ var _page = function _page() {
 /***/ 3:
 /***/ (function(module, exports) {
 
-module.exports = react;
+module.exports = "react";
 
 /***/ }),
 
 /***/ 6:
 /***/ (function(module, exports) {
 
-module.exports = remax/ali;
+module.exports = "remax/ali";
 
 /***/ })
 

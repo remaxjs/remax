@@ -90,7 +90,7 @@ var _App = /*#__PURE__*/function (_React$Component) {
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = @remax/runtime;
+module.exports = "@remax/runtime";
 
 /***/ }),
 /* 3 */
@@ -102,7 +102,7 @@ module.exports = @remax/runtime;
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = react;
+module.exports = "react";
 
 /***/ }),
 /* 5 */

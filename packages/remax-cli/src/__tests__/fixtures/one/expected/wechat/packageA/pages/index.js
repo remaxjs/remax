@@ -5,21 +5,21 @@ require('./../../remax-vendors.js');
 /***/ 2:
 /***/ (function(module, exports) {
 
-module.exports = @remax/runtime;
+module.exports = "@remax/runtime";
 
 /***/ }),
 
 /***/ 23:
 /***/ (function(module, exports) {
 
-module.exports = @remax/wechat;
+module.exports = "@remax/wechat";
 
 /***/ }),
 
 /***/ 26:
 /***/ (function(module, exports) {
 
-module.exports = remax/ali;
+module.exports = "remax/ali";
 
 /***/ }),
 
@@ -93,7 +93,7 @@ var _page = function _page() {
 /***/ 4:
 /***/ (function(module, exports) {
 
-module.exports = react;
+module.exports = "react";
 
 /***/ })
 

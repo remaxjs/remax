@@ -152,13 +152,13 @@ var _page = function _page() {
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = @remax/runtime;
+module.exports = "@remax/runtime";
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = react;
+module.exports = "react";
 
 /***/ }),
 /* 6 */
@@ -175,7 +175,7 @@ __webpack_require__.r(__webpack_exports__);
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = remax/ali;
+module.exports = "remax/ali";
 
 /***/ })
 ],[[2,0]]]);

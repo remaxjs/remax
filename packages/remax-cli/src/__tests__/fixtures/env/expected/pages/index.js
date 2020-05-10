@@ -5,13 +5,13 @@ require('./../runtime.js');
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = @remax/runtime;
+module.exports = "@remax/runtime";
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = react;
+module.exports = "react";
 
 /***/ }),
 /* 4 */
@@ -48,7 +48,7 @@ var _page = function _page() {
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = remax/ali;
+module.exports = "remax/ali";
 
 /***/ })
 ],[[4,0]]]);

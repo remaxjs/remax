@@ -6,13 +6,13 @@ require('./../remax-vendors.js');
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = @remax/runtime;
+module.exports = "@remax/runtime";
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = react;
+module.exports = "react";
 
 /***/ }),
 /* 4 */,
@@ -71,19 +71,19 @@ var _page = function _page() {
 /* 8 */
 /***/ (function(module, exports) {
 
-module.exports = remax/ali;
+module.exports = "remax/ali";
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports) {
 
-module.exports = remax/wechat;
+module.exports = "remax/wechat";
 
 /***/ }),
 /* 10 */
 /***/ (function(module, exports) {
 
-module.exports = remax/toutiao;
+module.exports = "remax/toutiao";
 
 /***/ })
 ],[[5,0,5]]]);

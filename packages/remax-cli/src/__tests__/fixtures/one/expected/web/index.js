@@ -181,7 +181,7 @@ Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["render"])( /*#__PURE__*/react__WE
 /***/ 11:
 /***/ (function(module, exports) {
 
-module.exports = regenerator-runtime;
+module.exports = "regenerator-runtime";
 
 /***/ }),
 
@@ -269,7 +269,7 @@ var App = /*#__PURE__*/function (_React$Component) {
 /***/ 4:
 /***/ (function(module, exports) {
 
-module.exports = react;
+module.exports = "react";
 
 /***/ }),
 
@@ -285,28 +285,28 @@ __webpack_require__.r(__webpack_exports__);
 /***/ 6:
 /***/ (function(module, exports) {
 
-module.exports = remax;
+module.exports = "remax";
 
 /***/ }),
 
 /***/ 65:
 /***/ (function(module, exports) {
 
-module.exports = remax/wechat;
+module.exports = "remax/wechat";
 
 /***/ }),
 
 /***/ 67:
 /***/ (function(module, exports) {
 
-module.exports = remax/ali;
+module.exports = "remax/ali";
 
 /***/ }),
 
 /***/ 7:
 /***/ (function(module, exports) {
 
-module.exports = remax/web;
+module.exports = "remax/web";
 
 /***/ }),
 

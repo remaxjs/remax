@@ -5,14 +5,14 @@ require('./../../runtime.js');
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = @remax/runtime;
+module.exports = "@remax/runtime";
 
 /***/ }),
 /* 3 */,
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = react;
+module.exports = "react";
 
 /***/ }),
 /* 5 */,
@@ -21,7 +21,7 @@ module.exports = react;
 /* 8 */
 /***/ (function(module, exports) {
 
-module.exports = remax/wechat;
+module.exports = "remax/wechat";
 
 /***/ }),
 /* 9 */,
