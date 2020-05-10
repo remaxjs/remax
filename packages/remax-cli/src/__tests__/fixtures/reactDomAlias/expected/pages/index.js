@@ -2071,51 +2071,12 @@ function lowercase(str) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pageEvents", function() { return pageEvents; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appEvents", function() { return appEvents; });
-var __read = undefined && undefined.__read || function (o, n) {
-  var m = typeof Symbol === "function" && o[Symbol.iterator];
-  if (!m) return o;
-  var i = m.call(o),
-      r,
-      ar = [],
-      e;
-
-  try {
-    while ((n === void 0 || n-- > 0) && !(r = i.next()).done) {
-      ar.push(r.value);
-    }
-  } catch (error) {
-    e = {
-      error: error
-    };
-  } finally {
-    try {
-      if (r && !r.done && (m = i["return"])) m.call(i);
-    } finally {
-      if (e) throw e.error;
-    }
-  }
-
-  return ar;
+var PAGE_EVENTS = {
+  "pages/index": []
 };
-
-var __spread = undefined && undefined.__spread || function () {
-  for (var ar = [], i = 0; i < arguments.length; i++) {
-    ar = ar.concat(__read(arguments[i]));
-  }
-
-  return ar;
-};
-
-var ENTRY_INFO = [];
-var PAGE_EVENTS = {};
 var APP_EVENTS = [];
-function pageEvents(entry) {
-  var entryInfo = ENTRY_INFO.find(function (e) {
-    return e.name === entry;
-  });
-  return ((entryInfo === null || entryInfo === void 0 ? void 0 : entryInfo.modules) || []).reduce(function (acc, cur) {
-    return __spread(acc, PAGE_EVENTS[cur] || []);
-  }, []);
+function pageEvents(name) {
+  return PAGE_EVENTS[name];
 }
 function appEvents() {
   return APP_EVENTS;
@@ -2441,7 +2402,7 @@ function generatePageId() {
 function resetPageId() {
   idCounter = 0;
 }
-function createPageConfig(Page, entry) {
+function createPageConfig(Page, name) {
   var app = getApp();
   var config = {
     data: {
@@ -2578,7 +2539,7 @@ function createPageConfig(Page, entry) {
       return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["Lifecycle"].pullIntercept);
     }
   };
-  Object(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["pageEvents"])(entry).forEach(function (eventName) {
+  Object(_lifecycle__WEBPACK_IMPORTED_MODULE_2__["pageEvents"])(name).forEach(function (eventName) {
     if (lifecycleEvents[eventName]) {
       config[eventName] = lifecycleEvents[eventName];
     }
