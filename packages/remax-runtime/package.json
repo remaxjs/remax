@@ -4,6 +4,7 @@
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "cjs",
   "module": "esm",
+  "types": "esm/index.d.ts",
   "keywords": [
     "react",
     "miniapp",
