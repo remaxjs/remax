@@ -40,9 +40,6 @@ export default class DefinePlugin {
           });
         });
 
-        appEvents.clear();
-        pageEvents.clear();
-
         callback();
       });
     });

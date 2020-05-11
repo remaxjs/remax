@@ -17,6 +17,11 @@ function remax({ references, state }: { references: { [name: string]: NodePath[]
 
   references.requirePlugin?.forEach(path => requirePluginMacro(path));
 
+  const importer = state.file.opts.filename;
+
+  appEvents.delete(importer);
+  pageEvents.delete(importer);
+
   references.useAppEvent?.forEach(path => useAppEventMacro(path, state));
 
   references.usePageEvent?.forEach(path => usePageEventMacro(path, state));

@@ -1,8 +1,6 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { pageEvents } from '@remax/macro';
-import { Options } from '@remax/types';
-import { getPages } from '../../getEntries';
 import winPath from '../../winPath';
 
 const lifecycleEvents = [
@@ -26,44 +24,34 @@ const lifecycleEvents = [
   'onUnload',
 ];
 
-export default (options: Options) => {
-  let skip = false;
-  let entry: string;
-
+export default () => {
   return {
     pre(state: any) {
-      entry = getPages(options).find(e => e.filename === winPath(state.opts.filename))?.filename || '';
-      skip = !entry;
+      pageEvents.delete(winPath(state.opts.filename));
     },
     visitor: {
       // 解析 class properties 编译后的代码
-      StringLiteral: (path: NodePath<t.StringLiteral>) => {
-        if (skip) {
-          return;
-        }
-
+      StringLiteral: (path: NodePath<t.StringLiteral>, state: any) => {
         const { node } = path;
+        const importer = winPath(state.file.opts.filename);
 
         // 只要生命周期 Literal 存在就标记为用到了生命周期
         if (!lifecycleEvents.includes(node.value)) {
           return;
         }
 
-        pageEvents.set(entry, pageEvents.get(entry)?.add(node.value) ?? new Set([node.value]));
+        pageEvents.set(importer, pageEvents.get(importer)?.add(node.value) ?? new Set([node.value]));
       },
-      Identifier: (path: NodePath<t.Identifier>) => {
-        if (skip) {
-          return;
-        }
-
+      Identifier: (path: NodePath<t.Identifier>, state: any) => {
         const { node } = path;
+        const importer = winPath(state.file.opts.filename);
 
         // 只要生命周期 Identifer 存在就标记为用到了生命周期
         if (!lifecycleEvents.includes(node.name)) {
           return;
         }
 
-        pageEvents.set(entry, pageEvents.get(entry)?.add(node.name) ?? new Set([node.name]));
+        pageEvents.set(importer, pageEvents.get(importer)?.add(node.name) ?? new Set([node.name]));
       },
     },
   };
