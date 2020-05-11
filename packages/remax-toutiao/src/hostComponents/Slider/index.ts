@@ -3,6 +3,7 @@ import createHostComponent from '../../createHostComponent';
 import { BaseProps } from '../../types/component';
 
 export interface SliderProps extends BaseProps {
+  name?: string;
   min?: number;
   max?: number;
   step?: number;

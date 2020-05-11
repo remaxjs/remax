@@ -5,6 +5,8 @@ import { BaseProps } from '../../types/component';
 const PickerView = createHostComponent<PickerViewProps>('picker-view');
 
 export interface PickerViewProps extends BaseProps {
+  /** 组件名字，用于表单提交获取数据 */
+  name?: string;
   /** 数组中的数字依次表示 picker-view 内的 picker-view-column 选择的第几项（下标从 0 开始），数字大于 picker-view-column 可选项长度时，选择最后一项。 1.0.0 */
   value?: number[];
   /** 设置选择器中间选中框的样式 1.0.0 */
