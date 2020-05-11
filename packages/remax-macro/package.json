@@ -3,6 +3,7 @@
   "version": "2.0.4",
   "description": "",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "pretest": "npm run build",
     "test": "jest",
