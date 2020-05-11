@@ -3,6 +3,7 @@
   "name": "website",
   "version": "2.0.4",
   "scripts": {
+    "clean": "rimraf dist",
     "start": "dumi dev",
     "build": "dumi build",
     "postbuild": "echo remaxjs.org > dist/CNAME",

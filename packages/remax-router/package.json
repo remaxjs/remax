@@ -4,6 +4,9 @@
   "version": "2.0.4",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "clean": "echo \"ignore\""
+  },
   "dependencies": {
     "history": "^4.10.1",
     "react-router-cache-route": "^1.8.4",

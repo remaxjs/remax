@@ -8,8 +8,9 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "clean": "rimraf lib",
     "watch": "tsc -w",
-    "prebuild": "rm -rf lib",
+    "prebuild": "npm run clean",
     "build": "tsc"
   },
   "bugs": {
