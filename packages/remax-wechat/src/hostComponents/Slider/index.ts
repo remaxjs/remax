@@ -5,6 +5,8 @@ import { BaseProps } from '../../types/component';
 const Slider: React.ComponentType<SliderProps> = createHostComponent<SliderProps>('slider');
 
 export interface SliderProps extends BaseProps {
+  /** 组件名字，用于表单提交获取数据 */
+  name?: string;
   /** (default: 0) 最小值 1.0.0 */
   min?: number;
   /** (default: 100) 最大值 1.0.0 */

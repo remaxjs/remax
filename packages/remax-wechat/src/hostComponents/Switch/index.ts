@@ -2,6 +2,8 @@ import createHostComponent from '../../createHostComponent';
 import { BaseProps } from '../../types/component';
 
 export interface SwitchProps extends BaseProps {
+  /** 组件名字，用于表单提交获取数据 */
+  name?: string;
   /** (default: false) 是否选中 1.0.0 */
   checked?: boolean;
   /** (default: false) 是否禁用 1.0.0 */
