@@ -14,10 +14,11 @@
     "url": "git+https://github.com/remaxjs/remax.git"
   },
   "scripts": {
+    "clean": "rimraf cjs esm",
     "watch": "concurrently \"npm:watch:*\"",
     "watch:esm": "npm run build:esm -- -w",
     "watch:cjs": "npm run build:cjs -- -w",
-    "prebuild": "rm -rf cjs esm",
+    "prebuild": "npm run clean",
     "build:cjs": "tsc",
     "build:esm": "tsc --module ESNext --outDir esm",
     "build": "npm run build:cjs && npm run build:esm",

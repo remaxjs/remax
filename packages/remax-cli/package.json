@@ -19,8 +19,9 @@
   },
   "homepage": "https://remaxjs.org",
   "scripts": {
+    "clean": "rimraf lib",
     "watch": "tsc -w",
-    "prebuild": "rm -rf lib",
+    "prebuild": "npm run clean",
     "build": "tsc",
     "test": "jest",
     "test:debug": "npx --node-arg=--inspect-brk jest -i"

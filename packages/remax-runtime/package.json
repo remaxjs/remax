@@ -20,7 +20,7 @@
   },
   "homepage": "https://remaxjs.org",
   "scripts": {
-    "clean": "rm -rf esm cjs",
+    "clean": "rimraf esm cjs",
     "watch": "concurrently \"npm:watch:*\"",
     "watch:esm": "npm run build:esm -- -w",
     "watch:cjs": "npm run build:cjs -- -w",
