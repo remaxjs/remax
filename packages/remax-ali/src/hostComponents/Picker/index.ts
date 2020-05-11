@@ -3,6 +3,7 @@ import createHostComponent from '../../createHostComponent';
 export interface PickerProps {
   readonly dataset?: DOMStringMap;
   id?: string;
+  name?: string;
   className?: string;
   range?: string[] | any[];
   rangeKey?: string;

@@ -3,6 +3,7 @@ import createHostComponent from '../../createHostComponent';
 import { BaseProps } from '../../types/component';
 
 export interface SwitchProps extends BaseProps {
+  name?: string;
   checked?: boolean;
   disabled?: boolean;
   type?: string;

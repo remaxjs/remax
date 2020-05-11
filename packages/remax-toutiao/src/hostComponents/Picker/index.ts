@@ -5,6 +5,7 @@ import { BaseProps } from '../../types/component';
 type Mode = 'selector' | 'multiSelector' | 'time' | 'date' | 'region';
 
 interface PickerPropsMap extends BaseProps {
+  name?: string;
   selector: SelectorProps;
   multiSelector: MultipleSelectorProps;
   time: TimeProps;

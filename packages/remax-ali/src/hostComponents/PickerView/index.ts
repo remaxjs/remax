@@ -4,6 +4,7 @@ import createHostComponent from '../../createHostComponent';
 export interface PickerViewProps {
   readonly dataset?: DOMStringMap;
   id?: string;
+  name?: string;
   className?: string;
   value?: number[];
   indicatorStyle?: React.CSSProperties;

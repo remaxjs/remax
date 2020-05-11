@@ -2,6 +2,8 @@ import createHostComponent from '../../createHostComponent';
 import { BaseProps } from '../../types/component';
 
 export interface PickerProps extends BaseProps {
+  /** 组件名字，用于表单提交获取数据 */
+  name?: string;
   /**
    * 1.0.0
    * 选择器类型
