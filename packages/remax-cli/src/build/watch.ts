@@ -4,13 +4,14 @@ import { Compiler } from 'webpack';
 import SingleEntryPlugin from 'webpack/lib/SingleEntryPlugin';
 import { getPages } from '../getEntries';
 
-let isFirstRunWatcher = true;
+let watchCounter = 0;
 
 export default function watch(options: Options, compiler: Compiler, watcher: any, addEntry = false) {
+  watchCounter += 1;
   // 监听额外的文件
   const pages = getPages(options);
   chokidar.watch([`${options.rootDir}/app.config.{js,ts}`]).on('change', () => {
-    if (isFirstRunWatcher) return;
+    if (watchCounter <= 1) return;
     if (addEntry) {
       const nextPages = getPages(options);
       nextPages.forEach(np => {
@@ -23,13 +24,9 @@ export default function watch(options: Options, compiler: Compiler, watcher: any
   });
 
   chokidar.watch([`${options.rootDir}/**/*.config.{js,ts}`]).on('all', () => {
-    if (isFirstRunWatcher) return;
+    if (watchCounter <= 1) return;
     watcher.invalidate();
   });
-
-  if (isFirstRunWatcher) {
-    isFirstRunWatcher = false;
-  }
 
   return watcher;
 }

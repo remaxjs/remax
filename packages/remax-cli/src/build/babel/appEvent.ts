@@ -1,18 +1,32 @@
+import * as path from 'path';
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { appEvents } from '@remax/macro';
 import winPath from '../../winPath';
+import { Options } from '@remax/types';
 
 const lifecycleEvents = ['onLaunch', 'onShow', 'onHide', 'onError', 'onShareAppMessage', 'onPageNotFound'];
 
-export default () => {
+export default (options: Options) => {
+  let skip = false;
   return {
     pre(state: any) {
-      appEvents.delete(winPath(state.opts.filename));
+      const importer = winPath(state.opts.filename);
+
+      if (importer.startsWith(winPath(path.join(options.cwd, options.rootDir)))) {
+        skip = true;
+        return;
+      }
+
+      appEvents.delete(importer);
     },
     visitor: {
       // 解析 class properties 编译后的代码
       StringLiteral: (path: NodePath<t.StringLiteral>, state: any) => {
+        if (skip) {
+          return;
+        }
+
         const importer = winPath(state.file.opts.filename);
         const { node } = path;
 
@@ -24,6 +38,10 @@ export default () => {
         appEvents.set(importer, appEvents.get(importer)?.add(node.value) ?? new Set([node.value]));
       },
       Identifier: (path: NodePath<t.Identifier>, state: any) => {
+        if (skip) {
+          return;
+        }
+
         const importer = winPath(state.file.opts.filename);
         const { node } = path;
 

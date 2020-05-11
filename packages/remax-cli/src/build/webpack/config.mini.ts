@@ -148,7 +148,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .options({
       babelrc: false,
       configFile: resolveBabelConfig(options),
-      usePlugins: [appEvent(), pageEvent(), componentManifest(api, config), fixRegeneratorRuntime()],
+      usePlugins: [appEvent(options), pageEvent(options), componentManifest(api, config), fixRegeneratorRuntime()],
       reactPreset: true,
       api,
       compact: process.env.NODE_ENV === 'production',

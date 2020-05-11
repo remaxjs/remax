@@ -4,6 +4,7 @@ import { Options } from '@remax/types';
 import { appEvents, pageEvents, hostComponents } from '@remax/macro';
 import getModules from '../../utils/modules';
 import { getPages } from '../../../getEntries';
+import winPath from '../../../winPath';
 
 const PLUGIN_NAME = 'RemaxDefinePlugin';
 
@@ -61,7 +62,7 @@ export default class DefinePlugin {
       const modules = getModules(chunk);
 
       events[page.name] = modules.reduce<string[]>((acc, cur) => {
-        return [...acc, ...(pageEvents.get(cur) || [])];
+        return [...acc, ...(pageEvents.get(winPath(cur)) || [])];
       }, []);
     });
 
@@ -73,10 +74,6 @@ export default class DefinePlugin {
     for (const key of appEvents.keys()) {
       // 这里 get 不可能为空
       events = events.concat(Array.from(appEvents.get(key)!).sort());
-    }
-
-    if (process.env.NODE_ENV === 'test') {
-      events = [];
     }
 
     return JSON.stringify(events, null, 2);
