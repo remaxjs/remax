@@ -110,7 +110,7 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
     config,
     webpack,
     addCSSRule: (ruleConfig: RuleConfig) => {
-      addCSSRule(config, options, true, ruleConfig);
+      addCSSRule(config, options, false, ruleConfig);
     },
   });
 
