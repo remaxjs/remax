@@ -42,6 +42,7 @@ function getFilesInDir(fs: IFs, root: string, fsPath: string) {
 interface Options {
   include: string[];
   exclude: string[];
+  externalsIgnore: string[];
 }
 
 export default async function build(app: string, target: Platform, options: Partial<Options> = {}) {
@@ -57,6 +58,27 @@ export default async function build(app: string, target: Platform, options: Part
 
   api.registerPlugins(config);
 
+  const externals: any = {
+    react: JSON.stringify('react'),
+    'react-reconciler': JSON.stringify('react-reconciler'),
+    scheduler: JSON.stringify('scheduler'),
+    'regenerator-runtime': JSON.stringify('regenerator-runtime'),
+    remax: JSON.stringify('remax'),
+    '@remax/runtime': JSON.stringify('@remax/runtime'),
+    'remax/ali': JSON.stringify('remax/ali'),
+    '@remax/ali': JSON.stringify('@remax/ali'),
+    'remax/wechat': JSON.stringify('remax/wechat'),
+    '@remax/wechat': JSON.stringify('@remax/wechat'),
+    'remax/toutiao': JSON.stringify('remax/toutiao'),
+    '@remax/toutiao': JSON.stringify('@remax/toutiao'),
+    'remax/router': JSON.stringify('remax/router'),
+    'remax/web': JSON.stringify('remax/web'),
+  };
+
+  (options.externalsIgnore || []).forEach(k => {
+    delete externals[k];
+  });
+
   const remaxOptions = {
     ...config,
     target,
@@ -71,22 +93,7 @@ export default async function build(app: string, target: Platform, options: Part
         })
         .end()
         .end()
-        .externals({
-          react: JSON.stringify('react'),
-          'react-reconciler': JSON.stringify('react-reconciler'),
-          scheduler: JSON.stringify('scheduler'),
-          'regenerator-runtime': JSON.stringify('regenerator-runtime'),
-          remax: JSON.stringify('remax'),
-          '@remax/runtime': JSON.stringify('@remax/runtime'),
-          'remax/ali': JSON.stringify('remax/ali'),
-          '@remax/ali': JSON.stringify('@remax/ali'),
-          'remax/wechat': JSON.stringify('remax/wechat'),
-          '@remax/wechat': JSON.stringify('@remax/wechat'),
-          'remax/toutiao': JSON.stringify('remax/toutiao'),
-          '@remax/toutiao': JSON.stringify('@remax/toutiao'),
-          'remax/router': JSON.stringify('remax/router'),
-          'remax/web': JSON.stringify('remax/web'),
-        });
+        .externals(externals);
 
       if (typeof config.configWebpack === 'function') {
         config.configWebpack({ config: webpackConfig, webpack });

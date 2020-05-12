@@ -1,10 +1,11 @@
 import * as path from 'path';
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
-import { pageEvents } from '@remax/macro';
+import { pageClassEvents } from '../webpack/plugins/Define';
 import winPath from '../../winPath';
 import { Options } from '@remax/types';
 
+// TODO: 和 runtime 同步
 const lifecycleEvents = [
   'onLoad',
   'onShow',
@@ -37,7 +38,7 @@ export default (options: Options) => {
         return;
       }
 
-      pageEvents.delete(winPath(state.opts.filename));
+      pageClassEvents.delete(winPath(state.opts.filename));
     },
     visitor: {
       // 解析 class properties 编译后的代码
@@ -54,7 +55,7 @@ export default (options: Options) => {
           return;
         }
 
-        pageEvents.set(importer, pageEvents.get(importer)?.add(node.value) ?? new Set([node.value]));
+        pageClassEvents.set(importer, pageClassEvents.get(importer)?.add(node.value) ?? new Set([node.value]));
       },
       Identifier: (path: NodePath<t.Identifier>, state: any) => {
         if (skip) {
@@ -69,7 +70,7 @@ export default (options: Options) => {
           return;
         }
 
-        pageEvents.set(importer, pageEvents.get(importer)?.add(node.name) ?? new Set([node.name]));
+        pageClassEvents.set(importer, pageClassEvents.get(importer)?.add(node.name) ?? new Set([node.name]));
       },
     },
   };

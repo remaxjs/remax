@@ -1,24 +1,34 @@
-import * as path from 'path';
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
-import { appEvents } from '@remax/macro';
+import { appClassEvents } from '../webpack/plugins/Define';
 import winPath from '../../winPath';
-import { Options } from '@remax/types';
 
-const lifecycleEvents = ['onLaunch', 'onShow', 'onHide', 'onError', 'onShareAppMessage', 'onPageNotFound'];
+// TODO: 和 runtime 同步
+const lifecycleEvents = [
+  'onLaunch',
+  'onShow',
+  'onHide',
+  'onError',
+  'onShareAppMessage',
+  'onPageNotFound',
+  'onUnhandledRejection',
+  'onThemeChange',
+];
 
-export default (options: Options) => {
+export default (appFilename: string) => {
   let skip = false;
   return {
     pre(state: any) {
       const importer = winPath(state.opts.filename);
 
-      if (!importer.startsWith(winPath(path.join(options.cwd, options.rootDir)))) {
-        skip = true;
+      // TODO: app 的依赖也要收集
+      skip = importer !== appFilename;
+
+      if (skip) {
         return;
       }
 
-      appEvents.delete(importer);
+      appClassEvents.delete(importer);
     },
     visitor: {
       // 解析 class properties 编译后的代码
@@ -35,7 +45,7 @@ export default (options: Options) => {
           return;
         }
 
-        appEvents.set(importer, appEvents.get(importer)?.add(node.value) ?? new Set([node.value]));
+        appClassEvents.set(importer, appClassEvents.get(importer)?.add(node.value) ?? new Set([node.value]));
       },
       Identifier: (path: NodePath<t.Identifier>, state: any) => {
         if (skip) {
@@ -50,7 +60,7 @@ export default (options: Options) => {
           return;
         }
 
-        appEvents.set(importer, appEvents.get(importer)?.add(node.name) ?? new Set([node.name]));
+        appClassEvents.set(importer, appClassEvents.get(importer)?.add(node.name) ?? new Set([node.name]));
       },
     },
   };
