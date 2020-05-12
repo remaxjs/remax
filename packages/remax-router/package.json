@@ -4,9 +4,7 @@
   "version": "2.0.6",
   "main": "index.js",
   "license": "MIT",
-  "scripts": {
-    "clean": "echo \"ignore\""
-  },
+  "types": "web.d.ts",
   "dependencies": {
     "@remax/react-router-cache-route": "^1.8.4",
     "history": "^4.10.1",

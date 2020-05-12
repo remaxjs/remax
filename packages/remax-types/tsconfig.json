@@ -4,6 +4,7 @@
     "module": "esnext",
     "declaration": true,
     "jsx": "react",
-    "outDir": "esm",
+    "rootDir": "src",
+    "outDir": "esm"
   }
 }

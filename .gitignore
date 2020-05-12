@@ -74,3 +74,4 @@ integration-test/
 .idea/
 remax.iml
 .tea/
+tsconfig.tsbuildinfo

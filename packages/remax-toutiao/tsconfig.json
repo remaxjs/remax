@@ -6,8 +6,14 @@
     "declaration": true,
     "jsx": "react",
     "types": ["@types/jest", "@types/node"],
+    "rootDir": "src",
     "outDir": "cjs",
     "downlevelIteration": true
   },
-  "include": ["src/**/*", "typings/**/*"]
+  "include": ["src/**/*", "typings/**/*"],
+  "references": [
+    {
+      "path": "../remax-types"
+    }
+  ]
 }

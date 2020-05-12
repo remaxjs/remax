@@ -3,8 +3,14 @@
   "compilerOptions": {
     "module": "commonjs",
     "declaration": true,
+    "rootDir": "src",
     "outDir": "lib",
     "types": ["node", "jest"]
   },
-  "exclude": ["tests/**/*", "node_modules", "lib"]
+  "exclude": ["tests/**/*", "node_modules", "lib"],
+  "references": [
+    {
+      "path": "../remax-types"
+    }
+  ]
 }

@@ -10,6 +10,7 @@
     "test:integration": "./scripts/integration-test",
     "test:cov": "lerna run --ignore babel-preset-remax --ignore website --stream test -- --collect-coverage",
     "clean": "lerna clean",
+    "clean:packages": "lerna run clean",
     "readme:copy": "lerna exec 'cp ../../README.md' . --scope remax --scope @remax/cli",
     "readme:clean": "lerna exec 'rm README.md' --scope remax --scope @remax/cli",
     "prepack": "npm run readme:copy",

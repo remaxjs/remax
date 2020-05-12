@@ -3,3 +3,5 @@ src/
 yarn-error.log
 .DS_Store
 coverage/
+tsconfig.json
+tsconfig.tsbuildinfo

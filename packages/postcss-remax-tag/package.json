@@ -5,9 +5,6 @@
   "repository": "git@github.com:remaxjs/remax.git",
   "author": "Caihuanyu <eterlf41@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "clean": "echo \"ignore\""
-  },
   "devDependencies": {
     "postcss": "^7.0.27"
   },

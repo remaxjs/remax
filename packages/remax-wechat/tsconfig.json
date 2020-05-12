@@ -6,8 +6,14 @@
     "declaration": true,
     "jsx": "react",
     "types": ["@types/jest", "@types/node"],
+    "rootDir": "src",
     "outDir": "cjs",
     "downlevelIteration": true
   },
-  "include": ["src/**/*", "typings/**/*", "../../node_modules/miniprogram-api-typings/types/wx/lib.wx.api.d.ts"]
+  "include": ["src/**/*", "typings/**/*", "../../node_modules/miniprogram-api-typings/types/wx/lib.wx.api.d.ts"],
+  "references": [
+    {
+      "path": "../remax-types"
+    }
+  ]
 }

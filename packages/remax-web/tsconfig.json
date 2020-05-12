@@ -4,6 +4,7 @@
     "module": "CommonJS",
     "declaration": true,
     "jsx": "react",
+    "rootDir": "src",
     "outDir": "cjs",
     "downlevelIteration": true
   }

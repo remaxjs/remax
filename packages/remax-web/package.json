@@ -14,7 +14,7 @@
     "url": "git+https://github.com/remaxjs/remax.git"
   },
   "scripts": {
-    "clean": "rimraf cjs esm",
+    "clean": "rimraf cjs esm tsconfig.tsbuildinfo",
     "watch": "concurrently \"npm:watch:*\"",
     "watch:esm": "npm run build:esm -- -w",
     "watch:cjs": "npm run build:cjs -- -w",

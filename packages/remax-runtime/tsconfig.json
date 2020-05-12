@@ -5,6 +5,7 @@
     "lib": ["es2015", "dom"],
     "declaration": true,
     "jsx": "react",
+    "rootDir": "src",
     "outDir": "esm",
     "types": ["@types/jest", "@types/node"],
     "skipLibCheck": true,
@@ -17,5 +18,10 @@
     "../../node_modules/mini-types/types/page.d.ts",
     "../../node_modules/mini-types/types/api/index.d.ts",
     "../../node_modules/miniprogram-api-typings/types/wx/lib.wx.api.d.ts"
+  ],
+  "references": [
+    {
+      "path": "../remax-web"
+    }
   ]
 }

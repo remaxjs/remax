@@ -5,11 +5,20 @@
     "target": "ES2017",
     "declaration": true,
     "outDir": "lib",
-    "rootDirs": ["src", "tests"],
+    "rootDir": "src",
     "types": ["@types/jest"],
     "jsx": "preserve",
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "exclude": ["tests", "lib"]
+  "include": ["src", "src/OptionsSchema.json", "typings"],
+  "exclude": ["tests", "lib"],
+  "references": [
+    {
+      "path": "../remax-types"
+    },
+    {
+      "path": "../remax-macro"
+    }
+  ]
 }

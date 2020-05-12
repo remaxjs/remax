@@ -21,7 +21,7 @@
   },
   "homepage": "https://remaxjs.org",
   "scripts": {
-    "clean": "rimraf esm cjs",
+    "clean": "rimraf esm cjs tsconfig.tsbuildinfo",
     "watch": "concurrently \"npm:watch:*\"",
     "watch:esm": "npm run build:esm -- -w",
     "watch:cjs": "npm run build:cjs -- -w",

@@ -3,3 +3,5 @@ lib/
 dist/
 **/*.js
 packages/**/templates/*.js
+cjs
+esm
