@@ -16,7 +16,15 @@ const platformAlias: any = {
     onTouchCancel: 'bindtouchcancel',
     onLongTap: 'bindlongtap',
   },
-  toutiao: {},
+  toutiao: {
+    role: 'aria-role',
+    onTap: 'bindtap',
+    onTouchStart: 'bindtouchstart',
+    onTouchMove: 'bindtouchmove',
+    onTouchEnd: 'bindtouchend',
+    onTouchCancel: 'bindtouchcancel',
+    onLongTap: 'bindlongtap',
+  },
 };
 
 const defaultAlias = {
