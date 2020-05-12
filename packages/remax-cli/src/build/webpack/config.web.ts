@@ -100,7 +100,6 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
       filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].css' : '[name].css',
     },
   ]);
-  config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options]);
 
   if (typeof options.configWebpack === 'function') {
     options.configWebpack({ config, webpack });

@@ -9,6 +9,7 @@ import requirePluginComponentMacro, {
 import requirePluginMacro from './requirePlugin';
 import usePageEventMacro, { pageEvents } from './usePageEvent';
 import useAppEventMacro, { appEvents } from './useAppEvent';
+import winPath from './utils/winPath';
 
 function remax({ references, state }: { references: { [name: string]: NodePath[] }; state: any }) {
   references.createHostComponent?.forEach(path => createHostComponentMacro(path, state));
@@ -16,6 +17,11 @@ function remax({ references, state }: { references: { [name: string]: NodePath[]
   references.requirePluginComponent?.forEach(path => requirePluginComponentMacro(path, state));
 
   references.requirePlugin?.forEach(path => requirePluginMacro(path));
+
+  const importer = winPath(state.file.opts.filename);
+
+  appEvents.delete(importer);
+  pageEvents.delete(importer);
 
   references.useAppEvent?.forEach(path => useAppEventMacro(path, state));
 

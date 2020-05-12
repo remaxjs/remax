@@ -4,8 +4,14 @@ import { Options } from '@remax/types';
 import { appEvents, pageEvents, hostComponents } from '@remax/macro';
 import getModules from '../../utils/modules';
 import { getPages } from '../../../getEntries';
+import winPath from '../../../winPath';
 
 const PLUGIN_NAME = 'RemaxDefinePlugin';
+
+type Events = Set<string>;
+
+export const pageClassEvents = new Map<string, Events>();
+export const appClassEvents = new Map<string, Events>();
 
 export default class DefinePlugin {
   remaxOptions: Options;
@@ -40,9 +46,6 @@ export default class DefinePlugin {
           });
         });
 
-        appEvents.clear();
-        pageEvents.clear();
-
         callback();
       });
     });
@@ -63,9 +66,15 @@ export default class DefinePlugin {
       // TODO: 应该有更好的获取 modules 的方式？
       const modules = getModules(chunk);
 
-      events[page.name] = modules.reduce<string[]>((acc, cur) => {
-        return [...acc, ...(pageEvents.get(cur) || [])];
-      }, []);
+      events[page.name] = Array.from(
+        new Set(
+          modules
+            .reduce<string[]>((acc, cur) => {
+              return [...acc, ...(pageEvents.get(winPath(cur)) || []), ...(pageClassEvents.get(winPath(cur)) || [])];
+            }, [])
+            .sort()
+        )
+      );
     });
 
     return JSON.stringify(events, null, 2);
@@ -75,14 +84,15 @@ export default class DefinePlugin {
     let events: string[] = [];
     for (const key of appEvents.keys()) {
       // 这里 get 不可能为空
-      events = events.concat(Array.from(appEvents.get(key)!).sort());
+      events = events.concat(Array.from(appEvents.get(key)!));
     }
 
-    if (process.env.NODE_ENV === 'test') {
-      events = [];
+    for (const key of appClassEvents.keys()) {
+      // 这里 get 不可能为空
+      events = events.concat(Array.from(appClassEvents.get(key)!));
     }
 
-    return JSON.stringify(events, null, 2);
+    return JSON.stringify(Array.from(new Set(events.sort())), null, 2);
   }
 
   stringifyHostComponents() {
