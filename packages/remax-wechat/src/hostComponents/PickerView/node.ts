@@ -2,6 +2,7 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  name: 'name',
   value: 'value',
   indicatorStyle: 'indicator-style',
   indicatorClass: 'indicator-class',
