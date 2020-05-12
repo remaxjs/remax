@@ -32,13 +32,12 @@ export default (options: Options) => {
   return {
     pre(state: any) {
       const importer = winPath(state.opts.filename);
+      const root = winPath(path.join(options.cwd, options.rootDir));
 
-      if (!importer.startsWith(winPath(path.join(options.cwd, options.rootDir)))) {
-        skip = true;
-        return;
+      skip = !importer.startsWith(root);
+      if (!skip) {
+        pageClassEvents.delete(importer);
       }
-
-      pageClassEvents.delete(winPath(state.opts.filename));
     },
     visitor: {
       // 解析 class properties 编译后的代码
