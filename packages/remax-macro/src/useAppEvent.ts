@@ -1,6 +1,7 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import insertImportDeclaration from './utils/insertImportDeclaration';
+import winPath from './utils/winPath';
 
 const PACKAGE_NAME = '@remax/runtime';
 const FUNCTION_NAME = 'useAppEvent';
@@ -21,7 +22,7 @@ function getArguments(callExpression: NodePath<t.CallExpression>, importer: stri
 
 export default function useAppEvent(path: NodePath, state: any) {
   const program = state.file.path;
-  const importer = state.file.opts.filename;
+  const importer = winPath(state.file.opts.filename);
   const functionName = insertImportDeclaration(program, FUNCTION_NAME, PACKAGE_NAME);
   const callExpression = path.findParent(p => t.isCallExpression(p)) as NodePath<t.CallExpression>;
   const [eventName, callback] = getArguments(callExpression, importer);
