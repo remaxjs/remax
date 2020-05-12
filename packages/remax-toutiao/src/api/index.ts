@@ -91,3 +91,4 @@ export const createRewardedVideoAd = tt.createRewardedVideoAd;
 export const getConnectedWifi = promisify(tt.getConnectedWifi);
 export const setKeepScreenOn = promisify(tt.setKeepScreenOn);
 export const getMenuButtonLayout = tt.getMenuButtonLayout;
+export const getMenuButtonBoundingClientRect = tt.getMenuButtonBoundingClientRect;
