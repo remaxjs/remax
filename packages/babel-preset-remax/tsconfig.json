@@ -4,6 +4,7 @@
     "module": "commonjs",
     "lib": ["es2015"],
     "declaration": true,
+    "rootDir": "src",
     "outDir": "lib"
   },
   "include": ["src/**/*", "typings/**/*"],
