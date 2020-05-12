@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "module": "esnext",
+    "module": "CommonJS",
     "declaration": true,
     "jsx": "react",
     "rootDir": "src",
