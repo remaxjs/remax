@@ -13,7 +13,7 @@ export default (options: Options) => {
     pre(state: any) {
       const importer = winPath(state.opts.filename);
 
-      if (importer.startsWith(winPath(path.join(options.cwd, options.rootDir)))) {
+      if (!importer.startsWith(winPath(path.join(options.cwd, options.rootDir)))) {
         skip = true;
         return;
       }
