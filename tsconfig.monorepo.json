@@ -1,0 +1,35 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/babel-preset-remax"
+    },
+    {
+      "path": "./packages/remax-types"
+    },
+    {
+      "path": "./packages/remax-ali"
+    },
+    {
+      "path": "./packages/remax-runtime"
+    },
+    {
+      "path": "./packages/remax-toutiao"
+    },
+    {
+      "path": "./packages/remax-web"
+    },
+    {
+      "path": "./packages/remax-wechat"
+    },
+    {
+      "path": "./packages/remax-macro"
+    },
+    {
+      "path": "./packages/remax-one"
+    },
+    {
+      "path": "./packages/remax-cli"
+    }
+  ]
+}

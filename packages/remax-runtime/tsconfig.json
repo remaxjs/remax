@@ -1,12 +1,12 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "module": "esnext",
+    "module": "CommonJS",
     "lib": ["es2015", "dom"],
     "declaration": true,
     "jsx": "react",
     "rootDir": "src",
-    "outDir": "esm",
+    "outDir": "cjs",
     "types": ["@types/jest", "@types/node"],
     "skipLibCheck": true,
     "downlevelIteration": true

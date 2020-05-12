@@ -5,7 +5,7 @@
   "main": "./cjs/index.js",
   "esnext": "./esm/index.js",
   "module": "./esm/index.js",
-  "typings": "./esm/index.d.ts",
+  "typings": "./cjs/index.d.ts",
   "scripts": {
     "clean": "rimraf cjs esm tsconfig.tsbuildinfo",
     "watch": "concurrently \"npm:watch:*\"",
@@ -14,7 +14,7 @@
     "prebuild": "npm run clean",
     "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc --module ESNext --outDir esm",
-    "build:cjs": "tsc --module CommonJS --outDir cjs",
+    "build:cjs": "tsc",
     "test": "jest"
   },
   "repository": "git+https://github.com/remaxjs/remax.git",

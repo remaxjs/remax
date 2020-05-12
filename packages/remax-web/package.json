@@ -8,7 +8,7 @@
   "main": "./cjs/index.js",
   "esnext": "./esm/index.js",
   "module": "./esm/index.js",
-  "typings": "./esm/index.d.ts",
+  "typings": "./cjs/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/remaxjs/remax.git"
