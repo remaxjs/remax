@@ -16,7 +16,7 @@ group:
 ```js
 import React from 'react';
 import { View } from 'remax/ali';
-import Badge from 'mini-antui/es/badge'; // 直接当成 React 组件引用，无需申明 useComponents
+import Badge from 'mini-ali-ui/es/badge'; // 直接当成 React 组件引用，无需申明 useComponents
 
 export default () => (
   <View>
@@ -89,7 +89,7 @@ export default () => {
 ```js
 import React from 'react';
 import { View } from 'remax/ali';
-import Badge from 'mini-antui/es/badge';
+import Badge from 'mini-ali-ui/es/badge';
 
 export default () => (
   <View>
@@ -105,7 +105,7 @@ export default () => (
 ```js
 import React from 'react';
 import { View } from 'remax/ali';
-import Badge from 'mini-antui/es/badge';
+import Badge from 'mini-ali-ui/es/badge';
 
 export default () => (
   <View>
@@ -123,7 +123,7 @@ export default () => (
 ```js
 import React from 'react';
 import { View } from 'remax/ali';
-import Badge from 'mini-antui/es/badge';
+import Badge from 'mini-ali-ui/es/badge';
 
 export default () => {
   const badgeProps = {
@@ -145,7 +145,7 @@ export default () => {
 ```js
 import React from 'react';
 import { View } from 'remax/ali';
-import Badge from 'mini-antui/es/badge';
+import Badge from 'mini-ali-ui/es/badge';
 
 export default () => {
   return (
