@@ -1387,11 +1387,11 @@ function switchTab(params) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "history", function() { return history; });
 /* harmony import */ var history__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(46);
-/* harmony import */ var react_router_cache_route__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(52);
-/* harmony import */ var react_router_cache_route__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_router_cache_route__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CacheRoute", function() { return react_router_cache_route__WEBPACK_IMPORTED_MODULE_1__["CacheRoute"]; });
+/* harmony import */ var _remax_react_router_cache_route__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(52);
+/* harmony import */ var _remax_react_router_cache_route__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_remax_react_router_cache_route__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CacheRoute", function() { return _remax_react_router_cache_route__WEBPACK_IMPORTED_MODULE_1__["CacheRoute"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CacheSwitch", function() { return react_router_cache_route__WEBPACK_IMPORTED_MODULE_1__["CacheSwitch"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CacheSwitch", function() { return _remax_react_router_cache_route__WEBPACK_IMPORTED_MODULE_1__["CacheSwitch"]; });
 
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(55);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return react_router_dom__WEBPACK_IMPORTED_MODULE_2__["MemoryRouter"]; });
