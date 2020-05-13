@@ -22,13 +22,9 @@
   "homepage": "https://remaxjs.org",
   "scripts": {
     "clean": "rimraf esm cjs tsconfig.tsbuildinfo",
-    "watch": "concurrently \"npm:watch:*\"",
-    "watch:esm": "npm run build:esm -- -w",
-    "watch:cjs": "npm run build:cjs -- -w",
     "prebuild": "npm run clean",
-    "build": "npm run build:esm && npm run build:cjs",
-    "build:cjs": "tsc",
-    "build:esm": "tsc --module ESNext --outDir esm",
+    "build": "tsc",
+    "build:cjs": "tsc --module CommonJS --outDir cjs",
     "test": "jest",
     "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },

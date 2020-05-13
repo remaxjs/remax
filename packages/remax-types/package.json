@@ -9,9 +9,6 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "clean": "rimraf lib tsconfig.tsbuildinfo",
-    "watch": "concurrently \"npm:watch:*\"",
-    "watch:esm": "npm run build:esm -- -w",
-    "watch:cjs": "npm run build:cjs -- -w",
     "prebuild": "npm run clean",
     "build": "tsc"
   },

@@ -1,13 +1,12 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "CommonJS",
     "lib": ["es2015", "DOM"],
     "declaration": true,
     "jsx": "react",
     "types": ["@types/jest", "@types/node"],
     "rootDir": "src",
-    "outDir": "cjs",
+    "outDir": "esm",
     "downlevelIteration": true
   },
   "include": [

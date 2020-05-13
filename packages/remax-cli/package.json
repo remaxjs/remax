@@ -20,7 +20,6 @@
   "homepage": "https://remaxjs.org",
   "scripts": {
     "clean": "rimraf lib tsconfig.tsbuildinfo",
-    "watch": "tsc -w",
     "prebuild": "npm run clean",
     "build": "tsc",
     "test": "jest",

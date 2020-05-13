@@ -1,11 +1,11 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "CommonJS",
     "target": "ES2017",
     "declaration": true,
-    "outDir": "lib",
     "rootDir": "src",
+    "outDir": "lib",
     "types": ["@types/jest"],
     "jsx": "preserve",
     "skipLibCheck": true,

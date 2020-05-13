@@ -9,7 +9,6 @@
   "private": false,
   "scripts": {
     "clean": "rimraf lib tsconfig.tsbuildinfo",
-    "watch": "tsc -w",
     "prebuild": "npm run clean",
     "build": "tsc"
   },

@@ -8,7 +8,6 @@
     "clean": "rimraf lib tsconfig.tsbuildinfo",
     "pretest": "npm run build",
     "test": "jest",
-    "watch": "tsc -w",
     "prebuild": "npm run clean",
     "build": "tsc"
   },

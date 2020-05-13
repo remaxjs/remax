@@ -3,9 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "watch": "lerna run watch --parallel",
+    "watch": "tsc -b -w",
     "prebuild": "npm run clean:packages",
-    "build": "tsc -b tsconfig.monorepo.json && lerna run build:esm",
+    "build": "tsc -b && lerna run build:cjs",
     "test": "lerna run --ignore babel-preset-remax --ignore website --stream test",
     "test:integration": "./scripts/integration-test",
     "test:cov": "lerna run --ignore babel-preset-remax --ignore website --stream test -- --collect-coverage",
