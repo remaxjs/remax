@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6](https://github.com/remaxjs/remax/compare/v2.0.5...v2.0.6) (2020-05-13)
+
+### Bug Fixes
+
+- **one:** 修复 remax/one Button 组件 style 属性不生效的问题 ([e887587](https://github.com/remaxjs/remax/commit/e8875873dbe9d105f81eb49eca7f88dd60fa5842))
+
 ## [2.0.5](https://github.com/remaxjs/remax/compare/v2.0.4...v2.0.5) (2020-05-12)
 
 ### Bug Fixes

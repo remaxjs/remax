@@ -1,15 +1,15 @@
 {
   "name": "@remax/router",
   "description": "Remax Router",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "clean": "echo \"ignore\""
   },
   "dependencies": {
-    "history": "^4.10.1",
     "@remax/react-router-cache-route": "^1.8.4",
+    "history": "^4.10.1",
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
