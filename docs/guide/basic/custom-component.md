@@ -58,7 +58,7 @@ export default () => {
   return (
     <View>
       {/** vant-weapp 中 icon 的属性定义为  class-prefix, bindclick，所以应遵循其命名规则 */}
-      <VantIcon name="close" class-prefix="custom-class-prefix" bindclick={handleClick} />
+      <VantIcon name="close" classPrefix="custom-class-prefix" onClick={handleClick} />
     </View>
   );
 };
