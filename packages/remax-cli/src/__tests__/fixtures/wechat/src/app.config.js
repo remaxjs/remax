@@ -1,5 +1,5 @@
 module.exports = {
-  pages: ['pages/index'],
+  pages: ['pages/index', 'pages/index2'],
   window: {
     navigationBarBackgroundColor: '#323239',
     navigationBarTitleText: 'Wechat App',
@@ -7,7 +7,7 @@ module.exports = {
   subpackages: [
     {
       root: 'packageA',
-      pages: ['pages/index'],
+      pages: ['pages/index', 'pages/index2'],
     },
   ],
   tabBar: {
