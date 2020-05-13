@@ -1227,6 +1227,10 @@
     
     
     
+    name="{{item.props['name']}}"
+    
+    
+    
     onChange="{{item.props['onChange']}}"
     
     
@@ -1281,6 +1285,10 @@
     
     
     mask-style="{{item.props['mask-style']}}"
+    
+    
+    
+    name="{{item.props['name']}}"
     
     
     
