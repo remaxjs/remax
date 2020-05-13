@@ -96,10 +96,10 @@ export default () => {
 };
 ```
 
-默认导出的的 React 组件就是当前的页面，关于生命周期的使用方式参考《[生命周期](/guide/framework#生命周期-1)》。
+默认导出的的 React 组件就是当前的页面，关于生命周期的使用方式参考《[生命周期](/guide/framework/app#生命周期)》。
 
 Remax 针对不同平台提供了对应的组件和 API，如 `remax/ali`，`remax/wechat`，`remax/toutiao` 等等，你可以根据需要选择对应的平台。关于跨平台开发请参考《[跨平台开发](/guide/one)》。
 
-`index.css` 页面样式文件，关于样式请参考《[样式](/guide/style)》。
+`index.css` 页面样式文件，关于样式请参考《[样式](/guide/framework/style)》。
 
 `index.config.js` 页面配置文件，会自动转换成小程序页面配置文件 `index.json`，关于配置请参考《[配置](/guide/config)》。
