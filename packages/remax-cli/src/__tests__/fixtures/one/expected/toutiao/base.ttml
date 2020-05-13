@@ -593,19 +593,13 @@
   <template name="REMAX_TPL_view">
   <view 
     animation="{{i.props['animation']}}" 
-    aria-role="{{i.props['aria-role']}}" 
-    bindlongtap="{{i.props['bindlongtap']}}" 
-    bindtap="{{i.props['bindtap']}}" 
-    bindtouchcancel="{{i.props['bindtouchcancel']}}" 
-    bindtouchend="{{i.props['bindtouchend']}}" 
-    bindtouchmove="{{i.props['bindtouchmove']}}" 
-    bindtouchstart="{{i.props['bindtouchstart']}}" 
     class="{{i.props['class']}}" 
     data-foo="{{i.props['data-foo']}}" 
     hover-class="{{i.props['hover-class']}}" 
     hover-start-time="{{i.props['hover-start-time']}}" 
     hover-stay-time="{{i.props['hover-stay-time']}}" 
     id="{{i.props['id']}}" 
+    role="{{i.props['role']}}" 
     style="{{i.props['style']}}" 
   >
     
