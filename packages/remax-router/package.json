@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "history": "^4.10.1",
-    "react-router-cache-route": "^1.8.4",
+    "@remax/react-router-cache-route": "^1.8.4",
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
