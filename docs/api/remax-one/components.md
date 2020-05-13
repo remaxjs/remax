@@ -15,17 +15,17 @@ import { Button } from 'remax/one';
 
 属性
 
-| 名称            | 类型                                                         | 描述                                                         |
-| --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| id              | string                                                       | 节点 id                                                      |
-| className       | string                                                       | 节点样式类                                                   |
-| style           | React.CssProperties                                          | 节点 inline style                                            |
-| disabled        | boolean                                                      | 是否禁用                                                     |
-| hoverClassStyle | React.CssProperties                                          | 按住按钮后对应的样式                                         |
-| hoverStartTime  | number                                                       | 按住后多久出现点击态，单位毫秒                               |
-| hoverStayTime   | boolean                                                      | 手指松开后点击态保留时间                                     |
-| formType        | 'submit' \| 'reset'                                          | 用于 form 组件，点击分别会触发 form 组件的 submit/reset 事件 |
-| onTap           | ((event: [TapEvent](/api/remax-one/event#tapevent))) => void | 点击事件                                                     |
+| 名称           | 类型                                                         | 描述                                                         |
+| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| id             | string                                                       | 节点 id                                                      |
+| className      | string                                                       | 节点样式类                                                   |
+| style          | React.CssProperties                                          | 节点 inline style                                            |
+| disabled       | boolean                                                      | 是否禁用                                                     |
+| hoverClassName | string                                                       | 按住按钮后对应的样式类                                       |
+| hoverStartTime | number                                                       | 按住后多久出现点击态，单位毫秒                               |
+| hoverStayTime  | boolean                                                      | 手指松开后点击态保留时间                                     |
+| formType       | 'submit' \| 'reset'                                          | 用于 form 组件，点击分别会触发 form 组件的 submit/reset 事件 |
+| onTap          | ((event: [TapEvent](/api/remax-one/event#tapevent))) => void | 点击事件                                                     |
 
 > 注意
 >
@@ -186,23 +186,23 @@ import { View } from 'remax/one';
 
 属性
 
-| 名称            | 类型                                                                         | 描述                           |
-| --------------- | ---------------------------------------------------------------------------- | ------------------------------ |
-| id              | string                                                                       | 节点 id                        |
-| className       | string                                                                       | 节点样式类                     |
-| style           | React.CssProperties                                                          | 节点 inline style              |
-| slot            | string                                                                       | slot 标识                      |
-| hoverClassStyle | React.CssProperties                                                          | 按住按钮后对应的样式           |
-| hoverStartTime  | number                                                                       | 按住后多久出现点击态，单位毫秒 |
-| hoverStayTime   | boolean                                                                      | 手指松开后点击态保留时间       |
-| role            | string                                                                       | aria role                      |
-| onTap           | ((event: [TapEvent](/api/remax-one/event#tapevent))) => void                 | 点击事件                       |
-| onLongTap       | ((event: [TapEvent](/api/remax-one/event#tapevent))) => void                 | 长按点击事件                   |
-| onTouchStart    | ((event: [TouchStartEvent](/api/remax-one/event#touchstartevent))) => void   | 触碰开始事件                   |
-| onTouchMove     | ((event: [TouchMoveEvent](/api/remax-one/event#touchmoveevent))) => void     | 触碰移动事件                   |
-| onTouchEnd      | ((event: [TouchMoveEvent](/api/remax-one/event#touchmoveevent))) => void     | 触碰结束事件                   |
-| onTouchCancel   | ((event: [TouchCancelEvent](/api/remax-one/event#touchcancelevent))) => void | 触碰取消事件                   |
-| onLongTap       | ((event: [TapEvent](/api/remax-one/event#tapevent))) => void                 | 长按点击事件                   |
+| 名称           | 类型                                                                         | 描述                           |
+| -------------- | ---------------------------------------------------------------------------- | ------------------------------ |
+| id             | string                                                                       | 节点 id                        |
+| className      | string                                                                       | 节点样式类                     |
+| style          | React.CssProperties                                                          | 节点 inline style              |
+| slot           | string                                                                       | slot 标识                      |
+| hoverClassName | string                                                                       | 按住按钮后对应的样式类         |
+| hoverStartTime | number                                                                       | 按住后多久出现点击态，单位毫秒 |
+| hoverStayTime  | boolean                                                                      | 手指松开后点击态保留时间       |
+| role           | string                                                                       | aria role                      |
+| onTap          | ((event: [TapEvent](/api/remax-one/event#tapevent))) => void                 | 点击事件                       |
+| onLongTap      | ((event: [TapEvent](/api/remax-one/event#tapevent))) => void                 | 长按点击事件                   |
+| onTouchStart   | ((event: [TouchStartEvent](/api/remax-one/event#touchstartevent))) => void   | 触碰开始事件                   |
+| onTouchMove    | ((event: [TouchMoveEvent](/api/remax-one/event#touchmoveevent))) => void     | 触碰移动事件                   |
+| onTouchEnd     | ((event: [TouchMoveEvent](/api/remax-one/event#touchmoveevent))) => void     | 触碰结束事件                   |
+| onTouchCancel  | ((event: [TouchCancelEvent](/api/remax-one/event#touchcancelevent))) => void | 触碰取消事件                   |
+| onLongTap      | ((event: [TapEvent](/api/remax-one/event#tapevent))) => void                 | 长按点击事件                   |
 
 ## WebView
 
