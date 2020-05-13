@@ -90,6 +90,12 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
     },
   ]);
 
+  config.plugin('define-plugin').use(webpack.DefinePlugin, [
+    {
+      __REMAX_HOST_COMPONENTS__: JSON.stringify({}),
+    },
+  ]);
+
   config.plugin('webpackbar').use(WebapckBar, [{ name: 'web' }]);
 
   config

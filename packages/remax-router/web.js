@@ -1,5 +1,5 @@
 import { createHashHistory } from 'history';
-export { CacheRoute, CacheSwitch } from 'react-router-cache-route';
+export { CacheRoute, CacheSwitch } from '@remax/react-router-cache-route';
 
 export const history = createHashHistory();
 
