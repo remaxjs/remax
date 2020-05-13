@@ -3864,7 +3864,6 @@ if (false) {} else {
 
   var SwitchFragment = getFragment();
   SwitchFragment.displayName = 'SwitchFragment';
-  var isUsingNewContext = isExist(reactRouterDom.__RouterContext);
 
   var CacheSwitch = function (_Switch) {
     inherits(CacheSwitch, _Switch);
@@ -3881,24 +3880,13 @@ if (false) {} else {
       }
 
       return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = CacheSwitch.__proto__ || Object.getPrototypeOf(CacheSwitch)).call.apply(_ref, [this].concat(args))), _this), _this.getContext = function () {
-        if (isUsingNewContext) {
-          var _this$props = _this.props,
-              location = _this$props.location,
-              match = _this$props.match;
-          return {
-            location: location,
-            match: match
-          };
-        } else {
-          var route = _this.context.router.route;
-
-          var _location = _this.props.location || route.location;
-
-          return {
-            location: _location,
-            match: route.match
-          };
-        }
+        var _this$props = _this.props,
+            location = _this$props.location,
+            match = _this$props.match;
+        return {
+          location: location,
+          match: match
+        };
       }, _temp), possibleConstructorReturn(_this, _ret);
     }
 
@@ -3954,27 +3942,13 @@ if (false) {} else {
     return CacheSwitch;
   }(reactRouterDom.Switch);
 
-  if (isUsingNewContext) {
-    CacheSwitch.propTypes = {
-      children: PropTypes.node,
-      location: PropTypes.object.isRequired,
-      match: PropTypes.object.isRequired,
-      which: PropTypes.func
-    };
-    CacheSwitch = reactRouterDom.withRouter(CacheSwitch);
-  } else {
-    CacheSwitch.contextTypes = {
-      router: PropTypes.shape({
-        route: PropTypes.object.isRequired
-      }).isRequired
-    };
-    CacheSwitch.propTypes = {
-      children: PropTypes.node,
-      location: PropTypes.object,
-      which: PropTypes.func
-    };
-  }
-
+  CacheSwitch.propTypes = {
+    children: PropTypes.node,
+    location: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired,
+    which: PropTypes.func
+  };
+  CacheSwitch = reactRouterDom.withRouter(CacheSwitch);
   CacheSwitch.defaultProps = {
     which: function which(element) {
       return get(element, 'type') === CacheRoute;

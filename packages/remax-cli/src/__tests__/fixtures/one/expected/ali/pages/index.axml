@@ -46,6 +46,10 @@
     
     
     
+    style="{{item.props['style']}}"
+    
+    
+    
   >
     
     <block a:for="{{item.children}}" key="{{item.id}}">
