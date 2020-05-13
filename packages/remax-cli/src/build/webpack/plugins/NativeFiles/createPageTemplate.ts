@@ -9,14 +9,6 @@ import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDep
 import * as cacheable from './cacheable';
 import API from '../../../../API';
 
-export function pageUID(pagePath: string) {
-  let value = winPath(pagePath).replace('/', '_');
-  const ext = path.extname(value);
-  value = value.replace(ext, '');
-
-  return value;
-}
-
 export function pageFilename(pagePath: string) {
   let value = path.basename(pagePath);
   const ext = path.extname(value);
