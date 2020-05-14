@@ -5,6 +5,7 @@ export interface PickerViewProps {
   readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
+  name?: string;
   value?: number[];
   indicatorStyle?: React.CSSProperties;
   indicatorClassName?: string;

@@ -1,6 +1,7 @@
 export const alias = {
   id: 'id',
   className: 'class',
+  name: 'name',
   style: 'style',
   value: 'value',
   checked: 'checked',

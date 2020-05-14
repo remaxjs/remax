@@ -2,6 +2,7 @@ import createHostComponent from '../../createHostComponent';
 import { BaseProps } from '../../types/component';
 
 export interface RadioProps extends BaseProps {
+  name?: string;
   /** radio 标识。当该radio 选中时，radio-group 的 change 事件会携带radio的value 1.0.0 */
   value?: string;
   /** (default: false) 当前是否选中 1.0.0 */

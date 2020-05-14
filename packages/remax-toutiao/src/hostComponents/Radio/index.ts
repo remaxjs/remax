@@ -3,6 +3,7 @@ import createHostComponent from '../../createHostComponent';
 import { BaseProps } from '../../types/component';
 
 export interface RadioProps extends BaseProps {
+  name?: string;
   value?: string;
   checked?: boolean;
   disabled?: boolean;

@@ -881,6 +881,7 @@ var hostComponents = {
       "className": "class",
       "style": "style",
       "id": "id",
+      "name": "name",
       "value": "value",
       "checked": "checked",
       "disabled": "disabled",
@@ -1080,6 +1081,7 @@ var hostComponents = {
     "alias": {
       "id": "id",
       "className": "class",
+      "name": "name",
       "style": "style",
       "value": "value",
       "indicatorStyle": "indicator-style",
@@ -1095,6 +1097,7 @@ var hostComponents = {
     "alias": {
       "id": "id",
       "className": "class",
+      "name": "name",
       "style": "style",
       "range": "range",
       "rangeKey": "range-key",
@@ -1129,6 +1132,7 @@ var hostComponents = {
     "alias": {
       "id": "id",
       "className": "class",
+      "name": "name",
       "style": "style",
       "value": "value",
       "checked": "checked",

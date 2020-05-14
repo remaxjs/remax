@@ -119,6 +119,7 @@ __webpack_require__.r(__webpack_exports__);
       "className": "class",
       "style": "style",
       "id": "id",
+      "name": "name",
       "value": "value",
       "checked": "checked",
       "disabled": "disabled",
@@ -318,6 +319,7 @@ __webpack_require__.r(__webpack_exports__);
     "alias": {
       "id": "id",
       "className": "class",
+      "name": "name",
       "style": "style",
       "value": "value",
       "indicatorStyle": "indicator-style",
@@ -333,6 +335,7 @@ __webpack_require__.r(__webpack_exports__);
     "alias": {
       "id": "id",
       "className": "class",
+      "name": "name",
       "style": "style",
       "range": "range",
       "rangeKey": "range-key",
@@ -367,6 +370,7 @@ __webpack_require__.r(__webpack_exports__);
     "alias": {
       "id": "id",
       "className": "class",
+      "name": "name",
       "style": "style",
       "value": "value",
       "checked": "checked",

@@ -3,6 +3,7 @@ import createHostComponent from '../../createHostComponent';
 export interface CheckboxProps {
   readonly dataset?: DOMStringMap;
   id?: string;
+  name?: string;
   className?: string;
   value?: string;
   checked?: boolean;

@@ -2,6 +2,7 @@ import createHostComponent from '../../createHostComponent';
 import { BaseProps } from '../../types/component';
 
 export interface CheckboxProps extends BaseProps {
+  name?: string;
   /** checkbox标识，选中时触发checkbox-group的 change 事件，并携带 checkbox 的 value 1.0.0  */
   value?: string;
   /** 是否禁用 1.0.0  */
