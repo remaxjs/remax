@@ -1,6 +1,7 @@
 import * as path from 'path';
 import { createFsFromVolume, Volume, IFs } from 'memfs';
 import joinPath from 'memory-fs/lib/join';
+import nodeExternals from 'webpack-node-externals';
 import API from '../../../API';
 import getConfig from '../../../getConfig';
 import winPath from '../../../winPath';
@@ -58,22 +59,22 @@ export default async function build(app: string, target: Platform, options: Part
 
   api.registerPlugins(config);
 
-  const externals: any = {
-    react: JSON.stringify('react'),
-    'react-reconciler': JSON.stringify('react-reconciler'),
-    scheduler: JSON.stringify('scheduler'),
-    'regenerator-runtime': JSON.stringify('regenerator-runtime'),
-    remax: JSON.stringify('remax'),
-    '@remax/runtime': JSON.stringify('@remax/runtime'),
-    'remax/ali': JSON.stringify('remax/ali'),
-    '@remax/ali': JSON.stringify('@remax/ali'),
-    'remax/wechat': JSON.stringify('remax/wechat'),
-    '@remax/wechat': JSON.stringify('@remax/wechat'),
-    'remax/toutiao': JSON.stringify('remax/toutiao'),
-    '@remax/toutiao': JSON.stringify('@remax/toutiao'),
-    'remax/router': JSON.stringify('remax/router'),
-    'remax/web': JSON.stringify('remax/web'),
-  };
+  const externals: any = [
+    nodeExternals({
+      modulesDir: path.resolve(__dirname, '../../../../../../node_modules'),
+    }),
+    {
+      '@remax/runtime': JSON.stringify('@remax/runtime'),
+      'remax/ali': JSON.stringify('remax/ali'),
+      '@remax/ali': JSON.stringify('@remax/ali'),
+      'remax/wechat': JSON.stringify('remax/wechat'),
+      '@remax/wechat': JSON.stringify('@remax/wechat'),
+      'remax/toutiao': JSON.stringify('remax/toutiao'),
+      '@remax/toutiao': JSON.stringify('@remax/toutiao'),
+      'remax/router': JSON.stringify('remax/router'),
+      'remax/web': JSON.stringify('remax/web'),
+    },
+  ];
 
   (options.externalsIgnore || []).forEach(k => {
     delete externals[k];

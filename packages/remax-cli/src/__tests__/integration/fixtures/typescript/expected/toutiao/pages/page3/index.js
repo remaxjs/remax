@@ -6,13 +6,13 @@ require('./../../remax-vendors.js');
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = "@remax/runtime";
+module.exports = require("@remax/runtime");
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = "react";
+module.exports = require("react");
 
 /***/ }),
 /* 4 */,
@@ -22,19 +22,19 @@ module.exports = "react";
 /* 8 */
 /***/ (function(module, exports) {
 
-module.exports = "remax/ali";
+module.exports = require("remax/ali");
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports) {
 
-module.exports = "remax/wechat";
+module.exports = require("remax/wechat");
 
 /***/ }),
 /* 10 */
 /***/ (function(module, exports) {
 
-module.exports = "remax/toutiao";
+module.exports = require("remax/toutiao");
 
 /***/ }),
 /* 11 */,

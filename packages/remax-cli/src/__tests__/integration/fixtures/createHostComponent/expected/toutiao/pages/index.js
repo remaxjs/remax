@@ -5,13 +5,13 @@ require('./../runtime.js');
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = "@remax/runtime";
+module.exports = require("@remax/runtime");
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = "react";
+module.exports = require("react");
 
 /***/ }),
 /* 4 */

@@ -1,44 +1,52 @@
 require('./../../runtime.js');
 require('./../../remax-vendors.js');
-(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[3],{
-
-/***/ 2:
+(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[3],[
+/* 0 */,
+/* 1 */,
+/* 2 */
 /***/ (function(module, exports) {
 
-module.exports = "@remax/runtime";
+module.exports = require("@remax/runtime");
 
 /***/ }),
-
-/***/ 23:
+/* 3 */,
+/* 4 */
 /***/ (function(module, exports) {
 
-module.exports = "@remax/toutiao";
+module.exports = require("react");
 
 /***/ }),
-
-/***/ 26:
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */
 /***/ (function(module, exports) {
 
-module.exports = "remax/ali";
+module.exports = require("remax/ali");
 
 /***/ }),
-
-/***/ 27:
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-
-/***/ 32:
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(33);
+module.exports = __webpack_require__(19);
 
 
 /***/ }),
-
-/***/ 33:
+/* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -47,9 +55,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _remax_one__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(10);
-/* harmony import */ var _components_C__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(25);
-/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(34);
+/* harmony import */ var _remax_one__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(20);
+/* harmony import */ var _remax_one__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_remax_one__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_C__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(11);
+/* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(21);
 /* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_index_css__WEBPACK_IMPORTED_MODULE_4__);
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -82,19 +91,16 @@ var _page = function _page() {
 /* harmony default export */ __webpack_exports__["default"] = (Page(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "packageA/pages/index")));
 
 /***/ }),
+/* 20 */
+/***/ (function(module, exports) {
 
-/***/ 34:
+module.exports = require("@remax/one");
+
+/***/ }),
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports) {
-
-module.exports = "react";
-
 /***/ })
-
-},[[32,0,4]]]);
+],[[18,0,4]]]);

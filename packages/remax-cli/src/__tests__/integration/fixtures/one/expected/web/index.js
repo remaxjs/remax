@@ -1,14 +1,12 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
-
-/***/ 0:
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],[
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(1);
 
 
 /***/ }),
-
-/***/ 1:
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50,13 +48,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["hd"])();
 var page_0 = Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["loadable"])(function () {
-  return Promise.all(/* import() | pages/index */[__webpack_require__.e(5), __webpack_require__.e(3), __webpack_require__.e(2)]).then(__webpack_require__.bind(null, 10)).then(function (_ref) {
+  return __webpack_require__.e(/* import() | pages/index */ 2).then(__webpack_require__.bind(null, 10)).then(function (_ref) {
     var c = _ref.default;
     return Object(remax__WEBPACK_IMPORTED_MODULE_2__["createPageConfig"])(c);
   });
 });
 var page_1 = Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["loadable"])(function () {
-  return Promise.all(/* import() | packageA/pages/index */[__webpack_require__.e(5), __webpack_require__.e(3), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, 73)).then(function (_ref2) {
+  return __webpack_require__.e(/* import() | packageA/pages/index */ 3).then(__webpack_require__.bind(null, 21)).then(function (_ref2) {
     var c = _ref2.default;
     return Object(remax__WEBPACK_IMPORTED_MODULE_2__["createPageConfig"])(c);
   });
@@ -177,15 +175,7 @@ Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["render"])( /*#__PURE__*/react__WE
 })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](TabBar, null))), document.getElementById('remax-app'));
 
 /***/ }),
-
-/***/ 11:
-/***/ (function(module, exports) {
-
-module.exports = "regenerator-runtime";
-
-/***/ }),
-
-/***/ 2:
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -258,22 +248,19 @@ var App = /*#__PURE__*/function (_React$Component) {
 
 
 /***/ }),
-
-/***/ 3:
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-
-/***/ 4:
+/* 4 */
 /***/ (function(module, exports) {
 
-module.exports = "react";
+module.exports = require("react");
 
 /***/ }),
-
-/***/ 5:
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -281,47 +268,66 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "31d6cfe0d16ae931b73c59d7e0c089c0.png");
 
 /***/ }),
-
-/***/ 6:
+/* 6 */
 /***/ (function(module, exports) {
 
-module.exports = "remax";
+module.exports = require("remax");
 
 /***/ }),
-
-/***/ 65:
+/* 7 */
 /***/ (function(module, exports) {
 
-module.exports = "remax/wechat";
+module.exports = require("remax/web");
 
 /***/ }),
-
-/***/ 67:
+/* 8 */
 /***/ (function(module, exports) {
 
-module.exports = "remax/ali";
+module.exports = require("remax/web/normalize.css");
 
 /***/ }),
-
-/***/ 7:
+/* 9 */
 /***/ (function(module, exports) {
 
-module.exports = "remax/web";
+module.exports = require("remax/web/app.css");
 
 /***/ }),
+/* 10 */,
+/* 11 */
+/***/ (function(module, exports) {
 
-/***/ 8:
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
+module.exports = require("regenerator-runtime");
 
 /***/ }),
+/* 12 */
+/***/ (function(module, exports) {
 
-/***/ 9:
-/***/ (function(module, exports, __webpack_require__) {
+module.exports = require("remax/one");
 
-// extracted by mini-css-extract-plugin
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+module.exports = require("remax/wechat");
+
+/***/ }),
+/* 14 */,
+/* 15 */
+/***/ (function(module, exports) {
+
+module.exports = require("remax/ali");
+
+/***/ }),
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */
+/***/ (function(module, exports) {
+
+module.exports = require("@remax/one");
 
 /***/ })
-
-},[[0,0]]]);
+],[[0,0]]]);

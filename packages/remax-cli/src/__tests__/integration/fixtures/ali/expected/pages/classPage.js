@@ -89,21 +89,21 @@ var _ClassPage = /*#__PURE__*/function (_React$Component) {
 /***/ 17:
 /***/ (function(module, exports) {
 
-module.exports = "remax";
+module.exports = require("remax");
 
 /***/ }),
 
 /***/ 2:
 /***/ (function(module, exports) {
 
-module.exports = "@remax/runtime";
+module.exports = require("@remax/runtime");
 
 /***/ }),
 
 /***/ 4:
 /***/ (function(module, exports) {
 
-module.exports = "react";
+module.exports = require("react");
 
 /***/ })
 
