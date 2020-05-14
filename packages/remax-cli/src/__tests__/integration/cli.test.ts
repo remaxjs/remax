@@ -1,4 +1,4 @@
-import { run } from '../index';
+import { run } from '../../index';
 import runTest from './helpers/runTest';
 
 describe('CLI', () => {

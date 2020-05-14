@@ -1,12 +1,12 @@
 import * as path from 'path';
 import { createFsFromVolume, Volume, IFs } from 'memfs';
 import joinPath from 'memory-fs/lib/join';
-import API from '../../API';
-import getConfig from '../../getConfig';
-import winPath from '../../winPath';
+import API from '../../../API';
+import getConfig from '../../../getConfig';
+import winPath from '../../../winPath';
 import { Platform } from '@remax/types';
-import { run } from '../../build';
-import { reset } from '../../build/webpack/plugins/NativeFiles/cacheable';
+import { run } from '../../../build';
+import { reset } from '../../../build/webpack/plugins/NativeFiles/cacheable';
 
 function ensureWebpackMemoryFs(fs: IFs) {
   const nextFs = Object.create(fs);
