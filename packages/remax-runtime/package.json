@@ -43,7 +43,6 @@
     "@types/react": "^16.9.33",
     "@types/react-reconciler": "^0.18.0",
     "@types/react-test-renderer": "^16.9.2",
-    "concurrently": "^5.0.0",
     "jest": "^26.0.1",
     "object-path-immutable": "^4.0.2",
     "react": "^16.8.6",
