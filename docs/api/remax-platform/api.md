@@ -13,6 +13,6 @@ chooseImage(...).then(...)
 
 [微信官方 API 文档](https://developers.weixin.qq.com/miniprogram/dev/api/)
 
-[阿里官方 API 文档](https://opendocs.ali.com/mini/api)
+[阿里官方 API 文档](https://opendocs.alipay.com/mini/api)
 
 [字节跳动官方 API 文档](https://microapp.bytedance.com/dev/cn/mini-app/develop/api/foundation/tt.caniuse)
