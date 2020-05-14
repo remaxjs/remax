@@ -65,7 +65,7 @@ module.exports = {
 
 ## `turboPages`
 
-开启优化编译的页面，具体可以参考[《性能优化》](/guide/performance)。
+开启优化编译的页面，具体可以参考[《性能优化》](/guide/advanced/performance)。
 
 _默认值：_`[]`
 
