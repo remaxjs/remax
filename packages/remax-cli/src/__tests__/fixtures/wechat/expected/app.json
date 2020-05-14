@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/index"
+    "pages/index",
+    "pages/index2"
   ],
   "window": {
     "navigationBarBackgroundColor": "#323239",
@@ -10,7 +11,8 @@
     {
       "root": "packageA",
       "pages": [
-        "pages/index"
+        "pages/index",
+        "pages/index2"
       ]
     }
   ],

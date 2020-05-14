@@ -1,5 +1,5 @@
 require('./../../runtime.js');
-(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[4],[
+(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[5],[
 /* 0 */,
 /* 1 */,
 /* 2 */
@@ -27,14 +27,16 @@ module.exports = "remax/wechat";
 /* 9 */,
 /* 10 */,
 /* 11 */,
-/* 12 */
+/* 12 */,
+/* 13 */,
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(13);
+module.exports = __webpack_require__(15);
 
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -68,7 +70,7 @@ var pageA = function pageA() {
 };
 
 var _page = pageA;
-/* harmony default export */ __webpack_exports__["default"] = (Page(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "packageA/pages/index")));
+/* harmony default export */ __webpack_exports__["default"] = (Page(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "packageA/pages/index2")));
 
 /***/ })
-],[[12,0]]]);
+],[[14,0]]]);
