@@ -1,12 +1,12 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "CommonJS",
     "lib": ["es2015", "DOM"],
     "declaration": true,
     "jsx": "react",
     "types": ["@types/jest", "@types/node"],
-    "outDir": "cjs",
+    "rootDir": "src",
+    "outDir": "esm",
     "downlevelIteration": true
   },
   "include": [
@@ -15,5 +15,10 @@
     "../../node_modules/mini-types/types/app.d.ts",
     "../../node_modules/mini-types/types/page.d.ts",
     "../../node_modules/mini-types/types/api/index.d.ts"
+  ],
+  "references": [
+    {
+      "path": "../remax-types"
+    }
   ]
 }

@@ -7,13 +7,9 @@
   "module": "./esm/index.js",
   "typings": "./esm/index.d.ts",
   "scripts": {
-    "clean": "rimraf cjs esm",
-    "watch": "concurrently \"npm:watch:*\"",
-    "watch:esm": "npm run build:esm -- -w",
-    "watch:cjs": "npm run build:cjs -- -w",
+    "clean": "rimraf cjs esm tsconfig.tsbuildinfo",
     "prebuild": "npm run clean",
-    "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc --module ESNext --outDir esm",
+    "build": "tsc",
     "build:cjs": "tsc --module CommonJS --outDir cjs",
     "test": "jest"
   },

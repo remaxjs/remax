@@ -1,10 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "CommonJS",
+    "rootDir": "src",
+    "outDir": "esm",
     "declaration": true,
     "jsx": "react",
-    "outDir": "cjs",
     "downlevelIteration": true
   }
 }

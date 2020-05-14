@@ -1,9 +1,10 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "esnext",
+    "module": "CommonJS",
     "declaration": true,
     "jsx": "react",
-    "outDir": "esm",
+    "rootDir": "src",
+    "outDir": "lib"
   }
 }

@@ -8,8 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "clean": "rimraf lib",
-    "watch": "tsc -w",
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
     "prebuild": "npm run clean",
     "build": "tsc"
   },

@@ -4,7 +4,7 @@
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "cjs",
   "module": "esm",
-  "types": "esm/index.d.ts",
+  "types": "cjs/index.d.ts",
   "keywords": [
     "react",
     "miniapp",
@@ -21,13 +21,9 @@
   },
   "homepage": "https://remaxjs.org",
   "scripts": {
-    "clean": "rimraf esm cjs",
-    "watch": "concurrently \"npm:watch:*\"",
-    "watch:esm": "npm run build:esm -- -w",
-    "watch:cjs": "npm run build:cjs -- -w",
+    "clean": "rimraf esm cjs tsconfig.tsbuildinfo",
     "prebuild": "npm run clean",
-    "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc",
+    "build": "tsc",
     "build:cjs": "tsc --module CommonJS --outDir cjs",
     "test": "jest",
     "test:debug": "npx --node-arg=--inspect-brk jest -i"

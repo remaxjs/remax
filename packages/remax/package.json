@@ -21,9 +21,6 @@
     "url": "git+https://github.com/remaxjs/remax.git"
   },
   "homepage": "https://remaxjs.org",
-  "scripts": {
-    "clean": "echo \"ignore\""
-  },
   "dependencies": {
     "@remax/ali": "2.0.6",
     "@remax/cli": "2.0.6",

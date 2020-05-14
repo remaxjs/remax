@@ -1,15 +1,24 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "CommonJS",
     "target": "ES2017",
     "declaration": true,
+    "rootDir": "src",
     "outDir": "lib",
-    "rootDirs": ["src", "tests"],
     "types": ["@types/jest"],
     "jsx": "preserve",
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "exclude": ["tests", "lib"]
+  "include": ["src", "src/OptionsSchema.json", "typings"],
+  "exclude": ["tests", "lib"],
+  "references": [
+    {
+      "path": "../remax-types"
+    },
+    {
+      "path": "../remax-macro"
+    }
+  ]
 }

@@ -4,17 +4,13 @@
   "description": "Remax Types",
   "author": "Caihuanyu <eterlf41@gmail.com>",
   "license": "MIT",
-  "main": "cjs/index.js",
-  "module": "esm/index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "clean": "rimraf esm cjs",
-    "watch": "concurrently \"npm:watch:*\"",
-    "watch:esm": "npm run build:esm -- -w",
-    "watch:cjs": "npm run build:cjs -- -w",
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
     "prebuild": "npm run clean",
-    "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module CommonJS --outDir cjs"
+    "build": "tsc"
   },
   "dependencies": {
     "@babel/types": "^7.8.0",
