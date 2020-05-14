@@ -1,10 +1,10 @@
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
+import detect from 'detect-port';
 import { Options } from '@remax/types';
 import webpackConfig from './webpack/config.web';
 import address from 'address';
 import output from './utils/output';
-import { getAvailablePort } from './utils/port';
 import API from '../API';
 import watch from './watch';
 
@@ -13,7 +13,13 @@ export default function buildWeb(api: API, options: Options): webpack.Compiler {
   const compiler = webpack(webpackOptions);
 
   if (options.watch) {
-    getAvailablePort().then(port => {
+    detect(3000, (err, port) => {
+      if (err) {
+        output.error(err.message);
+
+        return;
+      }
+
       output.message('🚀 启动 watch', 'blue');
       output.message(`📎 http://localhost:${port}`, 'blue');
       output.message(`📎 http://${address.ip()}:${port}\n`, 'blue');
