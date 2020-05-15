@@ -5,7 +5,7 @@ export interface FormProps {
   readonly dataset?: DOMStringMap;
   className?: string;
   style?: React.CSSProperties;
-  reportSubmit: boolean;
+  reportSubmit?: boolean;
   onSubmit?: (e: any) => void;
   onReset?: (e: any) => void;
 }
