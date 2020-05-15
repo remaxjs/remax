@@ -25,4 +25,15 @@ export interface InputProps extends BaseProps {
   onConfirm?: () => void;
 }
 
-export default createHostComponent<InputProps>('input');
+const Input = createHostComponent<InputProps>('input');
+
+Input.defaultProps = {
+  type: 'text',
+  maxlength: 140,
+  selectionEnd: -1,
+  selectionStart: -1,
+  cursorSpacing: 0,
+  cursor: -1,
+};
+
+export default Input;
