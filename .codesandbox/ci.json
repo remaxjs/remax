@@ -14,5 +14,5 @@
     "packages/postcss-remax-tag",
     "packages/remax-cli"
   ],
-  "sandboxes": ["remax-one-web-e4801"]
+  "sandboxes": ["github/remaxjs/examples/tree/master/one"]
 }
