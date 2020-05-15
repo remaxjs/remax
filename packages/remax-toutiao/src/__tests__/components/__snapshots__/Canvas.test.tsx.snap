@@ -2,6 +2,6 @@
 
 exports[`Canvas render correctly 1`] = `
 <canvas
-  cavasId="id"
+  canvasId="id"
 />
 `;

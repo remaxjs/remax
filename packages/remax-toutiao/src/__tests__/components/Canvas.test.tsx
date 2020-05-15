@@ -4,7 +4,7 @@ import Canvas from '../../hostComponents/Canvas';
 
 describe('Canvas', () => {
   it('render correctly', () => {
-    const testRenderer = TestRenderer.create(<Canvas cavasId="id" />);
+    const testRenderer = TestRenderer.create(<Canvas canvasId="id" />);
 
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });
