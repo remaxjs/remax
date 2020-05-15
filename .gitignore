@@ -68,7 +68,7 @@ lib
 packages/*/yarn.lock
 packages/*/package-lock.json
 
-!/packages/**/__tests__/fixtures/**/node_modules
+!/packages/**/__tests__/integration/fixtures/**/node_modules
 
 integration-test/
 .idea/
