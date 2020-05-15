@@ -11,15 +11,6 @@ script:
     fi
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: '$GITHUB_TOKEN'
-  keep_history: true
-  local_dir: website/public
-  on:
-    branch: master
-    condition: '$TRAVIS_COMMIT_MESSAGE =~ ^docs'
 notifications:
   slack:
     secure: N5+unHhyJ/DKrNYPIyUU6Y/KgMHAn5idCilYLPhYvk+9qPoDURqE7iFlc/fOu0MeUlG1Rt6PlU5gA5An20S1mTOekjhNBAbYrkFAYictxuUtORUirgKleuRCB/iCWERSnHVlAuC26Fj09KNmNQNC86lL5BQyWN81n3vJDDHDIDUfAFD7madsLnPPkwWIkig5GX2HuuHh/1YiWlUBrAjEE/CbF2ExKcT7adizzC0i3MMGkvtzGGvxmhcoHlibc1BfsHzUPP23M/5ZZlqsfLCRsWLuzmrmhJ8HtqFhqgRErjzsCjg34MvuXn5NbNFVWJkBWtjEjYCSuzsk05y2kZbFxn55XL6FBRVwkJ2S+H5+xrIUbs21U8QQftDxf5/KXL73vFd8OHpK9SvyTa/ykvRYLpOyWpmo6FvLDtJLMhMPUUD9uDaWSLWI7QkvV1ivg1cqyfHPKo0xp3hfwtXSMCtvOE3vwg8o8ydeisNeAdh6Ag9AsonidOTgYWwBT1Ya1XjYt1csWF7I1vAxeXEs2AksVVn3yMKuI5KsHf6TPTKdzTLFz/khBlcYy9eEVFFW/24uzDyaf6kxikuUEPsHtSdmTlpld+qTkXK7SGhKTsN9rquppzqUd31q/iaj6DXN0jWVzzHumJO5Rtm42xfmELKOtswcW9LDf0HZk3kIYkBv2j0=
