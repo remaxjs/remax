@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
 
@@ -12,4 +12,4 @@ export interface NavigatorProps extends BaseProps {
   hoverStopPropagation?: boolean;
 }
 
-export default createHostComponent<NavigatorProps>('navigator');
+export const Navigator = createHostComponent<NavigatorProps>('navigator');

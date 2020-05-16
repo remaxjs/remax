@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface LivePlayerProps extends BaseProps {
@@ -42,4 +42,4 @@ export interface LivePlayerProps extends BaseProps {
   onLeavePictureInPicture?: (event: any) => any;
 }
 
-export default createHostComponent<LivePlayerProps>('live-player');
+export const LivePlayer = createHostComponent<LivePlayerProps>('live-player');

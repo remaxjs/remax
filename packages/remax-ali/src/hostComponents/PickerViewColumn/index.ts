@@ -1,3 +1,3 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
-export default createHostComponent('picker-view-column');
+export const PickerViewColumn = createHostComponent('picker-view-column');

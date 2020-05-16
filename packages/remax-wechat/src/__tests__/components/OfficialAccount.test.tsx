@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import OfficialAccount from '../../hostComponents/OfficialAccount';
+import { OfficialAccount } from '../../hostComponents';
 
 describe('OfficialAccount', () => {
   it('render correctly', () => {

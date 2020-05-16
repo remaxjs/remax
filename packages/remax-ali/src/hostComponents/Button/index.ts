@@ -1,5 +1,5 @@
 import * as React from 'react';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface ButtonProps {
   readonly dataset?: DOMStringMap;
@@ -26,6 +26,4 @@ export interface ButtonProps {
   onError?: (e: any) => void;
 }
 
-const Button = createHostComponent<ButtonProps>('button');
-
-export default Button;
+export const Button = createHostComponent<ButtonProps>('button');

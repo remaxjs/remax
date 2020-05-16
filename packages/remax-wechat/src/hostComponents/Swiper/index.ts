@@ -1,7 +1,5 @@
 import { BaseProps } from '../../types/component';
-import createHostComponent from '../../createHostComponent';
-
-const hostComponentName = 'swiper';
+import { createHostComponent } from '@remax/shared';
 
 export interface SwiperProps extends BaseProps {
   /** (default: false) 是否显示面板指示点 1.0.0  */
@@ -40,7 +38,7 @@ export interface SwiperProps extends BaseProps {
   onAnimationFinish?: (event: any) => any;
 }
 
-const Swiper = createHostComponent(hostComponentName);
+export const Swiper = createHostComponent('swiper');
 
 Swiper.defaultProps = {
   indicatorDots: false,
@@ -57,5 +55,3 @@ Swiper.defaultProps = {
   skipHiddenItemLayout: false,
   easingFunction: 'default',
 };
-
-export default Swiper;

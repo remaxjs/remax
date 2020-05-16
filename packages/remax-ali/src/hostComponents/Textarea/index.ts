@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import * as React from 'react';
 
 export interface TextareaProps {
@@ -22,6 +22,4 @@ export interface TextareaProps {
   onConfirm?: (e: any) => void;
 }
 
-const Textarea = createHostComponent<TextareaProps>('textarea');
-
-export default Textarea;
+export const Textarea = createHostComponent<TextareaProps>('textarea');

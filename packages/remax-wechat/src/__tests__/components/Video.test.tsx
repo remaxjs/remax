@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Video from '../../hostComponents/Video';
+import { Video } from '../../hostComponents';
 
 describe('Video', () => {
   it('render correctly', () => {

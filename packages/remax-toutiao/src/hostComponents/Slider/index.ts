@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
 
@@ -17,4 +17,4 @@ export interface SliderProps extends BaseProps {
   onChanging?: (e: any) => void;
 }
 
-export default createHostComponent<SliderProps>('slider');
+export const Slider = createHostComponent<SliderProps>('slider');

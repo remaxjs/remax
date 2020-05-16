@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface CameraProps extends BaseProps {
@@ -20,4 +20,4 @@ export interface CameraProps extends BaseProps {
   onScanCode?: (event: any) => any;
 }
 
-export default createHostComponent<CameraProps>('camera');
+export const Camera = createHostComponent<CameraProps>('camera');

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
 
@@ -11,4 +11,4 @@ export interface PickerViewProps extends BaseProps {
   onChange?: (e: any) => void;
 }
 
-export default createHostComponent<PickerViewProps>('picker-view');
+export const PickerView = createHostComponent<PickerViewProps>('picker-view');

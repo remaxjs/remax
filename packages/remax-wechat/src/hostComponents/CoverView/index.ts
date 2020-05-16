@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface CoverViewProps extends BaseProps {
@@ -6,4 +6,4 @@ export interface CoverViewProps extends BaseProps {
   scrollTop?: number | string;
 }
 
-export default createHostComponent<CoverViewProps>('cover-view');
+export const CoverView = createHostComponent<CoverViewProps>('cover-view');

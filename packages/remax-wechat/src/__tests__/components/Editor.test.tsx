@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Editor from '../../hostComponents/Editor';
+import { Editor } from '../../hostComponents';
 
 describe('Editor', () => {
   it('render correctly', () => {

@@ -1,8 +1,12 @@
 import * as React from 'react';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
-const Navigator: React.ComponentType<NavigatorProps> = createHostComponent<NavigatorProps>('navigator');
+export const Navigator: React.ComponentType<NavigatorProps> = createHostComponent<NavigatorProps>('navigator');
+
+Navigator.defaultProps = {
+  openType: 'navigate',
+};
 
 export interface NavigatorProps extends BaseProps {
   /** (default: self) 在哪个目标上发生跳转，默认当前小程序 2.0.7 */
@@ -36,9 +40,3 @@ export interface NavigatorProps extends BaseProps {
   /** 当target="miniProgram"时有效，跳转小程序完成 2.0.7 */
   onComplete?: (event: any) => any;
 }
-
-Navigator.defaultProps = {
-  openType: 'navigate',
-};
-
-export default Navigator;

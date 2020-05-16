@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface ViewProps extends BaseProps {
@@ -23,4 +23,4 @@ export interface ViewProps extends BaseProps {
   onAnimationEnd?: (event: any) => any;
 }
 
-export default createHostComponent<ViewProps>('view');
+export const View = createHostComponent<ViewProps>('view');

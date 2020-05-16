@@ -1,8 +1,8 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface SwiperItemProps {
   readonly dataset?: DOMStringMap;
   key: string;
 }
 
-export default createHostComponent<SwiperItemProps>('swiper-item');
+export const SwiperItem = createHostComponent<SwiperItemProps>('swiper-item');

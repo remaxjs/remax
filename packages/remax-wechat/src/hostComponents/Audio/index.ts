@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 // 微信已不再维护
-export default createHostComponent('audio');
+export const Audio = createHostComponent('audio');

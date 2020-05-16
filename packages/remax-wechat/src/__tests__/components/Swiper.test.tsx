@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Swiper from '../../hostComponents/Swiper';
+import { Swiper } from '../../hostComponents';
 
 describe('Swiper', () => {
   it('render correctly', () => {

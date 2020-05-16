@@ -1,0 +1,21 @@
+{
+  "name": "@remax/shared",
+  "version": "2.0.7",
+  "description": "Remax Shared",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "esm/index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remaxjs/remax.git"
+  },
+  "homepage": "https://remaxjs.org",
+  "scripts": {
+    "clean": "rimraf esm cjs tsconfig.tsbuildinfo",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "build:cjs": "tsc --module CommonJS --outDir cjs",
+    "test": "jest"
+  }
+}

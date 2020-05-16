@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
 
@@ -9,4 +9,4 @@ export interface RadioProps extends BaseProps {
   color?: string;
 }
 
-export default createHostComponent<RadioProps>('radio');
+export const Radio = createHostComponent<RadioProps>('radio');

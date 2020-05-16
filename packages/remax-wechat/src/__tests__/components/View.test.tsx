@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import View from '../../hostComponents/View';
+import { View } from '../../hostComponents';
 
 describe('View', () => {
   it('render correctly', () => {

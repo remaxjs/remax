@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface LivePusherProps extends BaseProps {
@@ -70,4 +70,4 @@ export interface LivePusherProps extends BaseProps {
   onBgmComplete?: (event: any) => any;
 }
 
-export default createHostComponent<LivePusherProps>('live-pusher');
+export const LivePusher = createHostComponent<LivePusherProps>('live-pusher');

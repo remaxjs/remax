@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { BaseProps } from '../../types/component';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface InputProps extends BaseProps {
   focus?: boolean;
@@ -25,7 +25,7 @@ export interface InputProps extends BaseProps {
   onConfirm?: () => void;
 }
 
-const Input = createHostComponent<InputProps>('input');
+export const Input = createHostComponent<InputProps>('input');
 
 Input.defaultProps = {
   type: 'text',
@@ -35,5 +35,3 @@ Input.defaultProps = {
   cursorSpacing: 0,
   cursor: -1,
 };
-
-export default Input;

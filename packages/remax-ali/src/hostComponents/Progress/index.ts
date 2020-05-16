@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface ProgressProps {
   readonly dataset?: DOMStringMap;
@@ -11,4 +11,5 @@ export interface ProgressProps {
   backgroundColor?: string;
   active?: boolean;
 }
-export default createHostComponent<ProgressProps>('progress');
+
+export const Progress = createHostComponent<ProgressProps>('progress');

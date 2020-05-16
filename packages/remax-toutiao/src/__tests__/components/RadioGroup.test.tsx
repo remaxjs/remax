@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import RichText from '../../hostComponents/RichText';
+import { RichText } from '../../hostComponents';
 
 describe('RichText', () => {
   it('render correctly', () => {

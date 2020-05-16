@@ -13,6 +13,9 @@
   "references": [
     {
       "path": "../remax-types"
+    },
+    {
+      "path": "../remax-shared"
     }
   ]
 }

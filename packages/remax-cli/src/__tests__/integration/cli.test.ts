@@ -1,5 +1,9 @@
 import { run } from '../../index';
-import runTest from './helpers/runTest';
+import { build } from '../../build';
+
+jest.mock('../../build', () => {
+  return { build: jest.fn() };
+});
 
 describe('CLI', () => {
   it('run cli help', done => {
@@ -11,5 +15,10 @@ describe('CLI', () => {
     });
   });
 
-  runTest('env');
+  it('run cli build', done => {
+    run('build -t web', () => {
+      expect(build).toBeCalledTimes(1);
+      done();
+    });
+  });
 });

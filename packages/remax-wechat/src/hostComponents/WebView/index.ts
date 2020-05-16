@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface WebViewProps extends BaseProps {
@@ -12,4 +12,4 @@ export interface WebViewProps extends BaseProps {
   onError?: (event: any) => any;
 }
 
-export default createHostComponent<WebViewProps>('web-view');
+export const WebView = createHostComponent<WebViewProps>('web-view');

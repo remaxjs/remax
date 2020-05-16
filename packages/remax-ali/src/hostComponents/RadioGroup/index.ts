@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface RadioGroupProps {
   readonly dataset?: DOMStringMap;
@@ -8,4 +8,4 @@ export interface RadioGroupProps {
   onChange?: (e: any) => void;
 }
 
-export default createHostComponent<RadioGroupProps>('radio-group');
+export const RadioGroup = createHostComponent<RadioGroupProps>('radio-group');

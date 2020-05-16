@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
 
@@ -12,4 +12,4 @@ export interface ProgressProps extends BaseProps {
   activeMode?: string;
 }
 
-export default createHostComponent<ProgressProps>('progress');
+export const Progress = createHostComponent<ProgressProps>('progress');

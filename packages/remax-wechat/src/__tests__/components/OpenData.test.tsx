@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import OpenData from '../../hostComponents/OpenData';
+import { OpenData } from '../../hostComponents';
 
 describe('OpenData', () => {
   it('render correctly', () => {

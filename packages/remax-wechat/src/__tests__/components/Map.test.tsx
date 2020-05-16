@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Map from '../../hostComponents/Map';
+import { Map } from '../../hostComponents';
 
 describe('Map', () => {
   it('render correctly', () => {

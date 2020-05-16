@@ -1,8 +1,8 @@
 import * as React from 'react';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
-const PickerView = createHostComponent<PickerViewProps>('picker-view');
+export const PickerView = createHostComponent<PickerViewProps>('picker-view');
 
 export interface PickerViewProps extends BaseProps {
   /** 数组中的数字依次表示 picker-view 内的 picker-view-column 选择的第几项（下标从 0 开始），数字大于 picker-view-column 可选项长度时，选择最后一项。 1.0.0 */
@@ -22,5 +22,3 @@ export interface PickerViewProps extends BaseProps {
   /** 当滚动选择结束时候触发事件 2.3.1 */
   onPickEnd?: (event: any) => any;
 }
-
-export default PickerView;
