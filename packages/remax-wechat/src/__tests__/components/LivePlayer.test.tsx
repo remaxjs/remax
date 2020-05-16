@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import LivePlayer from '../../hostComponents/LivePlayer';
+import { LivePlayer } from '../../hostComponents';
 
 describe('LivePlayer', () => {
   it('render correctly', () => {

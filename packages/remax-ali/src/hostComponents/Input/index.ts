@@ -1,5 +1,5 @@
 import * as React from 'react';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface InputProps {
   readonly dataset?: DOMStringMap;
@@ -29,6 +29,5 @@ export interface InputProps {
   onFocus?: (e: any) => void;
   onBlur?: (e: any) => void;
 }
-const Input = createHostComponent<InputProps>('input');
 
-export default Input;
+export const Input = createHostComponent<InputProps>('input');

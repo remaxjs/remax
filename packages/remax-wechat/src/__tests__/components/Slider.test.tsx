@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Slider from '../../hostComponents/Slider';
+import { Slider } from '../../hostComponents';
 
 describe('Slider', () => {
   it('render correctly', () => {

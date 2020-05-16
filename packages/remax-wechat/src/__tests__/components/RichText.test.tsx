@@ -1,10 +1,10 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import RadioGroup from '../../hostComponents/RadioGroup';
+import { RichText } from '../../hostComponents';
 
-describe('RadioGroup', () => {
+describe('RichText', () => {
   it('render correctly', () => {
-    const testRenderer = TestRenderer.create(<RadioGroup />);
+    const testRenderer = TestRenderer.create(<RichText />);
 
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });

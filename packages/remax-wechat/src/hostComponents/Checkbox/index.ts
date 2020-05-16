@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface CheckboxProps extends BaseProps {
@@ -12,4 +12,4 @@ export interface CheckboxProps extends BaseProps {
   color?: string;
 }
 
-export default createHostComponent<CheckboxProps>('checkbox');
+export const Checkbox = createHostComponent<CheckboxProps>('checkbox');

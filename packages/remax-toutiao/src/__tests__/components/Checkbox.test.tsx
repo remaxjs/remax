@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Checkbox from '../../hostComponents/Checkbox';
+import { Checkbox } from '../../hostComponents';
 
 describe('Checkbox', () => {
   it('render correctly', () => {

@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface AdProps extends BaseProps {
@@ -14,4 +14,4 @@ export interface AdProps extends BaseProps {
   onClose?: (event: any) => any;
 }
 
-export default createHostComponent<AdProps>('ad');
+export const Ad = createHostComponent<AdProps>('ad');

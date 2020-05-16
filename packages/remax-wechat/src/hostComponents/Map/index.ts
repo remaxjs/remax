@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface MapProps extends BaseProps {
@@ -64,4 +64,4 @@ export interface MapProps extends BaseProps {
   onPoiTap?: (event: any) => any;
 }
 
-export default createHostComponent<MapProps>('map');
+export const Map = createHostComponent<MapProps>('map');

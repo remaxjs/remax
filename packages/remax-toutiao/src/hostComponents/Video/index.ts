@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
 
@@ -38,4 +38,4 @@ export interface VideoProps extends BaseProps {
   onWaiting?: (event: any) => any;
 }
 
-export default createHostComponent<VideoProps>('video');
+export const Video = createHostComponent<VideoProps>('video');

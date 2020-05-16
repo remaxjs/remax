@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Textarea from '../../hostComponents/Textarea';
+import { Textarea } from '../../hostComponents';
 
 describe('TextArea', () => {
   it('render correctly', () => {

@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface WebViewProps {
   readonly dataset?: DOMStringMap;
@@ -7,4 +7,4 @@ export interface WebViewProps {
   onMessage?: (e: any) => void;
 }
 
-export default createHostComponent<WebViewProps>('web-view');
+export const WebView = createHostComponent<WebViewProps>('web-view');

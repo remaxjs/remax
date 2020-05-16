@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BaseProps } from '../../types/component';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 const hostComponentName = 'video';
 
@@ -91,9 +91,9 @@ const VideoRender: React.ForwardRefRenderFunction<any, VideoProps> = (props, ref
 /**
  * video 默认宽度 300px、高度 225px，可通过 wxss 设置宽高
  */
-const Video = React.forwardRef(VideoRender);
+const RemaxVideo = React.forwardRef(VideoRender);
 
-Video.defaultProps = {
+RemaxVideo.defaultProps = {
   controls: true,
   danmuBtn: false,
   enableDanmu: false,
@@ -117,4 +117,4 @@ Video.defaultProps = {
   vslideGestureInFullscreen: true,
 };
 
-export default createHostComponent(hostComponentName, Video);
+export const Video = createHostComponent(hostComponentName, RemaxVideo);

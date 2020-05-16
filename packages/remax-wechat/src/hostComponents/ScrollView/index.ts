@@ -1,5 +1,5 @@
 import * as React from 'react';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 const componentName = 'scroll-view';
@@ -32,14 +32,14 @@ const ScrollViewRender: React.ForwardRefRenderFunction<any, ScrollViewProps> = (
   return React.createElement(componentName, scrollViewProps, children);
 };
 
-const ScrollView = React.forwardRef(ScrollViewRender);
+const RemaxScrollView = React.forwardRef(ScrollViewRender);
 
-ScrollView.defaultProps = {
+RemaxScrollView.defaultProps = {
   upperThreshold: 50,
   lowerThreshold: 50,
 };
 
-export default createHostComponent<ScrollViewProps>(componentName, ScrollView);
+export const ScrollView = createHostComponent<ScrollViewProps>(componentName, RemaxScrollView);
 
 export interface ScrollViewProps extends BaseProps {
   /** (default: false) 允许横向滚动 1.0.0 */

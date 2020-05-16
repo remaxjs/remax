@@ -75,3 +75,5 @@ integration-test/
 remax.iml
 .tea/
 tsconfig.tsbuildinfo
+cjs
+esm

@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RadioGroup render correctly 1`] = `<radio-group />`;
+exports[`RichText render correctly 1`] = `<rich-text />`;

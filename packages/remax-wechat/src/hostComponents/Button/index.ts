@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface ButtonProps extends BaseProps {
@@ -139,4 +139,4 @@ export interface ButtonProps extends BaseProps {
   onLaunchApp?: (event: any) => any;
 }
 
-export default createHostComponent<ButtonProps>('button');
+export const Button = createHostComponent<ButtonProps>('button');

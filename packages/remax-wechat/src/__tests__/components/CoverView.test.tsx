@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import CoverView from '../../hostComponents/CoverView';
+import { CoverView } from '../../hostComponents';
 
 describe('CoverView', () => {
   it('render correctly', () => {

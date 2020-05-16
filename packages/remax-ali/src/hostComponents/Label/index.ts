@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface LabelProps {
   readonly dataset?: DOMStringMap;
@@ -7,4 +7,4 @@ export interface LabelProps {
   className?: string;
 }
 
-export default createHostComponent<LabelProps>('label');
+export const Label = createHostComponent<LabelProps>('label');

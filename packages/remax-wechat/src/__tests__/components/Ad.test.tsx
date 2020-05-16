@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Ad from '../../hostComponents/Ad';
+import { Ad } from '../../hostComponents';
 
 describe('Ad', () => {
   it('render correctly', () => {

@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface FunctionalPageNavigatorProps extends BaseProps {
@@ -16,4 +16,4 @@ export interface FunctionalPageNavigatorProps extends BaseProps {
   onCancel?: (event: any) => any;
 }
 
-export default createHostComponent<FunctionalPageNavigatorProps>('functional-page-navigator');
+export const FunctionalPageNavigator = createHostComponent<FunctionalPageNavigatorProps>('functional-page-navigator');

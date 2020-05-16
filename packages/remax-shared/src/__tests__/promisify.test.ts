@@ -1,4 +1,4 @@
-import promisify from '../utils/promisify';
+import { promisify } from '../promisify';
 
 describe('promisify', () => {
   it('promisify api and resolve when succeed', () => {

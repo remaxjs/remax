@@ -28,5 +28,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@remax/shared": "2.0.7"
   }
 }

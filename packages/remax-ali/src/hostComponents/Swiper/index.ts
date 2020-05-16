@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface SwiperProps {
   readonly dataset?: DOMStringMap;
@@ -25,4 +25,4 @@ export interface SwiperProps {
   onAnimationEnd?: (e: any) => void;
 }
 
-export default createHostComponent<SwiperProps>('swiper');
+export const Swiper = createHostComponent<SwiperProps>('swiper');

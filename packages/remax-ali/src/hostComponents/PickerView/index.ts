@@ -1,5 +1,5 @@
 import * as React from 'react';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface PickerViewProps {
   readonly dataset?: DOMStringMap;
@@ -12,6 +12,5 @@ export interface PickerViewProps {
   maskClassName?: string;
   onChange?: (e: any) => void;
 }
-const PickerView = createHostComponent<PickerViewProps>('picker-view');
 
-export default PickerView;
+export const PickerView = createHostComponent<PickerViewProps>('picker-view');

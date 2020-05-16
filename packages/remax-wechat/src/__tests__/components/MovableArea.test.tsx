@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import MovableArea from '../../hostComponents/MovableArea';
+import { MovableArea } from '../../hostComponents';
 
 describe('MovableArea', () => {
   it('render correctly', () => {

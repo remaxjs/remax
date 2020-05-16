@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface SwitchProps extends BaseProps {
@@ -14,4 +14,4 @@ export interface SwitchProps extends BaseProps {
   onChange?: (event: any) => any;
 }
 
-export default createHostComponent<SwitchProps>('switch');
+export const Switch = createHostComponent<SwitchProps>('switch');

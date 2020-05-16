@@ -1,8 +1,14 @@
 import * as React from 'react';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
-const Slider: React.ComponentType<SliderProps> = createHostComponent<SliderProps>('slider');
+export const Slider: React.ComponentType<SliderProps> = createHostComponent<SliderProps>('slider');
+
+Slider.defaultProps = {
+  blockSize: 28,
+  step: 1,
+  max: 100,
+};
 
 export interface SliderProps extends BaseProps {
   /** (default: 0) 最小值 1.0.0 */
@@ -30,11 +36,3 @@ export interface SliderProps extends BaseProps {
   /** 拖动过程中触发的事件，event.detail = {value} 1.7.0 */
   onChanging?: (event: any) => any;
 }
-
-Slider.defaultProps = {
-  blockSize: 28,
-  step: 1,
-  max: 100,
-};
-
-export default Slider;

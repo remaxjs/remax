@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BaseProps } from '../../types/component';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface TextareaProps extends BaseProps {
   name?: string;
@@ -38,7 +38,7 @@ export interface TextareaProps extends BaseProps {
   onKeyboardHeightChange?: (event: any) => any;
 }
 
-const Textarea = createHostComponent<TextareaProps>('textarea');
+export const Textarea = createHostComponent<TextareaProps>('textarea');
 
 Textarea.defaultProps = {
   maxlength: -1,
@@ -46,5 +46,3 @@ Textarea.defaultProps = {
   selectionStart: 999,
   fixed: false,
 };
-
-export default Textarea;

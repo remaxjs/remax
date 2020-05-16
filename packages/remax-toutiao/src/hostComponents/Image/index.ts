@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { BaseProps } from '../../types/component';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface ImageProps extends BaseProps {
   src?: string;
@@ -30,6 +30,5 @@ export interface ImageProps extends BaseProps {
   onTouchEnd?: (e: any) => void;
   onTouchCancel?: (e: any) => void;
 }
-const Image = createHostComponent<ImageProps>('image');
 
-export default Image;
+export const Image = createHostComponent<ImageProps>('image');

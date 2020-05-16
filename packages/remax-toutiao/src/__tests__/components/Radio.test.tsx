@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Radio from '../../hostComponents/Radio';
+import { Radio } from '../../hostComponents';
 
 describe('Radio', () => {
   it('render correctly', () => {

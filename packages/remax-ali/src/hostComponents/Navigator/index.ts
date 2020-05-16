@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface NavigatorProps {
   readonly dataset?: DOMStringMap;
@@ -11,4 +11,4 @@ export interface NavigatorProps {
   url: string;
 }
 
-export default createHostComponent<NavigatorProps>('navigator');
+export const Navigator = createHostComponent<NavigatorProps>('navigator');

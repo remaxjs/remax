@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface PickerProps extends BaseProps {
@@ -65,4 +65,4 @@ export interface PickerProps extends BaseProps {
   customItem?: string;
 }
 
-export default createHostComponent<PickerProps>('picker');
+export const Picker = createHostComponent<PickerProps>('picker');

@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface OpenDataProps extends BaseProps {
@@ -24,4 +24,4 @@ export interface OpenDataProps extends BaseProps {
   onError?: (event: any) => any;
 }
 
-export default createHostComponent<OpenDataProps>('open-data');
+export const OpenData = createHostComponent<OpenDataProps>('open-data');
