@@ -6,9 +6,10 @@
     "watch": "concurrently \"lerna run build:cjs --parallel -- -w\" \"tsc -b -w\"",
     "prebuild": "npm run clean:packages",
     "build": "tsc -b && lerna run build:cjs",
-    "test": "lerna run --ignore babel-preset-remax --ignore website --stream test",
+    "test": "lerna run --ignore babel-preset-remax --ignore website --ignore dummy --stream test",
+    "test:e2e": "cd e2e/dummy && npm run test",
     "test:integration": "./scripts/integration-test",
-    "test:cov": "lerna run --ignore babel-preset-remax --ignore website --stream test -- --collect-coverage",
+    "test:cov": "lerna run --ignore babel-preset-remax --ignore website --ignore dummy --stream test -- --collect-coverage",
     "clean": "lerna clean",
     "clean:packages": "lerna run clean",
     "readme:copy": "lerna exec 'cp ../../README.md' . --scope remax --scope @remax/cli",
@@ -57,6 +58,7 @@
   },
   "workspaces": [
     "packages/*",
+    "e2e/*",
     "website"
   ]
 }
