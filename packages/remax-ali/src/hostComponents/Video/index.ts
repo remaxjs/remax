@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface VideoProps {
   src: string;
@@ -29,4 +29,4 @@ export interface VideoProps {
   onUserAction?: (e: any) => void;
 }
 
-export default createHostComponent<VideoProps>('video');
+export const Video = createHostComponent<VideoProps>('video');

@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface LifestyleProps {
   readonly dataset?: DOMStringMap;
@@ -6,4 +6,4 @@ export interface LifestyleProps {
   onFollow?: (e: any) => void;
 }
 
-export default createHostComponent<LifestyleProps>('lifestyle');
+export const Lifestyle = createHostComponent<LifestyleProps>('lifestyle');

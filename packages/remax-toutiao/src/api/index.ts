@@ -1,4 +1,4 @@
-import promisify from './promisify';
+import { promisify } from '@remax/shared';
 
 export const getAppStub = getApp;
 
@@ -92,3 +92,20 @@ export const getConnectedWifi = promisify(tt.getConnectedWifi);
 export const setKeepScreenOn = promisify(tt.setKeepScreenOn);
 export const getMenuButtonLayout = tt.getMenuButtonLayout;
 export const getMenuButtonBoundingClientRect = tt.getMenuButtonBoundingClientRect;
+export const createInnerAudioContext = tt.createInnerAudioContext;
+export const getBackgroundAudioManager = tt.getBackgroundAudioManager;
+export const getRecorderManager = tt.getRecorderManager;
+export const createLivePlayerContext = tt.createLivePlayerContext;
+export const createMapContext = tt.createMapContext;
+export const interactionAnalysis = promisify(tt.interactionAnalysis);
+export const followOfficialAccount = promisify(tt.followOfficialAccount);
+export const checkFollowState = promisify(tt.checkFollowState);
+export const onMemoryWarning = tt.onMemoryWarning;
+export const showTabBarRedDot = promisify(tt.showTabBarRedDot);
+export const showTabBar = promisify(tt.showTabBar);
+export const setTabBarStyle = promisify(tt.setTabBarStyle);
+export const setTabBarItem = promisify(tt.setTabBarItem);
+export const setTabBarBadge = promisify(tt.setTabBarBadge);
+export const removeTabBarBadge = promisify(tt.removeTabBarBadge);
+export const hideTabBarRedDot = promisify(tt.hideTabBarRedDot);
+export const hideTabBar = promisify(tt.hideTabBar);

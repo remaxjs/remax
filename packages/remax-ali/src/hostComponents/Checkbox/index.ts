@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface CheckboxProps {
   readonly dataset?: DOMStringMap;
@@ -11,4 +11,4 @@ export interface CheckboxProps {
   onChange?: (e: any) => void;
 }
 
-export default createHostComponent<CheckboxProps>('checkbox');
+export const Checkbox = createHostComponent<CheckboxProps>('checkbox');

@@ -16,6 +16,7 @@
   "repository": "git+https://github.com/remaxjs/remax.git",
   "license": "MIT",
   "dependencies": {
+    "@remax/shared": "2.0.7",
     "miniprogram-api-typings": "^2.10.4"
   },
   "devDependencies": {

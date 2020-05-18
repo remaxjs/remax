@@ -10,6 +10,7 @@ declare module 'scheduler';
 declare module 'slash2';
 declare module 'sander';
 declare module 'webpack-virtual-modules';
+declare module 'webpack-node-externals';
 
 declare namespace jest {
   interface Matchers<R, T> {

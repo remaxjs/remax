@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface FormProps extends BaseProps {
@@ -12,4 +12,4 @@ export interface FormProps extends BaseProps {
   onReset?: (event: any) => any;
 }
 
-export default createHostComponent<FormProps>('form');
+export const Form = createHostComponent<FormProps>('form');

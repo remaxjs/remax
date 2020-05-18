@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Input from '../../hostComponents/Input';
+import { Input } from '../../hostComponents';
 
 describe('Input', () => {
   it('render correctly', () => {

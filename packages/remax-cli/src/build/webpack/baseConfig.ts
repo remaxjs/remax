@@ -13,7 +13,7 @@ export default function baseConfig(config: Config, options: Options, target: Pla
     .end()
     .extensions.merge(['.js', '.ts']);
 
-  config.mode((process.env.NODE_ENV as any) || 'development');
+  config.mode((process.env.NODE_ENV as any) === 'production' ? 'production' : 'development');
 
   config.context(options.cwd);
 

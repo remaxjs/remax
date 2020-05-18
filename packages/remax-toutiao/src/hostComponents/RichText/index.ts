@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
 
@@ -8,8 +8,8 @@ interface Node {
   children?: Node[];
 }
 
-export interface RichText extends BaseProps {
+export interface RichTextProps extends BaseProps {
   nodes?: Node | string;
 }
 
-export default createHostComponent<RichText>('rich-text');
+export const RichText = createHostComponent<RichTextProps>('rich-text');

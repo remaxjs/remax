@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Label from '../../hostComponents/Label';
+import { Label } from '../../hostComponents';
 
 describe('Label', () => {
   it('render correctly', () => {

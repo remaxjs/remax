@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface IconProps {
   readonly dataset?: DOMStringMap;
@@ -19,4 +19,4 @@ export interface IconProps {
   color?: string;
 }
 
-export default createHostComponent<IconProps>('icon');
+export const Icon = createHostComponent<IconProps>('icon');

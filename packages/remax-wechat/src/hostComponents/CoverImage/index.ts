@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface CoverImageProps extends BaseProps {
@@ -10,4 +10,4 @@ export interface CoverImageProps extends BaseProps {
   onError?: (event: any) => any;
 }
 
-export default createHostComponent<CoverImageProps>('cover-image');
+export const CoverImage = createHostComponent<CoverImageProps>('cover-image');

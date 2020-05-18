@@ -1,5 +1,5 @@
 import * as React from 'react';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface MovableViewProps {
   readonly dataset?: DOMStringMap;
@@ -19,6 +19,5 @@ export interface MovableViewProps {
   onTouchChange?: (e: any) => void;
   onChangeEnd?: (e: any) => void;
 }
-const MovableView = createHostComponent<MovableViewProps>('movable-view');
 
-export default MovableView;
+export const MovableView = createHostComponent<MovableViewProps>('movable-view');

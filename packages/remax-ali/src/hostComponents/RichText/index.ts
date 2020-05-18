@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface RichTextNode {
   readonly dataset?: DOMStringMap;
@@ -12,4 +12,4 @@ export interface RichTextProps {
   nodes?: RichTextNode[];
 }
 
-export default createHostComponent<RichTextProps>('rich-text');
+export const RichText = createHostComponent<RichTextProps>('rich-text');

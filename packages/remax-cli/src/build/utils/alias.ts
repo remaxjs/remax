@@ -8,7 +8,6 @@ interface Alias {
 export default (options: Options, target: Platform) => {
   const config: Alias = {
     '@': path.resolve(options.cwd, options.rootDir),
-    react: path.resolve(options.cwd, 'node_modules', 'react'),
   };
 
   if (target !== Platform.web) {

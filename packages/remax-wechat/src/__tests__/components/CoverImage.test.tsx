@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import CoverImage from '../../hostComponents/CoverImage';
+import { CoverImage } from '../../hostComponents';
 
 describe('CoverImage', () => {
   it('render correctly', () => {

@@ -1,9 +1,9 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
 
 export interface CanvasProps extends BaseProps {
-  cavasId: string;
+  canvasId: string;
 }
 
-export default createHostComponent<CanvasProps>('canvas');
+export const Canvas = createHostComponent<CanvasProps>('canvas');

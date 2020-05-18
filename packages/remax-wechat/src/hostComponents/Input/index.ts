@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BaseProps } from '../../types/component';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface InputProps extends BaseProps {
   /**
@@ -133,7 +133,7 @@ export interface InputProps extends BaseProps {
   onKeyboardHeightChange?: (event: any) => any;
 }
 
-const Input = createHostComponent<InputProps>('input');
+export const Input = createHostComponent<InputProps>('input');
 
 Input.defaultProps = {
   type: 'text',
@@ -141,5 +141,3 @@ Input.defaultProps = {
   selectionEnd: 999,
   selectionStart: 999,
 };
-
-export default Input;

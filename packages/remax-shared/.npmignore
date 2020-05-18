@@ -1,0 +1,9 @@
+node_modules/
+src/
+__tests__/
+yarn-error.log
+.DS_Store
+coverage/
+jest.config.js
+tsconfig.json
+tsconfig.tsbuildinfo

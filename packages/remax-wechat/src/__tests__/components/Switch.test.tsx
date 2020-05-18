@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Switch from '../../hostComponents/Switch';
+import { Switch } from '../../hostComponents';
 
 describe('Switch', () => {
   it('render correctly', () => {

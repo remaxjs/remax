@@ -1,5 +1,5 @@
 import * as React from 'react';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface CoverViewProps {
   readonly dataset?: DOMStringMap;
@@ -7,6 +7,5 @@ export interface CoverViewProps {
   style?: React.CSSProperties;
   onTap?: (e: any) => void;
 }
-const CoverView = createHostComponent<CoverViewProps>('cover-view');
 
-export default CoverView;
+export const CoverView = createHostComponent<CoverViewProps>('cover-view');

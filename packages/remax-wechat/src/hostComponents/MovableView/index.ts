@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 // can't extends from BaseProps, bacause this MovableViewProps overwrite animation to boolean
@@ -39,4 +39,4 @@ export interface MovableViewProps extends BaseProps {
   vTouchMove?: (event: any) => any;
 }
 
-export default createHostComponent<MovableViewProps>('movable-view');
+export const MovableView = createHostComponent<MovableViewProps>('movable-view');

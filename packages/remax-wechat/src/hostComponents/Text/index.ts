@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface TextProps extends BaseProps {
@@ -17,4 +17,4 @@ export interface TextProps extends BaseProps {
   decode?: boolean;
 }
 
-export default createHostComponent<TextProps>('text');
+export const Text = createHostComponent<TextProps>('text');

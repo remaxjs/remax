@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import MovableView from '../../hostComponents/MovableView';
+import { MovableView } from '../../hostComponents';
 
 describe('MovableView', () => {
   it('render correctly', () => {

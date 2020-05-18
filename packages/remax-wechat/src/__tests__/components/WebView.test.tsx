@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import WebView from '../../hostComponents/WebView';
+import { WebView } from '../../hostComponents';
 
 describe('WebView', () => {
   it('render correctly', () => {

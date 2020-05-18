@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Camera from '../../hostComponents/Camera';
+import { Camera } from '../../hostComponents';
 
 describe('Camera', () => {
   it('render correctly', () => {

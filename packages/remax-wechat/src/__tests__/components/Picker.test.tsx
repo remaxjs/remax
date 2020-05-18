@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Picker from '../../hostComponents/Picker';
+import { Picker } from '../../hostComponents';
 
 describe('Picker', () => {
   it('render correctly', () => {

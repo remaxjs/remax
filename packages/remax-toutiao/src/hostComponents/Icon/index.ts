@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
 
@@ -18,4 +18,4 @@ export interface IconProps extends BaseProps {
   color?: string;
 }
 
-export default createHostComponent<IconProps>('icon');
+export const Icon = createHostComponent<IconProps>('icon');

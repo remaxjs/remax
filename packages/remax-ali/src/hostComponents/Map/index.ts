@@ -1,5 +1,5 @@
 import * as React from 'react';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface MapMarker {
   readonly dataset?: DOMStringMap;
@@ -136,6 +136,5 @@ export interface MapProps extends MapCoordinate {
   onRegionChange?: (e: any) => void;
   onTap?: (e: any) => void;
 }
-const Map = createHostComponent<MapProps>('map');
 
-export default Map;
+export const Map = createHostComponent<MapProps>('map');

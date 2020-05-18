@@ -8,6 +8,9 @@
       "path": "./packages/remax-types"
     },
     {
+      "path": "./packages/remax-shared"
+    },
+    {
       "path": "./packages/remax-ali"
     },
     {

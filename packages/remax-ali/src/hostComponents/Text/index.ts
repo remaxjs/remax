@@ -1,5 +1,5 @@
 import * as React from 'react';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface TextProps {
   readonly dataset?: DOMStringMap;
@@ -13,6 +13,5 @@ export interface TextProps {
   onTap?: (e: any) => void;
   onClick?: (e: any) => void;
 }
-const Text = createHostComponent<TextProps>('text');
 
-export default Text;
+export const Text = createHostComponent<TextProps>('text');

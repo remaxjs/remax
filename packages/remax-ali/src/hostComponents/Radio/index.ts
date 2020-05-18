@@ -1,4 +1,4 @@
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface RadioProps {
   readonly dataset?: DOMStringMap;
@@ -10,4 +10,4 @@ export interface RadioProps {
   color?: string;
 }
 
-export default createHostComponent<RadioProps>('radio');
+export const Radio = createHostComponent<RadioProps>('radio');

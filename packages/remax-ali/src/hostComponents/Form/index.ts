@@ -1,14 +1,13 @@
 import * as React from 'react';
-import createHostComponent from '../../createHostComponent';
+import { createHostComponent } from '@remax/shared';
 
 export interface FormProps {
   readonly dataset?: DOMStringMap;
   className?: string;
   style?: React.CSSProperties;
-  reportSubmit: boolean;
+  reportSubmit?: boolean;
   onSubmit?: (e: any) => void;
   onReset?: (e: any) => void;
 }
-const Form = createHostComponent<FormProps>('form');
 
-export default Form;
+export const Form = createHostComponent<FormProps>('form');

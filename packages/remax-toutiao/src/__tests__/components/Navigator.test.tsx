@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import Navigator from '../../hostComponents/Navigator';
+import { Navigator } from '../../hostComponents';
 
 describe('Navigator', () => {
   it('render correctly', () => {

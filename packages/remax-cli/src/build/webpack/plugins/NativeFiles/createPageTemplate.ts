@@ -9,8 +9,8 @@ import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDep
 import * as cacheable from './cacheable';
 import API from '../../../../API';
 
-export function pageUID(pagePath: string) {
-  let value = winPath(pagePath).replace('/', '_');
+export function pageFilename(pagePath: string) {
+  let value = path.basename(pagePath);
   const ext = path.extname(value);
   value = value.replace(ext, '');
 
@@ -33,10 +33,11 @@ export default async function createPageTemplate(
   meta: Meta,
   compilation: compilation.Compilation
 ) {
-  const pagePath = winPath(pageFile).replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '');
-  const fileName = winPath(
-    `${path.dirname(pagePath)}/${path.basename(pagePath, path.extname(pagePath))}${meta.template.extension}`
-  );
+  const rootDir = path.join(options.cwd, options.rootDir);
+  const pagePath = path.relative(rootDir, pageFile);
+  const pageDir = path.dirname(pagePath);
+
+  const fileName = winPath(path.join(pageDir, `${pageFilename(pagePath)}${meta.template.extension}`));
 
   const ejsOptions: { [props: string]: any } = {
     ...createRenderOptions(api),
@@ -44,7 +45,7 @@ export default async function createPageTemplate(
   };
 
   if (meta.jsHelper) {
-    ejsOptions.jsHelper = `./${pageUID(pagePath)}_helper${meta.jsHelper.extension}`;
+    ejsOptions.jsHelper = `./${pageFilename(pagePath)}_helper${meta.jsHelper.extension}`;
   }
 
   let source: string = await ejs.renderFile(meta.ejs.page, ejsOptions, {
