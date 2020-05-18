@@ -1,4 +1,5 @@
 {
+  "installCommand": "install:codesandbox",
   "packages": [
     "packages/remax-types",
     "packages/remax-macro",

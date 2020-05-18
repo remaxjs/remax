@@ -23,6 +23,7 @@
     "postrelease": "./scripts/postrelease",
     "site:build": "lerna run --scope website --stream build",
     "site:deploy": "lerna run --scope website --stream deploy",
+    "install:codesandbox": "PUPPETEER_SKIP_DOWNLOAD=1 yarn install",
     "authors": "./scripts/authors"
   },
   "dependencies": {
