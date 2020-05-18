@@ -13,11 +13,17 @@ export default function buildWeb(api: API, options: Options): webpack.Compiler {
   const compiler = webpack(webpackOptions);
 
   if (options.watch) {
-    detect(3000, (err, port) => {
+    const designatedPort = options.port ?? 3000;
+
+    detect(designatedPort, (err, port) => {
       if (err) {
         output.error(err.message);
 
         return;
+      }
+
+      if (designatedPort !== port) {
+        output.warn(`端口: ${designatedPort} 被占用，系统已分配另一个可用端口：${port}`);
       }
 
       output.message('🚀 启动 watch', 'blue');

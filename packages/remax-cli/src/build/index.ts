@@ -10,6 +10,7 @@ interface Argv {
   target: Platform;
   watch?: boolean;
   notify?: boolean;
+  port?: number;
 }
 
 export function run(options: Options): webpack.Compiler {
