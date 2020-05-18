@@ -19,7 +19,7 @@ export default function buildWeb(api: API, options: Options): webpack.Compiler {
       if (err) {
         output.error(err.message);
 
-        return;
+        process.exit(1);
       }
 
       if (designatedPort !== port) {
