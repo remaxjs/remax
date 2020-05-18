@@ -2673,15 +2673,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/copy-webpack-plugin@^5.0.0":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@types/copy-webpack-plugin/-/copy-webpack-plugin-5.0.1.tgz#53aa9ba7b0702e3bea1baa5b09ba9c76d18312ba"
-  integrity sha512-ngoaMR6fxovcC8MIaWLugJuvq1uFvXY2ehh+k+cLlnKDRHVFbbcKc1AOCKzwkA3fMmt4lLeLcJ7l+PuNmKrmiQ==
-  dependencies:
-    "@types/minimatch" "*"
-    "@types/node" "*"
-    "@types/webpack" "*"
-
 "@types/cross-spawn@6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@types/cross-spawn/-/cross-spawn-6.0.1.tgz#60fa0c87046347c17d9735e5289e72b804ca9b63"
