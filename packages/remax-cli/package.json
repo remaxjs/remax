@@ -113,7 +113,7 @@
     "react-reconciler": "^0.25.1",
     "sander": "^0.6.0",
     "scheduler": "^0.19.1",
-    "ts-jest": "^25.4.0",
+    "ts-jest": "^26.0.0",
     "typescript": "^3.7.3",
     "webpack-node-externals": "^1.7.2"
   },
