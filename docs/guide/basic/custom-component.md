@@ -41,6 +41,53 @@ export default () => (
 );
 ```
 
+## 组件类型
+
+如果你使用的是 TypeScript，使用第三方小程序自定义组件时需要自己写组件类型，还是以 `mini-ali-ui/es/badge` 为例。
+
+### 完整做法
+
+1. 在 `tsconfig.json` 新增配置：
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": [ "./typings/*" ]
+    },
+    ...
+  }
+}
+```
+
+2. 新建 `typings/min-ali-ui/es/badge.d.ts` 文件
+3. 写入以下内容：
+
+```typescript
+import { ComponentType } from 'react';
+
+declare const Badge: ComponentType<{
+  className?: string;
+  text?: string;
+  dot?: boolean;
+  overflowCount?: number;
+  withArrow?: boolean;
+  direction?: 'middle' | 'left' | 'right';
+  stroke?: boolean;
+}>;
+
+export default Badge;
+```
+
+### 偷懒做法
+
+在 `typings/index.d.ts` 写入以下内容：
+
+```typescript
+declare module 'mini-ali-ui/es/badge';
+```
+
 ## 注意事项
 
 ### 请按照自定义组件的定义方式声明属性（并非所有组件都采用驼峰的方式命名属性）。
