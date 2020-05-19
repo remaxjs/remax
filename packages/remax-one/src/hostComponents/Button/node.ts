@@ -15,7 +15,7 @@ const defaultAlias = {
   className: 'class',
   style: 'style',
   disabled: 'disabled',
-  hoverClass: 'hover-class',
+  hoverClassName: 'hover-class',
   hoverStartTime: 'hover-start-time',
   hoverStayTime: 'hover-stay-time',
   hoverStopPropagation: 'hover-stop-propagation',
