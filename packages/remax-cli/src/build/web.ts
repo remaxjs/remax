@@ -13,7 +13,7 @@ export default function buildWeb(api: API, options: Options): webpack.Compiler {
   const compiler = webpack(webpackOptions);
 
   if (options.watch) {
-    const designatedPort = options.port ?? 3000;
+    const designatedPort = options.port;
 
     detect(designatedPort, (err, port) => {
       if (err) {

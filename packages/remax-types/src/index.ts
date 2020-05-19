@@ -20,11 +20,11 @@ export interface Options {
   UNSAFE_wechatTemplateDepth: number | { [key: string]: number };
   configWebpack?: (params: { config: WebpackConfig; webpack: any }) => void;
   plugins: Plugin[];
+  port: number;
   one?: boolean;
   notify?: boolean;
   watch?: boolean;
   target?: Platform;
-  port?: number;
 }
 
 export type Config = Partial<Options>;
