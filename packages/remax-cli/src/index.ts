@@ -50,7 +50,6 @@ export function run(args: any, callback?: yargs.ParseCallback) {
       describe: '指定端口号',
       alias: 'p',
       type: 'number',
-      default: 3000,
     })
     .showHelpOnFail(false);
 
