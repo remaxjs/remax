@@ -107,17 +107,19 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
     },
   ]);
 
-  if (typeof options.configWebpack === 'function') {
-    options.configWebpack({ config, webpack });
-  }
-
-  api.configWebpack({
+  const context = {
     config,
     webpack,
     addCSSRule: (ruleConfig: RuleConfig) => {
       addCSSRule(config, options, true, ruleConfig);
     },
-  });
+  };
+
+  if (typeof options.configWebpack === 'function') {
+    options.configWebpack(context);
+  }
+
+  api.configWebpack(context);
 
   return config.toConfig();
 }

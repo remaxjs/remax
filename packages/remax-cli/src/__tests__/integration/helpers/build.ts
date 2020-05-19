@@ -83,8 +83,8 @@ export default async function build(app: string, target: Platform, options: Part
   const remaxOptions = {
     ...config,
     target,
-    configWebpack({ config: webpackConfig, webpack }: any) {
-      webpackConfig
+    configWebpack(context: any) {
+      context.config
         .mode('none')
         .plugins.delete('webpackbar')
         .end()
@@ -97,7 +97,7 @@ export default async function build(app: string, target: Platform, options: Part
         .externals(externals);
 
       if (typeof config.configWebpack === 'function') {
-        config.configWebpack({ config: webpackConfig, webpack });
+        config.configWebpack(context);
       }
     },
   };

@@ -185,17 +185,19 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options]);
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
 
-  if (typeof options.configWebpack === 'function') {
-    options.configWebpack({ config, webpack });
-  }
-
-  api.configWebpack({
+  const context = {
     config,
     webpack,
     addCSSRule: (ruleConfig: RuleConfig) => {
       addCSSRule(config, options, false, ruleConfig);
     },
-  });
+  };
+
+  if (typeof options.configWebpack === 'function') {
+    options.configWebpack(context);
+  }
+
+  api.configWebpack(context);
 
   return config.toConfig();
 }
