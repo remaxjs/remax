@@ -19,15 +19,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: install
-        run: npm install
+        run: yarn install --frozen-lockfile
       - name: build
-        run: npm run build
+        run: yarn build
       - name: test
-        run: npm run test:cov
+        run: yarn test:cov
         env:
           CI: true
       - name: e2e
-        run: npm run test:e2e
+        run: yarn test:e2e
         env:
           CI: true
       - name: Upload coverage to Codecov
