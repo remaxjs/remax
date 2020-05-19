@@ -49,7 +49,7 @@ _默认值：_ `true`
 // remax.config.js
 
 module.exports = {
-  configWebpack({ config, webpack }) {
+  configWebpack({ config, webpack, addCSSRule }) {
     // config 是的 [webpack-chain](https://github.com/neutrinojs/webpack-chain) Config 对象。
     config.plugins.delete('webpackbar'); // 去掉进度条
     config.plugin('custom-define').use(webpack.DefinePlugin, [
@@ -57,6 +57,12 @@ module.exports = {
         __MOCK__: JSON.stringify(process.env.MOCK),
       },
     ]); // 新增一个 define 插件
+
+    // 引用 wxss
+    addCSSRule({
+      name: 'wxss',
+      test: /\.wxss(\?.*)?$/,
+    });
   },
 };
 ```
