@@ -1,7 +1,7 @@
 import 'expect-puppeteer';
 
 function goTo(path) {
-  return page.goto('http://localhost:3000#' + path);
+  return page.goto('http://localhost:5678#' + path);
 }
 
 describe('Google', () => {
