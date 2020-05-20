@@ -4,7 +4,7 @@ function goTo(path) {
   return page.goto('http://localhost:5678#' + path);
 }
 
-describe('Google', () => {
+describe('works', () => {
   beforeAll(async () => {
     await goTo('/');
   });
