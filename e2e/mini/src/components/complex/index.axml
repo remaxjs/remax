@@ -1,0 +1,5 @@
+<import-sjs name="h" from="./index.sjs"/>
+
+<include src="./include.axml" />
+<view id="complex">{{h.hello()}}</view>
+<e />
