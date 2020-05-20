@@ -46,6 +46,11 @@ export function run(args: any, callback?: yargs.ParseCallback) {
       type: 'boolean',
       default: false,
     })
+    .option('port', {
+      describe: '指定端口号',
+      alias: 'p',
+      type: 'number',
+    })
     .showHelpOnFail(false);
 
   return cli.parse(args, callback);
