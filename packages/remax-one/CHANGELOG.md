@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/remaxjs/remax/compare/v2.0.7...v2.1.0) (2020-05-21)
+
+### Bug Fixes
+
+- **one:** 修复 remax/one Button hoverClassName 不生效的问题 ([7c76332](https://github.com/remaxjs/remax/commit/7c763326f90867a6cb2c5c900a6c6f5170f3a4c5))
+
 ## [2.0.7](https://github.com/remaxjs/remax/compare/v2.0.6...v2.0.7) (2020-05-14)
 
 **Note:** Version bump only for package @remax/one

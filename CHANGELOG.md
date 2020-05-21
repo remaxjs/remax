@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/remaxjs/remax/compare/v2.0.7...v2.1.0) (2020-05-21)
+
+### Bug Fixes
+
+- 修正错误的 webpack mode ([f46dd92](https://github.com/remaxjs/remax/commit/f46dd926f08eb2f3f43326f35768efa8cf1be794))
+- 添加 port 至 options 并增加默认值：3000 ([ec7b67e](https://github.com/remaxjs/remax/commit/ec7b67ee4f0dd31434795d9d7526b6435298c576))
+- 移除 options 中的 default，在运行时动态判断以避免 CI 错误 ([6bec914](https://github.com/remaxjs/remax/commit/6bec914249dbcaba71c7fde5f0c984163a412fd9))
+- **ali:** 修复 Form[reportSubmit] 类型 ([901b267](https://github.com/remaxjs/remax/commit/901b26754ba1d31b77a838b320855521ed67e996))
+- **one:** 修复 remax/one Button hoverClassName 不生效的问题 ([7c76332](https://github.com/remaxjs/remax/commit/7c763326f90867a6cb2c5c900a6c6f5170f3a4c5))
+- **toutiao:** 修复 Canvas[canvasId] 无效的问题 ([#960](https://github.com/remaxjs/remax/issues/960)) ([ef5c162](https://github.com/remaxjs/remax/commit/ef5c162a42ced8a89e16e8e0c0681fb15718b95c))
+- **toutiao:** 修正 Input 属性默认值 ([#961](https://github.com/remaxjs/remax/issues/961)) ([b0bd005](https://github.com/remaxjs/remax/commit/b0bd005d0042735d4413924adddeff92441454c9))
+- **toutiao:** 修正一部分新的 api 没有导出的问题 ([#962](https://github.com/remaxjs/remax/issues/962)) ([42d5d4d](https://github.com/remaxjs/remax/commit/42d5d4d4516ba746e9610bcb577bfcbe4dcada5a))
+
+### Features
+
+- configWebpack 新增 addCSSRule 帮助方法 ([aaf6a88](https://github.com/remaxjs/remax/commit/aaf6a885bc0dcd20f1cd3c5a182fb14a5d497aa1))
+- 支持通过 --port 指定端口号 ([fb2a78f](https://github.com/remaxjs/remax/commit/fb2a78fc43c758876e7e69fb5c4d441c195a007b))
+
 ## [2.0.7](https://github.com/remaxjs/remax/compare/v2.0.6...v2.0.7) (2020-05-14)
 
 ### Bug Fixes

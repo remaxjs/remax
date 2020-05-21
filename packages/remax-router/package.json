@@ -1,7 +1,7 @@
 {
   "name": "@remax/router",
   "description": "Remax Router",
-  "version": "2.0.7",
+  "version": "2.1.0",
   "main": "index.js",
   "license": "MIT",
   "types": "web.d.ts",
