@@ -37,6 +37,7 @@ interface TimeProps {
 type DateProps = TimeProps & { fields?: string };
 
 interface RegionProps {
+  name?: string;
   value?: any[];
   customItem?: string;
   onChange?: (e: any) => void;

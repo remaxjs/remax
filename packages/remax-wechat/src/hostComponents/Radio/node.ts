@@ -1,5 +1,6 @@
 export const alias = {
   id: 'id',
+  name: 'name',
   className: 'class',
   style: 'style',
   value: 'value',

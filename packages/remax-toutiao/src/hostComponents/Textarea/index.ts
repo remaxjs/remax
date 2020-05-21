@@ -3,6 +3,7 @@ import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface TextareaProps extends BaseProps {
+  name?: string;
   value?: string;
   placeholder?: string;
   placeholderStyle?: string;

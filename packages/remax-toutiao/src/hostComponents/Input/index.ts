@@ -4,6 +4,7 @@ import { BaseProps } from '../../types/component';
 import { createHostComponent } from '@remax/shared';
 
 export interface InputProps extends BaseProps {
+  name?: string;
   focus?: boolean;
   maxlength?: number;
   value: string;
