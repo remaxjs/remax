@@ -2,6 +2,7 @@ import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface SwitchProps extends BaseProps {
+  name?: string;
   /** (default: false) 是否选中 1.0.0 */
   checked?: boolean;
   /** (default: false) 是否禁用 1.0.0 */

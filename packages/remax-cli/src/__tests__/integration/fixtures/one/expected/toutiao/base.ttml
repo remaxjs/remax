@@ -63,6 +63,7 @@
     color="{{i.props['color']}}" 
     disabled="{{i.props['disabled']}}" 
     id="{{i.props['id']}}" 
+    name="{{i.props['name']}}" 
     style="{{i.props['style']}}" 
     value="{{i.props['value']}}" 
   >
@@ -80,6 +81,7 @@
     bindchange="{{i.props['bindchange']}}" 
     class="{{i.props['class']}}" 
     id="{{i.props['id']}}" 
+    name="{{i.props['name']}}" 
     style="{{i.props['style']}}" 
   >
     
@@ -229,6 +231,7 @@
     end="{{i.props['end']}}" 
     fields="{{i.props['fields']}}" 
     id="{{i.props['id']}}" 
+    name="{{i.props['name']}}" 
     range="{{i.props['range']}}" 
     range-key="{{i.props['range-key']}}" 
     start="{{i.props['start']}}" 
@@ -256,6 +259,7 @@
     indicator-style="{{i.props['indicator-style']}}" 
     mask-class="{{i.props['mask-class']}}" 
     mask-style="{{i.props['mask-style']}}" 
+    name="{{i.props['name']}}" 
     style="{{i.props['style']}}" 
     value="{{i.props['value']}}" 
   >
@@ -319,6 +323,7 @@
     color="{{i.props['color']}}" 
     disabled="{{i.props['disabled']}}" 
     id="{{i.props['id']}}" 
+    name="{{i.props['name']}}" 
     style="{{i.props['style']}}" 
     value="{{i.props['value']}}" 
   >

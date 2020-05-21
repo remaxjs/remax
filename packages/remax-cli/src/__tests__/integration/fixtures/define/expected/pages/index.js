@@ -119,6 +119,7 @@ __webpack_require__.r(__webpack_exports__);
       "className": "class",
       "style": "style",
       "id": "id",
+      "name": "name",
       "value": "value",
       "checked": "checked",
       "disabled": "disabled",
@@ -317,6 +318,7 @@ __webpack_require__.r(__webpack_exports__);
   "picker-view": {
     "alias": {
       "id": "id",
+      "name": "name",
       "className": "class",
       "style": "style",
       "value": "value",
@@ -332,6 +334,7 @@ __webpack_require__.r(__webpack_exports__);
   "picker": {
     "alias": {
       "id": "id",
+      "name": "name",
       "className": "class",
       "style": "style",
       "range": "range",
@@ -366,6 +369,7 @@ __webpack_require__.r(__webpack_exports__);
   "radio": {
     "alias": {
       "id": "id",
+      "name": "name",
       "className": "class",
       "style": "style",
       "value": "value",
