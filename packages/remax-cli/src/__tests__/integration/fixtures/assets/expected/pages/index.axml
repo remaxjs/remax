@@ -50,6 +50,10 @@
     
     
     
+    onGetAuthorize="{{item.props['onGetAuthorize']}}"
+    
+    
+    
     onTap="{{item.props['onTap']}}"
     
     

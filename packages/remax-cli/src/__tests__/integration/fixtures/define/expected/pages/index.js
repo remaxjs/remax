@@ -84,7 +84,8 @@ __webpack_require__.r(__webpack_exports__);
       "onClick": "onTap",
       "onTap": "onTap",
       "appParameter": "app-parameter",
-      "publicId": "public-id"
+      "publicId": "public-id",
+      "onGetAuthorize": "onGetAuthorize"
     }
   },
   "canvas": {

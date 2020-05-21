@@ -194,6 +194,7 @@
     hover-stop-propagation="{{node.props['hover-stop-propagation']}}" 
     id="{{node.props['id']}}" 
     loading="{{node.props['loading']}}" 
+    onGetAuthorize="{{node.props['onGetAuthorize']}}" 
     onTap="{{node.props['onTap']}}" 
     open-type="{{node.props['open-type']}}" 
     plain="{{node.props['plain']}}" 

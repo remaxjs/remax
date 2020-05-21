@@ -18,6 +18,7 @@ export const alias = {
   onTap: 'onTap',
   appParameter: 'app-parameter',
   publicId: 'public-id',
+  onGetAuthorize: 'onGetAuthorize',
 };
 
 export const props = Object.values(alias);
