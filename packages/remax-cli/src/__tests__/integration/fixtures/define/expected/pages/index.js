@@ -318,8 +318,8 @@ __webpack_require__.r(__webpack_exports__);
   "picker-view": {
     "alias": {
       "id": "id",
-      "className": "class",
       "name": "name",
+      "className": "class",
       "style": "style",
       "value": "value",
       "indicatorStyle": "indicator-style",
@@ -334,8 +334,8 @@ __webpack_require__.r(__webpack_exports__);
   "picker": {
     "alias": {
       "id": "id",
-      "className": "class",
       "name": "name",
+      "className": "class",
       "style": "style",
       "range": "range",
       "rangeKey": "range-key",
@@ -369,8 +369,8 @@ __webpack_require__.r(__webpack_exports__);
   "radio": {
     "alias": {
       "id": "id",
-      "className": "class",
       "name": "name",
+      "className": "class",
       "style": "style",
       "value": "value",
       "checked": "checked",
