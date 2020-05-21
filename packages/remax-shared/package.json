@@ -17,5 +17,8 @@
     "build": "tsc",
     "build:cjs": "tsc --module CommonJS --outDir cjs",
     "test": "jest"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
