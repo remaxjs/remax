@@ -1,0 +1,27 @@
+{
+  "miniprogramRoot": "dist",
+  "scripts": {
+    "beforeCompile": "npm run dev",
+    "beforePreview": "npm run build",
+    "beforeUpload": "npm run build"
+  },
+  "exclude": [
+    "src/**",
+    "node_modules",
+    "node_modules/**",
+    "babel.config.js",
+    "package-lock.json",
+    "package.json",
+    "remax.config.js",
+    "app.json"
+  ],
+  "precompileWatch": {
+    "selfWatch": true,
+    "restart": true,
+    "exclude": [
+      "dist/**",
+      "*.md"
+    ],
+    "ignoreBuiltInExts": false
+  }
+}
