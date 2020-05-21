@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/remaxjs/remax/compare/v2.1.0...v2.1.1) (2020-05-21)
+
+### Bug Fixes
+
+- **ali:** 修正 Button[onGetAuthorize] 不生效的问题 ([2c3d27e](https://github.com/remaxjs/remax/commit/2c3d27e5a744fb6f80362b6a891c58c1dcfde7e6))
+- 修复表单类组件 name 属性不生效的问题 ([#981](https://github.com/remaxjs/remax/issues/981)) ([07d0a22](https://github.com/remaxjs/remax/commit/07d0a22ef3b27a5297ddef87e7372f75fb922bf0))
+- **wechat:** 修复 hideKeyboard 没导出的问题 ([#980](https://github.com/remaxjs/remax/issues/980)) ([c9afd73](https://github.com/remaxjs/remax/commit/c9afd73b8eee5ec3150606ca5b8c3d63f64d9362))
+
 # [2.1.0](https://github.com/remaxjs/remax/compare/v2.0.7...v2.1.0) (2020-05-21)
 
 ### Bug Fixes
