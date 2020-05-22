@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { pluginDriver } from '@remax/runtime-plugin';
 import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName, pageEvents } from './lifecycle';
 import stopPullDownRefresh from './stopPullDownRefresh';
@@ -184,5 +185,5 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
     }
   });
 
-  return config;
+  return pluginDriver.onPageConfig(config);
 }

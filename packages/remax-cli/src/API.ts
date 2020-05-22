@@ -108,6 +108,16 @@ export default class API {
     });
   }
 
+  getRuntimePluginFiles() {
+    return this.plugins
+      .map(plugin => {
+        if (typeof plugin.registerRuntimePlugin === 'function') {
+          return plugin.registerRuntimePlugin();
+        }
+      })
+      .filter(Boolean);
+  }
+
   public registerAdapterPlugins(targetName: Platform, remaxConfig: Options) {
     this.adapter.target = targetName;
     this.adapter.name = targetName;

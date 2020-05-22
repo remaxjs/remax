@@ -31,13 +31,13 @@ module.exports = {
 
 ## 编写插件
 
-Remax 的插件是一个简单的方法，这个方法返回一个对象，对象中的 key 是 Remax 提供的 hook 名。通过这些 hook，可以改变 Remax 构建小程序时的行为。
+Remax 插件分为编译时插件和运行时插件，插件是一个 Object，Object 的 key 对应 Remax 提供的 hook 名。
 
 还是以 `@remax/plugin-less` 为例，我们可以通过 `configWebpack` 这个 hook 新增一条处理 less 文件的规则。
 
 ```js
-// 第一个参数是插件的配置
-const lessPlugin = options => {
+// 因为需要接受参数，所以这里用一个方法来返回插件。
+export default options => {
   return {
     configWebpack({ config, addCSSRule }) {
       addCSSRule({
@@ -49,8 +49,6 @@ const lessPlugin = options => {
     },
   };
 };
-
-export default lessPlugin;
 ```
 
 ## Hooks
@@ -77,6 +75,58 @@ export default lessPlugin;
 {
   configBabel({ config }) {
     config.plugins.push('awesome-babel-plugin');
+  }
+}
+```
+
+### registerRuntimePlugin
+
+注册运行时插件。
+
+```js
+{
+  registerRuntimePlugin() {
+    return path.resolve(__dirname, './runtime.js'),
+  }
+}
+```
+
+## 运行时 Hooks
+
+### onAppConfig
+
+修改 App 的配置。
+
+```js
+{
+  onAppConfig(config) {
+    const onLaunch = config.onLaunch;
+    config.onLaunch = () => {
+      console.log('onLaunch');
+      if (onLaunch) {
+        onLaunch();
+      }
+    }
+    return config;
+  }
+}
+```
+
+### onPageConfig
+
+修改 Page 的配置。
+
+```js
+{
+  onPageConfig(config) {
+    const onLoad = config.onLoad;
+    config.onLoad = () => {
+      console.log('onLoad');
+      if (onLoad) {
+        onLoad();
+      }
+    }
+    return config;
   }
 }
 ```
