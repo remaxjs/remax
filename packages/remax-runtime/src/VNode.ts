@@ -174,7 +174,7 @@ export default class VNode {
       this.container.requestUpdate({
         type: 'payload',
         // root 不会更新，所以肯定有 parent
-        path: this.parent!.path + '.children.' + this.index + '.' + propName,
+        path: this.parent!.path + '.children.' + this.index + '.props.' + propName,
         value: propValue,
       });
     }
