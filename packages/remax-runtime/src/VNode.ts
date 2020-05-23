@@ -1,4 +1,4 @@
-import propsAlias from './propsAlias';
+import propsAlias, { propAlias } from './propsAlias';
 import { TYPE_TEXT } from './constants';
 import Container from './Container';
 
@@ -25,6 +25,10 @@ function toRawNode(node: VNode) {
     children: [],
     text: node.text,
   };
+}
+
+function toRawProps(prop: string, value: any, type: string) {
+  return propAlias(prop, value, type);
 }
 
 export default class VNode {
@@ -169,8 +173,8 @@ export default class VNode {
     }
 
     for (let i = 0; i < payload.length; i = i + 2) {
-      const propName = payload[i];
-      const propValue = payload[i + 1];
+      const [propName, propValue] = toRawProps(payload[i], payload[i + 1], this.type);
+
       this.container.requestUpdate({
         type: 'payload',
         // root 不会更新，所以肯定有 parent
