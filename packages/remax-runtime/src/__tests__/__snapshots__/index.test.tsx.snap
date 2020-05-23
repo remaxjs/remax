@@ -700,3 +700,63 @@ Object {
   "type": "root",
 }
 `;
+
+exports[`remax render update element props 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [],
+          "id": 2,
+          "props": Object {
+            "class": "className",
+            "disabled": false,
+            "style": "display:flex;flex:1;",
+          },
+          "text": undefined,
+          "type": "input",
+        },
+      ],
+      "id": 3,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
+    },
+  ],
+  "id": 1,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
+}
+`;
+
+exports[`remax render update element props 3`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [],
+          "id": 2,
+          "props": Object {
+            "class": "updateClassName",
+            "disabled": true,
+            "style": "display:flex;flex:2;",
+          },
+          "text": undefined,
+          "type": "input",
+        },
+      ],
+      "id": 3,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
+    },
+  ],
+  "id": 1,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
+}
+`;

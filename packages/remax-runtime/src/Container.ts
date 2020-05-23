@@ -9,12 +9,19 @@ interface SpliceUpdate {
   start: number;
   deleteCount: number;
   items: RawNode[];
+  type: 'splice';
+}
+
+interface PayloadUpdate {
+  path: string;
+  value: any;
+  type: 'payload';
 }
 
 export default class Container {
   context: any;
   root: VNode;
-  updateQueue: SpliceUpdate[] = [];
+  updateQueue: Array<SpliceUpdate | PayloadUpdate> = [];
   _rootContainer?: FiberRoot;
   stopUpdate?: boolean;
   rendered = false;
@@ -30,13 +37,7 @@ export default class Container {
     this.root.mounted = true;
   }
 
-  requestUpdate(path: string, start: number, deleteCount: number, immediately: boolean, ...items: RawNode[]) {
-    const update: SpliceUpdate = {
-      path,
-      start,
-      deleteCount,
-      items,
-    };
+  requestUpdate(update: SpliceUpdate | PayloadUpdate, immediately?: boolean) {
     if (immediately) {
       this.updateQueue.push(update);
       this.applyUpdate();
@@ -77,12 +78,23 @@ export default class Container {
             };
           }
 
-          this.context.$spliceData(
-            {
-              [update.path]: [update.start, update.deleteCount, ...update.items],
-            },
-            callback
-          );
+          if (update.type === 'splice') {
+            this.context.$spliceData(
+              {
+                [update.path]: [update.start, update.deleteCount, ...update.items],
+              },
+              callback
+            );
+          }
+
+          if (update.type === 'payload') {
+            this.context.setData(
+              {
+                [update.path]: update.value,
+              },
+              callback
+            );
+          }
         });
       });
 
@@ -93,13 +105,22 @@ export default class Container {
 
     // TODO 统一更新行为
     let action: any = {
-      type: 'splice',
-      payload: this.updateQueue.map(update => ({
-        path: update.path,
-        start: update.start,
-        deleteCount: update.deleteCount,
-        item: update.items[0],
-      })),
+      type: 'update',
+      payload: this.updateQueue.map(update => {
+        if (update.type === 'payload') {
+          return update;
+        }
+
+        if (update.type === 'splice') {
+          return {
+            path: update.path,
+            start: update.start,
+            deleteCount: update.deleteCount,
+            item: update.items[0],
+            type: update.type,
+          };
+        }
+      }),
       id: generateActionId(),
     };
 

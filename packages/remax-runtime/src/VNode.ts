@@ -66,7 +66,16 @@ export default class VNode {
     this.lastChild = node;
 
     if (this.isMounted()) {
-      this.container.requestUpdate(this.path + '.children', this.size - 1, 0, immediately, node.toJSON());
+      this.container.requestUpdate(
+        {
+          type: 'splice',
+          path: this.path + '.children',
+          start: this.size - 1,
+          deleteCount: 0,
+          items: [node.toJSON()],
+        },
+        immediately
+      );
     }
   }
 
@@ -100,7 +109,16 @@ export default class VNode {
     node.nextSibling = null;
 
     if (this.isMounted()) {
-      this.container.requestUpdate(this.path + '.children', index, 1, immediately);
+      this.container.requestUpdate(
+        {
+          type: 'splice',
+          path: this.path + '.children',
+          start: index,
+          deleteCount: 1,
+          items: [],
+        },
+        immediately
+      );
     }
   }
 
@@ -123,13 +141,43 @@ export default class VNode {
     node.nextSibling = referenceNode;
 
     if (this.isMounted()) {
-      this.container.requestUpdate(this.path + '.children', node.index, 0, immediately, node.toJSON());
+      this.container.requestUpdate(
+        {
+          type: 'splice',
+          path: this.path + '.children',
+          start: node.index,
+          deleteCount: 0,
+          items: [node.toJSON()],
+        },
+        immediately
+      );
     }
   }
 
-  update() {
-    // root 不会更新，所以肯定有 parent
-    this.container.requestUpdate(this.parent!.path + '.children', this.index, 1, false, this.toJSON());
+  update(payload?: any[]) {
+    if (!payload) {
+      this.container.requestUpdate({
+        type: 'splice',
+        // root 不会更新，所以肯定有 parent
+        path: this.parent!.path + '.children',
+        start: this.index,
+        deleteCount: 1,
+        items: [this.toJSON()],
+      });
+
+      return;
+    }
+
+    for (let i = 0; i < payload.length; i = i + 2) {
+      const propName = payload[i];
+      const propValue = payload[i + 1];
+      this.container.requestUpdate({
+        type: 'payload',
+        // root 不会更新，所以肯定有 parent
+        path: this.parent!.path + '.children.' + this.index + '.' + propName,
+        value: propValue,
+      });
+    }
   }
 
   get index(): number {

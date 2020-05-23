@@ -162,6 +162,72 @@ describe('remax render', () => {
     expect(container.root).toMatchSnapshot();
   });
 
+  it.only('update element props', () => {
+    class Page extends React.Component {
+      state = {
+        input: {
+          className: 'className',
+          style: {
+            display: 'flex',
+            flex: 1,
+          },
+          disable: false,
+        },
+      };
+
+      update() {
+        this.setState({
+          input: {
+            ...this.state.input,
+            style: {
+              ...this.state.input.style,
+              flex: 2,
+            },
+            disable: true,
+            className: 'updateClassName',
+          },
+        });
+      }
+
+      render() {
+        const { input } = this.state;
+        return (
+          <View>
+            <Input className={input.className} style={input.style} disabled={input.disable} />
+          </View>
+        );
+      }
+    }
+
+    const container = new Container(p);
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, container);
+    expect(container.root).toMatchSnapshot();
+    page.current.update();
+    expect(container.updateQueue).toMatchInlineSnapshot(`
+      Array [
+        Object {
+          "path": "root.children.0.children.0.className",
+          "type": "payload",
+          "value": "updateClassName",
+        },
+        Object {
+          "path": "root.children.0.children.0.disabled",
+          "type": "payload",
+          "value": true,
+        },
+        Object {
+          "path": "root.children.0.children.0.style",
+          "type": "payload",
+          "value": Object {
+            "flex": 2,
+          },
+        },
+      ]
+    `);
+    expect(container.root).toMatchSnapshot();
+  });
+
   it('umount component', () => {
     class Page extends React.Component {
       state = {

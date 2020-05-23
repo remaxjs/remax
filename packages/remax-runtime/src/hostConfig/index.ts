@@ -97,15 +97,13 @@ export default {
   prepareUpdate(node: VNode, type: string, lastProps: any, nextProps: any) {
     lastProps = processProps(lastProps, node, node.id);
     nextProps = processProps(nextProps, node, node.id);
-    if (diffProperties(lastProps, nextProps)) {
-      return true;
-    }
-    return null;
+
+    return diffProperties(lastProps, nextProps);
   },
 
   commitUpdate(node: VNode, updatePayload: any, type: string, oldProps: any, newProps: any) {
     node.props = processProps(newProps, node, node.id);
-    node.update();
+    node.update(updatePayload);
   },
 
   appendInitialChild: (parent: VNode, child: VNode) => {
