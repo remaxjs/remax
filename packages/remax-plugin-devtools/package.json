@@ -1,0 +1,35 @@
+{
+  "name": "@remax/plugin-devtools",
+  "version": "2.1.1",
+  "description": "Inject React Devtools to Remax",
+  "keywords": [
+    "react"
+  ],
+  "author": "Meck Zhu <yesmeck@gmail.com>",
+  "homepage": "https://reamxjs.org",
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remaxjs/remax.git"
+  },
+  "scripts": {
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
+    "test": "done",
+    "prebuild": "npm run clean",
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/remaxjs/remax/issues"
+  },
+  "dependencies": {
+    "@remax/react-devtools-core": "^4.7.0",
+    "webpack-inject-plugin": "^1.5.4"
+  }
+}

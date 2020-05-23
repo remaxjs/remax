@@ -158,8 +158,8 @@ export default class API {
     }
   }
 
-  public registerPlugins(plugins: Plugin[]) {
-    plugins?.forEach(plugin => {
+  public registerPlugins(plugins: Plugin[] = []) {
+    plugins.forEach(plugin => {
       if (plugin) {
         this.registerHostComponents(plugin.hostComponents);
         this.plugins.push(plugin);

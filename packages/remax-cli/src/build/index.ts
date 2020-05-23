@@ -1,4 +1,5 @@
 import { Options } from '@remax/types';
+import devtools from '@remax/plugin-devtools';
 import output from './utils/output';
 import remaxVersion from '../remaxVersion';
 import { Platform } from '@remax/types';
@@ -8,7 +9,12 @@ import API from '../API';
 
 export function run(options: Options): webpack.Compiler {
   const api = new API();
-  api.registerPlugins(options.plugins);
+
+  const plugins = [...options.plugins];
+  if (process.env.NODE_ENV !== 'production') {
+    plugins.push(devtools());
+  }
+  api.registerPlugins(plugins);
 
   if (options.turboPages && options.turboPages.length > 0 && options.target !== Platform.ali) {
     throw new Error('turboPages 目前仅支持 ali 平台开启');

@@ -1,3 +1,3 @@
 module.exports = {
-  turboPages: ['pages/turbo-page/index'],
+  turboPages: ['pages/turbo-page/index']
 };

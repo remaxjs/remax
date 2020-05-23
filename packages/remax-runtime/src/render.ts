@@ -6,6 +6,14 @@ import AppContainer from './AppContainer';
 
 export const ReactReconcilerInst = ReactReconciler(hostConfig as any);
 
+if (process.env.NODE_ENV === 'development') {
+  ReactReconcilerInst.injectIntoDevTools({
+    bundleType: 1,
+    version: '16.13.1',
+    rendererPackageName: 'remax',
+  });
+}
+
 function getPublicRootInstance(container: ReactReconciler.FiberRoot) {
   const containerFiber = container.current;
   if (!containerFiber.child) {
