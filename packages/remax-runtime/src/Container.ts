@@ -8,6 +8,7 @@ interface SpliceUpdate {
   start: number;
   deleteCount: number;
   items: RawNode[];
+  relations: number[];
   type: 'splice';
 }
 
@@ -107,7 +108,8 @@ export default class Container {
       if (update.type === 'splice') {
         return {
           ...acc,
-          [update.path + '[' + update.start + ']']: update.items[0],
+          [update.path + '.relations']: update.relations,
+          [update.path + '.children.' + update.start]: update.items[0] || null,
         };
       }
 

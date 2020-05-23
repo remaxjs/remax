@@ -1,6 +1,6 @@
 <template name="REMAX_TPL">
-	<block wx:for="{{root.children}}" wx:key="id">
-		<template is="REMAX_TPL_1_CONTAINER" data="{{i: item, a: ''}}" />
+	<block wx:for="{{root.relations}}" wx:key="id">
+		<template is="REMAX_TPL_1_CONTAINER" data="{{i: root.children[item], a: ''}}" />
 	</block>
 </template>
 

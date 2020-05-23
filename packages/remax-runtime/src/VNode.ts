@@ -3,18 +3,21 @@ import { TYPE_TEXT } from './constants';
 import Container from './Container';
 
 export interface RawNode {
-  id?: number;
+  id: number;
   type: string;
   props?: any;
-  children?: RawNode[];
+  children?: { [key: number]: RawNode };
+  relations: number[];
   text?: string;
 }
 
-function toRawNode(node: VNode) {
+function toRawNode(node: VNode): RawNode {
   if (node.type === TYPE_TEXT) {
     return {
+      id: node.id,
       type: node.type,
       text: node.text,
+      relations: [],
     };
   }
 
@@ -22,7 +25,8 @@ function toRawNode(node: VNode) {
     id: node.id,
     type: node.type,
     props: propsAlias(node.props, node.type),
-    children: [],
+    children: {},
+    relations: [],
     text: node.text,
   };
 }
@@ -73,9 +77,10 @@ export default class VNode {
       this.container.requestUpdate(
         {
           type: 'splice',
-          path: this.path + '.children',
-          start: this.size - 1,
+          path: this.path,
+          start: node.id,
           deleteCount: 0,
+          relations: this.children.map(c => c.id),
           items: [node.toJSON()],
         },
         immediately
@@ -90,7 +95,6 @@ export default class VNode {
       return;
     }
 
-    const index = node.index;
     this.size -= 1;
 
     if (this.firstChild === node) {
@@ -116,9 +120,10 @@ export default class VNode {
       this.container.requestUpdate(
         {
           type: 'splice',
-          path: this.path + '.children',
-          start: index,
+          path: this.path,
+          start: node.id,
           deleteCount: 1,
+          relations: this.children.map(c => c.id),
           items: [],
         },
         immediately
@@ -148,9 +153,10 @@ export default class VNode {
       this.container.requestUpdate(
         {
           type: 'splice',
-          path: this.path + '.children',
-          start: node.index,
+          path: this.path,
+          start: node.id,
           deleteCount: 0,
+          relations: this.children.map(c => c.id),
           items: [node.toJSON()],
         },
         immediately
@@ -163,9 +169,10 @@ export default class VNode {
       this.container.requestUpdate({
         type: 'splice',
         // root 不会更新，所以肯定有 parent
-        path: this.parent!.path + '.children',
-        start: this.index,
+        path: this.parent!.path,
+        start: this.id,
         deleteCount: 1,
+        relations: this.children.map(c => c.id),
         items: [this.toJSON()],
       });
 
@@ -178,7 +185,7 @@ export default class VNode {
       this.container.requestUpdate({
         type: 'payload',
         // root 不会更新，所以肯定有 parent
-        path: this.parent!.path + '.children.' + this.index + '.props',
+        path: this.parent!.path + '.children.' + this.id + '.props',
         name: propName,
         value: propValue,
       });
@@ -221,7 +228,7 @@ export default class VNode {
 
     for (let i = 0; i < parents.length; i++) {
       const child = parents[i + 1] || this;
-      dataPath += '.children[' + child.index + ']';
+      dataPath += '.children.' + child.id + '';
     }
 
     return dataPath;
@@ -253,7 +260,8 @@ export default class VNode {
         const currentVNode = children[i];
         const currentRawNode = toRawNode(currentVNode);
 
-        currentNode.children![i] = currentRawNode;
+        currentNode.relations.unshift(currentRawNode.id);
+        currentNode.children![currentRawNode.id] = currentRawNode;
 
         stack.push({
           currentNode: currentRawNode,
