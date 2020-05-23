@@ -1,6 +1,5 @@
 import VNode, { RawNode } from './VNode';
 import { generate } from './instanceId';
-import { generate as generateActionId } from './actionId';
 import { FiberRoot } from 'react-reconciler';
 import nativeEffector from './nativeEffect';
 
@@ -14,6 +13,7 @@ interface SpliceUpdate {
 
 interface PayloadUpdate {
   path: string;
+  name: string;
   value: any;
   type: 'payload';
 }
@@ -90,7 +90,7 @@ export default class Container {
           if (update.type === 'payload') {
             this.context.setData(
               {
-                [update.path]: update.value,
+                [update.path + '.' + update.name]: update.value,
               },
               callback
             );
@@ -103,45 +103,31 @@ export default class Container {
       return;
     }
 
-    // TODO 统一更新行为
-    let action: any = {
-      type: 'update',
-      payload: this.updateQueue.map(update => {
-        if (update.type === 'payload') {
-          return update;
-        }
-
-        if (update.type === 'splice') {
-          return {
-            path: update.path,
-            start: update.start,
-            deleteCount: update.deleteCount,
-            item: update.items[0],
-            type: update.type,
-          };
-        }
-      }),
-      id: generateActionId(),
-    };
-
-    if (process.env.REMAX_PLATFORM === 'toutiao') {
-      action = {
-        root: this.root.toJSON(),
-      };
-    }
-
-    this.context.setData(
-      {
-        action,
-      },
-      () => {
-        nativeEffector.run();
-        /* istanbul ignore next */
-        if (__REMAX_DEBUG__) {
-          console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`, action);
-        }
+    const updatePayload = this.updateQueue.reduce<{ [key: string]: any }>((acc, update) => {
+      if (update.type === 'splice') {
+        return {
+          ...acc,
+          [update.path + '.' + update.start]: update.items[0],
+        };
       }
-    );
+
+      if (update.type === 'payload') {
+        return {
+          ...acc,
+          [update.path + '.' + update.name]: update.value,
+        };
+      }
+
+      return acc;
+    }, {});
+
+    this.context.setData(updatePayload, () => {
+      nativeEffector.run();
+      /* istanbul ignore next */
+      if (__REMAX_DEBUG__) {
+        console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`);
+      }
+    });
 
     this.updateQueue = [];
   }

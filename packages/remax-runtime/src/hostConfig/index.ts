@@ -102,6 +102,7 @@ export default {
   },
 
   commitUpdate(node: VNode, updatePayload: any, type: string, oldProps: any, newProps: any) {
+    console.log(updatePayload);
     node.props = processProps(newProps, node, node.id);
     node.update(updatePayload);
   },
