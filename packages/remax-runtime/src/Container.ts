@@ -107,7 +107,7 @@ export default class Container {
       if (update.type === 'splice') {
         return {
           ...acc,
-          [update.path + '.' + update.start]: update.items[0],
+          [update.path + '[' + update.start + ']']: update.items[0],
         };
       }
 
@@ -125,7 +125,7 @@ export default class Container {
       nativeEffector.run();
       /* istanbul ignore next */
       if (__REMAX_DEBUG__) {
-        console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`);
+        console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`, updatePayload);
       }
     });
 

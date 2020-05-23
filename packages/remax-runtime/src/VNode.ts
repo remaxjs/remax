@@ -221,7 +221,7 @@ export default class VNode {
 
     for (let i = 0; i < parents.length; i++) {
       const child = parents[i + 1] || this;
-      dataPath += '.children.' + child.index;
+      dataPath += '.children[' + child.index + ']';
     }
 
     return dataPath;
