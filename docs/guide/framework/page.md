@@ -129,13 +129,14 @@ export default () => {
 
 ```jsx
 import * as React from 'react';
-import { useNativeEffect, useShow } from 'remax';
+import { useNativeEffect } from 'remax';
+import { usePageEvent } from 'remax/macro';
 
 export default () => {
   const [width, setWidth] = React.useState(width, 0);
   const [height, setHeight] = React.useState(height, 0);
 
-  useShow(() => {
+  usePageEvent('onShow', () => {
     setTimeout(() => {
       setWidth(100)
     }, 3000)
@@ -143,7 +144,8 @@ export default () => {
     setTimeout(() => {
       setHeight(100)
     }, 3000)
-  });
+  })
+
   useNativeEffect(() => {
     console.log('width', width, 'height', height);
     // 只有在 width 变化时，才执行这个逻辑。
