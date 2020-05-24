@@ -8,7 +8,7 @@ interface SpliceUpdate {
   start: number;
   deleteCount: number;
   items: RawNode[];
-  relations: number[];
+  relations?: number[];
   type: 'splice';
 }
 
@@ -106,11 +106,16 @@ export default class Container {
 
     const updatePayload = this.updateQueue.reduce<{ [key: string]: any }>((acc, update) => {
       if (update.type === 'splice') {
-        return {
+        const item = {
           ...acc,
-          [update.path + '.relations']: update.relations,
           [update.path + '.children.' + update.start]: update.items[0] || null,
         };
+
+        if (update.relations) {
+          item[update.path + '.relations'] = update.relations;
+        }
+
+        return item;
       }
 
       if (update.type === 'payload') {

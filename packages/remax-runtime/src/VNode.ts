@@ -164,15 +164,14 @@ export default class VNode {
     }
   }
 
-  update(payload?: any[]) {
-    if (!payload) {
+  update(type: 'text' | 'props' = 'props', payload?: any[]) {
+    if (type === 'text' || !payload) {
       this.container.requestUpdate({
         type: 'splice',
         // root 不会更新，所以肯定有 parent
         path: this.parent!.path,
         start: this.id,
         deleteCount: 1,
-        relations: this.children.map(c => c.id),
         items: [this.toJSON()],
       });
 

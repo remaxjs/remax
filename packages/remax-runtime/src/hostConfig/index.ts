@@ -90,7 +90,7 @@ export default {
   commitTextUpdate(node: VNode, oldText: string, newText: string) {
     if (oldText !== newText) {
       node.text = newText;
-      node.update();
+      node.update('text');
     }
   },
 
@@ -103,7 +103,7 @@ export default {
 
   commitUpdate(node: VNode, updatePayload: any, type: string, oldProps: any, newProps: any) {
     node.props = processProps(newProps, node, node.id);
-    node.update(updatePayload);
+    node.update('props', updatePayload);
   },
 
   appendInitialChild: (parent: VNode, child: VNode) => {
