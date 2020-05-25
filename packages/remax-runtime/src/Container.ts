@@ -125,8 +125,6 @@ export default class Container {
           [update.path + '.' + update.name]: update.value,
         };
       }
-
-      return acc;
     }, {});
 
     this.context.setData(updatePayload, () => {
