@@ -113,18 +113,16 @@ export default class Container {
         };
 
         if (update.children) {
-          item[update.path + '.children'] = update.children.map(c => c.id);
+          item[update.path + '.children'] = (update.children || []).map(c => c.id);
         }
 
         return item;
       }
 
-      if (update.type === 'payload') {
-        return {
-          ...acc,
-          [update.path + '.' + update.name]: update.value,
-        };
-      }
+      return {
+        ...acc,
+        [update.path + '.' + update.name]: update.value,
+      };
     }, {});
 
     this.context.setData(updatePayload, () => {
