@@ -42,6 +42,7 @@ Remax：
 假设小程序新增了一个 `<foo-bar>` 组件，你可以通过 `createHostComponent` 这个方法把这个组件注册到 Remax 中：
 
 ```jsx
+import * as React from 'react';
 import { createHostComponent } from 'remax/macro';
 
 const FooBar = createHostComponent('foo-bar', ['foo']);
@@ -54,6 +55,7 @@ function Page() {
 你也可以给基础组件的属性起别名，使其更符合 React 的命名风格：
 
 ```jsx
+import * as React from 'react';
 import { createHostComponent } from 'remax/macro';
 
 const FooBar = createHostComponent('foo-bar', [
@@ -69,6 +71,7 @@ function Page() {
 如果你使用的是 TypeScript，还可以定义 `props` 类型：
 
 ```jsx
+import * as React from 'react';
 import { createHostComponent } from 'remax/macro';
 
 const FooBar = createHostComponent<{ foo: string; }>('foo-bar', ['foo']);
@@ -83,6 +86,7 @@ function Page() {
 > 组件名称和组件属性不能是动态变量，以下写法是错误的。
 
 ```jsx
+import * as React from 'react';
 import { createHostComponent } from 'remax/macro';
 
 const componentName = 'foo-bar';

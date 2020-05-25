@@ -121,6 +121,7 @@ export default options => {
 
 ```js
 // src/pages/index.js
+import * as React from 'react';
 import { View } from 'remax/one';
 import showToast from '@/api/showToast';
 
@@ -145,6 +146,7 @@ export default () => {
 
 ```jsx
 // src/components/Checkbox/index.wechat.js
+import * as React from 'react';
 import { Checkbox } from 'remax/wechat';
 
 // 受限于微信的静态约束，必须在同构文件中写明你使用了从 remax 导出的组件
