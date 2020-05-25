@@ -273,9 +273,9 @@ export default class VNode {
         const currentRawNode = toRawNode(currentVNode);
 
         if (process.env.REMAX_PLATFORM !== 'ali') {
-          currentNode.children.unshift(currentRawNode.id);
+          currentNode.children!.unshift(currentRawNode.id);
         } else {
-          currentNode.children.unshift(currentRawNode);
+          currentNode.children!.unshift(currentRawNode);
         }
 
         if (process.env.REMAX_PLATFORM !== 'ali') {
