@@ -1,6 +1,6 @@
 <template name="REMAX_TPL">
-  <block tt:for="{{tree.root.children}}" tt:key="{{id}}">
-    <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+  <block tt:for="{{root.children}}" tt:key="{{id}}">
+    <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: root.nodes[item]}}" />
   </block>
 </template>
 
@@ -38,7 +38,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </button>
@@ -65,7 +65,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </canvas>
@@ -87,7 +87,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </checkbox>
@@ -104,7 +104,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </checkbox-group>
@@ -117,7 +117,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </custom-component>
@@ -131,7 +131,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </foo-bar>
@@ -151,7 +151,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </form>
@@ -170,7 +170,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </icon>
@@ -197,7 +197,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </image>
@@ -236,7 +236,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </input>
@@ -253,7 +253,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </label>
@@ -284,7 +284,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </navigator>
@@ -312,7 +312,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </picker>
@@ -336,10 +336,10 @@
     value="{{i.props['value']}}" 
   >
     
-    <block tt:for="{{i.children}}" tt:key="{{item.id}}">
+    <block tt:for="{{i.children}}" tt:key="*this">
       <picker-view-column>
-        <view tt:for="{{item.children}}">
-          <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+        <view tt:for="{{i.nodes[item].children}}" tt:for-item="sItem">
+          <template is="{{'REMAX_TPL_' + i.nodes[item].nodes[sItem].type}}" data="{{i: i.nodes[item].nodes[sItem]}}" />
         </view>
       </picker-view-column>
     </block>
@@ -353,7 +353,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </picker-view-column>
@@ -380,7 +380,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </progress>
@@ -401,7 +401,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </radio>
@@ -419,7 +419,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </radio-group>
@@ -443,7 +443,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </rich-text>
@@ -473,7 +473,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </scroll-view>
@@ -505,7 +505,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </slider>
@@ -538,10 +538,10 @@
     vertical="{{i.props['vertical']}}" 
   >
     
-    <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <swiper-item key="{{item.props.key}}">
-        <block tt:for="{{item.children}}" tt:key="{{id}}">
-          <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+    <block tt:for="{{i.children}}" tt:key="*this">
+      <swiper-item key="{{i.nodes[item].props.key}}">
+        <block tt:for="{{i.nodes[item].children}}" tt:key="*this" tt:for-item="sItem">
+          <template is="{{'REMAX_TPL_' + i.nodes[item].nodes[sItem].type}}" data="{{i: i.nodes[item].nodes[sItem]}}" />
         </block>
       </swiper-item>
     </block>
@@ -566,7 +566,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </switch>
@@ -586,7 +586,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </text>
@@ -627,7 +627,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </textarea>
@@ -678,7 +678,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </video>
@@ -710,7 +710,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </view>
@@ -726,7 +726,7 @@
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     
   </web-view>

@@ -23,7 +23,6 @@ const plugin: PluginConstructor = () => {
       ejs: {
         base: path.join(EJS_TPL_ROOT, 'base.ejs'),
         page: path.join(EJS_TPL_ROOT, 'page.ejs'),
-        jsHelper: path.join(EJS_TPL_ROOT, 'helper.js'),
       },
     },
     hostComponents,

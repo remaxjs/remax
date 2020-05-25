@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`remax render change elements' order 1`] = `
+exports[`ali remax render change elements' order 1`] = `
 Object {
   "children": Array [
     Object {
@@ -8,6 +8,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 1,
               "text": "1",
               "type": "plain-text",
             },
@@ -20,6 +21,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 3,
               "text": "2",
               "type": "plain-text",
             },
@@ -32,6 +34,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 5,
               "text": "3",
               "type": "plain-text",
             },
@@ -55,7 +58,7 @@ Object {
 }
 `;
 
-exports[`remax render change elements' order 2`] = `
+exports[`ali remax render change elements' order 2`] = `
 Object {
   "children": Array [
     Object {
@@ -63,6 +66,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 3,
               "text": "2",
               "type": "plain-text",
             },
@@ -75,6 +79,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 1,
               "text": "1",
               "type": "plain-text",
             },
@@ -87,6 +92,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 5,
               "text": "3",
               "type": "plain-text",
             },
@@ -110,7 +116,7 @@ Object {
 }
 `;
 
-exports[`remax render change elements' order 3`] = `
+exports[`ali remax render change elements' order 3`] = `
 Object {
   "children": Array [
     Object {
@@ -118,6 +124,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 3,
               "text": "2",
               "type": "plain-text",
             },
@@ -130,6 +137,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 5,
               "text": "3",
               "type": "plain-text",
             },
@@ -142,6 +150,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 1,
               "text": "1",
               "type": "plain-text",
             },
@@ -165,7 +174,7 @@ Object {
 }
 `;
 
-exports[`remax render conditional render 1`] = `
+exports[`ali remax render conditional render 1`] = `
 Object {
   "children": Array [
     Object {
@@ -173,6 +182,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 1,
               "text": "1",
               "type": "plain-text",
             },
@@ -185,6 +195,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 3,
               "text": "2",
               "type": "plain-text",
             },
@@ -208,7 +219,7 @@ Object {
 }
 `;
 
-exports[`remax render conditional render 2`] = `
+exports[`ali remax render conditional render 2`] = `
 Object {
   "children": Array [
     Object {
@@ -216,6 +227,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 3,
               "text": "2",
               "type": "plain-text",
             },
@@ -239,7 +251,7 @@ Object {
 }
 `;
 
-exports[`remax render conditional render 3`] = `
+exports[`ali remax render conditional render 3`] = `
 Object {
   "children": Array [
     Object {
@@ -247,6 +259,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 6,
               "text": "1",
               "type": "plain-text",
             },
@@ -259,6 +272,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 3,
               "text": "2",
               "type": "plain-text",
             },
@@ -282,7 +296,7 @@ Object {
 }
 `;
 
-exports[`remax render insert new element 1`] = `
+exports[`ali remax render insert new element 1`] = `
 Object {
   "children": Array [
     Object {
@@ -290,6 +304,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 1,
               "text": "1",
               "type": "plain-text",
             },
@@ -302,6 +317,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 3,
               "text": "3",
               "type": "plain-text",
             },
@@ -325,7 +341,7 @@ Object {
 }
 `;
 
-exports[`remax render insert new element 2`] = `
+exports[`ali remax render insert new element 2`] = `
 Object {
   "children": Array [
     Object {
@@ -333,6 +349,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 1,
               "text": "1",
               "type": "plain-text",
             },
@@ -345,6 +362,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 6,
               "text": "2",
               "type": "plain-text",
             },
@@ -357,6 +375,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 3,
               "text": "3",
               "type": "plain-text",
             },
@@ -380,7 +399,7 @@ Object {
 }
 `;
 
-exports[`remax render insert new element 3`] = `
+exports[`ali remax render insert new element 3`] = `
 Object {
   "children": Array [
     Object {
@@ -388,6 +407,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 8,
               "text": "0",
               "type": "plain-text",
             },
@@ -400,6 +420,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 1,
               "text": "1",
               "type": "plain-text",
             },
@@ -412,6 +433,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 6,
               "text": "2",
               "type": "plain-text",
             },
@@ -424,6 +446,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 3,
               "text": "3",
               "type": "plain-text",
             },
@@ -447,12 +470,13 @@ Object {
 }
 `;
 
-exports[`remax render render correctly 1`] = `
+exports[`ali remax render render correctly 1`] = `
 Object {
   "children": Array [
     Object {
       "children": Array [
         Object {
+          "id": 2,
           "text": "hello",
           "type": "plain-text",
         },
@@ -472,7 +496,7 @@ Object {
 }
 `;
 
-exports[`remax render render native component correctly 1`] = `
+exports[`ali remax render render native component correctly 1`] = `
 Array [
   Object {
     "root.children": Array [
@@ -494,12 +518,13 @@ Array [
 ]
 `;
 
-exports[`remax render renders conditional fragment correctly 1`] = `
+exports[`ali remax render renders conditional fragment correctly 1`] = `
 Object {
   "children": Array [
     Object {
       "children": Array [
         Object {
+          "id": 1,
           "text": "one",
           "type": "plain-text",
         },
@@ -512,6 +537,7 @@ Object {
     Object {
       "children": Array [
         Object {
+          "id": 3,
           "text": "two",
           "type": "plain-text",
         },
@@ -529,12 +555,13 @@ Object {
 }
 `;
 
-exports[`remax render renders conditional fragment correctly 2`] = `
+exports[`ali remax render renders conditional fragment correctly 2`] = `
 Object {
   "children": Array [
     Object {
       "children": Array [
         Object {
+          "id": 1,
           "text": "foo",
           "type": "plain-text",
         },
@@ -552,12 +579,13 @@ Object {
 }
 `;
 
-exports[`remax render renders empty style 1`] = `
+exports[`ali remax render renders empty style 1`] = `
 Object {
   "children": Array [
     Object {
       "children": Array [
         Object {
+          "id": 1,
           "text": "hello",
           "type": "plain-text",
         },
@@ -577,12 +605,13 @@ Object {
 }
 `;
 
-exports[`remax render renders style 1`] = `
+exports[`ali remax render renders style 1`] = `
 Object {
   "children": Array [
     Object {
       "children": Array [
         Object {
+          "id": 1,
           "text": "hello",
           "type": "plain-text",
         },
@@ -602,12 +631,13 @@ Object {
 }
 `;
 
-exports[`remax render renders unitless style 1`] = `
+exports[`ali remax render renders unitless style 1`] = `
 Object {
   "children": Array [
     Object {
       "children": Array [
         Object {
+          "id": 1,
           "text": "hello",
           "type": "plain-text",
         },
@@ -627,12 +657,13 @@ Object {
 }
 `;
 
-exports[`remax render renders vendor prefix style 1`] = `
+exports[`ali remax render renders vendor prefix style 1`] = `
 Object {
   "children": Array [
     Object {
       "children": Array [
         Object {
+          "id": 1,
           "text": "hello",
           "type": "plain-text",
         },
@@ -652,7 +683,7 @@ Object {
 }
 `;
 
-exports[`remax render umount component 1`] = `
+exports[`ali remax render umount component 1`] = `
 Object {
   "children": Array [
     Object {
@@ -660,6 +691,7 @@ Object {
         Object {
           "children": Array [
             Object {
+              "id": 1,
               "text": "foo",
               "type": "plain-text",
             },
@@ -683,7 +715,7 @@ Object {
 }
 `;
 
-exports[`remax render umount component 2`] = `
+exports[`ali remax render umount component 2`] = `
 Object {
   "children": Array [
     Object {
@@ -701,14 +733,14 @@ Object {
 }
 `;
 
-exports[`remax render update element props 1`] = `
+exports[`ali remax render update element props 1`] = `
 Object {
   "children": Array [
     Object {
       "children": Array [
         Object {
           "children": Array [],
-          "id": 2,
+          "id": 1,
           "props": Object {
             "class": "className",
             "disabled": false,
@@ -718,27 +750,27 @@ Object {
           "type": "input",
         },
       ],
-      "id": 3,
+      "id": 2,
       "props": Object {},
       "text": undefined,
       "type": "view",
     },
   ],
-  "id": 1,
+  "id": 0,
   "props": undefined,
   "text": undefined,
   "type": "root",
 }
 `;
 
-exports[`remax render update element props 3`] = `
+exports[`ali remax render update element props 3`] = `
 Object {
   "children": Array [
     Object {
       "children": Array [
         Object {
           "children": Array [],
-          "id": 2,
+          "id": 1,
           "props": Object {
             "class": "updateClassName",
             "disabled": true,
@@ -748,13 +780,13 @@ Object {
           "type": "input",
         },
       ],
-      "id": 3,
+      "id": 2,
       "props": Object {},
       "text": undefined,
       "type": "view",
     },
   ],
-  "id": 1,
+  "id": 0,
   "props": undefined,
   "text": undefined,
   "type": "root",

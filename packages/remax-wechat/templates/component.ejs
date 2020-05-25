@@ -13,36 +13,36 @@
   <%_ } else if (id === 'scroll-view') { _%>
     <% const propsString = propsKeyTpl(props.filter(key => (key !== 'scroll-top' && key !== 'scroll-left'))) %>
     <<%=id%> wx:if="{{i.props['scroll-y'] && i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}" <%- propsString %> >
-      <block wx:for="{{i.relations}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.children[item], a: a, tid: tid + 1 }}" />
+      <block wx:for="{{i.children}}" wx:key="*this">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
       </block>
     </<%=id%>>
     <<%=id%> wx:elif="{{i.props['scroll-x'] && i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}" <%- propsString %> >
-      <block wx:for="{{i.relations}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.children[item], a: a, tid: tid + 1 }}" />
+      <block wx:for="{{i.children}}" wx:key="*this">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
       </block>
     </<%=id%>>
     <<%=id%> wx:else <%- propsString %> >
-      <block wx:for="{{i.relations}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.children[item], a: a, tid: tid + 1 }}" />
+      <block wx:for="{{i.children}}" wx:key="*this">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
       </block>
     </<%=id%>>
   <%_ } else if (id === 'swiper') { _%>
     <% const propsString = propsKeyTpl(props.filter(key => (key !== 'current'))) %>
     <<%=id%> wx:if="{{i.props.current !== undefined && i.props.current !== null}}" current="{{i.props.current}}" <%- propsString %> >
-      <block wx:for="{{i.relations}}" wx:key="*this">
-        <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-          <block wx:for="{{item.relations}}" wx:key="*this">
-            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.children[item], a: a, tid: tid + 1 }}" />
+      <block wx:for="{{i.children}}" wx:key="*this">
+        <swiper-item item-id="{{i.nodes[item].props.itemId}}" key="{{i.nodes[item].props.key}}">
+          <block wx:for="{{i.nodes[item].children}}" wx:key="*this" wx:for-item="sItem">
+            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}" />
           </block>
         </swiper-item>
       </block>
     </<%=id%>>
     <<%=id%> wx:else <%- propsString %> >
-      <block wx:for="{{i.relations}}" wx:key="*this">
-        <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-          <block wx:for="{{item.relations}}" wx:key="*this">
-            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.children[item], a: a, tid: tid + 1 }}" />
+      <block wx:for="{{i.children}}" wx:key="*this">
+        <swiper-item item-id="{{i.nodes[item].props.itemId}}" key="{{i.nodes[item].props.key}}">
+          <block wx:for="{{i.nodes[item].children}}" wx:key="*this" wx:for-item="sItem">
+            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}" />
           </block>
         </swiper-item>
       </block>
@@ -51,31 +51,31 @@
   <<%=id%>
     <%- propsKeyTpl(props) %>>
     <%_ if (id === 'swiper') { _%>
-    <block wx:for="{{i.relations}}" wx:key="*this">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.relations}}" wx:key="*this">
-          <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.children[item], a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <swiper-item item-id="{{i.nodes[item].props.itemId}}" key="{{i.nodes[item].props.key}}">
+        <block wx:for="{{i.nodes[item].children}}" wx:key="*this" wx:for-item="sItem">
+          <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}" />
         </block>
       </swiper-item>
     </block>
     <%_ } else if (type === 'native') { _%>
-    <block wx:for="{{i.relations}}" wx:key="*this">
-      <block wx:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" <% for(let i=0;i < slotView.props.length; i++) { %>
-          <%=slotView.props[i]%>="{{item.props['<%=slotView.props[i]%>']}}" <%}%>
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <block wx:if="{{i.nodes[item].props['slot']}}">
+        <view slot="{{i.nodes[item].props['slot']}}" <% for(let i=0;i < slotView.props.length; i++) { %>
+          <%=slotView.props[i]%>="{{i.nodes[item].props['<%=slotView.props[i]%>']}}" <%}%>
         >
-          <block wx:for="{{item.relations}}" wx:key="*this">
-            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.children[item], a: a, tid: tid + 1 }}" />
+          <block wx:for="{{i.nodes[item].children}}" wx:key="*this" wx:for-item="sItem">
+            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}" />
           </block>
         </view>
       </block>
       <block wx:else>
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.children[item], a: a, tid: tid + 1 }}" />
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
       </block>
     </block>
     <%_ } else { _%>
-    <block wx:for="{{i.relations}}" wx:key="*this">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.children[item], a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
     <%_ } _%>
   </<%=id%>>

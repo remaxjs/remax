@@ -6,9 +6,10 @@ import nativeEffector from './nativeEffect';
 interface SpliceUpdate {
   path: string;
   start: number;
+  id: number;
   deleteCount: number;
   items: RawNode[];
-  relations?: number[];
+  children?: RawNode[];
   type: 'splice';
 }
 
@@ -82,7 +83,7 @@ export default class Container {
           if (update.type === 'splice') {
             this.context.$spliceData(
               {
-                [update.path]: [update.start, update.deleteCount, ...update.items],
+                [update.path + '.children']: [update.start, update.deleteCount, ...update.items],
               },
               callback
             );
@@ -108,11 +109,11 @@ export default class Container {
       if (update.type === 'splice') {
         const item = {
           ...acc,
-          [update.path + '.children.' + update.start]: update.items[0] || null,
+          [update.path + '.nodes.' + update.id]: update.items[0] || null,
         };
 
-        if (update.relations) {
-          item[update.path + '.relations'] = update.relations;
+        if (update.children) {
+          item[update.path + '.children'] = update.children.map(c => c.id);
         }
 
         return item;
@@ -141,12 +142,6 @@ export default class Container {
 
   clearUpdate() {
     this.stopUpdate = true;
-
-    if (process.env.REMAX_PLATFORM === 'wechat') {
-      this.context.setData({
-        action: { type: 'clear' },
-      });
-    }
   }
 
   createCallback(name: string, fn: Function) {

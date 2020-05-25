@@ -4,7 +4,6 @@ import View from './helpers/View';
 import Input from './helpers/Input';
 import render from '../render';
 import { reset as resetInstanceId } from '../instanceId';
-import { reset as resetActionId } from '../actionId';
 import Container from '../Container';
 import createPageWrapper from '../createPageWrapper';
 // eslint-disable-next-line @typescript-eslint/camelcase
@@ -30,9 +29,12 @@ const p = {
   },
 };
 
-describe('remax render', () => {
+describe('ali remax render', () => {
+  beforeEach(() => {
+    process.env.REMAX_PLATFORM = 'ali';
+  });
   afterEach(() => {
-    resetActionId();
+    process.env.REMAX_PLATFORM = '';
     resetInstanceId();
   });
 
@@ -162,7 +164,7 @@ describe('remax render', () => {
     expect(container.root).toMatchSnapshot();
   });
 
-  it.only('update element props', () => {
+  it('update element props', () => {
     class Page extends React.Component {
       state = {
         input: {
@@ -207,21 +209,22 @@ describe('remax render', () => {
     expect(container.updateQueue).toMatchInlineSnapshot(`
       Array [
         Object {
-          "path": "root.children.0.children.0.className",
+          "name": "class",
+          "path": "root.children.0.children[0].props",
           "type": "payload",
           "value": "updateClassName",
         },
         Object {
-          "path": "root.children.0.children.0.disabled",
+          "name": "disabled",
+          "path": "root.children.0.children[0].props",
           "type": "payload",
           "value": true,
         },
         Object {
-          "path": "root.children.0.children.0.style",
+          "name": "style",
+          "path": "root.children.0.children[0].props",
           "type": "payload",
-          "value": Object {
-            "flex": 2,
-          },
+          "value": "display:flex;flex:2;",
         },
       ]
     `);
@@ -371,10 +374,10 @@ it('useEffect works', done => {
 });
 
 it('pure rerender when props changed', done => {
-  let payload: any[] = [];
+  const payload: any[] = [];
   const context = {
     setData: (data: any) => {
-      payload = data.action.payload;
+      payload.push(data);
     },
   };
 
@@ -404,17 +407,21 @@ it('pure rerender when props changed', done => {
   page.current.setValue('bar');
 
   setTimeout(() => {
-    expect(payload).toHaveLength(1);
-    expect(payload[0].item.type).toEqual('input');
+    expect(payload).toHaveLength(2);
+    expect(payload[1]).toMatchInlineSnapshot(`
+      Object {
+        "root.nodes.7.nodes.6.props.value": "bar",
+      }
+    `);
     done();
   }, 5);
 });
 
 it('pure rerender when props delete', done => {
-  let payload: any[] = [];
+  const payload: any[] = [];
   const context = {
     setData: (data: any) => {
-      payload = data.action.payload;
+      payload.push(data);
     },
   };
 
@@ -442,8 +449,12 @@ it('pure rerender when props delete', done => {
   page.current.setValue(undefined);
 
   setTimeout(() => {
-    expect(payload).toHaveLength(1);
-    expect(payload[0].item.type).toEqual('input');
+    expect(payload).toHaveLength(2);
+    expect(payload[1]).toMatchInlineSnapshot(`
+      Object {
+        "root.nodes.10.nodes.9.props.value": null,
+      }
+    `);
     done();
   }, 5);
 });

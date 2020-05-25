@@ -4,9 +4,7 @@ import View from './helpers/View';
 import Input from './helpers/Input';
 import render from '../render';
 import { reset as resetInstanceId } from '../instanceId';
-import { reset as resetActionId } from '../actionId';
 import Container from '../Container';
-// eslint-disable-next-line @typescript-eslint/camelcase
 import { useNativeEffect } from '../hooks';
 
 const p = {
@@ -19,9 +17,8 @@ const p = {
   },
 };
 
-describe('remax render', () => {
+describe('wechat remax render', () => {
   afterEach(() => {
-    resetActionId();
     resetInstanceId();
   });
 
@@ -187,7 +184,7 @@ describe('remax render', () => {
       });
     const actions: any = [];
     const p = {
-      setData: ({ action }: any) => actions.push(action),
+      setData: (data: any) => actions.push(data),
     };
 
     const container = new Container(p);
@@ -235,10 +232,10 @@ it('useEffect works', done => {
 });
 
 it('pure rerender when props changed', done => {
-  let payload: any[] = [];
+  const payload: any[] = [];
   const context = {
     setData: (data: any) => {
-      payload = data.action.payload;
+      payload.push(data);
     },
   };
 
@@ -268,17 +265,21 @@ it('pure rerender when props changed', done => {
   page.current.setValue('bar');
 
   setTimeout(() => {
-    expect(payload).toHaveLength(1);
-    expect(payload[0].item.type).toEqual('input');
+    expect(payload).toHaveLength(2);
+    expect(payload[1]).toMatchInlineSnapshot(`
+      Object {
+        "root.nodes.7.nodes.6.props.value": "bar",
+      }
+    `);
     done();
   }, 5);
 });
 
 it('pure rerender when props delete', done => {
-  let payload: any[] = [];
+  const payload: any[] = [];
   const context = {
     setData: (data: any) => {
-      payload = data.action.payload;
+      payload.push(payload);
     },
   };
 
@@ -306,8 +307,13 @@ it('pure rerender when props delete', done => {
   page.current.setValue(undefined);
 
   setTimeout(() => {
-    expect(payload).toHaveLength(1);
-    expect(payload[0].item.type).toEqual('input');
+    expect(payload).toHaveLength(2);
+    expect(payload).toMatchInlineSnapshot(`
+      Array [
+        [Circular],
+        [Circular],
+      ]
+    `);
     done();
   }, 5);
 });

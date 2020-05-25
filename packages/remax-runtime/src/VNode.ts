@@ -6,8 +6,8 @@ export interface RawNode {
   id: number;
   type: string;
   props?: any;
-  children?: { [key: number]: RawNode };
-  relations: number[];
+  nodes?: { [key: number]: RawNode };
+  children?: Array<RawNode | number>;
   text?: string;
 }
 
@@ -17,7 +17,6 @@ function toRawNode(node: VNode): RawNode {
       id: node.id,
       type: node.type,
       text: node.text,
-      relations: [],
     };
   }
 
@@ -25,8 +24,7 @@ function toRawNode(node: VNode): RawNode {
     id: node.id,
     type: node.type,
     props: propsAlias(node.props, node.type),
-    children: {},
-    relations: [],
+    children: [],
     text: node.text,
   };
 }
@@ -78,9 +76,10 @@ export default class VNode {
         {
           type: 'splice',
           path: this.path,
-          start: node.id,
+          start: node.index,
+          id: node.id,
           deleteCount: 0,
-          relations: this.children.map(c => c.id),
+          children: this.children,
           items: [node.toJSON()],
         },
         immediately
@@ -121,9 +120,10 @@ export default class VNode {
         {
           type: 'splice',
           path: this.path,
-          start: node.id,
+          start: node.index,
+          id: node.id,
           deleteCount: 1,
-          relations: this.children.map(c => c.id),
+          children: this.children,
           items: [],
         },
         immediately
@@ -154,9 +154,10 @@ export default class VNode {
         {
           type: 'splice',
           path: this.path,
-          start: node.id,
+          start: node.index,
+          id: node.id,
           deleteCount: 0,
-          relations: this.children.map(c => c.id),
+          children: this.children,
           items: [node.toJSON()],
         },
         immediately
@@ -170,7 +171,8 @@ export default class VNode {
         type: 'splice',
         // root 不会更新，所以肯定有 parent
         path: this.parent!.path,
-        start: this.id,
+        start: this.index,
+        id: this.id,
         deleteCount: 1,
         items: [this.toJSON()],
       });
@@ -181,10 +183,16 @@ export default class VNode {
     for (let i = 0; i < payload.length; i = i + 2) {
       const [propName, propValue] = toRawProps(payload[i], payload[i + 1], this.type);
 
+      let path = this.parent!.path + '.nodes.' + this.id + '.props';
+
+      if (process.env.REMAX_PLATFORM === 'ali') {
+        path = this.parent!.path + '.children[' + this.index + '].props';
+      }
+
       this.container.requestUpdate({
         type: 'payload',
         // root 不会更新，所以肯定有 parent
-        path: this.parent!.path + '.children.' + this.id + '.props',
+        path,
         name: propName,
         value: propValue,
       });
@@ -227,7 +235,12 @@ export default class VNode {
 
     for (let i = 0; i < parents.length; i++) {
       const child = parents[i + 1] || this;
-      dataPath += '.children.' + child.id + '';
+
+      if (process.env.REMAX_PLATFORM === 'ali') {
+        dataPath += '.children.' + child.index + '';
+      } else {
+        dataPath += '.nodes.' + child.id + '';
+      }
     }
 
     return dataPath;
@@ -259,8 +272,22 @@ export default class VNode {
         const currentVNode = children[i];
         const currentRawNode = toRawNode(currentVNode);
 
-        currentNode.relations.unshift(currentRawNode.id);
-        currentNode.children![currentRawNode.id] = currentRawNode;
+        if (!currentNode.children) {
+          currentNode.children = [];
+        }
+
+        if (process.env.REMAX_PLATFORM !== 'ali') {
+          currentNode.children.unshift(currentRawNode.id);
+        } else {
+          currentNode.children.unshift(currentRawNode);
+        }
+
+        if (process.env.REMAX_PLATFORM !== 'ali') {
+          if (!currentNode.nodes) {
+            currentNode.nodes = {};
+          }
+          currentNode.nodes[currentRawNode.id] = currentRawNode;
+        }
 
         stack.push({
           currentNode: currentRawNode,

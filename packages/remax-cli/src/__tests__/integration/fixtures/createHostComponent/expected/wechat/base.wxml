@@ -1,6 +1,6 @@
 <template name="REMAX_TPL">
-	<block wx:for="{{tree.root.children}}" wx:key="id">
-		<template is="REMAX_TPL_1_CONTAINER" data="{{i: item, a: ''}}" />
+	<block wx:for="{{root.children}}" wx:key="id">
+		<template is="REMAX_TPL_1_CONTAINER" data="{{i: root.nodes[item], a: ''}}" />
 	</block>
 </template>
 
@@ -29,8 +29,8 @@
 		<template name="REMAX_TPL_1_custom-component">
   <custom-component
     foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </custom-component>
 </template>
@@ -38,8 +38,8 @@
 		<template name="REMAX_TPL_2_custom-component">
   <custom-component
     foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </custom-component>
 </template>
@@ -47,8 +47,8 @@
 		<template name="REMAX_TPL_3_custom-component">
   <custom-component
     foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </custom-component>
 </template>
@@ -56,8 +56,8 @@
 		<template name="REMAX_TPL_4_custom-component">
   <custom-component
     foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </custom-component>
 </template>
@@ -65,8 +65,8 @@
 		<template name="REMAX_TPL_5_custom-component">
   <custom-component
     foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </custom-component>
 </template>
@@ -74,8 +74,8 @@
 		<template name="REMAX_TPL_6_custom-component">
   <custom-component
     foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </custom-component>
 </template>
@@ -83,8 +83,8 @@
 		<template name="REMAX_TPL_7_custom-component">
   <custom-component
     foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </custom-component>
 </template>
@@ -92,8 +92,8 @@
 		<template name="REMAX_TPL_8_custom-component">
   <custom-component
     foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </custom-component>
 </template>
@@ -101,8 +101,8 @@
 		<template name="REMAX_TPL_9_custom-component">
   <custom-component
     foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </custom-component>
 </template>
@@ -110,8 +110,8 @@
 		<template name="REMAX_TPL_10_custom-component">
   <custom-component
     foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </custom-component>
 </template>
@@ -120,8 +120,8 @@
   <foo-bar
     class="{{_h.v(i.props['class'])}}"
 foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </foo-bar>
 </template>
@@ -130,8 +130,8 @@ foo="{{_h.v(i.props['foo'])}}">
   <foo-bar
     class="{{_h.v(i.props['class'])}}"
 foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </foo-bar>
 </template>
@@ -140,8 +140,8 @@ foo="{{_h.v(i.props['foo'])}}">
   <foo-bar
     class="{{_h.v(i.props['class'])}}"
 foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </foo-bar>
 </template>
@@ -150,8 +150,8 @@ foo="{{_h.v(i.props['foo'])}}">
   <foo-bar
     class="{{_h.v(i.props['class'])}}"
 foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </foo-bar>
 </template>
@@ -160,8 +160,8 @@ foo="{{_h.v(i.props['foo'])}}">
   <foo-bar
     class="{{_h.v(i.props['class'])}}"
 foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </foo-bar>
 </template>
@@ -170,8 +170,8 @@ foo="{{_h.v(i.props['foo'])}}">
   <foo-bar
     class="{{_h.v(i.props['class'])}}"
 foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </foo-bar>
 </template>
@@ -180,8 +180,8 @@ foo="{{_h.v(i.props['foo'])}}">
   <foo-bar
     class="{{_h.v(i.props['class'])}}"
 foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </foo-bar>
 </template>
@@ -190,8 +190,8 @@ foo="{{_h.v(i.props['foo'])}}">
   <foo-bar
     class="{{_h.v(i.props['class'])}}"
 foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </foo-bar>
 </template>
@@ -200,8 +200,8 @@ foo="{{_h.v(i.props['foo'])}}">
   <foo-bar
     class="{{_h.v(i.props['class'])}}"
 foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </foo-bar>
 </template>
@@ -210,8 +210,8 @@ foo="{{_h.v(i.props['foo'])}}">
   <foo-bar
     class="{{_h.v(i.props['class'])}}"
 foo="{{_h.v(i.props['foo'])}}">
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
     </block>
   </foo-bar>
 </template>

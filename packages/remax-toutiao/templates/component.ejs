@@ -3,39 +3,39 @@
     <%=props[i]%>="{{i.props['<%=props[i]%>']}}" <%} %>
   >
     <% if (id === 'swiper') { %>
-    <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <swiper-item key="{{item.props.key}}">
-        <block tt:for="{{item.children}}" tt:key="{{id}}">
-          <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+    <block tt:for="{{i.children}}" tt:key="*this">
+      <swiper-item key="{{i.nodes[item].props.key}}">
+        <block tt:for="{{i.nodes[item].children}}" tt:key="*this" tt:for-item="sItem">
+          <template is="{{'REMAX_TPL_' + i.nodes[item].nodes[sItem].type}}" data="{{i: i.nodes[item].nodes[sItem]}}" />
         </block>
       </swiper-item>
     </block>
     <% } else if (id === 'picker-view') { %>
-    <block tt:for="{{i.children}}" tt:key="{{item.id}}">
+    <block tt:for="{{i.children}}" tt:key="*this">
       <picker-view-column>
-        <view tt:for="{{item.children}}">
-          <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+        <view tt:for="{{i.nodes[item].children}}" tt:for-item="sItem">
+          <template is="{{'REMAX_TPL_' + i.nodes[item].nodes[sItem].type}}" data="{{i: i.nodes[item].nodes[sItem]}}" />
         </view>
       </picker-view-column>
     </block>
     <% } else if (type === 'native') { %>
-    <block tt:for="{{i.children}}" tt:key="{{i.id}}">
-      <block tt:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" <% for(let i=0;i < slotView.props.length; i++) { %>
-          <%=slotView.props[i]%>="{{item.props['<%=slotView.props[i]%>']}}" <%}%>
+    <block tt:for="{{i.children}}" tt:key="*this">
+      <block tt:if="{{i.nodes[item].props['slot']}}">
+        <view slot="{{i.nodes[item].props['slot']}}" <% for(let i=0;i < slotView.props.length; i++) { %>
+          <%=slotView.props[i]%>="{{i.nodes[item].props['<%=slotView.props[i]%>']}}" <%}%>
         >
-          <block tt:for="{{item.children}}" tt:key="{{item.id}}">
-            <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+          <block tt:for="{{i.nodes[item].children}}" tt:key="*this" tt:for-item="sItem">
+            <template is="{{'REMAX_TPL_' + i.nodes[item].nodes[sItem].type}}" data="{{i: i.nodes[item].nodes[sItem]}}" />
           </block>
         </view>
       </block>
       <block tt:else>
-        <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+        <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
       </block>
     </block>
     <% } else { %>
     <block tt:for="{{i.children}}" tt:key="{{id}}">
-      <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+      <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
     <% } %>
   </<%=id%>>
