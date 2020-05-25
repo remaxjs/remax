@@ -1,6 +1,6 @@
 interface Plugin {
-  onAppConfig?: (config: any) => any;
-  onPageConfig?: (config: any) => any;
+  onAppConfig?: ({ config }: { config: any }) => any;
+  onPageConfig?: ({ config }: { config: any }) => any;
 }
 
 export default class PluginDriver {
@@ -13,7 +13,7 @@ export default class PluginDriver {
   onAppConfig(config: any) {
     return this.plugins.reduce((acc, plugin) => {
       if (typeof plugin.onAppConfig === 'function') {
-        acc = plugin.onAppConfig(config);
+        acc = plugin.onAppConfig({ config });
       }
       return acc;
     }, config);
@@ -22,7 +22,7 @@ export default class PluginDriver {
   onPageConfig(config: any) {
     return this.plugins.reduce((acc, plugin) => {
       if (typeof plugin.onPageConfig === 'function') {
-        acc = plugin.onPageConfig(config);
+        acc = plugin.onPageConfig({ config });
       }
       return acc;
     }, config);

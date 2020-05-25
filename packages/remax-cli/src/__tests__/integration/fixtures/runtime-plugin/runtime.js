@@ -1,8 +1,8 @@
 export default {
-  onAppConfig(config) {
+  onAppConfig({ config }) {
     return config;
   },
-  onPageConfig(config) {
+  onPageConfig({ config }) {
     return config;
   },
 };

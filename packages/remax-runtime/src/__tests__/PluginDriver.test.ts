@@ -4,13 +4,13 @@ describe('PluginDriver', () => {
   it('onAppConfig', () => {
     const pluginDriver = new PluginDriver([
       {
-        onAppConfig(config) {
+        onAppConfig({ config }) {
           config.foo = 1;
           return config;
         },
       },
       {
-        onAppConfig(config) {
+        onAppConfig({ config }) {
           config.bar = 1;
           return config;
         },
@@ -23,13 +23,13 @@ describe('PluginDriver', () => {
   it('onPageConfig', () => {
     const pluginDriver = new PluginDriver([
       {
-        onPageConfig(config) {
+        onPageConfig({ config }) {
           config.foo = 1;
           return config;
         },
       },
       {
-        onPageConfig(config) {
+        onPageConfig({ config }) {
           config.bar = 1;
           return config;
         },

@@ -180,10 +180,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .loader(require.resolve('file-loader'));
 
   const pluginTemplate = fs.readFileSync(path.resolve(__dirname, '../../../template/plugin.js.ejs'), 'utf-8');
-  const pluginPath = path.join(
-    path.resolve(path.dirname(require.resolve('@remax/runtime')), '..'),
-    'node_modules/@remax/runtime-plugin.js'
-  );
+  const pluginPath = winPath('node_modules/@remax/runtime-plugin.js');
   const virtualModules = new VirtualModulesPlugin({
     [pluginPath]: ejs.render(pluginTemplate, {
       pluginFiles: api.getRuntimePluginFiles(),
