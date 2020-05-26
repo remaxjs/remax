@@ -144,7 +144,7 @@ export default {
   hideInstance(instance: VNode) {
     const originStyle = instance.props?.style;
     const newStyle = Object.assign({}, originStyle || {}, { display: 'none' }); // 微信和阿里的小程序都不支持在内联样式中加`important!`
-    instance.props = Object.assign(instance.props || {}, { style: newStyle });
+    instance.props = Object.assign({}, instance.props || {}, { style: newStyle });
     instance.update();
   },
 
