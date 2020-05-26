@@ -3577,12 +3577,19 @@
   dependencies:
     "@umijs/utils" "3.1.4"
 
-"@umijs/babel-plugin-auto-css-modules@3.1.4", "@umijs/babel-plugin-auto-css-modules@^3.1.1":
+"@umijs/babel-plugin-auto-css-modules@3.1.4":
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/@umijs/babel-plugin-auto-css-modules/-/babel-plugin-auto-css-modules-3.1.4.tgz#3b0709de38d12a47442ca66093ba7db49479169a"
   integrity sha512-BnWqe+PMo91QdDFakdQ4Uva4yXY9gTOk6Jk5BhTtcMkfWBRyk1KnFfEH73M74u7zT3HVWGzjCF0blcJRWPQXww==
   dependencies:
     "@umijs/utils" "3.1.4"
+
+"@umijs/babel-plugin-auto-css-modules@^3.1.1":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@umijs/babel-plugin-auto-css-modules/-/babel-plugin-auto-css-modules-3.2.2.tgz#3902431dc1721e1f60757d66253c8e5ce8fd9d42"
+  integrity sha512-KFmLN208w+nC6nK7vmdtAFHv6TKof6zbHu+N0nzvF1fNWhPlJTHwGEL5bilfPqb8hNEuQU8a4eBRFZie+LfeGA==
+  dependencies:
+    "@umijs/utils" "3.2.2"
 
 "@umijs/babel-plugin-lock-core-js-3@3.1.4":
   version "3.1.4"
@@ -3884,6 +3891,55 @@
   version "3.1.4"
   resolved "https://registry.yarnpkg.com/@umijs/utils/-/utils-3.1.4.tgz#d7357ac043b175caa7f891108e77aa66c4db70bd"
   integrity sha512-oKIrTJWOXejRJe1KtkOUdtnKsi24Z3HSq5hU6Lgc43td55nRQjWNMz/kmp2YPzcDG3et2vkU9qpvPZMIXOEAoQ==
+  dependencies:
+    "@babel/parser" "7.9.4"
+    "@babel/register" "7.9.0"
+    "@babel/traverse" "7.9.5"
+    "@babel/types" "7.9.5"
+    "@types/cheerio" "0.22.17"
+    "@types/color" "3.0.1"
+    "@types/cross-spawn" "6.0.1"
+    "@types/debug" "4.1.5"
+    "@types/glob" "7.1.1"
+    "@types/got" "9.6.10"
+    "@types/lodash" "4.14.150"
+    "@types/mkdirp" "1.0.0"
+    "@types/mustache" "4.0.1"
+    "@types/resolve" "1.14.0"
+    "@types/rimraf" "3.0.0"
+    "@types/semver" "7.1.0"
+    "@types/signale" "1.4.1"
+    "@types/yargs" "15.0.4"
+    "@types/yargs-parser" "15.0.0"
+    address "1.1.2"
+    chalk "4.0.0"
+    cheerio "1.0.0-rc.3"
+    chokidar "3.3.1"
+    clipboardy "2.3.0"
+    color "3.1.2"
+    crequire "1.8.1"
+    cross-spawn "7.0.2"
+    debug "4.1.1"
+    deepmerge "4.2.2"
+    execa "4.0.0"
+    glob "7.1.6"
+    got "9.6.0"
+    lodash "4.17.15"
+    mkdirp "1.0.4"
+    mustache "4.0.1"
+    pkg-up "3.1.0"
+    portfinder "1.0.25"
+    resolve "1.16.1"
+    rimraf "3.0.2"
+    semver "7.3.2"
+    signale "1.4.0"
+    yargs "15.3.1"
+    yargs-parser "18.1.3"
+
+"@umijs/utils@3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@umijs/utils/-/utils-3.2.2.tgz#d712ef47f7438c55eef31ca36b519f0c7ab179c8"
+  integrity sha512-fHcE825HCXPuTWi4/VrQK9j39ygS0/V9YxGGx6Lwsx/5Ducau/kdk+B0XAew5PvfcwkWmk4rQTY62geLkh1PxQ==
   dependencies:
     "@babel/parser" "7.9.4"
     "@babel/register" "7.9.0"
