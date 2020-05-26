@@ -1,6 +1,7 @@
 import { defineConfig } from 'dumi';
 
 export default defineConfig({
+  ssr: {},
   title: 'Remax',
   mode: 'site',
   logo:

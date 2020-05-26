@@ -9,16 +9,9 @@
   ],
   "routes": [
     {
-      "src": "/umi.js",
-      "dest": "/website/umi.js"
-    },
-    {
-      "src": "/umi.css",
-      "dest": "/website/umi.css"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/website/index.html"
+      "dest": "/website/$1",
+      "continue": true
     }
   ]
 }
