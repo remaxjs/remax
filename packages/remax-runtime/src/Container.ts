@@ -13,17 +13,17 @@ interface SpliceUpdate {
   type: 'splice';
 }
 
-interface PayloadUpdate {
+interface SetUpdate {
   path: string;
   name: string;
   value: any;
-  type: 'payload';
+  type: 'set';
 }
 
 export default class Container {
   context: any;
   root: VNode;
-  updateQueue: Array<SpliceUpdate | PayloadUpdate> = [];
+  updateQueue: Array<SpliceUpdate | SetUpdate> = [];
   _rootContainer?: FiberRoot;
   stopUpdate?: boolean;
   rendered = false;
@@ -39,7 +39,7 @@ export default class Container {
     this.root.mounted = true;
   }
 
-  requestUpdate(update: SpliceUpdate | PayloadUpdate, immediately?: boolean) {
+  requestUpdate(update: SpliceUpdate | SetUpdate, immediately?: boolean) {
     if (immediately) {
       this.updateQueue.push(update);
       this.applyUpdate();
@@ -89,7 +89,7 @@ export default class Container {
             );
           }
 
-          if (update.type === 'payload') {
+          if (update.type === 'set') {
             this.context.setData(
               {
                 [update.path + '.' + update.name]: update.value,

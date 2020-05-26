@@ -190,8 +190,7 @@ export default class VNode {
       }
 
       this.container.requestUpdate({
-        type: 'payload',
-        // root 不会更新，所以肯定有 parent
+        type: 'set',
         path,
         name: propName,
         value: propValue,
