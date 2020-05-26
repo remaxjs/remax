@@ -92,7 +92,10 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   configWebpack({ config }) {
+    // copy-webpack-plugin v5.x
     config.plugin('copy').use(CopyPlugin, [[{ from: 'src/path/to/assets', to: 'path/to/assets' }]]);
+    // copy-webpack-plugin v6.0.0 入参修改了
+    config.plugin('copy').use(CopyPlugin, [{ patterns: [{ from: 'src/path/to/assets', to: 'path/to/assets' }] }]);
   },
 };
 ```
