@@ -1,0 +1,8 @@
+import { PluginDriver } from '@remax/runtime';
+
+export const pluginDriver = new PluginDriver([
+<% pluginFiles.forEach(file => { %>
+  require('<%- file %>'),
+<% }) %>
+]);
+

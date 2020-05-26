@@ -2,9 +2,11 @@ import * as path from 'path';
 import * as webpack from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import VirtualModulesPlugin from 'webpack-virtual-modules';
 import WebpackBar from 'webpackbar';
 import { Options } from '@remax/types';
 import { Platform } from '@remax/types';
+import ejs from 'ejs';
 import extensions, { moduleMatcher } from '../../extensions';
 import getEntries from '../../getEntries';
 import * as TurboPages from '../utils/turboPages';
@@ -176,6 +178,15 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .test(/\.(ttf|eot|woff|woff2)$/i)
     .use('file')
     .loader(require.resolve('file-loader'));
+
+  const pluginTemplate = fs.readFileSync(path.resolve(__dirname, '../../../template/plugin.js.ejs'), 'utf-8');
+  const pluginPath = winPath('node_modules/@remax/runtime-plugin.js');
+  const virtualModules = new VirtualModulesPlugin({
+    [pluginPath]: ejs.render(pluginTemplate, {
+      pluginFiles: api.getRuntimePluginFiles(),
+    }),
+  });
+  config.plugin('webpack-virtual-modules').use(virtualModules);
 
   config.plugin('webpackbar').use(WebpackBar, [{ name: target }]);
 

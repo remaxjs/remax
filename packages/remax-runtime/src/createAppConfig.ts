@@ -1,5 +1,6 @@
 import './polyfills/Function';
 import * as React from 'react';
+import { pluginDriver } from '@remax/runtime-plugin';
 import render from './render';
 import AppContainer from './AppContainer';
 import isClassComponent from './utils/isClassComponent';
@@ -112,7 +113,7 @@ export default function createAppConfig(this: any, App: any) {
       }
     });
 
-    return config;
+    return pluginDriver.onAppConfig(config);
   };
 
   return createConfig(App);

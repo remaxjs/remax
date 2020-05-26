@@ -4,6 +4,7 @@ import { Options, Plugin, Meta, HostComponent, Platform } from '@remax/types';
 import { merge } from 'lodash';
 import Config from 'webpack-chain';
 import { RuleConfig } from './build/webpack/config/css';
+import winPath from '@remax/macro/lib/utils/winPath';
 
 export default class API {
   public plugins: Plugin[] = [];
@@ -106,6 +107,16 @@ export default class API {
         plugin.configBabel(params);
       }
     });
+  }
+
+  getRuntimePluginFiles() {
+    return this.plugins
+      .map(plugin => {
+        if (typeof plugin.registerRuntimePlugin === 'function') {
+          return winPath(plugin.registerRuntimePlugin());
+        }
+      })
+      .filter(Boolean);
   }
 
   public registerAdapterPlugins(targetName: Platform, remaxConfig: Options) {

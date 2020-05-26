@@ -152,6 +152,11 @@ export interface Plugin {
    * 修改 babel 配置
    */
   configBabel?: (params: { config: any }) => void;
+
+  /**
+   * 注册运行时插件
+   */
+  registerRuntimePlugin?: () => string;
 }
 
 export type PluginConstructor = (options?: any) => Plugin;
