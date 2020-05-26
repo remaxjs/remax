@@ -15,10 +15,6 @@
     {
       "src": "/umi.css",
       "dest": "/website/umi.css"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/website/index.html"
     }
   ]
 }
