@@ -18,6 +18,7 @@ const Image: React.FC<ImageWebProps> = props => {
       style={{
         ...modeStyle[mode || 'scaleToFill'],
         backgroundImage: `url(${src})`,
+        backgroundRepeat: `no-repeat`,
         ...style,
       }}
     >
