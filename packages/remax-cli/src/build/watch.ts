@@ -9,7 +9,9 @@ let isRunning = true;
 export default function watch(options: Options, compiler: Compiler, watcher: any, addEntry = false) {
   // 监听额外的文件
   const pages = getPages(options);
-  chokidar.watch([`${options.rootDir}/app.config.{js,ts}`]).on('change', () => {
+  chokidar.watch([`${options.rootDir}/app.config.{js,ts}`], {
+    cwd: options.cwd,
+  }).on('change', () => {
     if (isRunning) return;
     if (addEntry) {
       const nextPages = getPages(options);
@@ -22,7 +24,9 @@ export default function watch(options: Options, compiler: Compiler, watcher: any
     watcher.invalidate();
   });
 
-  chokidar.watch([`${options.rootDir}/**/!(app).config.{js,ts}`]).on('all', () => {
+  chokidar.watch([`${options.rootDir}/**/!(app).config.{js,ts}`], {
+    cwd: options.cwd,
+  }).on('all', () => {
     if (isRunning) return;
     watcher.invalidate();
   });
