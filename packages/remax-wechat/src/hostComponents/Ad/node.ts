@@ -4,7 +4,7 @@ export const alias = {
   onLoad: 'bindload',
   onError: 'binderror',
   onClose: 'bindclose',
-  animation: 'animation',
+
   adType: 'ad-type',
   adTheme: 'ad-theme',
 };
