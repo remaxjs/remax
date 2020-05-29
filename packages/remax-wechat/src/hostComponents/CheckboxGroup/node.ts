@@ -2,9 +2,9 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  animation: 'animation',
   name: 'name',
   onChange: 'bindchange',
-  animation: 'animation',
 };
 
 export const props = Object.values(alias);
