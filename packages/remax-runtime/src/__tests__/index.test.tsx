@@ -211,19 +211,19 @@ describe('ali remax render', () => {
         Object {
           "name": "class",
           "path": "root.children.0.children[0].props",
-          "type": "payload",
+          "type": "set",
           "value": "updateClassName",
         },
         Object {
           "name": "disabled",
           "path": "root.children.0.children[0].props",
-          "type": "payload",
+          "type": "set",
           "value": true,
         },
         Object {
           "name": "style",
           "path": "root.children.0.children[0].props",
-          "type": "payload",
+          "type": "set",
           "value": "display:flex;flex:2;",
         },
       ]
