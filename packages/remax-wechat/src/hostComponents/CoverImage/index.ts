@@ -10,4 +10,7 @@ export interface CoverImageProps extends BaseProps {
   onError?: (event: any) => any;
 }
 
+/**
+ * @see https://developers.weixin.qq.com/miniprogram/dev/component/cover-image.html
+ */
 export const CoverImage = createHostComponent<CoverImageProps>('cover-image');
