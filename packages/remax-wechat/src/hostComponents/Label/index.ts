@@ -6,4 +6,7 @@ export interface LabelProps extends BaseProps {
   for?: string;
 }
 
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/label.html
+ */
 export const Label = createHostComponent<LabelProps>('label');
