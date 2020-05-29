@@ -63,5 +63,22 @@ export interface MapProps extends BaseProps {
   /** 点击地图poi点时触发，e.detail = {name, longitude, latitude} 2.3.0 */
   onPoiTap?: (event: any) => any;
 }
-
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/map.html
+ */
 export const Map = createHostComponent<MapProps>('map');
+Map.defaultProps = {
+  scale: 16,
+  showLocation: false,
+  layerStyle: 1,
+  rotate: 0,
+  enable3D: false,
+  showCompass: false,
+  showScale: false,
+  enableOverlooking: false,
+  enableZoom: true,
+  enableScroll: true,
+  enableRotate: false,
+  enableSatellite: false,
+  enableTraffic: false,
+};
