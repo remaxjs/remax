@@ -45,6 +45,10 @@ export interface VideoProps extends BaseProps {
   poster?: string;
   /** 用于给搜索等场景作为视频封面展示，建议使用无播放 icon 的视频封面图，只支持网络地址 */
   posterForCrawler?: string;
+  /** 显示投屏按钮。只安卓且同层渲染下生效，支持 DLNA 协议 1.10.2 */
+  showCastingButton?: boolean;
+  /** 设置小窗模式： push, pop，空字符串或通过数组形式设置多种模式（如： ["push", "pop"]） */
+  pictureInPictureMode: string | string[];
   /** 是否显示静音按钮 2.4.0 */
   showMuteBtn?: boolean;
   /** 视频的标题，全屏时在顶部展示 2.4.0 */
@@ -90,6 +94,7 @@ const VideoRender: React.ForwardRefRenderFunction<any, VideoProps> = (props, ref
 
 /**
  * video 默认宽度 300px、高度 225px，可通过 wxss 设置宽高
+ * https://developers.weixin.qq.com/miniprogram/dev/component/video.html
  */
 const RemaxVideo = React.forwardRef(VideoRender);
 
@@ -115,6 +120,11 @@ RemaxVideo.defaultProps = {
   autoPauseIfOpenNative: true,
   vslideGesture: false,
   vslideGestureInFullscreen: true,
+  showCastingButton: false,
+  pictureInPictureModeStrin: Array,
+  pictureInPictureShowProgress: false,
+  enableAutoRotation: false,
+  showScreenLockButton: false,
 };
 
 export const Video = createHostComponent(hostComponentName, RemaxVideo);
