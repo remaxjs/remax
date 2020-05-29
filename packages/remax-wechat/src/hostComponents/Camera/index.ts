@@ -21,7 +21,9 @@ export interface CameraProps extends BaseProps {
   /** 在扫码识别成功时触发，仅在 mode="scanCode" 时生效 2.1.0 */
   onScanCode?: (event: any) => any;
 }
-
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/camera.html
+ */
 export const Camera = createHostComponent<CameraProps>('camera');
 
 Camera.defaultProps = {
