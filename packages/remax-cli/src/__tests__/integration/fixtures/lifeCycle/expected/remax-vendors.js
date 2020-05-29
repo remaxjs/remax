@@ -247,6 +247,31 @@ var childHostContext = {};
   removeChildFromContainer: function removeChildFromContainer(container, child) {
     container.removeChild(child);
   },
+  hideInstance: function hideInstance(instance) {
+    var _a;
+
+    var originStyle = (_a = instance.props) === null || _a === void 0 ? void 0 : _a.style;
+    var newStyle = Object.assign({}, originStyle || {}, {
+      display: 'none'
+    }); // 微信和阿里的小程序都不支持在内联样式中加`important!`
+
+    instance.props = Object.assign({}, instance.props || {}, {
+      style: newStyle
+    });
+    instance.update();
+  },
+  hideTextInstance: function hideTextInstance(instance) {
+    instance.text = '';
+    instance.update();
+  },
+  unhideInstance: function unhideInstance(instance, props) {
+    instance.props = props;
+    instance.update();
+  },
+  unhideTextInstance: function unhideTextInstance(instance, text) {
+    instance.text = text;
+    instance.update();
+  },
   schedulePassiveEffects: scheduleDeferredCallback,
   cancelPassiveEffects: cancelDeferredCallback,
   shouldYield: shouldYield,

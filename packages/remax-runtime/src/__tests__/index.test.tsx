@@ -451,3 +451,122 @@ it('usePageInstance works', done => {
   const container = new Container(p);
   render(<Page page={{ data: {} }} />, container);
 });
+
+describe('Remax Suspense placeholder', () => {
+  function delay(ms: number) {
+    if (typeof ms !== 'number') {
+      throw new Error('Must specify ms');
+    }
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve();
+      }, ms);
+    });
+  }
+
+  function createTextResource(ms: number, text: string) {
+    let status = 'pending';
+    let result: any;
+
+    const suspender = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(text);
+      }, ms);
+    }).then(
+      r => {
+        status = 'success';
+        result = r;
+      },
+      e => {
+        status = 'error';
+        result = e;
+      }
+    );
+
+    return {
+      read() {
+        if (status === 'pending') {
+          throw suspender;
+        }
+
+        if (status === 'error') {
+          throw result;
+        }
+        return result as string;
+      },
+    };
+  }
+
+  const Text: React.FC<{ text: string }> = props => {
+    return (props.text as unknown) as React.ReactElement<any, any>;
+  };
+
+  type Resource = ReturnType<typeof createTextResource>;
+
+  const AsyncText: React.FC<{ text: string; resource: Resource }> = props => {
+    props.resource.read();
+    return (props.text as unknown) as React.ReactElement<any, any>;
+  };
+
+  const Suspense = React.Suspense;
+
+  it('hides and unhides timed out DOM elements', async () => {
+    beforeAll(() => {
+      jest.useFakeTimers();
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
+    });
+    const refs = [React.createRef<any>(), React.createRef<any>(), React.createRef<any>()];
+
+    function App() {
+      return (
+        <View>
+          <Suspense fallback={<Text text="loading" />}>
+            <View ref={refs[0]}>
+              <Text text="A" />
+            </View>
+            <View ref={refs[1]}>
+              <AsyncText resource={createTextResource(1, 'B')} text="B" />
+            </View>
+            <View ref={refs[2]} style={{ display: 'inline' }}>
+              <Text text="C" />
+            </View>
+          </Suspense>
+        </View>
+      );
+    }
+
+    const container = new Container(p);
+    render(<App />, container);
+    expect(refs[0].current.props.style.display).toEqual('none');
+    expect(refs[1].current.props.style.display).toEqual('none');
+    expect(refs[2].current.props.style.display).toEqual('none');
+
+    await delay(10);
+    expect(refs[0].current.props.style).toEqual(undefined);
+    expect(refs[1].current.props.style).toEqual(undefined);
+    expect(refs[2].current.props.style.display).toEqual('inline');
+  });
+
+  it('hides and unhides timed out text nodes', async () => {
+    function App() {
+      return (
+        <View>
+          <Suspense fallback={<Text text="Loading..." />}>
+            <Text text="A" />
+            <AsyncText resource={createTextResource(1, 'B')} text="B" />
+            <Text text="C" />
+          </Suspense>
+        </View>
+      );
+    }
+
+    const container = new Container(p);
+    render(<App />, container);
+    expect(container.root.children[0].children.map(node => node.text).join('')).toBe('Loading...');
+    await delay(10);
+    expect(container.root.children[0].children.map(node => node.text).join('')).toBe('ABC');
+  });
+});
