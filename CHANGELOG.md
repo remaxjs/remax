@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/remaxjs/remax/compare/v2.1.1...v2.2.0) (2020-05-29)
+
+### Bug Fixes
+
+- **ali:** 修正没有导出 httpRequest 的问题 ([b8bdb2e](https://github.com/remaxjs/remax/commit/b8bdb2ef390ea77ba2727ae2e3527a5a96960b16))
+- **cli:** 修复 watch 模式自定义 cwd 导致编译两次的问题 ([#1008](https://github.com/remaxjs/remax/issues/1008)) ([c14e111](https://github.com/remaxjs/remax/commit/c14e111b1b18299f36a9e95fa43386944e05b7dd))
+- **one:** 修复图片重复显示的问题 ([#1004](https://github.com/remaxjs/remax/issues/1004)) ([378a6ab](https://github.com/remaxjs/remax/commit/378a6ab12c132de6dccc9f7b818c82a237b1caa0))
+
+### Features
+
+- 小程序端支持 suspense ([#995](https://github.com/remaxjs/remax/issues/995)) ([aa23f14](https://github.com/remaxjs/remax/commit/aa23f14fa2836b76d43b50c73f0655011a41a403))
+- 支持运行时插件 ([#988](https://github.com/remaxjs/remax/issues/988)) ([3a59fff](https://github.com/remaxjs/remax/commit/3a59fff8efc6de0a163715762cfb2f3e179fe443)), closes [#983](https://github.com/remaxjs/remax/issues/983)
+
 ## [2.1.1](https://github.com/remaxjs/remax/compare/v2.1.0...v2.1.1) (2020-05-21)
 
 ### Bug Fixes

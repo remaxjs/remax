@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/remaxjs/remax/compare/v2.1.1...v2.2.0) (2020-05-29)
+
+### Bug Fixes
+
+- **one:** 修复图片重复显示的问题 ([#1004](https://github.com/remaxjs/remax/issues/1004)) ([378a6ab](https://github.com/remaxjs/remax/commit/378a6ab12c132de6dccc9f7b818c82a237b1caa0))
+
 ## [2.1.1](https://github.com/remaxjs/remax/compare/v2.1.0...v2.1.1) (2020-05-21)
 
 **Note:** Version bump only for package @remax/one

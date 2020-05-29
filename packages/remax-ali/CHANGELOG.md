@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/remaxjs/remax/compare/v2.1.1...v2.2.0) (2020-05-29)
+
+### Bug Fixes
+
+- **ali:** 修正没有导出 httpRequest 的问题 ([b8bdb2e](https://github.com/remaxjs/remax/commit/b8bdb2ef390ea77ba2727ae2e3527a5a96960b16))
+
 ## [2.1.1](https://github.com/remaxjs/remax/compare/v2.1.0...v2.1.1) (2020-05-21)
 
 ### Bug Fixes
