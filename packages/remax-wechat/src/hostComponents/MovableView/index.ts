@@ -2,7 +2,7 @@ import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 // can't extends from BaseProps, bacause this MovableViewProps overwrite animation to boolean
-export interface MovableViewProps extends BaseProps {
+export interface MovableViewProps extends Omit<BaseProps, 'animation'> {
   /** (default: none) movable-view的移动方向，属性值有all、vertical、horizontal、none 1.2.0 */
   direction?: string;
   /** (default: false) movable-view是否带有惯性 1.2.0 */
@@ -27,6 +27,10 @@ export interface MovableViewProps extends BaseProps {
   scaleMax?: number;
   /** (default: 1) 定义缩放倍数，取值范围为 0.5 - 10 1.9.90 */
   scaleValue?: number;
+  /**
+   * 是否使用动画 2.1.0
+   */
+  animation?: boolean;
   onClick?: (event: any) => any;
   catchClick?: (event: any) => any;
   /** 拖动过程中触发的事件，event.detail = {x, y, source} 1.9.90 */
@@ -38,5 +42,21 @@ export interface MovableViewProps extends BaseProps {
   /** 初次手指触摸后移动为纵向的移动时触发，如果catch此事件，则意味着touchmove事件也被catch 1.9.90 */
   vTouchMove?: (event: any) => any;
 }
-
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/movable-view.html
+ */
 export const MovableView = createHostComponent<MovableViewProps>('movable-view');
+
+MovableView.defaultProps = {
+  direction: 'none',
+  inertia: false,
+  outOfBounds: false,
+  damping: 20,
+  friction: 2,
+  disabled: false,
+  scale: false,
+  scaleMin: 0,
+  scaleMax: 10,
+  scaleValue: 1,
+  animation: true,
+};

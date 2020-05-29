@@ -1,6 +1,7 @@
 export const alias = {
   className: 'class',
   style: 'style',
+  animation: 'animation',
   id: 'id',
   direction: 'direction',
   inertia: 'inertia',
@@ -14,7 +15,7 @@ export const alias = {
   scaleMin: 'scale-min',
   scaleMax: 'scale-max',
   scaleValue: 'scale-value',
-  animation: 'animation',
+
   onChange: 'bindchange',
   onScale: 'bindscale',
   hTouchMove: 'htouchmove',
