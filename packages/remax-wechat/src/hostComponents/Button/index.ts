@@ -139,6 +139,9 @@ export interface ButtonProps extends BaseProps {
   onLaunchApp?: (event: any) => any;
 }
 
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/button.html
+ */
 export const Button = createHostComponent<ButtonProps>('button');
 
 Button.defaultProps = {

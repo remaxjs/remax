@@ -2,6 +2,7 @@ export const alias = {
   className: 'class',
   id: 'id',
   style: 'style',
+  animation: 'animation',
   type: 'type',
   plain: 'plain',
   disabled: 'disabled',
@@ -29,7 +30,6 @@ export const alias = {
   onLaunchApp: 'bindlaunchapp',
   onTap: 'bindtap',
   onClick: 'bindtap',
-  animation: 'animation',
 };
 
 export const props = Object.values(alias);
