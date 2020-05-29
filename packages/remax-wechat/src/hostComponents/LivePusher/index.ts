@@ -26,6 +26,10 @@ export interface LivePusherProps extends BaseProps {
   minBitrate?: number;
   /** (default: 1000) 最大码率 1.7.0 */
   maxBitrate?: number;
+  /**
+   * 高音质(48KHz)或低音质(16KHz)，值为high, low  1.7.0
+   */
+  audioQuality?: 'high' | 'low';
   /** 进入后台时推流的等待画面 1.7.0 */
   waitingImage?: string;
   /** 等待画面资源的MD5值 1.7.0 */
@@ -39,7 +43,7 @@ export interface LivePusherProps extends BaseProps {
   /** (default: false) 设置推流画面是否镜像，产生的效果在 live-player 反应到 2.7.0 */
   mirror?: boolean;
   /** (default: false) 同 mirror 属性，后续 mirror 将废弃	2.10.0 */
-  remoteMirro?: boolean;
+  remoteMirror?: boolean;
   /** (default: auto) 控制本地预览画面是否镜像	2.10.0 */
   localMirror?: 'auto' | 'enable' | 'disable';
   /** (default: 0) 音频混响类型	2.10.0 */
@@ -70,4 +74,35 @@ export interface LivePusherProps extends BaseProps {
   onBgmComplete?: (event: any) => any;
 }
 
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html
+ */
 export const LivePusher = createHostComponent<LivePusherProps>('live-pusher');
+
+LivePusher.defaultProps = {
+  mode: 'RTC',
+  autopush: false,
+  muted: false,
+  enableCamera: false,
+  autoFocus: true,
+  orientation: 'vertical',
+  beauty: 0,
+  whiteness: 0,
+  aspect: '9:16',
+  minBitrate: 200,
+  maxBitrate: 1000,
+  audioQuality: 'high',
+  zoom: false,
+  devicePosition: 'front',
+  backgroundMute: false,
+  mirror: false,
+  remoteMirror: false,
+  localMirror: 'auto',
+  audioReverbType: 0,
+  enableMic: true,
+  enableAgc: true,
+  enableAns: false,
+  audioVolumeType: 'voicecall',
+  videoWidth: 360,
+  videoHeight: 640,
+};
