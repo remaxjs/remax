@@ -6,4 +6,11 @@ export interface MovableAreaProps extends BaseProps {
   scaleArea?: boolean;
 }
 
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/movable-area.html
+ */
 export const MovableArea = createHostComponent<MovableAreaProps>('movable-area');
+
+MovableArea.defaultProps = {
+  scaleArea: false,
+};
