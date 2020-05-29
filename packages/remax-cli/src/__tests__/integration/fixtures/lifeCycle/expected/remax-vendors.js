@@ -1608,7 +1608,7 @@ function () {
     return this.plugins.reduce(function (acc, plugin) {
       if (typeof plugin.onAppConfig === 'function') {
         acc = plugin.onAppConfig({
-          config: config
+          config: acc
         });
       }
 
@@ -1620,7 +1620,7 @@ function () {
     return this.plugins.reduce(function (acc, plugin) {
       if (typeof plugin.onPageConfig === 'function') {
         acc = plugin.onPageConfig({
-          config: config
+          config: acc
         });
       }
 
@@ -1928,7 +1928,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pluginDriver", function() { return pluginDriver; });
 /* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 
-var pluginDriver = new _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver"]([]);
+var pluginDriver = new _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver"]([].map(function (p) {
+  return p.default || p;
+}));
 
 /***/ }),
 /* 23 */
