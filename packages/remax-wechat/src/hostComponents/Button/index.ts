@@ -140,3 +140,9 @@ export interface ButtonProps extends BaseProps {
 }
 
 export const Button = createHostComponent<ButtonProps>('button');
+
+Button.defaultProps = {
+  hoverClassName: 'button-hover',
+  hoverStartTime: 20,
+  hoverStayTime: 70,
+};

@@ -5,6 +5,8 @@ export const alias = {
   onError: 'binderror',
   onClose: 'bindclose',
   animation: 'animation',
+  adType: 'ad-type',
+  adTheme: 'ad-theme',
 };
 
 export const props = Object.values(alias);
