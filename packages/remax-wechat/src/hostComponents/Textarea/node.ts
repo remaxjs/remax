@@ -2,6 +2,7 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  animation: 'animation',
   name: 'name',
   value: 'value',
   placeholder: 'placeholder',
@@ -22,13 +23,13 @@ export const alias = {
   selectionStart: 'selection-start',
   selectionEnd: 'selection-end',
   adjustPosition: 'adjust-position',
+  holdKeyboard: 'hold-keyboard',
   onFocus: 'bindfocus',
   onBlur: 'bindblur',
   onLineChange: 'bindlinechange',
   onInput: 'bindinput',
   onConfirm: 'bindconfirm',
   onKeyboardHeightChange: 'bindkeyboardheightchange',
-  animation: 'animation',
 };
 
 export const props = Object.values(alias);
