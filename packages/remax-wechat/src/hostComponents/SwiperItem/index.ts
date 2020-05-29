@@ -6,4 +6,7 @@ export interface SwiperItemProps extends BaseProps {
   itemId?: string;
 }
 
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/swiper-item.html
+ */
 export const SwiperItem = createHostComponent<SwiperItemProps>('swiper-item');

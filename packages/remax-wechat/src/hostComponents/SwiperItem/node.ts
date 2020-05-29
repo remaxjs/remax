@@ -3,8 +3,8 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
-  itemId: 'item-id',
   animation: 'animation',
+  itemId: 'item-id',
 };
 
 export const props = Object.values(alias);
