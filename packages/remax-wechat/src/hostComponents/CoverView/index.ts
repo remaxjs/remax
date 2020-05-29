@@ -6,4 +6,7 @@ export interface CoverViewProps extends BaseProps {
   scrollTop?: number | string;
 }
 
+/**
+ * @see https://developers.weixin.qq.com/miniprogram/dev/component/cover-view.html
+ */
 export const CoverView = createHostComponent<CoverViewProps>('cover-view');
