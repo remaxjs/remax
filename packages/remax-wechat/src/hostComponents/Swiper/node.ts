@@ -2,6 +2,7 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  animation: 'animation',
   indicatorDots: 'indicator-dots',
   indicatorColor: 'indicator-color',
   indicatorActiveColor: 'indicator-active-color',
@@ -21,7 +22,6 @@ export const alias = {
   onAnimationFinish: 'bindanimationfinish',
   onTap: 'bindtap',
   onClick: 'bindtap',
-  animation: 'animation',
 };
 
 export const props = Object.values(alias);

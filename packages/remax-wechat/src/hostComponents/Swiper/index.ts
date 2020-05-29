@@ -38,6 +38,9 @@ export interface SwiperProps extends BaseProps {
   onAnimationFinish?: (event: any) => any;
 }
 
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html
+ */
 export const Swiper = createHostComponent('swiper');
 
 Swiper.defaultProps = {
@@ -45,6 +48,7 @@ Swiper.defaultProps = {
   indicatorColor: 'rgba(0, 0, 0, .3)',
   indicatorActiveColor: '#000000',
   autoplay: false,
+  current: 0,
   interval: 5000,
   duration: 500,
   circular: false,
