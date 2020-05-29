@@ -15,7 +15,6 @@ export const alias = {
   scaleMin: 'scale-min',
   scaleMax: 'scale-max',
   scaleValue: 'scale-value',
-
   onChange: 'bindchange',
   onScale: 'bindscale',
   hTouchMove: 'htouchmove',
