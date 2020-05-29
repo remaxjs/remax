@@ -4,8 +4,6 @@ describe('小程序自定义组件', () => {
   it('正常渲染', async () => {
     const app = await launchApp('/pages/native-component/index');
 
-    await jestPuppeteer.debug();
-
     await expect(app).toMatchElement('.am-badge');
     await expect(app).toMatchElement('#a', { text: 'a' });
     await expect(app).toMatchElement('#b', { text: 'b' });
