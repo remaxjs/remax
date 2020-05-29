@@ -12,4 +12,7 @@ export interface WebViewProps extends BaseProps {
   onError?: (event: any) => any;
 }
 
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html
+ */
 export const WebView = createHostComponent<WebViewProps>('web-view');
