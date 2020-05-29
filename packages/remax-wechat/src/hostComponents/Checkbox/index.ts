@@ -13,4 +13,13 @@ export interface CheckboxProps extends BaseProps {
   color?: string;
 }
 
+/**
+ * @see https://developers.weixin.qq.com/miniprogram/dev/component/checkbox.html
+ */
 export const Checkbox = createHostComponent<CheckboxProps>('checkbox');
+
+Checkbox.defaultProps = {
+  disabled: false,
+  checked: false,
+  color: '#09bb07',
+};
