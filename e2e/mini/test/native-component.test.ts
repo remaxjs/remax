@@ -1,7 +1,7 @@
 import { launchApp } from './helpers';
 
 describe('小程序自定义组件', () => {
-  fit('正常渲染', async () => {
+  it('正常渲染', async () => {
     const app = await launchApp('/pages/native-component/index');
 
     await jestPuppeteer.debug();
