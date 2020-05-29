@@ -37,8 +37,22 @@ const RemaxScrollView = React.forwardRef(ScrollViewRender);
 RemaxScrollView.defaultProps = {
   upperThreshold: 50,
   lowerThreshold: 50,
+  scrollX: false,
+  scrollY: false,
+  scrollWithAnimation: false,
+  enableBackToTop: false,
+  enableFlex: false,
+  scrollAnchoring: false,
+  refresherEnabled: false,
+  refresherThreshold: 45,
+  refresherDefaultStyle: 'black',
+  refresherBackground: '#fff',
+  refresherTriggered: false,
 };
 
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/scroll-view.html
+ */
 export const ScrollView = createHostComponent<ScrollViewProps>(componentName, RemaxScrollView);
 
 export interface ScrollViewProps extends BaseProps {
