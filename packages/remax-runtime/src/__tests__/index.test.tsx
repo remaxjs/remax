@@ -511,6 +511,13 @@ describe('Remax Suspense placeholder', () => {
   const Suspense = React.Suspense;
 
   it('hides and unhides timed out DOM elements', async () => {
+    beforeAll(() => {
+      jest.useFakeTimers();
+    });
+
+    afterAll(() => {
+      jest.useRealTimers();
+    });
     const refs = [React.createRef<any>(), React.createRef<any>(), React.createRef<any>()];
 
     function App() {
@@ -521,7 +528,7 @@ describe('Remax Suspense placeholder', () => {
               <Text text="A" />
             </View>
             <View ref={refs[1]}>
-              <AsyncText resource={createTextResource(599, 'B')} text="B" />
+              <AsyncText resource={createTextResource(1, 'B')} text="B" />
             </View>
             <View ref={refs[2]} style={{ display: 'inline' }}>
               <Text text="C" />
@@ -537,7 +544,7 @@ describe('Remax Suspense placeholder', () => {
     expect(refs[1].current.props.style.display).toEqual('none');
     expect(refs[2].current.props.style.display).toEqual('none');
 
-    await delay(600);
+    await delay(10);
     expect(refs[0].current.props.style).toEqual(undefined);
     expect(refs[1].current.props.style).toEqual(undefined);
     expect(refs[2].current.props.style.display).toEqual('inline');
@@ -549,7 +556,7 @@ describe('Remax Suspense placeholder', () => {
         <View>
           <Suspense fallback={<Text text="Loading..." />}>
             <Text text="A" />
-            <AsyncText resource={createTextResource(599, 'B')} text="B" />
+            <AsyncText resource={createTextResource(1, 'B')} text="B" />
             <Text text="C" />
           </Suspense>
         </View>
@@ -559,7 +566,7 @@ describe('Remax Suspense placeholder', () => {
     const container = new Container(p);
     render(<App />, container);
     expect(container.root.children[0].children.map(node => node.text).join('')).toBe('Loading...');
-    await delay(600);
+    await delay(10);
     expect(container.root.children[0].children.map(node => node.text).join('')).toBe('ABC');
   });
 });
