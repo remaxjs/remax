@@ -8,4 +8,7 @@ export interface OfficialAccountProps extends BaseProps {
   onError?: (event: any) => any;
 }
 
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/official-account.html
+ */
 export const OfficialAccount = createHostComponent<OfficialAccountProps>('official-account');
