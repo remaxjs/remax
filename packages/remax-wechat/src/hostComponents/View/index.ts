@@ -22,5 +22,14 @@ export interface ViewProps extends BaseProps {
   onAnimationStart?: (event: any) => any;
   onAnimationEnd?: (event: any) => any;
 }
-
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/view.html
+ */
 export const View = createHostComponent<ViewProps>('view');
+
+View.defaultProps = {
+  hoverClassName: 'none',
+  hoverStopPropagation: false,
+  hoverStartTime: 50,
+  hoverStayTime: 400,
+};
