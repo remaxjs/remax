@@ -12,4 +12,12 @@ export interface FormProps extends BaseProps {
   onReset?: (event: any) => any;
 }
 
+/**
+ * @see https://developers.weixin.qq.com/miniprogram/dev/component/form.html
+ */
 export const Form = createHostComponent<FormProps>('form');
+
+Form.defaultProps = {
+  reportSubmit: false,
+  reportSubmitTimeout: 0,
+};
