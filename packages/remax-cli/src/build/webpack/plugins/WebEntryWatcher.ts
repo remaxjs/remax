@@ -29,7 +29,7 @@ export default class WebEntryWatcherPlugin {
 
   invalidEntry() {
     const entries = getEntries(this.remaxOptions, this.api);
-    const appConfig = getAppConfig(this.remaxOptions);
+    const appConfig = getAppConfig(this.remaxOptions, this.api);
 
     this.virtualModules.writeModule(
       entryName(this.remaxOptions),
