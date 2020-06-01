@@ -511,13 +511,6 @@ describe('Remax Suspense placeholder', () => {
   const Suspense = React.Suspense;
 
   it('hides and unhides timed out DOM elements', async () => {
-    beforeAll(() => {
-      jest.useFakeTimers();
-    });
-
-    afterAll(() => {
-      jest.useRealTimers();
-    });
     const refs = [React.createRef<any>(), React.createRef<any>(), React.createRef<any>()];
 
     function App() {
@@ -544,7 +537,7 @@ describe('Remax Suspense placeholder', () => {
     expect(refs[1].current.props.style.display).toEqual('none');
     expect(refs[2].current.props.style.display).toEqual('none');
 
-    await delay(10);
+    await delay(100);
     expect(refs[0].current.props.style).toEqual(undefined);
     expect(refs[1].current.props.style).toEqual(undefined);
     expect(refs[2].current.props.style.display).toEqual('inline');
@@ -566,7 +559,7 @@ describe('Remax Suspense placeholder', () => {
     const container = new Container(p);
     render(<App />, container);
     expect(container.root.children[0].children.map(node => node.text).join('')).toBe('Loading...');
-    await delay(10);
+    await delay(100);
     expect(container.root.children[0].children.map(node => node.text).join('')).toBe('ABC');
   });
 });
