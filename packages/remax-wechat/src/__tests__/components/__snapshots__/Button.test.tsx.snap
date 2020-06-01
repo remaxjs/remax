@@ -3,6 +3,9 @@
 exports[`Button render correctly 1`] = `
 <button
   className="class"
+  hoverClassName="button-hover"
+  hoverStartTime={20}
+  hoverStayTime={70}
 >
   Button
 </button>

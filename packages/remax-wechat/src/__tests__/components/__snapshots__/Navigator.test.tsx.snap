@@ -2,7 +2,13 @@
 
 exports[`Navigator render correctly 1`] = `
 <navigator
+  delta={1}
+  hoverClassName="navigator-hover"
+  hoverStartTime={50}
+  hoverStayTime={600}
+  hoverStopPropagation={false}
   openType="navigate"
+  target="self"
   url="url"
 />
 `;

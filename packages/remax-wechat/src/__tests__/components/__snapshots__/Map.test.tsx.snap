@@ -2,7 +2,20 @@
 
 exports[`Map render correctly 1`] = `
 <map
+  enable3D={false}
+  enableOverlooking={false}
+  enableRotate={false}
+  enableSatellite={false}
+  enableScroll={true}
+  enableTraffic={false}
+  enableZoom={true}
   latitude={0}
+  layerStyle={1}
   longitude={0}
+  rotate={0}
+  scale={16}
+  showCompass={false}
+  showLocation={false}
+  showScale={false}
 />
 `;

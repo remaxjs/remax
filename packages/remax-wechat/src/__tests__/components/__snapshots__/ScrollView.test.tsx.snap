@@ -2,8 +2,19 @@
 
 exports[`ScrollView render correctly 1`] = `
 <scroll-view
+  enableBackToTop={false}
+  enableFlex={false}
   lowerThreshold={50}
   onScroll={[Function]}
+  refresherBackground="#fff"
+  refresherDefaultStyle="black"
+  refresherEnabled={false}
+  refresherThreshold={45}
+  refresherTriggered={false}
+  scrollAnchoring={false}
+  scrollWithAnimation={false}
+  scrollX={false}
+  scrollY={false}
   upperThreshold={50}
 />
 `;

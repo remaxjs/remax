@@ -1,3 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Camera render correctly 1`] = `<camera />`;
+exports[`Camera render correctly 1`] = `
+<camera
+  devicePosition="back"
+  flash="auto"
+  frameSize="medium"
+  mode="normal"
+  resolution="medium"
+/>
+`;
