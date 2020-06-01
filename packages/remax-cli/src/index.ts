@@ -51,6 +51,12 @@ export function run(args: any, callback?: yargs.ParseCallback) {
       alias: 'p',
       type: 'number',
     })
+    .option('analyzer', {
+      describe: '编译分析',
+      alias: 'a',
+      type: 'boolean',
+      default: false,
+    })
     .showHelpOnFail(false);
 
   return cli.parse(args, callback);
