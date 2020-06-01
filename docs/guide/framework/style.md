@@ -78,27 +78,15 @@ css 中图片引用问题
 
 [遵循 css-loader 的规则](https://github.com/webpack-contrib/css-loader#url)
 
-1. `/path/to/image.png` 绝对路径表示对应输出目录中的 `/path/to` 路径位置，归类为 global assets，需要开发者自己 copy 文件到输出目录中对应的位置。
+1. `/path/to/image.png` 绝对路径表示对应输出目录中的 `/path/to` 路径位置，归类为 global assets，需要放置在 public 目录下。
 
 2. `~@/assets/image.png` `~` 开头表示引入的是 module，可以是 src 下的图片， webpack 可以 resolve。
 
 3. `../../assets/image.png` 相对路径也会被识别为 module，webpack 会处理。
 
-global assets 配置 copy 的参考
+对于情况 1， 中的图片，可以放在项目根目录中的 public 目录中。public 目录中的文件会被复制到 dist 目录中。
 
-```js
-// remax.config.js
-const CopyPlugin = require('copy-webpack-plugin');
-
-module.exports = {
-  configWebpack({ config }) {
-    // copy-webpack-plugin v5.x
-    config.plugin('copy').use(CopyPlugin, [[{ from: 'src/path/to/assets', to: 'path/to/assets' }]]);
-    // copy-webpack-plugin v6.0.0 入参修改了
-    config.plugin('copy').use(CopyPlugin, [{ patterns: [{ from: 'src/path/to/assets', to: 'path/to/assets' }] }]);
-  },
-};
-```
+例如：`cwd/public/path/to/image.png` 会被复制到 `cwd/dist/path/to/image.png`
 
 ## 样式补全
 

@@ -171,25 +171,15 @@ import './index.css';
 
 与 1.0 不同，2.0 中我们将遵循 [css-loader](https://github.com/webpack-contrib/css-loader#url) 的规则：
 
-1. `/path/to/image.png`， 绝对路径表示对应输出目录中的 `/path/to` 路径位置，归类为 global assets，需要开发者自己 copy 文件到输出目录中对应的位置。
+1. `/path/to/image.png`， 绝对路径表示对应输出目录中的 `/path/to` 路径位置，归类为 global assets，可以放置在 public 目录下。
 
 2. `~@/assets/image.png`， `~` 开头表示引入的是 module，可以是 src 下的图片， webpack 可以 resolve。
 
 3. `../../assets/image.png`， 相对路径也会被识别为 module，webpack 会处理。
 
-配置 copy 行为的方式：
+对于情况 1， 中的图片，可以放在项目根目录中的 public 目录中。public 目录中的文件会被复制到 dist 目录中。
 
-```js
-// remax.config.js
-const CopyPlugin = require('copy-webpack-plugin');
-
-module.exports = {
-  configWebpack({ config }) {
-    // 详细配置参考 copy-webpack-plugin
-    config.plugin('copy').use(CopyPlugin, [[{ from: 'src/assets', to: 'assets' }]]);
-  },
-};
-```
+例如：`cwd/public/path/to/image.png` 会被复制到 `cwd/dist/path/to/image.png`
 
 ### tabBar 中配置的本地图片
 
