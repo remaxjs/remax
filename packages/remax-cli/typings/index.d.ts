@@ -10,6 +10,7 @@ declare module 'scheduler';
 declare module 'slash2';
 declare module 'sander';
 declare module 'webpack-virtual-modules';
+declare module 'copy-webpack-plugin';
 declare module 'webpack-node-externals';
 
 declare namespace jest {

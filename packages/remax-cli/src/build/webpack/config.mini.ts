@@ -2,6 +2,7 @@ import * as path from 'path';
 import * as webpack from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 import WebpackBar from 'webpackbar';
 import { Options } from '@remax/types';
@@ -186,10 +187,15 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
       pluginFiles: api.getRuntimePluginFiles(),
     }),
   });
+
+  config.plugin('webpack-copy-plugin').use(CopyPlugin, [
+    {
+      patterns: [{ from: path.join(options.cwd, 'public'), to: path.join(options.cwd, options.output) }],
+    },
+  ]);
   config.plugin('webpack-virtual-modules').use(virtualModules);
-
   config.plugin('webpackbar').use(WebpackBar, [{ name: target }]);
-
+  config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
   config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [api, options]);
