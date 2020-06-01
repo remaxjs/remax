@@ -1,18 +1,20 @@
-import propsAlias from './propsAlias';
+import propsAlias, { propAlias } from './propsAlias';
 import { TYPE_TEXT } from './constants';
 import Container from './Container';
 
 export interface RawNode {
-  id?: number;
+  id: number;
   type: string;
   props?: any;
-  children?: RawNode[];
+  nodes?: { [key: number]: RawNode };
+  children?: Array<RawNode | number>;
   text?: string;
 }
 
-function toRawNode(node: VNode) {
+function toRawNode(node: VNode): RawNode {
   if (node.type === TYPE_TEXT) {
     return {
+      id: node.id,
       type: node.type,
       text: node.text,
     };
@@ -25,6 +27,10 @@ function toRawNode(node: VNode) {
     children: [],
     text: node.text,
   };
+}
+
+function toRawProps(prop: string, value: any, type: string) {
+  return propAlias(prop, value, type);
 }
 
 export default class VNode {
@@ -66,7 +72,18 @@ export default class VNode {
     this.lastChild = node;
 
     if (this.isMounted()) {
-      this.container.requestUpdate(this.path + '.children', this.size - 1, 0, immediately, node.toJSON());
+      this.container.requestUpdate(
+        {
+          type: 'splice',
+          path: this.path,
+          start: node.index,
+          id: node.id,
+          deleteCount: 0,
+          children: this.children,
+          items: [node.toJSON()],
+        },
+        immediately
+      );
     }
   }
 
@@ -77,7 +94,6 @@ export default class VNode {
       return;
     }
 
-    const index = node.index;
     this.size -= 1;
 
     if (this.firstChild === node) {
@@ -100,7 +116,18 @@ export default class VNode {
     node.nextSibling = null;
 
     if (this.isMounted()) {
-      this.container.requestUpdate(this.path + '.children', index, 1, immediately);
+      this.container.requestUpdate(
+        {
+          type: 'splice',
+          path: this.path,
+          start: node.index,
+          id: node.id,
+          deleteCount: 1,
+          children: this.children,
+          items: [],
+        },
+        immediately
+      );
     }
   }
 
@@ -123,13 +150,52 @@ export default class VNode {
     node.nextSibling = referenceNode;
 
     if (this.isMounted()) {
-      this.container.requestUpdate(this.path + '.children', node.index, 0, immediately, node.toJSON());
+      this.container.requestUpdate(
+        {
+          type: 'splice',
+          path: this.path,
+          start: node.index,
+          id: node.id,
+          deleteCount: 0,
+          children: this.children,
+          items: [node.toJSON()],
+        },
+        immediately
+      );
     }
   }
 
-  update() {
-    // root 不会更新，所以肯定有 parent
-    this.container.requestUpdate(this.parent!.path + '.children', this.index, 1, false, this.toJSON());
+  update(payload?: any[]) {
+    if (this.type === 'text' || !payload) {
+      this.container.requestUpdate({
+        type: 'splice',
+        // root 不会更新，所以肯定有 parent
+        path: this.parent!.path,
+        start: this.index,
+        id: this.id,
+        deleteCount: 1,
+        items: [this.toJSON()],
+      });
+
+      return;
+    }
+
+    for (let i = 0; i < payload.length; i = i + 2) {
+      const [propName, propValue] = toRawProps(payload[i], payload[i + 1], this.type);
+
+      let path = this.parent!.path + '.nodes.' + this.id + '.props';
+
+      if (process.env.REMAX_PLATFORM === 'ali') {
+        path = this.parent!.path + '.children[' + this.index + '].props';
+      }
+
+      this.container.requestUpdate({
+        type: 'set',
+        path,
+        name: propName,
+        value: propValue,
+      });
+    }
   }
 
   get index(): number {
@@ -168,7 +234,12 @@ export default class VNode {
 
     for (let i = 0; i < parents.length; i++) {
       const child = parents[i + 1] || this;
-      dataPath += '.children.' + child.index;
+
+      if (process.env.REMAX_PLATFORM === 'ali') {
+        dataPath += '.children.' + child.index + '';
+      } else {
+        dataPath += '.nodes.' + child.id + '';
+      }
     }
 
     return dataPath;
@@ -200,7 +271,18 @@ export default class VNode {
         const currentVNode = children[i];
         const currentRawNode = toRawNode(currentVNode);
 
-        currentNode.children![i] = currentRawNode;
+        if (process.env.REMAX_PLATFORM !== 'ali') {
+          currentNode.children!.unshift(currentRawNode.id);
+        } else {
+          currentNode.children!.unshift(currentRawNode);
+        }
+
+        if (process.env.REMAX_PLATFORM !== 'ali') {
+          if (!currentNode.nodes) {
+            currentNode.nodes = {};
+          }
+          currentNode.nodes[currentRawNode.id] = currentRawNode;
+        }
 
         stack.push({
           currentNode: currentRawNode,

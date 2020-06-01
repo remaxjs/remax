@@ -3,52 +3,72 @@
 exports[`remax render change elements' order 1`] = `
 Object {
   "children": Array [
-    Object {
+    7,
+  ],
+  "id": 0,
+  "nodes": Object {
+    "7": Object {
       "children": Array [
-        Object {
+        2,
+        4,
+        6,
+      ],
+      "id": 7,
+      "nodes": Object {
+        "2": Object {
           "children": Array [
-            Object {
+            1,
+          ],
+          "id": 2,
+          "nodes": Object {
+            "1": Object {
+              "id": 1,
               "text": "1",
               "type": "plain-text",
             },
-          ],
-          "id": 2,
+          },
           "props": Object {},
           "text": undefined,
           "type": "view",
         },
-        Object {
+        "4": Object {
           "children": Array [
-            Object {
+            3,
+          ],
+          "id": 4,
+          "nodes": Object {
+            "3": Object {
+              "id": 3,
               "text": "2",
               "type": "plain-text",
             },
-          ],
-          "id": 4,
+          },
           "props": Object {},
           "text": undefined,
           "type": "view",
         },
-        Object {
+        "6": Object {
           "children": Array [
-            Object {
+            5,
+          ],
+          "id": 6,
+          "nodes": Object {
+            "5": Object {
+              "id": 5,
               "text": "3",
               "type": "plain-text",
             },
-          ],
-          "id": 6,
+          },
           "props": Object {},
           "text": undefined,
           "type": "view",
         },
-      ],
-      "id": 7,
+      },
       "props": Object {},
       "text": undefined,
       "type": "view",
     },
-  ],
-  "id": 0,
+  },
   "props": undefined,
   "text": undefined,
   "type": "root",
@@ -58,52 +78,72 @@ Object {
 exports[`remax render change elements' order 2`] = `
 Object {
   "children": Array [
-    Object {
+    7,
+  ],
+  "id": 0,
+  "nodes": Object {
+    "7": Object {
       "children": Array [
-        Object {
+        4,
+        2,
+        6,
+      ],
+      "id": 7,
+      "nodes": Object {
+        "2": Object {
           "children": Array [
-            Object {
-              "text": "2",
-              "type": "plain-text",
-            },
+            1,
           ],
-          "id": 4,
-          "props": Object {},
-          "text": undefined,
-          "type": "view",
-        },
-        Object {
-          "children": Array [
-            Object {
+          "id": 2,
+          "nodes": Object {
+            "1": Object {
+              "id": 1,
               "text": "1",
               "type": "plain-text",
             },
-          ],
-          "id": 2,
+          },
           "props": Object {},
           "text": undefined,
           "type": "view",
         },
-        Object {
+        "4": Object {
           "children": Array [
-            Object {
+            3,
+          ],
+          "id": 4,
+          "nodes": Object {
+            "3": Object {
+              "id": 3,
+              "text": "2",
+              "type": "plain-text",
+            },
+          },
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+        "6": Object {
+          "children": Array [
+            5,
+          ],
+          "id": 6,
+          "nodes": Object {
+            "5": Object {
+              "id": 5,
               "text": "3",
               "type": "plain-text",
             },
-          ],
-          "id": 6,
+          },
           "props": Object {},
           "text": undefined,
           "type": "view",
         },
-      ],
-      "id": 7,
+      },
       "props": Object {},
       "text": undefined,
       "type": "view",
     },
-  ],
-  "id": 0,
+  },
   "props": undefined,
   "text": undefined,
   "type": "root",
@@ -113,52 +153,72 @@ Object {
 exports[`remax render change elements' order 3`] = `
 Object {
   "children": Array [
-    Object {
+    7,
+  ],
+  "id": 0,
+  "nodes": Object {
+    "7": Object {
       "children": Array [
-        Object {
+        4,
+        6,
+        2,
+      ],
+      "id": 7,
+      "nodes": Object {
+        "2": Object {
           "children": Array [
-            Object {
-              "text": "2",
-              "type": "plain-text",
-            },
+            1,
           ],
-          "id": 4,
-          "props": Object {},
-          "text": undefined,
-          "type": "view",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "text": "3",
-              "type": "plain-text",
-            },
-          ],
-          "id": 6,
-          "props": Object {},
-          "text": undefined,
-          "type": "view",
-        },
-        Object {
-          "children": Array [
-            Object {
+          "id": 2,
+          "nodes": Object {
+            "1": Object {
+              "id": 1,
               "text": "1",
               "type": "plain-text",
             },
-          ],
-          "id": 2,
+          },
           "props": Object {},
           "text": undefined,
           "type": "view",
         },
-      ],
-      "id": 7,
+        "4": Object {
+          "children": Array [
+            3,
+          ],
+          "id": 4,
+          "nodes": Object {
+            "3": Object {
+              "id": 3,
+              "text": "2",
+              "type": "plain-text",
+            },
+          },
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+        "6": Object {
+          "children": Array [
+            5,
+          ],
+          "id": 6,
+          "nodes": Object {
+            "5": Object {
+              "id": 5,
+              "text": "3",
+              "type": "plain-text",
+            },
+          },
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+      },
       "props": Object {},
       "text": undefined,
       "type": "view",
     },
-  ],
-  "id": 0,
+  },
   "props": undefined,
   "text": undefined,
   "type": "root",
@@ -168,40 +228,55 @@ Object {
 exports[`remax render insert new element 1`] = `
 Object {
   "children": Array [
-    Object {
+    5,
+  ],
+  "id": 0,
+  "nodes": Object {
+    "5": Object {
       "children": Array [
-        Object {
+        2,
+        4,
+      ],
+      "id": 5,
+      "nodes": Object {
+        "2": Object {
           "children": Array [
-            Object {
+            1,
+          ],
+          "id": 2,
+          "nodes": Object {
+            "1": Object {
+              "id": 1,
               "text": "1",
               "type": "plain-text",
             },
-          ],
-          "id": 2,
+          },
           "props": Object {},
           "text": undefined,
           "type": "view",
         },
-        Object {
+        "4": Object {
           "children": Array [
-            Object {
+            3,
+          ],
+          "id": 4,
+          "nodes": Object {
+            "3": Object {
+              "id": 3,
               "text": "3",
               "type": "plain-text",
             },
-          ],
-          "id": 4,
+          },
           "props": Object {},
           "text": undefined,
           "type": "view",
         },
-      ],
-      "id": 5,
+      },
       "props": Object {},
       "text": undefined,
       "type": "view",
     },
-  ],
-  "id": 0,
+  },
   "props": undefined,
   "text": undefined,
   "type": "root",
@@ -211,52 +286,72 @@ Object {
 exports[`remax render insert new element 2`] = `
 Object {
   "children": Array [
-    Object {
+    5,
+  ],
+  "id": 0,
+  "nodes": Object {
+    "5": Object {
       "children": Array [
-        Object {
+        2,
+        7,
+        4,
+      ],
+      "id": 5,
+      "nodes": Object {
+        "2": Object {
           "children": Array [
-            Object {
+            1,
+          ],
+          "id": 2,
+          "nodes": Object {
+            "1": Object {
+              "id": 1,
               "text": "1",
               "type": "plain-text",
             },
-          ],
-          "id": 2,
+          },
           "props": Object {},
           "text": undefined,
           "type": "view",
         },
-        Object {
+        "4": Object {
           "children": Array [
-            Object {
-              "text": "2",
-              "type": "plain-text",
-            },
+            3,
           ],
-          "id": 7,
-          "props": Object {},
-          "text": undefined,
-          "type": "view",
-        },
-        Object {
-          "children": Array [
-            Object {
+          "id": 4,
+          "nodes": Object {
+            "3": Object {
+              "id": 3,
               "text": "3",
               "type": "plain-text",
             },
-          ],
-          "id": 4,
+          },
           "props": Object {},
           "text": undefined,
           "type": "view",
         },
-      ],
-      "id": 5,
+        "7": Object {
+          "children": Array [
+            6,
+          ],
+          "id": 7,
+          "nodes": Object {
+            "6": Object {
+              "id": 6,
+              "text": "2",
+              "type": "plain-text",
+            },
+          },
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+      },
       "props": Object {},
       "text": undefined,
       "type": "view",
     },
-  ],
-  "id": 0,
+  },
   "props": undefined,
   "text": undefined,
   "type": "root",
@@ -266,22 +361,29 @@ Object {
 exports[`remax render render correctly 1`] = `
 Object {
   "children": Array [
-    Object {
+    3,
+  ],
+  "id": 1,
+  "nodes": Object {
+    "3": Object {
       "children": Array [
-        Object {
+        2,
+      ],
+      "id": 3,
+      "nodes": Object {
+        "2": Object {
+          "id": 2,
           "text": "hello",
           "type": "plain-text",
         },
-      ],
-      "id": 3,
+      },
       "props": Object {
         "class": "foo",
       },
       "text": undefined,
       "type": "view",
     },
-  ],
-  "id": 1,
+  },
   "props": undefined,
   "text": undefined,
   "type": "root",
@@ -291,24 +393,19 @@ Object {
 exports[`remax render render native component correctly 1`] = `
 Array [
   Object {
-    "root": Object {
-      "children": Array [
-        Object {
-          "children": Array [],
-          "id": 1,
-          "props": Object {
-            "class": "class",
-            "fooBar": "fooBar",
-            "onClick": "$$REMAX_METHOD_1_onClick",
-          },
-          "text": undefined,
-          "type": "native-component",
-        },
-      ],
-      "id": 0,
-      "props": undefined,
+    "root.children": Array [
+      1,
+    ],
+    "root.nodes.1": Object {
+      "children": Array [],
+      "id": 1,
+      "props": Object {
+        "class": "class",
+        "fooBar": "fooBar",
+        "onClick": "$$REMAX_METHOD_1_onClick",
+      },
       "text": undefined,
-      "type": "root",
+      "type": "native-component",
     },
   },
 ]
@@ -317,32 +414,44 @@ Array [
 exports[`remax render renders conditional fragment correctly 1`] = `
 Object {
   "children": Array [
-    Object {
+    2,
+    4,
+  ],
+  "id": 0,
+  "nodes": Object {
+    "2": Object {
       "children": Array [
-        Object {
+        1,
+      ],
+      "id": 2,
+      "nodes": Object {
+        "1": Object {
+          "id": 1,
           "text": "one",
           "type": "plain-text",
         },
-      ],
-      "id": 2,
+      },
       "props": Object {},
       "text": undefined,
       "type": "view",
     },
-    Object {
+    "4": Object {
       "children": Array [
-        Object {
+        3,
+      ],
+      "id": 4,
+      "nodes": Object {
+        "3": Object {
+          "id": 3,
           "text": "two",
           "type": "plain-text",
         },
-      ],
-      "id": 4,
+      },
       "props": Object {},
       "text": undefined,
       "type": "view",
     },
-  ],
-  "id": 0,
+  },
   "props": undefined,
   "text": undefined,
   "type": "root",
@@ -352,20 +461,27 @@ Object {
 exports[`remax render renders conditional fragment correctly 2`] = `
 Object {
   "children": Array [
-    Object {
+    2,
+  ],
+  "id": 0,
+  "nodes": Object {
+    "2": Object {
       "children": Array [
-        Object {
+        1,
+      ],
+      "id": 2,
+      "nodes": Object {
+        "1": Object {
+          "id": 1,
           "text": "foo",
           "type": "plain-text",
         },
-      ],
-      "id": 2,
+      },
       "props": Object {},
       "text": undefined,
       "type": "view",
     },
-  ],
-  "id": 0,
+  },
   "props": undefined,
   "text": undefined,
   "type": "root",
@@ -375,22 +491,29 @@ Object {
 exports[`remax render renders empty style 1`] = `
 Object {
   "children": Array [
-    Object {
+    2,
+  ],
+  "id": 0,
+  "nodes": Object {
+    "2": Object {
       "children": Array [
-        Object {
+        1,
+      ],
+      "id": 2,
+      "nodes": Object {
+        "1": Object {
+          "id": 1,
           "text": "hello",
           "type": "plain-text",
         },
-      ],
-      "id": 2,
+      },
       "props": Object {
         "style": "",
       },
       "text": undefined,
       "type": "view",
     },
-  ],
-  "id": 0,
+  },
   "props": undefined,
   "text": undefined,
   "type": "root",
@@ -400,22 +523,29 @@ Object {
 exports[`remax render renders style 1`] = `
 Object {
   "children": Array [
-    Object {
+    2,
+  ],
+  "id": 0,
+  "nodes": Object {
+    "2": Object {
       "children": Array [
-        Object {
+        1,
+      ],
+      "id": 2,
+      "nodes": Object {
+        "1": Object {
+          "id": 1,
           "text": "hello",
           "type": "plain-text",
         },
-      ],
-      "id": 2,
+      },
       "props": Object {
         "style": "width:100rpx;height:100rpx;",
       },
       "text": undefined,
       "type": "view",
     },
-  ],
-  "id": 0,
+  },
   "props": undefined,
   "text": undefined,
   "type": "root",
@@ -425,22 +555,29 @@ Object {
 exports[`remax render renders vendor prefix style 1`] = `
 Object {
   "children": Array [
-    Object {
+    2,
+  ],
+  "id": 0,
+  "nodes": Object {
+    "2": Object {
       "children": Array [
-        Object {
+        1,
+      ],
+      "id": 2,
+      "nodes": Object {
+        "1": Object {
+          "id": 1,
           "text": "hello",
           "type": "plain-text",
         },
-      ],
-      "id": 2,
+      },
       "props": Object {
         "style": "-webkit-line-clamp:2;height:100rpx;",
       },
       "text": undefined,
       "type": "view",
     },
-  ],
-  "id": 0,
+  },
   "props": undefined,
   "text": undefined,
   "type": "root",
@@ -450,28 +587,38 @@ Object {
 exports[`remax render umount component 1`] = `
 Object {
   "children": Array [
-    Object {
+    3,
+  ],
+  "id": 0,
+  "nodes": Object {
+    "3": Object {
       "children": Array [
-        Object {
+        2,
+      ],
+      "id": 3,
+      "nodes": Object {
+        "2": Object {
           "children": Array [
-            Object {
+            1,
+          ],
+          "id": 2,
+          "nodes": Object {
+            "1": Object {
+              "id": 1,
               "text": "foo",
               "type": "plain-text",
             },
-          ],
-          "id": 2,
+          },
           "props": Object {},
           "text": undefined,
           "type": "view",
         },
-      ],
-      "id": 3,
+      },
       "props": Object {},
       "text": undefined,
       "type": "view",
     },
-  ],
-  "id": 0,
+  },
   "props": undefined,
   "text": undefined,
   "type": "root",
@@ -481,15 +628,18 @@ Object {
 exports[`remax render umount component 2`] = `
 Object {
   "children": Array [
-    Object {
+    3,
+  ],
+  "id": 0,
+  "nodes": Object {
+    "3": Object {
       "children": Array [],
       "id": 3,
       "props": Object {},
       "text": undefined,
       "type": "view",
     },
-  ],
-  "id": 0,
+  },
   "props": undefined,
   "text": undefined,
   "type": "root",

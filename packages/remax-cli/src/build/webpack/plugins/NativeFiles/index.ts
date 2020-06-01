@@ -5,7 +5,6 @@ import createAppManifest from './createAppManifest';
 import createPageTemplate, { createBaseTemplate } from './createPageTemplate';
 import createTurboPageTemplate from './createTurboPageTemplate';
 import createPageManifest from './createPageManifest';
-import createPageHelperFile from './createPageHelperFile';
 import * as turboPages from '../../../utils/turboPages';
 import getModules from '../../../utils/modules';
 import { getPages } from '../../../../getEntries';
@@ -47,8 +46,6 @@ export default class NativeFilesPlugin {
           } else {
             // page template
             await createPageTemplate(this.api, options, page.filename, meta, compilation);
-            // page helper
-            await createPageHelperFile(options, page.filename, meta, compilation);
           }
 
           await createPageManifest(options, page.filename, modules, compilation);

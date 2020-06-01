@@ -1,6 +1,6 @@
 <template name="REMAX_TPL">
-	<block wx:for="{{tree.root.children}}" wx:key="id">
-		<template is="REMAX_TPL_1_CONTAINER" data="{{i: item, a: ''}}" />
+	<block wx:for="{{root.children}}" wx:key="*this">
+		<template is="REMAX_TPL_1_CONTAINER" data="{{i: root.nodes[item], a: ''}}" />
 	</block>
 </template>
 

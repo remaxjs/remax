@@ -28,6 +28,10 @@ export interface GenericProps {
   [key: string]: any;
 }
 
+export function propAlias(prop: string, value: any, type: string) {
+  return [getAlias(prop, type), getValue(prop, value)];
+}
+
 export default function propsAlias(props: GenericProps, type: string) {
   if (!props) {
     return props;

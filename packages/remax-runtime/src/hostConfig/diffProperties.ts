@@ -103,7 +103,11 @@ export default function diffProperties(
     }
   }
   if (styleUpdates) {
-    (updatePayload = updatePayload || []).push(STYLE, styleUpdates);
+    // 由于 style 要转换成 string， 所以必须整个 style 对象都更新
+    (updatePayload = updatePayload || []).push(STYLE, {
+      ...lastProps[STYLE],
+      ...styleUpdates,
+    });
   }
 
   return updatePayload;

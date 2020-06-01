@@ -3,7 +3,6 @@ import './helpers/setupGlobals';
 import View from './helpers/View';
 import render from '../render';
 import { reset as resetInstanceId } from '../instanceId';
-import { reset as resetActionId } from '../actionId';
 import Container from '../Container';
 // eslint-disable-next-line @typescript-eslint/camelcase
 import { useNativeEffect } from '../hooks';
@@ -24,7 +23,6 @@ describe('remax render', () => {
   });
 
   afterEach(() => {
-    resetActionId();
     resetInstanceId();
   });
 
@@ -190,7 +188,7 @@ describe('remax render', () => {
       });
     const actions: any = [];
     const p = {
-      setData: ({ action }: any) => actions.push(action),
+      setData: (data: any) => actions.push(data),
     };
 
     const container = new Container(p);
