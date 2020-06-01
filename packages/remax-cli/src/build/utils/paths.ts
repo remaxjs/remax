@@ -21,6 +21,10 @@ export function appConfigFile(options: Options) {
   return searchJSFile(path.join(options.cwd, options.rootDir, 'app.config'));
 }
 
+export function componentConfigFile(options: Options) {
+  return searchJSFile(path.join(options.cwd, options.rootDir, 'index.config'));
+}
+
 export function pageConfigFile(pageFile: string) {
   const ext = path.extname(pageFile);
   return searchJSFile(pageFile.replace(new RegExp(`\\${ext}$`), '.config'));

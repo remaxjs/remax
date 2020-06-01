@@ -181,7 +181,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .loader(require.resolve('file-loader'));
 
   const runtimeOptionsTemplate = fs.readFileSync(
-    path.resolve(__dirname, '../../../template/apply-runtime-options.js.ejs'),
+    path.resolve(__dirname, '../../../template/app-runtime-options.js.ejs'),
     'utf-8'
   );
   const runtimeOptionsPath = slash('node_modules/@remax/apply-runtime-options.js');
@@ -209,18 +209,18 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
       .use(CopyPlugin, [[{ from: publicDirPath, to: path.join(options.cwd, options.output) }]]);
   }
 
-  config.plugin('webpackbar').use(WebpackBar, [{ name: target }]);
-  config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
-  config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
-  config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [options, api]);
-
   config.externals([
     {
       '/__remax_runtime_options__': `require('/__remax_runtime_options__')`,
     },
   ]);
-  config.plugin('remax-runtime-options-plugin').use(RemaxPlugins.RuntimeOptions, [options, api]);
 
+  config.plugin('webpackbar').use(WebpackBar, [{ name: target }]);
+  config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
+  config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
+  config.plugin('remax-app-asset-plugin').use(RemaxPlugins.AppAsset, [options, api]);
+  config.plugin('remax-page-asset-plugin').use(RemaxPlugins.PageAsset, [options, api]);
+  config.plugin('remax-runtime-options-plugin').use(RemaxPlugins.RuntimeOptions, [options, api, false]);
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
 
   if (options.analyze) {

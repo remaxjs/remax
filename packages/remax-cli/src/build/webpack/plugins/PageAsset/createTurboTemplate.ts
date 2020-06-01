@@ -6,11 +6,11 @@ import { Options, Meta } from '@remax/types';
 import { slash } from '@remax/shared';
 import { TEMPLATE_ID } from '../../../babel/compiler/static/constants';
 import { templateInfoMap } from '../../../babel/compiler/static/render/templates';
-import { createRenderOptions } from './createPageTemplate';
+import { createRenderOptions } from './createTemplate';
 import { ComponentManifest } from '../../../babel/componentManifest';
 import API from '../../../../API';
 
-export default async function createTurboPageTemplate(
+export default async function createTurboTemplate(
   api: API,
   options: Options,
   pageFile: string,

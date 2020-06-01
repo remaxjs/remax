@@ -7,7 +7,8 @@ import API from '../../../API';
 import getConfig from '../../../getConfig';
 import { Platform } from '@remax/types';
 import { run } from '../../../build';
-import { reset } from '../../../build/webpack/plugins/NativeFiles/cacheable';
+import runBuildComponent from '../../../build/component';
+import Config from 'webpack-chain';
 
 function ensureWebpackMemoryFs(fs: IFs) {
   const nextFs = Object.create(fs);
@@ -46,13 +47,11 @@ interface Options {
   externalsIgnore: string[];
 }
 
-export default async function build(app: string, target: Platform, options: Partial<Options> = {}) {
+export async function buildApp(app: string, target: Platform, options: Partial<Options> = {}) {
   const cwd = path.resolve(__dirname, `../fixtures/${app}`);
   process.chdir(cwd);
   process.env.NODE_ENV = 'test';
   process.env.REMAX_PLATFORM = target;
-
-  reset();
 
   const config = getConfig();
   const api = new API();
@@ -74,7 +73,6 @@ export default async function build(app: string, target: Platform, options: Part
       '@remax/toutiao': JSON.stringify('@remax/toutiao'),
       'remax/router': JSON.stringify('remax/router'),
       'remax/web': JSON.stringify('remax/web'),
-      '/__remax_runtime_options__': `require('/__remax_runtime_options__')`,
     },
   ];
 
@@ -96,7 +94,7 @@ export default async function build(app: string, target: Platform, options: Part
         })
         .end()
         .end()
-        .externals(externals);
+        .externals([...(context.config.get('externals') || []), ...externals]);
 
       if (typeof config.configWebpack === 'function') {
         config.configWebpack(context);
@@ -107,6 +105,86 @@ export default async function build(app: string, target: Platform, options: Part
   const fs = createFsFromVolume(new Volume());
   const webpackFs = ensureWebpackMemoryFs(fs);
   const compiler = run(remaxOptions);
+  compiler.outputFileSystem = webpackFs;
+
+  return new Promise(resolve => {
+    compiler.hooks.done.tap('done', stats => {
+      const info = stats.toJson();
+
+      if (stats.hasErrors()) {
+        console.error(info.errors);
+        throw new Error(info.errors.join('\n'));
+      }
+
+      if (stats.hasWarnings()) {
+        info.warnings.forEach(warning => {
+          console.warn(warning);
+        });
+      }
+
+      const exclude = options.exclude || ['node_modules'];
+      const include = options.include || [];
+      const includeRegExp = new RegExp(`(${include.join('|')})`);
+      const excludeRegExp = new RegExp(`(${exclude.join('|')})`);
+      const outputDir = path.join(remaxOptions.cwd, remaxOptions.output);
+
+      const output = getFilesInDir(fs, outputDir + '/', outputDir).filter(
+        c =>
+          (include.length > 0 && includeRegExp.test(c.fileName)) ||
+          (exclude.length > 0 && !excludeRegExp.test(c.fileName))
+      );
+
+      resolve(output);
+    });
+
+    compiler.hooks.failed.tap('failed', error => {
+      console.error(error.message);
+      throw error;
+    });
+  });
+}
+
+export async function buildComponent(app: string, target: Platform, options: Partial<Options> = {}) {
+  const cwd = path.resolve(__dirname, `../fixtures/${app}`);
+  process.chdir(cwd);
+  process.env.NODE_ENV = 'test';
+  process.env.REMAX_PLATFORM = target;
+
+  const config = getConfig();
+  const api = new API();
+
+  api.registerPlugins(config.plugins);
+
+  const externals: any = [
+    nodeExternals({
+      modulesDir: path.resolve(__dirname, '../../../../../../node_modules'),
+      whitelist: options.externalsIgnore,
+    }),
+  ];
+
+  (options.externalsIgnore || []).forEach(k => {
+    delete externals[1][k];
+  });
+
+  const remaxOptions = {
+    ...config,
+    target,
+    configWebpack(context: { config: Config; webpack: any }) {
+      context.config
+        .mode('none')
+        .plugins.delete('webpackbar')
+        .end()
+        .externals([...context.config.get('externals'), ...externals]);
+
+      if (typeof config.configWebpack === 'function') {
+        config.configWebpack(context);
+      }
+    },
+  };
+
+  const fs = createFsFromVolume(new Volume());
+  const webpackFs = ensureWebpackMemoryFs(fs);
+  const compiler = runBuildComponent(api, remaxOptions);
   compiler.outputFileSystem = webpackFs;
 
   return new Promise(resolve => {

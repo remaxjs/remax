@@ -3,12 +3,12 @@ import { sortBy } from 'lodash';
 import { compilation } from 'webpack';
 import ejs from 'ejs';
 import { Options, Meta } from '@remax/types';
-import { slash } from '@remax/shared';
-import * as componentManifest from '../../../../build/babel/componentManifest';
+import * as componentManifest from '../../../babel/componentManifest';
 import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDepth';
-import * as cacheable from './cacheable';
 import API from '../../../../API';
+import SourceCache from '../../../../SourceCache';
 import getUsingComponents from './getUsingComponents';
+import { slash } from '@remax/shared';
 
 export function pageFilename(pagePath: string) {
   let value = path.basename(pagePath);
@@ -43,10 +43,11 @@ export function createRenderOptions(
 export default async function createPageTemplate(
   api: API,
   options: Options,
-  modules: string[],
   pageFile: string,
+  modules: string[],
   meta: Meta,
-  compilation: compilation.Compilation
+  compilation: compilation.Compilation,
+  cache: SourceCache
 ) {
   const rootDir = path.join(options.cwd, options.rootDir);
   const pagePath = path.relative(rootDir, pageFile);
@@ -72,17 +73,21 @@ export default async function createPageTemplate(
     source = source.replace(/^\s*$(?:\r\n?|\n)/gm, '').replace(/\r\n|\n/g, ' ');
   }
 
-  if (!cacheable.invalid(fileName, source)) {
-    return;
-  }
-
-  compilation.assets[fileName] = {
-    source: () => source,
-    size: () => Buffer.byteLength(source),
-  };
+  cache.invalid(fileName, source, () => {
+    compilation.assets[fileName] = {
+      source: () => source,
+      size: () => Buffer.byteLength(source),
+    };
+  });
 }
 
-export async function createBaseTemplate(api: API, options: Options, meta: Meta, compilation: compilation.Compilation) {
+export async function createBaseTemplate(
+  api: API,
+  options: Options,
+  meta: Meta,
+  compilation: compilation.Compilation,
+  cache: SourceCache
+) {
   if (!meta.ejs.base) {
     return null;
   }
@@ -105,12 +110,10 @@ export async function createBaseTemplate(api: API, options: Options, meta: Meta,
 
   const fileName = `base${meta.template.extension}`;
 
-  if (!cacheable.invalid(fileName, source)) {
-    return;
-  }
-
-  compilation.assets[fileName] = {
-    source: () => source,
-    size: () => Buffer.byteLength(source),
-  };
+  cache.invalid(fileName, source, () => {
+    compilation.assets[fileName] = {
+      source: () => source,
+      size: () => Buffer.byteLength(source),
+    };
+  });
 }

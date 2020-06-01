@@ -1,19 +1,20 @@
 import { Compiler } from 'webpack';
 import { Options } from '@remax/types';
 import API from '../../../../API';
-import createAppManifest from './createAppManifest';
-import createPageTemplate, { createBaseTemplate } from './createPageTemplate';
-import createTurboPageTemplate from './createTurboPageTemplate';
-import createPageManifest from './createPageManifest';
+import createPageTemplate, { createBaseTemplate } from './createTemplate';
+import createTurboTemplate from './createTurboTemplate';
+import createManifest from './createManifest';
 import * as turboPages from '../../../utils/turboPages';
 import getModules from '../../../utils/modules';
 import { getPages } from '../../../../getEntries';
+import SourceCache from '../../../../SourceCache';
 
-const PLUGIN_NAME = 'RemaxNativeFilesPlugin';
+const PLUGIN_NAME = 'RemaxPageAssetPlugin';
 
-export default class NativeFilesPlugin {
+export default class PageAssetPlugin {
   api: API;
   remaxOptions: Options;
+  cache: SourceCache = new SourceCache();
 
   constructor(options: Options, api: API) {
     this.remaxOptions = options;
@@ -25,11 +26,8 @@ export default class NativeFilesPlugin {
       const options = this.remaxOptions;
       const meta = this.api.getMeta();
 
-      // app.json
-      await createAppManifest(options, this.api, compilation);
-
       // base template
-      await createBaseTemplate(this.api, options, meta, compilation);
+      await createBaseTemplate(this.api, options, meta, compilation, this.cache);
 
       Promise.all(
         getPages(options, this.api).map(async page => {
@@ -42,13 +40,13 @@ export default class NativeFilesPlugin {
 
           if (turboPages.validate(page.filename, options)) {
             // turbo page
-            await createTurboPageTemplate(this.api, options, page.filename, modules, meta, compilation);
+            await createTurboTemplate(this.api, options, page.filename, modules, meta, compilation);
           } else {
             // page template
-            await createPageTemplate(this.api, options, modules, page.filename, meta, compilation);
+            await createPageTemplate(this.api, options, page.filename, modules, meta, compilation, this.cache);
           }
 
-          await createPageManifest(options, page, modules, compilation, this.api);
+          await createManifest(options, page, modules, compilation, this.api, this.cache);
         })
       ).then(() => {
         callback();

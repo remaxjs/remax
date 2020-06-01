@@ -1,4 +1,6 @@
-export { default as NativeFiles } from './NativeFiles';
+export { default as AppAsset } from './AppAsset';
+export { default as PageAsset } from './PageAsset';
+export { default as ComponentAsset } from './ComponentAsset';
 export { default as OptimizeEntries } from './OptimizeEntries';
 export { default as RuntimeOptions } from './RuntimeOptions';
 export { default as CoverageIgnore } from './CoverageIgnore';

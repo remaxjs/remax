@@ -1,8 +1,8 @@
 import { run } from '../../index';
-import { build } from '../../build';
+import { buildApp } from '../../build';
 
 jest.mock('../../build', () => {
-  return { build: jest.fn() };
+  return { buildApp: jest.fn() };
 });
 
 describe('CLI', () => {
@@ -17,7 +17,7 @@ describe('CLI', () => {
 
   it('run cli build', done => {
     run('build -t web', () => {
-      expect(build).toBeCalledTimes(1);
+      expect(buildApp).toBeCalledTimes(1);
       done();
     });
   });

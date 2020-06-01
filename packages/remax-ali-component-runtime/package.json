@@ -1,0 +1,44 @@
+{
+  "name": "@remax/ali-component-runtime",
+  "version": "0.0.3",
+  "description": "Remax component runtime",
+  "keywords": [
+    "remax"
+  ],
+  "author": "Meck Zhu <yesmeck@gmail.com>",
+  "homepage": "https://remaxjs.org",
+  "license": "MIT",
+  "main": "./modules/index.js",
+  "files": [
+    "modules"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remaxjs/remax.git"
+  },
+  "scripts": {
+    "prebuild": "rimraf modules",
+    "watch": "NODE_ENV=development rollup -c rollup.config.js -w",
+    "build": "NODE_ENV=development rollup -c rollup.config.js",
+    "test": "echo done",
+    "prepack": "npm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/remaxjs/remax/issues"
+  },
+  "devDependencies": {
+    "@remax/ali": "^2.5.5",
+    "@remax/macro": "^2.5.5",
+    "@remax/one": "^2.5.5",
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^8.1.0",
+    "@rollup/plugin-replace": "^2.3.3",
+    "react": "^16.13.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.18.1"
+  }
+}

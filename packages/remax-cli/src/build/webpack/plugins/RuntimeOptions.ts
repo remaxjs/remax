@@ -17,20 +17,25 @@ export const appClassEvents = new Map<string, Events>();
 export default class RuntimeOptionsPlugin {
   remaxOptions: Options;
   api: API;
+  component: boolean;
 
-  constructor(options: Options, api: API) {
+  constructor(options: Options, api: API, component: boolean) {
     this.remaxOptions = options;
     this.api = api;
+    this.component = component;
   }
 
   apply(compiler: Compiler) {
     compiler.hooks.thisCompilation.tap(PLUGIN_NAME, (compilation: compilation.Compilation) => {
       compilation.hooks.optimizeChunks.tap(PLUGIN_NAME, chunks => {
+        const hostComponents = this.getHostComponents();
+        const pageEvents = this.component ? {} : this.getPageEvents(chunks);
+        const appEvents = this.component ? [] : this.getAppEvents();
         compilation.assets['__remax_runtime_options__.js'] = new OriginalSource(
           `module.exports = {
-          hostComponents: ${this.stringifyHostComponents()},
-          pageEvents: ${this.stringifyPageEvents(chunks)},
-          appEvents: ${this.stringifyAppEvents()}
+          hostComponents: ${JSON.stringify(hostComponents, null, 2)},
+          pageEvents: ${JSON.stringify(pageEvents, null, 2)},
+          appEvents: ${JSON.stringify(appEvents, null, 2)}
         }`,
           '__remax_runtime_options__.js'
         );
@@ -38,7 +43,7 @@ export default class RuntimeOptionsPlugin {
     });
   }
 
-  stringifyPageEvents(chunks: compilation.Chunk[]) {
+  getPageEvents(chunks: compilation.Chunk[]) {
     const events: any = {};
 
     getPages(this.remaxOptions, this.api).forEach(page => {
@@ -60,10 +65,10 @@ export default class RuntimeOptionsPlugin {
       );
     });
 
-    return JSON.stringify(events, null, 2);
+    return events;
   }
 
-  stringifyAppEvents() {
+  getAppEvents() {
     let events: string[] = [];
     for (const key of appEvents.keys()) {
       // 这里 get 不可能为空
@@ -75,20 +80,16 @@ export default class RuntimeOptionsPlugin {
       events = events.concat(Array.from(appClassEvents.get(key)!));
     }
 
-    return JSON.stringify(Array.from(new Set(events.sort())), null, 2);
+    return Array.from(new Set(events.sort()));
   }
 
-  stringifyHostComponents() {
-    return JSON.stringify(
-      [...hostComponents.keys()].reduce((obj, key) => {
-        obj[key] = {
-          alias: hostComponents.get(key)?.alias || {},
-        };
+  getHostComponents() {
+    return [...hostComponents.keys()].reduce((obj, key) => {
+      obj[key] = {
+        alias: hostComponents.get(key)?.alias || {},
+      };
 
-        return obj;
-      }, {} as any),
-      null,
-      2
-    );
+      return obj;
+    }, {} as any);
   }
 }

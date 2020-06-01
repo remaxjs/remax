@@ -1,6 +1,6 @@
-import runTest from './helpers/runTest';
+import { testBuildApp } from './helpers/runTest';
 import { Platform } from '@remax/types';
 
 describe('build toutiao app', () => {
-  runTest('toutiao', Platform.toutiao);
+  testBuildApp('toutiao', Platform.toutiao);
 });

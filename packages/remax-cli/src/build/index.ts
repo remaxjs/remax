@@ -32,7 +32,7 @@ export function run(options: Options): webpack.Compiler {
   }
 }
 
-export function build(argv: Pick<Options, 'target' | 'watch' | 'notify' | 'port' | 'analyze' | 'minimize'>) {
+export function buildApp(argv: Pick<Options, 'target' | 'watch' | 'notify' | 'port' | 'analyze' | 'minimize'>) {
   const { target } = argv;
 
   process.env.REMAX_PLATFORM = target;
@@ -40,9 +40,33 @@ export function build(argv: Pick<Options, 'target' | 'watch' | 'notify' | 'port'
   const { compressTemplate, ...options } = getConfig();
 
   output.message(`\n⌨️  Remax v${remaxVersion()}\n`, 'green');
+  output.message(`🔨 构建应用`, 'blue');
   output.message(`🎯 平台 ${target}`, 'blue');
 
   const result = run({ ...options, ...argv, compressTemplate: argv.minimize });
 
   return result;
+}
+
+export function buildComponent(argv: { target: Platform; watch?: boolean; notify?: boolean }) {
+  const { target } = argv;
+
+  process.env.REMAX_PLATFORM = target;
+
+  if (target !== Platform.ali) {
+    output.message('组件构建暂仅支持阿里小程序', 'red');
+    process.exit(1);
+    return;
+  }
+
+  const options = getConfig();
+
+  output.message(`\n⌨️  Remax v${remaxVersion()}\n`, 'green');
+  output.message(`🔨 构建组件`, 'blue');
+  output.message(`🎯 平台 ${target}`, 'blue');
+
+  const api = new API();
+  api.registerPlugins(options.plugins);
+
+  return require('./component').default(api, { ...options, ...argv });
 }

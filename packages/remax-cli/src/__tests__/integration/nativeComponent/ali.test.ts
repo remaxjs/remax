@@ -1,8 +1,8 @@
 import * as path from 'path';
-import runTest from '../helpers/runTest';
+import { testBuildApp } from '../helpers/runTest';
 import { Platform } from '@remax/types';
 
 describe('use native components in ali app', () => {
   const cwd = path.resolve(__dirname, '../fixtures/nativeComponent/expected/ali');
-  runTest('nativeComponent', Platform.ali, cwd);
+  testBuildApp('nativeComponent', Platform.ali, cwd);
 });
