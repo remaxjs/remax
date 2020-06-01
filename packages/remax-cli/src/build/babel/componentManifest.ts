@@ -372,11 +372,6 @@ export default function hostComponent(api: API, config: Config) {
         const importer = state.file.opts.filename;
         let name: any = getRemaxHostComponentName(path);
 
-        if (name) {
-          registerHostComponentManifest(api, name, 'jsx', path.node);
-          return;
-        }
-
         name = getNativeComponentName(path, importer, config) || getNativePluginComponentName(path);
 
         if (name) {
