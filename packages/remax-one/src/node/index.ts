@@ -3,7 +3,6 @@ import hostComponents from '../hostComponents/node';
 
 const plugin = (): Plugin => {
   return {
-    name: 'remax-one',
     hostComponents,
   };
 };

@@ -53,6 +53,48 @@ export default options => {
 
 ## Hooks
 
+### onAppConfig
+
+修改应用配置，注意跟运行时 hook `onAppConfig` 的区别，这个 hook 修改的是 `app.json`。
+
+#### 参数
+
+- `params`
+  -  `config` - `app.json` 配置。
+
+```js
+{
+  onAppConfig({ config }) {
+    config.window = {
+      ...config.window,
+      defaultTitle: "Hello",
+    }
+    return config;
+  }
+}
+```
+
+### onPageConfig
+
+修改页面配置，注意跟运行时 hook `onPageConfig` 的区别，这个 hook 修改的是页面对应的 json 配置。
+
+#### 参数
+
+- `params`
+  - `page` - 页面路径，如: `pages/home/index`。
+  - `config` - 页面配置。
+
+```js
+{
+  onPageConfig({ config, page }) {
+    if (page === 'pages/home/index') {
+      config.defaultTitle = 'Home page';
+    }
+    return config;
+  }
+}
+```
+
 ### configWebpack
 
 修改 Webpack 配置。
@@ -75,6 +117,7 @@ export default options => {
 {
   configBabel({ config }) {
     config.plugins.push('awesome-babel-plugin');
+    return config;
   }
 }
 ```
@@ -97,9 +140,14 @@ export default options => {
 
 修改 App 的配置。
 
+#### 参数
+
+- `params`
+  - `config` - Remax 生成的 App 配置。
+
 ```js
 {
-  onAppConfig(config) {
+  onAppConfig({ config }) {
     const onLaunch = config.onLaunch;
     config.onLaunch = () => {
       console.log('onLaunch');
@@ -115,6 +163,11 @@ export default options => {
 ### onPageConfig
 
 修改 Page 的配置。
+
+#### 参数
+
+- `params`
+  - `config` - Remax 生成的 Page 配置。
 
 ```js
 {

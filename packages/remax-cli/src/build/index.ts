@@ -15,7 +15,7 @@ interface Argv {
 
 export function run(options: Options): webpack.Compiler {
   const api = new API();
-  api.registerPlugins(options);
+  api.registerPlugins(options.plugins);
 
   if (options.turboPages && options.turboPages.length > 0 && options.target !== Platform.ali) {
     throw new Error('turboPages 目前仅支持 ali 平台开启');
@@ -42,12 +42,6 @@ export function build(argv: Argv) {
   output.message(`🎯 平台 ${target}`, 'blue');
 
   const result = run({ ...options, ...argv });
-
-  try {
-    require('remax-stats').run();
-  } catch (e) {
-    // ignore
-  }
 
   return result;
 }
