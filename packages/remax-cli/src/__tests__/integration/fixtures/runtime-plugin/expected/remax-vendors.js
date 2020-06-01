@@ -1423,12 +1423,12 @@ function createHostComponent(name, component) {
   var Component = function Component(props, ref) {
     var _a = props.children,
         children = _a === void 0 ? [] : _a;
-    return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](name, __assign(__assign({}, props), {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](name, __assign(__assign({}, props), {
       ref: ref
     }), children);
   };
 
-  return react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"](Component);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"](Component);
 }
 
 /***/ }),
@@ -1841,7 +1841,7 @@ function (_super) {
   }
 
   DefaultAppComponent.prototype.render = function () {
-    return react__WEBPACK_IMPORTED_MODULE_1__["createElement"](react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, this.props.children);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, this.props.children);
   };
 
   return DefaultAppComponent;
@@ -1858,7 +1858,7 @@ function createAppConfig(App) {
     var config = {
       _container: new _AppContainer__WEBPACK_IMPORTED_MODULE_4__["default"](_this),
       _pages: [],
-      _instance: react__WEBPACK_IMPORTED_MODULE_1__["createRef"](),
+      _instance: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createRef"](),
       onLaunch: function onLaunch(options) {
         this._render();
 
@@ -1906,7 +1906,7 @@ function createAppConfig(App) {
           props.ref = this._instance;
         }
 
-        return Object(_render__WEBPACK_IMPORTED_MODULE_3__["default"])(react__WEBPACK_IMPORTED_MODULE_1__["createElement"](AppComponent, props, this._pages.map(function (p) {
+        return Object(_render__WEBPACK_IMPORTED_MODULE_3__["default"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](AppComponent, props, this._pages.map(function (p) {
           return p.element;
         })), this._container);
       }
@@ -2571,14 +2571,14 @@ function createPageConfig(Page, name) {
         children: []
       }
     },
-    wrapperRef: react__WEBPACK_IMPORTED_MODULE_0__["createRef"](),
+    wrapperRef: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createRef"](),
     lifecycleCallback: {},
     onLoad: function onLoad(query) {
       var PageWrapper = Object(_createPageWrapper__WEBPACK_IMPORTED_MODULE_2__["default"])(Page, query);
       this.pageId = generatePageId();
       this.query = query;
       this.container = new _Container__WEBPACK_IMPORTED_MODULE_5__["default"](this);
-      this.element = Object(_ReactPortal__WEBPACK_IMPORTED_MODULE_6__["createPortal"])(react__WEBPACK_IMPORTED_MODULE_0__["createElement"](PageWrapper, {
+      this.element = Object(_ReactPortal__WEBPACK_IMPORTED_MODULE_6__["createPortal"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](PageWrapper, {
         page: this,
         ref: this.wrapperRef
       }), this.container, this.pageId);
@@ -2845,9 +2845,9 @@ function createPageWrapper(Page, query) {
           };
         }
 
-        return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_PageInstanceContext__WEBPACK_IMPORTED_MODULE_3__["default"].Provider, {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_PageInstanceContext__WEBPACK_IMPORTED_MODULE_3__["default"].Provider, {
           value: this.props.page
-        }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Page, props));
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Page, props));
       };
 
       return PageWrapper;
@@ -3161,7 +3161,7 @@ var __assign = undefined && undefined.__assign || function () {
 
 
 function createNativeComponent(name) {
-  return react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"](function (props, ref) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"](function (props, ref) {
     var newProps = __assign({}, props);
 
     newProps.__ref = typeof ref === 'function' ? ref : function (e) {
@@ -3169,7 +3169,7 @@ function createNativeComponent(name) {
         ref.current = e;
       }
     };
-    return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](name, newProps, props.children);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](name, newProps, props.children);
   });
 }
 
