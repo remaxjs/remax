@@ -1,14 +1,9 @@
 import path from 'path';
-import { Options, EntryInfo, AppConfig, Entries } from '@remax/types';
-import readManifest from './readManifest';
-import { appConfigFile, searchJSFile } from './build/utils/paths';
+import { Options, EntryInfo, Entries } from '@remax/types';
+import { searchJSFile } from './build/utils/paths';
 import winPath from './winPath';
 import API from './API';
-
-export const getAppConfig = (options: Options, api: API) => {
-  const config = readManifest(appConfigFile(options), options.target!, false) as AppConfig;
-  return api.onAppConfig(config);
-};
+import getAppConfig from './build/utils/getAppConfig';
 
 export function getPages(options: Options, api: API): EntryInfo[] {
   const appConfig = getAppConfig(options, api);

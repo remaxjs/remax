@@ -1,8 +1,8 @@
 import { compilation } from 'webpack';
 import { Options } from '@remax/types';
 import * as cacheable from './cacheable';
-import { getAppConfig } from '../../../../getEntries';
 import API from '../../../../API';
+import getAppConfig from '../../../utils/getAppConfig';
 
 export default function createAppManifest(options: Options, api: API, compilation: compilation.Compilation) {
   const config = getAppConfig(options, api);

@@ -20,7 +20,7 @@ import { generatePageRoutesInfo, entryName } from '../utils/web';
 
 function prepare(options: Options, api: API) {
   const entries = getEntries(options, api);
-  const appConfig = getAppConfig(options);
+  const appConfig = getAppConfig(options, api);
   const publicPath = '/';
 
   return {
