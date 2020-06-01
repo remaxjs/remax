@@ -205,7 +205,7 @@ var childHostContext = {};
   commitTextUpdate: function commitTextUpdate(node, oldText, newText) {
     if (oldText !== newText) {
       node.text = newText;
-      node.update('text');
+      node.update();
     }
   },
   prepareUpdate: function prepareUpdate(node, type, lastProps, nextProps) {
@@ -215,7 +215,7 @@ var childHostContext = {};
   },
   commitUpdate: function commitUpdate(node, updatePayload, type, oldProps, newProps) {
     node.props = processProps(newProps, node, node.id);
-    node.update('props', updatePayload);
+    node.update(updatePayload);
   },
   appendInitialChild: function appendInitialChild(parent, child) {
     parent.appendChild(child, false);
@@ -489,12 +489,8 @@ function () {
     }
   };
 
-  VNode.prototype.update = function (type, payload) {
-    if (type === void 0) {
-      type = 'props';
-    }
-
-    if (type === 'text' || !payload) {
+  VNode.prototype.update = function (payload) {
+    if (this.type === 'text' || !payload) {
       this.container.requestUpdate({
         type: 'splice',
         // root 不会更新，所以肯定有 parent

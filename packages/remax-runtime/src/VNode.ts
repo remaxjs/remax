@@ -165,8 +165,8 @@ export default class VNode {
     }
   }
 
-  update(type: 'text' | 'props' = 'props', payload?: any[]) {
-    if (type === 'text' || !payload) {
+  update(payload?: any[]) {
+    if (this.type === 'text' || !payload) {
       this.container.requestUpdate({
         type: 'splice',
         // root 不会更新，所以肯定有 parent
