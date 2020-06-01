@@ -279,7 +279,7 @@ it('pure rerender when props delete', done => {
   const payload: any[] = [];
   const context = {
     setData: (data: any) => {
-      payload.push(payload);
+      payload.push(data);
     },
   };
 
@@ -310,8 +310,36 @@ it('pure rerender when props delete', done => {
     expect(payload).toHaveLength(2);
     expect(payload).toMatchInlineSnapshot(`
       Array [
-        [Circular],
-        [Circular],
+        Object {
+          "root.children": Array [
+            10,
+          ],
+          "root.nodes.10": Object {
+            "children": Array [
+              9,
+            ],
+            "id": 10,
+            "nodes": Object {
+              "9": Object {
+                "children": Array [],
+                "id": 9,
+                "props": Object {
+                  "value": "foo",
+                },
+                "text": undefined,
+                "type": "input",
+              },
+            },
+            "props": Object {
+              "style": "width:32rpx;",
+            },
+            "text": undefined,
+            "type": "view",
+          },
+        },
+        Object {
+          "root.nodes.10.nodes.9.props.value": null,
+        },
       ]
     `);
     done();
