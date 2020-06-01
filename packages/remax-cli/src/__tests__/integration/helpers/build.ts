@@ -57,7 +57,7 @@ export default async function build(app: string, target: Platform, options: Part
   const config = getConfig();
   const api = new API();
 
-  api.registerPlugins(config);
+  api.registerPlugins(config.plugins);
 
   const externals: any = [
     nodeExternals({

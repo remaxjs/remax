@@ -18,8 +18,8 @@ import baseConfig from './baseConfig';
 import API from '../../API';
 import { generatePageRoutesInfo, entryName } from '../utils/web';
 
-function prepare(options: Options) {
-  const entries = getEntries(options);
+function prepare(options: Options, api: API) {
+  const entries = getEntries(options, api);
   const appConfig = getAppConfig(options);
   const publicPath = '/';
 
@@ -35,7 +35,7 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
 
   baseConfig(config, options, Platform.web);
 
-  const { entries, appConfig, publicPath } = prepare(options);
+  const { entries, appConfig, publicPath } = prepare(options, api);
 
   config.entry('index').add(entryName(options));
 
@@ -77,7 +77,7 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
   const entryTemplate = fs.readFileSync(path.resolve(__dirname, '../../../template/entry.js.ejs'), 'utf-8');
   const virtualModules = new VirtualModulesPlugin({
     [entryName(options)]: ejs.render(entryTemplate, {
-      pages: generatePageRoutesInfo(options, entries.pages),
+      pages: generatePageRoutesInfo(options, entries.pages, api),
       appConfig,
     }),
   });
@@ -100,7 +100,7 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
 
   config
     .plugin('remax-web-entry-watcher-plugin')
-    .use(RemaxPlugins.WebEntryWatcher, [virtualModules, entryTemplate, options]);
+    .use(RemaxPlugins.WebEntryWatcher, [virtualModules, entryTemplate, options, api]);
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [
     {
       filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].css' : '[name].css',

@@ -3,13 +3,15 @@ import { Options, EntryInfo, AppConfig, Entries } from '@remax/types';
 import readManifest from './readManifest';
 import { appConfigFile, searchJSFile } from './build/utils/paths';
 import winPath from './winPath';
+import API from './API';
 
-export const getAppConfig = (options: Options) => {
-  return readManifest(appConfigFile(options), options.target!, true) as AppConfig;
+export const getAppConfig = (options: Options, api: API) => {
+  const config = readManifest(appConfigFile(options), options.target!, false) as AppConfig;
+  return api.onAppConfig(config);
 };
 
-export function getPages(options: Options): EntryInfo[] {
-  const appConfig = getAppConfig(options);
+export function getPages(options: Options, api: API): EntryInfo[] {
+  const appConfig = getAppConfig(options, api);
   const ROOT_DIR = path.join(options.cwd, options.rootDir);
   const subPackages = appConfig.subPackages || appConfig.subpackages || [];
 
@@ -18,7 +20,7 @@ export function getPages(options: Options): EntryInfo[] {
   }
 
   // 页面
-  const pages = appConfig.pages.reduce(
+  const pages: Array<{ name: string; filename: string }> = appConfig.pages.reduce(
     (ret: EntryInfo[], page: string) => [
       ...ret,
       {
@@ -48,13 +50,13 @@ export function getPages(options: Options): EntryInfo[] {
   return pages.filter(page => !!page.filename);
 }
 
-export default function getEntries(options: Options): Entries {
+export default function getEntries(options: Options, api: API): Entries {
   const entries: Entries = {
     app: {
       name: 'app',
       filename: winPath(searchJSFile(path.join(options.cwd, options.rootDir, 'app'))),
     },
-    pages: getPages(options),
+    pages: getPages(options, api),
   };
 
   return entries;

@@ -5,10 +5,11 @@ import { matcher } from '../../../../extensions';
 import readManifest from '../../../../readManifest';
 import { isPluginPath } from '../../../utils/nativeComponent';
 import { compilation } from 'webpack';
-import { Options } from '@remax/types';
+import { Options, EntryInfo } from '@remax/types';
 import * as cacheable from './cacheable';
 import { pageConfigFile } from '../../../utils/paths';
 import winPath from '../../../../winPath';
+import API from '../../../../API';
 
 const NATIVE_COMPONENT_OUTPUT_DIR = 'remaxVendors';
 
@@ -54,13 +55,14 @@ function getUsingComponents(modules: string[], options: Options, compilation: co
 
 export default function createPageManifest(
   options: Options,
-  pagePath: string,
+  page: EntryInfo,
   modules: string[],
-  compilation: compilation.Compilation
+  compilation: compilation.Compilation,
+  api: API
 ) {
   const rootPath = winPath(path.join(options.cwd, options.rootDir) + '/');
-  const manifestPath = pagePath.replace(matcher, '.json').replace(rootPath, '');
-  const config = readManifest(pageConfigFile(pagePath), options.target!);
+  const manifestPath = page.filename.replace(matcher, '.json').replace(rootPath, '');
+  const config = readManifest(pageConfigFile(page.filename), options.target!);
   const usingComponents = getUsingComponents(modules, options, compilation);
 
   config.usingComponents = {
@@ -68,7 +70,14 @@ export default function createPageManifest(
     ...usingComponents,
   };
 
-  const source = JSON.stringify(config, null, 2);
+  const source = JSON.stringify(
+    api.onPageConfig({
+      page: page.name,
+      config,
+    }),
+    null,
+    2
+  );
 
   if (!cacheable.invalid(manifestPath, source)) {
     return;

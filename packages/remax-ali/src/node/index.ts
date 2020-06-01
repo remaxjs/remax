@@ -7,7 +7,6 @@ const TPL_STATIC_ROOT = path.join(__dirname, '../../templates', 'static');
 
 const plugin: PluginConstructor = () => {
   return {
-    name: 'remax-ali',
     meta: {
       global: 'my',
       template: {

@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { Options } from '@remax/types';
 import getEntries from '../../getEntries';
+import API from '../../API';
 
 export function searchJSFile(file: string) {
   const exts = ['ts', 'tsx', 'js', 'jsx'];
@@ -25,7 +26,7 @@ export function pageConfigFile(pageFile: string) {
   return searchJSFile(pageFile.replace(new RegExp(`\\${ext}$`), '.config'));
 }
 
-export function pageConfigFiles(options: Options) {
-  const entries = getEntries(options);
+export function pageConfigFiles(options: Options, api: API) {
+  const entries = getEntries(options, api);
   return entries.pages.map(p => pageConfigFile(p.filename));
 }
