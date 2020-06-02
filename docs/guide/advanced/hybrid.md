@@ -16,4 +16,4 @@ module.exports = {
 
 将原生页面放置到根目录下的 public 目录中。public 目录中的文件会被复制到 dist 目录中。
 
-例如：`cwd/public/pages/index/index.js` 会被复制到 `cwd/dist/pages/index/index.s`
+例如：`public/pages/index/index.js` 会被复制到 `dist/pages/index/index.js`

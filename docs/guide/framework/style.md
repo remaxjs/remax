@@ -86,7 +86,7 @@ css 中图片引用问题
 
 对于情况 1， 中的图片，可以放在项目根目录中的 public 目录中。public 目录中的文件会被复制到 dist 目录中。
 
-例如：`cwd/public/path/to/image.png` 会被复制到 `cwd/dist/path/to/image.png`
+例如：`public/path/to/image.png` 会被复制到 `dist/path/to/image.png`
 
 ## 样式补全
 
