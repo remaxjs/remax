@@ -187,6 +187,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
       pluginFiles: api.getRuntimePluginFiles(),
     }),
   });
+  config.plugin('webpack-virtual-modules').use(virtualModules);
 
   const publicDirPath = path.join(options.cwd, 'public');
 
@@ -195,7 +196,6 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
       .plugin('webpack-copy-plugin')
       .use(CopyPlugin, [[{ from: publicDirPath, to: path.join(options.cwd, options.output) }]]);
   }
-  config.plugin('webpack-virtual-modules').use(virtualModules);
   config.plugin('webpackbar').use(WebpackBar, [{ name: target }]);
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
