@@ -202,7 +202,6 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
   config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [api, options]);
   config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options]);
-  config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
 
   const context = {
     config,
