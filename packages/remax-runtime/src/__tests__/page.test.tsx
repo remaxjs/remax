@@ -24,6 +24,12 @@ describe('page', () => {
     it('works', () => {
       const log: string[] = [];
       const Foo: React.FC<PageProps> = () => {
+        usePageEvent('onLoad', () => {
+          log.push('useLoad');
+        });
+        usePageEvent('unload', () => {
+          log.push('useUnload');
+        });
         usePageEvent('onReady', () => {
           log.push('useReady');
         });
@@ -113,8 +119,10 @@ describe('page', () => {
       page.beforeTabItemTap();
       page.resize();
       page.hide();
+      page.unload();
 
       expect(log).toEqual([
+        'useLoad',
         'useShow',
         'useEventOnShow',
         'useReady',
@@ -137,6 +145,7 @@ describe('page', () => {
         // 测试了微信和阿里两个hook，所以有两个
         'useEventOnResize',
         'useHide',
+        'useUnload',
       ]);
     });
 
@@ -195,6 +204,14 @@ describe('page', () => {
 
       componentWillUnmount() {
         log.push('componentWillUnmount');
+      }
+
+      onLoad() {
+        log.push('onLoad');
+      }
+
+      unload() {
+        log.push('unload');
       }
 
       onShow() {
@@ -284,6 +301,7 @@ describe('page', () => {
     expect(log).toEqual([
       'componentWillMount',
       'componentDidMount',
+      'onLoad',
       'onShow',
       'onPullDownRefresh',
       'onPullIntercept',
@@ -302,6 +320,7 @@ describe('page', () => {
       'onTabItemTap',
       'onResize',
       'onResize',
+      'unload',
       'componentWillUnmount',
     ]);
   });
