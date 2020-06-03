@@ -122,12 +122,6 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
       },
     },
 
-    /**
-     * lifecycle end
-     */
-  };
-
-  const lifecycleEvents: any = {
     onShow() {
       return this.callLifecycle(Lifecycle.show);
     },
@@ -154,14 +148,6 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
       return this.callLifecycle(Lifecycle.reachBottom);
     },
 
-    onPageScroll(e: any) {
-      return this.callLifecycle(Lifecycle.pageScroll, e);
-    },
-
-    onShareAppMessage(options: any) {
-      return this.callLifecycle(Lifecycle.shareAppMessage, options) || {};
-    },
-
     onTitleClick() {
       return this.callLifecycle(Lifecycle.titleClick);
     },
@@ -176,6 +162,20 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
 
     onPullIntercept() {
       return this.callLifecycle(Lifecycle.pullIntercept);
+    },
+
+    /**
+     * lifecycle end
+     */
+  };
+
+  const lifecycleEvents: any = {
+    onPageScroll(e: any) {
+      return this.callLifecycle(Lifecycle.pageScroll, e);
+    },
+
+    onShareAppMessage(options: any) {
+      return this.callLifecycle(Lifecycle.shareAppMessage, options) || {};
     },
   };
 
