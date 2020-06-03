@@ -833,9 +833,8 @@ style="{{_h.v(i.props['style'])}}">
 </template>
 
 		<template name="REMAX_TPL_1_input">
-    
-    <input wx:if="{{i.props.focus}}" focus
-      adjust-position="{{_h.v(i.props['adjust-position'])}}"
+  <input
+    adjust-position="{{_h.v(i.props['adjust-position'])}}"
 animation="{{_h.v(i.props['animation'])}}"
 auto-focus="{{_h.v(i.props['auto-focus'])}}"
 bindblur="{{_h.v(i.props['bindblur'])}}"
@@ -850,6 +849,7 @@ confirm-type="{{_h.v(i.props['confirm-type'])}}"
 cursor="{{_h.v(i.props['cursor'])}}"
 cursor-spacing="{{_h.v(i.props['cursor-spacing'])}}"
 disabled="{{_h.v(i.props['disabled'])}}"
+focus="{{_h.v(i.props['focus'])}}"
 id="{{_h.v(i.props['id'])}}"
 maxlength="{{_h.v(i.props['maxlength'])}}"
 name="{{_h.v(i.props['name'])}}"
@@ -861,35 +861,11 @@ selection-end="{{_h.v(i.props['selection-end'])}}"
 selection-start="{{_h.v(i.props['selection-start'])}}"
 style="{{_h.v(i.props['style'])}}"
 type="{{_h.v(i.props['type'])}}"
-value="{{_h.v(i.props['value'])}}"
-    />
-    <input wx:else adjust-position="{{_h.v(i.props['adjust-position'])}}"
-animation="{{_h.v(i.props['animation'])}}"
-auto-focus="{{_h.v(i.props['auto-focus'])}}"
-bindblur="{{_h.v(i.props['bindblur'])}}"
-bindconfirm="{{_h.v(i.props['bindconfirm'])}}"
-bindfocus="{{_h.v(i.props['bindfocus'])}}"
-bindinput="{{_h.v(i.props['bindinput'])}}"
-bindkeyboardheightchange="{{_h.v(i.props['bindkeyboardheightchange'])}}"
-bindtap="{{_h.v(i.props['bindtap'])}}"
-class="{{_h.v(i.props['class'])}}"
-confirm-hold="{{_h.v(i.props['confirm-hold'])}}"
-confirm-type="{{_h.v(i.props['confirm-type'])}}"
-cursor="{{_h.v(i.props['cursor'])}}"
-cursor-spacing="{{_h.v(i.props['cursor-spacing'])}}"
-disabled="{{_h.v(i.props['disabled'])}}"
-id="{{_h.v(i.props['id'])}}"
-maxlength="{{_h.v(i.props['maxlength'])}}"
-name="{{_h.v(i.props['name'])}}"
-password="{{_h.v(i.props['password'])}}"
-placeholder="{{_h.v(i.props['placeholder'])}}"
-placeholder-class="{{_h.v(i.props['placeholder-class'])}}"
-placeholder-style="{{_h.v(i.props['placeholder-style'])}}"
-selection-end="{{_h.v(i.props['selection-end'])}}"
-selection-start="{{_h.v(i.props['selection-start'])}}"
-style="{{_h.v(i.props['style'])}}"
-type="{{_h.v(i.props['type'])}}"
-value="{{_h.v(i.props['value'])}}" />
+value="{{_h.v(i.props['value'])}}">
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+    </block>
+  </input>
 </template>
 
 		<template name="REMAX_TPL_1_label">
@@ -1695,8 +1671,8 @@ style="{{_h.v(i.props['style'])}}">
 </template>
 
 		<template name="REMAX_TPL_1_scroll-view">
-    
-    <scroll-view wx:if="{{i.props['scroll-y'] && i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}" animation="{{_h.v(i.props['animation'])}}"
+  <scroll-view
+    animation="{{_h.v(i.props['animation'])}}"
 bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
 bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
 bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
@@ -1721,88 +1697,22 @@ refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
 refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
 scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
 scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
+scroll-left="{{_h.v(i.props['scroll-left'])}}"
+scroll-top="{{_h.v(i.props['scroll-top'])}}"
 scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
 scroll-x="{{_h.v(i.props['scroll-x'])}}"
 scroll-y="{{_h.v(i.props['scroll-y'])}}"
 style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-x'] && i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}" animation="{{_h.v(i.props['animation'])}}"
-bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
-bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
-bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
-bindrefresherrestore="{{_h.v(i.props['bindrefresherrestore'])}}"
-bindscroll="{{_h.v(i.props['bindscroll'])}}"
-bindscrolltolower="{{_h.v(i.props['bindscrolltolower'])}}"
-bindscrolltoupper="{{_h.v(i.props['bindscrolltoupper'])}}"
-bindtap="{{_h.v(i.props['bindtap'])}}"
-bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"
-bindtouchend="{{_h.v(i.props['bindtouchend'])}}"
-bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"
-bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
-class="{{_h.v(i.props['class'])}}"
-enable-back-to-top="{{_h.v(i.props['enable-back-to-top'])}}"
-enable-flex="{{_h.v(i.props['enable-flex'])}}"
-id="{{_h.v(i.props['id'])}}"
-lower-threshold="{{_h.v(i.props['lower-threshold'])}}"
-refresher-background="{{_h.v(i.props['refresher-background'])}}"
-refresher-default-style="{{_h.v(i.props['refresher-default-style'])}}"
-refresher-enabled="{{_h.v(i.props['refresher-enabled'])}}"
-refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
-refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
-scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
-scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
-scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
-scroll-x="{{_h.v(i.props['scroll-x'])}}"
-scroll-y="{{_h.v(i.props['scroll-y'])}}"
-style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
-    <scroll-view wx:else animation="{{_h.v(i.props['animation'])}}"
-bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
-bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
-bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
-bindrefresherrestore="{{_h.v(i.props['bindrefresherrestore'])}}"
-bindscroll="{{_h.v(i.props['bindscroll'])}}"
-bindscrolltolower="{{_h.v(i.props['bindscrolltolower'])}}"
-bindscrolltoupper="{{_h.v(i.props['bindscrolltoupper'])}}"
-bindtap="{{_h.v(i.props['bindtap'])}}"
-bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"
-bindtouchend="{{_h.v(i.props['bindtouchend'])}}"
-bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"
-bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
-class="{{_h.v(i.props['class'])}}"
-enable-back-to-top="{{_h.v(i.props['enable-back-to-top'])}}"
-enable-flex="{{_h.v(i.props['enable-flex'])}}"
-id="{{_h.v(i.props['id'])}}"
-lower-threshold="{{_h.v(i.props['lower-threshold'])}}"
-refresher-background="{{_h.v(i.props['refresher-background'])}}"
-refresher-default-style="{{_h.v(i.props['refresher-default-style'])}}"
-refresher-enabled="{{_h.v(i.props['refresher-enabled'])}}"
-refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
-refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
-scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
-scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
-scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
-scroll-x="{{_h.v(i.props['scroll-x'])}}"
-scroll-y="{{_h.v(i.props['scroll-y'])}}"
-style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
+upper-threshold="{{_h.v(i.props['upper-threshold'])}}">
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+    </block>
+  </scroll-view>
 </template>
 
 		<template name="REMAX_TPL_2_scroll-view">
-    
-    <scroll-view wx:if="{{i.props['scroll-y'] && i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}" animation="{{_h.v(i.props['animation'])}}"
+  <scroll-view
+    animation="{{_h.v(i.props['animation'])}}"
 bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
 bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
 bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
@@ -1827,88 +1737,22 @@ refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
 refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
 scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
 scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
+scroll-left="{{_h.v(i.props['scroll-left'])}}"
+scroll-top="{{_h.v(i.props['scroll-top'])}}"
 scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
 scroll-x="{{_h.v(i.props['scroll-x'])}}"
 scroll-y="{{_h.v(i.props['scroll-y'])}}"
 style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-x'] && i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}" animation="{{_h.v(i.props['animation'])}}"
-bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
-bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
-bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
-bindrefresherrestore="{{_h.v(i.props['bindrefresherrestore'])}}"
-bindscroll="{{_h.v(i.props['bindscroll'])}}"
-bindscrolltolower="{{_h.v(i.props['bindscrolltolower'])}}"
-bindscrolltoupper="{{_h.v(i.props['bindscrolltoupper'])}}"
-bindtap="{{_h.v(i.props['bindtap'])}}"
-bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"
-bindtouchend="{{_h.v(i.props['bindtouchend'])}}"
-bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"
-bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
-class="{{_h.v(i.props['class'])}}"
-enable-back-to-top="{{_h.v(i.props['enable-back-to-top'])}}"
-enable-flex="{{_h.v(i.props['enable-flex'])}}"
-id="{{_h.v(i.props['id'])}}"
-lower-threshold="{{_h.v(i.props['lower-threshold'])}}"
-refresher-background="{{_h.v(i.props['refresher-background'])}}"
-refresher-default-style="{{_h.v(i.props['refresher-default-style'])}}"
-refresher-enabled="{{_h.v(i.props['refresher-enabled'])}}"
-refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
-refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
-scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
-scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
-scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
-scroll-x="{{_h.v(i.props['scroll-x'])}}"
-scroll-y="{{_h.v(i.props['scroll-y'])}}"
-style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
-    <scroll-view wx:else animation="{{_h.v(i.props['animation'])}}"
-bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
-bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
-bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
-bindrefresherrestore="{{_h.v(i.props['bindrefresherrestore'])}}"
-bindscroll="{{_h.v(i.props['bindscroll'])}}"
-bindscrolltolower="{{_h.v(i.props['bindscrolltolower'])}}"
-bindscrolltoupper="{{_h.v(i.props['bindscrolltoupper'])}}"
-bindtap="{{_h.v(i.props['bindtap'])}}"
-bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"
-bindtouchend="{{_h.v(i.props['bindtouchend'])}}"
-bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"
-bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
-class="{{_h.v(i.props['class'])}}"
-enable-back-to-top="{{_h.v(i.props['enable-back-to-top'])}}"
-enable-flex="{{_h.v(i.props['enable-flex'])}}"
-id="{{_h.v(i.props['id'])}}"
-lower-threshold="{{_h.v(i.props['lower-threshold'])}}"
-refresher-background="{{_h.v(i.props['refresher-background'])}}"
-refresher-default-style="{{_h.v(i.props['refresher-default-style'])}}"
-refresher-enabled="{{_h.v(i.props['refresher-enabled'])}}"
-refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
-refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
-scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
-scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
-scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
-scroll-x="{{_h.v(i.props['scroll-x'])}}"
-scroll-y="{{_h.v(i.props['scroll-y'])}}"
-style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
+upper-threshold="{{_h.v(i.props['upper-threshold'])}}">
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+    </block>
+  </scroll-view>
 </template>
 
 		<template name="REMAX_TPL_3_scroll-view">
-    
-    <scroll-view wx:if="{{i.props['scroll-y'] && i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}" animation="{{_h.v(i.props['animation'])}}"
+  <scroll-view
+    animation="{{_h.v(i.props['animation'])}}"
 bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
 bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
 bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
@@ -1933,88 +1777,22 @@ refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
 refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
 scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
 scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
+scroll-left="{{_h.v(i.props['scroll-left'])}}"
+scroll-top="{{_h.v(i.props['scroll-top'])}}"
 scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
 scroll-x="{{_h.v(i.props['scroll-x'])}}"
 scroll-y="{{_h.v(i.props['scroll-y'])}}"
 style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-x'] && i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}" animation="{{_h.v(i.props['animation'])}}"
-bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
-bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
-bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
-bindrefresherrestore="{{_h.v(i.props['bindrefresherrestore'])}}"
-bindscroll="{{_h.v(i.props['bindscroll'])}}"
-bindscrolltolower="{{_h.v(i.props['bindscrolltolower'])}}"
-bindscrolltoupper="{{_h.v(i.props['bindscrolltoupper'])}}"
-bindtap="{{_h.v(i.props['bindtap'])}}"
-bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"
-bindtouchend="{{_h.v(i.props['bindtouchend'])}}"
-bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"
-bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
-class="{{_h.v(i.props['class'])}}"
-enable-back-to-top="{{_h.v(i.props['enable-back-to-top'])}}"
-enable-flex="{{_h.v(i.props['enable-flex'])}}"
-id="{{_h.v(i.props['id'])}}"
-lower-threshold="{{_h.v(i.props['lower-threshold'])}}"
-refresher-background="{{_h.v(i.props['refresher-background'])}}"
-refresher-default-style="{{_h.v(i.props['refresher-default-style'])}}"
-refresher-enabled="{{_h.v(i.props['refresher-enabled'])}}"
-refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
-refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
-scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
-scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
-scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
-scroll-x="{{_h.v(i.props['scroll-x'])}}"
-scroll-y="{{_h.v(i.props['scroll-y'])}}"
-style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
-    <scroll-view wx:else animation="{{_h.v(i.props['animation'])}}"
-bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
-bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
-bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
-bindrefresherrestore="{{_h.v(i.props['bindrefresherrestore'])}}"
-bindscroll="{{_h.v(i.props['bindscroll'])}}"
-bindscrolltolower="{{_h.v(i.props['bindscrolltolower'])}}"
-bindscrolltoupper="{{_h.v(i.props['bindscrolltoupper'])}}"
-bindtap="{{_h.v(i.props['bindtap'])}}"
-bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"
-bindtouchend="{{_h.v(i.props['bindtouchend'])}}"
-bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"
-bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
-class="{{_h.v(i.props['class'])}}"
-enable-back-to-top="{{_h.v(i.props['enable-back-to-top'])}}"
-enable-flex="{{_h.v(i.props['enable-flex'])}}"
-id="{{_h.v(i.props['id'])}}"
-lower-threshold="{{_h.v(i.props['lower-threshold'])}}"
-refresher-background="{{_h.v(i.props['refresher-background'])}}"
-refresher-default-style="{{_h.v(i.props['refresher-default-style'])}}"
-refresher-enabled="{{_h.v(i.props['refresher-enabled'])}}"
-refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
-refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
-scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
-scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
-scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
-scroll-x="{{_h.v(i.props['scroll-x'])}}"
-scroll-y="{{_h.v(i.props['scroll-y'])}}"
-style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
+upper-threshold="{{_h.v(i.props['upper-threshold'])}}">
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+    </block>
+  </scroll-view>
 </template>
 
 		<template name="REMAX_TPL_4_scroll-view">
-    
-    <scroll-view wx:if="{{i.props['scroll-y'] && i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}" animation="{{_h.v(i.props['animation'])}}"
+  <scroll-view
+    animation="{{_h.v(i.props['animation'])}}"
 bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
 bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
 bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
@@ -2039,88 +1817,22 @@ refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
 refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
 scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
 scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
+scroll-left="{{_h.v(i.props['scroll-left'])}}"
+scroll-top="{{_h.v(i.props['scroll-top'])}}"
 scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
 scroll-x="{{_h.v(i.props['scroll-x'])}}"
 scroll-y="{{_h.v(i.props['scroll-y'])}}"
 style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-x'] && i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}" animation="{{_h.v(i.props['animation'])}}"
-bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
-bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
-bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
-bindrefresherrestore="{{_h.v(i.props['bindrefresherrestore'])}}"
-bindscroll="{{_h.v(i.props['bindscroll'])}}"
-bindscrolltolower="{{_h.v(i.props['bindscrolltolower'])}}"
-bindscrolltoupper="{{_h.v(i.props['bindscrolltoupper'])}}"
-bindtap="{{_h.v(i.props['bindtap'])}}"
-bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"
-bindtouchend="{{_h.v(i.props['bindtouchend'])}}"
-bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"
-bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
-class="{{_h.v(i.props['class'])}}"
-enable-back-to-top="{{_h.v(i.props['enable-back-to-top'])}}"
-enable-flex="{{_h.v(i.props['enable-flex'])}}"
-id="{{_h.v(i.props['id'])}}"
-lower-threshold="{{_h.v(i.props['lower-threshold'])}}"
-refresher-background="{{_h.v(i.props['refresher-background'])}}"
-refresher-default-style="{{_h.v(i.props['refresher-default-style'])}}"
-refresher-enabled="{{_h.v(i.props['refresher-enabled'])}}"
-refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
-refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
-scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
-scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
-scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
-scroll-x="{{_h.v(i.props['scroll-x'])}}"
-scroll-y="{{_h.v(i.props['scroll-y'])}}"
-style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
-    <scroll-view wx:else animation="{{_h.v(i.props['animation'])}}"
-bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
-bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
-bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
-bindrefresherrestore="{{_h.v(i.props['bindrefresherrestore'])}}"
-bindscroll="{{_h.v(i.props['bindscroll'])}}"
-bindscrolltolower="{{_h.v(i.props['bindscrolltolower'])}}"
-bindscrolltoupper="{{_h.v(i.props['bindscrolltoupper'])}}"
-bindtap="{{_h.v(i.props['bindtap'])}}"
-bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"
-bindtouchend="{{_h.v(i.props['bindtouchend'])}}"
-bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"
-bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
-class="{{_h.v(i.props['class'])}}"
-enable-back-to-top="{{_h.v(i.props['enable-back-to-top'])}}"
-enable-flex="{{_h.v(i.props['enable-flex'])}}"
-id="{{_h.v(i.props['id'])}}"
-lower-threshold="{{_h.v(i.props['lower-threshold'])}}"
-refresher-background="{{_h.v(i.props['refresher-background'])}}"
-refresher-default-style="{{_h.v(i.props['refresher-default-style'])}}"
-refresher-enabled="{{_h.v(i.props['refresher-enabled'])}}"
-refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
-refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
-scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
-scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
-scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
-scroll-x="{{_h.v(i.props['scroll-x'])}}"
-scroll-y="{{_h.v(i.props['scroll-y'])}}"
-style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
+upper-threshold="{{_h.v(i.props['upper-threshold'])}}">
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+    </block>
+  </scroll-view>
 </template>
 
 		<template name="REMAX_TPL_5_scroll-view">
-    
-    <scroll-view wx:if="{{i.props['scroll-y'] && i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}" animation="{{_h.v(i.props['animation'])}}"
+  <scroll-view
+    animation="{{_h.v(i.props['animation'])}}"
 bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
 bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
 bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
@@ -2145,83 +1857,17 @@ refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
 refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
 scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
 scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
+scroll-left="{{_h.v(i.props['scroll-left'])}}"
+scroll-top="{{_h.v(i.props['scroll-top'])}}"
 scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
 scroll-x="{{_h.v(i.props['scroll-x'])}}"
 scroll-y="{{_h.v(i.props['scroll-y'])}}"
 style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
-    <scroll-view wx:elif="{{i.props['scroll-x'] && i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}" animation="{{_h.v(i.props['animation'])}}"
-bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
-bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
-bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
-bindrefresherrestore="{{_h.v(i.props['bindrefresherrestore'])}}"
-bindscroll="{{_h.v(i.props['bindscroll'])}}"
-bindscrolltolower="{{_h.v(i.props['bindscrolltolower'])}}"
-bindscrolltoupper="{{_h.v(i.props['bindscrolltoupper'])}}"
-bindtap="{{_h.v(i.props['bindtap'])}}"
-bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"
-bindtouchend="{{_h.v(i.props['bindtouchend'])}}"
-bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"
-bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
-class="{{_h.v(i.props['class'])}}"
-enable-back-to-top="{{_h.v(i.props['enable-back-to-top'])}}"
-enable-flex="{{_h.v(i.props['enable-flex'])}}"
-id="{{_h.v(i.props['id'])}}"
-lower-threshold="{{_h.v(i.props['lower-threshold'])}}"
-refresher-background="{{_h.v(i.props['refresher-background'])}}"
-refresher-default-style="{{_h.v(i.props['refresher-default-style'])}}"
-refresher-enabled="{{_h.v(i.props['refresher-enabled'])}}"
-refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
-refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
-scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
-scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
-scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
-scroll-x="{{_h.v(i.props['scroll-x'])}}"
-scroll-y="{{_h.v(i.props['scroll-y'])}}"
-style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
-    <scroll-view wx:else animation="{{_h.v(i.props['animation'])}}"
-bindrefresherabort="{{_h.v(i.props['bindrefresherabort'])}}"
-bindrefresherpulling="{{_h.v(i.props['bindrefresherpulling'])}}"
-bindrefresherrefresh="{{_h.v(i.props['bindrefresherrefresh'])}}"
-bindrefresherrestore="{{_h.v(i.props['bindrefresherrestore'])}}"
-bindscroll="{{_h.v(i.props['bindscroll'])}}"
-bindscrolltolower="{{_h.v(i.props['bindscrolltolower'])}}"
-bindscrolltoupper="{{_h.v(i.props['bindscrolltoupper'])}}"
-bindtap="{{_h.v(i.props['bindtap'])}}"
-bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"
-bindtouchend="{{_h.v(i.props['bindtouchend'])}}"
-bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"
-bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
-class="{{_h.v(i.props['class'])}}"
-enable-back-to-top="{{_h.v(i.props['enable-back-to-top'])}}"
-enable-flex="{{_h.v(i.props['enable-flex'])}}"
-id="{{_h.v(i.props['id'])}}"
-lower-threshold="{{_h.v(i.props['lower-threshold'])}}"
-refresher-background="{{_h.v(i.props['refresher-background'])}}"
-refresher-default-style="{{_h.v(i.props['refresher-default-style'])}}"
-refresher-enabled="{{_h.v(i.props['refresher-enabled'])}}"
-refresher-threshold="{{_h.v(i.props['refresher-threshold'])}}"
-refresher-triggered="{{_h.v(i.props['refresher-triggered'])}}"
-scroll-anchoring="{{_h.v(i.props['scroll-anchoring'])}}"
-scroll-into-view="{{_h.v(i.props['scroll-into-view'])}}"
-scroll-with-animation="{{_h.v(i.props['scroll-with-animation'])}}"
-scroll-x="{{_h.v(i.props['scroll-x'])}}"
-scroll-y="{{_h.v(i.props['scroll-y'])}}"
-style="{{_h.v(i.props['style'])}}"
-upper-threshold="{{_h.v(i.props['upper-threshold'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </scroll-view>
+upper-threshold="{{_h.v(i.props['upper-threshold'])}}">
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+    </block>
+  </scroll-view>
 </template>
 
 		<template name="REMAX_TPL_1_slider">
@@ -2253,8 +1899,8 @@ value="{{_h.v(i.props['value'])}}">
 </template>
 
 		<template name="REMAX_TPL_1_swiper">
-    
-    <swiper wx:if="{{i.props.current !== undefined && i.props.current !== null}}" current="{{i.props.current}}" animation="{{_h.v(i.props['animation'])}}"
+  <swiper
+    animation="{{_h.v(i.props['animation'])}}"
 autoplay="{{_h.v(i.props['autoplay'])}}"
 bindanimationfinish="{{_h.v(i.props['bindanimationfinish'])}}"
 bindchange="{{_h.v(i.props['bindchange'])}}"
@@ -2262,6 +1908,7 @@ bindtap="{{_h.v(i.props['bindtap'])}}"
 bindtransition="{{_h.v(i.props['bindtransition'])}}"
 circular="{{_h.v(i.props['circular'])}}"
 class="{{_h.v(i.props['class'])}}"
+current="{{_h.v(i.props['current'])}}"
 display-multiple-items="{{_h.v(i.props['display-multiple-items'])}}"
 duration="{{_h.v(i.props['duration'])}}"
 easing-function="{{_h.v(i.props['easing-function'])}}"
@@ -2274,44 +1921,15 @@ next-margin="{{_h.v(i.props['next-margin'])}}"
 previous-margin="{{_h.v(i.props['previous-margin'])}}"
 skip-hidden-item-layout="{{_h.v(i.props['skip-hidden-item-layout'])}}"
 style="{{_h.v(i.props['style'])}}"
-vertical="{{_h.v(i.props['vertical'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <swiper-item item-id="{{i.nodes[item].props.itemId}}" key="{{i.nodes[item].props.key}}">
-          <block wx:for="{{i.nodes[item].children}}" wx:key="*this" wx:for-item="sItem">
-            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}" />
-          </block>
-        </swiper-item>
-      </block>
-    </swiper>
-    <swiper wx:else animation="{{_h.v(i.props['animation'])}}"
-autoplay="{{_h.v(i.props['autoplay'])}}"
-bindanimationfinish="{{_h.v(i.props['bindanimationfinish'])}}"
-bindchange="{{_h.v(i.props['bindchange'])}}"
-bindtap="{{_h.v(i.props['bindtap'])}}"
-bindtransition="{{_h.v(i.props['bindtransition'])}}"
-circular="{{_h.v(i.props['circular'])}}"
-class="{{_h.v(i.props['class'])}}"
-display-multiple-items="{{_h.v(i.props['display-multiple-items'])}}"
-duration="{{_h.v(i.props['duration'])}}"
-easing-function="{{_h.v(i.props['easing-function'])}}"
-id="{{_h.v(i.props['id'])}}"
-indicator-active-color="{{_h.v(i.props['indicator-active-color'])}}"
-indicator-color="{{_h.v(i.props['indicator-color'])}}"
-indicator-dots="{{_h.v(i.props['indicator-dots'])}}"
-interval="{{_h.v(i.props['interval'])}}"
-next-margin="{{_h.v(i.props['next-margin'])}}"
-previous-margin="{{_h.v(i.props['previous-margin'])}}"
-skip-hidden-item-layout="{{_h.v(i.props['skip-hidden-item-layout'])}}"
-style="{{_h.v(i.props['style'])}}"
-vertical="{{_h.v(i.props['vertical'])}}" >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <swiper-item item-id="{{i.nodes[item].props.itemId}}" key="{{i.nodes[item].props.key}}">
-          <block wx:for="{{i.nodes[item].children}}" wx:key="*this" wx:for-item="sItem">
-            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}" />
-          </block>
-        </swiper-item>
-      </block>
-    </swiper>
+vertical="{{_h.v(i.props['vertical'])}}">
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <swiper-item item-id="{{i.nodes[item].props.itemId}}" key="{{i.nodes[item].props.key}}">
+        <block wx:for="{{i.nodes[item].children}}" wx:key="*this" wx:for-item="sItem">
+          <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}" />
+        </block>
+      </swiper-item>
+    </block>
+  </swiper>
 </template>
 
 		<template name="REMAX_TPL_1_switch">
@@ -2575,9 +2193,8 @@ style="{{_h.v(i.props['style'])}}">
 </template>
 
 		<template name="REMAX_TPL_1_textarea">
-    
-    <textarea wx:if="{{i.props.focus}}" focus
-      adjust-position="{{_h.v(i.props['adjust-position'])}}"
+  <textarea
+    adjust-position="{{_h.v(i.props['adjust-position'])}}"
 animation="{{_h.v(i.props['animation'])}}"
 auto-focus="{{_h.v(i.props['auto-focus'])}}"
 auto-height="{{_h.v(i.props['auto-height'])}}"
@@ -2593,6 +2210,7 @@ cursor="{{_h.v(i.props['cursor'])}}"
 cursor-spacing="{{_h.v(i.props['cursor-spacing'])}}"
 disabled="{{_h.v(i.props['disabled'])}}"
 fixed="{{_h.v(i.props['fixed'])}}"
+focus="{{_h.v(i.props['focus'])}}"
 hold-keyboard="{{_h.v(i.props['hold-keyboard'])}}"
 id="{{_h.v(i.props['id'])}}"
 maxlength="{{_h.v(i.props['maxlength'])}}"
@@ -2605,37 +2223,11 @@ selection-start="{{_h.v(i.props['selection-start'])}}"
 show-confirm-bar="{{_h.v(i.props['show-confirm-bar'])}}"
 show-count="{{_h.v(i.props['show-count'])}}"
 style="{{_h.v(i.props['style'])}}"
-value="{{_h.v(i.props['value'])}}"
-    />
-    <textarea wx:else adjust-position="{{_h.v(i.props['adjust-position'])}}"
-animation="{{_h.v(i.props['animation'])}}"
-auto-focus="{{_h.v(i.props['auto-focus'])}}"
-auto-height="{{_h.v(i.props['auto-height'])}}"
-bindblur="{{_h.v(i.props['bindblur'])}}"
-bindconfirm="{{_h.v(i.props['bindconfirm'])}}"
-bindfocus="{{_h.v(i.props['bindfocus'])}}"
-bindinput="{{_h.v(i.props['bindinput'])}}"
-bindkeyboardheightchange="{{_h.v(i.props['bindkeyboardheightchange'])}}"
-bindlinechange="{{_h.v(i.props['bindlinechange'])}}"
-class="{{_h.v(i.props['class'])}}"
-controlled="{{_h.v(i.props['controlled'])}}"
-cursor="{{_h.v(i.props['cursor'])}}"
-cursor-spacing="{{_h.v(i.props['cursor-spacing'])}}"
-disabled="{{_h.v(i.props['disabled'])}}"
-fixed="{{_h.v(i.props['fixed'])}}"
-hold-keyboard="{{_h.v(i.props['hold-keyboard'])}}"
-id="{{_h.v(i.props['id'])}}"
-maxlength="{{_h.v(i.props['maxlength'])}}"
-name="{{_h.v(i.props['name'])}}"
-placeholder="{{_h.v(i.props['placeholder'])}}"
-placeholder-class="{{_h.v(i.props['placeholder-class'])}}"
-placeholder-style="{{_h.v(i.props['placeholder-style'])}}"
-selection-end="{{_h.v(i.props['selection-end'])}}"
-selection-start="{{_h.v(i.props['selection-start'])}}"
-show-confirm-bar="{{_h.v(i.props['show-confirm-bar'])}}"
-show-count="{{_h.v(i.props['show-count'])}}"
-style="{{_h.v(i.props['style'])}}"
-value="{{_h.v(i.props['value'])}}" />
+value="{{_h.v(i.props['value'])}}">
+    <block wx:for="{{i.children}}" wx:key="*this">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+    </block>
+  </textarea>
 </template>
 
 		<template name="REMAX_TPL_1_video">
