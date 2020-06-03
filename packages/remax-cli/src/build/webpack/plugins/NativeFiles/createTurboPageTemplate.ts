@@ -3,11 +3,11 @@ import { compilation } from 'webpack';
 import ejs from 'ejs';
 import { nativeComponents } from '@remax/macro';
 import { Options, Meta } from '@remax/types';
+import { slash } from '@remax/shared';
 import { TEMPLATE_ID } from '../../../babel/compiler/static/constants';
 import { templateInfoMap } from '../../../babel/compiler/static/render/templates';
 import { createRenderOptions } from './createPageTemplate';
 import { ComponentManifest } from '../../../babel/componentManifest';
-import winPath from '../../../../winPath';
 import API from '../../../../API';
 
 export default async function createTurboPageTemplate(
@@ -19,8 +19,8 @@ export default async function createTurboPageTemplate(
   compilation: compilation.Compilation
 ) {
   const renderOptions: any = createRenderOptions(api);
-  const pagePath = winPath(pageFile).replace(winPath(path.join(options.cwd, options.rootDir)) + '/', '');
-  const fileName = winPath(
+  const pagePath = slash(pageFile).replace(slash(path.join(options.cwd, options.rootDir)) + '/', '');
+  const fileName = slash(
     `${path.dirname(pagePath)}/${path.basename(pagePath, path.extname(pagePath))}${meta.template.extension}`
   );
 
@@ -30,7 +30,7 @@ export default async function createTurboPageTemplate(
 
   const entries = templateInfoMap
     .values()
-    .filter((template: any) => template.isEntry && winPath(template.module) === pageFile);
+    .filter((template: any) => template.isEntry && slash(template.module) === pageFile);
 
   renderOptions.components = (renderOptions.components as ComponentManifest[]).filter(c => {
     if (c.type !== 'native') {
