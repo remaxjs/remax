@@ -71,9 +71,7 @@ export default function createAppConfig(this: any, App: any) {
           this._container
         );
       },
-    };
 
-    const lifecycleEvent: any = {
       onShow(options: any) {
         return this.callLifecycle(AppLifecycle.show, options);
       },
@@ -84,11 +82,6 @@ export default function createAppConfig(this: any, App: any) {
 
       onError(error: any) {
         return this.callLifecycle(AppLifecycle.error, error);
-      },
-
-      // 阿里
-      onShareAppMessage(options: any) {
-        return this.callLifecycle(AppLifecycle.shareAppMessage, options);
       },
 
       // 微信
@@ -104,6 +97,13 @@ export default function createAppConfig(this: any, App: any) {
       // 微信
       onThemeChange(options: any) {
         return this.callLifecycle(AppLifecycle.themeChange, options);
+      },
+    };
+
+    const lifecycleEvent: any = {
+      // 阿里
+      onShareAppMessage(options: any) {
+        return this.callLifecycle(AppLifecycle.shareAppMessage, options);
       },
     };
 

@@ -7,7 +7,7 @@ import Page from './helpers/Page';
 jest.mock('../stopPullDownRefresh', () => () => void 0);
 
 const ALL_EVENTS_PAGE = 'pages/test/index';
-const ONLY_ON_SHOW_PAGE = 'pages/test/only/onshow';
+const NO_APP_SHARE_AND_PAGE_SCROLL_PAGE = 'pages/test/only/onshow';
 
 describe('page query hook', () => {
   beforeEach(() => {
@@ -80,13 +80,17 @@ describe('page query hook', () => {
       return <div />;
     };
 
-    const page = Page(createPageConfig(TestPage, ONLY_ON_SHOW_PAGE));
+    const page = Page(createPageConfig(TestPage, NO_APP_SHARE_AND_PAGE_SCROLL_PAGE));
 
     page.load();
     page.show();
 
     expect(() => {
-      page.pullDownRefresh();
+      page.shareAppMessage();
+    }).toThrow();
+
+    expect(() => {
+      page.pageScroll();
     }).toThrow();
   });
 });

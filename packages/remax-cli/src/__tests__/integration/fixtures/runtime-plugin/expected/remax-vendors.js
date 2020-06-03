@@ -1869,9 +1869,7 @@ function createAppConfig(App) {
         return Object(_render__WEBPACK_IMPORTED_MODULE_3__["default"])(react__WEBPACK_IMPORTED_MODULE_1__["createElement"](AppComponent, props, this._pages.map(function (p) {
           return p.element;
         })), this._container);
-      }
-    };
-    var lifecycleEvent = {
+      },
       onShow: function onShow(options) {
         return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_6__["AppLifecycle"].show, options);
       },
@@ -1880,10 +1878,6 @@ function createAppConfig(App) {
       },
       onError: function onError(error) {
         return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_6__["AppLifecycle"].error, error);
-      },
-      // 阿里
-      onShareAppMessage: function onShareAppMessage(options) {
-        return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_6__["AppLifecycle"].shareAppMessage, options);
       },
       // 微信
       onPageNotFound: function onPageNotFound(options) {
@@ -1896,6 +1890,12 @@ function createAppConfig(App) {
       // 微信
       onThemeChange: function onThemeChange(options) {
         return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_6__["AppLifecycle"].themeChange, options);
+      }
+    };
+    var lifecycleEvent = {
+      // 阿里
+      onShareAppMessage: function onShareAppMessage(options) {
+        return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_6__["AppLifecycle"].shareAppMessage, options);
       }
     };
     Object(_lifecycle__WEBPACK_IMPORTED_MODULE_6__["appEvents"])().forEach(function (eventName) {
@@ -2617,9 +2617,7 @@ function createPageConfig(Page, name) {
       onResize: function onResize(e) {
         return config.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_3__["Lifecycle"].resize, e);
       }
-    }
-  };
-  var lifecycleEvents = {
+    },
     onShow: function onShow() {
       return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_3__["Lifecycle"].show);
     },
@@ -2641,12 +2639,6 @@ function createPageConfig(Page, name) {
     onReachBottom: function onReachBottom() {
       return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_3__["Lifecycle"].reachBottom);
     },
-    onPageScroll: function onPageScroll(e) {
-      return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_3__["Lifecycle"].pageScroll, e);
-    },
-    onShareAppMessage: function onShareAppMessage(options) {
-      return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_3__["Lifecycle"].shareAppMessage, options) || {};
-    },
     onTitleClick: function onTitleClick() {
       return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_3__["Lifecycle"].titleClick);
     },
@@ -2658,6 +2650,14 @@ function createPageConfig(Page, name) {
     },
     onPullIntercept: function onPullIntercept() {
       return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_3__["Lifecycle"].pullIntercept);
+    }
+  };
+  var lifecycleEvents = {
+    onPageScroll: function onPageScroll(e) {
+      return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_3__["Lifecycle"].pageScroll, e);
+    },
+    onShareAppMessage: function onShareAppMessage(options) {
+      return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_3__["Lifecycle"].shareAppMessage, options) || {};
     }
   };
   Object(_lifecycle__WEBPACK_IMPORTED_MODULE_3__["pageEvents"])(name).forEach(function (eventName) {
