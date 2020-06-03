@@ -17,6 +17,8 @@ jobs:
         with:
           node-version: 12
       - name: install
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: true
         run: yarn install --frozen-lockfile
       - name: lint
         run: yarn lint
