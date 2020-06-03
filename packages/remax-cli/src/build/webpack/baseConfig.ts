@@ -22,7 +22,12 @@ export default function baseConfig(config: Config, options: Options, target: Pla
   config.output.path(path.join(options.cwd, options.output));
 
   const env = getEnvironment(options, target);
-  config.plugin('webpack-define-plugin').use(DefinePlugin, [env.stringified]);
+  config.plugin('webpack-define-plugin').use(DefinePlugin, [
+    {
+      ...env.stringified,
+      window: 'global',
+    },
+  ]);
 
   if (process.env.NODE_ENV === 'production') {
     config.plugin('clean-webpack-plugin').use(CleanWebpackPlugin);
