@@ -51,6 +51,7 @@ my-app/
 ┳ package.json
 ┣ dist/
 ┣ node_modules/
+┣ public/
 ┣ src/
 ┗━┓ app.js
   ┣ app.css
@@ -64,6 +65,8 @@ my-app/
 ```
 
 `dist` 为编译后的文件目录。
+
+`public` 为全局静态资源目录，具体可参考[配置 - public 目录](/config/public)。
 
 `src` 为源文件目录。
 
