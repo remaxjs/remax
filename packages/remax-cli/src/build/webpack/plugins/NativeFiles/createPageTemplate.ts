@@ -3,8 +3,8 @@ import { sortBy } from 'lodash';
 import { compilation } from 'webpack';
 import ejs from 'ejs';
 import { Options, Meta } from '@remax/types';
+import { slash } from '@remax/shared';
 import * as componentManifest from '../../../../build/babel/componentManifest';
-import winPath from '../../../../winPath';
 import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDepth';
 import * as cacheable from './cacheable';
 import API from '../../../../API';
@@ -37,7 +37,7 @@ export default async function createPageTemplate(
   const pagePath = path.relative(rootDir, pageFile);
   const pageDir = path.dirname(pagePath);
 
-  const fileName = winPath(path.join(pageDir, `${pageFilename(pagePath)}${meta.template.extension}`));
+  const fileName = slash(path.join(pageDir, `${pageFilename(pagePath)}${meta.template.extension}`));
 
   const ejsOptions: { [props: string]: any } = {
     ...createRenderOptions(api),

@@ -6,7 +6,7 @@ import readdir from 'fs-readdir-recursive';
 import diff from 'jest-diff';
 import { sortBy } from 'lodash';
 import * as eol from 'eol';
-import winPath from '../src/winPath';
+import { slash } from '@remax/shared';
 
 type Received = Array<{
   fileName: string;
@@ -17,7 +17,7 @@ function buildText(files: Received) {
   return sortBy(
     files.map(f => ({
       ...f,
-      fileName: winPath(f.fileName),
+      fileName: slash(f.fileName),
     })),
     ['fileName']
   )

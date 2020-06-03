@@ -36,9 +36,9 @@
     "typescript": "^3.7.3"
   },
   "dependencies": {
+    "@remax/shared": "2.2.0",
     "@remax/types": "2.2.0",
-    "@types/babel__traverse": "^7.0.8",
-    "slash2": "^2.0.0"
+    "@types/babel__traverse": "^7.0.8"
   },
   "publishConfig": {
     "access": "public"

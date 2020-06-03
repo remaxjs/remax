@@ -1,3 +1,4 @@
+import fs from 'fs';
 import * as path from 'path';
 import * as webpack from 'webpack';
 import Config from 'webpack-chain';
@@ -5,8 +6,8 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 import WebpackBar from 'webpackbar';
-import { Options } from '@remax/types';
-import { Platform } from '@remax/types';
+import { Options, Platform } from '@remax/types';
+import { slash } from '@remax/shared';
 import ejs from 'ejs';
 import extensions, { moduleMatcher } from '../../extensions';
 import getEntries from '../../getEntries';
@@ -22,8 +23,6 @@ import * as RemaxPlugins from './plugins';
 import API from '../../API';
 import { cssConfig, addCSSRule, RuleConfig } from './config/css';
 import baseConfig from './baseConfig';
-import fs from 'fs';
-import winPath from '../../winPath';
 
 function prepare(api: API, options: Options, target: Platform) {
   const meta = api.getMeta();
@@ -93,10 +92,10 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .pre()
     .test(filename => {
       const { app, pages } = getEntries(options, api);
-      if (winPath(filename) === app.filename) {
+      if (slash(filename) === app.filename) {
         return true;
       }
-      if (pages.find(p => p.filename === winPath(filename))) {
+      if (pages.find(p => p.filename === slash(filename))) {
         return true;
       }
       return false;
@@ -133,7 +132,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
       .end()
       .test(filename => {
         const { pages } = getEntries(options, api);
-        return !!TurboPages.filter(pages, options).find(p => p.filename === winPath(filename));
+        return !!TurboPages.filter(pages, options).find(p => p.filename === slash(filename));
       })
       .use('turbo-page-preprocess')
       .loader('babel')
@@ -181,7 +180,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .loader(require.resolve('file-loader'));
 
   const pluginTemplate = fs.readFileSync(path.resolve(__dirname, '../../../template/plugin.js.ejs'), 'utf-8');
-  const pluginPath = winPath('node_modules/@remax/runtime-plugin.js');
+  const pluginPath = slash('node_modules/@remax/runtime-plugin.js');
   const virtualModules = new VirtualModulesPlugin({
     [pluginPath]: ejs.render(pluginTemplate, {
       pluginFiles: api.getRuntimePluginFiles(),

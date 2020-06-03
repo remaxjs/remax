@@ -1,14 +1,14 @@
 import * as path from 'path';
 import * as fs from 'fs';
+import { compilation } from 'webpack';
+import { Options, EntryInfo } from '@remax/types';
 import { nativeComponents } from '@remax/macro';
+import { slash } from '@remax/shared';
 import { matcher } from '../../../../extensions';
 import readManifest from '../../../../readManifest';
 import { isPluginPath } from '../../../utils/nativeComponent';
-import { compilation } from 'webpack';
-import { Options, EntryInfo } from '@remax/types';
 import * as cacheable from './cacheable';
 import { pageConfigFile } from '../../../utils/paths';
-import winPath from '../../../../winPath';
 import API from '../../../../API';
 
 const NATIVE_COMPONENT_OUTPUT_DIR = 'remaxVendors';
@@ -17,9 +17,9 @@ function getNativeComponentAssetOutputPath(sourcePath: string, options: Options)
   return (
     NATIVE_COMPONENT_OUTPUT_DIR +
     '/' +
-    winPath(sourcePath)
-      .replace(winPath(options.cwd) + '/', '')
-      .replace(winPath(options.rootDir) + '/', '')
+    slash(sourcePath)
+      .replace(slash(options.cwd) + '/', '')
+      .replace(slash(options.rootDir) + '/', '')
       .replace(/@/g, '_')
       .replace(/node_modules/g, 'npm')
   );
@@ -60,7 +60,7 @@ export default function createPageManifest(
   compilation: compilation.Compilation,
   api: API
 ) {
-  const rootPath = winPath(path.join(options.cwd, options.rootDir) + '/');
+  const rootPath = slash(path.join(options.cwd, options.rootDir) + '/');
   const manifestPath = page.filename.replace(matcher, '.json').replace(rootPath, '');
   const config = readManifest(pageConfigFile(page.filename), options.target!);
   const usingComponents = getUsingComponents(modules, options, compilation);

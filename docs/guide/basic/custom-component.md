@@ -97,7 +97,7 @@ declare module 'mini-ali-ui/es/badge';
 ```js
 import React from 'react';
 import { View } from 'remax/ali';
-import VantIcon from 'vant-weapp/dist/icon';
+import VantIcon from '@vant/weapp/lib/icon';
 
 export default () => {
   const handleClick = () => {};
@@ -116,7 +116,7 @@ export default () => {
 ```js
 import React from 'react';
 import { View } from 'remax/ali';
-import VantIcon from 'vant-weapp/dist/icon';
+import VantIcon from '@vant/weapp/lib/icon';
 
 export default () => {
   const handleClick = () => {};

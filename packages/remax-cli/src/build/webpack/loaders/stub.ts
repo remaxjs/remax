@@ -1,6 +1,6 @@
 import { loader } from 'webpack';
 import utils from 'loader-utils';
-import winPath from '../../../winPath';
+import { slash } from '@remax/shared';
 
 export default function stub(this: loader.LoaderContext, source: string) {
   if (this.cacheable) {
@@ -9,7 +9,7 @@ export default function stub(this: loader.LoaderContext, source: string) {
 
   const modules: string[] = utils.getOptions(this).modules;
 
-  if (modules.every(module => winPath(this.resourcePath).indexOf(module) === -1)) {
+  if (modules.every(module => slash(this.resourcePath).indexOf(module) === -1)) {
     return source;
   }
 
