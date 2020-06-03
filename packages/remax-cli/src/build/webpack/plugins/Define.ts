@@ -2,9 +2,9 @@ import { ReplaceSource } from 'webpack-sources';
 import { Compiler, compilation } from 'webpack';
 import { Options } from '@remax/types';
 import { appEvents, pageEvents, hostComponents } from '@remax/macro';
+import { slash } from '@remax/shared';
 import getModules from '../../utils/modules';
 import { getPages } from '../../../getEntries';
-import winPath from '../../../winPath';
 import API from '../../../API';
 
 const PLUGIN_NAME = 'RemaxDefinePlugin';
@@ -73,7 +73,7 @@ export default class DefinePlugin {
         new Set(
           modules
             .reduce<string[]>((acc, cur) => {
-              return [...acc, ...(pageEvents.get(winPath(cur)) || []), ...(pageClassEvents.get(winPath(cur)) || [])];
+              return [...acc, ...(pageEvents.get(slash(cur)) || []), ...(pageClassEvents.get(slash(cur)) || [])];
             }, [])
             .sort()
         )

@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import path from 'path';
 import resolve from 'enhanced-resolve';
-import winPath from '../../winPath';
+import { slash } from '@remax/shared';
 import Config from 'webpack-chain';
 
 export const getSourcePath = (source: string, importer: string, config: Config) => {
@@ -35,5 +35,5 @@ export const isNativeComponent = (sourcePath: string | null): boolean => {
 };
 
 export const getPath = (from: string, to: string) => {
-  return winPath(path.resolve(path.dirname(from), to));
+  return slash(path.resolve(path.dirname(from), to));
 };

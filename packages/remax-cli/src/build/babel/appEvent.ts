@@ -1,7 +1,7 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
+import { slash } from '@remax/shared';
 import { appClassEvents } from '../webpack/plugins/Define';
-import winPath from '../../winPath';
 
 // TODO: 和 runtime 同步
 const lifecycleEvents = [
@@ -19,7 +19,7 @@ export default (appFilename: string) => {
   let skip = false;
   return {
     pre(state: any) {
-      const importer = winPath(state.opts.filename);
+      const importer = slash(state.opts.filename);
 
       // TODO: app 的依赖也要收集
       skip = importer !== appFilename;
@@ -37,7 +37,7 @@ export default (appFilename: string) => {
           return;
         }
 
-        const importer = winPath(state.file.opts.filename);
+        const importer = slash(state.file.opts.filename);
         const { node } = path;
 
         // 只要生命周期 Literal 存在就标记为用到了生命周期
@@ -52,7 +52,7 @@ export default (appFilename: string) => {
           return;
         }
 
-        const importer = winPath(state.file.opts.filename);
+        const importer = slash(state.file.opts.filename);
         const { node } = path;
 
         // 只要生命周期 Identifer 存在就标记为用到了生命周期

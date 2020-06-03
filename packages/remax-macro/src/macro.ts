@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NodePath } from '@babel/traverse';
 import { createMacro } from 'babel-plugin-macros';
+import { slash } from '@remax/shared';
 import createHostComponentMacro, { hostComponents } from './createHostComponent';
 import requirePluginComponentMacro, {
   nativeComponents,
@@ -9,7 +10,6 @@ import requirePluginComponentMacro, {
 import requirePluginMacro from './requirePlugin';
 import usePageEventMacro, { pageEvents } from './usePageEvent';
 import useAppEventMacro, { appEvents } from './useAppEvent';
-import winPath from './utils/winPath';
 
 function remax({ references, state }: { references: { [name: string]: NodePath[] }; state: any }) {
   references.createHostComponent?.forEach(path => createHostComponentMacro(path, state));
@@ -18,7 +18,7 @@ function remax({ references, state }: { references: { [name: string]: NodePath[]
 
   references.requirePlugin?.forEach(path => requirePluginMacro(path));
 
-  const importer = winPath(state.file.opts.filename);
+  const importer = slash(state.file.opts.filename);
 
   appEvents.delete(importer);
   pageEvents.delete(importer);
