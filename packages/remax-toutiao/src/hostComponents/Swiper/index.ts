@@ -16,6 +16,7 @@ export interface SwiperProps extends BaseProps {
   vertical?: boolean;
   onChange?: (e: any) => void;
   onTransition?: (e: any) => void;
+  onAnimationFinish?: (e: any) => void;
 }
 
 export const Swiper = createHostComponent<SwiperProps>('swiper');

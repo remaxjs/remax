@@ -58,7 +58,7 @@ export default function buildWeb(api: API, options: Options): webpack.Compiler {
         }
       });
 
-      watch(options, compiler, server);
+      watch(options, api, compiler, server);
     });
   } else {
     output.message('🚀 启动 build\n', 'blue');

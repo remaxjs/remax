@@ -4,6 +4,7 @@ import { Options } from '@remax/types';
 import getAppConfig from '../../utils/getAppConfig';
 import getEntries from '../../../getEntries';
 import { generatePageRoutesInfo, entryName } from '../../utils/web';
+import API from '../../../API';
 
 const PLUGIN_NAME = 'RemaxWebEntryWatcherPlugin';
 
@@ -11,11 +12,13 @@ export default class WebEntryWatcherPlugin {
   virtualModules: any;
   entryTemplate: string;
   remaxOptions: Options;
+  api: API;
 
-  constructor(virtualModules: any, entryTemplate: string, options: Options) {
+  constructor(virtualModules: any, entryTemplate: string, options: Options, api: API) {
     this.virtualModules = virtualModules;
     this.entryTemplate = entryTemplate;
     this.remaxOptions = options;
+    this.api = api;
   }
 
   apply(compiler: Compiler) {
@@ -25,13 +28,13 @@ export default class WebEntryWatcherPlugin {
   }
 
   invalidEntry() {
-    const entries = getEntries(this.remaxOptions);
-    const appConfig = getAppConfig(this.remaxOptions);
+    const entries = getEntries(this.remaxOptions, this.api);
+    const appConfig = getAppConfig(this.remaxOptions, this.api);
 
     this.virtualModules.writeModule(
       entryName(this.remaxOptions),
       ejs.render(this.entryTemplate, {
-        pages: generatePageRoutesInfo(this.remaxOptions, entries.pages),
+        pages: generatePageRoutesInfo(this.remaxOptions, entries.pages, this.api),
         appConfig,
       })
     );

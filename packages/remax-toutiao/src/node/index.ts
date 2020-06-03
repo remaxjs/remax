@@ -6,7 +6,6 @@ const EJS_TPL_ROOT = path.join(__dirname, '../../templates');
 
 const plugin: PluginConstructor = () => {
   return {
-    name: 'remax-toutiao',
     meta: {
       global: 'tt',
       template: {

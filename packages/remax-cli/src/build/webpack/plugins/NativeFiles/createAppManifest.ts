@@ -1,10 +1,11 @@
 import { compilation } from 'webpack';
 import { Options } from '@remax/types';
 import * as cacheable from './cacheable';
-import { getAppConfig } from '../../../../getEntries';
+import API from '../../../../API';
+import getAppConfig from '../../../utils/getAppConfig';
 
-export default function createAppManifest(options: Options, compilation: compilation.Compilation) {
-  const config = getAppConfig(options);
+export default function createAppManifest(options: Options, api: API, compilation: compilation.Compilation) {
+  const config = getAppConfig(options, api);
   const source = Buffer.from(JSON.stringify(config, null, 2));
 
   const fileName = 'app.json';

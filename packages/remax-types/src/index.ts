@@ -124,7 +124,6 @@ export interface NativeComponent {
 
 export interface Plugin {
   /** 插件名称 */
-  name: string;
   meta?: Meta;
   hostComponents?: Map<string, HostComponent>;
   /**
@@ -157,6 +156,16 @@ export interface Plugin {
    * 注册运行时插件
    */
   registerRuntimePlugin?: () => string;
+
+  /**
+   * 修改应用配置
+   */
+  onAppConfig?: (params: { config: any }) => any;
+
+  /**
+   * 修改页面配置
+   */
+  onPageConfig?: (params: { config: any; page: string }) => any;
 }
 
 export type PluginConstructor = (options?: any) => Plugin;

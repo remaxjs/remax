@@ -56,7 +56,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   baseConfig(config, options, target);
 
   const { meta, turboPagesEnabled, stubModules, publicPath } = prepare(api, options, target);
-  const { app, pages } = getEntries(options);
+  const { app, pages } = getEntries(options, api);
 
   config.entry(app.name).add(app.filename);
   pages.forEach(p => {
@@ -92,7 +92,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .rule('config')
     .pre()
     .test(filename => {
-      const { app, pages } = getEntries(options);
+      const { app, pages } = getEntries(options, api);
       if (winPath(filename) === app.filename) {
         return true;
       }
@@ -106,7 +106,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .options({
       babelrc: false,
       configFile: resolveBabelConfig(options),
-      usePlugins: [appEntry(app.filename), pageEntry(options)],
+      usePlugins: [appEntry(app.filename), pageEntry(options, api)],
       reactPreset: false,
     });
 
@@ -132,7 +132,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
       })
       .end()
       .test(filename => {
-        const { pages } = getEntries(options);
+        const { pages } = getEntries(options, api);
         return !!TurboPages.filter(pages, options).find(p => p.filename === winPath(filename));
       })
       .use('turbo-page-preprocess')
@@ -197,11 +197,11 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   }
 
   config.plugin('webpackbar').use(WebpackBar, [{ name: target }]);
-  config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
-  config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [api, options]);
-  config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options]);
+  config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [options, api]);
+  config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options, api]);
+  config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
 
   const context = {
     config,

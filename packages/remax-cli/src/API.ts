@@ -1,6 +1,6 @@
 import { hostComponents } from '@remax/macro';
 import * as t from '@babel/types';
-import { Options, Plugin, Meta, HostComponent, Platform } from '@remax/types';
+import { Plugin, Meta, HostComponent, Platform } from '@remax/types';
 import { merge } from 'lodash';
 import Config from 'webpack-chain';
 import { RuleConfig } from './build/webpack/config/css';
@@ -93,6 +93,24 @@ export default class API {
     }, true);
   }
 
+  onAppConfig(config: any) {
+    return this.plugins.reduce((acc, plugin) => {
+      if (typeof plugin.onAppConfig === 'function') {
+        acc = plugin.onAppConfig({ config: acc });
+      }
+      return acc;
+    }, config);
+  }
+
+  onPageConfig({ page, config }: { page: string; config: any }) {
+    return this.plugins.reduce((acc, plugin) => {
+      if (typeof plugin.onPageConfig === 'function') {
+        acc = plugin.onPageConfig({ page, config: acc });
+      }
+      return acc;
+    }, config);
+  }
+
   configWebpack(params: { config: Config; webpack: any; addCSSRule: (ruleConfig: RuleConfig) => void }) {
     this.plugins.forEach(plugin => {
       if (typeof plugin.configWebpack === 'function') {
@@ -119,9 +137,8 @@ export default class API {
       .filter(Boolean);
   }
 
-  public registerAdapterPlugins(targetName: Platform, remaxConfig: Options) {
+  public registerAdapterPlugins(targetName: Platform, one = false) {
     this.adapter.target = targetName;
-    this.adapter.name = targetName;
     this.adapter.packageName = '@remax/' + targetName;
 
     const packagePath = this.adapter.packageName + '/node';
@@ -131,7 +148,7 @@ export default class API {
     this.registerHostComponents(plugin.hostComponents);
     this.plugins.push(plugin);
 
-    if (remaxConfig.one) {
+    if (one) {
       const onePath = '@remax/one/node';
 
       const plugin = require(onePath).default || require(onePath);
@@ -141,8 +158,8 @@ export default class API {
     }
   }
 
-  public registerPlugins(options: Options) {
-    options.plugins?.forEach(plugin => {
+  public registerPlugins(plugins: Plugin[]) {
+    plugins?.forEach(plugin => {
       if (plugin) {
         this.registerHostComponents(plugin.hostComponents);
         this.plugins.push(plugin);

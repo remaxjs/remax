@@ -5,6 +5,7 @@ import { appEvents, pageEvents, hostComponents } from '@remax/macro';
 import getModules from '../../utils/modules';
 import { getPages } from '../../../getEntries';
 import winPath from '../../../winPath';
+import API from '../../../API';
 
 const PLUGIN_NAME = 'RemaxDefinePlugin';
 
@@ -15,9 +16,11 @@ export const appClassEvents = new Map<string, Events>();
 
 export default class DefinePlugin {
   remaxOptions: Options;
+  api: API;
 
-  constructor(options: Options) {
+  constructor(options: Options, api: API) {
     this.remaxOptions = options;
+    this.api = api;
   }
 
   apply(compiler: Compiler) {
@@ -58,7 +61,7 @@ export default class DefinePlugin {
   stringifyPageEvents(compilation: compilation.Compilation) {
     const events: any = {};
 
-    getPages(this.remaxOptions).map(page => {
+    getPages(this.remaxOptions, this.api).map(page => {
       const chunk = compilation.chunks.find(c => {
         return c.name === page.name;
       });

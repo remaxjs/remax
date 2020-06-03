@@ -4,6 +4,7 @@ import { addNamed } from '@babel/helper-module-imports';
 import { Options } from '@remax/types';
 import { getPages } from '../../getEntries';
 import winPath from '../../winPath';
+import API from '../../API';
 
 function pageConfigExpression(path: NodePath<t.ExportDefaultDeclaration>, id: t.Identifier, name: t.StringLiteral) {
   const createId = addNamed(path, 'createPageConfig', '@remax/runtime');
@@ -12,13 +13,13 @@ function pageConfigExpression(path: NodePath<t.ExportDefaultDeclaration>, id: t.
   );
 }
 
-export default function page(options: Options) {
+export default function page(options: Options, api: API) {
   let skip = false;
   let name = '';
 
   return {
     pre(state: any) {
-      name = getPages(options).find(e => e.filename === winPath(state.opts.filename))?.name || '';
+      name = getPages(options, api).find(e => e.filename === winPath(state.opts.filename))?.name || '';
       skip = !name;
     },
     visitor: {

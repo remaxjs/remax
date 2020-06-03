@@ -15,9 +15,9 @@ export default class NativeFilesPlugin {
   api: API;
   remaxOptions: Options;
 
-  constructor(api: API, options: Options) {
-    this.api = api;
+  constructor(options: Options, api: API) {
     this.remaxOptions = options;
+    this.api = api;
   }
 
   apply(compiler: Compiler) {
@@ -26,13 +26,13 @@ export default class NativeFilesPlugin {
       const meta = this.api.getMeta();
 
       // app.json
-      await createAppManifest(options, compilation);
+      await createAppManifest(options, this.api, compilation);
 
       // base template
       await createBaseTemplate(this.api, options, meta, compilation);
 
       Promise.all(
-        getPages(options).map(async page => {
+        getPages(options, this.api).map(async page => {
           const chunk = compilation.chunks.find(c => {
             return c.name === page.name;
           });
@@ -48,7 +48,7 @@ export default class NativeFilesPlugin {
             await createPageTemplate(this.api, options, page.filename, meta, compilation);
           }
 
-          await createPageManifest(options, page.filename, modules, compilation);
+          await createPageManifest(options, page, modules, compilation, this.api);
         })
       ).then(() => {
         callback();
