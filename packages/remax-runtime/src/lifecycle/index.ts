@@ -36,16 +36,17 @@ export enum AppLifecycle {
 }
 
 export function lifeCycleName(name: string): Lifecycle {
-  if (name.startsWith('before')) {
+  if (name.startsWith('before') || name === 'unload') {
     return name as Lifecycle;
   }
   return lowercase(name.slice(2)) as Lifecycle;
 }
 
 export function callbackName(name: string) {
-  if (name.startsWith('before')) {
+  if (name.startsWith('before') || name === 'unload') {
     return name;
   }
+
   return 'on' + capitalize(name);
 }
 

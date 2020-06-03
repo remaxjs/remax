@@ -2125,14 +2125,14 @@ var AppLifecycle;
 })(AppLifecycle || (AppLifecycle = {}));
 
 function lifeCycleName(name) {
-  if (name.startsWith('before')) {
+  if (name.startsWith('before') || name === 'unload') {
     return name;
   }
 
   return Object(_utils_lowercase__WEBPACK_IMPORTED_MODULE_1__["default"])(name.slice(2));
 }
 function callbackName(name) {
-  if (name.startsWith('before')) {
+  if (name.startsWith('before') || name === 'unload') {
     return name;
   }
 
@@ -2539,14 +2539,15 @@ function createPageConfig(Page, name) {
       }), this.container, this.pageId);
 
       app._mount(this);
+
+      return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_3__["Lifecycle"].load);
     },
     onUnload: function onUnload() {
+      this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_3__["Lifecycle"].unload);
       this.unloaded = true;
       this.container.clearUpdate();
 
       app._unmount(this);
-
-      return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_3__["Lifecycle"].load);
     },
     onTabItemTap: function onTabItemTap(e) {
       return this.callLifecycle(_lifecycle__WEBPACK_IMPORTED_MODULE_3__["Lifecycle"].tabItemTap, e);

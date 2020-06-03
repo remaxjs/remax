@@ -51,13 +51,15 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
       );
 
       app._mount(this);
+
+      return this.callLifecycle(Lifecycle.load);
     },
 
     onUnload(this: any) {
+      this.callLifecycle(Lifecycle.unload);
       this.unloaded = true;
       this.container.clearUpdate();
       app._unmount(this);
-      return this.callLifecycle(Lifecycle.load);
     },
 
     onTabItemTap(this: any, e: any) {
