@@ -20,5 +20,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "react-test-renderer": "^16.13.1"
   }
 }

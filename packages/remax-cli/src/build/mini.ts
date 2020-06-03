@@ -8,7 +8,7 @@ import watch from './watch';
 export default function buildMini(api: API, options: Options): webpack.Compiler {
   const { target } = options;
 
-  api.registerAdapterPlugins(target!, options);
+  api.registerAdapterPlugins(target!, options.one);
 
   const webpackOptions: webpack.Configuration = webpackConfig(api, options, target!);
   const compiler = webpack(webpackOptions);
@@ -39,7 +39,7 @@ export default function buildMini(api: API, options: Options): webpack.Compiler 
         output.message('Watching for changes...', 'green', options.notify);
       }
     });
-    watch(options, compiler, watcher, true);
+    watch(options, api, compiler, watcher, true);
   } else {
     output.message('🚀 启动 build\n', 'blue');
     compiler.run((error, stats) => {
@@ -64,6 +64,12 @@ export default function buildMini(api: API, options: Options): webpack.Compiler 
         });
       }
     });
+  }
+
+  try {
+    require('remax-stats').run();
+  } catch (e) {
+    // ignore
   }
 
   return compiler;
