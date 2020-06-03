@@ -66,7 +66,7 @@ my-app/
 
 `dist` 为编译后的文件目录。
 
-`public` 为全局静态资源目录，具体可参考[配置 - public 目录](/config/public)。
+`public` 为全局静态资源目录，具体可参考[public 目录](/basic/public)。
 
 `src` 为源文件目录。
 

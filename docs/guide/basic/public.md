@@ -1,6 +1,6 @@
 ---
 title: public 目录
-order: 4
+order: 30
 ---
 
 在项目根目录下创建 public 目录，public 目录下的所有文件会被自动复制到 dist 目录下。
