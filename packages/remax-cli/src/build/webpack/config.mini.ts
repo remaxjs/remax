@@ -190,12 +190,12 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   config.plugin('webpack-virtual-modules').use(virtualModules);
 
   const publicDirPath = path.join(options.cwd, 'public');
-
   if (fs.existsSync(publicDirPath)) {
     config
       .plugin('webpack-copy-plugin')
       .use(CopyPlugin, [[{ from: publicDirPath, to: path.join(options.cwd, options.output) }]]);
   }
+
   config.plugin('webpackbar').use(WebpackBar, [{ name: target }]);
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);

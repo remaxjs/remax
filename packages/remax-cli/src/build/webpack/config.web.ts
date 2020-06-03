@@ -82,16 +82,14 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
       appConfig,
     }),
   });
+  config.plugin('webpack-virtual-modules').use(virtualModules);
 
   const publicDirPath = path.join(options.cwd, 'public');
-
   if (fs.existsSync(publicDirPath)) {
     config
       .plugin('webpack-copy-plugin')
       .use(CopyPlugin, [[{ from: publicDirPath, to: path.join(options.cwd, options.output) }]]);
   }
-
-  config.plugin('webpack-virtual-modules').use(virtualModules);
 
   config.plugin('html-webpack-plugin').use(HtmlWebpackPlugin, [
     {
