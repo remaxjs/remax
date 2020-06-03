@@ -1,6 +1,10 @@
 name: Build & Test
 
-on: [push]
+on:
+  push:
+    branches: [master]
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
   build:
