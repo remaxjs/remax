@@ -1,8 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button render correctly 1`] = `
+exports[`Button render correctly in ali 1`] = `
 <button
   className="class"
+>
+  Button
+</button>
+`;
+
+exports[`Button render correctly in toutiao 1`] = `
+<button
+  className="class"
+>
+  Button
+</button>
+`;
+
+exports[`Button render correctly in web 1`] = `
+<button
+  className="class"
+>
+  Button
+</button>
+`;
+
+exports[`Button render correctly in wechat 1`] = `
+<button
+  className="class"
+  hoverClassName="button-hover"
+  hoverStartTime={20}
+  hoverStayTime={70}
 >
   Button
 </button>

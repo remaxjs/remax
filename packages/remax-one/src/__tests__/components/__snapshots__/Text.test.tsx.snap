@@ -1,8 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Text render correctly 1`] = `
+exports[`Text render correctly in ali 1`] = `
 <text
   className="class"
+>
+  text
+</text>
+`;
+
+exports[`Text render correctly in toutiao 1`] = `
+<text
+  className="class"
+>
+  text
+</text>
+`;
+
+exports[`Text render correctly in web 1`] = `
+<text
+  className="class"
+>
+  text
+</text>
+`;
+
+exports[`Text render correctly in wechat 1`] = `
+<text
+  className="class"
+  selectable={false}
+  wechat-decode={false}
 >
   text
 </text>
