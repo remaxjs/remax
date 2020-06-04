@@ -2,6 +2,11 @@ import * as path from 'path';
 import readManifest from '../readManifest';
 import { Platform } from '@remax/types';
 
+import configWeb from '../build/webpack/config.web';
+import configMini from '../build/webpack/config.mini';
+import API from '../API';
+import { getDefaultOptions } from '../defaultOptions';
+
 describe('manifest', () => {
   it('throw error when file not exists with strict mode enabled', () => {
     expect(readManifest('', Platform.ali)).toEqual({});
@@ -20,5 +25,38 @@ describe('manifest', () => {
     expect(
       readManifest(path.join(__dirname, './fixtures/exception/manifest.ts/app.config'), Platform.ali)
     ).toMatchObject({});
+  });
+});
+
+describe('web webpack config', () => {
+  it('is work', async () => {
+    const options = getDefaultOptions();
+    options.cwd = path.join(__dirname, './integration/fixtures/wechat');
+    options.analyze = true;
+    options.configWebpack = ({ config }) => {
+      expect(config.entryPoints.has('index')).toBe(true);
+      expect(config.entryPoints.get('index').values()).toMatchObject(['./src/remax-entry.js']);
+      expect(config.plugins.has('webpack-bundle-analyzer')).toBe(true);
+    };
+
+    configWeb(new API(), options);
+  });
+});
+
+describe('mini webpack config', () => {
+  it('is work', async () => {
+    const options = getDefaultOptions();
+    const projectRoot = path.join(__dirname, './integration/fixtures/wechat');
+    options.cwd = projectRoot;
+    options.analyze = true;
+    options.configWebpack = ({ config }) => {
+      expect(config.entryPoints.has('pages/index')).toBe(true);
+      expect(config.entryPoints.get('pages/index').values()).toMatchObject([
+        path.join(projectRoot, 'src/pages/index.js'),
+      ]);
+      expect(config.plugins.has('webpack-bundle-analyzer')).toBe(true);
+    };
+
+    configMini(new API(), options, Platform.wechat);
   });
 });
