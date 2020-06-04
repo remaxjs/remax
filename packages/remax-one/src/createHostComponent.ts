@@ -75,11 +75,37 @@ export const createFormEvent = (originalEvent: any): FormEvent => ({
   originalEvent,
 });
 
-export default function createHostComponent<P = any>(name: string) {
+function assignDefaultProps(inputProps: any, defaultProps: any) {
+  if (defaultProps) {
+    Object.keys(defaultProps).forEach(key => {
+      inputProps[key] = inputProps[key] ?? defaultProps[key];
+    });
+  }
+}
+
+export default function createHostComponent<P = any>(
+  name: string,
+  defaults?: {
+    [key: string]: {
+      [key: string]: any;
+    };
+  }
+) {
   const Component: React.ForwardRefRenderFunction<any, P> = (props: any, ref: React.Ref<any>) => {
     const inputProps = {
       ...props,
     };
+
+    // 默认属性根据平台在这里设置
+    if (defaults) {
+      if (process.env.REMAX_PLATFORM === 'wechat') {
+        assignDefaultProps(inputProps, defaults['wechat']);
+      } else if (process.env.REMAX_PLATFORM === 'toutiao') {
+        assignDefaultProps(inputProps, defaults['toutiao']);
+      } else if (process.env.REMAX_PLATFORM === 'ali') {
+        assignDefaultProps(inputProps, defaults['ali']);
+      }
+    }
 
     if (props.onLongTap) {
       inputProps.onLongTap = createCallback(inputProps.onLongTap, createTapEvent);
@@ -143,5 +169,6 @@ export default function createHostComponent<P = any>(name: string) {
 
     return React.createElement(name, { ...inputProps, ref });
   };
+
   return React.forwardRef<any, React.PropsWithChildren<P>>(Component);
 }

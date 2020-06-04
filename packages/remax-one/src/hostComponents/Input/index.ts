@@ -85,7 +85,6 @@ export default class Input extends React.Component<InputProps, InputState> {
     }
 
     // 通用属性的默认属性根据平台在这里设置
-
     if (process.env.REMAX_PLATFORM === 'toutiao') {
       inputProps.maxLength = inputProps.maxLength ?? 140;
     }
