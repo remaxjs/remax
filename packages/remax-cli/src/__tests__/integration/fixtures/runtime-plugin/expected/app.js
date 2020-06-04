@@ -82,6 +82,13 @@ module.exports = require("react-reconciler");
 
 /***/ }),
 
+/***/ 40:
+/***/ (function(module, exports) {
+
+module.exports = require("@remax/shared");
+
+/***/ }),
+
 /***/ 6:
 /***/ (function(module, exports) {
 
