@@ -85,6 +85,49 @@ describe('ali remax render', () => {
     expect(container.root).toMatchSnapshot();
   });
 
+  it('insert and remove element', () => {
+    class Page extends React.Component {
+      state = {
+        show: false,
+      };
+
+      show() {
+        this.setState({
+          show: true,
+        });
+      }
+
+      hide() {
+        this.setState({
+          show: false,
+        });
+      }
+
+      render() {
+        const { show } = this.state;
+        return (
+          <View>
+            <View>1</View>
+            {show && <View>2</View>}
+            <View>3</View>
+          </View>
+        );
+      }
+    }
+
+    const container = new Container(p);
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, container);
+    expect(container.root).toMatchSnapshot();
+    expect(container.updateQueue).toMatchSnapshot();
+    page.current.show();
+    expect(container.root).toMatchSnapshot();
+    expect(container.updateQueue).toMatchSnapshot();
+    page.current.hide();
+    expect(container.root).toMatchSnapshot();
+    expect(container.updateQueue).toMatchSnapshot();
+  });
+
   it('conditional render', () => {
     class Page extends React.Component {
       state = {
