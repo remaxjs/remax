@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { Options } from '@remax/types';
-import winPath from '../../../winPath';
+import { slash } from '@remax/shared';
 
 export interface RuleConfig {
   name: string;
@@ -17,7 +17,7 @@ function resolvePostcssConfig(options: Options) {
     return options.cwd;
   }
 
-  return winPath(path.resolve(__dirname, '../../../..'));
+  return slash(path.resolve(__dirname, '../../../..'));
 }
 
 export function addCSSRule(webpackConfig: Config, options: Options, web: boolean, ruleConfig: RuleConfig) {

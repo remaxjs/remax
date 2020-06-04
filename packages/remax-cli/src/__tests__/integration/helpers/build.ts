@@ -2,9 +2,9 @@ import * as path from 'path';
 import { createFsFromVolume, Volume, IFs } from 'memfs';
 import joinPath from 'memory-fs/lib/join';
 import nodeExternals from 'webpack-node-externals';
+import { slash } from '@remax/shared';
 import API from '../../../API';
 import getConfig from '../../../getConfig';
-import winPath from '../../../winPath';
 import { Platform } from '@remax/types';
 import { run } from '../../../build';
 import { reset } from '../../../build/webpack/plugins/NativeFiles/cacheable';
@@ -31,7 +31,7 @@ function getFilesInDir(fs: IFs, root: string, fsPath: string) {
       outputs = outputs.concat(getFilesInDir(fs, root, filePath));
     } else {
       outputs.push({
-        fileName: winPath(filePath).replace(winPath(root), ''),
+        fileName: slash(filePath).replace(slash(root), ''),
         code: fs.readFileSync(filePath).toString(),
       });
     }

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import TestRenderer from 'react-test-renderer';
-import createHostComponent from '../createHostComponent';
+import { createHostComponent } from '../createHostComponent';
 
 describe('createHostComponent', () => {
   it('create correctly', () => {

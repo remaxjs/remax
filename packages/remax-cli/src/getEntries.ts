@@ -1,7 +1,7 @@
 import path from 'path';
 import { Options, EntryInfo, Entries } from '@remax/types';
+import { slash } from '@remax/shared';
 import { searchJSFile } from './build/utils/paths';
-import winPath from './winPath';
 import API from './API';
 import getAppConfig from './build/utils/getAppConfig';
 
@@ -20,7 +20,7 @@ export function getPages(options: Options, api: API): EntryInfo[] {
       ...ret,
       {
         name: page,
-        filename: winPath(searchJSFile(path.join(ROOT_DIR, page))),
+        filename: slash(searchJSFile(path.join(ROOT_DIR, page))),
       },
     ],
     []
@@ -33,8 +33,8 @@ export function getPages(options: Options, api: API): EntryInfo[] {
         (ret: EntryInfo[], page) => [
           ...ret,
           {
-            name: winPath(path.join(pack.root, page)),
-            filename: winPath(searchJSFile(path.join(ROOT_DIR, pack.root, page))),
+            name: slash(path.join(pack.root, page)),
+            filename: slash(searchJSFile(path.join(ROOT_DIR, pack.root, page))),
           },
         ],
         []
@@ -49,7 +49,7 @@ export default function getEntries(options: Options, api: API): Entries {
   const entries: Entries = {
     app: {
       name: 'app',
-      filename: winPath(searchJSFile(path.join(options.cwd, options.rootDir, 'app'))),
+      filename: slash(searchJSFile(path.join(options.cwd, options.rootDir, 'app'))),
     },
     pages: getPages(options, api),
   };

@@ -14,20 +14,6 @@ module.exports = {
 };
 ```
 
-配置完页面后，将原生的代码复制到对应的 `output` 目录，保持和 app.config.js 中配置的目录一致。
+将原生页面放置到根目录下的 public 目录中。public 目录中的文件会被复制到 dist 目录中。
 
-```js
-// remax.config.js
-const CopyPlugin = require('copy-webpack-plugin');
-
-module.exports = {
-  configWebpack({ config }) {
-    config.plugin('copy').use(CopyPlugin, [
-      [
-        // 表示将 native 目录整个输出到 output 目录下
-        { from: '/path/to/native', to: './' },
-      ],
-    ]);
-  },
-};
-```
+例如：`public/pages/index/index.js` 会被复制到 `dist/pages/index/index.js`

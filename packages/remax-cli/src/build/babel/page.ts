@@ -2,8 +2,8 @@ import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { addNamed } from '@babel/helper-module-imports';
 import { Options } from '@remax/types';
+import { slash } from '@remax/shared';
 import { getPages } from '../../getEntries';
-import winPath from '../../winPath';
 import API from '../../API';
 
 function pageConfigExpression(path: NodePath<t.ExportDefaultDeclaration>, id: t.Identifier, name: t.StringLiteral) {
@@ -19,7 +19,7 @@ export default function page(options: Options, api: API) {
 
   return {
     pre(state: any) {
-      name = getPages(options, api).find(e => e.filename === winPath(state.opts.filename))?.name || '';
+      name = getPages(options, api).find(e => e.filename === slash(state.opts.filename))?.name || '';
       skip = !name;
     },
     visitor: {

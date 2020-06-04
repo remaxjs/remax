@@ -4,6 +4,7 @@ import * as webpack from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebapckBar from 'webpackbar';
 import { Options } from '@remax/types';
@@ -82,8 +83,14 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
       appConfig,
     }),
   });
-
   config.plugin('webpack-virtual-modules').use(virtualModules);
+
+  const publicDirPath = path.join(options.cwd, 'public');
+  if (fs.existsSync(publicDirPath)) {
+    config
+      .plugin('webpack-copy-plugin')
+      .use(CopyPlugin, [[{ from: publicDirPath, to: path.join(options.cwd, options.output) }]]);
+  }
 
   config.plugin('html-webpack-plugin').use(HtmlWebpackPlugin, [
     {

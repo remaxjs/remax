@@ -1,6 +1,6 @@
 {
   "name": "@remax/shared",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Remax Shared",
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -20,5 +20,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "react-test-renderer": "^16.13.1"
   }
 }

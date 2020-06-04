@@ -1,5 +1,5 @@
 import * as path from 'path';
-import winPath from '../../winPath';
+import { slash } from '@remax/shared';
 import { Options, Platform, EntryInfo } from '@remax/types';
 import readManifest from '../../readManifest';
 import { pageConfigFile } from './paths';
@@ -7,7 +7,7 @@ import API from '../../API';
 
 export function generatePageRoutesInfo(options: Options, pages: EntryInfo[], api: API) {
   return pages.map(p => {
-    const ROOT = winPath(path.join(options.cwd, options.rootDir)) + '/';
+    const ROOT = slash(path.join(options.cwd, options.rootDir)) + '/';
     const configFile = pageConfigFile(p.filename);
     const config = api.onPageConfig({
       page: p.name,
