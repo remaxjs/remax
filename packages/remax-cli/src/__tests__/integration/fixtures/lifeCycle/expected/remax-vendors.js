@@ -426,6 +426,7 @@ function () {
       return;
     }
 
+    var index = node.index;
     this.size -= 1;
 
     if (this.firstChild === node) {
@@ -451,7 +452,7 @@ function () {
       this.container.requestUpdate({
         type: 'splice',
         path: this.path,
-        start: node.index,
+        start: index,
         id: node.id,
         deleteCount: 1,
         children: this.children,
