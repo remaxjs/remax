@@ -25,7 +25,7 @@ export interface Options {
   notify?: boolean;
   watch?: boolean;
   target?: Platform;
-  analyzer?: boolean;
+  analyze?: boolean;
 }
 
 export type Config = Partial<Options>;

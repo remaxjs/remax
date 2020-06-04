@@ -106,7 +106,7 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
 
   config.plugin('webpackbar').use(WebapckBar, [{ name: 'web' }]);
 
-  if (options.analyzer) {
+  if (options.analyze) {
     config.plugin('webpack-bundle-analyzer').use(BundleAnalyzerPlugin);
   }
 

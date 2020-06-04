@@ -24,7 +24,7 @@ export function run(options: Options): webpack.Compiler {
   }
 }
 
-export function build(argv: Pick<Options, 'target' | 'watch' | 'notify' | 'port' | 'analyzer'>) {
+export function build(argv: Pick<Options, 'target' | 'watch' | 'notify' | 'port' | 'analyze'>) {
   const { target } = argv;
 
   process.env.REMAX_PLATFORM = target;
