@@ -24,4 +24,14 @@ export interface EditorProps extends BaseProps {
   onStatusChange?: (event: any) => any;
 }
 
+/**
+ * @see https://developers.weixin.qq.com/miniprogram/dev/component/editor.html
+ */
 export const Editor = createHostComponent<EditorProps>('editor');
+
+Editor.defaultProps = {
+  readOnly: false,
+  showImgSize: false,
+  showImgToolbar: false,
+  showImgResize: false,
+};

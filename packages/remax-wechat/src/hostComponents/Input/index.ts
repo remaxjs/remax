@@ -133,11 +133,24 @@ export interface InputProps extends BaseProps {
   onKeyboardHeightChange?: (event: any) => any;
 }
 
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/input.html
+ */
 export const Input = createHostComponent<InputProps>('input');
 
 Input.defaultProps = {
   type: 'text',
+  password: false,
+  placeholderClassName: 'input-placeholder',
+  disabled: false,
+  cursorSpacing: 0,
+  autoFocus: false,
+  focus: false,
+  confirmType: 'done',
+  confirmHold: false,
   maxlength: 140,
-  selectionEnd: 999,
-  selectionStart: 999,
+  selectionEnd: -1,
+  selectionStart: -1,
+  adjustPosition: true,
+  holdKeyboard: false,
 };

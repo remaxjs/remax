@@ -1,3 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LivePlayer render correctly 1`] = `<live-player />`;
+exports[`LivePlayer render correctly 1`] = `
+<live-player
+  autoPauseIfNavigate={true}
+  autoPauseIfOpenNative={true}
+  autoplay={false}
+  backgroundMute={false}
+  maxCache={3}
+  minCache={1}
+  mode="live"
+  muted={false}
+  objectFit="contain"
+  orientation="vertical"
+  soundMode="speaker"
+/>
+`;

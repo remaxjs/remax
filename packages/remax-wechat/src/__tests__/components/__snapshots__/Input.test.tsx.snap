@@ -2,9 +2,19 @@
 
 exports[`Input render correctly 1`] = `
 <input
+  adjustPosition={true}
+  autoFocus={false}
+  confirmHold={false}
+  confirmType="done"
+  cursorSpacing={0}
+  disabled={false}
+  focus={false}
+  holdKeyboard={false}
   maxlength={140}
-  selectionEnd={999}
-  selectionStart={999}
+  password={false}
+  placeholderClassName="input-placeholder"
+  selectionEnd={-1}
+  selectionStart={-1}
   type="text"
   value=""
 />

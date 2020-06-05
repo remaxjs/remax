@@ -4,25 +4,6 @@ import { Input } from '../../hostComponents';
 import { InputEvent } from '../../types';
 
 describe('Input', () => {
-  it('render correctly', () => {
-    const testRenderer = TestRenderer.create(
-      <Input
-        className="class"
-        onBlur={() => {
-          // ignore
-        }}
-        onFocus={() => {
-          // ignore
-        }}
-        onConfirm={() => {
-          // ignore
-        }}
-      />
-    );
-
-    expect(testRenderer.toJSON()).toMatchSnapshot();
-  });
-
   it('default value', () => {
     const testRenderer = TestRenderer.create(<Input className="class" defaultValue="1" />);
 
@@ -73,8 +54,69 @@ describe('Input', () => {
     expect(instance.props.value).toEqual('2');
   });
 
-  it('should have maxlength when PLATFORM is wechat or toutiao', () => {
+  it('render correctly in ali', () => {
+    process.env.REMAX_PLATFORM = 'ali';
+    const testRenderer = TestRenderer.create(
+      <Input
+        className="class"
+        maxLength={140}
+        onBlur={() => {
+          // ignore
+        }}
+        onFocus={() => {
+          // ignore
+        }}
+        onConfirm={() => {
+          // ignore
+        }}
+      />
+    );
+
+    expect(testRenderer.toJSON()).toMatchSnapshot();
+  });
+
+  it('render correctly in wechat', () => {
     process.env.REMAX_PLATFORM = 'wechat';
+
+    const testRenderer = TestRenderer.create(
+      <Input
+        className="class"
+        onBlur={() => {
+          // ignore
+        }}
+        onFocus={() => {
+          // ignore
+        }}
+        onConfirm={() => {
+          // ignore
+        }}
+      />
+    );
+    expect(testRenderer.toJSON()).toMatchSnapshot();
+  });
+
+  it('render correctly in toutiao', () => {
+    process.env.REMAX_PLATFORM = 'toutiao';
+
+    const testRenderer = TestRenderer.create(
+      <Input
+        className="class"
+        onBlur={() => {
+          // ignore
+        }}
+        onFocus={() => {
+          // ignore
+        }}
+        onConfirm={() => {
+          // ignore
+        }}
+      />
+    );
+    expect(testRenderer.toJSON()).toMatchSnapshot();
+  });
+
+  it('render correctly in web', () => {
+    process.env.REMAX_PLATFORM = 'web';
 
     const testRenderer = TestRenderer.create(
       <Input

@@ -2,6 +2,8 @@
 
 exports[`Ad render correctly 1`] = `
 <ad
+  adTheme="white"
+  adType="banner"
   unitId="id"
 />
 `;

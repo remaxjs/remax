@@ -1,6 +1,7 @@
 export const alias = {
   id: 'id',
   style: 'style',
+  animation: 'animation',
   className: 'class',
   latitude: 'latitude',
   longitude: 'longitude',
@@ -42,7 +43,6 @@ export const alias = {
   onRegionChange: 'bindregionchange',
   onPoiTap: 'bindpoitap',
   onPoiClick: 'bindpoitap',
-  animation: 'animation',
 };
 
 export const props = Object.values(alias);

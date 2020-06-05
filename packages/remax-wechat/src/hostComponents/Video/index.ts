@@ -45,6 +45,12 @@ export interface VideoProps extends BaseProps {
   poster?: string;
   /** 用于给搜索等场景作为视频封面展示，建议使用无播放 icon 的视频封面图，只支持网络地址 */
   posterForCrawler?: string;
+  /** 显示投屏按钮。只安卓且同层渲染下生效，支持 DLNA 协议 1.10.2 */
+  showCastingButton?: boolean;
+  /** 设置小窗模式： push, pop，空字符串或通过数组形式设置多种模式（如： ["push", "pop"]） */
+  pictureInPictureMode?: string | string[];
+  /** 是否在小窗模式下显示播放进度	2.11.0 */
+  pictureInPictureShowProgress?: boolean;
   /** 是否显示静音按钮 2.4.0 */
   showMuteBtn?: boolean;
   /** 视频的标题，全屏时在顶部展示 2.4.0 */
@@ -53,6 +59,10 @@ export interface VideoProps extends BaseProps {
   playBtnPosition?: 'bottom' | 'center';
   /** 是否开启播放手势，即双击切换播放/暂停 2.4.0 */
   enablePlayGesture?: boolean;
+  /** 是否开启手机横屏时自动全屏，当系统设置开启自动旋转时生效 2.11.0 */
+  enableAutoRotation?: false;
+  /** 是否显示锁屏按钮，仅在全屏时显示，锁屏后控制栏的操作 2.11.0 */
+  showScreenLockButton?: false;
   /** 当跳转到其它小程序页面时，是否自动暂停本页面的视频 2.5.0 */
   autoPauseIfNavigate?: boolean;
   /** 当跳转到其它微信原生页面时，是否自动暂停本页面的视频 2.5.0 */
@@ -90,6 +100,7 @@ const VideoRender: React.ForwardRefRenderFunction<any, VideoProps> = (props, ref
 
 /**
  * video 默认宽度 300px、高度 225px，可通过 wxss 设置宽高
+ * https://developers.weixin.qq.com/miniprogram/dev/component/video.html
  */
 const RemaxVideo = React.forwardRef(VideoRender);
 
@@ -115,6 +126,10 @@ RemaxVideo.defaultProps = {
   autoPauseIfOpenNative: true,
   vslideGesture: false,
   vslideGestureInFullscreen: true,
+  showCastingButton: false,
+  pictureInPictureShowProgress: false,
+  enableAutoRotation: false,
+  showScreenLockButton: false,
 };
 
 export const Video = createHostComponent(hostComponentName, RemaxVideo);

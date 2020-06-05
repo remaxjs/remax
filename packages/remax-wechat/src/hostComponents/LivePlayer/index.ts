@@ -41,5 +41,21 @@ export interface LivePlayerProps extends BaseProps {
   /** 播放器退出小窗	2.11.0 */
   onLeavePictureInPicture?: (event: any) => any;
 }
-
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html
+ */
 export const LivePlayer = createHostComponent<LivePlayerProps>('live-player');
+
+LivePlayer.defaultProps = {
+  mode: 'live',
+  autoplay: false,
+  muted: false,
+  orientation: 'vertical',
+  objectFit: 'contain',
+  backgroundMute: false,
+  minCache: 1,
+  maxCache: 3,
+  soundMode: 'speaker',
+  autoPauseIfNavigate: true,
+  autoPauseIfOpenNative: true,
+};

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`View render correctly 1`] = `
+exports[`View render correctly in ali 1`] = `
 <view
   className="class"
   onLongTap={[Function]}
@@ -9,6 +9,52 @@ exports[`View render correctly 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
+>
+  view
+</view>
+`;
+
+exports[`View render correctly in toutiao 1`] = `
+<view
+  className="class"
+  onLongTap={[Function]}
+  onTap={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+>
+  view
+</view>
+`;
+
+exports[`View render correctly in web 1`] = `
+<view
+  className="class"
+  onLongTap={[Function]}
+  onTap={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+>
+  view
+</view>
+`;
+
+exports[`View render correctly in wechat 1`] = `
+<view
+  className="class"
+  hoverClassName="none"
+  hoverStartTime={50}
+  hoverStayTime={400}
+  onLongTap={[Function]}
+  onTap={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  wechat-hover-stop-propagation={false}
 >
   view
 </view>

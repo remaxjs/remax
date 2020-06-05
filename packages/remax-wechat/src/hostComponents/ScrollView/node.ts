@@ -2,6 +2,7 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  animation: 'animation',
   scrollX: 'scroll-x',
   scrollY: 'scroll-y',
   upperThreshold: 'upper-threshold',
@@ -21,7 +22,7 @@ export const alias = {
   onTouchMove: 'bindtouchmove',
   onTouchCancel: 'bindtouchcancel',
   onClick: 'bindtap',
-  animation: 'animation',
+
   scrollAnchoring: 'scroll-anchoring',
   refresherEnabled: 'refresher-enabled',
   refresherThreshold: 'refresher-threshold',

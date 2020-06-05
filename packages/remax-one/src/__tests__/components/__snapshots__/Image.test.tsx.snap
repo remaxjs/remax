@@ -1,9 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Image render correctly 1`] = `
+exports[`Image render correctly in ali 1`] = `
 <image
   className="class"
   onError={[Function]}
   onLoad={[Function]}
+/>
+`;
+
+exports[`Image render correctly in toutiao 1`] = `
+<image
+  className="class"
+  onError={[Function]}
+  onLoad={[Function]}
+/>
+`;
+
+exports[`Image render correctly in wechat 1`] = `
+<image
+  className="class"
+  mode="scaleToFill"
+  onError={[Function]}
+  onLoad={[Function]}
+  wechat-lazyLoad={false}
+  wechat-show-menu-by-longpress={false}
+  wechat-webp={false}
 />
 `;

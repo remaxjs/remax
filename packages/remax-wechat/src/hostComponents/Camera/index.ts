@@ -4,6 +4,8 @@ import { BaseProps } from '../../types/component';
 export interface CameraProps extends BaseProps {
   /** (default: normal) 应用模式，只在初始化时有效，不能动态变更 2.1.0  */
   mode?: 'normal' | 'scanCode';
+  /** 分辨率，不支持动态修改	2.10.0 */
+  resolution?: 'low' | 'medium' | 'high';
   /** (default: back) 摄像头朝向 1.0.0 */
   devicePosition?: 'front' | 'back';
   /** (default: auto) 闪光灯，值为auto, on, off 1.0.0 */
@@ -19,5 +21,15 @@ export interface CameraProps extends BaseProps {
   /** 在扫码识别成功时触发，仅在 mode="scanCode" 时生效 2.1.0 */
   onScanCode?: (event: any) => any;
 }
-
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/camera.html
+ */
 export const Camera = createHostComponent<CameraProps>('camera');
+
+Camera.defaultProps = {
+  mode: 'normal',
+  resolution: 'medium',
+  devicePosition: 'back',
+  flash: 'auto',
+  frameSize: 'medium',
+};

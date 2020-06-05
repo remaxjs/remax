@@ -26,25 +26,9 @@ describe('node', () => {
     expect(
       node().shouldHostComponentRegister!({
         componentName: 'swiper-item',
-        phase: 'jsx',
+        phase: 'import',
       })
     ).toBeFalsy();
-
-    expect(
-      node().shouldHostComponentRegister!({
-        componentName: 'foo',
-        additional: false,
-        phase: 'extra',
-      })
-    ).toBeFalsy();
-
-    expect(
-      node().shouldHostComponentRegister!({
-        componentName: 'foo',
-        additional: true,
-        phase: 'extra',
-      })
-    ).toBeTruthy();
 
     expect(
       node().shouldHostComponentRegister!({
@@ -52,39 +36,20 @@ describe('node', () => {
         phase: 'import',
       })
     ).toBeTruthy();
-  });
 
-  it('processProps', () => {
     expect(
-      node().processProps!({
-        node: {
-          openingElement: {
-            attributes: [
-              {
-                type: 'JSXSpreadAttribute',
-              },
-            ],
-          },
-        } as any,
-        props: ['p1'],
+      node().shouldHostComponentRegister!({
         componentName: 'view',
-        additional: false,
+        phase: 'extra',
       })
-    ).toEqual(['p1']);
+    ).toBeTruthy();
 
     expect(
-      node().processProps!({
-        props: ['p1'],
-        componentName: 'foo',
+      node().shouldHostComponentRegister!({
+        componentName: 'custom-view',
         additional: true,
+        phase: 'import',
       })
-    ).toEqual(['p1']);
-
-    expect(
-      node().processProps!({
-        props: ['p1'],
-        componentName: 'foo',
-      })
-    ).toEqual([]);
+    ).toBeTruthy();
   });
 });

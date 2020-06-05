@@ -15,4 +15,14 @@ export interface SwitchProps extends BaseProps {
   onChange?: (event: any) => any;
 }
 
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/switch.html
+ */
 export const Switch = createHostComponent<SwitchProps>('switch');
+
+Switch.defaultProps = {
+  checked: false,
+  disabled: false,
+  type: 'switch',
+  color: '#04BE02',
+};

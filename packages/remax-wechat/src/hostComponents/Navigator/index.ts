@@ -2,12 +2,6 @@ import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
-export const Navigator: React.ComponentType<NavigatorProps> = createHostComponent<NavigatorProps>('navigator');
-
-Navigator.defaultProps = {
-  openType: 'navigate',
-};
-
 export interface NavigatorProps extends BaseProps {
   /** (default: self) 在哪个目标上发生跳转，默认当前小程序 2.0.7 */
   target?: 'self' | 'miniProgram';
@@ -40,3 +34,17 @@ export interface NavigatorProps extends BaseProps {
   /** 当target="miniProgram"时有效，跳转小程序完成 2.0.7 */
   onComplete?: (event: any) => any;
 }
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/navigator.html
+ */
+export const Navigator: React.ComponentType<NavigatorProps> = createHostComponent<NavigatorProps>('navigator');
+
+Navigator.defaultProps = {
+  target: 'self',
+  openType: 'navigate',
+  delta: 1,
+  hoverClassName: 'navigator-hover',
+  hoverStopPropagation: false,
+  hoverStartTime: 50,
+  hoverStayTime: 600,
+};

@@ -2,6 +2,7 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  animation: 'animation',
   mode: 'mode',
   devicePosition: 'device-position',
   flash: 'flash',
@@ -10,7 +11,6 @@ export const alias = {
   onError: 'binderror',
   onInitDone: 'bindinitdone',
   onScanCode: 'bindscancode',
-  animation: 'animation',
 };
 
 export const props = Object.values(alias);

@@ -22,4 +22,11 @@ export interface CanvasProps extends BaseProps {
   onError?: (event: any) => any;
 }
 
+/**
+ * @see https://developers.weixin.qq.com/miniprogram/dev/component/canvas.html
+ */
 export const Canvas = createHostComponent<CanvasProps>('canvas');
+
+Canvas.defaultProps = {
+  disableScroll: false,
+};

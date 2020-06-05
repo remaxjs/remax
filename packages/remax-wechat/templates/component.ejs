@@ -4,50 +4,6 @@
       .map(key => `${key}="{{_h.v(i.props['${key}'])}}"`)
       .join('\n')
   } _%>
-  <%_ if (['input', 'textarea'].includes(id)) { _%>
-    <% const propsString = propsKeyTpl(props.filter(key => (key !== 'focus'))) %>
-    <<%=id%> wx:if="{{i.props.focus}}" focus
-      <%- propsString %>
-    />
-    <<%=id%> wx:else <%- propsString %> />
-  <%_ } else if (id === 'scroll-view') { _%>
-    <% const propsString = propsKeyTpl(props.filter(key => (key !== 'scroll-top' && key !== 'scroll-left'))) %>
-    <<%=id%> wx:if="{{i.props['scroll-y'] && i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}" <%- propsString %> >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </<%=id%>>
-    <<%=id%> wx:elif="{{i.props['scroll-x'] && i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}" <%- propsString %> >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </<%=id%>>
-    <<%=id%> wx:else <%- propsString %> >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </<%=id%>>
-  <%_ } else if (id === 'swiper') { _%>
-    <% const propsString = propsKeyTpl(props.filter(key => (key !== 'current'))) %>
-    <<%=id%> wx:if="{{i.props.current !== undefined && i.props.current !== null}}" current="{{i.props.current}}" <%- propsString %> >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <swiper-item item-id="{{i.nodes[item].props.itemId}}" key="{{i.nodes[item].props.key}}">
-          <block wx:for="{{i.nodes[item].children}}" wx:key="*this" wx:for-item="sItem">
-            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}" />
-          </block>
-        </swiper-item>
-      </block>
-    </<%=id%>>
-    <<%=id%> wx:else <%- propsString %> >
-      <block wx:for="{{i.children}}" wx:key="*this">
-        <swiper-item item-id="{{i.nodes[item].props.itemId}}" key="{{i.nodes[item].props.key}}">
-          <block wx:for="{{i.nodes[item].children}}" wx:key="*this" wx:for-item="sItem">
-            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}" />
-          </block>
-        </swiper-item>
-      </block>
-    </<%=id%>>
-  <%_ } else { _%>
   <<%=id%>
     <%- propsKeyTpl(props) %>>
     <%_ if (id === 'swiper') { _%>
@@ -79,5 +35,4 @@
     </block>
     <%_ } _%>
   </<%=id%>>
-  <%_ } _%>
 </template>

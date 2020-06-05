@@ -11,11 +11,19 @@ export interface InputState {
 }
 
 export default class Input extends React.Component<InputProps, InputState> {
+  // 平台独有的属性默认值写在这
   static defaultProps = {
     'toutiao-selection-end': 999,
     'toutiao-selection-start': 999,
-    'wechat-selection-end': 999,
-    'wechat-selection-start': 999,
+
+    'wechat-placeholder-class': 'input-placeholder',
+    'wechat-cursor-spacing': 0,
+    'wechat-confirm-type': 'done',
+    'wechat-confirm-hold': false,
+    'wechat-selection-end': -1,
+    'wechat-selection-start': -1,
+    'wechat-adjust-position': true,
+    'wechat-hold-keyboard': false,
   };
 
   state: InputState = {
@@ -76,7 +84,16 @@ export default class Input extends React.Component<InputProps, InputState> {
       inputProps.onBlur = createCallback(this.props.onBlur, createInputEvent);
     }
 
-    if (process.env.REMAX_PLATFORM === 'wechat' || process.env.REMAX_PLATFORM === 'toutiao') {
+    // 通用属性的默认属性根据平台在这里设置
+    if (process.env.REMAX_PLATFORM === 'toutiao') {
+      inputProps.maxLength = inputProps.maxLength ?? 140;
+    }
+
+    if (process.env.REMAX_PLATFORM === 'wechat') {
+      inputProps.type = inputProps.type ?? 'text';
+      inputProps.password = inputProps.password ?? false;
+      inputProps.disabled = inputProps.disabled ?? false;
+      inputProps.focus = inputProps.focus ?? false;
       inputProps.maxLength = inputProps.maxLength ?? 140;
     }
 

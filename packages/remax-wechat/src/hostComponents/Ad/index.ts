@@ -12,6 +12,14 @@ export interface AdProps extends BaseProps {
   onError?: (event: any) => any;
   /** 广告关闭的回调 2.6.5 */
   onClose?: (event: any) => any;
+  /** 广告类型，默认为展示banner，可通过设置该属性为video展示视频广告, grid为格子广告	2.8.0 **/
+  adType?: string;
+  adTheme?: string;
 }
 
 export const Ad = createHostComponent<AdProps>('ad');
+
+Ad.defaultProps = {
+  adType: 'banner',
+  adTheme: 'white',
+};

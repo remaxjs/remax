@@ -4,7 +4,6 @@ export const alias = {
   args: 'args',
   onSuccess: 'bindsuccess',
   onFail: 'bindfail',
-  animation: 'animation',
 };
 
 export const props = Object.values(alias);

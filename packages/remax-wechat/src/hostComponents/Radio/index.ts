@@ -12,5 +12,13 @@ export interface RadioProps extends BaseProps {
   /** (default: #09BB07) radio的颜色，同css的color 1.0.0 */
   color?: string;
 }
-
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/radio.html
+ */
 export const Radio = createHostComponent<RadioProps>('radio');
+
+Radio.defaultProps = {
+  checked: false,
+  disabled: false,
+  color: '#09BB07',
+};

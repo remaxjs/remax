@@ -17,4 +17,12 @@ export interface TextProps extends BaseProps {
   decode?: boolean;
 }
 
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/text.html
+ */
 export const Text = createHostComponent<TextProps>('text');
+
+Text.defaultProps = {
+  selectable: false,
+  decode: false,
+};

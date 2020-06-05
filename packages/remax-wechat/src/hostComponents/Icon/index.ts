@@ -10,4 +10,11 @@ export interface IconProps extends BaseProps {
   color?: string;
 }
 
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/icon.html
+ */
 export const Icon = createHostComponent<IconProps>('icon');
+
+Icon.defaultProps = {
+  size: 23,
+};

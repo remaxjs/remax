@@ -8,4 +8,11 @@ export interface RichTextProps extends BaseProps {
   space?: 'ensp' | 'emsp' | 'nbsp';
 }
 
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/rich-text.html
+ */
 export const RichText = createHostComponent<RichTextProps>('rich-text');
+
+RichText.defaultProps = {
+  nodes: [],
+};

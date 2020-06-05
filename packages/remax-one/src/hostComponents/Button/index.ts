@@ -23,6 +23,12 @@ export interface ButtonProps extends React.AriaAttributes {
   onTap?: (event: TapEvent) => void;
 }
 
-const Button = createHostComponent<ButtonProps>('button');
+const Button = createHostComponent<ButtonProps>('button', {
+  wechat: {
+    hoverClassName: 'button-hover',
+    hoverStartTime: 20,
+    hoverStayTime: 70,
+  },
+});
 
 export default Button;

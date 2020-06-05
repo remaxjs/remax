@@ -2,6 +2,7 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  animation: 'animation',
   nodes: 'nodes',
   onTap: 'bindtap',
   onClick: 'bindtap',
@@ -12,7 +13,6 @@ export const alias = {
   onTouchCancel: 'bindtouchcancel',
   onLongTap: 'bindlongtap',
   onLongClick: 'bindlongtap',
-  animation: 'animation',
 };
 
 export const props = Object.values(alias);
