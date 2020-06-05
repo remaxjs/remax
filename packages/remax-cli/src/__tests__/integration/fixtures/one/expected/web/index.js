@@ -47,6 +47,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["hd"])();
+var history = Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["createHashHistory"])();
 var page_0 = Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["loadable"])(function () {
   return __webpack_require__.e(/* import() | pages/index */ 2).then(__webpack_require__.bind(null, 10)).then(function (_ref) {
     var c = _ref.default;
@@ -100,7 +101,7 @@ function TabBar() {
 
   react__WEBPACK_IMPORTED_MODULE_1__["useEffect"](function () {
     setCurrentPath(window.location.pathname);
-    return remax_web__WEBPACK_IMPORTED_MODULE_3__["history"].listen(function (location, action) {
+    return history.listen(function (location, action) {
       setCurrentPath(location.pathname);
     });
   }, []);
@@ -148,7 +149,7 @@ function TabBar() {
 }
 
 Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["render"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](AppConfig, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_web__WEBPACK_IMPORTED_MODULE_3__["Router"], {
-  history: remax_web__WEBPACK_IMPORTED_MODULE_3__["history"]
+  history: history
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_web__WEBPACK_IMPORTED_MODULE_3__["CacheSwitch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_web__WEBPACK_IMPORTED_MODULE_3__["Route"], {
   exact: true,
   path: "/"

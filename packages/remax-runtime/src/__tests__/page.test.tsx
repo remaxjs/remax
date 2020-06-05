@@ -7,6 +7,46 @@ import View from './helpers/View';
 import Page from './helpers/Page';
 
 jest.mock('../stopPullDownRefresh', () => () => void 0);
+jest.mock('../RuntimeOptions', () => ({
+  get(key: 'appEvents' | 'pageEvents') {
+    const options = {
+      pluginDriver: {
+        onAppConfig: (config: any) => config,
+        onPageConfig: (config: any) => config,
+      },
+      appEvents: [
+        'onLaunch',
+        'onShow',
+        'onHide',
+        'onShareAppMessage',
+        'onPageNotFound',
+        'onError',
+        'onUnhandledRejection',
+        'onThemeChange',
+      ],
+      pageEvents: {
+        'pages/test/only/onshow': ['onShow'],
+        'pages/test/index': [
+          'onShow',
+          'onHide',
+          'onPullDownRefresh',
+          'onPullIntercept',
+          'onReachBottom',
+          'onPageScroll',
+          'onShareAppMessage',
+          'onTitleClick',
+          'onOptionMenuClick',
+          'onPopMenuClick',
+          'onReady',
+          'onResize',
+          'onTabItemTap',
+        ],
+      },
+    };
+
+    return options[key];
+  },
+}));
 
 const TEST_PAGE = 'pages/test/index';
 

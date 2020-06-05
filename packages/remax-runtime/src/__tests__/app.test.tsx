@@ -4,6 +4,47 @@ import App from './helpers/App';
 import { useAppEvent } from '../hooks';
 import createAppConfig from '../createAppConfig';
 
+jest.mock('../RuntimeOptions', () => ({
+  get(key: 'appEvents' | 'pageEvents') {
+    const options = {
+      pluginDriver: {
+        onAppConfig: (config: any) => config,
+        onPageConfig: (config: any) => config,
+      },
+      appEvents: [
+        'onLaunch',
+        'onShow',
+        'onHide',
+        'onShareAppMessage',
+        'onPageNotFound',
+        'onError',
+        'onUnhandledRejection',
+        'onThemeChange',
+      ],
+      pageEvents: {
+        'pages/test/only/onshow': ['onShow'],
+        'pages/test/index': [
+          'onShow',
+          'onHide',
+          'onPullDownRefresh',
+          'onPullIntercept',
+          'onReachBottom',
+          'onPageScroll',
+          'onShareAppMessage',
+          'onTitleClick',
+          'onOptionMenuClick',
+          'onPopMenuClick',
+          'onReady',
+          'onResize',
+          'onTabItemTap',
+        ],
+      },
+    };
+
+    return options[key];
+  },
+}));
+
 describe('app', () => {
   it('lifecycle methods', () => {
     const log: string[] = [];

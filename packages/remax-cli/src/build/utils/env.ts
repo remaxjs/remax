@@ -55,8 +55,6 @@ export default function getEnvironment(options: Options, target: string) {
       env[`process.env.${key}`] = JSON.stringify(raw[key]);
       return env;
     }, {}),
-    __REMAX_DEBUG__: JSON.stringify(process.env.REMAX_DEBUG),
-    __REMAX_PX2RPX__: JSON.stringify(options.pxToRpx),
   };
 
   return { raw, stringified };

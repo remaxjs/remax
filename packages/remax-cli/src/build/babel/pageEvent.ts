@@ -1,7 +1,7 @@
 import * as path from 'path';
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
-import { pageClassEvents } from '../webpack/plugins/Define';
+import { pageClassEvents } from '../webpack/plugins/RuntimeOptions';
 import { Options } from '@remax/types';
 import { slash } from '@remax/shared';
 

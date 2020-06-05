@@ -10,32 +10,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _render__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _render__WEBPACK_IMPORTED_MODULE_0__["default"]; });
 
-/* harmony import */ var _PluginDriver__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
+/* harmony import */ var _PluginDriver__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PluginDriver", function() { return _PluginDriver__WEBPACK_IMPORTED_MODULE_1__["default"]; });
 
 /* harmony import */ var _createAppConfig__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createAppConfig", function() { return _createAppConfig__WEBPACK_IMPORTED_MODULE_2__["default"]; });
 
-/* harmony import */ var _createPageConfig__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(32);
+/* harmony import */ var _createPageConfig__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createPageConfig", function() { return _createPageConfig__WEBPACK_IMPORTED_MODULE_3__["default"]; });
 
-/* harmony import */ var _createNativeComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(39);
+/* harmony import */ var _createNativeComponent__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(37);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createNativeComponent", function() { return _createNativeComponent__WEBPACK_IMPORTED_MODULE_4__["default"]; });
 
-/* harmony import */ var _remax_shared__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(40);
-/* harmony import */ var _remax_shared__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_remax_shared__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createHostComponent", function() { return _remax_shared__WEBPACK_IMPORTED_MODULE_5__["createHostComponent"]; });
+/* harmony import */ var _RuntimeOptions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(13);
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "RuntimeOptions", function() { return _RuntimeOptions__WEBPACK_IMPORTED_MODULE_5__; });
+/* harmony import */ var _remax_shared__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(38);
+/* harmony import */ var _remax_shared__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_remax_shared__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createHostComponent", function() { return _remax_shared__WEBPACK_IMPORTED_MODULE_6__["createHostComponent"]; });
 
-/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(41);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageInstance", function() { return _hooks__WEBPACK_IMPORTED_MODULE_6__["usePageInstance"]; });
+/* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(39);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageInstance", function() { return _hooks__WEBPACK_IMPORTED_MODULE_7__["usePageInstance"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useQuery", function() { return _hooks__WEBPACK_IMPORTED_MODULE_6__["useQuery"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useQuery", function() { return _hooks__WEBPACK_IMPORTED_MODULE_7__["useQuery"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useNativeEffect", function() { return _hooks__WEBPACK_IMPORTED_MODULE_6__["useNativeEffect"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useNativeEffect", function() { return _hooks__WEBPACK_IMPORTED_MODULE_7__["useNativeEffect"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageEvent", function() { return _hooks__WEBPACK_IMPORTED_MODULE_6__["usePageEvent"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageEvent", function() { return _hooks__WEBPACK_IMPORTED_MODULE_7__["usePageEvent"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useAppEvent", function() { return _hooks__WEBPACK_IMPORTED_MODULE_6__["useAppEvent"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useAppEvent", function() { return _hooks__WEBPACK_IMPORTED_MODULE_7__["useAppEvent"]; });
+
 
 
 
@@ -47,6 +50,7 @@ __webpack_require__.r(__webpack_exports__);
  // eslint-disable-next-line @typescript-eslint/camelcase
 
 var unstable_batchedUpdates = _render__WEBPACK_IMPORTED_MODULE_0__["ReactReconcilerInst"].batchedUpdates;
+
 
 /***/ }),
 /* 3 */
@@ -98,8 +102,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
 /* harmony import */ var _instanceId__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
 /* harmony import */ var _VNode__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
-/* harmony import */ var _SyntheticEvent_createCallbackProxy__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(14);
-/* harmony import */ var _diffProperties__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(17);
+/* harmony import */ var _SyntheticEvent_createCallbackProxy__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(15);
+/* harmony import */ var _diffProperties__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(18);
 var __values = undefined && undefined.__values || function (o) {
   var s = typeof Symbol === "function" && Symbol.iterator,
       m = s && o[s],
@@ -649,14 +653,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "propAlias", function() { return propAlias; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return propsAlias; });
 /* harmony import */ var _utils_plainStyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
-/* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
+/* harmony import */ var _RuntimeOptions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
 
 
 function getAlias(prop, type) {
   var _a, _b;
 
   prop = prop.replace('className', 'class');
-  var hostComponent = _createHostComponent__WEBPACK_IMPORTED_MODULE_1__["hostComponents"][type];
+  var hostComponent = _RuntimeOptions__WEBPACK_IMPORTED_MODULE_1__["get"]('hostComponents')[type];
   var prefix = "ali" + "-"; // 判断是否是平台独有属性
 
   if (prop.startsWith(prefix)) {
@@ -698,6 +702,7 @@ function propsAlias(props, type) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CSSProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
+/* harmony import */ var _RuntimeOptions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
 var __read = undefined && undefined.__read || function (o, n) {
   var m = typeof Symbol === "function" && o[Symbol.iterator];
   if (!m) return o;
@@ -732,6 +737,7 @@ var __spread = undefined && undefined.__spread || function () {
 
   return ar;
 };
+
 
 
 var vendorPrefixes = ['webkit', 'moz', 'ms', 'o'];
@@ -782,7 +788,7 @@ var plainStyle = function plainStyle(style) {
       value = value + 'rpx';
     }
 
-    return __spread(acc, [transformReactStyleKey(key) + ":" + ( true ? transformPx(value) : undefined) + ";"]);
+    return __spread(acc, [transformReactStyleKey(key) + ":" + (_RuntimeOptions__WEBPACK_IMPORTED_MODULE_1__["get"]('pxToRpx') ? transformPx(value) : value) + ";"]);
   }, []).join('');
 };
 
@@ -879,546 +885,41 @@ for (var prop in isUnitlessNumber) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hostComponents", function() { return hostComponents; });
-var hostComponents = {
-  "button": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "size": "size",
-      "type": "type",
-      "plain": "plain",
-      "disabled": "disabled",
-      "loading": "loading",
-      "hoverClass": "hover-class",
-      "hoverClassName": "hover-class",
-      "hoverStartTime": "hover-start-time",
-      "hoverStayTime": "hover-stay-time",
-      "hoverStopPropagation": "hover-stop-propagation",
-      "formType": "form-type",
-      "openType": "open-type",
-      "scope": "scope",
-      "onClick": "onTap",
-      "onTap": "onTap",
-      "appParameter": "app-parameter",
-      "publicId": "public-id",
-      "onGetAuthorize": "onGetAuthorize"
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "apply", function() { return apply; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "get", function() { return get; });
+/* harmony import */ var _PluginDriver__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
+var __assign = undefined && undefined.__assign || function () {
+  __assign = Object.assign || function (t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+      s = arguments[i];
+
+      for (var p in s) {
+        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+      }
     }
-  },
-  "canvas": {
-    "alias": {
-      "id": "id",
-      "style": "style",
-      "className": "class",
-      "width": "width",
-      "height": "height",
-      "disableScroll": "disable-scroll",
-      "onClick": "onTap",
-      "onTap": "onTap",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel",
-      "onLongTap": "onLongTap",
-      "onLongClick": "onLongTap"
-    }
-  },
-  "checkbox-group": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "name": "name",
-      "onChange": "onChange"
-    }
-  },
-  "checkbox": {
-    "alias": {
-      "className": "class",
-      "style": "style",
-      "id": "id",
-      "name": "name",
-      "value": "value",
-      "checked": "checked",
-      "disabled": "disabled",
-      "onChange": "onChange",
-      "color": "color"
-    }
-  },
-  "contact-button": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "tntInstId": "tnt-inst-id",
-      "scene": "scene",
-      "size": "size",
-      "color": "color",
-      "icon": "icon",
-      "alipayCardNo": "alipay-card-no"
-    }
-  },
-  "cover-image": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "src": "src",
-      "style": "style",
-      "onClick": "onTap",
-      "onTap": "onTap"
-    }
-  },
-  "cover-view": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "onTap": "onTap",
-      "onClick": "onTap"
-    }
-  },
-  "form": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "reportSubmit": "report-submit",
-      "onSubmit": "onSubmit",
-      "onReset": "onReset"
-    }
-  },
-  "icon": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "type": "type",
-      "size": "size",
-      "color": "color"
-    }
-  },
-  "image": {
-    "alias": {
-      "id": "id",
-      "src": "src",
-      "mode": "mode",
-      "className": "class",
-      "style": "style",
-      "lazyLoad": "lazy-load",
-      "onLoad": "onLoad",
-      "onError": "onError",
-      "onTap": "onTap",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel",
-      "onClick": "onTap"
-    }
-  },
-  "input": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "value": "value",
-      "name": "name",
-      "type": "type",
-      "password": "password",
-      "placeholder": "placeholder",
-      "placeholderStyle": "placeholder-style",
-      "placeholderClass": "placeholder-class",
-      "placeholderClassName": "placeholder-class",
-      "disabled": "disabled",
-      "maxlength": "maxlength",
-      "focus": "focus",
-      "confirmType": "confirm-type",
-      "confirmHold": "confirm-hold",
-      "cursor": "cursor",
-      "selectionStart": "selection-start",
-      "selectionEnd": "selection-end",
-      "randomNumber": "randomNumber",
-      "controlled": "controlled",
-      "enableNative": "enableNative",
-      "onInput": "onInput",
-      "onConfirm": "onConfirm",
-      "onFocus": "onFocus",
-      "onBlur": "onBlur"
-    }
-  },
-  "label": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "for": "for"
-    }
-  },
-  "lifestyle": {
-    "alias": {
-      "publicId": "public-id",
-      "onFollow": "onFollow"
-    }
-  },
-  "map": {
-    "alias": {
-      "id": "id",
-      "style": "style",
-      "className": "class",
-      "latitude": "latitude",
-      "longitude": "longitude",
-      "scale": "scale",
-      "markers": "markers",
-      "polyline": "polyline",
-      "circles": "circles",
-      "controls": "controls",
-      "polygon": "polygon",
-      "showLocation": "show-location",
-      "includePoints": "include-points",
-      "includePadding": "include-padding",
-      "groundOverlays": "ground-overlays",
-      "tileOverlay": "tile-overlay",
-      "setting": "setting",
-      "onMarkerTap": "onMarkerTap",
-      "onMarkerClick": "onMarkerTap",
-      "onCalloutTap": "onCalloutTap",
-      "onCalloutClick": "onCalloutTap",
-      "onControlTap": "onControlTap",
-      "onControlClick": "onControlTap",
-      "onRegionChange": "onRegionChange",
-      "onTap": "onTap",
-      "onClick": "onTap"
-    }
-  },
-  "movable-area": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "width": "width",
-      "height": "height"
-    }
-  },
-  "movable-view": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "direction": "direction",
-      "width": "width",
-      "height": "height",
-      "x": "x",
-      "y": "y",
-      "disabled": "disabled",
-      "outOfBounds": "out-of-bounds",
-      "damping": "damping",
-      "friction": "friction",
-      "scale": "scale",
-      "scaleMin": "scale-min",
-      "scaleMax": "scale-max",
-      "scaleValue": "scale-value",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel",
-      "onChange": "onChange",
-      "onChangeEnd": "onChangeEnd",
-      "onScale": "onScale"
-    }
-  },
-  "navigator": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "openType": "open-type",
-      "hoverClass": "hover-class",
-      "hoverClassName": "hover-class",
-      "hoverStartTime": "hover-start-time",
-      "hoverStayTime": "hover-stay-time",
-      "url": "url"
-    }
-  },
-  "picker-view-column": {
-    "alias": {}
-  },
-  "picker-view": {
-    "alias": {
-      "id": "id",
-      "name": "name",
-      "className": "class",
-      "style": "style",
-      "value": "value",
-      "indicatorStyle": "indicator-style",
-      "indicatorClass": "indicator-class",
-      "indicatorClassName": "indicator-class",
-      "maskStyle": "mask-style",
-      "maskClass": "mask-class",
-      "maskClassName": "mask-class",
-      "onChange": "onChange"
-    }
-  },
-  "picker": {
-    "alias": {
-      "id": "id",
-      "name": "name",
-      "className": "class",
-      "style": "style",
-      "range": "range",
-      "rangeKey": "range-key",
-      "value": "value",
-      "onChange": "onChange",
-      "disabled": "disabled"
-    }
-  },
-  "progress": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "percent": "percent",
-      "showInfo": "show-info",
-      "strokeWidth": "stroke-width",
-      "activeColor": "active-color",
-      "backgroundColor": "background-color",
-      "active": "active"
-    }
-  },
-  "radio-group": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "onChange": "onChange",
-      "name": "name"
-    }
-  },
-  "radio": {
-    "alias": {
-      "id": "id",
-      "name": "name",
-      "className": "class",
-      "style": "style",
-      "value": "value",
-      "checked": "checked",
-      "disabled": "disabled",
-      "color": "color"
-    }
-  },
-  "rich-text": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "nodes": "nodes",
-      "onTap": "onTap",
-      "onClick": "onTap",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel",
-      "onLongTap": "onLongTap",
-      "onLongClick": "onLongTap"
-    }
-  },
-  "scroll-view": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "scrollX": "scroll-x",
-      "scrollY": "scroll-y",
-      "upperThreshold": "upper-threshold",
-      "lowerThreshold": "lower-threshold",
-      "scrollTop": "scroll-top",
-      "scrollLeft": "scroll-left",
-      "scrollIntoView": "scroll-into-view",
-      "scrollWithAnimation": "scroll-with-animation",
-      "scrollAnimationDuration": "scroll-animation-duration",
-      "enableBackToTop": "enable-back-to-top",
-      "trapScroll": "trap-scroll",
-      "onScrollToUpper": "onScrollToUpper",
-      "onScrollToLower": "onScrollToLower",
-      "onScroll": "onScroll",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel"
-    }
-  },
-  "slider": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "name": "name",
-      "min": "min",
-      "max": "max",
-      "step": "step",
-      "disabled": "disabled",
-      "value": "value",
-      "showValue": "show-value",
-      "activeColor": "active-color",
-      "backgroundColor": "background-color",
-      "trackSize": "track-size",
-      "handleSize": "handle-size",
-      "handleColor": "handle-color",
-      "onChange": "onChange",
-      "onChanging": "onChanging"
-    }
-  },
-  "swiper-item": {
-    "alias": {
-      "key": "key"
-    }
-  },
-  "swiper": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "indicatorDots": "indicator-dots",
-      "indicatorColor": "indicator-color",
-      "indicatorActiveColor": "indicator-active-color",
-      "activeClass": "active-class",
-      "activeClassName": "active-class",
-      "changingClass": "changing-class",
-      "changingClassName": "changing-class",
-      "autoplay": "autoplay",
-      "current": "current",
-      "duration": "duration",
-      "interval": "interval",
-      "circular": "circular",
-      "vertical": "vertical",
-      "previousMargin": "previous-margin",
-      "nextMargin": "next-margin",
-      "acceleration": "acceleration",
-      "disableProgrammaticAnimation": "disable-programmatic-animation",
-      "onChange": "onChange",
-      "onTransition": "onTransition",
-      "onAnimationEnd": "onAnimationEnd",
-      "disableTouch": "disable-touch"
-    }
-  },
-  "switch": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "name": "name",
-      "checked": "checked",
-      "disabled": "disabled",
-      "color": "color",
-      "onChange": "onChange",
-      "controlled": "controlled"
-    }
-  },
-  "text": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "selectable": "selectable",
-      "space": "space",
-      "decode": "decode",
-      "numberOfLines": "number-of-lines",
-      "onClick": "onTap",
-      "onTap": "onTap"
-    }
-  },
-  "textarea": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "name": "name",
-      "value": "value",
-      "placeholder": "placeholder",
-      "placeholderStyle": "placeholder-style",
-      "placeholderClass": "placeholder-class",
-      "placeholderClassName": "placeholder-class",
-      "disabled": "disabled",
-      "maxlength": "maxlength",
-      "focus": "focus",
-      "autoHeight": "auto-height",
-      "showCount": "show-count",
-      "controlled": "controlled",
-      "enableNative": "enableNative",
-      "onInput": "onInput",
-      "onFocus": "onFocus",
-      "onBlur": "onBlur",
-      "onConfirm": "onConfirm"
-    }
-  },
-  "view": {
-    "alias": {
-      "id": "id",
-      "disableScroll": "disable-scroll",
-      "hoverClass": "hover-class",
-      "hoverClassName": "hover-class",
-      "hoverStartTime": "hover-start-time",
-      "hoverStayTime": "hover-stay-time",
-      "hidden": "hidden",
-      "className": "class",
-      "style": "style",
-      "animation": "animation",
-      "hoverStopPropagation": "hover-stop-propagation",
-      "onClick": "onTap",
-      "onTap": "onTap",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel",
-      "onLongTap": "onLongTap",
-      "onLongClick": "onLongTap",
-      "onTransitionEnd": "onTransitionEnd",
-      "onAnimationIteration": "onAnimationIteration",
-      "onAnimationStart": "onAnimationStart",
-      "onAnimationEnd": "onAnimationEnd",
-      "onAppear": "onAppear",
-      "onDisappear": "onDisappear",
-      "onFirstAppear": "onFirstAppear"
-    }
-  },
-  "web-view": {
-    "alias": {
-      "id": "id",
-      "src": "src",
-      "onMessage": "onMessage"
-    }
-  },
-  "video": {
-    "alias": {
-      "className": "class",
-      "src": "src",
-      "id": "id",
-      "poster": "poster",
-      "objectFit": "objectFit",
-      "initialTime": "initial-time",
-      "duration": "duration",
-      "controls": "controls",
-      "autoplay": "autoplay",
-      "direction": "direction",
-      "loop": "loop",
-      "muted": "muted",
-      "showFullscreenBtn": "show-fullscreen-btn",
-      "showPlayBtn": "show-play-btn",
-      "showCenterPlayBtn": "show-center-play-btn",
-      "showMuteBtn": "show-mute-btn",
-      "enableProgressGesture": "enableProgressGesture",
-      "mobilenetHintType": "mobilenetHintType",
-      "onPlay": "onPlay",
-      "onPause": "onPause",
-      "onEnded": "onEnded",
-      "onTimeUpdate": "onTimeUpdate",
-      "onLoading": "onLoading",
-      "onError": "onError",
-      "onFullScreenChange": "onFullScreenChange",
-      "onTap": "onTap",
-      "onClick": "onTap",
-      "onUserAction": "onUserAction"
-    }
-  }
-} || {};
+
+    return t;
+  };
+
+  return __assign.apply(this, arguments);
+};
+
+
+var runtimeOptions = {
+  pxToRpx: true,
+  hostComponents: {},
+  debug: false,
+  appEvents: [],
+  pageEvents: {},
+  pluginDriver: new _PluginDriver__WEBPACK_IMPORTED_MODULE_0__["default"]([]),
+  history: {}
+};
+function apply(options) {
+  runtimeOptions = __assign(__assign({}, runtimeOptions), options);
+}
+function get(key) {
+  return runtimeOptions[key];
+}
 
 /***/ }),
 /* 14 */
@@ -1426,9 +927,51 @@ var hostComponents = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+var PluginDriver =
+/** @class */
+function () {
+  function PluginDriver(plugins) {
+    this.plugins = plugins;
+  }
+
+  PluginDriver.prototype.onAppConfig = function (config) {
+    return this.plugins.reduce(function (acc, plugin) {
+      if (typeof plugin.onAppConfig === 'function') {
+        acc = plugin.onAppConfig({
+          config: acc
+        });
+      }
+
+      return acc;
+    }, config);
+  };
+
+  PluginDriver.prototype.onPageConfig = function (config) {
+    return this.plugins.reduce(function (acc, plugin) {
+      if (typeof plugin.onPageConfig === 'function') {
+        acc = plugin.onPageConfig({
+          config: acc
+        });
+      }
+
+      return acc;
+    }, config);
+  };
+
+  return PluginDriver;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (PluginDriver);
+
+/***/ }),
+/* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createCallbackProxy", function() { return createCallbackProxy; });
-/* harmony import */ var _stopPropagation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(15);
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(16);
+/* harmony import */ var _stopPropagation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(17);
 var __read = undefined && undefined.__read || function (o, n) {
   var m = typeof Symbol === "function" && o[Symbol.iterator];
   if (!m) return o;
@@ -1514,7 +1057,7 @@ function createCallbackProxy(eventType, node, callback) {
 }
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1522,7 +1065,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isPropagationStopped", function() { return isPropagationStopped; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "validate", function() { return validate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return stopPropagation; });
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
 
 var isPropagationStopped = false;
 /**
@@ -1557,7 +1100,7 @@ function stopPropagation(node) {
 }
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1568,7 +1111,7 @@ var DEPRECATED_CATCH_TYPE = 'catchClick';
 var SYNTHETIC_TYPES = ['onClick', 'onTap', 'onLongClick', 'onLongTap', 'onTouchMove', 'onTouchStart', 'onTouchEnd'];
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1690,48 +1233,6 @@ function diffProperties(lastRawProps, nextRawProps) {
 }
 
 /***/ }),
-/* 18 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var PluginDriver =
-/** @class */
-function () {
-  function PluginDriver(plugins) {
-    this.plugins = plugins;
-  }
-
-  PluginDriver.prototype.onAppConfig = function (config) {
-    return this.plugins.reduce(function (acc, plugin) {
-      if (typeof plugin.onAppConfig === 'function') {
-        acc = plugin.onAppConfig({
-          config: acc
-        });
-      }
-
-      return acc;
-    }, config);
-  };
-
-  PluginDriver.prototype.onPageConfig = function (config) {
-    return this.plugins.reduce(function (acc, plugin) {
-      if (typeof plugin.onPageConfig === 'function') {
-        acc = plugin.onPageConfig({
-          config: acc
-        });
-      }
-
-      return acc;
-    }, config);
-  };
-
-  return PluginDriver;
-}();
-
-/* harmony default export */ __webpack_exports__["default"] = (PluginDriver);
-
-/***/ }),
 /* 19 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1742,13 +1243,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _polyfills_Function__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_polyfills_Function__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(21);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _remax_runtime_plugin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(22);
+/* harmony import */ var _RuntimeOptions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
 /* harmony import */ var _render__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3);
-/* harmony import */ var _AppContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(24);
-/* harmony import */ var _utils_isClassComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(25);
-/* harmony import */ var _lifecycle__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(26);
-/* harmony import */ var _AppInstanceContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(30);
-/* harmony import */ var _ReactIs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(31);
+/* harmony import */ var _AppContainer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(22);
+/* harmony import */ var _utils_isClassComponent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(23);
+/* harmony import */ var _lifecycle__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(24);
+/* harmony import */ var _AppInstanceContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(28);
+/* harmony import */ var _ReactIs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(29);
 var __extends = undefined && undefined.__extends || function () {
   var _extendStatics = function extendStatics(d, b) {
     _extendStatics = Object.setPrototypeOf || {
@@ -1932,7 +1433,7 @@ function createAppConfig(App) {
         config[eventName] = lifecycleEvent[eventName];
       }
     });
-    return _remax_runtime_plugin__WEBPACK_IMPORTED_MODULE_2__["pluginDriver"].onAppConfig(config);
+    return _RuntimeOptions__WEBPACK_IMPORTED_MODULE_2__["get"]('pluginDriver').onAppConfig(config);
   };
 
   return createConfig(App);
@@ -2022,37 +1523,6 @@ if (typeof Function.prototype.apply === 'undefined') {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* istanbul ignore next */
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pluginDriver", function() { return pluginDriver; });
-/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-
-var pluginDriver = new _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver"]([__webpack_require__(23)].map(function (p) {
-  return p.default || p;
-}));
-
-/***/ }),
-/* 23 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  onAppConfig: function onAppConfig(_ref) {
-    var config = _ref.config;
-    return config;
-  },
-  onPageConfig: function onPageConfig(_ref2) {
-    var config = _ref2.config;
-    return config;
-  }
-});
-
-/***/ }),
-/* 24 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _VNode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
 /* harmony import */ var _instanceId__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
@@ -2104,7 +1574,7 @@ function () {
 /* harmony default export */ __webpack_exports__["default"] = (AppContainer);
 
 /***/ }),
-/* 25 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2115,7 +1585,7 @@ function isClassComponent(Component) {
 }
 
 /***/ }),
-/* 26 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2125,9 +1595,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "lifeCycleName", function() { return lifeCycleName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "callbackName", function() { return callbackName; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "registerLifecycle", function() { return registerLifecycle; });
-/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(27);
-/* harmony import */ var _utils_lowercase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(28);
-/* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(29);
+/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(25);
+/* harmony import */ var _utils_lowercase__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26);
+/* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(27);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "pageEvents", function() { return _events__WEBPACK_IMPORTED_MODULE_2__["pageEvents"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "appEvents", function() { return _events__WEBPACK_IMPORTED_MODULE_2__["appEvents"]; });
@@ -2190,7 +1660,7 @@ function registerLifecycle(instance, method, callback) {
 
 
 /***/ }),
-/* 27 */
+/* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2201,7 +1671,7 @@ function capitalize(str) {
 }
 
 /***/ }),
-/* 28 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2212,26 +1682,24 @@ function lowercase(str) {
 }
 
 /***/ }),
-/* 29 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pageEvents", function() { return pageEvents; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "appEvents", function() { return appEvents; });
-var PAGE_EVENTS = {
-  "pages/index": []
-};
-var APP_EVENTS = [];
+/* harmony import */ var _RuntimeOptions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+
 function pageEvents(name) {
-  return PAGE_EVENTS[name];
+  return _RuntimeOptions__WEBPACK_IMPORTED_MODULE_0__["get"]('pageEvents')[name];
 }
 function appEvents() {
-  return APP_EVENTS;
+  return _RuntimeOptions__WEBPACK_IMPORTED_MODULE_0__["get"]('appEvents');
 }
 
 /***/ }),
-/* 30 */
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2251,7 +1719,7 @@ var context = {
 /* harmony default export */ __webpack_exports__["default"] = (context);
 
 /***/ }),
-/* 31 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2482,7 +1950,7 @@ function isSuspense(object) {
 }
 
 /***/ }),
-/* 32 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2491,12 +1959,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return createPageConfig; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _remax_runtime_plugin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(22);
-/* harmony import */ var _createPageWrapper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(33);
-/* harmony import */ var _lifecycle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(26);
-/* harmony import */ var _stopPullDownRefresh__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(35);
-/* harmony import */ var _Container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(36);
-/* harmony import */ var _ReactPortal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(38);
+/* harmony import */ var _RuntimeOptions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
+/* harmony import */ var _createPageWrapper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(31);
+/* harmony import */ var _lifecycle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(24);
+/* harmony import */ var _stopPullDownRefresh__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(33);
+/* harmony import */ var _Container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(34);
+/* harmony import */ var _ReactPortal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(36);
 var __read = undefined && undefined.__read || function (o, n) {
   var m = typeof Symbol === "function" && o[Symbol.iterator];
   if (!m) return o;
@@ -2695,11 +2163,11 @@ function createPageConfig(Page, name) {
       config[eventName] = lifecycleEvents[eventName];
     }
   });
-  return _remax_runtime_plugin__WEBPACK_IMPORTED_MODULE_1__["pluginDriver"].onPageConfig(config);
+  return _RuntimeOptions__WEBPACK_IMPORTED_MODULE_1__["get"]('pluginDriver').onPageConfig(config);
 }
 
 /***/ }),
-/* 33 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2707,10 +2175,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return createPageWrapper; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_isClassComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(25);
-/* harmony import */ var _lifecycle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(26);
-/* harmony import */ var _PageInstanceContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(34);
-/* harmony import */ var _ReactIs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(31);
+/* harmony import */ var _utils_isClassComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(23);
+/* harmony import */ var _lifecycle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(24);
+/* harmony import */ var _PageInstanceContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(32);
+/* harmony import */ var _ReactIs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(29);
 var __extends = undefined && undefined.__extends || function () {
   var _extendStatics = function extendStatics(d, b) {
     _extendStatics = Object.setPrototypeOf || {
@@ -2847,7 +2315,7 @@ function createPageWrapper(Page, query) {
 }
 
 /***/ }),
-/* 34 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2860,7 +2328,7 @@ PageInstanceContext.displayName = 'PageContext';
 /* harmony default export */ __webpack_exports__["default"] = (PageInstanceContext);
 
 /***/ }),
-/* 35 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2868,14 +2336,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (my.stopPullDownRefresh);
 
 /***/ }),
-/* 36 */
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _VNode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
 /* harmony import */ var _instanceId__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
-/* harmony import */ var _nativeEffect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(37);
+/* harmony import */ var _nativeEffect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(35);
+/* harmony import */ var _RuntimeOptions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(13);
 var __read = undefined && undefined.__read || function (o, n) {
   var m = typeof Symbol === "function" && o[Symbol.iterator];
   if (!m) return o;
@@ -2910,6 +2379,7 @@ var __spread = undefined && undefined.__spread || function () {
 
   return ar;
 };
+
 
 
 
@@ -2976,7 +2446,7 @@ function () {
               _nativeEffect__WEBPACK_IMPORTED_MODULE_2__["default"].run();
               /* istanbul ignore next */
 
-              if (undefined) {
+              if (_RuntimeOptions__WEBPACK_IMPORTED_MODULE_3__["get"]('debug')) {
                 console.log("setData => \u56DE\u8C03\u65F6\u95F4\uFF1A" + (new Date().getTime() - startTime) + "ms");
               }
             };
@@ -3018,7 +2488,7 @@ function () {
       _nativeEffect__WEBPACK_IMPORTED_MODULE_2__["default"].run();
       /* istanbul ignore next */
 
-      if (undefined) {
+      if (_RuntimeOptions__WEBPACK_IMPORTED_MODULE_3__["get"]('debug')) {
         console.log("setData => \u56DE\u8C03\u65F6\u95F4\uFF1A" + (new Date().getTime() - startTime) + "ms", updatePayload);
       }
     });
@@ -3051,7 +2521,7 @@ function () {
 /* harmony default export */ __webpack_exports__["default"] = (Container);
 
 /***/ }),
-/* 37 */
+/* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3093,13 +2563,13 @@ function run() {
 });
 
 /***/ }),
-/* 38 */
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPortal", function() { return createPortal; });
-/* harmony import */ var _ReactIs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(31);
+/* harmony import */ var _ReactIs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(29);
 
 function createPortal(children, containerInfo, key) {
   return {
@@ -3113,7 +2583,7 @@ function createPortal(children, containerInfo, key) {
 }
 
 /***/ }),
-/* 39 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3152,8 +2622,8 @@ function createNativeComponent(name) {
 }
 
 /***/ }),
-/* 40 */,
-/* 41 */
+/* 38 */,
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3164,10 +2634,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useAppEvent", function() { return useAppEvent; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _lifecycle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(26);
-/* harmony import */ var _PageInstanceContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(34);
-/* harmony import */ var _AppInstanceContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(30);
-/* harmony import */ var _useNativeEffect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(42);
+/* harmony import */ var _lifecycle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(24);
+/* harmony import */ var _PageInstanceContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(32);
+/* harmony import */ var _AppInstanceContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(28);
+/* harmony import */ var _useNativeEffect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(40);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useNativeEffect", function() { return _useNativeEffect__WEBPACK_IMPORTED_MODULE_4__["default"]; });
 
 
@@ -3205,7 +2675,7 @@ function useAppEvent(eventName, callback) {
 }
 
 /***/ }),
-/* 42 */
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3213,7 +2683,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return useNativeEffect; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _nativeEffect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(37);
+/* harmony import */ var _nativeEffect__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(35);
 
 
 function useNativeEffect(listener, deps) {

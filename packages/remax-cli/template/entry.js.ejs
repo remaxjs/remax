@@ -1,11 +1,13 @@
 import App from './app';
 import * as React from 'react';
 import { createPageConfig, createAppConfig } from 'remax';
-import { Router, CacheSwitch, CacheRoute, Route, Redirect, Link, history, render, hd, loadable } from 'remax/web';
+import { Router, CacheSwitch, CacheRoute, Route, Redirect, Link, createHashHistory, render, hd, loadable } from 'remax/web';
 import 'remax/web/normalize.css';
 import 'remax/web/app.css';
 
 hd();
+
+const history = createHashHistory();
 
 <%- pages.map((page, i) => `const page_${i} = loadable(() => import(/* webpackChunkName: "${page.route}" */'${page.path}').then(({ default: c }) => createPageConfig(c)));`).join('\n') %>
 <%- pages.map((page, i) => `const page_manifest_${i} = ${JSON.stringify(page.config)}`).join('\n') %>
