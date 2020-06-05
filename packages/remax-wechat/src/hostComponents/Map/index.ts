@@ -50,6 +50,8 @@ export interface MapProps extends BaseProps {
   enableSatellite?: boolean;
   /** (default: false) 是否开启实时路况 2.7.0 */
   enableTraffic?: boolean;
+  /** 配置项 2.8.2 */
+  setting?: any;
   /** 点击标记点时触发，e.detail = {markerId} 1.0.0 */
   onMarkerClick?: (event: any) => any;
   /** 点击控件时触发，e.detail = {controlId} 1.0.0 */
@@ -81,4 +83,5 @@ Map.defaultProps = {
   enableRotate: false,
   enableSatellite: false,
   enableTraffic: false,
+  setting: {},
 };
