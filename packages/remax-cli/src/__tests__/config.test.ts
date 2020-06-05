@@ -35,7 +35,6 @@ describe('web webpack config', () => {
     options.analyze = true;
     options.configWebpack = ({ config }) => {
       expect(config.entryPoints.has('index')).toBe(true);
-      expect(config.entryPoints.get('index').values()).toMatchObject(['./src/remax-entry.js']);
       expect(config.plugins.has('webpack-bundle-analyzer')).toBe(true);
     };
 
@@ -51,9 +50,6 @@ describe('mini webpack config', () => {
     options.analyze = true;
     options.configWebpack = ({ config }) => {
       expect(config.entryPoints.has('pages/index')).toBe(true);
-      expect(config.entryPoints.get('pages/index').values()).toMatchObject([
-        path.join(projectRoot, 'src/pages/index.js'),
-      ]);
       expect(config.plugins.has('webpack-bundle-analyzer')).toBe(true);
     };
 
