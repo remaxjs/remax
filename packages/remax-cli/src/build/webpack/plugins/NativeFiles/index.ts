@@ -45,7 +45,7 @@ export default class NativeFilesPlugin {
             await createTurboPageTemplate(this.api, options, page.filename, modules, meta, compilation);
           } else {
             // page template
-            await createPageTemplate(this.api, options, page.filename, meta, compilation);
+            await createPageTemplate(this.api, options, modules, page.filename, meta, compilation);
           }
 
           await createPageManifest(options, page, modules, compilation, this.api);
