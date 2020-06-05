@@ -18,7 +18,7 @@ export default async function createTurboPageTemplate(
   meta: Meta,
   compilation: compilation.Compilation
 ) {
-  const renderOptions: any = createRenderOptions(api);
+  const renderOptions: any = createRenderOptions(api, options, modules, compilation);
   const pagePath = slash(pageFile).replace(slash(path.join(options.cwd, options.rootDir)) + '/', '');
   const fileName = slash(
     `${path.dirname(pagePath)}/${path.basename(pagePath, path.extname(pagePath))}${meta.template.extension}`

@@ -8,6 +8,7 @@ import * as componentManifest from '../../../../build/babel/componentManifest';
 import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDepth';
 import * as cacheable from './cacheable';
 import API from '../../../../API';
+import getUsingComponents from './getUsingComponents';
 
 export function pageFilename(pagePath: string) {
   let value = path.basename(pagePath);
@@ -17,9 +18,22 @@ export function pageFilename(pagePath: string) {
   return value;
 }
 
-export function createRenderOptions(api: API) {
+export function createRenderOptions(
+  api: API,
+  options: Options,
+  modules: string[],
+  compilation: compilation.Compilation,
+  filter = true
+) {
+  let components = sortBy(componentManifest.values(api), 'id');
+
+  if (filter) {
+    const usingComponents = Object.keys(getUsingComponents(modules, options, compilation));
+    components = components.filter(component => component.type !== 'native' || usingComponents.includes(component.id));
+  }
+
   return {
-    components: sortBy(componentManifest.values(api), 'id'),
+    components,
     slotView: {
       props: [...new Set(componentManifest.SlotView.props || [])].sort(),
     },
@@ -29,6 +43,7 @@ export function createRenderOptions(api: API) {
 export default async function createPageTemplate(
   api: API,
   options: Options,
+  modules: string[],
   pageFile: string,
   meta: Meta,
   compilation: compilation.Compilation
@@ -40,7 +55,7 @@ export default async function createPageTemplate(
   const fileName = slash(path.join(pageDir, `${pageFilename(pagePath)}${meta.template.extension}`));
 
   const ejsOptions: { [props: string]: any } = {
-    ...createRenderOptions(api),
+    ...createRenderOptions(api, options, modules, compilation),
     baseTemplate: `/base${meta.template.extension}`,
   };
 
@@ -75,7 +90,7 @@ export async function createBaseTemplate(api: API, options: Options, meta: Meta,
   let source: string = await ejs.renderFile(
     meta.ejs.base,
     {
-      ...createRenderOptions(api),
+      ...createRenderOptions(api, options, [], compilation, false),
       depth: ensureDepth(options.UNSAFE_wechatTemplateDepth),
     },
     {
