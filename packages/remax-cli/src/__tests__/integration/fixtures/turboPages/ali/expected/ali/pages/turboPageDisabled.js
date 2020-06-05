@@ -77,7 +77,7 @@ var DDD = Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createHostComponen
 function ReactComp(_ref) {
   var children = _ref.children;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_2__["View"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_2__["Text"], null, "react component"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_2__["Text"], null, "Text inside Fragment")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_2__["View"], null, "View inside Expression"), react__WEBPACK_IMPORTED_MODULE_1__["Children"].map(children, function (child, index) {
-    return react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"](child, {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"](child, {
       id: 'reactComp' + index
     });
   })));
@@ -106,12 +106,12 @@ function _Index() {
   }, "Count: ", count), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_2__["View"], {
     id: count,
     className: 'class'
-  }, "view"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_2__["View"], null, "custom view"), react__WEBPACK_IMPORTED_MODULE_1__["createElement"]('view', {
+  }, "view"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_2__["View"], null, "custom view"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"]('view', {
     id: 'view'
   }, [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_2__["View"], {
     key: "1",
     __key: "1"
-  }, "create element children 1"), react__WEBPACK_IMPORTED_MODULE_1__["createElement"]('view', {
+  }, "create element children 1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"]('view', {
     key: '2'
   })]), [1, 2, 3].map(function (item) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_2__["View"], {

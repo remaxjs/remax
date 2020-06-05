@@ -51,7 +51,7 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var props = {};
-  var TextElement = react__WEBPACK_IMPORTED_MODULE_0__["cloneElement"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_remax_one__WEBPACK_IMPORTED_MODULE_1__["Text"], null));
+  var TextElement = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["cloneElement"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_remax_one__WEBPACK_IMPORTED_MODULE_1__["Text"], null));
 
   function handleTap() {}
 

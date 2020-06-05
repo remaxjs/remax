@@ -159,7 +159,7 @@ Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["render"])( /*#__PURE__*/react__WE
   path: "/pages/index",
   exact: true
 }, function (props) {
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"](page_0, _objectSpread(_objectSpread({}, props), {}, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](page_0, _objectSpread(_objectSpread({}, props), {}, {
     pageConfig: page_manifest_0,
     appConfig: app_config
   }));
@@ -168,7 +168,7 @@ Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["render"])( /*#__PURE__*/react__WE
   path: "/packageA/pages/index",
   exact: true
 }, function (props) {
-  return react__WEBPACK_IMPORTED_MODULE_1__["createElement"](page_1, _objectSpread(_objectSpread({}, props), {}, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](page_1, _objectSpread(_objectSpread({}, props), {}, {
     pageConfig: page_manifest_1,
     appConfig: app_config
   }));
@@ -198,7 +198,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function () { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 

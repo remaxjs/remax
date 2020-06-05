@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as webpack from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import CopyPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import WebapckBar from 'webpackbar';
@@ -104,6 +105,10 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
   ]);
 
   config.plugin('webpackbar').use(WebapckBar, [{ name: 'web' }]);
+
+  if (options.analyze) {
+    config.plugin('webpack-bundle-analyzer').use(BundleAnalyzerPlugin);
+  }
 
   config
     .plugin('remax-web-entry-watcher-plugin')

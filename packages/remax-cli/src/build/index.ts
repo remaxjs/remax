@@ -6,13 +6,6 @@ import getConfig from '../getConfig';
 import * as webpack from 'webpack';
 import API from '../API';
 
-interface Argv {
-  target: Platform;
-  watch?: boolean;
-  notify?: boolean;
-  port?: number;
-}
-
 export function run(options: Options): webpack.Compiler {
   const api = new API();
   api.registerPlugins(options.plugins);
@@ -31,7 +24,7 @@ export function run(options: Options): webpack.Compiler {
   }
 }
 
-export function build(argv: Argv) {
+export function build(argv: Pick<Options, 'target' | 'watch' | 'notify' | 'port' | 'analyze'>) {
   const { target } = argv;
 
   process.env.REMAX_PLATFORM = target;
