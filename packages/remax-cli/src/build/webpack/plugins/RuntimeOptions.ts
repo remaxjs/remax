@@ -1,4 +1,3 @@
-import { ReplaceSource } from 'webpack-sources';
 import { Compiler, compilation } from 'webpack';
 import { Options } from '@remax/types';
 import { appEvents, pageEvents, hostComponents } from '@remax/macro';
@@ -37,10 +36,6 @@ export default class RuntimeOptionsPlugin {
         callback();
       });
     });
-  }
-
-  getReplaceStartIndex(source: ReplaceSource, regExp: RegExp) {
-    return regExp.exec(source.source())?.index;
   }
 
   stringifyPageEvents(compilation: compilation.Compilation) {

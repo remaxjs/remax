@@ -1,4 +1,7 @@
 module.exports = {
+  launch: {
+    headless: process.env.HEADLESS !== 'false',
+  },
   server: {
     debug: true,
     command: 'npm run dev web -- -p 5678',

@@ -2,9 +2,10 @@
   "name": "@remax/runtime",
   "version": "2.5.5",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
-  "main": "cjs",
-  "module": "esm",
-  "types": "cjs/index.d.ts",
+  "main": "./cjs/index.js",
+  "esnext": "./esm/index.js",
+  "module": "./esm/index.js",
+  "typings": "./esm/index.d.ts",
   "keywords": [
     "react",
     "miniapp",

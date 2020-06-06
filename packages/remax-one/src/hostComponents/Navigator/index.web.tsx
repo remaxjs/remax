@@ -1,6 +1,6 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { history } from '@remax/router/web';
+import { RuntimeOptions } from '@remax/runtime';
 import { NavigatorProps } from './props';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
 
@@ -8,6 +8,7 @@ export type { NavigatorProps };
 
 const Navigator: React.FC<NavigatorProps> = props => {
   const { className, url, action, hoverClassName, hoverStartTime, hoverStayTime, ...restProps } = filterProps(props);
+  const history = RuntimeOptions.get('history');
 
   function handleTap() {
     switch (action) {

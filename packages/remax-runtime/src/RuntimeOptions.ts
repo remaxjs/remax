@@ -6,6 +6,7 @@ interface RuntimeOptions {
   pluginDriver: PluginDriver;
   pageEvents: Record<string, string[]>;
   appEvents: string[];
+  history: any;
 }
 
 let runtimeOptions: RuntimeOptions = {
@@ -15,6 +16,7 @@ let runtimeOptions: RuntimeOptions = {
   appEvents: [],
   pageEvents: {},
   pluginDriver: new PluginDriver([]),
+  history: {},
 };
 
 export function apply(options: RuntimeOptions) {

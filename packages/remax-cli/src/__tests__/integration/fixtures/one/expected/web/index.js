@@ -18,10 +18,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(remax__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var remax_web__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
 /* harmony import */ var remax_web__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(remax_web__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var remax_web_normalize_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
-/* harmony import */ var remax_web_normalize_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(remax_web_normalize_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var remax_web_app_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
-/* harmony import */ var remax_web_app_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(remax_web_app_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
+/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_remax_runtime__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var remax_web_normalize_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
+/* harmony import */ var remax_web_normalize_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(remax_web_normalize_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var remax_web_app_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(10);
+/* harmony import */ var remax_web_app_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(remax_web_app_css__WEBPACK_IMPORTED_MODULE_6__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -46,16 +48,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["hd"])();
-var history = Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["createHashHistory"])();
 var page_0 = Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["loadable"])(function () {
-  return __webpack_require__.e(/* import() | pages/index */ 2).then(__webpack_require__.bind(null, 10)).then(function (_ref) {
+  return __webpack_require__.e(/* import() | pages/index */ 2).then(__webpack_require__.bind(null, 11)).then(function (_ref) {
     var c = _ref.default;
     return Object(remax__WEBPACK_IMPORTED_MODULE_2__["createPageConfig"])(c);
   });
 });
 var page_1 = Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["loadable"])(function () {
-  return __webpack_require__.e(/* import() | packageA/pages/index */ 3).then(__webpack_require__.bind(null, 21)).then(function (_ref2) {
+  return __webpack_require__.e(/* import() | packageA/pages/index */ 3).then(__webpack_require__.bind(null, 22)).then(function (_ref2) {
     var c = _ref2.default;
     return Object(remax__WEBPACK_IMPORTED_MODULE_2__["createPageConfig"])(c);
   });
@@ -91,6 +93,10 @@ var app_config = {
     }]
   }
 };
+var history = !app_config.router || app_config.router.type !== 'browser' ? Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["createHashHistory"])() : Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["createBrowserHistory"])();
+_remax_runtime__WEBPACK_IMPORTED_MODULE_4__["RuntimeOptions"].apply({
+  history: history
+});
 var AppConfig = Object(remax__WEBPACK_IMPORTED_MODULE_2__["createAppConfig"])(_app__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 function TabBar() {
@@ -284,48 +290,54 @@ module.exports = require("remax/web");
 /* 8 */
 /***/ (function(module, exports) {
 
-module.exports = require("remax/web/normalize.css");
+module.exports = require("@remax/runtime");
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports) {
 
+module.exports = require("remax/web/normalize.css");
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
 module.exports = require("remax/web/app.css");
 
 /***/ }),
-/* 10 */,
-/* 11 */
+/* 11 */,
+/* 12 */
 /***/ (function(module, exports) {
 
 module.exports = require("regenerator-runtime");
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 module.exports = require("remax/one");
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = require("remax/wechat");
 
 /***/ }),
-/* 14 */,
-/* 15 */
+/* 15 */,
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = require("remax/ali");
 
 /***/ }),
-/* 16 */,
 /* 17 */,
 /* 18 */,
 /* 19 */,
 /* 20 */,
 /* 21 */,
-/* 22 */
+/* 22 */,
+/* 23 */
 /***/ (function(module, exports) {
 
 module.exports = require("@remax/one");
