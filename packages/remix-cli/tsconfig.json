@@ -1,0 +1,27 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2017",
+    "declaration": true,
+    "rootDir": "src",
+    "outDir": "lib",
+    "types": ["@types/jest"],
+    "jsx": "preserve",
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src", "src/OptionsSchema.json", "typings"],
+  "exclude": ["tests", "lib"],
+  "references": [
+    {
+      "path": "../remix-types"
+    },
+    {
+      "path": "../remix-macro"
+    },
+    {
+      "path": "../remix-shared"
+    }
+  ]
+}

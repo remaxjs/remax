@@ -5,16 +5,16 @@ order: 1
 
 ## 使用插件
 
-以 `@remax/plugin-less` 为例：
+以 `@remix/plugin-less` 为例：
 
 ```bash
-$ npm install @remax/plugin-less --save
+$ npm install @remix/plugin-less --save
 ```
 
-在 `remax.config.js` 中配置：
+在 `remix.config.js` 中配置：
 
 ```js
-const less = require('@remax/plugin-less');
+const less = require('@remix/plugin-less');
 
 module.exports = {
   plugins: [
@@ -31,9 +31,9 @@ module.exports = {
 
 ## 编写插件
 
-Remax 插件分为编译时插件和运行时插件，插件是一个 Object，Object 的 key 对应 Remax 提供的 hook 名。
+Remix 插件分为编译时插件和运行时插件，插件是一个 Object，Object 的 key 对应 Remix 提供的 hook 名。
 
-还是以 `@remax/plugin-less` 为例，我们可以通过 `configWebpack` 这个 hook 新增一条处理 less 文件的规则。
+还是以 `@remix/plugin-less` 为例，我们可以通过 `configWebpack` 这个 hook 新增一条处理 less 文件的规则。
 
 ```js
 // 因为需要接受参数，所以这里用一个方法来返回插件。
@@ -60,7 +60,7 @@ export default options => {
 #### 参数
 
 - `params`
-  -  `config` - `app.json` 配置。
+  - `config` - `app.json` 配置。
 
 ```js
 {
@@ -143,7 +143,7 @@ export default options => {
 #### 参数
 
 - `params`
-  - `config` - Remax 生成的 App 配置。
+  - `config` - Remix 生成的 App 配置。
 
 ```js
 {
@@ -167,7 +167,7 @@ export default options => {
 #### 参数
 
 - `params`
-  - `config` - Remax 生成的 Page 配置。
+  - `config` - Remix 生成的 Page 配置。
 
 ```js
 {
@@ -186,4 +186,4 @@ export default options => {
 
 ## 官方插件库
 
-[https://github.com/remaxjs/plugins](https://github.com/remaxjs/plugins)
+[https://github.com/remixjs/plugins](https://github.com/remixjs/plugins)

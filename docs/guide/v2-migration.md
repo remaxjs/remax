@@ -2,19 +2,19 @@
 title: 2.0 迁移指南
 ---
 
-如果你有 1.0 的 Remax 项目需要升级，请按照这篇文档的指引进行。
+如果你有 1.0 的 Remix 项目需要升级，请按照这篇文档的指引进行。
 
 ## 升级依赖
 
-Remax 2.0 只需要你安装一个依赖 `remax`。
+Remix 2.0 只需要你安装一个依赖 `remix`。
 
 ```diff
 {
   ...,
   "dependencies": {
--    "remax": "^1.0.0",
--    "remax-cli": "^1.0.0",
-+    "remax": "^2.0.0",
+-    "remix": "^1.0.0",
+-    "remix-cli": "^1.0.0",
++    "remix": "^2.0.0",
   }
 }
 ```
@@ -29,20 +29,20 @@ package.json 中 build target 从 `alipay` 改成 `ali`
 
 ```diff
 "scripts": {
--  "dev“: "remax build -t alipay -w",
--  "build“: "cross-env NODE_ENV=production remax build -t alipay",
-+  "dev“: "remax build -t ali -w",
-+  "build“: "cross-env NODE_ENV=production remax build -t ali",
+-  "dev“: "remix build -t alipay -w",
+-  "build“: "cross-env NODE_ENV=production remix build -t alipay",
++  "dev“: "remix build -t ali -w",
++  "build“: "cross-env NODE_ENV=production remix build -t ali",
 }
 ```
 
-`remax/alipay` -> `remax/ali`
+`@alipay/remix/alipay` -> `@alipay/remix/ali`
 
 ```diff
 import {
   View, naviageTo
-- } from 'remax/alipay'
-+ } from 'remax/ali'
+- } from '@alipay/remix/alipay'
++ } from '@alipay/remix/ali'
 ```
 
 App 和页面配置 `alipay` 平台变成 `ali`
@@ -62,7 +62,7 @@ App 和页面配置 `alipay` 平台变成 `ali`
 + index.ali.js
 ```
 
-`remax/one` 组件的平台前缀 `alipay-` 变成 `ali-`
+`remix/one` 组件的平台前缀 `alipay-` 变成 `ali-`
 
 ```diff
 <View
@@ -71,7 +71,7 @@ App 和页面配置 `alipay` 平台变成 `ali`
 >
 ```
 
-## remax.config.js
+## remix.config.js
 
 [详细配置文档](/guide/config)
 
@@ -80,7 +80,7 @@ App 和页面配置 `alipay` 平台变成 `ali`
 2.0 将构建工具从 `Rollup` 切换到 `Webpack`，因此废弃 `rollupOptions`，通过 `configWebpack` 可以修改 webpack 配置。`configWebpack` 方法将传入一个 [webpack-chain](https://github.com/neutrinojs/webpack-chain) 的 `Config` 对象。
 
 ```js
-// remax.config.js
+// remix.config.js
 module.exports = {
   configWebpack({ config }) {
     // config 是 webpack-chain 的 Config 对象
@@ -94,7 +94,7 @@ module.exports = {
 通过 `configWebpack` 修改 `webpack alias`
 
 ```js
-// remax.config.js
+// remix.config.js
 module.exports = {
   configWebpack({ config }) {
     config.resolve.alias
@@ -116,7 +116,7 @@ module.exports = {
 // 在项目根目录下新建 postcss.config.js
 module.exports = ({ options }) => ({
   plugins: {
-    // 应用 remax 默认的插件配置
+    // 应用 remix 默认的插件配置
     ...options.plugins,
     'postcss-url': { url: 'inline', maxSize: 15 },
   },
@@ -144,11 +144,11 @@ import './index.css';
 
 2.0 废弃了所有特有的生命周期 hook，例如: `onShow`， `onHide`， `onShareAppMessage` 等等。
 
-1.0 提供的生命周期通用 hook `usePageEvent`， `useAppEvent` 改为从 `remax/macro` 导出。
+1.0 提供的生命周期通用 hook `usePageEvent`， `useAppEvent` 改为从 `remix/macro` 导出。
 
 ```diff
-- import { useShow, useHide, usePageEvent, useAppEvent ... } from 'remax';
-+ import { usePageEvent, useAppEvent } from 'remax/macro';
+- import { useShow, useHide, usePageEvent, useAppEvent ... } from 'remix';
++ import { usePageEvent, useAppEvent } from 'remix/macro';
 
 ...
 
@@ -162,12 +162,12 @@ import './index.css';
 
 2.0 不再默认支持 Less、Sass 和 Stylus，需要通过对应的插件来支持。
 
-[使用插件](https://remaxjs.org/guide/advanced/plugin)
-[插件列表](https://github.com/remaxjs/plugins#%E6%8F%92%E4%BB%B6%E5%88%97%E8%A1%A8)
+[使用插件](https://remixjs.org/guide/advanced/plugin)
+[插件列表](https://github.com/remixjs/plugins#%E6%8F%92%E4%BB%B6%E5%88%97%E8%A1%A8)
 
 ### CSS 中的图片
 
-1.0 中，CSS 不支持相对路径引入图片，绝对路径 remax 则会自动复制图片到输出目录的对应位置。
+1.0 中，CSS 不支持相对路径引入图片，绝对路径 remix 则会自动复制图片到输出目录的对应位置。
 
 与 1.0 不同，2.0 中我们将遵循 [css-loader](https://github.com/webpack-contrib/css-loader#url) 的规则：
 
@@ -185,7 +185,7 @@ import './index.css';
 
 tabBar 中配置的本地图片都是以绝对路径开头，因此代表的也是 global assets，需要你自行配置 copy 行为，与上述一致。
 
-## Remax
+## Remix
 
 ### useNativeEffect
 
@@ -195,7 +195,7 @@ useNativeEffect hook 去除 `unstable` 前缀
 import {
 -  unstable_useNativeEffect,
 +  useNativeEffect,
-} from 'remax'
+} from 'remix'
 ```
 
 废弃 Platform
@@ -203,7 +203,7 @@ import {
 出于对代码 uglify 的考虑，2.0 去除了 `Platform` 模块。如果你需要判断平台，请使用 `process.env.REMAX_PLATFORM`
 
 ```diff
-- import { Platform } from 'remax';
+- import { Platform } from 'remix';
 
 - if (Platform.isWechat ) {
 + if (process.env.REMAX_PLATFORM === 'wechat') {
@@ -213,13 +213,13 @@ import {
 
 > 如果需要做到代码 uglify，就必须直接写明 `process.env.REMAX_PLATFORM`，不可以封装一个方法去调用
 
-## Remax One
+## Remix One
 
 ### Event
 
-为了与 React DOM 对齐，2.0 中 `remax/one` 事件的 `originalEvent` 改为 `nativeEvent`
+为了与 React DOM 对齐，2.0 中 `remix/one` 事件的 `originalEvent` 改为 `nativeEvent`
 
-详情参考：[API - remax/one](/api/remax-one/event)
+详情参考：[API - remix/one](/api/remix-one/event)
 
 ```diff
 function handleTap(event) {
@@ -230,7 +230,7 @@ function handleTap(event) {
 
 ### Input 和 Textarea 组件
 
-`remax/one` 中的 `Input` 和 `Textarea` 组件的 `maxlength` 属性和 React 对齐，改为 `maxLength`
+`remix/one` 中的 `Input` 和 `Textarea` 组件的 `maxlength` 属性和 React 对齐，改为 `maxLength`
 
 ```diff
 <Input
@@ -259,11 +259,11 @@ function handleTap(event) {
 
 ## 使用原生插件
 
-原本直接引入插件的用法废弃，改为使用 `remax/macro` 提供的 `requirePlugin` 和 `requirePluginComponent` 方法使用
+原本直接引入插件的用法废弃，改为使用 `remix/macro` 提供的 `requirePlugin` 和 `requirePluginComponent` 方法使用
 
 ```diff
 - import PluginComponent from 'plugin://xxx';
-+ import { requirePlugin, requirePluginComponent } from 'remax/macro';
++ import { requirePlugin, requirePluginComponent } from 'remix/macro';
 
 + const PluginComponent = requirePluginComponent('plugin://xxx');
 + const PluginMethod = requirePlugin('plugin://xxx');

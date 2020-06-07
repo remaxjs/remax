@@ -1,8 +1,8 @@
 ---
-title: remax/macro
+title: remix/macro
 ---
 
-`remax/macro` 下包含的是基于 [bable-plugin-macros](https://github.com/kentcdodds/babel-plugin-macros) 的宏。
+`remix/macro` 下包含的是基于 [bable-plugin-macros](https://github.com/kentcdodds/babel-plugin-macros) 的宏。
 
 _带有 `?` 的选项表示非必填项_
 
@@ -11,7 +11,7 @@ _带有 `?` 的选项表示非必填项_
 App 生命周期 hook
 
 ```jsx
-import { useAppEvent } from 'remax/macro';
+import { useAppEvent } from 'remix/macro';
 
 ...
 
@@ -25,7 +25,7 @@ useAppEvent('onShow', () => {
 Page 生命周期 hook
 
 ```jsx
-import { usePageEvent } from 'remax/macro';
+import { usePageEvent } from 'remix/macro';
 
 ...
 
@@ -57,9 +57,9 @@ usePageEvent('onShow', () => {
 注册基础组件
 
 ```jsx
-import { createHostComponent } from 'remax/macro';
+import { createHostComponent } from 'remix/macro';
 
-// 假设微信提供了一个 Remax 还没有支持的新组件 custom-view，则可以通过 createHostComponent 创建：
+// 假设微信提供了一个 Remix 还没有支持的新组件 custom-view，则可以通过 createHostComponent 创建：
 const CustomView = createHostComponent('custom-view', [
   'prop',
   // 支持传入一个数组来做属性别名
@@ -77,7 +77,7 @@ const CustomView = createHostComponent('custom-view', [
 2. `props` 基础组件拥有的属性名称列表
 
 - 数组对象可以是一个 string，直接表明属性名称
-- 数组对象可以是一个数组，用来给原生属性做别名，形如：`['class', 'className']`，表示在 remax 中用 `className` 代替 `class`
+- 数组对象可以是一个数组，用来给原生属性做别名，形如：`['class', 'className']`，表示在 remix 中用 `className` 代替 `class`
 
 #### 返回值
 
@@ -88,7 +88,7 @@ const CustomView = createHostComponent('custom-view', [
 引入插件方法，与原生 `requirePlugin` 相同
 
 ```js
-import { requirePlugin } from 'remax/macro';
+import { requirePlugin } from 'remix/macro';
 
 const Plugin = requirePlugin('plugin://xxxx');
 ```
@@ -106,7 +106,7 @@ const Plugin = requirePlugin('plugin://xxxx');
 引入插件组件，与原生 `requirePlugin` 相同
 
 ```jsx
-import { requirePluginComponent } from 'remax/macro';
+import { requirePluginComponent } from 'remix/macro';
 
 const PluginComponent = requirePluginComponent('plugin://xxxx');
 

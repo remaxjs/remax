@@ -1181,16 +1181,16 @@
     "@babel/runtime" "^7.7.7"
     hoist-non-react-statics "^3.3.1"
 
-"@remax/ali@2.0.7":
+"@alipay/remix-ali@2.0.7":
   version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@remax/ali/-/ali-2.0.7.tgz#204394dcf60167b86490683e89abeb075dd9d1a1"
+  resolved "https://registry.yarnpkg.com/@alipay/remix-ali/-/ali-2.0.7.tgz#204394dcf60167b86490683e89abeb075dd9d1a1"
   integrity sha512-Uml7SIqy3Y/Xwv1M+h/AXi6TqWnntI4CmjZL4GnT5lLU7AuLy0MFBwXd1Cl6JCuHlIDjFfSEXGfGDIV0XVTlcw==
   dependencies:
     mini-types "^0.1.1"
 
-"@remax/cli@2.0.7":
+"@alipay/remix-cli@2.0.7":
   version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@remax/cli/-/cli-2.0.7.tgz#c8d2357b8867ccd9e0307067308e2e666a226d5e"
+  resolved "https://registry.yarnpkg.com/@alipay/remix-cli/-/cli-2.0.7.tgz#c8d2357b8867ccd9e0307067308e2e666a226d5e"
   integrity sha512-1Umt3N65k4tl2YnvGQs+6xb/7bfVxcgUh1+56aPqW2Vxg9fsFluZI57Ps2j1K7GEjH4yICLPCIqtjuhbUh5gHw==
   dependencies:
     "@babel/core" "^7.7.4"
@@ -1199,14 +1199,14 @@
     "@babel/preset-typescript" "^7.7.4"
     "@babel/register" "^7.7.0"
     "@babel/types" "^7.7.4"
-    "@remax/macro" "2.0.7"
+    "@alipay/remix-macro" "2.0.7"
     "@remax/postcss-px2units" "^0.2.0"
-    "@remax/postcss-tag" "2.0.7"
-    "@remax/types" "2.0.7"
+    "@alipay/remix-postcss-tag" "2.0.7"
+    "@alipay/remix-types" "2.0.7"
     "@types/webpackbar" "^4.0.0"
     address "^1.1.2"
     babel-loader "^8.1.0"
-    babel-preset-remax "2.0.7"
+    @alipay/babel-preset-remix "2.0.7"
     chokidar "^3.4.0"
     clean-webpack-plugin "^3.0.0"
     copy-webpack-plugin "^5.1.1"
@@ -1242,24 +1242,24 @@
     webpackbar "^4.0.0"
     yargs "^15.1.0"
 
-"@remax/macro@2.0.7":
+"@alipay/remix-macro@2.0.7":
   version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@remax/macro/-/macro-2.0.7.tgz#79fb144ebbdc3594f031c9d085ca148b31a7d34f"
+  resolved "https://registry.yarnpkg.com/@alipay/remix-macro/-/macro-2.0.7.tgz#79fb144ebbdc3594f031c9d085ca148b31a7d34f"
   integrity sha512-M+upbmaI8/LuP0ZHBfcTViqzN/+VZQY7MowSXMTeq9ocFxs/gP3djPT85puAAhhEhJGzcT2RjQvztG53hI9YoA==
   dependencies:
-    "@remax/types" "2.0.7"
+    "@alipay/remix-types" "2.0.7"
     "@types/babel__traverse" "^7.0.8"
     slash2 "^2.0.0"
 
-"@remax/one@2.0.7":
+"@alipay/one@2.0.7":
   version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@remax/one/-/one-2.0.7.tgz#32e9bdbd58674ba89c782da9c0b5b43c13a79197"
+  resolved "https://registry.yarnpkg.com/@alipay/one/-/one-2.0.7.tgz#32e9bdbd58674ba89c782da9c0b5b43c13a79197"
   integrity sha512-iaWkOwilNDNF+XP4+9cwoz06oRXnTcrpKNn+fIXsm/GguVtjWnDZndcJr6jV9v8xKh5De4d5+v0Mk8vi0EhNVg==
   dependencies:
-    "@remax/ali" "2.0.7"
-    "@remax/router" "2.0.7"
-    "@remax/toutiao" "2.0.7"
-    "@remax/wechat" "2.0.7"
+    "@alipay/remix-ali" "2.0.7"
+    "@alipay/remax-router" "2.0.7"
+    "@remix/toutiao" "2.0.7"
+    "@remix/wechat" "2.0.7"
     clsx "^1.1.0"
     react-autosize-textarea "^7.0.0"
     react-lazyload "^2.6.7"
@@ -1273,9 +1273,9 @@
     object-assign "^4.1.1"
     postcss "^6.0.19"
 
-"@remax/postcss-tag@2.0.7":
+"@alipay/remix-postcss-tag@2.0.7":
   version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@remax/postcss-tag/-/postcss-tag-2.0.7.tgz#e1ed692952e1cdf27d806c2c8bc088bb7e5925be"
+  resolved "https://registry.yarnpkg.com/@alipay/remix-postcss-tag/-/postcss-tag-2.0.7.tgz#e1ed692952e1cdf27d806c2c8bc088bb7e5925be"
   integrity sha512-C3YcGydTt9ru8nOW8g40ScELMm6jDr0W+dvazVVdMgMoNVisCrOu+hOyhR/eWsKNMo7a0lci1U+1f+3oKnvRAA==
 
 "@remax/react-router-cache-route@^1.8.4":
@@ -1283,33 +1283,33 @@
   resolved "https://registry.yarnpkg.com/@remax/react-router-cache-route/-/react-router-cache-route-1.8.4.tgz#cf9ddad48b9ee5ef8439c705f2c865bd2c673543"
   integrity sha512-W17U/5/y6ZjMdfVw400AY3hrBJCr6UC+f/6VUANU0O41pH68eGY0gwxRlR3aa6eQfT6ztMSfvLLPjzBAOjhoKg==
 
-"@remax/router@2.0.7":
+"@alipay/remax-router@2.0.7":
   version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@remax/router/-/router-2.0.7.tgz#62b4732dcaac87642c21c1c85687f64fbd0e0d18"
+  resolved "https://registry.yarnpkg.com/@alipay/remax-router/-/router-2.0.7.tgz#62b4732dcaac87642c21c1c85687f64fbd0e0d18"
   integrity sha512-r4UGb8S8i++mv4vggyTehDVGxsM/e0CofueHeWGexmExTf0bbm4Wfegpo69B43W97S/uHWDPrWHmYNITaUqMnQ==
   dependencies:
     "@remax/react-router-cache-route" "^1.8.4"
     history "^4.10.1"
     react-router-dom "^5.1.2"
 
-"@remax/runtime@2.0.7":
+"@alipay/remax-runtime@2.0.7":
   version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@remax/runtime/-/runtime-2.0.7.tgz#310c235e12d0a2410b631645f47e88ec7d80cb07"
+  resolved "https://registry.yarnpkg.com/@alipay/remax-runtime/-/runtime-2.0.7.tgz#310c235e12d0a2410b631645f47e88ec7d80cb07"
   integrity sha512-/6KVFnhzyWuRSotBQhXBt94eU7UY3jch5cGc+5S6tRLNdsAAw6Jvc2GYJ5Gvxx8Zqcr8kW0G+sHiU9y2sMgqhw==
   dependencies:
-    "@remax/web" "2.0.7"
+    "@alipay/remax-web" "2.0.7"
     qs "^6.9.3"
     react-reconciler "0.25.1"
     scheduler "0.19.1"
 
-"@remax/toutiao@2.0.7":
+"@remix/toutiao@2.0.7":
   version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@remax/toutiao/-/toutiao-2.0.7.tgz#acfb87d21ba83f6723c8f06a2e6782caae6c2241"
+  resolved "https://registry.yarnpkg.com/@remix/toutiao/-/toutiao-2.0.7.tgz#acfb87d21ba83f6723c8f06a2e6782caae6c2241"
   integrity sha512-X61rhFC0g4xTqkAJT5LX7P32RF/B2UaCFv+eccHwzNIXqmUJQeHyMVQDywyZVycw+CG6m400aoCJ7njZvq9wZw==
 
-"@remax/types@2.0.7":
+"@alipay/remix-types@2.0.7":
   version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@remax/types/-/types-2.0.7.tgz#f88e29bddc74e71914b13157eea56c1f957b09b0"
+  resolved "https://registry.yarnpkg.com/@alipay/remix-types/-/types-2.0.7.tgz#f88e29bddc74e71914b13157eea56c1f957b09b0"
   integrity sha512-WPN/ubQJEw09hq5f1xdVGLf3/3oc7WI3TNBXVVW1k5o6Cwk34A4QKBQDjIbLLyLQINFjPX/oxM3WUuNMAB0j2w==
   dependencies:
     "@babel/types" "^7.8.0"
@@ -1317,19 +1317,19 @@
     "@types/yargs" "^15.0.0"
     webpack-chain "^6.4.0"
 
-"@remax/web@2.0.7":
+"@alipay/remax-web@2.0.7":
   version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@remax/web/-/web-2.0.7.tgz#85000f5036c74497e81ba1ea6e1f8a694e47c1bf"
+  resolved "https://registry.yarnpkg.com/@alipay/remax-web/-/web-2.0.7.tgz#85000f5036c74497e81ba1ea6e1f8a694e47c1bf"
   integrity sha512-gnYPEJ6O5XEmYAyPoqSaRBhRzS4J9ixLVBZ77ALAXwRf6BvsEwaZtiRoO8Bj8luG8XwgDNhoaJ2RvczKivNMXQ==
   dependencies:
     "@loadable/component" "^5.12.0"
-    "@remax/router" "2.0.7"
+    "@alipay/remax-router" "2.0.7"
     rmc-pull-to-refresh "^1.0.12"
     umi-hd "^5.0.1"
 
-"@remax/wechat@2.0.7":
+"@remix/wechat@2.0.7":
   version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@remax/wechat/-/wechat-2.0.7.tgz#91d8447a5c5b667833c89bb645b3fffae7e67ba8"
+  resolved "https://registry.yarnpkg.com/@remix/wechat/-/wechat-2.0.7.tgz#91d8447a5c5b667833c89bb645b3fffae7e67ba8"
   integrity sha512-7TAr8puY7UFv+a1ZVk4A6HbP6jExgmJ9TRtOg/iBOCbgRKem2eZVoi2qEJrVnSbuoJZbHp3vWu/NXL6wfvUD/g==
   dependencies:
     miniprogram-api-typings "^2.10.4"
@@ -2230,9 +2230,9 @@ babel-preset-jest@^26.0.0:
     babel-plugin-jest-hoist "^26.0.0"
     babel-preset-current-node-syntax "^0.1.2"
 
-babel-preset-remax@2.0.7:
+@alipay/babel-preset-remix@2.0.7:
   version "2.0.7"
-  resolved "https://registry.yarnpkg.com/babel-preset-remax/-/babel-preset-remax-2.0.7.tgz#655ad261e4770969f169ae7f6addbf74a27bc343"
+  resolved "https://registry.yarnpkg.com/@alipay/babel-preset-remix/-/@alipay/babel-preset-remix-2.0.7.tgz#655ad261e4770969f169ae7f6addbf74a27bc343"
   integrity sha512-qq1g2ouCNbiqpaRes727pGJIRxxoKnhu1I296gfbTSRKzlRGt5Fb/AfeB/fzO+dyN0D1BaMY+X7Rml4soVJNoQ==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -7868,17 +7868,17 @@ remax-stats@^0.1.1:
     git-url-parse "^11.1.2"
     is-git-repository "^1.1.1"
 
-remax@../../packages/remax:
+remix@../../packages/remix:
   version "2.0.7"
   dependencies:
-    "@remax/ali" "2.0.7"
-    "@remax/cli" "2.0.7"
-    "@remax/macro" "2.0.7"
-    "@remax/one" "2.0.7"
-    "@remax/runtime" "2.0.7"
-    "@remax/toutiao" "2.0.7"
-    "@remax/web" "2.0.7"
-    "@remax/wechat" "2.0.7"
+    "@alipay/remix-ali" "2.0.7"
+    "@alipay/remix-cli" "2.0.7"
+    "@alipay/remix-macro" "2.0.7"
+    "@alipay/one" "2.0.7"
+    "@alipay/remax-runtime" "2.0.7"
+    "@remix/toutiao" "2.0.7"
+    "@alipay/remax-web" "2.0.7"
+    "@remix/wechat" "2.0.7"
     mini-types "^0.1.1"
     miniprogram-api-typings "^2.10.4"
 

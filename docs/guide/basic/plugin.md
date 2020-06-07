@@ -24,16 +24,16 @@ module.exports = {
 
 ### 自定义组件
 
-使用插件的自定义组件不需要申明 `usingComponents`，而是使用 Remax 的 `requirePluginComponent` 方法。
+使用插件的自定义组件不需要申明 `usingComponents`，而是使用 Remix 的 `requirePluginComponent` 方法。
 
 ```javascript
-import { requirePluginComponent } from 'remax/macro';
+import { requirePluginComponent } from 'remix/macro';
 
 const Hello = requirePluginComponent('plugin://myPlugin/hello-component');
 
 export default ()  => (
   <View>
-    <Hello name="Remax">
+    <Hello name="Remix">
   </View>
 )
 ```
@@ -49,7 +49,7 @@ export default ()  => (
 ### JavaScript 接口
 
 ```javascript
-import { requirePlugin } from 'remax/macro';
+import { requirePlugin } from 'remix/macro';
 
 const myPlugin = requirePlugin('plugin://myPlugin/hello');
 

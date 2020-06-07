@@ -7,22 +7,22 @@ order: 6
 
 ## 预处理器
 
-Remax 支持通过插件的方式添加 CSS 预处理器，以 Less 为例：
+Remix 支持通过插件的方式添加 CSS 预处理器，以 Less 为例：
 
 ```js
-// remax.config.js
-const less = require('@remax/plugin-less');
+// remix.config.js
+const less = require('@remix/plugin-less');
 
 module.exports = {
   plugins: [less()],
 };
 ```
 
-更多插件的用法可以参考[《使用插件》](https://remaxjs.org/guide/advanced/plugin)。
+更多插件的用法可以参考[《使用插件》](https://remixjs.org/guide/advanced/plugin)。
 
 ## px 转换
 
-Remax 会自动把 `px` 转换成小程序 `rpx`，（如果编译到 web，`px` 则会变成 `rem`，转换比例是 100 : 1）。
+Remix 会自动把 `px` 转换成小程序 `rpx`，（如果编译到 web，`px` 则会变成 `rem`，转换比例是 100 : 1）。
 
 比如：
 
@@ -60,7 +60,7 @@ Remax 会自动把 `px` 转换成小程序 `rpx`，（如果编译到 web，`px`
 
 ## CSS Modules
 
-Remax 会自动识别 CSS Modules，当你把一个 css 文件当成 CSS Modules 来用时这个文件就会自动被作为 CSS Modules 处理。
+Remix 会自动识别 CSS Modules，当你把一个 css 文件当成 CSS Modules 来用时这个文件就会自动被作为 CSS Modules 处理。
 
 比如：
 
@@ -90,4 +90,4 @@ css 中图片引用问题
 
 ## 样式补全
 
-Remax 没有对样式做补全，在上传代码时，记得开启小程序 **样式补全** 选项
+Remix 没有对样式做补全，在上传代码时，记得开启小程序 **样式补全** 选项

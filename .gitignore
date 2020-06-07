@@ -72,7 +72,7 @@ packages/*/package-lock.json
 
 integration-test/
 .idea/
-remax.iml
+remix.iml
 .tea/
 tsconfig.tsbuildinfo
 cjs

@@ -1,0 +1,24 @@
+{
+  "name": "@alipay/remix-types",
+  "version": "0.0.2",
+  "description": "Remix Types",
+  "author": "Caihuanyu <eterlf41@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
+    "prebuild": "npm run clean",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@babel/types": "^7.8.0",
+    "@types/webpack": "^4.41.10",
+    "@types/yargs": "^15.0.0",
+    "webpack-chain": "^6.4.0"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
+  }
+}

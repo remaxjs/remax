@@ -5,7 +5,7 @@ order: 1
 
 # 页面
 
-Remax 中的页面也是一个 React 组件。
+Remix 中的页面也是一个 React 组件。
 
 ```js
 // src/pages/index.js
@@ -54,7 +54,7 @@ export default class IndexPage extends React.Component {
 对于函数组件的页面, 我们提供了 hooks 来监听生命周期。
 
 ```jsx
-import { usePageEvent } from 'remax/macro';
+import { usePageEvent } from 'remix/macro';
 
 export default () => {
   // onShow 生命周期
@@ -75,7 +75,7 @@ export default () => {
 
 ## 页面参数
 
-Remax 将页面参数通过 `props` 传递给页面组件，如：
+Remix 将页面参数通过 `props` 传递给页面组件，如：
 
 ```js
 export default props => {
@@ -89,7 +89,7 @@ export default props => {
 对于函数组件，也可以使用 `useQuery` hook，如：
 
 ```js
-import { useQuery } from 'remax';
+import { useQuery } from 'remix';
 
 export default () => {
   // 页面参数
@@ -109,7 +109,7 @@ export default () => {
 这个 hook 是为了方便调用页面实例上的方法，如微信的 `selectComponent`。
 
 ```jsx
-import { usePageInstance } from 'remax'
+import { usePageInstance } from 'remix'
 
 export default () => {
   const page = usePageInstance();
@@ -120,17 +120,17 @@ export default () => {
 
 > 注意
 >
-> Remax 在页面实例上设置了一些内部逻辑相关的属性（包括 data 上面的值），不要修改实例上的属性。
+> Remix 在页面实例上设置了一些内部逻辑相关的属性（包括 data 上面的值），不要修改实例上的属性。
 
 ## 小程序渲染 Effect
 
-一般在 React 里，我们通过在 `useEffect` 来进行页面渲染成后需要处理的逻辑。但是在 Remax 中，`useEffect` 只是代表了 Remax 虚拟 DOM 处理完成，并不代表小程序渲染完成。
+一般在 React 里，我们通过在 `useEffect` 来进行页面渲染成后需要处理的逻辑。但是在 Remix 中，`useEffect` 只是代表了 Remix 虚拟 DOM 处理完成，并不代表小程序渲染完成。
 为了支持开发者可以触及小程序渲染完成的时机，我们添加了一个新的 hook：`useNativeEffect`。
 
 ```jsx
 import * as React from 'react';
-import { useNativeEffect } from 'remax';
-import { usePageEvent } from 'remax/macro';
+import { useNativeEffect } from 'remix';
+import { usePageEvent } from 'remix/macro';
 
 export default () => {
   const [width, setWidth] = React.useState(width, 0);

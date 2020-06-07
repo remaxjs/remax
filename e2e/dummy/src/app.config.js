@@ -3,7 +3,7 @@ const pages = ['pages/one/index', 'pages/two/index'];
 module.exports.ali = {
   pages,
   window: {
-    defaultTitle: 'Remax Ali Template',
+    defaultTitle: 'Remix Ali Template',
     titleBarColor: '#282c34',
   },
 };
@@ -11,7 +11,7 @@ module.exports.ali = {
 module.exports.wechat = {
   pages,
   window: {
-    navigationBarTitleText: 'Remax Wechat Template',
+    navigationBarTitleText: 'Remix Wechat Template',
     navigationBarBackgroundColor: '#282c34',
   },
 };
@@ -19,12 +19,12 @@ module.exports.wechat = {
 module.exports.toutiao = {
   pages,
   window: {
-    navigationBarTitleText: 'Remax Toutiao Template',
+    navigationBarTitleText: 'Remix Toutiao Template',
     navigationBarBackgroundColor: '#282c34',
   },
 };
 
 module.exports.web = {
   pages,
-  title: 'Remax Web Template',
+  title: 'Remix Web Template',
 };

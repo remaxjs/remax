@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from 'remax/ali';
+import { View } from '@alipay/remix/ali';
 import A from '../../components/a';
 import B from '@/components/b';
 import C from '../../components/c/index';
@@ -34,7 +34,7 @@ export default () => {
       <RaxView />
       {text}
       <Badge>
-        <View slot="inner">Remax</View>
+        <View slot="inner">Remix</View>
       </Badge>
     </View>
   );

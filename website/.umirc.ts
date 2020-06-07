@@ -2,7 +2,7 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   ssr: {},
-  title: 'Remax',
+  title: 'Remix',
   mode: 'site',
   logo:
     'https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*1NHAQYduQiQAAAAAAAAAAABkARQnAQ',
@@ -11,19 +11,19 @@ export default defineConfig({
     null, // null 值代表保留约定式生成的导航，只做增量配置
     {
       title: '开发博客',
-      path: 'https://zhuanlan.zhihu.com/remaxjs',
+      path: 'https://zhuanlan.zhihu.com/remixjs',
     },
     {
       title: '更新日志',
-      path: 'https://github.com/remaxjs/remax/releases',
+      path: 'https://code.alipay.com/remix/remix/releases',
     },
     {
       title: 'v1 文档',
-      path: 'https://v1.remaxjs.org',
+      path: 'https://v1.remixjs.org',
     },
     {
       title: 'GitHub',
-      path: 'https://github.com/remaxjs/remax',
+      path: 'https://code.alipay.com/remix/remix',
     },
   ],
   resolve: {

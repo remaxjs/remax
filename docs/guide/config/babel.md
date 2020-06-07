@@ -5,7 +5,7 @@ order: 2
 
 # Babel 配置
 
-在[项目路径](/guide/config/remax#cwd)下新建 `babel.config.js` 修改 Babel 配置。
+在[项目路径](/guide/config/remix#cwd)下新建 `babel.config.js` 修改 Babel 配置。
 
 ```js
 // babel.config.js
@@ -18,17 +18,17 @@ module.exports = {
 >
 > 请使用 `babel.config.js` 文件而不是 `.babelrc`
 
-## babel-preset-remax
+## @alipay/babel-preset-remix
 
-`babel-preset-remax` 是 Remax 提供的 babel preset，提供以下配置。
+`@alipay/babel-preset-remix` 是 Remix 提供的 babel preset，提供以下配置。
 
-> 如更改记得安装 `babel-preset-remax`，并将它加入到 presets 配置中
+> 如更改记得安装 `@alipay/babel-preset-remix`，并将它加入到 presets 配置中
 
 ```js
 {
   presets: [
     [
-      'remax',
+      'remix',
       {
         typescript: {
           allowNamespaces: true,

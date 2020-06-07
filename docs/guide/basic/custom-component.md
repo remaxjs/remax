@@ -15,13 +15,13 @@ group:
 
 ```js
 import React from 'react';
-import { View } from 'remax/ali';
+import { View } from '@alipay/remix/ali';
 import Badge from 'mini-ali-ui/es/badge'; // 直接当成 React 组件引用，无需申明 useComponents
 
 export default () => (
   <View>
     <Badge>
-      <View slot="inner">Remax</View>
+      <View slot="inner">Remix</View>
     </Badge>
   </View>
 );
@@ -31,7 +31,7 @@ export default () => (
 
 ```js
 import React from 'react';
-import { View } from 'remax/ali';
+import { View } from '@alipay/remix/ali';
 import NativeCard from './native-card'; // native-card 是一个原生自定义组件
 
 export default () => (
@@ -96,7 +96,7 @@ declare module 'mini-ali-ui/es/badge';
 
 ```js
 import React from 'react';
-import { View } from 'remax/ali';
+import { View } from '@alipay/remix/ali';
 import VantIcon from '@vant/weapp/lib/icon';
 
 export default () => {
@@ -115,7 +115,7 @@ export default () => {
 
 ```js
 import React from 'react';
-import { View } from 'remax/ali';
+import { View } from '@alipay/remix/ali';
 import VantIcon from '@vant/weapp/lib/icon';
 
 export default () => {
@@ -135,13 +135,13 @@ export default () => {
 
 ```js
 import React from 'react';
-import { View } from 'remax/ali';
+import { View } from '@alipay/remix/ali';
 import Badge from 'mini-ali-ui/es/badge';
 
 export default () => (
   <View>
     <Badge>
-      <Text slot="inner">Remax</Text>
+      <Text slot="inner">Remix</Text>
     </Badge>
   </View>
 );
@@ -151,13 +151,13 @@ export default () => (
 
 ```js
 import React from 'react';
-import { View } from 'remax/ali';
+import { View } from '@alipay/remix/ali';
 import Badge from 'mini-ali-ui/es/badge';
 
 export default () => (
   <View>
     <Badge>
-      <View slot="inner">Remax</View>
+      <View slot="inner">Remix</View>
     </Badge>
   </View>
 );
@@ -169,7 +169,7 @@ export default () => (
 
 ```js
 import React from 'react';
-import { View } from 'remax/ali';
+import { View } from '@alipay/remix/ali';
 import Badge from 'mini-ali-ui/es/badge';
 
 export default () => {
@@ -180,7 +180,7 @@ export default () => {
   return (
     <View>
       <Badge {...badgeProps}>
-        <View slot="inner">Remax</View>
+        <View slot="inner">Remix</View>
       </Badge>
     </View>
   );
@@ -191,14 +191,14 @@ export default () => {
 
 ```js
 import React from 'react';
-import { View } from 'remax/ali';
+import { View } from '@alipay/remix/ali';
 import Badge from 'mini-ali-ui/es/badge';
 
 export default () => {
   return (
     <View>
       <Badge text={1}>
-        <View slot="inner">Remax</View>
+        <View slot="inner">Remix</View>
       </Badge>
     </View>
   );

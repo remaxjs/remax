@@ -13,7 +13,7 @@
     "package-lock.json",
     "project.config.json",
     "package.json",
-    "remax.config.js",
+    "remix.config.js",
     "app.json"
   ],
   "precompileWatch": {

@@ -7,9 +7,9 @@ order: 27
 
 ## 阻止冒泡
 
-由于小程序本身没有阻止事件冒泡的方式，而是采用不同的方法属性来声明阻止冒泡（如 微信小程序的 catchtap），所以 Remax 自己实现了 stopPropagation 方法。
+由于小程序本身没有阻止事件冒泡的方式，而是采用不同的方法属性来声明阻止冒泡（如 微信小程序的 catchtap），所以 Remix 自己实现了 stopPropagation 方法。
 
-> 我们建议在 remax 中不要使用 catchtap 的方式，以免出现未知的问题。
+> 我们建议在 remix 中不要使用 catchtap 的方式，以免出现未知的问题。
 
 用法如下：
 

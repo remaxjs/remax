@@ -7,15 +7,15 @@ group:
 
 # Web 同构
 
-从 Remax 2.0 开发，`remax/one` 支持 web 应用的构建。
+从 Remix 2.0 开发，`remix/one` 支持 web 应用的构建。
 
 ```bash
-$ remax build -t web
+$ remix build -t web
 ```
 
 ## 应用配置
 
-为了与小程序对齐，Remax 为 Web 平台也提供了一份与小程序类似的应用配置。
+为了与小程序对齐，Remix 为 Web 平台也提供了一份与小程序类似的应用配置。
 
 ```js
 // app.config.js
@@ -55,7 +55,7 @@ module.exports.web = {
 
 ## 页面配置
 
-同样，Remax 为 Web 平台也提供了一份与小程序类似的页面配置。
+同样，Remix 为 Web 平台也提供了一份与小程序类似的页面配置。
 
 ```js
 // app.config.js
@@ -91,7 +91,7 @@ web 平台也可以通过 `web-` 前缀来指明只在 web 平台中使用的属
 
 > 注意
 >
-> web 平台只能通过 remax/one 来开发，因此 remax 给 web 平台提供的组件和 api 就是来自 remax/one 提供的组件和 api
+> web 平台只能通过 remix/one 来开发，因此 remix 给 web 平台提供的组件和 api 就是来自 remix/one 提供的组件和 api
 
 ## 样式
 

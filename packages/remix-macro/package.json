@@ -1,0 +1,46 @@
+{
+  "name": "@alipay/remix-macro",
+  "version": "0.0.2",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
+    "pretest": "npm run build",
+    "test": "jest",
+    "prebuild": "npm run clean",
+    "build": "tsc"
+  },
+  "keywords": [
+    "remix",
+    "babel-plugin-macros"
+  ],
+  "author": "Caihuanyu <eterlf41@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.4.4",
+    "@types/babel-plugin-macros": "^2.6.0",
+    "@types/jest": "^25.2.1",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^14.0.1",
+    "@types/react": "^16.9.33",
+    "babel-plugin-macros": "^2.8.0",
+    "babel-plugin-tester": "^8.0.1",
+    "jest": "^26.0.1",
+    "react": "^16.12.0",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.7.3"
+  },
+  "dependencies": {
+    "@alipay/remix-shared": "0.0.2",
+    "@alipay/remix-types": "0.0.2",
+    "@types/babel__traverse": "^7.0.8"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
+  }
+}

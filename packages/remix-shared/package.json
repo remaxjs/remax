@@ -1,0 +1,27 @@
+{
+  "name": "@alipay/remix-shared",
+  "version": "0.0.2",
+  "description": "Remix Shared",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "esm/index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://code.alipay.com/remix/remix.git"
+  },
+  "homepage": "https://remixjs.org",
+  "scripts": {
+    "clean": "rimraf esm cjs tsconfig.tsbuildinfo",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "build:cjs": "tsc --module CommonJS --outDir cjs",
+    "test": "jest"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
+  },
+  "devDependencies": {
+    "react-test-renderer": "^16.13.1"
+  }
+}

@@ -9,14 +9,14 @@ order: 47
 
 小程序中有许多性能优化的选项和自定义组件相关，有的还需要依赖 `wxs/sjs` 解决。我们建议你直接使用原生自定义组件来解决一些复杂的性能优化场景（例如高频更新的动画效果）。
 
-关于 Remax 中使用原生自定义组件，请查看 [小程序自定义组件](/guide/basic/custom-component)
+关于 Remix 中使用原生自定义组件，请查看 [小程序自定义组件](/guide/basic/custom-component)
 
-## Remax 优化方案 Turbo Pages
+## Remix 优化方案 Turbo Pages
 
 如果存在对性能要求很高的页面（例如复杂的长列表页面），可以通过配置 `turboPages` 选项对某些页面启动性能优化。如：
 
 ```js
-// remax.config.js
+// remix.config.js
 module.exports = {
   turboPages: ['pages/index/index', 'pages/index2/*'],
 };

@@ -1,0 +1,49 @@
+{
+  "name": "@alipay/babel-preset-remix",
+  "version": "0.0.2",
+  "description": "remix babel preset",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "Caihuanyu <eterlf41@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
+    "prebuild": "npm run clean",
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://code.alipay.com/remix/remix/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://code.alipay.com/remix/remix.git"
+  },
+  "dependencies": {
+    "@babel/helper-plugin-utils": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-decorators": "^7.7.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.7.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.4",
+    "@babel/plugin-syntax-jsx": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/preset-typescript": "^7.7.4",
+    "@umijs/babel-plugin-auto-css-modules": "^3.1.1",
+    "babel-plugin-auto-import": "^1.0.5",
+    "babel-plugin-macros": "^2.8.0",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "typescript": "^3.7.3"
+  },
+  "peerDependencies": {
+    "@babel/core": ">=7.0.0"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
+  },
+  "gitHead": "421a0c2b5a64c6f3210f2f056bf61406d6736f28"
+}

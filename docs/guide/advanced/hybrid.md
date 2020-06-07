@@ -5,12 +5,12 @@ order: 46
 
 # 原生混合开发
 
-Remax 支持使用原生 page。你可以指定某个 page 为原生代码开发的页面。
+Remix 支持使用原生 page。你可以指定某个 page 为原生代码开发的页面。
 
 ```js
 // app.config.js
 module.exports = {
-  pages: ['pages/remaxPage/index', 'pages/nativePage/index'],
+  pages: ['pages/remixPage/index', 'pages/nativePage/index'],
 };
 ```
 

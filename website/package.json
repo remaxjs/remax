@@ -1,12 +1,12 @@
 {
   "private": true,
   "name": "website",
-  "version": "2.4.0",
+  "version": "0.0.1",
   "scripts": {
     "clean": "rimraf dist",
     "start": "dumi dev",
     "build": "dumi build",
-    "postbuild": "echo remaxjs.org > dist/CNAME",
+    "postbuild": "echo remixjs.org > dist/CNAME",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },

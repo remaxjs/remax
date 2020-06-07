@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from 'remax/ali';
+import { View } from '@alipay/remix/ali';
 import ModuleA from './ModuleA';
 
 // 测试引入的其他模块中使用原生组件的情形

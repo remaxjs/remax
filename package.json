@@ -6,20 +6,19 @@
     "watch": "concurrently \"lerna run build:cjs --parallel -- -w\" \"tsc -b -w\"",
     "prebuild": "npm run clean:packages",
     "build": "tsc -b && lerna run build:cjs",
-    "test": "lerna run --ignore babel-preset-remax --ignore website --ignore e2e-dummy --ignore e2e-mini --stream test",
+    "test": "lerna run --ignore @alipay/babel-preset-remix --ignore website --ignore e2e-dummy --ignore e2e-mini --stream test",
     "test:e2e": "lerna run --scope e2e-dummy test",
     "test:e2e-mini": "lerna run --scope e2e-mini test",
-    "test:cov": "lerna run --ignore babel-preset-remax --ignore website --ignore e2e-dummy --ignore e2e-mini --stream test -- --collect-coverage",
+    "test:cov": "lerna run --ignore @alipay/babel-preset-remix --ignore website --ignore e2e-dummy --ignore e2e-mini --stream test -- --collect-coverage",
     "clean": "lerna clean",
     "clean:packages": "lerna run clean",
-    "readme:copy": "lerna exec 'cp ../../README.md' . --scope remax --scope @remax/cli",
-    "readme:clean": "lerna exec 'rm README.md' --scope remax --scope @remax/cli",
+    "readme:copy": "lerna exec 'cp ../../README.md' . --scope remix --scope @alipay/remix-cli",
+    "readme:clean": "lerna exec 'rm README.md' --scope remix --scope @alipay/remix-cli",
     "prepack": "npm run readme:copy",
     "postpack": "npm run readme:clean",
     "postinstall": "lerna bootstrap",
     "lint": "eslint \"packages/*/src/**/*.{ts,tsx}\"",
-    "prerelease": "./scripts/prerelease",
-    "release": "lerna publish --force-publish --create-release=github --exact",
+    "release": "lerna publish --force-publish --exact",
     "postrelease": "./scripts/postrelease",
     "site:build": "lerna run --scope website --stream build",
     "site:deploy": "lerna run --scope website --stream deploy",
@@ -56,7 +55,11 @@
   },
   "collective": {
     "type": "opencollective",
-    "url": "https://opencollective.com/remax"
+    "url": "https://opencollective.com/remix"
+  },
+  "tnpm": {
+    "mode": "yarn",
+    "lockfile": "enable"
   },
   "workspaces": [
     "packages/*",

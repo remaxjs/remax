@@ -1,10 +1,10 @@
 ---
 title: 生命周期
 group:
-  title: remax/one
+  title: remix/one
 ---
 
-在这里列出的生命周期，表示在 `remax/one` 支持的平台中都可以使用，并尽量保证了行为一致。
+在这里列出的生命周期，表示在 `remix/one` 支持的平台中都可以使用，并尽量保证了行为一致。
 
 ## App 生命周期
 
@@ -13,7 +13,7 @@ group:
 应用初始化时触发。
 
 ```js
-import { useAppEvent } from 'remax/macro';
+import { useAppEvent } from 'remix/macro';
 
 ...
 
@@ -25,7 +25,7 @@ useAppEvent('onLaunch', () => {});
 应用可见时触发。
 
 ```js
-import { useAppEvent } from 'remax/macro';
+import { useAppEvent } from 'remix/macro';
 
 ...
 
@@ -37,7 +37,7 @@ useAppEvent('onShow', () => {});
 应用不可见时触发。
 
 ```js
-import { useAppEvent } from 'remax/macro';
+import { useAppEvent } from 'remix/macro';
 
 ...
 
@@ -49,7 +49,7 @@ useAppEvent('onHide', () => {});
 应用报错时触发。
 
 ```js
-import { useAppEvent } from 'remax/macro';
+import { useAppEvent } from 'remix/macro';
 
 ...
 
@@ -63,7 +63,7 @@ useAppEvent('onError', () => {});
 页面可见时触发。
 
 ```js
-import { usePageEvent } from 'remax/macro';
+import { usePageEvent } from 'remix/macro';
 
 ...
 
@@ -75,7 +75,7 @@ usePageEvent('onShow', () => {});
 页面不可见时触发。
 
 ```js
-import { usePageEvent } from 'remax/macro';
+import { usePageEvent } from 'remix/macro';
 
 ...
 
@@ -84,10 +84,10 @@ usePageEvent('onHide', () => {});
 
 ## onPullDownRefresh
 
-下拉刷新时触发。Remax One 扩展了 onPullDownRefresh，在回调中返回 Promise，Remax One 会等待 Promise resolve 后自动停止下拉刷新行为。
+下拉刷新时触发。Remix One 扩展了 onPullDownRefresh，在回调中返回 Promise，Remix One 会等待 Promise resolve 后自动停止下拉刷新行为。
 
 ```js
-import { usePageEvent } from 'remax/macro';
+import { usePageEvent } from 'remix/macro';
 
 ...
 
@@ -106,7 +106,7 @@ usePageEvent('onPullDownRefresh', () => {
 滚动触底时触发。
 
 ```js
-import { usePageEvent } from 'remax/macro';
+import { usePageEvent } from 'remix/macro';
 
 ...
 
@@ -118,7 +118,7 @@ usePageEvent('onReachBottom', () => {});
 页面滚动时触发。
 
 ```js
-import { usePageEvent } from 'remax/macro';
+import { usePageEvent } from 'remix/macro';
 
 ...
 

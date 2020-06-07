@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Image render correctly 1`] = `
-<image
-  className="class"
-/>
-`;

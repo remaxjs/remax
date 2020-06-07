@@ -16,8 +16,8 @@ jobs:
             {
               "msgtype": "markdown",
               "markdown": {
-                  "title": "Remax ${{github.event.release.tag_name}} 发布公告",
-                  "text": "# Remax [${{github.event.release.tag_name}}](${{github.event.release.html_url}}) 发布公告\n${{github.event.release.body}}",
+                  "title": "Remix ${{github.event.release.tag_name}} 发布公告",
+                  "text": "# Remix [${{github.event.release.tag_name}}](${{github.event.release.html_url}}) 发布公告\n${{github.event.release.body}}",
               }
             }
       - name: Send dingding-inc notify
@@ -28,7 +28,7 @@ jobs:
             {
               "msgtype": "markdown",
               "markdown": {
-                  "title": "Remax ${{github.event.release.tag_name}} 发布公告",
-                  "text": "# Remax [${{github.event.release.tag_name}}](${{github.event.release.html_url}}) 发布公告\n${{github.event.release.body}}",
+                  "title": "Remix ${{github.event.release.tag_name}} 发布公告",
+                  "text": "# Remix [${{github.event.release.tag_name}}](${{github.event.release.html_url}}) 发布公告\n${{github.event.release.body}}",
               }
             }

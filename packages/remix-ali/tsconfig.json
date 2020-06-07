@@ -1,0 +1,27 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "lib": ["es2015", "DOM"],
+    "declaration": true,
+    "jsx": "react",
+    "types": ["@types/jest", "@types/node"],
+    "rootDir": "src",
+    "outDir": "esm",
+    "downlevelIteration": true
+  },
+  "include": [
+    "src/**/*",
+    "typings/**/*",
+    "../../node_modules/mini-types/types/app.d.ts",
+    "../../node_modules/mini-types/types/page.d.ts",
+    "../../node_modules/mini-types/types/api/index.d.ts"
+  ],
+  "references": [
+    {
+      "path": "../remix-types"
+    },
+    {
+      "path": "../remix-shared"
+    }
+  ]
+}

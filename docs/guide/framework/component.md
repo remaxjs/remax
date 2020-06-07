@@ -10,14 +10,14 @@ order: 2
  所有组件名称都是首字母大写的驼峰形式，如：
 
 ```js
-import { View, Text, Image, ... } from 'remax/wechat'
+import { View, Text, Image, ... } from 'remix/wechat'
 ```
 
 ## 组件属性
 
-Remax 按照 React 的风格来命名小程序属性，如：
+Remix 按照 React 的风格来命名小程序属性，如：
 
-Remax：
+Remix：
 
 ```jsx
 <View className="view" style={{ display: 'flex' }} onTap={handleClick} />
@@ -37,13 +37,13 @@ Remax：
 
 ## 注册基础组件
 
-如果小程序添加了新的组件，而你所用的 Remax 版本还没提供该组件的支持，Remax 允许你自己创建一个新的基础组件。
+如果小程序添加了新的组件，而你所用的 Remix 版本还没提供该组件的支持，Remix 允许你自己创建一个新的基础组件。
 
-假设小程序新增了一个 `<foo-bar>` 组件，你可以通过 `createHostComponent` 这个方法把这个组件注册到 Remax 中：
+假设小程序新增了一个 `<foo-bar>` 组件，你可以通过 `createHostComponent` 这个方法把这个组件注册到 Remix 中：
 
 ```jsx
 import * as React from 'react';
-import { createHostComponent } from 'remax/macro';
+import { createHostComponent } from 'remix/macro';
 
 const FooBar = createHostComponent('foo-bar', ['foo']);
 
@@ -56,7 +56,7 @@ function Page() {
 
 ```jsx
 import * as React from 'react';
-import { createHostComponent } from 'remax/macro';
+import { createHostComponent } from 'remix/macro';
 
 const FooBar = createHostComponent('foo-bar', [
   // 支持传入 [prop, alias] 形式的数组来起别名
@@ -72,7 +72,7 @@ function Page() {
 
 ```jsx
 import * as React from 'react';
-import { createHostComponent } from 'remax/macro';
+import { createHostComponent } from 'remix/macro';
 
 const FooBar = createHostComponent<{ foo: string; }>('foo-bar', ['foo']);
 
@@ -87,7 +87,7 @@ function Page() {
 
 ```jsx
 import * as React from 'react';
-import { createHostComponent } from 'remax/macro';
+import { createHostComponent } from 'remix/macro';
 
 const componentName = 'foo-bar';
 const props = ['foo'];

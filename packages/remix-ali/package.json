@@ -1,0 +1,36 @@
+{
+  "name": "@alipay/remix-ali",
+  "version": "0.0.2",
+  "description": "Remix for Ali",
+  "main": "./cjs/index.js",
+  "esnext": "./esm/index.js",
+  "module": "./esm/index.js",
+  "typings": "./esm/index.d.ts",
+  "scripts": {
+    "clean": "rimraf cjs esm tsconfig.tsbuildinfo",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "build:cjs": "tsc --module CommonJS --outDir cjs",
+    "test": "jest"
+  },
+  "repository": "git+https://code.alipay.com/remix/remix.git",
+  "license": "MIT",
+  "dependencies": {
+    "@alipay/remix-shared": "0.0.2",
+    "mini-types": "^0.1.1"
+  },
+  "devDependencies": {
+    "@alipay/remix-types": "0.0.2",
+    "@types/jest": "^25.2.1",
+    "@types/react": "^16.9.33",
+    "@types/react-test-renderer": "^16.9.1",
+    "jest": "^26.0.1",
+    "react": "^16.12.0",
+    "react-test-renderer": "^16.12.0",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.7.4"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
+  }
+}

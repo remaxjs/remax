@@ -20,9 +20,9 @@ nav:
 
 ## 既然 web 的现成方案不能直接使用，我应该怎么快速开发 UI 组件？
 
-Remax 支持直接使用原生组件库。具体请参考 [小程序自定义组件](/guide/basic/custom-component)。
+Remix 支持直接使用原生组件库。具体请参考 [小程序自定义组件](/guide/basic/custom-component)。
 
-## Remax 支持跨平台开发吗？
+## Remix 支持跨平台开发吗？
 
 支持。
 
@@ -32,9 +32,9 @@ Remax 支持直接使用原生组件库。具体请参考 [小程序自定义组
 
 原因是非项目的直接依赖，WebStorm 就不会去索引它。以 wechat 平台为例，我们进行以下操作即可:
 
-把 node_modules/@remax/wechat 这个目录设置为 “not excluded”
+把 node_modules/@remix/wechat 这个目录设置为 “not excluded”
 
-[相关 issue 链接](https://github.com/remaxjs/remax/issues/598)
+[相关 issue 链接](https://code.alipay.com/remix/remix/issues/598)
 
 <img width="800" src="https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*HkStQ4JvAyYAAAAAAAAAAABkARQnAQ" />
 
@@ -42,11 +42,11 @@ Remax 支持直接使用原生组件库。具体请参考 [小程序自定义组
 
 如果使用了 Redux 的 connect ，请将 connect 的 option.forwardRef 设置为 true[文档](https://react-redux.js.org/api/connect#forwardref-boolean)。其它第三方库的高阶组件的处理方式也类似。原因如下。
 
-对于使用 class 组件的页面，Remax 会通过 ref 获取页面生命周期。当页面组件被高阶组件（有时被称为 HOC）包裹时，通过 ref 取得的是 HOC 最外层的容器组件，而不是被包裹的组件 。我们需要 `React.forwardRef` 将 ref 转发到内部组件。
+对于使用 class 组件的页面，Remix 会通过 ref 获取页面生命周期。当页面组件被高阶组件（有时被称为 HOC）包裹时，通过 ref 取得的是 HOC 最外层的容器组件，而不是被包裹的组件 。我们需要 `React.forwardRef` 将 ref 转发到内部组件。
 
 ```jsx
 import React, { forwardRef } from 'react';
-import { View } from 'remax/ali';
+import { View } from '@alipay/remix/ali';
 
 class IndexPage extends React.Component {
   onReady() {
@@ -93,12 +93,12 @@ export default ClazzHOC(IndexPage);
 
 ## 微信嵌套层级
 
-Remax 默认为微信的每个 host 组件定义了嵌套层数。其中 `View` 20 层，其他组件都在 1 ~ 5 层。如果出现形如下图的情况，可以通过配置修改嵌套层数。
+Remix 默认为微信的每个 host 组件定义了嵌套层数。其中 `View` 20 层，其他组件都在 1 ~ 5 层。如果出现形如下图的情况，可以通过配置修改嵌套层数。
 
 <img width="800" src="https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*pExGT4kna-AAAAAAAAAAAABkARQnAQ" />
 
 ```js
-// remax.config.js
+// remix.config.js
 
 {
   UNSAFE_wechatTemplateDepth: {

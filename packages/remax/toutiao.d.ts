@@ -1,1 +1,0 @@
-export * from '@remax/toutiao';

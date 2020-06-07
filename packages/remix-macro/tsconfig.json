@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "declaration": true,
+    "rootDir": "src",
+    "outDir": "lib",
+    "types": ["node", "jest"]
+  },
+  "exclude": ["tests/**/*", "node_modules", "lib"],
+  "references": [
+    {
+      "path": "../remix-types"
+    },
+    {
+      "path": "../remix-shared"
+    }
+  ]
+}

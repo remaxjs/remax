@@ -8,7 +8,7 @@ nav:
 
 # 快速上手
 
-使用 `create-remax-app` 选择你要创建的小程序。
+使用 `create-remix-app` 选择你要创建的小程序。
 
 受支持的小程序列表：
 
@@ -19,12 +19,12 @@ nav:
 
 > 注意
 >
-> Remax 要求 Node.js 版本大于等于 12
+> Remix 要求 Node.js 版本大于等于 12
 
 ## 创建项目
 
 ```bash
-$ npx create-remax-app my-app
+$ npx create-remix-app my-app
 $ cd my-app && npm install
 ```
 
@@ -44,7 +44,7 @@ $ npm run dev <platform> # 跨平台，如：要在阿里小程序环境运行�
 
 ## 项目结构
 
-现在我们来看一下 Remax 应用的结构：
+现在我们来看一下 Remix 应用的结构：
 
 ```bash
 my-app/
@@ -89,7 +89,7 @@ module.exports = {
 
 ```jsx
 import * as React from 'react';
-import { View, Text } from 'remax/ali';
+import { View, Text } from '@alipay/remix/ali';
 import './index.css';
 
 export default () => {
@@ -103,7 +103,7 @@ export default () => {
 
 默认导出的的 React 组件就是当前的页面，关于生命周期的使用方式参考《[生命周期](/guide/framework/app#生命周期)》。
 
-Remax 针对不同平台提供了对应的组件和 API，如 `remax/ali`，`remax/wechat`，`remax/toutiao` 等等，你可以根据需要选择对应的平台。关于跨平台开发请参考《[跨平台开发](/guide/one)》。
+Remix 针对不同平台提供了对应的组件和 API，如 `@alipay/remix/ali`，`remix/wechat`，`remix/toutiao` 等等，你可以根据需要选择对应的平台。关于跨平台开发请参考《[跨平台开发](/guide/one)》。
 
 `index.css` 页面样式文件，关于样式请参考《[样式](/guide/framework/style)》。
 

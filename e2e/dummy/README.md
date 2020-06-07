@@ -1,6 +1,6 @@
-# Remax One
+# Remix One
 
-使用 Remax 开发跨平台小程序。
+使用 Remix 开发跨平台小程序。
 
 ## Getting Start
 

@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v1
       - uses: pixta-dev/repository-mirroring-action@v1
         with:
-          target_repo_url: git@gitee.com:remaxjs/remax.git
+          target_repo_url: git@gitee.com:remixjs/remix.git
           ssh_private_key: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
   to_gitee_gh:
     runs-on: ubuntu-latest
@@ -17,5 +17,5 @@ jobs:
       - uses: actions/checkout@v1
       - uses: pixta-dev/repository-mirroring-action@v1
         with:
-          target_repo_url: git@gitee.com:remaxjs/remaxjs.git
+          target_repo_url: git@gitee.com:remixjs/remixjs.git
           ssh_private_key: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}

@@ -1,6 +1,6 @@
 # 贡献指南
 
-这篇指南会指导你如何为 Remax 贡献一份自己的力量，请在你要提 issue 或者 pull request 之前花几分钟来阅读一遍这篇指南。
+这篇指南会指导你如何为 Remix 贡献一份自己的力量，请在你要提 issue 或者 pull request 之前花几分钟来阅读一遍这篇指南。
 
 ## 参与者公约
 
@@ -16,23 +16,23 @@
 
 ## Bugs
 
-我们使用 [GitHub Issues](https://github.com/remaxjs/remax/issues) 来管理 bug。 如果你想要你发现的 bug 被快速解决，最好的办法就是给我们提一个带有可重现仓库的 issue。
+我们使用 [GitHub Issues](https://code.alipay.com/remix/remix/issues) 来管理 bug。 如果你想要你发现的 bug 被快速解决，最好的办法就是给我们提一个带有可重现仓库的 issue。
 
-所有的 bug 会有 [bug 标记](https://github.com/remaxjs/remax/issues?q=is%3Aissue+is%3Aopen+label%3Abug)，如果你想找一个容易上手的 bug 来修复，可以查看标记为 [good first issue](https://github.com/remaxjs/remax/issues?q=is%3Aissue+is%3Aclosed+label%3A%22good+first+issue%22) 的 issue。
+所有的 bug 会有 [bug 标记](https://code.alipay.com/remix/remix/issues?q=is%3Aissue+is%3Aopen+label%3Abug)，如果你想找一个容易上手的 bug 来修复，可以查看标记为 [good first issue](https://code.alipay.com/remix/remix/issues?q=is%3Aissue+is%3Aclosed+label%3A%22good+first+issue%22) 的 issue。
 
 在你报告一个 bug 之前，请先确保已经搜索过已有的 issues。
 
 ## 开发
 
-在开始之前推荐你先了解一下[《Remax 实现原理》](https://remaxjs.org/advanced-guide/implementation-notes)
+在开始之前推荐你先了解一下[《Remix 实现原理》](https://remixjs.org/advanced-guide/implementation-notes)
 
 ### 构建项目
 
 > 推荐用 yarn
 
 ```bash
-$ git clone git@github.com:remaxjs/remax.git
-$ cd remax
+$ git clone git@github.com:remixjs/remix.git
+$ cd remix
 $ yarn
 $ yarn watch
 ```
@@ -40,13 +40,13 @@ $ yarn watch
 ### 调试开发包
 
 ```bash
-$ cd path/to/remax/packages/remax
+$ cd path/to/remix/packages/remix
 $ yarn link
-$ cd path/to/remax/packages/@remax/cli
+$ cd path/to/remix/packages/@alipay/remix-cli
 $ yarn link
-$ git clone git@github.com:remaxjs/examples.git remax-examples
-$ cd remax-examples/ali # 找一个你要调试的例子
-$ yarn link remax @remax/cli
+$ git clone git@github.com:remixjs/examples.git remix-examples
+$ cd remix-examples/ali # 找一个你要调试的例子
+$ yarn link remix @alipay/remix-cli
 $ yarn dev
 ```
 

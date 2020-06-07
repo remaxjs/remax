@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+    "xx": "plugin://myPlugin/xx",
+    "dddd": "plugin://myPlugin/dddd",
+    "index": "/remixVendors/components/a/index",
+    "index0": "/remixVendors/components/b/index",
+    "index1": "/remixVendors/components/c/index",
+    "index2": "/remixVendors/components/d/index",
+    "index3": "/remixVendors/components/e/index",
+    "index4": "/remixVendors/components/complex/index",
+    "index5": "/remixVendors/components/slot/index",
+    "index6": "/remixVendors/components/_foo/a/index",
+    "index7": "/remixVendors/components/src/index",
+    "index8": "/remixVendors/npm/cjs/index"
+  }
+}

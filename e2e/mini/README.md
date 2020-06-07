@@ -1,11 +1,11 @@
-# Remax Ali Template
+# Remix Ali Template
 
-使用 Remax 开发阿里小程序的模板。
+使用 Remix 开发阿里小程序的模板。
 
 通过该模板创建一个新项目：
 
 ```bash
-$ npx degit remaxjs/template-ali my-app
+$ npx degit remixjs/template-ali my-app
 $ cd my-app
 ```
 

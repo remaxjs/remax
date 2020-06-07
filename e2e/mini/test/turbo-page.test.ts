@@ -14,7 +14,7 @@ describe('静态化页面', () => {
     await expect(app).toMatchElement('div', { text: 'Fragment Text 4' });
     await expect(app).toMatchElement('div', { text: 'React.Fragment' });
     await expect(app).toMatchElement('div', { text: 'ModuleA' });
-    await expect(app).toMatchElement('div', { text: 'Remax.Text' });
+    await expect(app).toMatchElement('div', { text: 'Remix.Text' });
     await expect(app).toMatchElement('.am-badge');
     await expect(app).toMatchElement('.am-card');
     await expect(app).toMatchElement('.am-card-title', { text: '卡片标题1' });

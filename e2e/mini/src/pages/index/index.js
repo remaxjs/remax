@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Image } from 'remax/ali';
+import { View, Text, Image } from '@alipay/remix/ali';
 import catImage from '@/assets/images/cat.jpg';
 import './index.css';
 

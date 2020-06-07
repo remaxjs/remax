@@ -1,19 +1,19 @@
 {
   "installCommand": "install:codesandbox",
   "packages": [
-    "packages/remax-types",
-    "packages/remax-macro",
-    "packages/remax-ali",
-    "packages/remax-wechat",
-    "packages/remax-toutiao",
-    "packages/remax-router",
-    "packages/remax-web",
-    "packages/remax-one",
-    "packages/babel-preset-remax",
-    "packages/remax",
-    "packages/remax-runtime",
-    "packages/postcss-remax-tag",
-    "packages/remax-cli"
+    "packages/remix-types",
+    "packages/remix-macro",
+    "packages/remix-ali",
+    "packages/remix-wechat",
+    "packages/remix-toutiao",
+    "packages/remix-router",
+    "packages/remix-web",
+    "packages/remix-one",
+    "packages/@alipay/babel-preset-remix",
+    "packages/remix",
+    "packages/remix-runtime",
+    "packages/postcss-remix-tag",
+    "packages/remix-cli"
   ],
-  "sandboxes": ["github/remaxjs/examples/tree/master/one"]
+  "sandboxes": ["github/remixjs/examples/tree/master/one"]
 }

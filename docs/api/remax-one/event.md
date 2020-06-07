@@ -6,7 +6,7 @@ order: 2
 除了提供行为一致的组件外，我们对组件事件回调中的参数也做了统一的处理。以 `Input` 组件的 `onInput` 回调为例：
 
 ```javascript
-import { Input } from 'remax/one';
+import { Input } from 'remix/one';
 
 export default () => {
   const handleInput = event => {
@@ -21,14 +21,14 @@ export default () => {
 
 > 注意
 >
-> 只有 `remax/one` 中的事件回调做了处理，平台特定的组件以及平台特定的属性依然沿用小程序原来的事件对象。
+> 只有 `remix/one` 中的事件回调做了处理，平台特定的组件以及平台特定的属性依然沿用小程序原来的事件对象。
 
 ## Event
 
 | 名称          | 类型                                                | 描述                            |
 | ------------- | --------------------------------------------------- | ------------------------------- |
-| target        | [Target](/api/remax-one/event#target)               | 事件 target                     |
-| currentTarget | [CurrentTarget](/api/remax-one/event#currenttarget) | 事件 currentTarget              |
+| target        | [Target](/api/remix-one/event#target)               | 事件 target                     |
+| currentTarget | [CurrentTarget](/api/remix-one/event#currenttarget) | 事件 currentTarget              |
 | type          | string                                              | 事件类型， 如 'tap'，'focus' 等 |
 | nativeEvent   | any                                                 | 小程序原始事件对象              |
 
@@ -38,8 +38,8 @@ export default () => {
 
 | 名称           | 类型                                  | 描述                                                                                                         |
 | -------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| touches        | [Touch](/api/remax-one/event#touch)[] | 包含了所有当前接触触摸平面的触点的 Touch 对象，无论它们的起始于哪个 element 上，也无论它们状态是否发生了变化 |
-| changedTouches | [Touch](/api/remax-one/event#touch)[] | 包含了代表所有从上一次触摸事件到此次事件过程中，状态发生了改变的触点的 Touch 对象。                          |
+| touches        | [Touch](/api/remix-one/event#touch)[] | 包含了所有当前接触触摸平面的触点的 Touch 对象，无论它们的起始于哪个 element 上，也无论它们状态是否发生了变化 |
+| changedTouches | [Touch](/api/remix-one/event#touch)[] | 包含了代表所有从上一次触摸事件到此次事件过程中，状态发生了改变的触点的 Touch 对象。                          |
 
 ## TouchStartEvent
 

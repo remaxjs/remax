@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "index": "/remixVendors/components/a/index",
+    "index0": "/remixVendors/components/b/index",
+    "index1": "/remixVendors/components/c/index",
+    "index2": "/remixVendors/components/d/index"
+  }
+}

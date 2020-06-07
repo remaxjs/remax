@@ -1,0 +1,38 @@
+{
+  "name": "@alipay/remix",
+  "version": "0.0.2",
+  "description": "Remix 是一个全新的基于 React 的小程序开发框架",
+  "main": "index.js",
+  "bin": {
+    "remix": "./bin/remix"
+  },
+  "keywords": [
+    "react",
+    "miniapp",
+    "mini-program",
+    "wechat"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://code.alipay.com/remix/remix/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://code.alipay.com/remix/remix.git"
+  },
+  "homepage": "https://remixjs.org",
+  "dependencies": {
+    "@alipay/remix-ali": "0.0.2",
+    "@alipay/remix-cli": "0.0.2",
+    "@alipay/remix-macro": "0.0.2",
+    "@alipay/remix-one": "0.0.2",
+    "@alipay/remax-runtime": "0.0.2",
+    "@alipay/remax-web": "0.0.2",
+    "mini-types": "^0.1.1",
+    "miniprogram-api-typings": "^2.10.4"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
+  },
+  "gitHead": "06dcaa3df31f6bde22b6d07a979c361dc137351f"
+}

@@ -1,23 +1,23 @@
 {
   "name": "e2e-mini",
   "private": true,
-  "version": "2.4.0",
-  "description": "intergration tests for Remax",
+  "version": "0.0.1",
+  "description": "intergration tests for Remix",
   "main": "index.js",
   "keywords": [],
   "author": "Wei Zhu <yesmeck@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "remax build -t ali -w",
+    "dev": "remix build -t ali -w",
     "prebuild": "rimraf dist",
-    "build": "remax build -t ali",
+    "build": "remix build -t ali",
     "test": "jest"
   },
   "dependencies": {
     "clsx": "^1.0.4",
     "mini-antui": "^0.4.34",
     "react": "^16.8.6",
-    "remax": "2.4.0"
+    "@alipay/remix": "0.0.2"
   },
   "devDependencies": {
     "@types/expect-puppeteer": "^4.4.0",

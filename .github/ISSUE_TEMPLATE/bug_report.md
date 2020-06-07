@@ -1,6 +1,6 @@
 ---
 name: '报告Bug 🐛'
-about: 报告 remax 的 bug
+about: 报告 remix 的 bug
 title: '[BUG]'
 labels: bug
 assignees: ''
@@ -20,7 +20,7 @@ assignees: ''
 
 **版本信息:**
 
-- remax 版本: [e.g. 1.0.0]
+- remix 版本: [e.g. 1.0.0]
 - 手机型号 [e.g. iPhone X]
 - 小程序端 [e.g. 微信小程序]
 - 小程序版本[e.g. 2.3.0]

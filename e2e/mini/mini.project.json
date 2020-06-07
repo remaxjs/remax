@@ -12,7 +12,7 @@
     "babel.config.js",
     "package-lock.json",
     "package.json",
-    "remax.config.js",
+    "remix.config.js",
     "app.json"
   ],
   "precompileWatch": {

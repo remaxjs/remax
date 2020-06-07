@@ -35,7 +35,7 @@ module.exports = {
 同样的你也可以在代码中直接指定全局静态资源：
 
 ```js
-import { Image } from 'remax/wechat';
+import { Image } from 'remix/wechat';
 
 export default () => {
   return <Image src="/images/icon.png" />;

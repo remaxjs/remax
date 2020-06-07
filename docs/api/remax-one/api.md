@@ -2,7 +2,7 @@
 title: API
 ---
 
-`remax/one` 导出的 API，意味着在所有 Remax 支持的平台都可以使用，并且 Remax 尽量保证了行为一致。
+`remix/one` 导出的 API，意味着在所有 Remix 支持的平台都可以使用，并且 Remix 尽量保证了行为一致。
 
 _带有 `?` 的选项表示非必填项_
 
@@ -11,7 +11,7 @@ _带有 `?` 的选项表示非必填项_
 保留当前页面，跳转到应用内的某个页面
 
 ```js
-import { navigateTo } from 'remax/one';
+import { navigateTo } from 'remix/one';
 
 navigateTo({
   url: 'pages/index/index',
@@ -32,7 +32,7 @@ navigateTo({
 关闭当前页面，返回上一页面或多级页面
 
 ```js
-import { navigateBack } from 'remax/one';
+import { navigateBack } from 'remix/one';
 
 navigateBack();
 ```
@@ -51,7 +51,7 @@ navigateBack();
 关闭当前页面，重定向到应用内的某个页面
 
 ```js
-import { redirectTo } from 'remax/one';
+import { redirectTo } from 'remix/one';
 
 redirectTo({
   url: 'pages/index/index',
@@ -72,7 +72,7 @@ redirectTo({
 关闭所有页面，重新打开应用的某个页面
 
 ```js
-import { reLaunch } from 'remax/one';
+import { reLaunch } from 'remix/one';
 
 reLaunch({
   url: 'pages/index/index',
@@ -93,7 +93,7 @@ reLaunch({
 跳转到某个 Tab 页
 
 ```js
-import { switchTab } from 'remax/one';
+import { switchTab } from 'remix/one';
 
 switchTab({
   url: 'pages/index/index',

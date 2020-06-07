@@ -1,17 +1,17 @@
 ---
-title: Remax 配置
+title: Remix 配置
 order: 1
 group:
   title: 配置
   order: 3
 ---
 
-# Remax 配置
+# Remix 配置
 
-通过 `remax.config.js`  修改 Remax 配置。
+通过 `remix.config.js`  修改 Remix 配置。
 
 ```js
-// remax.config.js
+// remix.config.js
 module.exports = {
   output: 'build',
 };
@@ -46,7 +46,7 @@ _默认值：_ `true`
 修改 webpack 的配置。
 
 ```javascript
-// remax.config.js
+// remix.config.js
 
 module.exports = {
   configWebpack({ config, webpack, addCSSRule }) {

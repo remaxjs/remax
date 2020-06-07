@@ -2,37 +2,31 @@
   "files": [],
   "references": [
     {
-      "path": "./packages/babel-preset-remax"
+      "path": "./packages/babel-preset-remix"
     },
     {
-      "path": "./packages/remax-types"
+      "path": "./packages/remix-types"
     },
     {
-      "path": "./packages/remax-shared"
+      "path": "./packages/remix-shared"
     },
     {
-      "path": "./packages/remax-ali"
+      "path": "./packages/remix-ali"
     },
     {
-      "path": "./packages/remax-runtime"
+      "path": "./packages/remix-runtime"
     },
     {
-      "path": "./packages/remax-toutiao"
+      "path": "./packages/remix-web"
     },
     {
-      "path": "./packages/remax-web"
+      "path": "./packages/remix-macro"
     },
     {
-      "path": "./packages/remax-wechat"
+      "path": "./packages/remix-one"
     },
     {
-      "path": "./packages/remax-macro"
-    },
-    {
-      "path": "./packages/remax-one"
-    },
-    {
-      "path": "./packages/remax-cli"
+      "path": "./packages/remix-cli"
     }
   ]
 }

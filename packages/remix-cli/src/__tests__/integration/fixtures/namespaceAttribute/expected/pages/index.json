@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "index": "/remixVendors/components/native-component/index"
+  }
+}

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Fragment } from 'react';
-import { View, View as CustomView, Text, Button } from 'remax/ali';
-import { createHostComponent } from 'remax/macro';
-import * as Remax from 'remax/ali';
+import { View, View as CustomView, Text, Button } from '@alipay/remix/ali';
+import { createHostComponent } from 'remix/macro';
+import * as Remix from '@alipay/remix/ali';
 import Badge from 'mini-antui/es/badge/index';
 import Card from '@/components/Card';
 import A from './module';
@@ -61,7 +61,7 @@ export default function Index() {
           <React.Fragment>React.Fragment</React.Fragment>
           {A}
           <DDD />
-          <Remax.Text>Remax.Text</Remax.Text>
+          <Remix.Text>Remix.Text</Remix.Text>
           <Badge />
           <Card />
           <ReactComp>
