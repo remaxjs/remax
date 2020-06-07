@@ -10,7 +10,7 @@ export const alias = {
   polyline: 'polyline',
   circles: 'circles',
   controls: 'controls',
-  polygon: 'polygon',
+  polygons: 'polygons',
   showLocation: 'show-location',
   includePoints: 'include-points',
   includePadding: 'include-padding',

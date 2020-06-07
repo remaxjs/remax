@@ -5,6 +5,7 @@ import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import WebpackBar from 'webpackbar';
 import { Options, Platform } from '@remax/types';
 import { slash } from '@remax/shared';
@@ -201,6 +202,10 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [options, api]);
   config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options, api]);
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
+
+  if (options.analyze) {
+    config.plugin('webpack-bundle-analyzer').use(BundleAnalyzerPlugin);
+  }
 
   const context = {
     config,

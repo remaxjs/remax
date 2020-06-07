@@ -63,7 +63,7 @@ var PluginComponent = Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["create
 var PluginComponent2 = Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])("dddd");
 
 var _page = function _page() {
-  var b = react__WEBPACK_IMPORTED_MODULE_1__["createRef"]();
+  var b = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createRef"]();
   var text = 'not in jsx' + _components_notInJSX__WEBPACK_IMPORTED_MODULE_12__["default"];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_ali__WEBPACK_IMPORTED_MODULE_2__["View"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_a__WEBPACK_IMPORTED_MODULE_3__["default"], {
     foo: "bar"
