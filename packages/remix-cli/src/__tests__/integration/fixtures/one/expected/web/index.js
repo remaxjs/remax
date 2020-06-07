@@ -14,14 +14,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var remix__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
-/* harmony import */ var remix__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(remix__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var remix_web__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
-/* harmony import */ var remix_web__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(remix_web__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var remix_web_normalize_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
-/* harmony import */ var remix_web_normalize_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(remix_web_normalize_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var remix_web_app_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
-/* harmony import */ var remix_web_app_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(remix_web_app_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _alipay_remix__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var _alipay_remix__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
+/* harmony import */ var _alipay_remix_web__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _alipay_remix_web_normalize_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(8);
+/* harmony import */ var _alipay_remix_web_normalize_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_web_normalize_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _alipay_remix_web_app_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
+/* harmony import */ var _alipay_remix_web_app_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_web_app_css__WEBPACK_IMPORTED_MODULE_5__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -46,17 +46,17 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-Object(remix_web__WEBPACK_IMPORTED_MODULE_3__["hd"])();
-var page_0 = Object(remix_web__WEBPACK_IMPORTED_MODULE_3__["loadable"])(function () {
+Object(_alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__["hd"])();
+var page_0 = Object(_alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__["loadable"])(function () {
   return __webpack_require__.e(/* import() | pages/index */ 2).then(__webpack_require__.bind(null, 10)).then(function (_ref) {
     var c = _ref.default;
-    return Object(remix__WEBPACK_IMPORTED_MODULE_2__["createPageConfig"])(c);
+    return Object(_alipay_remix__WEBPACK_IMPORTED_MODULE_2__["createPageConfig"])(c);
   });
 });
-var page_1 = Object(remix_web__WEBPACK_IMPORTED_MODULE_3__["loadable"])(function () {
-  return __webpack_require__.e(/* import() | packageA/pages/index */ 3).then(__webpack_require__.bind(null, 21)).then(function (_ref2) {
+var page_1 = Object(_alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__["loadable"])(function () {
+  return __webpack_require__.e(/* import() | packageA/pages/index */ 3).then(__webpack_require__.bind(null, 20)).then(function (_ref2) {
     var c = _ref2.default;
-    return Object(remix__WEBPACK_IMPORTED_MODULE_2__["createPageConfig"])(c);
+    return Object(_alipay_remix__WEBPACK_IMPORTED_MODULE_2__["createPageConfig"])(c);
   });
 });
 var page_manifest_0 = {
@@ -90,7 +90,7 @@ var app_config = {
     }]
   }
 };
-var AppConfig = Object(remix__WEBPACK_IMPORTED_MODULE_2__["createAppConfig"])(_app__WEBPACK_IMPORTED_MODULE_0__["default"]);
+var AppConfig = Object(_alipay_remix__WEBPACK_IMPORTED_MODULE_2__["createAppConfig"])(_app__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 function TabBar() {
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_1__["useState"](null),
@@ -100,7 +100,7 @@ function TabBar() {
 
   react__WEBPACK_IMPORTED_MODULE_1__["useEffect"](function () {
     setCurrentPath(window.location.pathname);
-    return remix_web__WEBPACK_IMPORTED_MODULE_3__["history"].listen(function (location, action) {
+    return _alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__["history"].listen(function (location, action) {
       setCurrentPath(location.pathname);
     });
   }, []);
@@ -118,7 +118,7 @@ function TabBar() {
     style: {
       backgroundColor: '#212121'
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remix_web__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "undefined",
     className: "remix-tab-item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", {
@@ -131,7 +131,7 @@ function TabBar() {
     style: {
       color: isActiveTab('undefined') ? '' : ''
     }
-  }, "undefined")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remix_web__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+  }, "undefined")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "undefined",
     className: "remix-tab-item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", {
@@ -147,14 +147,14 @@ function TabBar() {
   }, "undefined")));
 }
 
-Object(remix_web__WEBPACK_IMPORTED_MODULE_3__["render"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](AppConfig, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remix_web__WEBPACK_IMPORTED_MODULE_3__["Router"], {
-  history: remix_web__WEBPACK_IMPORTED_MODULE_3__["history"]
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remix_web__WEBPACK_IMPORTED_MODULE_3__["CacheSwitch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remix_web__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+Object(_alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__["render"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](AppConfig, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__["Router"], {
+  history: _alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__["history"]
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__["CacheSwitch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__["Route"], {
   exact: true,
   path: "/"
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remix_web__WEBPACK_IMPORTED_MODULE_3__["Redirect"], {
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__["Redirect"], {
   to: "/pages/index"
-})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remix_web__WEBPACK_IMPORTED_MODULE_3__["CacheRoute"], {
+})), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__["CacheRoute"], {
   className: "remix-cached-router-wrapper",
   path: "/pages/index",
   exact: true
@@ -163,7 +163,7 @@ Object(remix_web__WEBPACK_IMPORTED_MODULE_3__["render"])( /*#__PURE__*/react__WE
     pageConfig: page_manifest_0,
     appConfig: app_config
   }));
-}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remix_web__WEBPACK_IMPORTED_MODULE_3__["CacheRoute"], {
+}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_web__WEBPACK_IMPORTED_MODULE_3__["CacheRoute"], {
   className: "remix-cached-router-wrapper",
   path: "/packageA/pages/index",
   exact: true
@@ -271,25 +271,25 @@ __webpack_require__.r(__webpack_exports__);
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = require("remix");
+module.exports = require("@alipay/remix");
 
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = require("remix/web");
+module.exports = require("@alipay/remix/web");
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports) {
 
-module.exports = require("remix/web/normalize.css");
+module.exports = require("@alipay/remix/web/normalize.css");
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports) {
 
-module.exports = require("remix/web/app.css");
+module.exports = require("@alipay/remix/web/app.css");
 
 /***/ }),
 /* 10 */,
@@ -302,32 +302,26 @@ module.exports = require("regenerator-runtime");
 /* 12 */
 /***/ (function(module, exports) {
 
-module.exports = require("remix/one");
+module.exports = require("@alipay/remix/one");
 
 /***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-module.exports = require("remix/wechat");
-
-/***/ }),
-/* 14 */,
-/* 15 */
+/* 13 */,
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = require("@alipay/remix/ali");
 
 /***/ }),
+/* 15 */,
 /* 16 */,
 /* 17 */,
 /* 18 */,
 /* 19 */,
 /* 20 */,
-/* 21 */,
-/* 22 */
+/* 21 */
 /***/ (function(module, exports) {
 
-module.exports = require("@alipay/one");
+module.exports = require("@alipay/remix-one");
 
 /***/ })
 ],[[0,0]]]);

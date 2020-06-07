@@ -3,14 +3,6 @@ exports.ali = {
   titleBarColor: '#323239',
 };
 
-exports.wechat = {
-  navigationBarTitleText: 'Wechat App',
-};
-
-exports.toutiao = {
-  navigationBarTitleText: 'Toutiao App',
-};
-
 exports.web = {
   title: 'Web App',
 };

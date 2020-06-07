@@ -11,22 +11,6 @@ export interface TextareaState {
 }
 
 export default class Textarea extends React.Component<TextareaProps, TextareaState> {
-  static defaultProps = {
-    'toutiao-selection-end': 999,
-    'toutiao-selection-start': 999,
-
-    'wechat-selection-end': -1,
-    'wechat-selection-start': -1,
-    'wechat-fixed': false,
-    'wechat-placeholder-class': 'textarea-placeholder',
-    'wechat-cursor-spacing': 0,
-    'wechat-cursor': -1,
-    'wechat-show-confirm-bar': true,
-    'wechat-adjust-position': true,
-    'wechat-hold-keyboard': false,
-    'wechat-disable-default-padding': false,
-  };
-
   state: TextareaState = {
     value: '',
     // 阿里
@@ -61,10 +45,6 @@ export default class Textarea extends React.Component<TextareaProps, TextareaSta
     if (typeof this.props.onInput === 'function') {
       return this.props.onInput(e);
     }
-
-    // 微信
-    // 注意，微信要对 input 受控，必须要在 onInput 方法返回值
-    return controlled ? this.props.value : e.target.value;
   };
 
   render() {
@@ -83,17 +63,6 @@ export default class Textarea extends React.Component<TextareaProps, TextareaSta
 
     if (inputProps.onBlur) {
       inputProps.onBlur = createCallback(this.props.onBlur, createInputEvent);
-    }
-
-    if (process.env.REMAX_PLATFORM === 'toutiao') {
-      inputProps.maxLength = inputProps.maxLength ?? 140;
-    }
-
-    if (process.env.REMAX_PLATFORM === 'wechat') {
-      inputProps.maxLength = inputProps.maxLength ?? 140;
-      inputProps.disabled = inputProps.disabled ?? false;
-      inputProps.focus = inputProps.focus ?? false;
-      inputProps.autoHeight = inputProps.autoHeight ?? false;
     }
 
     return React.createElement('textarea', {

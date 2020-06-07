@@ -34,68 +34,6 @@ describe('View', () => {
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });
 
-  it('render correctly in wechat', () => {
-    process.env.REMAX_PLATFORM = 'wechat';
-    const testRenderer = TestRenderer.create(
-      <View
-        className="class"
-        onTap={() => {
-          // ignore
-        }}
-        onLongTap={() => {
-          // ignore
-        }}
-        onTouchStart={() => {
-          // ignore
-        }}
-        onTouchMove={() => {
-          // ignore
-        }}
-        onTouchEnd={() => {
-          // ignore
-        }}
-        onTouchCancel={() => {
-          // ignore
-        }}
-      >
-        view
-      </View>
-    );
-
-    expect(testRenderer.toJSON()).toMatchSnapshot();
-  });
-
-  it('render correctly in toutiao', () => {
-    process.env.REMAX_PLATFORM = 'toutiao';
-    const testRenderer = TestRenderer.create(
-      <View
-        className="class"
-        onTap={() => {
-          // ignore
-        }}
-        onLongTap={() => {
-          // ignore
-        }}
-        onTouchStart={() => {
-          // ignore
-        }}
-        onTouchMove={() => {
-          // ignore
-        }}
-        onTouchEnd={() => {
-          // ignore
-        }}
-        onTouchCancel={() => {
-          // ignore
-        }}
-      >
-        view
-      </View>
-    );
-
-    expect(testRenderer.toJSON()).toMatchSnapshot();
-  });
-
   it('render correctly in web', () => {
     process.env.REMAX_PLATFORM = 'web';
     const testRenderer = TestRenderer.create(

@@ -3,11 +3,6 @@ import { FormProps } from './props';
 
 export type { FormProps };
 
-const Form = createHostComponent<FormProps>('form', {
-  wechat: {
-    'wechat-report-submit': false,
-    'wechat-report-submit-timeout': 0,
-  },
-});
+const Form = createHostComponent<FormProps>('form');
 
 export default Form;

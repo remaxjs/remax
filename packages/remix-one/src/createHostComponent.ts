@@ -98,13 +98,7 @@ export default function createHostComponent<P = any>(
 
     // 默认属性根据平台在这里设置
     if (defaults) {
-      if (process.env.REMAX_PLATFORM === 'wechat') {
-        assignDefaultProps(inputProps, defaults['wechat']);
-      } else if (process.env.REMAX_PLATFORM === 'toutiao') {
-        assignDefaultProps(inputProps, defaults['toutiao']);
-      } else if (process.env.REMAX_PLATFORM === 'ali') {
-        assignDefaultProps(inputProps, defaults['ali']);
-      }
+      assignDefaultProps(inputProps, defaults['ali']);
     }
 
     if (props.onLongTap) {

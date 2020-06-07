@@ -36,11 +36,11 @@ module.exports = __webpack_require__(48);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(21);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var remix__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(49);
-/* harmony import */ var remix__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(remix__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _alipay_remix__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(49);
+/* harmony import */ var _alipay_remix__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _hoc__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(50);
 
 
@@ -207,7 +207,7 @@ var ClassPage = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remix__WEBPACK_IMPORTED_MODULE_2__["View"], null, "class page");
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix__WEBPACK_IMPORTED_MODULE_2__["View"], null, "class page");
     }
   }]);
 
@@ -216,14 +216,14 @@ var ClassPage = /*#__PURE__*/function (_React$Component) {
 
 var _page = Object(_hoc__WEBPACK_IMPORTED_MODULE_3__["default"])(ClassPage);
 
-/* harmony default export */ __webpack_exports__["default"] = (Page(Object(_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "pages/classPage")));
+/* harmony default export */ __webpack_exports__["default"] = (Page(Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "pages/classPage")));
 
 /***/ }),
 
 /***/ 49:
 /***/ (function(module, exports) {
 
-module.exports = require("remix");
+module.exports = require("@alipay/remix");
 
 /***/ }),
 

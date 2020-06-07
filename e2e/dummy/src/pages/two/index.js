@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from 'remix/one';
+import { View, Text } from '@alipay/remix/one';
 
 export default () => {
   return <View>page two</View>;

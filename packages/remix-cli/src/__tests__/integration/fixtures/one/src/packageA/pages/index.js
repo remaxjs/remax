@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from '@alipay/one';
+import { View, Text } from '@alipay/remix-one';
 import C from '@/components/C';
 import './index.css';
 

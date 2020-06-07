@@ -1,7 +1,0 @@
-{
-  "defaultTitle": "Ali App",
-  "titleBarColor": "#323239",
-  "usingComponents": {
-    "index": "/remixVendors/components/nativeComponent/index"
-  }
-}

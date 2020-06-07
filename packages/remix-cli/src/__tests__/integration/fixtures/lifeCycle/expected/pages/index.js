@@ -36,11 +36,11 @@ module.exports = __webpack_require__(44);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(21);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var remix_ali__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(45);
-/* harmony import */ var remix_ali__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(remix_ali__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(45);
+/* harmony import */ var _alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(46);
 
 
@@ -49,13 +49,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var _page = function _page() {
-  Object(_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["usePageEvent"])('onShow', function () {
+  Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["usePageEvent"])('onShow', function () {
     console.log('on show');
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remix_ali__WEBPACK_IMPORTED_MODULE_2__["View"], null, "view");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__["View"], null, "view");
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Page(Object(_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "pages/index")));
+/* harmony default export */ __webpack_exports__["default"] = (Page(Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "pages/index")));
 
 /***/ }),
 
@@ -71,19 +71,19 @@ module.exports = require("@alipay/remix/ali");
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(21);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var remix_ali__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(45);
-/* harmony import */ var remix_ali__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(remix_ali__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(45);
+/* harmony import */ var _alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  Object(_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["usePageEvent"])('onShareAppMessage', function () {
+  Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["usePageEvent"])('onShareAppMessage', function () {
     console.log('onShareAppMessage');
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remix_ali__WEBPACK_IMPORTED_MODULE_2__["View"], null, "module");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__["View"], null, "module");
 });
 
 /***/ }),

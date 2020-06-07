@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { requirePluginComponent, requirePlugin } from 'remix/macro';
+import { requirePluginComponent, requirePlugin } from '@alipay/remix/macro';
 import { View } from '@alipay/remix/ali';
 
 const Plugin = requirePlugin('plugin://myPlugin');

@@ -8,24 +8,6 @@ const platformAlias: any = {
     onTouchMove: 'onTouchMove',
     onTouchCancel: 'onTouchCancel',
   },
-  wechat: {
-    onLoad: 'bindload',
-    onError: 'binderror',
-    onTap: 'bindtap',
-    onTouchStart: 'bindtouchstart',
-    onTouchEnd: 'bindtouchend',
-    onTouchMove: 'bindtouchmove',
-    onTouchCancel: 'bindtouchcancel',
-  },
-  toutiao: {
-    onLoad: 'bindload',
-    onError: 'binderror',
-    onTap: 'bindtap',
-    onTouchStart: 'bindtouchstart',
-    onTouchEnd: 'bindtouchend',
-    onTouchMove: 'bindtouchmove',
-    onTouchCancel: 'bindtouchcancel',
-  },
 };
 
 export const defaultAlias = {

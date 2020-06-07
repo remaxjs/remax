@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { Fragment } from 'react';
 import { View, View as CustomView, Text } from '@alipay/remix/ali';
-import { createHostComponent } from 'remix/macro';
+import { createHostComponent } from '@alipay/remix/macro';
 import * as Remix from '@alipay/remix/ali';
 import NativeComponent from '@/components/nativeComponent';
-import RemixWindow from 'remix-window';
 
 const RenameView = View;
 
@@ -76,7 +75,6 @@ export default function Index() {
           long long long long long long long long long long long long text long long long long long long long long long
           long long long text
         </Text>
-        <RemixWindow />
         {'Literal Expression'}
         <Deep.Object.View>Deep Object View</Deep.Object.View>
         <RenameView>Rename View</RenameView>

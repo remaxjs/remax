@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Fragment } from 'react';
 import { View, View as CustomView, Text, Button } from '@alipay/remix/ali';
-import { createHostComponent } from 'remix/macro';
+import { createHostComponent } from '@alipay/remix/macro';
 import * as Remix from '@alipay/remix/ali';
 import Badge from 'mini-antui/es/badge/index';
 import Card from '@/components/Card';

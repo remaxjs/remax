@@ -1692,10 +1692,6 @@
     
     
     
-    data-foo="{{item.props['data-foo']}}"
-    
-    
-    
     hover-class="{{item.props['hover-class']}}"
     
     

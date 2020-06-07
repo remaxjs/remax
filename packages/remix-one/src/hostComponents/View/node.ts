@@ -7,24 +7,6 @@ const platformAlias: any = {
     onTouchCancel: 'onTouchCancel',
     onLongTap: 'onLongTap',
   },
-  wechat: {
-    role: 'aria-role',
-    onTap: 'bindtap',
-    onTouchStart: 'bindtouchstart',
-    onTouchMove: 'bindtouchmove',
-    onTouchEnd: 'bindtouchend',
-    onTouchCancel: 'bindtouchcancel',
-    onLongTap: 'bindlongtap',
-  },
-  toutiao: {
-    role: 'aria-role',
-    onTap: 'bindtap',
-    onTouchStart: 'bindtouchstart',
-    onTouchMove: 'bindtouchmove',
-    onTouchEnd: 'bindtouchend',
-    onTouchCancel: 'bindtouchcancel',
-    onLongTap: 'bindlongtap',
-  },
 };
 
 const defaultAlias = {

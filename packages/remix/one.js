@@ -1,1 +1,1 @@
-export * from '@alipay/one';
+export * from '@alipay/remix-one';

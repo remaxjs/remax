@@ -1251,9 +1251,9 @@
     "@types/babel__traverse" "^7.0.8"
     slash2 "^2.0.0"
 
-"@alipay/one@2.0.7":
+"@alipay/remix-one@2.0.7":
   version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@alipay/one/-/one-2.0.7.tgz#32e9bdbd58674ba89c782da9c0b5b43c13a79197"
+  resolved "https://registry.yarnpkg.com/@alipay/remix-one/-/one-2.0.7.tgz#32e9bdbd58674ba89c782da9c0b5b43c13a79197"
   integrity sha512-iaWkOwilNDNF+XP4+9cwoz06oRXnTcrpKNn+fIXsm/GguVtjWnDZndcJr6jV9v8xKh5De4d5+v0Mk8vi0EhNVg==
   dependencies:
     "@alipay/remix-ali" "2.0.7"
@@ -7874,7 +7874,7 @@ remix@../../packages/remix:
     "@alipay/remix-ali" "2.0.7"
     "@alipay/remix-cli" "2.0.7"
     "@alipay/remix-macro" "2.0.7"
-    "@alipay/one" "2.0.7"
+    "@alipay/remix-one" "2.0.7"
     "@alipay/remax-runtime" "2.0.7"
     "@remix/toutiao" "2.0.7"
     "@alipay/remax-web" "2.0.7"

@@ -25,9 +25,6 @@
     "rootDir": {
       "type": "string"
     },
-    "UNSAFE_wechatTemplateDepth": {
-      "anyOf": [{ "type": "object" }, { "type": "number" }]
-    },
     "one": {
       "type": "boolean"
     },

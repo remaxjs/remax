@@ -75,46 +75,6 @@ describe('Input', () => {
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });
 
-  it('render correctly in wechat', () => {
-    process.env.REMAX_PLATFORM = 'wechat';
-
-    const testRenderer = TestRenderer.create(
-      <Input
-        className="class"
-        onBlur={() => {
-          // ignore
-        }}
-        onFocus={() => {
-          // ignore
-        }}
-        onConfirm={() => {
-          // ignore
-        }}
-      />
-    );
-    expect(testRenderer.toJSON()).toMatchSnapshot();
-  });
-
-  it('render correctly in toutiao', () => {
-    process.env.REMAX_PLATFORM = 'toutiao';
-
-    const testRenderer = TestRenderer.create(
-      <Input
-        className="class"
-        onBlur={() => {
-          // ignore
-        }}
-        onFocus={() => {
-          // ignore
-        }}
-        onConfirm={() => {
-          // ignore
-        }}
-      />
-    );
-    expect(testRenderer.toJSON()).toMatchSnapshot();
-  });
-
   it('render correctly in web', () => {
     process.env.REMAX_PLATFORM = 'web';
 

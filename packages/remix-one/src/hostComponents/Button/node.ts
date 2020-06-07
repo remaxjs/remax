@@ -2,12 +2,6 @@ const platformAlias: any = {
   ali: {
     onTap: 'onTap',
   },
-  wechat: {
-    onTap: 'bindtap',
-  },
-  toutiao: {
-    onTap: 'bindtap',
-  },
 };
 
 const defaultAlias = {

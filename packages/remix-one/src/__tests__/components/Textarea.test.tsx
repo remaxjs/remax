@@ -75,48 +75,7 @@ describe('Textarea', () => {
     expect(instance.props.value).toEqual('2');
   });
 
-  it('render correctly in wechat', () => {
-    process.env.REMAX_PLATFORM = 'wechat';
-    const testRenderer = TestRenderer.create(
-      <Textarea
-        className="class"
-        onConfirm={() => {
-          // ignore
-        }}
-        onFocus={() => {
-          // ignore
-        }}
-        onBlur={() => {
-          // ignore
-        }}
-      />
-    );
-
-    expect(testRenderer.toJSON()).toMatchSnapshot();
-  });
-
-  it('render correctly in toutiao', () => {
-    process.env.REMAX_PLATFORM = 'wechat';
-    const testRenderer = TestRenderer.create(
-      <Textarea
-        className="class"
-        onConfirm={() => {
-          // ignore
-        }}
-        onFocus={() => {
-          // ignore
-        }}
-        onBlur={() => {
-          // ignore
-        }}
-      />
-    );
-
-    expect(testRenderer.toJSON()).toMatchSnapshot();
-  });
-
   it('render correctly in web', () => {
-    process.env.REMAX_PLATFORM = 'wechat';
     const testRenderer = TestRenderer.create(
       <Textarea
         className="class"

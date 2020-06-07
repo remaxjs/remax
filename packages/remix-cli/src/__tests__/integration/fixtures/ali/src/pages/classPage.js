@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from 'remix';
+import { View } from '@alipay/remix';
 
 export default class ClassPage extends React.Component {
   onShow() {}

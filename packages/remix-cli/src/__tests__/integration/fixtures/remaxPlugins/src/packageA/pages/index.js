@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from 'remix/wechat';
+import { View, Text } from 'remix/ali';
 
 export default () => {
   const props = {};

@@ -3,14 +3,6 @@ const platformAlias: any = {
     onSubmit: 'onSubmit',
     onReset: 'onReset',
   },
-  wechat: {
-    onSubmit: 'bindsubmit',
-    onReset: 'bindreset',
-  },
-  toutiao: {
-    onSubmit: 'bindsubmit',
-    onReset: 'bindreset',
-  },
 };
 
 const defaultAlias = {

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { View, Text } from '@alipay/remix/ali';
-import { FunctionalPageNavigator as UnKnownComponent } from 'remix/wechat';
 import C from '@/components/C';
 // 测试引用 json 模块
 import dataJson from './data.json';
@@ -25,8 +24,6 @@ export default () => {
         {dataJson?.data}
         {value}
       </View>
-      <UnKnownComponent />
-      <UnBindingComponent />
       {TextElement}
     </View>
   );

@@ -1,4 +1,4 @@
-const isPlatformSpecifyProp = (prop: string) => prop.match(/^(ali|wechat|toutiao)-/);
+const isPlatformSpecifyProp = (prop: string) => prop.match(/^(ali)-/);
 
 const normalizeWebSpecifyProp = (prop: string) => prop.replace(/^web-/, '');
 

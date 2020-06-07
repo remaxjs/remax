@@ -1780,10 +1780,6 @@
     
     
     
-    data-foo="{{item.props['data-foo']}}"
-    
-    
-    
     disable-scroll="{{item.props['disable-scroll']}}"
     
     
@@ -1809,10 +1805,6 @@
     
     
     id="{{item.props['id']}}"
-    
-    
-    
-    key="{{item.props.__key}}"
     
     
     

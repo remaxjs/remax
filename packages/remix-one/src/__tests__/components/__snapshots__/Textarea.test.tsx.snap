@@ -9,98 +9,16 @@ exports[`Textarea render correctly in ali 1`] = `
   onConfirm={[Function]}
   onFocus={[Function]}
   onInput={[Function]}
-  toutiao-selection-end={999}
-  toutiao-selection-start={999}
-  wechat-adjust-position={true}
-  wechat-cursor={-1}
-  wechat-cursor-spacing={0}
-  wechat-disable-default-padding={false}
-  wechat-fixed={false}
-  wechat-hold-keyboard={false}
-  wechat-placeholder-class="textarea-placeholder"
-  wechat-selection-end={-1}
-  wechat-selection-start={-1}
-  wechat-show-confirm-bar={true}
-/>
-`;
-
-exports[`Textarea render correctly in toutiao 1`] = `
-<textarea
-  autoHeight={false}
-  className="class"
-  controlled={false}
-  disabled={false}
-  focus={false}
-  maxLength={140}
-  onBlur={[Function]}
-  onConfirm={[Function]}
-  onFocus={[Function]}
-  onInput={[Function]}
-  toutiao-selection-end={999}
-  toutiao-selection-start={999}
-  wechat-adjust-position={true}
-  wechat-cursor={-1}
-  wechat-cursor-spacing={0}
-  wechat-disable-default-padding={false}
-  wechat-fixed={false}
-  wechat-hold-keyboard={false}
-  wechat-placeholder-class="textarea-placeholder"
-  wechat-selection-end={-1}
-  wechat-selection-start={-1}
-  wechat-show-confirm-bar={true}
 />
 `;
 
 exports[`Textarea render correctly in web 1`] = `
 <textarea
-  autoHeight={false}
   className="class"
   controlled={false}
-  disabled={false}
-  focus={false}
-  maxLength={140}
   onBlur={[Function]}
   onConfirm={[Function]}
   onFocus={[Function]}
   onInput={[Function]}
-  toutiao-selection-end={999}
-  toutiao-selection-start={999}
-  wechat-adjust-position={true}
-  wechat-cursor={-1}
-  wechat-cursor-spacing={0}
-  wechat-disable-default-padding={false}
-  wechat-fixed={false}
-  wechat-hold-keyboard={false}
-  wechat-placeholder-class="textarea-placeholder"
-  wechat-selection-end={-1}
-  wechat-selection-start={-1}
-  wechat-show-confirm-bar={true}
-/>
-`;
-
-exports[`Textarea render correctly in wechat 1`] = `
-<textarea
-  autoHeight={false}
-  className="class"
-  controlled={false}
-  disabled={false}
-  focus={false}
-  maxLength={140}
-  onBlur={[Function]}
-  onConfirm={[Function]}
-  onFocus={[Function]}
-  onInput={[Function]}
-  toutiao-selection-end={999}
-  toutiao-selection-start={999}
-  wechat-adjust-position={true}
-  wechat-cursor={-1}
-  wechat-cursor-spacing={0}
-  wechat-disable-default-padding={false}
-  wechat-fixed={false}
-  wechat-hold-keyboard={false}
-  wechat-placeholder-class="textarea-placeholder"
-  wechat-selection-end={-1}
-  wechat-selection-start={-1}
-  wechat-show-confirm-bar={true}
 />
 `;

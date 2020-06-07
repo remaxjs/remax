@@ -139,7 +139,7 @@ export default class API {
 
   public registerAdapterPlugins(targetName: Platform, one = false) {
     this.adapter.target = targetName;
-    this.adapter.packageName = '@remix/' + targetName;
+    this.adapter.packageName = '@alipay/remix-' + targetName;
 
     const packagePath = this.adapter.packageName + '/node';
 
@@ -149,7 +149,7 @@ export default class API {
     this.plugins.push(plugin);
 
     if (one) {
-      const onePath = '@alipay/one/node';
+      const onePath = '@alipay/remix-one/node';
 
       const plugin = require(onePath).default || require(onePath);
       const one = plugin();

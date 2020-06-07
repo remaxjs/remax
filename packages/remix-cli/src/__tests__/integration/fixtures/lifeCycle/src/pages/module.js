@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { usePageEvent } from 'remix/macro';
+import { usePageEvent } from '@alipay/remix/macro';
 import { View } from '@alipay/remix/ali';
 
 export default function () {

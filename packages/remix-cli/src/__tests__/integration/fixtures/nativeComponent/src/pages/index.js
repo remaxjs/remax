@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { requirePluginComponent } from 'remix/macro';
+import { requirePluginComponent } from '@alipay/remix/macro';
 import { View } from '@alipay/remix/ali';
 import A from '../components/a';
 import B from '@/components/b';

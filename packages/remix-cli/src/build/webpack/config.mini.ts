@@ -29,7 +29,7 @@ function prepare(api: API, options: Options, target: Platform) {
   const meta = api.getMeta();
   const turboPagesEnabled = options.turboPages && options.turboPages.length > 0;
 
-  const stubModules = [Platform.ali, Platform.toutiao, Platform.wechat]
+  const stubModules = [Platform.ali]
     .filter(name => target !== name)
     .reduce<string[]>((acc, name) => [...acc, `${name}/esm/api`, `${name}/esm/hostComponents`], []);
 

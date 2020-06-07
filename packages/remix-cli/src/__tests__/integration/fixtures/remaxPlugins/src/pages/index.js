@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { View, Text } from '@alipay/remix/ali';
-import { FunctionalPageNavigator as UnKnownComponent } from 'remix/wechat';
 
 export default () => {
   const props = {};
@@ -21,8 +20,6 @@ export default () => {
         {obj?.a?.b}
         {value}
       </View>
-      <UnKnownComponent />
-      <UnBindingComponent />
       {TextElement}
     </View>
   );

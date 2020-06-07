@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { View, Text, Image } from 'remix/one';
-import { FunctionalPageNavigator as UnKnownComponent } from 'remix/wechat';
+import { View, Text, Image } from '@alipay/remix/one';
 import C from '@/components/C';
 import chooseImage from '@/api/chooseImage';
 import chooseImageMini from '@/api/chooseImageMini';
@@ -30,9 +29,7 @@ export default () => {
         {obj?.a?.b}
         {value}
       </View>
-      <Image wechat-bindtap={handleClick} />
-      <UnKnownComponent />
-      <UnBindingComponent />
+      <Image />
       {TextElement}
     </View>
   );

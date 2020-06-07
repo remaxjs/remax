@@ -7,20 +7,6 @@ const platformAlias: any = {
     controlled: 'controlled',
     maxLength: 'maxlength',
   },
-  wechat: {
-    onInput: 'bindinput',
-    onConfirm: 'bindconfirm',
-    onFocus: 'bindfocus',
-    onBlur: 'bindblur',
-    maxLength: 'maxlength',
-  },
-  toutiao: {
-    onInput: 'bindinput',
-    onConfirm: 'bindconfirm',
-    onFocus: 'bindfocus',
-    onBlur: 'bindblur',
-    maxLength: 'maxlength',
-  },
   web: {
     maxLength: 'maxLength',
   },

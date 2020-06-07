@@ -34,11 +34,10 @@ export function run(args: any, callback?: yargs.ParseCallback) {
       default: false,
     })
     .option('target', {
-      describe: '目标平台，如 wechat，ali',
+      describe: '目标平台',
       alias: 't',
       type: 'string',
-      required: true,
-      requiresArg: true,
+      default: 'ali',
     })
     .option('notify', {
       describe: '编译错误提醒',

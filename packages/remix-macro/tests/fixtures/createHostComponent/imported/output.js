@@ -1,3 +1,3 @@
 import { createHostComponent } from '@alipay/remax-runtime';
-import 'remix';
+import '@alipay/remix';
 createHostComponent('host-component');

@@ -4,9 +4,7 @@ import * as t from '@babel/types';
 
 export enum Platform {
   'web' = 'web',
-  'wechat' = 'wechat',
   'ali' = 'ali',
-  'toutiao' = 'toutiao',
 }
 
 export interface Options {
@@ -17,7 +15,6 @@ export interface Options {
   output: string;
   rootDir: string;
   compressTemplate?: boolean;
-  UNSAFE_wechatTemplateDepth: number | { [key: string]: number };
   configWebpack?: (params: { config: WebpackConfig; webpack: any }) => void;
   plugins: Plugin[];
   port?: number;

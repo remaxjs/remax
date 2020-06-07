@@ -64,22 +64,7 @@ export default async function build(app: string, target: Platform, options: Part
       modulesDir: path.resolve(__dirname, '../../../../../../node_modules'),
       whitelist: options.externalsIgnore,
     }),
-    {
-      '@alipay/remax-runtime': JSON.stringify('@alipay/remax-runtime'),
-      '@alipay/remix/ali': JSON.stringify('@alipay/remix/ali'),
-      '@alipay/remix-ali': JSON.stringify('@alipay/remix-ali'),
-      'remix/wechat': JSON.stringify('remix/wechat'),
-      '@remix/wechat': JSON.stringify('@remix/wechat'),
-      'remix/toutiao': JSON.stringify('remix/toutiao'),
-      '@remix/toutiao': JSON.stringify('@remix/toutiao'),
-      'remix/router': JSON.stringify('remix/router'),
-      'remix/web': JSON.stringify('remix/web'),
-    },
   ];
-
-  (options.externalsIgnore || []).forEach(k => {
-    delete externals[1][k];
-  });
 
   const remixOptions = {
     ...config,

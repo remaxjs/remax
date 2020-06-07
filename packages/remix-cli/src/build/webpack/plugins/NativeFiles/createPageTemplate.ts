@@ -5,7 +5,6 @@ import ejs from 'ejs';
 import { Options, Meta } from '@alipay/remix-types';
 import { slash } from '@alipay/remix-shared';
 import * as componentManifest from '../../../babel/componentManifest';
-import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDepth';
 import * as cacheable from './cacheable';
 import API from '../../../../API';
 import getUsingComponents from './getUsingComponents';
@@ -91,7 +90,6 @@ export async function createBaseTemplate(api: API, options: Options, meta: Meta,
     meta.ejs.base,
     {
       ...createRenderOptions(api, options, [], compilation, false),
-      depth: ensureDepth(options.UNSAFE_wechatTemplateDepth),
     },
     {
       rmWhitespace: options.compressTemplate,
