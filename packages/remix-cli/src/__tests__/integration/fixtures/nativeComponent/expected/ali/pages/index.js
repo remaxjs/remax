@@ -43,7 +43,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_foo_a__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(14);
 /* harmony import */ var _components_src__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(15);
 /* harmony import */ var _components_notInJSX__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(16);
-/* harmony import */ var cjs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(17);
+/* harmony import */ var commonjs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(17);
 
 
 
@@ -76,7 +76,7 @@ var _page = function _page() {
     className: "outer",
     slot: "outer",
     "ns:attr": "value"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_foo_a__WEBPACK_IMPORTED_MODULE_10__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_src__WEBPACK_IMPORTED_MODULE_11__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](cjs__WEBPACK_IMPORTED_MODULE_13__["default"], null), text);
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_foo_a__WEBPACK_IMPORTED_MODULE_10__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_src__WEBPACK_IMPORTED_MODULE_11__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](commonjs__WEBPACK_IMPORTED_MODULE_13__["default"], null), text);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Page(Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "pages/index")));

@@ -1,0 +1,46 @@
+
+stages:
+  - check
+
+setup: &setup
+  aciTags: DOCKER
+  beforeScript:
+    - export PATH=$PWD/node_modules/.bin:$PATH
+    - echo $PATH
+    - npm install --registry=https://registry.npm.alibaba-inc.com -g tnpm
+    - tnpm -v
+    - tnpm i --no-cache --install-node=12
+
+lint:
+  <<: *setup
+  parameters:
+    PUPPETEER_SKIP_DOWNLOAD: true
+  agent:
+    docker:
+      image: reg.docker.alibaba-inc.com/dockerlab/node-ci:3.7.7
+  stage: check
+  script:
+    - tnpm run lint
+    - tnpx prettier --check packages/*/src/**/*.{ts,tsx}
+
+test:
+  <<: *setup
+  parameters:
+    PUPPETEER_SKIP_DOWNLOAD: true
+  agent:
+    docker:
+      image: reg.docker.alibaba-inc.com/dockerlab/node-ci:3.7.7
+  stage: check
+  script:
+    - tnpm run build -- -- -i
+    - tnpm run test:cov
+
+e2e:
+  <<: *setup
+  agent:
+    docker:
+      image: reg.docker.alibaba-inc.com/macacajs/macaca-electron:1.4.0
+  stage: check
+  script:
+    - tnpm run build
+    - tnpm run test:e2e

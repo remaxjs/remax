@@ -23,6 +23,7 @@
     "site:build": "lerna run --scope website --stream build",
     "site:deploy": "lerna run --scope website --stream deploy",
     "install:codesandbox": "PUPPETEER_SKIP_DOWNLOAD=1 yarn install",
+    "noop": "node -v",
     "authors": "./scripts/authors"
   },
   "dependencies": {
@@ -56,10 +57,6 @@
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/remix"
-  },
-  "tnpm": {
-    "mode": "yarn",
-    "lockfile": "enable"
   },
   "workspaces": [
     "packages/*",

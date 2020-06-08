@@ -10,6 +10,5 @@
     }
   },
   "version": "0.0.1",
-  "npmClient": "tnpm",
-  "useWorkspaces": true
+  "npmClient": "tnpm"
 }
