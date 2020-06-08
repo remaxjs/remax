@@ -5,7 +5,6 @@ exports[`ScrollView render correctly 1`] = `
   enableBackToTop={false}
   enableFlex={false}
   lowerThreshold={50}
-  onScroll={[Function]}
   refresherBackground="#fff"
   refresherDefaultStyle="black"
   refresherEnabled={false}

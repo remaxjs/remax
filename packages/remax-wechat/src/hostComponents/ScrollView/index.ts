@@ -1,40 +1,9 @@
-import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
-const componentName = 'scroll-view';
+export const ScrollView = createHostComponent<ScrollViewProps>('scroll-view');
 
-const ScrollViewRender: React.ForwardRefRenderFunction<any, ScrollViewProps> = (props, ref) => {
-  const { children, scrollTop, onScroll, ...restProps } = props;
-  const [innerScrollTop, forceUpdateScrollTop] = React.useState(scrollTop);
-  const scrollTopRef = React.useRef(innerScrollTop);
-
-  function handleScroll(event: any) {
-    scrollTopRef.current = event?.detail?.scrollTop;
-
-    if (typeof onScroll === 'function') {
-      onScroll(event);
-    }
-  }
-
-  React.useEffect(() => {
-    scrollTopRef.current = scrollTop;
-    forceUpdateScrollTop(scrollTop);
-  }, [scrollTop]);
-
-  const scrollViewProps = {
-    ...restProps,
-    onScroll: handleScroll,
-    scrollTop: scrollTopRef.current,
-    ref,
-  };
-
-  return React.createElement(componentName, scrollViewProps, children);
-};
-
-const RemaxScrollView = React.forwardRef(ScrollViewRender);
-
-RemaxScrollView.defaultProps = {
+ScrollView.defaultProps = {
   upperThreshold: 50,
   lowerThreshold: 50,
   scrollX: false,
@@ -49,11 +18,6 @@ RemaxScrollView.defaultProps = {
   refresherBackground: '#fff',
   refresherTriggered: false,
 };
-
-/**
- * https://developers.weixin.qq.com/miniprogram/dev/component/scroll-view.html
- */
-export const ScrollView = createHostComponent<ScrollViewProps>(componentName, RemaxScrollView);
 
 export interface ScrollViewProps extends BaseProps {
   /** (default: false) 允许横向滚动 1.0.0 */
