@@ -6,5 +6,6 @@
     "jsx": "react",
     "rootDir": "src",
     "outDir": "lib"
-  }
+  },
+  "exclude": ["lib"]
 }
