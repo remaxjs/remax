@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "watch": "concurrently \"lerna run build:cjs --parallel -- -w\" \"tsc -b -w\"",
+    "watch": "concurrently \"lerna run build:cjs --parallel -- -- -w\" \"tsc -b -w\"",
     "prebuild": "npm run clean:packages",
     "build": "tsc -b && lerna run build:cjs",
     "test": "lerna run --ignore @alipay/babel-preset-remix --ignore website --ignore e2e-dummy --ignore e2e-mini --stream test",
