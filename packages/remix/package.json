@@ -1,6 +1,6 @@
 {
   "name": "@alipay/remix",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Remix 是一个全新的基于 React 的小程序开发框架",
   "main": "index.js",
   "bin": {
@@ -21,12 +21,12 @@
   },
   "homepage": "https://remixjs.org",
   "dependencies": {
-    "@alipay/remix-ali": "0.0.2",
-    "@alipay/remix-cli": "0.0.2",
-    "@alipay/remix-macro": "0.0.2",
-    "@alipay/remix-one": "0.0.2",
-    "@alipay/remix-runtime": "0.0.2",
-    "@alipay/remix-web": "0.0.2",
+    "@alipay/remix-ali": "0.0.3",
+    "@alipay/remix-cli": "0.0.3",
+    "@alipay/remix-macro": "0.0.3",
+    "@alipay/remix-one": "0.0.3",
+    "@alipay/remix-runtime": "0.0.3",
+    "@alipay/remix-web": "0.0.3",
     "mini-types": "^0.1.1",
     "miniprogram-api-typings": "^2.10.4"
   },

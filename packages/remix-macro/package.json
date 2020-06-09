@@ -1,6 +1,6 @@
 {
   "name": "@alipay/remix-macro",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -36,8 +36,8 @@
     "typescript": "^3.7.3"
   },
   "dependencies": {
-    "@alipay/remix-shared": "0.0.2",
-    "@alipay/remix-types": "0.0.2",
+    "@alipay/remix-shared": "0.0.3",
+    "@alipay/remix-types": "0.0.3",
     "@types/babel__traverse": "^7.0.8"
   },
   "publishConfig": {

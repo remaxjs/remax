@@ -1,7 +1,7 @@
 {
   "name": "e2e-mini",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "intergration tests for Remix",
   "main": "index.js",
   "keywords": [],
@@ -14,10 +14,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@alipay/remix": "0.0.3",
     "clsx": "^1.0.4",
     "mini-antui": "^0.4.34",
-    "react": "^16.8.6",
-    "@alipay/remix": "0.0.2"
+    "react": "^16.8.6"
   },
   "devDependencies": {
     "@types/expect-puppeteer": "^4.4.0",

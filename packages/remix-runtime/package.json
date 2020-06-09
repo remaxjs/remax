@@ -1,6 +1,6 @@
 {
   "name": "@alipay/remix-runtime",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Remix 是一个全新的基于 React 的小程序开发框架",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
@@ -31,9 +31,9 @@
     "@types/react": "^16.9.33"
   },
   "dependencies": {
-    "@alipay/remix-shared": "0.0.2",
-    "@alipay/remix-types": "0.0.2",
-    "@alipay/remix-web": "0.0.2",
+    "@alipay/remix-shared": "0.0.3",
+    "@alipay/remix-types": "0.0.3",
+    "@alipay/remix-web": "0.0.3",
     "qs": "^6.9.3",
     "react-reconciler": "0.25.1",
     "scheduler": "0.19.1"

@@ -1,6 +1,6 @@
 {
   "name": "@alipay/remix-postcss-tag",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "repository": "git@github.com:remixjs/remix.git",
   "author": "Caihuanyu <eterlf41@gmail.com>",
