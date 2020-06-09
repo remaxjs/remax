@@ -1,6 +1,6 @@
 {
   "name": "@alipay/remix-one",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Remix 小程序多端方案",
   "main": "./cjs/index.js",
   "esnext": "./esm/index.js",
@@ -20,7 +20,7 @@
     "@types/react": "^16.9.33"
   },
   "devDependencies": {
-    "@alipay/remix-types": "0.0.3",
+    "@alipay/remix-types": "0.0.4",
     "@types/jest": "^25.2.1",
     "@types/react": "^16.9.33",
     "@types/react-dom": "^16.9.6",
@@ -34,8 +34,8 @@
     "typescript": "^3.7.4"
   },
   "dependencies": {
-    "@alipay/remix-ali": "0.0.3",
-    "@alipay/remix-router": "0.0.3",
+    "@alipay/remix-ali": "0.0.4",
+    "@alipay/remix-router": "0.0.4",
     "clsx": "^1.1.0",
     "react-autosize-textarea": "^7.0.0",
     "react-lazyload": "^2.6.7",

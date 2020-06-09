@@ -1,6 +1,6 @@
 {
   "name": "@alipay/remix-shared",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Remix Shared",
   "main": "cjs/index.js",
   "module": "esm/index.js",
