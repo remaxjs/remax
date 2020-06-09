@@ -6,7 +6,7 @@ require('./../../remix-vendors.js');
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = require("@alipay/remax-runtime");
+module.exports = require("@alipay/remix-runtime");
 
 /***/ }),
 /* 3 */,

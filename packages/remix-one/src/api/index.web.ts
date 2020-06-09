@@ -1,4 +1,4 @@
-import { history } from '@alipay/remax-router/web';
+import { history } from '@alipay/remix-router/web';
 import { NavigateToParams, RedirectToParams, NavigateBackParams, ReLaunchParams, SwitchTabParams } from './types';
 
 export function navigateTo(params: NavigateToParams) {

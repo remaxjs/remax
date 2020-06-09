@@ -3,7 +3,7 @@ import { NodePath } from '@babel/traverse';
 import { slash } from '@alipay/remix-shared';
 import insertImportDeclaration from './utils/insertImportDeclaration';
 
-const PACKAGE_NAME = '@alipay/remax-runtime';
+const PACKAGE_NAME = '@alipay/remix-runtime';
 const FUNCTION_NAME = 'usePageEvent';
 
 type Events = Set<string>;

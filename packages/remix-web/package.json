@@ -1,5 +1,5 @@
 {
-  "name": "@alipay/remax-web",
+  "name": "@alipay/remix-web",
   "version": "0.0.2",
   "description": "Shim of web for remix",
   "author": "Wei Zhu <yesmeck@gmail.com>",
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@loadable/component": "^5.12.0",
-    "@alipay/remax-router": "0.0.2",
+    "@alipay/remix-router": "0.0.2",
     "rmc-pull-to-refresh": "^1.0.12",
     "umi-hd": "^5.0.1"
   },

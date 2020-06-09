@@ -1,6 +1,6 @@
 import './polyfills/Function';
 import * as React from 'react';
-import { pluginDriver } from '@alipay/remax-runtime-plugin';
+import { pluginDriver } from '@alipay/remix-runtime-plugin';
 import render from './render';
 import AppContainer from './AppContainer';
 import isClassComponent from './utils/isClassComponent';

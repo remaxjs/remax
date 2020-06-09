@@ -7,7 +7,7 @@ import { getPages } from '../../getEntries';
 import API from '../../API';
 
 function pageConfigExpression(path: NodePath<t.ExportDefaultDeclaration>, id: t.Identifier, name: t.StringLiteral) {
-  const createId = addNamed(path, 'createPageConfig', '@alipay/remax-runtime');
+  const createId = addNamed(path, 'createPageConfig', '@alipay/remix-runtime');
   path.insertAfter(
     t.exportDefaultDeclaration(t.callExpression(t.identifier('Page'), [t.callExpression(createId, [id, name])]))
   );

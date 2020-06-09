@@ -34,7 +34,7 @@ var _page = function _page() {
 /* 4 */
 /***/ (function(module, exports) {
 
-module.exports = require("@alipay/remax-runtime");
+module.exports = require("@alipay/remix-runtime");
 
 /***/ }),
 /* 5 */

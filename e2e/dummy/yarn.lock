@@ -1257,7 +1257,7 @@
   integrity sha512-iaWkOwilNDNF+XP4+9cwoz06oRXnTcrpKNn+fIXsm/GguVtjWnDZndcJr6jV9v8xKh5De4d5+v0Mk8vi0EhNVg==
   dependencies:
     "@alipay/remix-ali" "2.0.7"
-    "@alipay/remax-router" "2.0.7"
+    "@alipay/remix-router" "2.0.7"
     "@remix/toutiao" "2.0.7"
     "@remix/wechat" "2.0.7"
     clsx "^1.1.0"
@@ -1283,9 +1283,9 @@
   resolved "https://registry.yarnpkg.com/@remax/react-router-cache-route/-/react-router-cache-route-1.8.4.tgz#cf9ddad48b9ee5ef8439c705f2c865bd2c673543"
   integrity sha512-W17U/5/y6ZjMdfVw400AY3hrBJCr6UC+f/6VUANU0O41pH68eGY0gwxRlR3aa6eQfT6ztMSfvLLPjzBAOjhoKg==
 
-"@alipay/remax-router@2.0.7":
+"@alipay/remix-router@2.0.7":
   version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@alipay/remax-router/-/router-2.0.7.tgz#62b4732dcaac87642c21c1c85687f64fbd0e0d18"
+  resolved "https://registry.yarnpkg.com/@alipay/remix-router/-/router-2.0.7.tgz#62b4732dcaac87642c21c1c85687f64fbd0e0d18"
   integrity sha512-r4UGb8S8i++mv4vggyTehDVGxsM/e0CofueHeWGexmExTf0bbm4Wfegpo69B43W97S/uHWDPrWHmYNITaUqMnQ==
   dependencies:
     "@remax/react-router-cache-route" "^1.8.4"
@@ -1323,7 +1323,7 @@
   integrity sha512-gnYPEJ6O5XEmYAyPoqSaRBhRzS4J9ixLVBZ77ALAXwRf6BvsEwaZtiRoO8Bj8luG8XwgDNhoaJ2RvczKivNMXQ==
   dependencies:
     "@loadable/component" "^5.12.0"
-    "@alipay/remax-router" "2.0.7"
+    "@alipay/remix-router" "2.0.7"
     rmc-pull-to-refresh "^1.0.12"
     umi-hd "^5.0.1"
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { pluginDriver } from '@alipay/remax-runtime-plugin';
+import { pluginDriver } from '@alipay/remix-runtime-plugin';
 import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName, pageEvents } from './lifecycle';
 import stopPullDownRefresh from './stopPullDownRefresh';

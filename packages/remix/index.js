@@ -6,4 +6,4 @@ export {
   useQuery,
   useNativeEffect,
   unstable_batchedUpdates,
-} from '@alipay/remax-runtime';
+} from '@alipay/remix-runtime';

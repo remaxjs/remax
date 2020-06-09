@@ -9,4 +9,4 @@ declare const __REMAX_HOST_COMPONENTS__: any;
 declare const __REMAX_ENTRY_INFO__: any;
 declare const __REMAX_APP_EVENTS__: any;
 declare const __REMAX_PAGE_EVENTS__: any;
-declare module '@alipay/remax-runtime-plugin';
+declare module '@alipay/remix-runtime-plugin';

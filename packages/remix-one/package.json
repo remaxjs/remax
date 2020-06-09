@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@alipay/remix-ali": "0.0.2",
-    "@alipay/remax-router": "0.0.2",
+    "@alipay/remix-router": "0.0.2",
     "clsx": "^1.1.0",
     "react-autosize-textarea": "^7.0.0",
     "react-lazyload": "^2.6.7",

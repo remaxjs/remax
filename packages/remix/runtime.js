@@ -1,1 +1,1 @@
-export * from '@alipay/remax-runtime';
+export * from '@alipay/remix-runtime';

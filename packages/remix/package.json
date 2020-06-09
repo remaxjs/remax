@@ -25,8 +25,8 @@
     "@alipay/remix-cli": "0.0.2",
     "@alipay/remix-macro": "0.0.2",
     "@alipay/remix-one": "0.0.2",
-    "@alipay/remax-runtime": "0.0.2",
-    "@alipay/remax-web": "0.0.2",
+    "@alipay/remix-runtime": "0.0.2",
+    "@alipay/remix-web": "0.0.2",
     "mini-types": "^0.1.1",
     "miniprogram-api-typings": "^2.10.4"
   },

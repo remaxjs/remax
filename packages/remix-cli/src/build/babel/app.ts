@@ -4,7 +4,7 @@ import { NodePath } from '@babel/traverse';
 import { addNamed } from '@babel/helper-module-imports';
 
 function appConfigExpression(path: NodePath<t.ExportDefaultDeclaration>, id: t.Identifier) {
-  const createId = addNamed(path, 'createAppConfig', '@alipay/remax-runtime');
+  const createId = addNamed(path, 'createAppConfig', '@alipay/remix-runtime');
   path.insertAfter(
     t.exportDefaultDeclaration(t.callExpression(t.identifier('App'), [t.callExpression(createId, [id])]))
   );

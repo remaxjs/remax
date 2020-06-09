@@ -7,4 +7,4 @@ export {
   useNativeEffect,
   // eslint-disable-next-line
   unstable_batchedUpdates,
-} from '@alipay/remax-runtime';
+} from '@alipay/remix-runtime';

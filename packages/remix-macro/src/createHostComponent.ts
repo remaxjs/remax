@@ -3,7 +3,7 @@ import { NodePath } from '@babel/traverse';
 import { HostComponent } from '@alipay/remix-types';
 import insertImportDeclaration from './utils/insertImportDeclaration';
 
-const PACKAGE_NAME = '@alipay/remax-runtime';
+const PACKAGE_NAME = '@alipay/remix-runtime';
 const FUNCTION_NAME = 'createHostComponent';
 
 export const hostComponents: Map<string, HostComponent> = new Map();

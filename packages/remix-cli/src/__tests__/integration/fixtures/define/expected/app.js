@@ -68,7 +68,7 @@ var _App = /*#__PURE__*/function (_React$Component) {
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = require("@alipay/remax-runtime");
+module.exports = require("@alipay/remix-runtime");
 
 /***/ }),
 /* 3 */
