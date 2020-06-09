@@ -1,6 +1,6 @@
 {
   "name": "@alipay/remix-cli",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Remix 是一个全新的基于 React 的小程序开发框架",
   "main": "./lib/index.js",
   "keywords": [
@@ -25,11 +25,11 @@
     "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },
   "dependencies": {
-    "@alipay/babel-preset-remix": "0.0.4",
-    "@alipay/remix-macro": "0.0.4",
-    "@alipay/remix-postcss-tag": "0.0.4",
-    "@alipay/remix-shared": "0.0.4",
-    "@alipay/remix-types": "0.0.4",
+    "@alipay/babel-preset-remix": "0.0.5",
+    "@alipay/remix-macro": "0.0.5",
+    "@alipay/remix-postcss-tag": "0.0.5",
+    "@alipay/remix-shared": "0.0.5",
+    "@alipay/remix-types": "0.0.5",
     "@babel/core": "^7.7.4",
     "@babel/helper-module-imports": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
@@ -77,9 +77,9 @@
     "yargs": "^15.1.0"
   },
   "devDependencies": {
-    "@alipay/remix": "0.0.4",
-    "@alipay/remix-ali": "0.0.4",
-    "@alipay/remix-one": "0.0.4",
+    "@alipay/remix": "0.0.5",
+    "@alipay/remix-ali": "0.0.5",
+    "@alipay/remix-one": "0.0.5",
     "@babel/traverse": "^7.7.4",
     "@types/babel__traverse": "^7.0.8",
     "@types/detect-port": "^1.3.0",
