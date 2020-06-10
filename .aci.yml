@@ -1,0 +1,61 @@
+
+stages:
+  - check
+
+setup: &setup
+  aciTags: DOCKER
+  beforeScript:
+    - export PATH=$PWD/node_modules/.bin:$PATH
+    - echo $PATH
+    - npm install yarn @ali/yarn -g --registry=http://registry.npm.alibaba-inc.com
+    - yarn versions
+    - ayarn install --frozen-lockfile
+
+lint:
+  <<: *setup
+  parameters:
+    PUPPETEER_SKIP_DOWNLOAD: true
+  agent:
+    docker:
+      image: reg.docker.alibaba-inc.com/puppeteer/ci-puppeteer:2.0.0
+  stage: check
+  script:
+    - yarn run lint
+    - yarn prettier --check packages/*/src/**/*.{ts,tsx}
+
+test:
+  <<: *setup
+  parameters:
+    PUPPETEER_SKIP_DOWNLOAD: true
+  agent:
+    docker:
+      image: reg.docker.alibaba-inc.com/puppeteer/ci-puppeteer:2.0.0
+      resourceRequirements:
+        cpu: 2
+        memory: 4
+        ephemeral-storage: 20
+  stage: check
+  script:
+    - yarn run build
+    - yarn run test -- -- -i
+
+# tiny-cli 有问题，暂时跑不起来
+# e2e:mini:
+#   <<: *setup
+#   agent:
+#     docker:
+#       image: reg.docker.alibaba-inc.com/puppeteer/ci-puppeteer:2.0.0
+#   stage: check
+#   script:
+#     - yarn run build
+#     - yarn run test:e2e-mini
+
+e2e:web:
+  <<: *setup
+  agent:
+    docker:
+      image: reg.docker.alibaba-inc.com/puppeteer/ci-puppeteer:2.0.0
+  stage: check
+  script:
+    - yarn run build
+    - yarn run test:e2e
