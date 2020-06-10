@@ -1,4 +1,4 @@
-import { createHostComponent } from '@alipay/remax-runtime';
+import { createHostComponent } from '@alipay/remix-runtime';
 createHostComponent('host-component-a');
 createHostComponent('host-component-b');
 createHostComponent('host-component-c');

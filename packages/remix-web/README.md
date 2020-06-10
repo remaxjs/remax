@@ -1,11 +1,11 @@
-# `@alipay/remax-web`
+# `@alipay/remix-web`
 
 > TODO: description
 
 ## Usage
 
 ```
-const remixWeb = require('@alipay/remax-web');
+const remixWeb = require('@alipay/remix-web');
 
 // TODO: DEMONSTRATE API
 ```

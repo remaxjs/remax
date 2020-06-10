@@ -77,3 +77,4 @@ remix.iml
 tsconfig.tsbuildinfo
 cjs
 esm
+.node

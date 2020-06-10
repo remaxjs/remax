@@ -9,7 +9,7 @@
       "conventionalCommits": true
     }
   },
-  "version": "0.0.1",
-  "npmClient": "tnpm",
+  "version": "0.0.5",
+  "npmClient": "ayarn",
   "useWorkspaces": true
 }

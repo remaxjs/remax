@@ -6,7 +6,7 @@ require('./../../remix-vendors.js');
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = require("@alipay/remax-runtime");
+module.exports = require("@alipay/remix-runtime");
 
 /***/ }),
 /* 3 */,
@@ -47,8 +47,8 @@ module.exports = __webpack_require__(15);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
@@ -84,7 +84,7 @@ var _page = function _page() {
   }, props), "foo"), TextElement);
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Page(Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "packageA/pages/index")));
+/* harmony default export */ __webpack_exports__["default"] = (Page(Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "packageA/pages/index")));
 
 /***/ }),
 /* 16 */

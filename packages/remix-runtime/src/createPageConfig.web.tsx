@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PullToRefresh } from '@alipay/remax-web';
+import { PullToRefresh } from '@alipay/remix-web';
 import qs from 'qs';
 import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName } from './lifecycle';

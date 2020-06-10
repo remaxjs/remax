@@ -11,7 +11,7 @@ import SlotComponent from '../components/slot';
 import ScopedComponent from '../components/@foo/a';
 import SrcComponent from '../components/src';
 import NotInJSXComponent from '../components/notInJSX';
-import CJSComponent from 'cjs';
+import CJSComponent from 'commonjs';
 
 const PluginComponent = requirePluginComponent('plugin://myPlugin/xx');
 const PluginComponent2 = requirePluginComponent('plugin://myPlugin/dddd');

@@ -24,7 +24,7 @@ export default function nativeComponent(this: loader.LoaderContext, source: stri
 
   const type = register(resourcePath, '', assets);
 
-  return `import { createNativeComponent } from '@alipay/remax-runtime';
+  return `import { createNativeComponent } from '@alipay/remix-runtime';
 export default createNativeComponent('${type}')
 `;
 }

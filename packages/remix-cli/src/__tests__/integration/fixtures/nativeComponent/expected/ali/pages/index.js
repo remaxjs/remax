@@ -6,7 +6,7 @@ require('./../remix-vendors.js');
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = require("@alipay/remax-runtime");
+module.exports = require("@alipay/remix-runtime");
 
 /***/ }),
 /* 3 */
@@ -27,8 +27,8 @@ module.exports = __webpack_require__(5);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
@@ -43,7 +43,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_foo_a__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(14);
 /* harmony import */ var _components_src__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(15);
 /* harmony import */ var _components_notInJSX__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(16);
-/* harmony import */ var cjs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(17);
+/* harmony import */ var commonjs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(17);
 
 
 
@@ -59,8 +59,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var PluginComponent = Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])("xx");
-var PluginComponent2 = Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])("dddd");
+var PluginComponent = Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])("xx");
+var PluginComponent2 = Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])("dddd");
 
 var _page = function _page() {
   var b = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createRef"]();
@@ -76,10 +76,10 @@ var _page = function _page() {
     className: "outer",
     slot: "outer",
     "ns:attr": "value"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_foo_a__WEBPACK_IMPORTED_MODULE_10__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_src__WEBPACK_IMPORTED_MODULE_11__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](cjs__WEBPACK_IMPORTED_MODULE_13__["default"], null), text);
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_foo_a__WEBPACK_IMPORTED_MODULE_10__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_src__WEBPACK_IMPORTED_MODULE_11__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](commonjs__WEBPACK_IMPORTED_MODULE_13__["default"], null), text);
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Page(Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "pages/index")));
+/* harmony default export */ __webpack_exports__["default"] = (Page(Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "pages/index")));
 
 /***/ }),
 /* 6 */
@@ -97,10 +97,10 @@ module.exports = require("@alipay/remix/ali");
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index3'));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index3'));
 
 /***/ }),
 /* 12 */
@@ -108,10 +108,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index4'));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index4'));
 
 /***/ }),
 /* 13 */
@@ -119,10 +119,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index5'));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index5'));
 
 /***/ }),
 /* 14 */
@@ -130,10 +130,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index6'));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index6'));
 
 /***/ }),
 /* 15 */
@@ -141,10 +141,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index7'));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index7'));
 
 /***/ }),
 /* 16 */
@@ -152,10 +152,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index10'));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index10'));
 
 /***/ }),
 /* 17 */
@@ -164,10 +164,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 /* istanbul ignore next */
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(_alipay_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index8'));
+/* harmony default export */ __webpack_exports__["default"] = (Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('index8'));
 
 /***/ })
 ],[[4,0,7]]]);

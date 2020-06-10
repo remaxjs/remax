@@ -1,3 +1,3 @@
-import { createNativeComponent } from '@alipay/remax-runtime';
+import { createNativeComponent } from '@alipay/remix-runtime';
 import '@alipay/remix';
 createNativeComponent('component');

@@ -11,6 +11,6 @@
     "index5": "/remixVendors/components/slot/index",
     "index6": "/remixVendors/components/_foo/a/index",
     "index7": "/remixVendors/components/src/index",
-    "index8": "/remixVendors/npm/cjs/index"
+    "index8": "/remixVendors/npm/commonjs/index"
   }
 }

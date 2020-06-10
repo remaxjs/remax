@@ -1,3 +1,3 @@
-import { useAppEvent } from '@alipay/remax-runtime';
+import { useAppEvent } from '@alipay/remix-runtime';
 import { useAppEvent as uae } from '@alipay/remix';
 useAppEvent('onReady', () => {});

@@ -1,1 +1,1 @@
-export * from '@alipay/remax-web';
+export * from '@alipay/remix-web';

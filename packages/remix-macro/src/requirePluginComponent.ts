@@ -37,7 +37,7 @@ export function register(sourcePath: string, importer = '', assets: string[] = [
   return id;
 }
 
-const PACKAGE_NAME = '@alipay/remax-runtime';
+const PACKAGE_NAME = '@alipay/remix-runtime';
 const FUNCTION_NAME = 'createNativeComponent';
 
 function getName(callExpression: NodePath<t.CallExpression>) {

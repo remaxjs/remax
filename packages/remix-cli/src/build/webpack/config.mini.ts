@@ -181,7 +181,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .loader(require.resolve('file-loader'));
 
   const pluginTemplate = fs.readFileSync(path.resolve(__dirname, '../../../template/plugin.js.ejs'), 'utf-8');
-  const pluginPath = slash('node_modules/@alipay/remax-runtime-plugin.js');
+  const pluginPath = slash('node_modules/@alipay/remix-runtime-plugin.js');
   const virtualModules = new VirtualModulesPlugin({
     [pluginPath]: ejs.render(pluginTemplate, {
       pluginFiles: api.getRuntimePluginFiles(),
