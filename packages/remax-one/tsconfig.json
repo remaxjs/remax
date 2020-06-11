@@ -10,6 +10,7 @@
     "downlevelIteration": true
   },
   "include": ["src/**/*", "typings/**/*"],
+  "exclude": ["cjs", "esm"],
   "references": [
     {
       "path": "../remax-types"

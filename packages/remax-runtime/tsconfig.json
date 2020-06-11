@@ -19,7 +19,9 @@
     "../../node_modules/miniprogram-api-typings/types/wx/lib.wx.api.d.ts"
   ],
   "exclude": [
-    "src/__mocks__"
+    "src/__mocks__",
+    "cjs",
+    "esm"
   ],
   "references": [
     {
