@@ -101,7 +101,9 @@ var _page = function _page() {
     "unrecognized-props": "",
     "data-foo": "bar",
     key: "my-view"
-  }, props), "foo", _data_json__WEBPACK_IMPORTED_MODULE_5__ === null || _data_json__WEBPACK_IMPORTED_MODULE_5__ === void 0 ? void 0 : _data_json__WEBPACK_IMPORTED_MODULE_5__.data, value), TextElement);
+  }, props, {
+    __key: "my-view"
+  }), "foo", _data_json__WEBPACK_IMPORTED_MODULE_5__ === null || _data_json__WEBPACK_IMPORTED_MODULE_5__ === void 0 ? void 0 : _data_json__WEBPACK_IMPORTED_MODULE_5__.data, value), TextElement);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Page(Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_1__["createPageConfig"])(_page, "pages/index")));

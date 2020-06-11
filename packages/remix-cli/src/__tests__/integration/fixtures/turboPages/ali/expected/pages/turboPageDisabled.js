@@ -106,12 +106,14 @@ function _Index() {
   }, "view"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__["View"], null, "custom view"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"]('view', {
     id: 'view'
   }, [/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__["View"], {
-    key: "1"
+    key: "1",
+    __key: "1"
   }, "create element children 1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"]('view', {
     key: '2'
   })]), [1, 2, 3].map(function (item) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__["View"], {
-      key: item
+      key: item,
+      __key: item
     }, "array map: ", item);
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__["View"], props, "Spread Attributes View"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__["Text"], null, "long long long long long long long long long long long long text long long long long long long long long long long long long text"), 'Literal Expression', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](Deep.Object.View, null, "Deep Object View"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](RenameView, null, "Rename View"), show && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__["View"], null, "Conditional View"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix_ali__WEBPACK_IMPORTED_MODULE_2__["Text"], {
     leaf: true

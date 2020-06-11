@@ -1812,6 +1812,10 @@
   <template name="REMAX_TPL_1_view">
   <view 
     
+    _tid="{{item.props['_tid']}}"
+    
+    
+    
     animation="{{item.props['animation']}}"
     
     
@@ -1845,6 +1849,10 @@
     
     
     id="{{item.props['id']}}"
+    
+    
+    
+    key="{{item.props.__key}}"
     
     
     

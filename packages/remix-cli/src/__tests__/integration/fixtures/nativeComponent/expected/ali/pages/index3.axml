@@ -501,6 +501,9 @@
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
         <view slot="{{item.props['slot']}}" 
+          class="{{item.props['class']}}" 
+          id="{{item.props['id']}}" 
+          ns:attr="{{item.props['ns:attr']}}" 
         >
           <block a:for="{{item.children}}" key="{{item.id}}">
             <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
@@ -524,6 +527,9 @@
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
         <view slot="{{item.props['slot']}}" 
+          class="{{item.props['class']}}" 
+          id="{{item.props['id']}}" 
+          ns:attr="{{item.props['ns:attr']}}" 
         >
           <block a:for="{{item.children}}" key="{{item.id}}">
             <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
@@ -547,6 +553,9 @@
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
         <view slot="{{item.props['slot']}}" 
+          class="{{item.props['class']}}" 
+          id="{{item.props['id']}}" 
+          ns:attr="{{item.props['ns:attr']}}" 
         >
           <block a:for="{{item.children}}" key="{{item.id}}">
             <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
@@ -570,6 +579,9 @@
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
         <view slot="{{item.props['slot']}}" 
+          class="{{item.props['class']}}" 
+          id="{{item.props['id']}}" 
+          ns:attr="{{item.props['ns:attr']}}" 
         >
           <block a:for="{{item.children}}" key="{{item.id}}">
             <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
