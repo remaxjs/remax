@@ -39,16 +39,15 @@ test:
     - yarn run build
     - yarn run test -- -- -i
 
-# tiny-cli 有问题，暂时跑不起来
-# e2e:mini:
-#   <<: *setup
-#   agent:
-#     docker:
-#       image: reg.docker.alibaba-inc.com/puppeteer/ci-puppeteer:2.0.0
-#   stage: check
-#   script:
-#     - yarn run build
-#     - yarn run test:e2e-mini
+e2e:mini:
+  <<: *setup
+  agent:
+    docker:
+      image: reg.docker.alibaba-inc.com/puppeteer/ci-puppeteer:2.0.0
+  stage: check
+  script:
+    - yarn run build
+    - yarn run test:e2e-mini
 
 e2e:web:
   <<: *setup

@@ -65,7 +65,7 @@ export function isHostComponentElement(node: t.JSXElement | t.JSXFragment, path:
       importPath &&
       t.isImportSpecifier(importPath.node) &&
       t.isImportDeclaration(importPath.parent) &&
-      /^@?remix\//.test(importPath.parent.source.value)
+      importPath.parent.source.value.includes('remix')
     ) {
       return true;
     }
@@ -96,7 +96,7 @@ export function isHostComponentElement(node: t.JSXElement | t.JSXFragment, path:
       importPath &&
       t.isImportNamespaceSpecifier(importPath.node) &&
       t.isImportDeclaration(importPath.parent) &&
-      /^@?remix\//.test(importPath.parent.source.value)
+      importPath.parent.source.value.includes('remix')
     ) {
       return true;
     }

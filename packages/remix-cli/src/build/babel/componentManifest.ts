@@ -128,7 +128,7 @@ function getRemixHostComponentName(path: NodePath<t.JSXElement>) {
   if (t.isImportDeclaration(importPath)) {
     const importNode = importPath.node as t.ImportDeclaration;
 
-    if (/^@?remix\//.test(importNode.source.value)) {
+    if (importNode.source.value.includes('remix')) {
       return kebabCase(bindingPath.node.imported.name);
     }
   }
