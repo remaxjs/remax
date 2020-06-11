@@ -35,7 +35,7 @@ export const waitForFrame = (page: Page | Frame, type: 'page' | 'frame' = 'page'
 export const openPage = (url: string) => {
   const pageQuery = encodeURIComponent(url.replace(/^\//, ''));
   return page.goto(
-    `http://river.alipay.net/appx.html?page=${pageQuery}&launchParams=%7B"enableTabBar"%3A"YES"%7D&url=http://127.0.0.1:8888/`
+    `http://river.alipay.net/appx.html?page=${pageQuery}&launchParams=%7B"enableTabBar"%3A"YES"%7D&url=http://localhost:8888/`
   );
 };
 

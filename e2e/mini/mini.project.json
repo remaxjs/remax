@@ -1,7 +1,6 @@
 {
   "miniprogramRoot": "dist",
   "scripts": {
-    "beforeCompile": "npm run dev",
     "beforePreview": "npm run build",
     "beforeUpload": "npm run build"
   },

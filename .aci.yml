@@ -44,6 +44,10 @@ e2e:mini:
   agent:
     docker:
       image: reg.docker.alibaba-inc.com/puppeteer/ci-puppeteer:2.0.0
+      resourceRequirements:
+        cpu: 2
+        memory: 4
+        ephemeral-storage: 20
   stage: check
   script:
     - yarn run build

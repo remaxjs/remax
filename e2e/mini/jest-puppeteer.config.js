@@ -4,8 +4,11 @@ module.exports = {
   },
   server: {
     debug: true,
-    command: 'NODE_ENV=development yarn tiny river',
+    command: 'yarn build && NODE_ENV=development yarn tiny river',
     port: 8888,
-    launchTimeout: 30000,
+    launchTimeout: 60000,
+    waitOnScheme: {
+      delay: 30000,
+    }
   },
 };

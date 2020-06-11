@@ -45,8 +45,8 @@ describe('首页', () => {
 
     expect(images).toMatchInlineSnapshot(`
       Array [
-        "http://127.0.0.1:8888/7285019d500b66029accbcfd7275e33a.jpg",
-        "http://127.0.0.1:8888/6e6a60f044924f71fec456293be371f9.jpg",
+        "http://localhost:8888/7285019d500b66029accbcfd7275e33a.jpg",
+        "http://localhost:8888/6e6a60f044924f71fec456293be371f9.jpg",
       ]
     `);
   });
