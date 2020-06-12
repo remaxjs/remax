@@ -21,7 +21,7 @@
   },
   "scripts": {
     "clean": "rimraf lib tsconfig.tsbuildinfo",
-    "test": "done",
+    "test": "echo done",
     "prebuild": "npm run clean",
     "build": "tsc"
   },
