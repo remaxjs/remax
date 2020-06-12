@@ -11,6 +11,10 @@ order: 27
 
 > 我们建议在 remax 中不要使用 catchtap 的方式，以免出现未知的问题。
 
+> 支持 stopPropagation 的方法包括：onClick, onLongClick, onTap, onLongTap
+
+> 2.5.0 开始支持 onTouchStart, onTouchMove, onTouchEnd
+
 用法如下：
 
 ```jsx
