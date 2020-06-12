@@ -21,10 +21,9 @@ export const output = (content: string | string[], color: 'red' | 'green' | 'blu
 };
 
 function log(type: 'error' | 'warn', message: string, notify?: boolean) {
-  console.log(message);
+  console[type](message);
 
   if (notify) {
-    console[type](message);
     notifier.notify({
       title: 'Remax',
       message,
