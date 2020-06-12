@@ -16,10 +16,7 @@ export default function buildMini(api: API, options: Options): webpack.Compiler 
   if (options.watch) {
     output.message('🚀 启动 watch\n', 'blue');
     const watcher = compiler.watch({}, (error, stats) => {
-      let fail = false;
-
       if (error) {
-        console.log(error);
         output.error(error.message, notify);
         throw error;
       }
@@ -28,21 +25,15 @@ export default function buildMini(api: API, options: Options): webpack.Compiler 
 
       if (stats.hasErrors()) {
         output.error(info.errors.join('\n'), notify);
-        fail = true;
       }
 
       if (stats.hasWarnings()) {
         console.warn(info.warnings.join('\n'));
-        fail = true;
       }
 
       // 适配阿里小程序 IDE
       if (options.target === 'ali') {
         output.message('Watching for changes...', 'green');
-      }
-
-      if (!fail && notify) {
-        output.notice('编译完成');
       }
     });
     watch(options, api, compiler, watcher, true);
@@ -51,6 +42,7 @@ export default function buildMini(api: API, options: Options): webpack.Compiler 
     compiler.run((error, stats) => {
       if (error) {
         output.error(error.message, notify);
+
         throw error;
       }
 
@@ -66,10 +58,6 @@ export default function buildMini(api: API, options: Options): webpack.Compiler 
         console.warn(info.warnings.join('\n'));
 
         return;
-      }
-
-      if (notify) {
-        output.notice('编译完成');
       }
     });
   }
