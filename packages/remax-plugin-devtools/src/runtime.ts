@@ -6,6 +6,7 @@ export default {
     const originalLaunch = config.onLaunch;
     config.onLaunch = function () {
       try {
+        console.log('尝试连接 React DevTools，请忽略连接错误信息，详情请参考 https://remaxjs.org/guide/basic/devtools');
         connectToDevTools({
           websocket: new WebSocket('ws://127.0.0.1:8097'),
         });
