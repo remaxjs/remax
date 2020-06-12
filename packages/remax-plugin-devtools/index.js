@@ -24,7 +24,7 @@ module.exports = () => ({
     ]);
 
     config.plugin('plugin-devtools-webpack-inject-plugin').use(InjectPlugin, [
-      () => "import 'react-devtools-core';",
+      () => `import '${require.resolve('@remax/react-devtools-core')}';`,
       {
         entryName: 'app',
         entryOrder: ENTRY_ORDER.First,
