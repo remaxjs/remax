@@ -7,11 +7,13 @@ import getConfig from '../getConfig';
 import * as webpack from 'webpack';
 import API from '../API';
 
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 export function run(options: Options): webpack.Compiler {
   const api = new API();
 
   const plugins = [...options.plugins];
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV === 'development') {
     plugins.push(devtools());
   }
   api.registerPlugins(plugins);
