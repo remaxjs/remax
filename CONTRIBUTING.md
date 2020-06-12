@@ -50,6 +50,27 @@ $ yarn link remax @remax/cli
 $ yarn dev
 ```
 
+**注：remax 构建项目与调试开发包所依赖的 react/react-dom/react-router 版本不一致时会导致程序崩溃**
+
+请在 remax.config.js 中配置 `alias`
+
+```javascript
+const path = require('path');
+
+module.exports = {
+  one: true,
+  output: 'dist/' + process.env.REMAX_PLATFORM,
+  configWebpack({ config }) {
+    config.resolve.alias.merge({
+      react: path.resolve(process.cwd() + '/node_modules/react'),
+      'react-dom': path.resolve(process.cwd() + '/node_modules/react-dom'),
+      'react-router': path.resolve(process.cwd() + '/node_modules/react-router'),
+      'react-router-dom': path.resolve(process.cwd() + '/node_modules/react-router-dom'),
+    });
+  },
+};
+```
+
 然后用对应小程序的 IDE 打开 `dist` 目录就可以调试了。
 
 ### 运行测试
