@@ -42,6 +42,15 @@ describe('props alias', () => {
         'any'
       )
     ).toMatchSnapshot();
+
+    expect(
+      propsAlias(
+        {
+          style: null,
+        },
+        'any'
+      )
+    ).toMatchSnapshot();
   });
 
   it('transform props by component type correctly', () => {

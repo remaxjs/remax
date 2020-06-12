@@ -635,8 +635,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return propsAlias; });
 /* harmony import */ var _utils_plainStyle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
 /* harmony import */ var _createHostComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 
 
 function getAlias(prop, type) {
@@ -654,7 +652,7 @@ function getAlias(prop, type) {
 }
 
 function getValue(prop, value) {
-  if (prop.toLowerCase().endsWith('style') && _typeof(value) === 'object') {
+  if (prop.toLowerCase().endsWith('style') && Object.prototype.toString.call(value) === '[object Object]') {
     return Object(_utils_plainStyle__WEBPACK_IMPORTED_MODULE_0__["default"])(value);
   }
 
@@ -1807,7 +1805,7 @@ function (_super) {
   }
 
   DefaultAppComponent.prototype.render = function () {
-    return react__WEBPACK_IMPORTED_MODULE_1__["createElement"](react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, this.props.children);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](react__WEBPACK_IMPORTED_MODULE_1__["Fragment"], null, this.props.children);
   };
 
   return DefaultAppComponent;
@@ -1824,7 +1822,7 @@ function createAppConfig(App) {
     var config = {
       _container: new _AppContainer__WEBPACK_IMPORTED_MODULE_4__["default"](_this),
       _pages: [],
-      _instance: react__WEBPACK_IMPORTED_MODULE_1__["createRef"](),
+      _instance: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createRef"](),
       onLaunch: function onLaunch(options) {
         this._render();
 
@@ -1872,7 +1870,7 @@ function createAppConfig(App) {
           props.ref = this._instance;
         }
 
-        return Object(_render__WEBPACK_IMPORTED_MODULE_3__["default"])(react__WEBPACK_IMPORTED_MODULE_1__["createElement"](AppComponent, props, this._pages.map(function (p) {
+        return Object(_render__WEBPACK_IMPORTED_MODULE_3__["default"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](AppComponent, props, this._pages.map(function (p) {
           return p.element;
         })), this._container);
       },
@@ -2532,14 +2530,14 @@ function createPageConfig(Page, name) {
         children: []
       }
     },
-    wrapperRef: react__WEBPACK_IMPORTED_MODULE_0__["createRef"](),
+    wrapperRef: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createRef"](),
     lifecycleCallback: {},
     onLoad: function onLoad(query) {
       var PageWrapper = Object(_createPageWrapper__WEBPACK_IMPORTED_MODULE_2__["default"])(Page, query);
       this.pageId = generatePageId();
       this.query = query;
       this.container = new _Container__WEBPACK_IMPORTED_MODULE_5__["default"](this);
-      this.element = Object(_ReactPortal__WEBPACK_IMPORTED_MODULE_6__["createPortal"])(react__WEBPACK_IMPORTED_MODULE_0__["createElement"](PageWrapper, {
+      this.element = Object(_ReactPortal__WEBPACK_IMPORTED_MODULE_6__["createPortal"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](PageWrapper, {
         page: this,
         ref: this.wrapperRef
       }), this.container, this.pageId);
@@ -2807,9 +2805,9 @@ function createPageWrapper(Page, query) {
           };
         }
 
-        return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_PageInstanceContext__WEBPACK_IMPORTED_MODULE_3__["default"].Provider, {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_PageInstanceContext__WEBPACK_IMPORTED_MODULE_3__["default"].Provider, {
           value: this.props.page
-        }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Page, props));
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Page, props));
       };
 
       return PageWrapper;
@@ -3123,7 +3121,7 @@ var __assign = undefined && undefined.__assign || function () {
 
 
 function createNativeComponent(name) {
-  return react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"](function (props, ref) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"](function (props, ref) {
     var newProps = __assign({}, props);
 
     newProps.__ref = typeof ref === 'function' ? ref : function (e) {
@@ -3131,7 +3129,7 @@ function createNativeComponent(name) {
         ref.current = e;
       }
     };
-    return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](name, newProps, props.children);
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](name, newProps, props.children);
   });
 }
 

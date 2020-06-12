@@ -8,6 +8,8 @@ export { default as Input } from './Input';
 export * from './Input';
 export { default as Label } from './Label';
 export * from './Label';
+export { default as Navigator } from './Navigator';
+export * from './Navigator';
 export { default as Text } from './Text';
 export * from './Text';
 export { default as Textarea } from './Textarea';

@@ -49,7 +49,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var _page = function _page() {
   var props = {};
-  var TextElement = react__WEBPACK_IMPORTED_MODULE_2__["cloneElement"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_components_Text__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+  var TextElement = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["cloneElement"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_components_Text__WEBPACK_IMPORTED_MODULE_4__["default"], null));
 
   function handleClick() {
     return _handleClick.apply(this, arguments);
