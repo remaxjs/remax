@@ -20,8 +20,28 @@ export const output = (content: string | string[], color: 'red' | 'green' | 'blu
   }
 };
 
+function log(type: 'error' | 'warn', message: string, notify?: boolean) {
+  console.log(message);
+
+  if (notify) {
+    console[type](message);
+    notifier.notify({
+      title: 'Remax',
+      message,
+    });
+  }
+}
+
+function notice(message: string) {
+  notifier.notify({
+    title: 'Remax',
+    message,
+  });
+}
+
 export default {
   message: output,
-  error: (message: string, notify?: boolean) => output(`\n🚨 ${message}`, 'red', notify),
-  warn: (message: string, notify?: boolean) => output(`\n⚠️ ${message}`, 'yellow', notify),
+  error: (message: string, notify?: boolean) => log('error', message, notify),
+  warn: (message: string) => log('warn', message),
+  notice,
 };

@@ -9,6 +9,5 @@ module.exports = {
   UNSAFE_wechatTemplateDepth: '',
   compressTemplate: 1,
   configWebpack: 1,
-  notify: 1,
   plugins: 1,
 };
