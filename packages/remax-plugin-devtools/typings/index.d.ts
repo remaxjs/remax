@@ -2,4 +2,4 @@ declare const my: any;
 declare const tt: any;
 declare const wx: any;
 declare module 'webpack-inject-plugin';
-declare module 'react-devtools-core';
+declare module '@remax/react-devtools-core';
