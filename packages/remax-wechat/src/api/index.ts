@@ -58,6 +58,7 @@ export const getMenuButtonBoundingClientRect = wx.getMenuButtonBoundingClientRec
 export const onWindowResize = wx.onWindowResize;
 export const offWindowResize = wx.offWindowResize;
 export const onKeyboardHeightChange = wx.onKeyboardHeightChange;
+export const offKeyboardHeightChange = wx.offKeyboardHeightChange;
 export const getSelectedTextRange = wx.getSelectedTextRange;
 export const request = promisify(wx.request);
 export const downloadFile = promisify(wx.downloadFile);
