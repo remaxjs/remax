@@ -23,7 +23,10 @@ $ react-devtools
 
 ![screenshot](https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*5xt9TZIY3O4AAAAAAAAAAABkARQnAQ)
 
-> 注意！
-> 微信小程序需要在 IDE 中打开「不校验合法域名」。
+> 注意
+>
+> 微信和字节跳动小程序需要在 IDE 中打开「不校验合法域名」。
 
 ![](https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*gkMAS4TfAO0AAAAAAAAAAABkARQnAQ)
+
+![](https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*0g_ZSJCCZVMAAAAAAAAAAABkARQnAQ)
