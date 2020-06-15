@@ -33,6 +33,7 @@
     "@babel/register": "^7.7.0",
     "@babel/types": "^7.7.4",
     "@remax/macro": "2.4.1",
+    "@remax/plugin-devtools": "^2.1.1",
     "@remax/postcss-px2units": "^0.2.0",
     "@remax/postcss-tag": "2.4.1",
     "@remax/shared": "2.4.1",

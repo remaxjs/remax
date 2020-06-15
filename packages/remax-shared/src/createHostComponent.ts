@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { formatDisplayName } from './formatDisplayName';
 
 export function createHostComponent<P = any>(name: string, component?: React.ComponentType<P>) {
   if (component) {
@@ -9,5 +10,10 @@ export function createHostComponent<P = any>(name: string, component?: React.Com
     const { children = [] } = props;
     return React.createElement(name, { ...props, ref }, children);
   };
+
+  if (process.env.NODE_ENV === 'development') {
+    Component.displayName = formatDisplayName(name);
+  }
+
   return React.forwardRef<any, React.PropsWithChildren<P>>(Component);
 }

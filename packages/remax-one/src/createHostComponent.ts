@@ -9,6 +9,7 @@ import {
   InputEvent,
   FormEvent,
 } from './types';
+import { formatDisplayName } from '@remax/shared';
 
 export function createTarget(target: any, detail: any): EventTarget {
   return {
@@ -169,6 +170,10 @@ export default function createHostComponent<P = any>(
 
     return React.createElement(name, { ...inputProps, ref });
   };
+
+  if (process.env.NODE_ENV === 'development') {
+    Component.displayName = formatDisplayName(name);
+  }
 
   return React.forwardRef<any, React.PropsWithChildren<P>>(Component);
 }

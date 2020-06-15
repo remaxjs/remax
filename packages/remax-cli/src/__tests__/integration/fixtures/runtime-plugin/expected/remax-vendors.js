@@ -63,6 +63,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var ReactReconcilerInst = react_reconciler__WEBPACK_IMPORTED_MODULE_0___default()(_hostConfig__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
+if (false) {}
+
 function getPublicRootInstance(container) {
   var containerFiber = container.current;
 
@@ -2831,6 +2833,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 var PageInstanceContext = react__WEBPACK_IMPORTED_MODULE_0__["createContext"](null);
+PageInstanceContext.displayName = 'PageContext';
 /* harmony default export */ __webpack_exports__["default"] = (PageInstanceContext);
 
 /***/ }),

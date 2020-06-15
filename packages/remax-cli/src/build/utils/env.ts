@@ -7,8 +7,6 @@ type Env = Record<string, string | undefined>;
 export default function getEnvironment(options: Options, target: string) {
   const envFilePath = path.join(options.cwd, '.env');
 
-  process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-
   const NODE_ENV = process.env.NODE_ENV;
 
   // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use

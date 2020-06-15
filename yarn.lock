@@ -2682,6 +2682,14 @@
     object-assign "^4.1.1"
     postcss "^6.0.19"
 
+"@remax/react-devtools-core@^4.7.0":
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/@remax/react-devtools-core/-/react-devtools-core-4.7.0.tgz#ba643d7220a654f136d9bb9fdf47cf4c1e6c2f2a"
+  integrity sha512-KY8kIuJADkTMOe+o0wozhHD+2Fp7503j1MVe3Ndt3aVhGS9bRVwkQ+mA+v0SXxfmA77cD14LYCTPdHDKiYlpRg==
+  dependencies:
+    shell-quote "^1.6.1"
+    ws "^7"
+
 "@remax/react-router-cache-route@^1.8.4":
   version "1.8.4"
   resolved "https://registry.yarnpkg.com/@remax/react-router-cache-route/-/react-router-cache-route-1.8.4.tgz#cf9ddad48b9ee5ef8439c705f2c865bd2c673543"
@@ -3532,10 +3540,10 @@
     "@types/source-list-map" "*"
     source-map "^0.6.1"
 
-"@types/webpack@*", "@types/webpack@^4.4.31", "@types/webpack@^4.41.10", "@types/webpack@^4.41.11", "@types/webpack@^4.41.8":
-  version "4.41.16"
-  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.16.tgz#57b6154c5465401b0466c5fadcaf89dd98a77798"
-  integrity sha512-w80nXwCcXwwgv7rkTXb8lET6nWPNNUJxa36lrA2DEkD5TcPpHrlGAPrjdpZnkFX/FXSSuN5IIxCYowAB1Vobtw==
+"@types/webpack@*", "@types/webpack@^4.4.17", "@types/webpack@^4.4.31", "@types/webpack@^4.41.10", "@types/webpack@^4.41.11", "@types/webpack@^4.41.8":
+  version "4.41.13"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.13.tgz#988d114c8913d039b8a0e0502a7fe4f1f84f3d5e"
+  integrity sha512-RYmIHOWSxnTTa765N6jJBVE45pd2SYNblEYshVDduLw6RhocazNmRzE5/ytvBD8IkDMH6DI+bcrqxh8NILimBA==
   dependencies:
     "@types/anymatch" "*"
     "@types/node" "*"
@@ -7233,6 +7241,11 @@ emoji-regex@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
   integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
+
+emojis-list@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
+  integrity sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
 
 emojis-list@^3.0.0:
   version "3.0.0"
@@ -11604,6 +11617,15 @@ loader-utils@^2.0.0:
     emojis-list "^3.0.0"
     json5 "^2.1.2"
 
+loader-utils@~1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.2.3.tgz#1ff5dc6911c9f0a062531a4c04b609406108c2c7"
+  integrity sha512-fkpz8ejdnEMG3s37wGL07iSBDg99O9D5yflE9RGNH3hRdx9SOwYfnGYdZOUIZitN8E+E2vkq3MUMYMvPYl5ZZA==
+  dependencies:
+    big.js "^5.2.2"
+    emojis-list "^2.0.0"
+    json5 "^1.0.1"
+
 locate-path@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-2.0.0.tgz#2b568b265eec944c6d9c0de9c3dbbbca0354cd8e"
@@ -15948,6 +15970,11 @@ shebang-regex@^3.0.0:
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
+shell-quote@^1.6.1:
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
+  integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
+
 shellwords@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
@@ -18184,6 +18211,15 @@ webpack-dev-server@^3.10.3:
     ws "^6.2.1"
     yargs "^13.3.2"
 
+webpack-inject-plugin@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.yarnpkg.com/webpack-inject-plugin/-/webpack-inject-plugin-1.5.4.tgz#7d953f45fb51bb4d208ea9b1e6a792a5a879e0af"
+  integrity sha512-oDb30CX3YbKqGNfREANs7VnrFRrND/4aicd4Hcl0ZEOz6AdlJGIHzdX2/u1rq7r+VyRRUS1QDaKUoqHbZvfs6w==
+  dependencies:
+    "@types/loader-utils" "^1.1.3"
+    "@types/webpack" "^4.4.17"
+    loader-utils "~1.2.3"
+
 webpack-log@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/webpack-log/-/webpack-log-2.0.0.tgz#5b7928e0637593f119d32f6227c1e0ac31e1b47f"
@@ -18520,7 +18556,7 @@ ws@^6.0.0, ws@^6.2.1:
   dependencies:
     async-limiter "~1.0.0"
 
-ws@^7.2.3:
+ws@^7, ws@^7.2.3:
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.3.0.tgz#4b2f7f219b3d3737bc1a2fbf145d825b94d38ffd"
   integrity sha512-iFtXzngZVXPGgpTlP1rBqsUK82p9tKqsWRPg5L56egiljujJT3vGAYnHANvFxBieXrTFavhzhxW52jnaWV+w2w==
