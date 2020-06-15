@@ -23,7 +23,7 @@ export interface InputProps extends BaseProps {
   onClick?: (e: any) => void;
   onFocus?: (e: any) => void;
   onBlur?: (e: any) => void;
-  onConfirm?: () => void;
+  onConfirm?: (e: any) => void;
 }
 
 export const Input = createHostComponent<InputProps>('input');
