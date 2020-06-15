@@ -6,7 +6,7 @@ import output from './utils/output';
 import watch from './watch';
 
 export default function buildMini(api: API, options: Options): webpack.Compiler {
-  const { target } = options;
+  const { target, notify } = options;
 
   api.registerAdapterPlugins(target!, options.one);
 
@@ -17,17 +17,14 @@ export default function buildMini(api: API, options: Options): webpack.Compiler 
     output.message('🚀 启动 watch\n', 'blue');
     const watcher = compiler.watch({}, (error, stats) => {
       if (error) {
-        console.log(error);
-        output.error(error.message);
+        output.error(error.message, notify);
         throw error;
       }
 
       const info = stats.toJson();
 
       if (stats.hasErrors()) {
-        info.errors.forEach(error => {
-          output.error(error);
-        });
+        output.error(info.errors.join('\n'), notify);
       }
 
       if (stats.hasWarnings()) {
@@ -36,7 +33,7 @@ export default function buildMini(api: API, options: Options): webpack.Compiler 
 
       // 适配阿里小程序 IDE
       if (options.target === 'ali') {
-        output.message('Watching for changes...', 'green', options.notify);
+        output.message('Watching for changes...', 'green');
       }
     });
     watch(options, api, compiler, watcher, true);
@@ -44,24 +41,23 @@ export default function buildMini(api: API, options: Options): webpack.Compiler 
     output.message('🚀 启动 build\n', 'blue');
     compiler.run((error, stats) => {
       if (error) {
-        output.error(error.message);
+        output.error(error.message, notify);
+
         throw error;
       }
 
       const info = stats.toJson();
 
       if (stats.hasErrors()) {
-        info.errors.forEach(error => {
-          output.error(error);
-        });
+        output.error(info.errors.join('\n'), notify);
 
         process.exit(1);
       }
 
       if (stats.hasWarnings()) {
-        info.warnings.forEach(warning => {
-          console.warn(warning);
-        });
+        console.warn(info.warnings.join('\n'));
+
+        return;
       }
     });
   }
