@@ -24,6 +24,7 @@ export default class Container {
   context: any;
   root: VNode;
   updateQueue: Array<SpliceUpdate | SetUpdate> = [];
+  deletedPaths = new Set<string>();
   _rootContainer?: FiberRoot;
   stopUpdate?: boolean;
   rendered = false;
@@ -41,11 +42,17 @@ export default class Container {
 
   requestUpdate(update: SpliceUpdate | SetUpdate, immediately?: boolean) {
     if (immediately) {
+      if ((update as SpliceUpdate).deleteCount === 1) {
+        this.deletedPaths.add(update.path);
+      }
       this.updateQueue.push(update);
       this.applyUpdate();
     } else {
       if (this.updateQueue.length === 0) {
         Promise.resolve().then(() => this.applyUpdate());
+      }
+      if ((update as SpliceUpdate).deleteCount === 1) {
+        this.deletedPaths.add(update.path);
       }
       this.updateQueue.push(update);
     }
@@ -101,11 +108,19 @@ export default class Container {
       });
 
       this.updateQueue = [];
+      this.deletedPaths.clear();
 
       return;
     }
 
     const updatePayload = this.updateQueue.reduce<{ [key: string]: any }>((acc, update) => {
+      // 如果父元素已经删除了，跳过所有对其子元素的操作
+      for (const deletedPath of this.deletedPaths) {
+        if (new RegExp(`^${deletedPath}.nodes`).test(update.path)) {
+          return acc;
+        }
+      }
+
       if (update.type === 'splice') {
         const item = {
           ...acc,
@@ -134,6 +149,7 @@ export default class Container {
     });
 
     this.updateQueue = [];
+    this.deletedPaths.clear();
   }
 
   clearUpdate() {

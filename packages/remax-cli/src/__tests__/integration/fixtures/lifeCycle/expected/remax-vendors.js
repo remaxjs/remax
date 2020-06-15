@@ -2898,6 +2898,23 @@ var __spread = undefined && undefined.__spread || function () {
   return ar;
 };
 
+var __values = undefined && undefined.__values || function (o) {
+  var s = typeof Symbol === "function" && Symbol.iterator,
+      m = s && o[s],
+      i = 0;
+  if (m) return m.call(o);
+  if (o && typeof o.length === "number") return {
+    next: function next() {
+      if (o && i >= o.length) o = void 0;
+      return {
+        value: o && o[i++],
+        done: !o
+      };
+    }
+  };
+  throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
+
 
 
 
@@ -2907,6 +2924,7 @@ var Container =
 function () {
   function Container(context) {
     this.updateQueue = [];
+    this.deletedPaths = new Set();
     this.rendered = false;
     this.context = context;
     this.root = new _VNode__WEBPACK_IMPORTED_MODULE_0__["default"]({
@@ -2921,6 +2939,10 @@ function () {
     var _this = this;
 
     if (immediately) {
+      if (update.deleteCount === 1) {
+        this.deletedPaths.add(update.path);
+      }
+
       this.updateQueue.push(update);
       this.applyUpdate();
     } else {
@@ -2928,6 +2950,10 @@ function () {
         Promise.resolve().then(function () {
           return _this.applyUpdate();
         });
+      }
+
+      if (update.deleteCount === 1) {
+        this.deletedPaths.add(update.path);
       }
 
       this.updateQueue.push(update);
@@ -2979,14 +3005,36 @@ function () {
         });
       });
       this.updateQueue = [];
+      this.deletedPaths.clear();
       return;
     }
 
     var updatePayload = this.updateQueue.reduce(function (acc, update) {
-      var _a, _b;
+      var e_1, _a, _b, _c;
+
+      try {
+        // 如果父元素已经删除了，跳过所有对其子元素的操作
+        for (var _d = __values(_this.deletedPaths), _e = _d.next(); !_e.done; _e = _d.next()) {
+          var deletedPath = _e.value;
+
+          if (new RegExp("^" + deletedPath + ".nodes").test(update.path)) {
+            return acc;
+          }
+        }
+      } catch (e_1_1) {
+        e_1 = {
+          error: e_1_1
+        };
+      } finally {
+        try {
+          if (_e && !_e.done && (_a = _d.return)) _a.call(_d);
+        } finally {
+          if (e_1) throw e_1.error;
+        }
+      }
 
       if (update.type === 'splice') {
-        var item = __assign(__assign({}, acc), (_a = {}, _a[update.path + '.nodes.' + update.id] = update.items[0] || null, _a));
+        var item = __assign(__assign({}, acc), (_b = {}, _b[update.path + '.nodes.' + update.id] = update.items[0] || null, _b));
 
         if (update.children) {
           item[update.path + '.children'] = (update.children || []).map(function (c) {
@@ -2997,7 +3045,7 @@ function () {
         return item;
       }
 
-      return __assign(__assign({}, acc), (_b = {}, _b[update.path + '.' + update.name] = update.value, _b));
+      return __assign(__assign({}, acc), (_c = {}, _c[update.path + '.' + update.name] = update.value, _c));
     }, {});
     this.context.setData(updatePayload, function () {
       _nativeEffect__WEBPACK_IMPORTED_MODULE_2__["default"].run();
@@ -3008,6 +3056,7 @@ function () {
       }
     });
     this.updateQueue = [];
+    this.deletedPaths.clear();
   };
 
   Container.prototype.clearUpdate = function () {
