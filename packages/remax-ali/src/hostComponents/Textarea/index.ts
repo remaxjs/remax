@@ -16,6 +16,7 @@ export interface TextareaProps {
   autoHeight?: boolean;
   showCount?: boolean;
   controlled?: boolean;
+  enableNative?: boolean;
   onInput?: (e: any) => void;
   onFocus?: (e: any) => void;
   onBlur?: (e: any) => void;
