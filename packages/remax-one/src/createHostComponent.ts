@@ -171,7 +171,7 @@ export default function createHostComponent<P = any>(
     return React.createElement(name, { ...inputProps, ref });
   };
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV === 'development') {
     Component.displayName = formatDisplayName(name);
   }
 

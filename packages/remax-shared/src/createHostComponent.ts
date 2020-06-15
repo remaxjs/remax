@@ -11,7 +11,7 @@ export function createHostComponent<P = any>(name: string, component?: React.Com
     return React.createElement(name, { ...props, ref }, children);
   };
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV === 'development') {
     Component.displayName = formatDisplayName(name);
   }
 
