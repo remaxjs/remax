@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@remax/types": "2.5.0",
-    "@types/jest": "^25.2.1",
+    "@types/jest": "^26.0.0",
     "@types/react": "^16.9.33",
     "@types/react-test-renderer": "^16.9.1",
     "jest": "^26.0.1",

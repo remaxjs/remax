@@ -30,7 +30,7 @@
     "umi-hd": "^5.0.1"
   },
   "devDependencies": {
-    "@types/jest": "^25.2.1",
+    "@types/jest": "^26.0.0",
     "@types/loadable__component": "^5.10.0",
     "@types/react": "^16.9.33",
     "@types/react-dom": "^16.9.6",
