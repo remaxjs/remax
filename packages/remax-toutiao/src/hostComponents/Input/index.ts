@@ -7,9 +7,9 @@ export interface InputProps extends BaseProps {
   name?: string;
   focus?: boolean;
   maxlength?: number;
-  value: string;
+  value?: string;
   password?: boolean;
-  type: 'text' | 'number' | 'digit';
+  type?: 'text' | 'number' | 'digit';
   cursor?: number;
   selectionStart?: number;
   selectionEnd?: number;
@@ -23,13 +23,14 @@ export interface InputProps extends BaseProps {
   onClick?: (e: any) => void;
   onFocus?: (e: any) => void;
   onBlur?: (e: any) => void;
-  onConfirm?: () => void;
+  onConfirm?: (e: any) => void;
 }
 
 export const Input = createHostComponent<InputProps>('input');
 
 Input.defaultProps = {
   type: 'text',
+  value: '',
   maxlength: 140,
   selectionEnd: -1,
   selectionStart: -1,
