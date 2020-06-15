@@ -9,6 +9,17 @@ import createPageWrapper from '../createPageWrapper';
 // eslint-disable-next-line @typescript-eslint/camelcase
 import { useNativeEffect, usePageInstance } from '../hooks';
 
+function delay(ms: number) {
+  if (typeof ms !== 'number') {
+    throw new Error('Must specify ms');
+  }
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve();
+    }, ms);
+  });
+}
+
 const p = {
   setData(state: any, callback: Function) {
     setTimeout(() => {
@@ -572,18 +583,94 @@ it('usePageInstance works', done => {
   render(<Page page={{ data: {} }} />, container);
 });
 
-describe('Remax Suspense placeholder', () => {
-  function delay(ms: number) {
-    if (typeof ms !== 'number') {
-      throw new Error('Must specify ms');
-    }
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve();
-      }, ms);
-    });
-  }
+describe('wechat renderer', () => {
+  beforeEach(() => {
+    process.env.REMAX_PLATFORM = 'wechat';
+    resetInstanceId();
+  });
 
+  afterEach(() => {
+    process.env.REMAX_PLATFORM = '';
+  });
+
+  it("does not update deleted node's children node", async () => {
+    const logs: any = [];
+    class App extends React.Component {
+      state = {
+        a: true,
+        b: true,
+      };
+
+      toggle() {
+        this.setState({
+          b: false,
+        });
+        this.setState({
+          a: false,
+        });
+      }
+
+      render() {
+        const { a, b } = this.state;
+        return <View id="a">{a && <View id="b">{b ? <View id="c">a</View> : 'b'}</View>}</View>;
+      }
+    }
+
+    const container = new Container({
+      setData(action: any) {
+        logs.push(action);
+      },
+    });
+    const app = React.createRef<any>();
+    render(<App ref={app} />, container);
+    app.current.toggle();
+    await delay(100);
+    expect(logs.pop()).toEqual({
+      'root.nodes.4.children': [],
+      'root.nodes.4.nodes.3': null,
+    });
+  });
+
+  it('does not update deleted node', async () => {
+    const logs: any = [];
+    class App extends React.Component {
+      state = {
+        a: true,
+        b: true,
+      };
+
+      toggle() {
+        this.setState({
+          b: false,
+        });
+        this.setState({
+          a: false,
+        });
+      }
+
+      render() {
+        const { a, b } = this.state;
+        return <View>{a && <View style={{ color: b ? 'red' : 'green' }}>foo</View>}</View>;
+      }
+    }
+
+    const container = new Container({
+      setData(action: any) {
+        logs.push(action);
+      },
+    });
+    const app = React.createRef<any>();
+    render(<App ref={app} />, container);
+    app.current.toggle();
+    await delay(100);
+    expect(logs.pop()).toEqual({
+      'root.nodes.3.children': [],
+      'root.nodes.3.nodes.2': null,
+    });
+  });
+});
+
+describe('Remax Suspense placeholder', () => {
   function createTextResource(ms: number, text: string) {
     let status = 'pending';
     let result: any;
