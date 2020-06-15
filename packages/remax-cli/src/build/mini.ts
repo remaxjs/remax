@@ -17,14 +17,21 @@ export default function buildMini(api: API, options: Options): webpack.Compiler 
     output.message('🚀 启动 watch\n', 'blue');
     const watcher = compiler.watch({}, (error, stats) => {
       if (error) {
-        output.error(error.message, notify);
+        output.error(error.message);
+        if (notify) {
+          output.notice(error.message);
+        }
         throw error;
       }
 
       const info = stats.toJson();
 
       if (stats.hasErrors()) {
-        output.error(info.errors.join('\n'), notify);
+        const message = info.errors.join('\n');
+        output.error(message);
+        if (notify) {
+          output.notice(message);
+        }
       }
 
       if (stats.hasWarnings()) {
@@ -41,7 +48,7 @@ export default function buildMini(api: API, options: Options): webpack.Compiler 
     output.message('🚀 启动 build\n', 'blue');
     compiler.run((error, stats) => {
       if (error) {
-        output.error(error.message, notify);
+        output.error(error.message);
 
         throw error;
       }
@@ -49,7 +56,7 @@ export default function buildMini(api: API, options: Options): webpack.Compiler 
       const info = stats.toJson();
 
       if (stats.hasErrors()) {
-        output.error(info.errors.join('\n'), notify);
+        output.error(info.errors.join('\n'));
 
         process.exit(1);
       }

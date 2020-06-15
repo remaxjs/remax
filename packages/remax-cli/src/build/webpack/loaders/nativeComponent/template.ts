@@ -7,7 +7,10 @@ import { Options } from '@remax/types';
 
 export function walk(api: API, filePath: string, templatePaths: Set<string>, options: Options) {
   if (!fs.existsSync(filePath)) {
-    output.error(`文件 ${filePath} 不存在`, options.notify);
+    output.error(`文件 ${filePath} 不存在`);
+    if (options.notify) {
+      output.notice(`文件 ${filePath} 不存在`);
+    }
     return;
   }
 
