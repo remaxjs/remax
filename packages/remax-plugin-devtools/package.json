@@ -1,6 +1,6 @@
 {
   "name": "@remax/plugin-devtools",
-  "version": "2.1.1",
+  "version": "2.5.0",
   "description": "Inject React Devtools to Remax",
   "keywords": [
     "react"
