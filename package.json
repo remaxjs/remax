@@ -51,7 +51,7 @@
     "@types/webpack-dev-middleware": "^3.7.0",
     "concurrently": "^5.2.0",
     "lint-staged": ">=8",
-    "puppeteer": "~3.1.0",
+    "puppeteer": "~4.0.0",
     "rimraf": "^3.0.2"
   },
   "collective": {
