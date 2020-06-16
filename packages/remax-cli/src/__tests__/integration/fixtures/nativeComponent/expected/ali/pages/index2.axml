@@ -841,11 +841,19 @@
     
     
     
+    damping="{{item.props['damping']}}"
+    
+    
+    
     direction="{{item.props['direction']}}"
     
     
     
     disabled="{{item.props['disabled']}}"
+    
+    
+    
+    friction="{{item.props['friction']}}"
     
     
     
@@ -865,6 +873,10 @@
     
     
     
+    onScale="{{item.props['onScale']}}"
+    
+    
+    
     onTouchCancel="{{item.props['onTouchCancel']}}"
     
     
@@ -878,6 +890,26 @@
     
     
     onTouchStart="{{item.props['onTouchStart']}}"
+    
+    
+    
+    out-of-bounds="{{item.props['out-of-bounds']}}"
+    
+    
+    
+    scale="{{item.props['scale']}}"
+    
+    
+    
+    scale-max="{{item.props['scale-max']}}"
+    
+    
+    
+    scale-min="{{item.props['scale-min']}}"
+    
+    
+    
+    scale-value="{{item.props['scale-value']}}"
     
     
     
