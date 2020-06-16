@@ -1,4 +1,4 @@
-import { slash } from '@remax/shared';
+const { slash } = require('@remax/shared');
 const { default: InjectPlugin, ENTRY_ORDER } = require('webpack-inject-plugin');
 
 module.exports = () => ({
