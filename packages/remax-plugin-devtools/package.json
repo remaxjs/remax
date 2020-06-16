@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@remax/react-devtools-core": "^4.7.0",
+    "@remax/shared": "2.5.0",
     "webpack-inject-plugin": "^1.5.4"
   }
 }
