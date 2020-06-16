@@ -3,6 +3,8 @@ import { createHostComponent } from '@remax/shared';
 
 export interface MovableAreaProps {
   readonly dataset?: DOMStringMap;
+  id?: string;
+  className?: string;
   style?: React.CSSProperties;
   width: number;
   height: number;
