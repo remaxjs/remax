@@ -21,6 +21,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
   "devDependencies": {
     "react-test-renderer": "^16.13.1"
   }
