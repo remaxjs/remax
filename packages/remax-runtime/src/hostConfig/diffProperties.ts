@@ -1,5 +1,6 @@
 const STYLE = 'style';
 const CHILDREN = 'children';
+const CLASS_NAME = 'className';
 
 export default function diffProperties(
   lastRawProps: Record<string, any> | null | undefined,
@@ -35,7 +36,7 @@ export default function diffProperties(
     } else {
       // For all other deleted properties we add it to the queue. We use
       // the whitelist in the commit phase instead.
-      (updatePayload = updatePayload || []).push(propKey, null);
+      (updatePayload = updatePayload || []).push(propKey, propKey === CLASS_NAME ? '' : null);
     }
   }
 

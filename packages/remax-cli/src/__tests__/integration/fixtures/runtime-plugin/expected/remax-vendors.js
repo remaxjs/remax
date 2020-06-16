@@ -1571,6 +1571,7 @@ var __assign = undefined && undefined.__assign || function () {
 
 var STYLE = 'style';
 var CHILDREN = 'children';
+var CLASS_NAME = 'className';
 function diffProperties(lastRawProps, nextRawProps) {
   var updatePayload = null;
   var lastProps = lastRawProps;
@@ -1599,7 +1600,7 @@ function diffProperties(lastRawProps, nextRawProps) {
     } else {
       // For all other deleted properties we add it to the queue. We use
       // the whitelist in the commit phase instead.
-      (updatePayload = updatePayload || []).push(propKey, null);
+      (updatePayload = updatePayload || []).push(propKey, propKey === CLASS_NAME ? '' : null);
     }
   }
 
