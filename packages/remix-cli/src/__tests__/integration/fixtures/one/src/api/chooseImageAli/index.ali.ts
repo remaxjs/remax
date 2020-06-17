@@ -1,3 +1,5 @@
-import { chooseImage } from '@alipay/remix/ali';
+import { promisify } from '@alipay/remix-shared';
 
-export default chooseImage;
+declare const my: any;
+
+export default promisify(my.chooseImage);
