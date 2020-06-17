@@ -3,6 +3,7 @@ import { createHostComponent } from '@remax/shared';
 export interface VideoProps {
   src: string;
   id?: string;
+  className?: string;
   poster?: string;
   objectFit?: 'contain' | 'fill';
   initialTime?: number;
