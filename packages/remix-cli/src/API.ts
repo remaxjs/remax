@@ -5,6 +5,7 @@ import { slash } from '@alipay/remix-shared';
 import { merge } from 'lodash';
 import Config from 'webpack-chain';
 import { RuleConfig } from './build/webpack/config/css';
+import yargs from 'yargs';
 
 export default class API {
   public plugins: Plugin[] = [];
@@ -123,6 +124,14 @@ export default class API {
     this.plugins.forEach(plugin => {
       if (typeof plugin.configBabel === 'function') {
         plugin.configBabel(params);
+      }
+    });
+  }
+
+  extendCLI(cli: yargs.Argv) {
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.extendCLI === 'function') {
+        plugin.extendCLI({ cli });
       }
     });
   }

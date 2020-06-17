@@ -134,6 +134,35 @@ export default options => {
 }
 ```
 
+### extendCLI
+
+扩展命令行。
+
+- `params`
+  - `cli` - [yargs](http://yargs.js.org) 的实例
+
+```js
+{
+  extendCLI({ cli }) {
+    cli.command(
+      'greet',
+      'say hello',
+      yargs => {
+        yargs.option('name', {
+          describe: 'name',
+          alias: 'n',
+          type: 'string',
+          required: true,
+        });
+      },
+      argv => {
+        console.log('hello ' + argv.name);
+      }
+    );
+  }
+}
+```
+
 ## 运行时 Hooks
 
 ### onAppConfig

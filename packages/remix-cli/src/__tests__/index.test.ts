@@ -1,22 +1,28 @@
-import { run } from '../../index';
-import { build } from '../../build';
+import RemaxCLI from '../index';
+import { build } from '../build';
 
-jest.mock('../../build', () => {
+jest.mock('../build', () => {
   return { build: jest.fn() };
 });
 
 describe('CLI', () => {
+  let cli: RemaxCLI;
+
+  beforeEach(() => {
+    cli = new RemaxCLI();
+  });
+
   it('run cli help', done => {
     expect.assertions(1);
 
-    run(' help', (err, argv, output) => {
+    cli.run('help', (err, argv, output) => {
       expect(output).toMatch('Usage: remix');
       done();
     });
   });
 
   it('run cli build', done => {
-    run('build -t web', () => {
+    cli.run('build -t web', () => {
       expect(build).toBeCalledTimes(1);
       done();
     });
