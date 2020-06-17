@@ -4,6 +4,7 @@ export interface SwiperProps {
   readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
+  style?: React.CSSProperties;
   indicatorDots?: boolean;
   indicatorColor?: string;
   indicatorActiveColor?: string;
