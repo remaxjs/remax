@@ -1,2 +1,4 @@
 #!/usr/bin/env node
-require('@alipay/remix-cli').run(process.argv.slice(2, process.argv.length));
+const RemaxCLI = require('@alipay/remix-cli').default;
+
+new RemaxCLI().run(process.argv.slice(2, process.argv.length));

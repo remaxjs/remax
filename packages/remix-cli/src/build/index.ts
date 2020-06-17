@@ -2,14 +2,10 @@ import { Options } from '@alipay/remix-types';
 import output from './utils/output';
 import remixVersion from '../remixVersion';
 import { Platform } from '@alipay/remix-types';
-import getConfig from '../getConfig';
 import * as webpack from 'webpack';
 import API from '../API';
 
-export function run(options: Options): webpack.Compiler {
-  const api = new API();
-  api.registerPlugins(options.plugins);
-
+export function run(options: Options, api: API): webpack.Compiler {
   if (options.turboPages && options.turboPages.length > 0 && options.target !== Platform.ali) {
     throw new Error('turboPages 目前仅支持 ali 平台开启');
   }
@@ -24,17 +20,15 @@ export function run(options: Options): webpack.Compiler {
   }
 }
 
-export function build(argv: Pick<Options, 'target' | 'watch' | 'notify' | 'port' | 'analyze'>) {
-  const { target } = argv;
+export function build(options: Options, api: API) {
+  const { target } = options;
 
   process.env.REMAX_PLATFORM = target;
-
-  const options = getConfig();
 
   output.message(`\n⌨️  Remix v${remixVersion()}\n`, 'green');
   output.message(`🎯 平台 ${target}`, 'blue');
 
-  const result = run({ ...options, ...argv });
+  const result = run(options, api);
 
   return result;
 }

@@ -63,8 +63,6 @@ export interface AppConfig {
   plugins?: AppConfigPlugins;
 }
 
-export type CLI = yargs.Argv;
-export type ExtendsCLIOptions = { cli: CLI };
 export type Meta = {
   global: string;
   template: {
@@ -164,6 +162,11 @@ export interface Plugin {
    * 修改页面配置
    */
   onPageConfig?: (params: { config: any; page: string }) => any;
+
+  /**
+   * 扩展命令行
+   */
+  extendCLI?: (params: { cli: yargs.Argv }) => any;
 }
 
 export type PluginConstructor = (options?: any) => Plugin;

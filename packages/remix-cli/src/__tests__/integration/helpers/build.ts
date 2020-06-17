@@ -90,7 +90,7 @@ export default async function build(app: string, target: Platform, options: Part
 
   const fs = createFsFromVolume(new Volume());
   const webpackFs = ensureWebpackMemoryFs(fs);
-  const compiler = run(remixOptions);
+  const compiler = run(remixOptions, api);
   compiler.outputFileSystem = webpackFs;
 
   return new Promise(resolve => {
