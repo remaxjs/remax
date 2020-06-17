@@ -13,7 +13,7 @@ export function run(options: Options): webpack.Compiler {
   const api = new API();
 
   const plugins = [...options.plugins];
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'development' && options.target !== Platform.web) {
     plugins.push(devtools());
   }
   api.registerPlugins(plugins);
