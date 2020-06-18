@@ -47,14 +47,14 @@ export default function page(options: Options, api: API) {
           const declaration = path.node.declaration;
           path.replaceWith(t.variableDeclaration('const', [t.variableDeclarator(pageId, declaration)]));
           pageConfigExpression(path, pageId, name);
-          path.stop();
+          skip = true;
         } else if (t.isFunctionDeclaration(path.node.declaration) || t.isClassDeclaration(path.node.declaration)) {
           const declaration = path.node.declaration;
           const pageId = path.scope.generateUidIdentifierBasedOnNode(path.node);
           declaration.id = pageId;
           path.replaceWith(declaration);
           pageConfigExpression(path, pageId, name);
-          path.stop();
+          skip = true;
         }
       },
     },
