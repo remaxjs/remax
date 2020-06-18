@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.5](https://github.com/remaxjs/remax/compare/v2.5.4...v2.5.5) (2020-06-18)
+
+### Bug Fixes
+
+- **wechat:** 修复条件渲染错误 ([#1100](https://github.com/remaxjs/remax/issues/1100)) ([a204ec7](https://github.com/remaxjs/remax/commit/a204ec7dd3ade1b6b97cd834f018fafa67ec960a)), closes [#1096](https://github.com/remaxjs/remax/issues/1096) [#1099](https://github.com/remaxjs/remax/issues/1099)
+
 ## [2.5.4](https://github.com/remaxjs/remax/compare/v2.5.3...v2.5.4) (2020-06-18)
 
 ### Bug Fixes
