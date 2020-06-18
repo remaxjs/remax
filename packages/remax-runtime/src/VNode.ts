@@ -37,6 +37,7 @@ export default class VNode {
   id: number;
   container: Container;
   mounted = false;
+  deleted = false;
   type: string;
   props?: any;
   parent: VNode | null = null;
@@ -81,6 +82,7 @@ export default class VNode {
           deleteCount: 0,
           children: this.children,
           items: [node.toJSON()],
+          node: this,
         },
         immediately
       );
@@ -115,6 +117,7 @@ export default class VNode {
 
     node.previousSibling = null;
     node.nextSibling = null;
+    node.deleted = true;
 
     if (this.isMounted()) {
       this.container.requestUpdate(
@@ -126,6 +129,7 @@ export default class VNode {
           deleteCount: 1,
           children: this.children,
           items: [],
+          node: this,
         },
         immediately
       );
@@ -160,6 +164,7 @@ export default class VNode {
           deleteCount: 0,
           children: this.children,
           items: [node.toJSON()],
+          node: this,
         },
         immediately
       );
@@ -176,6 +181,7 @@ export default class VNode {
         id: this.id,
         deleteCount: 1,
         items: [this.toJSON()],
+        node: this,
       });
 
       return;
@@ -195,6 +201,7 @@ export default class VNode {
         path,
         name: propName,
         value: propValue,
+        node: this,
       });
     }
   }
@@ -248,6 +255,10 @@ export default class VNode {
 
   isMounted(): boolean {
     return this.parent ? this.parent.isMounted() : this.mounted;
+  }
+
+  isDeleted(): boolean {
+    return this.deleted === true ? this.deleted : this.parent?.isDeleted() ?? false;
   }
 
   toJSON() {

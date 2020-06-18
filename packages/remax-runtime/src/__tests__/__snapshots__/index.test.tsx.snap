@@ -462,6 +462,53 @@ Array [
         "type": "view",
       },
     ],
+    "node": Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "id": 1,
+              "text": "1",
+              "type": "plain-text",
+            },
+          ],
+          "id": 2,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "id": 6,
+              "text": "2",
+              "type": "plain-text",
+            },
+          ],
+          "id": 7,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "id": 3,
+              "text": "3",
+              "type": "plain-text",
+            },
+          ],
+          "id": 4,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+      ],
+      "id": 5,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
+    },
     "path": "root.children.0",
     "start": 1,
     "type": "splice",
@@ -575,6 +622,40 @@ Array [
         "type": "view",
       },
     ],
+    "node": Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "id": 1,
+              "text": "1",
+              "type": "plain-text",
+            },
+          ],
+          "id": 2,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "id": 3,
+              "text": "3",
+              "type": "plain-text",
+            },
+          ],
+          "id": 4,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+      ],
+      "id": 5,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
+    },
     "path": "root.children.0",
     "start": 1,
     "type": "splice",
@@ -611,6 +692,40 @@ Array [
     "deleteCount": 1,
     "id": 7,
     "items": Array [],
+    "node": Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "id": 1,
+              "text": "1",
+              "type": "plain-text",
+            },
+          ],
+          "id": 2,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "id": 3,
+              "text": "3",
+              "type": "plain-text",
+            },
+          ],
+          "id": 4,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+      ],
+      "id": 5,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
+    },
     "path": "root.children.0",
     "start": 1,
     "type": "splice",

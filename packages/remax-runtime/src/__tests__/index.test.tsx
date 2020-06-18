@@ -264,18 +264,51 @@ describe('ali remax render', () => {
       Array [
         Object {
           "name": "class",
+          "node": Object {
+            "children": Array [],
+            "id": 1,
+            "props": Object {
+              "class": "updateClassName",
+              "disabled": true,
+              "style": "display:flex;flex:2;",
+            },
+            "text": undefined,
+            "type": "input",
+          },
           "path": "root.children.0.children[0].props",
           "type": "set",
           "value": "updateClassName",
         },
         Object {
           "name": "disabled",
+          "node": Object {
+            "children": Array [],
+            "id": 1,
+            "props": Object {
+              "class": "updateClassName",
+              "disabled": true,
+              "style": "display:flex;flex:2;",
+            },
+            "text": undefined,
+            "type": "input",
+          },
           "path": "root.children.0.children[0].props",
           "type": "set",
           "value": true,
         },
         Object {
           "name": "style",
+          "node": Object {
+            "children": Array [],
+            "id": 1,
+            "props": Object {
+              "class": "updateClassName",
+              "disabled": true,
+              "style": "display:flex;flex:2;",
+            },
+            "text": undefined,
+            "type": "input",
+          },
           "path": "root.children.0.children[0].props",
           "type": "set",
           "value": "display:flex;flex:2;",
@@ -581,93 +614,6 @@ it('usePageInstance works', done => {
   }, {});
   const container = new Container(p);
   render(<Page page={{ data: {} }} />, container);
-});
-
-describe('wechat renderer', () => {
-  beforeEach(() => {
-    process.env.REMAX_PLATFORM = 'wechat';
-    resetInstanceId();
-  });
-
-  afterEach(() => {
-    process.env.REMAX_PLATFORM = '';
-  });
-
-  it("does not update deleted node's children node", async () => {
-    const logs: any = [];
-    class App extends React.Component {
-      state = {
-        a: true,
-        b: true,
-      };
-
-      toggle() {
-        this.setState({
-          b: false,
-        });
-        this.setState({
-          a: false,
-        });
-      }
-
-      render() {
-        const { a, b } = this.state;
-        return <View id="a">{a && <View id="b">{b ? <View id="c">a</View> : 'b'}</View>}</View>;
-      }
-    }
-
-    const container = new Container({
-      setData(action: any) {
-        logs.push(action);
-      },
-    });
-    const app = React.createRef<any>();
-    render(<App ref={app} />, container);
-    app.current.toggle();
-    await delay(100);
-    expect(logs.pop()).toEqual({
-      'root.nodes.4.children': [],
-      'root.nodes.4.nodes.3': null,
-    });
-  });
-
-  it('does not update deleted node', async () => {
-    const logs: any = [];
-    class App extends React.Component {
-      state = {
-        a: true,
-        b: true,
-      };
-
-      toggle() {
-        this.setState({
-          b: false,
-        });
-        this.setState({
-          a: false,
-        });
-      }
-
-      render() {
-        const { a, b } = this.state;
-        return <View>{a && <View style={{ color: b ? 'red' : 'green' }}>foo</View>}</View>;
-      }
-    }
-
-    const container = new Container({
-      setData(action: any) {
-        logs.push(action);
-      },
-    });
-    const app = React.createRef<any>();
-    render(<App ref={app} />, container);
-    app.current.toggle();
-    await delay(100);
-    expect(logs.pop()).toEqual({
-      'root.nodes.3.children': [],
-      'root.nodes.3.nodes.2': null,
-    });
-  });
 });
 
 describe('Remax Suspense placeholder', () => {
