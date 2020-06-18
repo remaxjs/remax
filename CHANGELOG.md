@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.4](https://github.com/remaxjs/remax/compare/v2.5.3...v2.5.4) (2020-06-18)
+
+### Bug Fixes
+
+- 修复部分自定义 babel 插件不生效的问题 ([#1097](https://github.com/remaxjs/remax/issues/1097)) ([b72d1ad](https://github.com/remaxjs/remax/commit/b72d1ad5e3da497fa3c4884f0b005d1b4c5333ce)), closes [#1094](https://github.com/remaxjs/remax/issues/1094)
+- **ali:** 修复 Swiper[style] 类型 ([4397e4e](https://github.com/remaxjs/remax/commit/4397e4e700141c97284a04d3142eb10696b31f82))
+- **ali:** 修复 Video 组件缺少 className 属性的类型定义 ([9c927d1](https://github.com/remaxjs/remax/commit/9c927d1a805012e75fce810e8615207e1112e08d))
+
 ## [2.5.3](https://github.com/remaxjs/remax/compare/v2.5.2...v2.5.3) (2020-06-17)
 
 ### Bug Fixes
