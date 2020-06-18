@@ -34,7 +34,8 @@
   },
   "workspaces": {
     "nohoist": [
-      "mini-antui"
+      "mini-antui",
+      "react"
     ]
   }
 }

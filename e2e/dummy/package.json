@@ -24,5 +24,10 @@
     "cross-env": "^7.0.2",
     "jest": "^26.0.1",
     "jest-puppeteer": "^4.4.0"
+  },
+  "workspaces": {
+    "nohoist": [
+      "react"
+    ]
   }
 }
