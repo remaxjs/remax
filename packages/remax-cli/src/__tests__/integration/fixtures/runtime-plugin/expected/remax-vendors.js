@@ -2876,22 +2876,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _VNode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
 /* harmony import */ var _instanceId__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
 /* harmony import */ var _nativeEffect__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(37);
-var __assign = undefined && undefined.__assign || function () {
-  __assign = Object.assign || function (t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-
-      for (var p in s) {
-        if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-    }
-
-    return t;
-  };
-
-  return __assign.apply(this, arguments);
-};
-
 var __read = undefined && undefined.__read || function (o, n) {
   var m = typeof Symbol === "function" && o[Symbol.iterator];
   if (!m) return o;
@@ -3012,25 +2996,23 @@ function () {
     }
 
     var updatePayload = this.updateQueue.reduce(function (acc, update) {
-      var _a, _b;
-
       if (update.node.isDeleted()) {
         return acc;
       }
 
       if (update.type === 'splice') {
-        var item = __assign(__assign({}, acc), (_a = {}, _a[update.path + '.nodes.' + update.id] = update.items[0] || null, _a));
+        acc[update.path + '.nodes.' + update.id] = update.items[0] || null;
 
         if (update.children) {
-          item[update.path + '.children'] = (update.children || []).map(function (c) {
+          acc[update.path + '.children'] = (update.children || []).map(function (c) {
             return c.id;
           });
         }
-
-        return item;
+      } else {
+        acc[update.path + '.' + update.name] = update.value;
       }
 
-      return __assign(__assign({}, acc), (_b = {}, _b[update.path + '.' + update.name] = update.value, _b));
+      return acc;
     }, {});
     this.context.setData(updatePayload, function () {
       _nativeEffect__WEBPACK_IMPORTED_MODULE_2__["default"].run();

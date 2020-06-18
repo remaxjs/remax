@@ -112,22 +112,15 @@ export default class Container {
         return acc;
       }
       if (update.type === 'splice') {
-        const item = {
-          ...acc,
-          [update.path + '.nodes.' + update.id]: update.items[0] || null,
-        };
+        acc[update.path + '.nodes.' + update.id] = update.items[0] || null;
 
         if (update.children) {
-          item[update.path + '.children'] = (update.children || []).map(c => c.id);
+          acc[update.path + '.children'] = (update.children || []).map(c => c.id);
         }
-
-        return item;
+      } else {
+        acc[update.path + '.' + update.name] = update.value;
       }
-
-      return {
-        ...acc,
-        [update.path + '.' + update.name]: update.value,
-      };
+      return acc;
     }, {});
 
     this.context.setData(updatePayload, () => {
