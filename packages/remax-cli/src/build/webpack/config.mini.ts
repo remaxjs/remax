@@ -86,7 +86,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
       },
     },
   });
-  config.optimization.minimize(false);
+  config.optimization.minimize(options.minimize ?? false);
 
   config.module
     .rule('config')

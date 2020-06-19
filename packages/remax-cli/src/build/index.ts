@@ -32,17 +32,17 @@ export function run(options: Options): webpack.Compiler {
   }
 }
 
-export function build(argv: Pick<Options, 'target' | 'watch' | 'notify' | 'port' | 'analyze'>) {
+export function build(argv: Pick<Options, 'target' | 'watch' | 'notify' | 'port' | 'analyze' | 'minimize'>) {
   const { target } = argv;
 
   process.env.REMAX_PLATFORM = target;
 
-  const options = getConfig();
+  const { compressTemplate, ...options } = getConfig();
 
   output.message(`\n⌨️  Remax v${remaxVersion()}\n`, 'green');
   output.message(`🎯 平台 ${target}`, 'blue');
 
-  const result = run({ ...options, ...argv });
+  const result = run({ ...options, ...argv, compressTemplate: argv.minimize });
 
   return result;
 }

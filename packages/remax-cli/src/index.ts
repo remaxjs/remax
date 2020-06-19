@@ -57,6 +57,12 @@ export function run(args: any, callback?: yargs.ParseCallback) {
       type: 'boolean',
       default: false,
     })
+    .option('minimize', {
+      describe: '最小化文件',
+      alias: 'mini',
+      type: 'boolean',
+      default: false,
+    })
     .showHelpOnFail(false);
 
   return cli.parse(args, callback);
