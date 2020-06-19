@@ -46,6 +46,8 @@ export interface Event {
 }
 
 export interface TouchEvent extends Event {
+  /** 阻止事件冒泡 */
+  stopPropagation: () => void;
   /** 包含了所有当前接触触摸平面的触点的 Touch 对象，无论它们的起始于哪个 element 上，也无论它们状态是否发生了变化 */
   touches: Touch[];
   /** 包含了代表所有从上一次触摸事件到此次事件过程中，状态发生了改变的触点的 Touch 对象。 */
