@@ -59,7 +59,7 @@ export function run(args: any, callback?: yargs.ParseCallback) {
     })
     .option('minimize', {
       describe: '最小化文件',
-      alias: 'mini',
+      alias: 'm',
       type: 'boolean',
       default: false,
     })
