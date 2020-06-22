@@ -54,8 +54,8 @@ export default {
     // nothing to do
   },
 
-  resetAfterCommit: () => {
-    // nothing to do
+  resetAfterCommit: (container: Container) => {
+    container.applyUpdate();
   },
 
   getChildHostContext: () => {
@@ -107,19 +107,19 @@ export default {
   },
 
   appendInitialChild: (parent: VNode, child: VNode) => {
-    parent.appendChild(child, false);
+    parent.appendChild(child);
   },
 
   appendChild(parent: VNode, child: VNode) {
-    parent.appendChild(child, false);
+    parent.appendChild(child);
   },
 
   insertBefore(parent: VNode, child: VNode, beforeChild: VNode) {
-    parent.insertBefore(child, beforeChild, false);
+    parent.insertBefore(child, beforeChild);
   },
 
   removeChild(parent: VNode, child: VNode) {
-    parent.removeChild(child, false);
+    parent.removeChild(child);
   },
 
   finalizeInitialChildren: () => {

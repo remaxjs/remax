@@ -15,9 +15,7 @@ export default class AppContainer {
   updateQueue: SpliceUpdate[] = [];
   _rootContainer?: FiberRoot;
 
-  constructor(context: any) {
-    this.context = context;
-
+  constructor() {
     this.root = new VNode({
       id: generate(),
       type: 'root',
@@ -30,19 +28,25 @@ export default class AppContainer {
     // ignore
   }
 
+  applyUpdate() {
+    this.context._pages.forEach((page: any) => {
+      page.container.applyUpdate();
+    });
+  }
+
   createCallback(name: string, fn: Function) {
     this.context[name] = fn;
   }
 
   appendChild(child: VNode) {
-    this.root.appendChild(child, true);
+    this.root.appendChild(child);
   }
 
   removeChild(child: VNode) {
-    this.root.removeChild(child, true);
+    this.root.removeChild(child);
   }
 
   insertBefore(child: VNode, beforeChild: VNode) {
-    this.root.insertBefore(child, beforeChild, true);
+    this.root.insertBefore(child, beforeChild);
   }
 }

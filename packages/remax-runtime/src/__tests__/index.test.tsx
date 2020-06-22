@@ -48,6 +48,7 @@ describe('ali remax render', () => {
     RuntimeOptions.apply({
       platform: Platform.ali,
     });
+    resetInstanceId();
   });
   afterEach(() => {
     RuntimeOptions.reset();
@@ -135,13 +136,10 @@ describe('ali remax render', () => {
     const page = React.createRef<any>();
     render(<Page ref={page} />, container);
     expect(container.root).toMatchSnapshot();
-    expect(container.updateQueue).toMatchSnapshot();
     page.current.show();
     expect(container.root).toMatchSnapshot();
-    expect(container.updateQueue).toMatchSnapshot();
     page.current.hide();
     expect(container.root).toMatchSnapshot();
-    expect(container.updateQueue).toMatchSnapshot();
   });
 
   it('conditional render', () => {
@@ -265,7 +263,6 @@ describe('ali remax render', () => {
     render(<Page ref={page} />, container);
     expect(container.root).toMatchSnapshot();
     page.current.update();
-    expect(container.updateQueue).toMatchSnapshot();
     expect(container.root).toMatchSnapshot();
   });
 

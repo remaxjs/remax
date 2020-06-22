@@ -341,7 +341,63 @@ Object {
 }
 `;
 
-exports[`ali remax render insert and remove element 2`] = `Array []`;
+exports[`ali remax render insert and remove element 2`] = `
+Object {
+  "children": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "id": 1,
+              "text": "1",
+              "type": "plain-text",
+            },
+          ],
+          "id": 2,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "id": 6,
+              "text": "2",
+              "type": "plain-text",
+            },
+          ],
+          "id": 7,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "id": 3,
+              "text": "3",
+              "type": "plain-text",
+            },
+          ],
+          "id": 4,
+          "props": Object {},
+          "text": undefined,
+          "type": "view",
+        },
+      ],
+      "id": 5,
+      "props": Object {},
+      "text": undefined,
+      "type": "view",
+    },
+  ],
+  "id": 0,
+  "props": undefined,
+  "text": undefined,
+  "type": "root",
+}
+`;
 
 exports[`ali remax render insert and remove element 3`] = `
 Object {
@@ -364,19 +420,6 @@ Object {
         Object {
           "children": Array [
             Object {
-              "id": 6,
-              "text": "2",
-              "type": "plain-text",
-            },
-          ],
-          "id": 7,
-          "props": Object {},
-          "text": undefined,
-          "type": "view",
-        },
-        Object {
-          "children": Array [
-            Object {
               "id": 3,
               "text": "3",
               "type": "plain-text",
@@ -399,347 +442,6 @@ Object {
   "text": undefined,
   "type": "root",
 }
-`;
-
-exports[`ali remax render insert and remove element 4`] = `
-Array [
-  Object {
-    "children": Array [
-      Object {
-        "children": Array [
-          Object {
-            "id": 1,
-            "text": "1",
-            "type": "plain-text",
-          },
-        ],
-        "id": 2,
-        "props": Object {},
-        "text": undefined,
-        "type": "view",
-      },
-      Object {
-        "children": Array [
-          Object {
-            "id": 6,
-            "text": "2",
-            "type": "plain-text",
-          },
-        ],
-        "id": 7,
-        "props": Object {},
-        "text": undefined,
-        "type": "view",
-      },
-      Object {
-        "children": Array [
-          Object {
-            "id": 3,
-            "text": "3",
-            "type": "plain-text",
-          },
-        ],
-        "id": 4,
-        "props": Object {},
-        "text": undefined,
-        "type": "view",
-      },
-    ],
-    "deleteCount": 0,
-    "id": 7,
-    "items": Array [
-      Object {
-        "children": Array [
-          Object {
-            "id": 6,
-            "text": "2",
-            "type": "plain-text",
-          },
-        ],
-        "id": 7,
-        "props": Object {},
-        "text": undefined,
-        "type": "view",
-      },
-    ],
-    "node": Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "id": 1,
-              "text": "1",
-              "type": "plain-text",
-            },
-          ],
-          "id": 2,
-          "props": Object {},
-          "text": undefined,
-          "type": "view",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "id": 6,
-              "text": "2",
-              "type": "plain-text",
-            },
-          ],
-          "id": 7,
-          "props": Object {},
-          "text": undefined,
-          "type": "view",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "id": 3,
-              "text": "3",
-              "type": "plain-text",
-            },
-          ],
-          "id": 4,
-          "props": Object {},
-          "text": undefined,
-          "type": "view",
-        },
-      ],
-      "id": 5,
-      "props": Object {},
-      "text": undefined,
-      "type": "view",
-    },
-    "path": Array [
-      "children",
-      "0",
-    ],
-    "start": 1,
-    "type": "splice",
-  },
-]
-`;
-
-exports[`ali remax render insert and remove element 5`] = `
-Object {
-  "children": Array [
-    Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "id": 1,
-              "text": "1",
-              "type": "plain-text",
-            },
-          ],
-          "id": 2,
-          "props": Object {},
-          "text": undefined,
-          "type": "view",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "id": 3,
-              "text": "3",
-              "type": "plain-text",
-            },
-          ],
-          "id": 4,
-          "props": Object {},
-          "text": undefined,
-          "type": "view",
-        },
-      ],
-      "id": 5,
-      "props": Object {},
-      "text": undefined,
-      "type": "view",
-    },
-  ],
-  "id": 0,
-  "props": undefined,
-  "text": undefined,
-  "type": "root",
-}
-`;
-
-exports[`ali remax render insert and remove element 6`] = `
-Array [
-  Object {
-    "children": Array [
-      Object {
-        "children": Array [
-          Object {
-            "id": 1,
-            "text": "1",
-            "type": "plain-text",
-          },
-        ],
-        "id": 2,
-        "props": Object {},
-        "text": undefined,
-        "type": "view",
-      },
-      Object {
-        "children": Array [
-          Object {
-            "id": 6,
-            "text": "2",
-            "type": "plain-text",
-          },
-        ],
-        "id": 7,
-        "props": Object {},
-        "text": undefined,
-        "type": "view",
-      },
-      Object {
-        "children": Array [
-          Object {
-            "id": 3,
-            "text": "3",
-            "type": "plain-text",
-          },
-        ],
-        "id": 4,
-        "props": Object {},
-        "text": undefined,
-        "type": "view",
-      },
-    ],
-    "deleteCount": 0,
-    "id": 7,
-    "items": Array [
-      Object {
-        "children": Array [
-          Object {
-            "id": 6,
-            "text": "2",
-            "type": "plain-text",
-          },
-        ],
-        "id": 7,
-        "props": Object {},
-        "text": undefined,
-        "type": "view",
-      },
-    ],
-    "node": Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "id": 1,
-              "text": "1",
-              "type": "plain-text",
-            },
-          ],
-          "id": 2,
-          "props": Object {},
-          "text": undefined,
-          "type": "view",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "id": 3,
-              "text": "3",
-              "type": "plain-text",
-            },
-          ],
-          "id": 4,
-          "props": Object {},
-          "text": undefined,
-          "type": "view",
-        },
-      ],
-      "id": 5,
-      "props": Object {},
-      "text": undefined,
-      "type": "view",
-    },
-    "path": Array [
-      "children",
-      "0",
-    ],
-    "start": 1,
-    "type": "splice",
-  },
-  Object {
-    "children": Array [
-      Object {
-        "children": Array [
-          Object {
-            "id": 1,
-            "text": "1",
-            "type": "plain-text",
-          },
-        ],
-        "id": 2,
-        "props": Object {},
-        "text": undefined,
-        "type": "view",
-      },
-      Object {
-        "children": Array [
-          Object {
-            "id": 3,
-            "text": "3",
-            "type": "plain-text",
-          },
-        ],
-        "id": 4,
-        "props": Object {},
-        "text": undefined,
-        "type": "view",
-      },
-    ],
-    "deleteCount": 1,
-    "id": 7,
-    "items": Array [],
-    "node": Object {
-      "children": Array [
-        Object {
-          "children": Array [
-            Object {
-              "id": 1,
-              "text": "1",
-              "type": "plain-text",
-            },
-          ],
-          "id": 2,
-          "props": Object {},
-          "text": undefined,
-          "type": "view",
-        },
-        Object {
-          "children": Array [
-            Object {
-              "id": 3,
-              "text": "3",
-              "type": "plain-text",
-            },
-          ],
-          "id": 4,
-          "props": Object {},
-          "text": undefined,
-          "type": "view",
-        },
-      ],
-      "id": 5,
-      "props": Object {},
-      "text": undefined,
-      "type": "view",
-    },
-    "path": Array [
-      "children",
-      "0",
-    ],
-    "start": 1,
-    "type": "splice",
-  },
-]
 `;
 
 exports[`ali remax render insert new element 1`] = `
@@ -922,12 +624,12 @@ Object {
     Object {
       "children": Array [
         Object {
-          "id": 2,
+          "id": 1,
           "text": "hello",
           "type": "plain-text",
         },
       ],
-      "id": 3,
+      "id": 2,
       "props": Object {
         "class": "foo",
       },
@@ -935,7 +637,7 @@ Object {
       "type": "view",
     },
   ],
-  "id": 1,
+  "id": 0,
   "props": undefined,
   "text": undefined,
   "type": "root",
@@ -1210,74 +912,6 @@ Object {
 `;
 
 exports[`ali remax render update element props 2`] = `
-Array [
-  Object {
-    "name": "class",
-    "node": Object {
-      "children": Array [],
-      "id": 1,
-      "props": Object {
-        "class": "updateClassName",
-        "disabled": true,
-        "style": "display:flex;flex:2;",
-      },
-      "text": undefined,
-      "type": "input",
-    },
-    "path": Array [
-      "children",
-      "0",
-      "children[0].props",
-    ],
-    "type": "set",
-    "value": "updateClassName",
-  },
-  Object {
-    "name": "disabled",
-    "node": Object {
-      "children": Array [],
-      "id": 1,
-      "props": Object {
-        "class": "updateClassName",
-        "disabled": true,
-        "style": "display:flex;flex:2;",
-      },
-      "text": undefined,
-      "type": "input",
-    },
-    "path": Array [
-      "children",
-      "0",
-      "children[0].props",
-    ],
-    "type": "set",
-    "value": true,
-  },
-  Object {
-    "name": "style",
-    "node": Object {
-      "children": Array [],
-      "id": 1,
-      "props": Object {
-        "class": "updateClassName",
-        "disabled": true,
-        "style": "display:flex;flex:2;",
-      },
-      "text": undefined,
-      "type": "input",
-    },
-    "path": Array [
-      "children",
-      "0",
-      "children[0].props",
-    ],
-    "type": "set",
-    "value": "display:flex;flex:2;",
-  },
-]
-`;
-
-exports[`ali remax render update element props 3`] = `
 Object {
   "children": Array [
     Object {
