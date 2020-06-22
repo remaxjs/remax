@@ -1,10 +1,11 @@
 import * as React from 'react';
 import './helpers/setupGlobals';
-import createPageConfig from '../createPageConfig';
+import createPageConfig, { resetPageId } from '../createPageConfig';
 import { usePageEvent } from '../../src';
 import { PageProps } from '../createPageWrapper';
 import View from './helpers/View';
 import Page from './helpers/Page';
+import createAppConfig from '../createAppConfig';
 
 jest.mock('../stopPullDownRefresh', () => () => void 0);
 jest.mock('../RuntimeOptions', () => ({
@@ -51,6 +52,22 @@ jest.mock('../RuntimeOptions', () => ({
 const TEST_PAGE = 'pages/test/index';
 
 describe('page', () => {
+  beforeEach(() => {
+    // mock mini program getApp api
+    const app = createAppConfig(undefined);
+    app.onLaunch();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
+    global.getApp = () => app;
+  });
+
+  afterEach(() => {
+    resetPageId();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
+    global.getApp = undefined;
+  });
+
   it('create page config', () => {
     const Foo = () => {
       return <View>foo</View>;

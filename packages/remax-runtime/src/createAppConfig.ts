@@ -17,13 +17,15 @@ class DefaultAppComponent extends React.Component {
 export default function createAppConfig(this: any, App: any) {
   const createConfig = (AppComponent: React.ComponentType<any> = DefaultAppComponent) => {
     const config: any = {
-      _container: new AppContainer(this),
+      _container: new AppContainer(),
 
       _pages: [] as any[],
 
       _instance: React.createRef<any>(),
 
       onLaunch(options: any) {
+        this._container.context = this;
+
         this._render();
 
         return this.callLifecycle(AppLifecycle.launch, options);

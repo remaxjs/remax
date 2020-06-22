@@ -50,6 +50,7 @@ describe('page query hook', () => {
   beforeEach(() => {
     // mock mini program getApp api
     const app = createAppConfig(undefined);
+    app.onLaunch();
     // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
     // @ts-ignore
     global.getApp = () => app;
