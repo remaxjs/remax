@@ -94,19 +94,20 @@ var app_config = {
   }
 };
 var history = !app_config.router || app_config.router.type !== 'browser' ? Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["createHashHistory"])() : Object(remax_web__WEBPACK_IMPORTED_MODULE_3__["createBrowserHistory"])();
+var first_page_path = app_config.pages[0] || '';
+first_page_path = !first_page_path.startsWith('/') ? '/' + first_page_path : first_page_path;
 _remax_runtime__WEBPACK_IMPORTED_MODULE_4__["RuntimeOptions"].apply({
   history: history
 });
 var AppConfig = Object(remax__WEBPACK_IMPORTED_MODULE_2__["createAppConfig"])(_app__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 function TabBar() {
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1__["useState"](null),
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1__["useState"](history.location.pathname),
       _React$useState2 = _slicedToArray(_React$useState, 2),
       currentPath = _React$useState2[0],
       setCurrentPath = _React$useState2[1];
 
   react__WEBPACK_IMPORTED_MODULE_1__["useEffect"](function () {
-    setCurrentPath(window.location.pathname);
     return history.listen(function (location, action) {
       setCurrentPath(location.pathname);
     });
@@ -115,6 +116,10 @@ function TabBar() {
   function isActiveTab(url) {
     if (!url.startsWith('/')) {
       url = '/' + url;
+    }
+
+    if (currentPath === '/') {
+      return first_page_path === url;
     }
 
     return currentPath === url;
@@ -126,7 +131,8 @@ function TabBar() {
       backgroundColor: '#212121'
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_web__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-    to: "undefined",
+    replace: true,
+    to: "/undefined",
     className: "remax-tab-item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", {
     className: "remax-tab-item-image",
@@ -139,7 +145,8 @@ function TabBar() {
       color: isActiveTab('undefined') ? '' : ''
     }
   }, "undefined")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax_web__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-    to: "undefined",
+    replace: true,
+    to: "/undefined",
     className: "remax-tab-item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("div", {
     className: "remax-tab-item-image",

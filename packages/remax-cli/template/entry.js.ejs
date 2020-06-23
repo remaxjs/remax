@@ -50,7 +50,7 @@ function TabBar() {
   return (
     <div className="remax-tab-bar" style={{ backgroundColor: '<%- tabBarConfig.backgroundColor || '' %>' }}>
         <%- tabBarConfig.items.map((tab, i) => `
-        <Link to="${(tab.url || '').startsWith('/') ? tab.url : '/' + tab.url}" className="remax-tab-item">
+        <Link replace={true} to="${(tab.url || '').startsWith('/') ? tab.url : '/' + tab.url}" className="remax-tab-item">
           <div className="remax-tab-item-image" style={{ backgroundImage: \`url(\$\{isActiveTab('${tab.url}') ? '${tab.activeImage || tab.image}' : '${tab.image}'\})\` }} />
           <div
             className={'remax-tab-item-title ' + (isActiveTab('${tab.url}') ? 'active' : '')}
