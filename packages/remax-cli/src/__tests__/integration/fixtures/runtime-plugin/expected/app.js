@@ -6,7 +6,7 @@ require('./remax-vendors.js');
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(42);
+module.exports = __webpack_require__(43);
 
 
 /***/ }),
@@ -20,7 +20,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 
 
-var pluginDriver = new _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver"]([__webpack_require__(41)].map(function (p) {
+var pluginDriver = new _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver"]([__webpack_require__(42)].map(function (p) {
   return p.default || p;
 }));
 _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["RuntimeOptions"].apply({
@@ -54,7 +54,7 @@ module.exports = require("react-reconciler");
 
 /***/ }),
 
-/***/ 41:
+/***/ 42:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -72,7 +72,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 42:
+/***/ 43:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
