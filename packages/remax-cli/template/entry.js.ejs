@@ -15,6 +15,9 @@ hd();
 
 const history = (!app_config.router || app_config.router.type !== 'browser') ? createHashHistory() : createBrowserHistory();
 
+let first_page_path = app_config.pages[0] || '';
+first_page_path = !first_page_path.startsWith('/') ? '/' + first_page_path : first_page_path;
+
 RuntimeOptions.apply({ history });
 
 
@@ -25,10 +28,8 @@ const AppConfig = createAppConfig(App);
 
  <% if (hasTabBar) { %>
 function TabBar() {
-  const [currentPath, setCurrentPath] = React.useState(null);
+  const [currentPath, setCurrentPath] = React.useState(history.location.pathname);
   React.useEffect(() => {
-    setCurrentPath(window.location.pathname);
-
     return history.listen((location, action) => {
       setCurrentPath(location.pathname);
     });
@@ -39,13 +40,17 @@ function TabBar() {
       url = '/' + url;
     }
 
+    if (currentPath === '/') {
+      return first_page_path === url;
+    }
+
     return currentPath === url;
   }
 
   return (
     <div className="remax-tab-bar" style={{ backgroundColor: '<%- tabBarConfig.backgroundColor || '' %>' }}>
         <%- tabBarConfig.items.map((tab, i) => `
-        <Link to="${tab.url}" className="remax-tab-item">
+        <Link to="${(tab.url || '').startsWith('/') ? tab.url : '/' + tab.url}" className="remax-tab-item">
           <div className="remax-tab-item-image" style={{ backgroundImage: \`url(\$\{isActiveTab('${tab.url}') ? '${tab.activeImage || tab.image}' : '${tab.image}'\})\` }} />
           <div
             className={'remax-tab-item-title ' + (isActiveTab('${tab.url}') ? 'active' : '')}

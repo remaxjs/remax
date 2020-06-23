@@ -28,6 +28,8 @@ module.exports.web = {
   pullToRefresh: false,
   // 触底滚动的默认距离，单位 px
   reachBottomOffset: 50,
+  // history 类型，支持 hash 和 browser
+  historyType: 'hash',
   // tab bar 配置
   tabBar: {
     // 背景色
