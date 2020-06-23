@@ -34,4 +34,9 @@ describe('works', () => {
     await goTo('/pages/two/index');
     await expect(page).toMatch('page two');
   });
+
+  it('useQuery', async () => {
+    await goTo('/pages/two/index?q=query');
+    await expect(page).toMatch('query');
+  });
 });
