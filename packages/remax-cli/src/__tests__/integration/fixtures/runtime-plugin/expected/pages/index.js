@@ -9,17 +9,17 @@ module.exports = require("react");
 
 /***/ }),
 
+/***/ 38:
+/***/ (function(module, exports) {
+
+module.exports = require("@remax/shared");
+
+/***/ }),
+
 /***/ 4:
 /***/ (function(module, exports) {
 
 module.exports = require("react-reconciler");
-
-/***/ }),
-
-/***/ 40:
-/***/ (function(module, exports) {
-
-module.exports = require("@remax/shared");
 
 /***/ }),
 

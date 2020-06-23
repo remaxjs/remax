@@ -1,12 +1,14 @@
 import propsAlias, { getAlias } from '../propsAlias';
 
-jest.mock('../createHostComponent', () => ({
-  hostComponents: {
-    foo: {
-      alias: {
-        camelCase: 'kebab-case',
+jest.mock('../RuntimeOptions', () => ({
+  get() {
+    return {
+      foo: {
+        alias: {
+          camelCase: 'kebab-case',
+        },
       },
-    },
+    };
   },
 }));
 

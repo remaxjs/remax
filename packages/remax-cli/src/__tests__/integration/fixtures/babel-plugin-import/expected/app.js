@@ -3,7 +3,8 @@ require('./runtime.js');
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(1);
+__webpack_require__(1);
+module.exports = __webpack_require__(3);
 
 
 /***/ }),
@@ -11,12 +12,40 @@ module.exports = __webpack_require__(1);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* istanbul ignore next */
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var pluginDriver = new _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver"]([].map(function (p) {
+  return p.default || p;
+}));
+_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["RuntimeOptions"].apply({
+  pxToRpx: true,
+  pluginDriver: pluginDriver,
+  hostComponents: [],
+  pageEvents: {},
+  appEvents: []
+});
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+module.exports = require("@remax/runtime");
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
 /* harmony import */ var parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_remax_runtime__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 
 
@@ -165,19 +194,13 @@ var _App = /*#__PURE__*/function (_React$Component) {
 /* harmony default export */ __webpack_exports__["default"] = (App(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_1__["createAppConfig"])(_App)));
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = require("parsec-hooks/lib/refStateHooks");
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-module.exports = require("@remax/runtime");
-
-/***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 module.exports = require("react");
