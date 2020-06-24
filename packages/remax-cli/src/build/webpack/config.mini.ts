@@ -215,10 +215,10 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
 
   config.externals([
     {
-      '/__remax_lifecycle_events__': `require('/__remax_lifecycle_events__')`,
+      '/__remax_runtime_options__': `require('/__remax_runtime_options__')`,
     },
   ]);
-  config.plugin('remax-lifecycle-events-plugin').use(RemaxPlugins.LifecycleEvents, [options, api]);
+  config.plugin('remax-runtime-options-plugin').use(RemaxPlugins.RuntimeOptions, [options, api]);
 
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
 

@@ -2,14 +2,21 @@ require('./../runtime.js');
 require('./../remax-vendors.js');
 (my["webpackJsonp"] = my["webpackJsonp"] || []).push([[4],{
 
-/***/ 21:
+/***/ 15:
+/***/ (function(module, exports) {
+
+module.exports = require("lodash.merge");
+
+/***/ }),
+
+/***/ 22:
 /***/ (function(module, exports) {
 
 module.exports = require("react");
 
 /***/ }),
 
-/***/ 38:
+/***/ 39:
 /***/ (function(module, exports) {
 
 module.exports = require("@remax/shared");
@@ -23,25 +30,25 @@ module.exports = require("react-reconciler");
 
 /***/ }),
 
-/***/ 49:
+/***/ 50:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(50);
+module.exports = __webpack_require__(51);
 
 
 /***/ }),
 
-/***/ 50:
+/***/ 51:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(21);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(22);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(51);
+/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(52);
 /* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(remax__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _hoc__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(52);
+/* harmony import */ var _hoc__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(53);
 
 
 function _typeof(obj) {
@@ -220,14 +227,14 @@ var _page = Object(_hoc__WEBPACK_IMPORTED_MODULE_3__["default"])(ClassPage);
 
 /***/ }),
 
-/***/ 51:
+/***/ 52:
 /***/ (function(module, exports) {
 
 module.exports = require("remax");
 
 /***/ }),
 
-/***/ 52:
+/***/ 53:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -292,4 +299,4 @@ module.exports = require("scheduler");
 
 /***/ })
 
-},[[49,0,2]]]);
+},[[50,0,2]]]);

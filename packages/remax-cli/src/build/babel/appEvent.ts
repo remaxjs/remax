@@ -1,7 +1,7 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { slash } from '@remax/shared';
-import { appClassEvents } from '../webpack/plugins/LifecycleEvents';
+import { appClassEvents } from '../webpack/plugins/RuntimeOptions';
 
 const lifecycleEvents = ['onShareAppMessage'];
 

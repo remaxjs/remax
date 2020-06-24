@@ -7,14 +7,14 @@ import { getPages } from '../../../getEntries';
 import API from '../../../API';
 import { OriginalSource } from 'webpack-sources';
 
-const PLUGIN_NAME = 'RemaxLifecycleEventsPlugin';
+const PLUGIN_NAME = 'RemaxRuntimeOptionsPlugin';
 
 type Events = Set<string>;
 
 export const pageClassEvents = new Map<string, Events>();
 export const appClassEvents = new Map<string, Events>();
 
-export default class RuntimeLifecycleEventsPlugin {
+export default class RuntimeOptionsPlugin {
   remaxOptions: Options;
   api: API;
 
@@ -26,13 +26,13 @@ export default class RuntimeLifecycleEventsPlugin {
   apply(compiler: Compiler) {
     compiler.hooks.thisCompilation.tap(PLUGIN_NAME, (compilation: compilation.Compilation) => {
       compilation.hooks.optimizeChunks.tap(PLUGIN_NAME, chunks => {
-        compilation.assets['/__remax_lifecycle_events__.js'] = new OriginalSource(
+        compilation.assets['/__remax_runtime_options__.js'] = new OriginalSource(
           `module.exports = {
           hostComponents: ${this.stringifyHostComponents()},
           pageEvents: ${this.stringifyPageEvents(chunks)},
           appEvents: ${this.stringifyAppEvents()}
         }`,
-          '/__remax_lifecycle_events__.js'
+          '/__remax_runtime_options__.js'
         );
       });
     });
