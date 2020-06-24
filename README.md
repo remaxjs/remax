@@ -24,6 +24,20 @@ $ cd e2e/mini
 $ yarn dev
 ```
 
+安装一个不会污染 git history 的 demo 项目
+
+```bash
+node scripts/install-samples.js
+```
+
+打开`e2e/sample` 调试
+
+```bash
+$ yarn build 或 yarn watch
+$ cd e2e/sample
+$ yarn dev
+```
+
 ### 测试
 
 ```bash
