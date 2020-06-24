@@ -5,46 +5,50 @@ import { slash } from '@remax/shared';
 import getModules from '../../utils/modules';
 import { getPages } from '../../../getEntries';
 import API from '../../../API';
+import { OriginalSource } from 'webpack-sources';
 
-const PLUGIN_NAME = 'RemaxRuntimeOptionsPlugin';
+const PLUGIN_NAME = 'RemaxLifecycleEventsPlugin';
 
 type Events = Set<string>;
 
 export const pageClassEvents = new Map<string, Events>();
 export const appClassEvents = new Map<string, Events>();
 
-export default class RuntimeOptionsPlugin {
+export default class RuntimeLifecycleEventsPlugin {
   remaxOptions: Options;
   api: API;
-  updateRuntimeOptions: Function;
 
-  constructor(options: Options, api: API, updateRuntimeOptions: Function) {
+  constructor(options: Options, api: API) {
     this.remaxOptions = options;
     this.api = api;
-    this.updateRuntimeOptions = updateRuntimeOptions;
   }
 
   apply(compiler: Compiler) {
     compiler.hooks.thisCompilation.tap(PLUGIN_NAME, (compilation: compilation.Compilation) => {
-      compilation.hooks.optimizeChunkAssets.tapAsync(PLUGIN_NAME, (chunks, callback) => {
-        this.updateRuntimeOptions({
-          hostComponents: this.stringifyHostComponents(),
-          pageEvents: this.stringifyPageEvents(compilation),
-          appEvents: this.stringifyAppEvents(),
-        });
-
-        callback();
+      compilation.hooks.optimizeChunks.tap(PLUGIN_NAME, chunks => {
+        compilation.assets['/__remax_lifecycle_events__.js'] = new OriginalSource(
+          `module.exports = {
+          hostComponents: ${this.stringifyHostComponents()},
+          pageEvents: ${this.stringifyPageEvents(chunks)},
+          appEvents: ${this.stringifyAppEvents()}
+        }`,
+          '/__remax_lifecycle_events__.js'
+        );
       });
     });
   }
 
-  stringifyPageEvents(compilation: compilation.Compilation) {
+  stringifyPageEvents(chunks: compilation.Chunk[]) {
     const events: any = {};
 
-    getPages(this.remaxOptions, this.api).map(page => {
-      const chunk = compilation.chunks.find(c => {
+    getPages(this.remaxOptions, this.api).forEach(page => {
+      const chunk = chunks.find(c => {
         return c.name === page.name;
       });
+
+      if (!chunk) {
+        return;
+      }
 
       // TODO: 应该有更好的获取 modules 的方式？
       const modules = getModules(chunk);

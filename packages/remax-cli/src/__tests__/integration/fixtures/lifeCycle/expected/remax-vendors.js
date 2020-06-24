@@ -1692,7 +1692,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _RuntimeOptions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
 
 function pageEvents(name) {
-  return _RuntimeOptions__WEBPACK_IMPORTED_MODULE_0__["get"]('pageEvents')[name];
+  return _RuntimeOptions__WEBPACK_IMPORTED_MODULE_0__["get"]('pageEvents')[name] || [];
 }
 function appEvents() {
   return _RuntimeOptions__WEBPACK_IMPORTED_MODULE_0__["get"]('appEvents');

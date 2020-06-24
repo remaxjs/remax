@@ -208,21 +208,18 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
       .use(CopyPlugin, [[{ from: publicDirPath, to: path.join(options.cwd, options.output) }]]);
   }
 
-  function updateRuntimeOptions(options: any) {
-    virtualModules.writeModule(
-      runtimeOptionsPath,
-      ejs.render(runtimeOptionsTemplate, {
-        ...runtimeOptions,
-        ...options,
-      })
-    );
-  }
-
   config.plugin('webpackbar').use(WebpackBar, [{ name: target }]);
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
   config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [options, api]);
-  config.plugin('remax-runtime-options-plugin').use(RemaxPlugins.RuntimeOptions, [options, api, updateRuntimeOptions]);
+
+  config.externals([
+    {
+      '/__remax_lifecycle_events__': `require('/__remax_lifecycle_events__')`,
+    },
+  ]);
+  config.plugin('remax-lifecycle-events-plugin').use(RemaxPlugins.LifecycleEvents, [options, api]);
+
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
 
   if (options.analyze) {
