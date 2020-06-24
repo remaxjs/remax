@@ -26,13 +26,13 @@ export default class RuntimeOptionsPlugin {
   apply(compiler: Compiler) {
     compiler.hooks.thisCompilation.tap(PLUGIN_NAME, (compilation: compilation.Compilation) => {
       compilation.hooks.optimizeChunks.tap(PLUGIN_NAME, chunks => {
-        compilation.assets['/__remax_runtime_options__.js'] = new OriginalSource(
+        compilation.assets['__remax_runtime_options__.js'] = new OriginalSource(
           `module.exports = {
           hostComponents: ${this.stringifyHostComponents()},
           pageEvents: ${this.stringifyPageEvents(chunks)},
           appEvents: ${this.stringifyAppEvents()}
         }`,
-          '/__remax_runtime_options__.js'
+          '__remax_runtime_options__.js'
         );
       });
     });
@@ -45,10 +45,6 @@ export default class RuntimeOptionsPlugin {
       const chunk = chunks.find(c => {
         return c.name === page.name;
       });
-
-      if (!chunk) {
-        return;
-      }
 
       // TODO: 应该有更好的获取 modules 的方式？
       const modules = getModules(chunk);

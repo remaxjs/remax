@@ -4,8 +4,8 @@ import { usePageEvent } from 'remax/macro';
 import './module';
 
 export default () => {
-  usePageEvent('onShow', () => {
-    console.log('on show');
+  usePageEvent('onPageScroll', () => {
+    console.log('on page scroll');
   });
 
   return <View>view</View>;
