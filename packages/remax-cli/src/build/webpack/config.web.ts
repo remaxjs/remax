@@ -94,7 +94,7 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
 
   config.plugin('html-webpack-plugin').use(HtmlWebpackPlugin, [
     {
-      template: path.resolve(__dirname, '../../../template/index.html.ejs'),
+      template: path.join(options.cwd, appConfig.rootTemplate) || path.resolve(__dirname, '../../../template/index.html.ejs'),
     },
   ]);
 

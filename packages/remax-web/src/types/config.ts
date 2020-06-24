@@ -63,6 +63,15 @@ export interface AppConfig {
      */
     items: TabItem[];
   };
+  /**
+   * rootTemplate 自定义根模板路径（从项目根目录查找）
+   */
+  rootTemplate?: string;
+  /**
+   * 默认值：remax-app
+   * 根节点id
+   */
+  rootId?: string;
 }
 
 /** 页面配置文件 */

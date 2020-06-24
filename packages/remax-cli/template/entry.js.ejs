@@ -22,6 +22,7 @@ RuntimeOptions.apply({ history });
 
 
 <% const tabBarConfig = appConfig.tabBar %>
+<% const rootId = appConfig.rootId || 'remax-app' %>
 <% const hasTabBar = tabBarConfig && tabBarConfig.items && tabBarConfig.items.length > 0; %>
 
 const AppConfig = createAppConfig(App);
@@ -83,5 +84,5 @@ render(
     <% } %>
     </Router>
   </AppConfig>,
-  document.getElementById('remax-app'),
+  document.getElementById('<%- rootId %>'),
 );
