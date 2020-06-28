@@ -74,6 +74,7 @@ export default async function build(app: string, target: Platform, options: Part
       '@remax/toutiao': JSON.stringify('@remax/toutiao'),
       'remax/router': JSON.stringify('remax/router'),
       'remax/web': JSON.stringify('remax/web'),
+      '/__remax_runtime_options__': `require('/__remax_runtime_options__')`,
     },
   ];
 

@@ -3,17 +3,7 @@ import { NodePath } from '@babel/traverse';
 import { slash } from '@remax/shared';
 import { appClassEvents } from '../webpack/plugins/RuntimeOptions';
 
-// TODO: 和 runtime 同步
-const lifecycleEvents = [
-  'onLaunch',
-  'onShow',
-  'onHide',
-  'onError',
-  'onShareAppMessage',
-  'onPageNotFound',
-  'onUnhandledRejection',
-  'onThemeChange',
-];
+const lifecycleEvents = ['onShareAppMessage'];
 
 export default (appFilename: string) => {
   let skip = false;

@@ -5,27 +5,7 @@ import { pageClassEvents } from '../webpack/plugins/RuntimeOptions';
 import { Options } from '@remax/types';
 import { slash } from '@remax/shared';
 
-// TODO: 和 runtime 同步
-const lifecycleEvents = [
-  'onLoad',
-  'onShow',
-  'onHide',
-  'onReady',
-  'onPullDownRefresh',
-  'onReachBottom',
-  'onPageScroll',
-  'onShareAppMessage',
-  'onTitleClick',
-  'onOptionMenuClick',
-  'onPopMenuClick',
-  'onPullIntercept',
-  'onBack',
-  'onKeyboardHeight',
-  'onTabItemTap',
-  'beforeTabItemTap',
-  'onResize',
-  'onUnload',
-];
+const lifecycleEvents = ['onPageScroll', 'onShareAppMessage'];
 
 export default (options: Options) => {
   let skip = false;

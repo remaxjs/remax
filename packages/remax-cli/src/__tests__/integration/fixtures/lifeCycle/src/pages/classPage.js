@@ -3,9 +3,9 @@ import { View } from 'remax';
 import hoc from './hoc';
 
 class ClassPage extends React.Component {
-  onShow() {}
+  onPageScroll() {}
 
-  onHide = () => {};
+  onShareAppMessage = () => {};
 
   render() {
     return <View>class page</View>;

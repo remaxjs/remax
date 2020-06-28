@@ -1,4 +1,6 @@
 import PluginDriver from './PluginDriver';
+import merge from 'lodash.merge';
+
 interface RuntimeOptions {
   pxToRpx: boolean;
   debug: boolean;
@@ -20,10 +22,7 @@ let runtimeOptions: RuntimeOptions = {
 };
 
 export function apply(options: RuntimeOptions) {
-  runtimeOptions = {
-    ...runtimeOptions,
-    ...options,
-  };
+  runtimeOptions = merge(runtimeOptions, options);
 }
 
 export function get(key: keyof RuntimeOptions) {
