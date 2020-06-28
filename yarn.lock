@@ -2682,10 +2682,10 @@
     object-assign "^4.1.1"
     postcss "^6.0.19"
 
-"@remax/react-devtools-core@^4.7.0":
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/@remax/react-devtools-core/-/react-devtools-core-4.7.0.tgz#ba643d7220a654f136d9bb9fdf47cf4c1e6c2f2a"
-  integrity sha512-KY8kIuJADkTMOe+o0wozhHD+2Fp7503j1MVe3Ndt3aVhGS9bRVwkQ+mA+v0SXxfmA77cD14LYCTPdHDKiYlpRg==
+"@remax/react-devtools-core@^4.7.1":
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/@remax/react-devtools-core/-/react-devtools-core-4.7.1.tgz#e1caacf8b83733db65111b4c6800b7c6f67a85d4"
+  integrity sha512-9kS22dkKvgOmOjVwfkOeLJWxr9XwY2HTbhErdfHPQDnCtHN9RUoloeGfWoXo11tKs/EzpH6GProbM9uVBCzqLQ==
   dependencies:
     shell-quote "^1.6.1"
     ws "^7"

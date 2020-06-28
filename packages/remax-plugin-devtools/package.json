@@ -29,7 +29,7 @@
     "url": "https://github.com/remaxjs/remax/issues"
   },
   "dependencies": {
-    "@remax/react-devtools-core": "^4.7.0",
+    "@remax/react-devtools-core": "^4.7.1",
     "@remax/shared": "2.5.5",
     "webpack-inject-plugin": "^1.5.4"
   }
