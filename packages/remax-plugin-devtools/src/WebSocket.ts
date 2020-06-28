@@ -17,35 +17,36 @@ export default class WebSocket {
   onerror?: any;
   onclose?: any;
   onmessage?: any;
+  ws: any;
 
   constructor(url: string) {
     this.readyState = ReadyState.CONNECTING;
 
-    global.connectSocket({
+    this.ws = global.connectSocket({
       url,
     });
 
-    global.onSocketOpen(() => {
+    this.ws.onOpen(() => {
       this.readyState = ReadyState.OPEN;
       if (typeof this.onopen === 'function') {
         this.onopen();
       }
     });
 
-    global.onSocketError((res: any) => {
+    this.ws.onError((res: any) => {
       if (typeof this.onerror === 'function') {
         this.onerror(res);
       }
     });
 
-    global.onSocketClose(() => {
+    this.ws.onClose(() => {
       this.readyState = ReadyState.CLOSED;
       if (typeof this.onclose === 'function') {
         this.onclose();
       }
     });
 
-    global.onSocketMessage((res: any) => {
+    this.ws.onMessage((res: any) => {
       if (typeof this.onmessage === 'function') {
         this.onmessage(res);
       }
@@ -53,7 +54,7 @@ export default class WebSocket {
   }
 
   send(payload: any) {
-    global.sendSocketMessage({
+    this.ws.send({
       data: payload,
     });
   }
