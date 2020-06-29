@@ -113,11 +113,14 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
   config
     .plugin('remix-web-entry-watcher-plugin')
     .use(RemixPlugins.WebEntryWatcher, [virtualModules, entryTemplate, options, api]);
-  config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [
-    {
-      filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].css' : '[name].css',
-    },
-  ]);
+
+  if (!options.watch) {
+    config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [
+      {
+        filename: process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].css' : '[name].css',
+      },
+    ]);
+  }
 
   const context = {
     config,
