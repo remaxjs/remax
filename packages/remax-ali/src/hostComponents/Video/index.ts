@@ -5,7 +5,7 @@ export interface VideoProps {
   id?: string;
   className?: string;
   poster?: string;
-  objectFit?: 'contain' | 'fill';
+  objectFit?: 'contain' | 'fill' | 'cover';
   initialTime?: number;
   duration?: number;
   controls?: boolean;
