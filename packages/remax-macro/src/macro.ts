@@ -37,9 +37,39 @@ export declare function requirePluginComponent<P = any>(pluginName: string): Rea
 
 export declare function requirePlugin<P = any>(pluginName: string): P;
 
-export declare function usePageEvent(eventName: string, callback: (...params: any[]) => any): void;
+type PageEventName =
+  | 'onLoad'
+  | 'onShow'
+  | 'onHide'
+  | 'onReady'
+  | 'onPullDownRefresh'
+  | 'onReachBottom'
+  | 'onPageScroll'
+  | 'onShareAppMessage'
+  | 'onTitleClick'
+  | 'onOptionMenuClick'
+  | 'onPopMenuClick'
+  | 'onPullIntercept'
+  | 'onBack'
+  | 'onKeyboardHeight'
+  | 'onTabItemTap'
+  | 'beforeTabItemTap'
+  | 'onResize'
+  | 'onUnload';
 
-export declare function useAppEvent(eventName: string, callback: (...params: any[]) => any): void;
+type AppEventName =
+  | 'onLaunch'
+  | 'onShow'
+  | 'onHide'
+  | 'onError'
+  | 'onShareAppMessage'
+  | 'onPageNotFound'
+  | 'onUnhandledRejection'
+  | 'onThemeChange';
+
+export declare function usePageEvent(eventName: PageEventName, callback: (...params: any[]) => any): void;
+
+export declare function useAppEvent(eventName: AppEventName, callback: (...params: any[]) => any): void;
 
 export { hostComponents, nativeComponents, registerNativeComponent, pageEvents, appEvents };
 
