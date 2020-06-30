@@ -22,7 +22,7 @@ export const alias = {
   onAnimationIteration: 'bindanimationiteration',
   onAnimationStart: 'bindanimationstart',
   onAnimationEnd: 'bindanimationend',
-  catchTouchMove: 'catchTouchMove',
+  catchTouchMove: 'catchtouchmove',
 };
 
 export const props = Object.values(alias);

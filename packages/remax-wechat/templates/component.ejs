@@ -1,6 +1,12 @@
 <template name="REMAX_TPL_<%=templateId%>_<%=id%>">
   <%_ function propsKeyTpl(props, filter) {
-    if (filter) props = props.filter(key => key !== 'catchtouchmove');
+    // 互斥事件
+    if (filter) {
+      props = props.filter(key => key !== 'catchtouchmove') 
+    } else {
+      props = props.filter(key => key !== 'bindtouchmove')
+    }
+
     return props
       .map(key => `${key}="{{_h.v(i.props['${key}'])}}"`)
       .join('\n')
