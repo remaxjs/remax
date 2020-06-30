@@ -142,19 +142,6 @@ export default () => {
 
 > 注意：上面的例子中的 `src/api/showToast/index.js` 是必须的，也就是说不能只提供带有平台后缀的文件。
 
-> 注意：由于微信的限制，在同构组件时，微信端的代码需要在 jsx 中写明：
-
-```jsx
-// src/components/Checkbox/index.wechat.js
-import * as React from 'react';
-import { Checkbox } from 'remax/wechat';
-
-// 受限于微信的静态约束，必须在同构文件中写明你使用了从 remax 导出的组件
-export default function WechatCheckbox(props) {
-  return <Checkbox {...props} />;
-}
-```
-
 ## 使用环境变量区分不同平台的代码
 
 你还可以在代码中直接通过 `process.env.REMAX_PLATFORM` 区分平台。例如：

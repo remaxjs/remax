@@ -1,6 +1,13 @@
 import * as React from 'react';
-import { View, Text } from 'remax/one';
+import { useQuery } from 'remax';
+import { View } from 'remax/one';
 
 export default () => {
-  return <View>page two</View>;
+  const query = useQuery();
+  return (
+    <View>
+      page two
+      <View>{query.q}</View>
+    </View>
+  );
 };

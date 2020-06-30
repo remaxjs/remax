@@ -86,7 +86,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
       },
     },
   });
-  config.optimization.minimize(false);
+  config.optimization.minimize(options.minimize ?? false);
 
   config.module
     .rule('config')
@@ -180,12 +180,24 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .use('file')
     .loader(require.resolve('file-loader'));
 
-  const pluginTemplate = fs.readFileSync(path.resolve(__dirname, '../../../template/plugin.js.ejs'), 'utf-8');
-  const pluginPath = slash('node_modules/@remax/runtime-plugin.js');
+  const runtimeOptionsTemplate = fs.readFileSync(
+    path.resolve(__dirname, '../../../template/apply-runtime-options.js.ejs'),
+    'utf-8'
+  );
+  const runtimeOptionsPath = slash('node_modules/@remax/apply-runtime-options.js');
+  config.entry(app.name).prepend('@remax/apply-runtime-options');
+
+  const runtimeOptions = {
+    pxToRpx: options.pxToRpx,
+    debug: !!process.env.REMAX_DEBUG,
+    pluginFiles: api.getRuntimePluginFiles(),
+    hostComponents: '[]',
+    pageEvents: '{}',
+    appEvents: '[]',
+  };
+
   const virtualModules = new VirtualModulesPlugin({
-    [pluginPath]: ejs.render(pluginTemplate, {
-      pluginFiles: api.getRuntimePluginFiles(),
-    }),
+    [runtimeOptionsPath]: ejs.render(runtimeOptionsTemplate, runtimeOptions),
   });
   config.plugin('webpack-virtual-modules').use(virtualModules);
 
@@ -200,7 +212,14 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
   config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [options, api]);
-  config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options, api]);
+
+  config.externals([
+    {
+      '/__remax_runtime_options__': `require('/__remax_runtime_options__')`,
+    },
+  ]);
+  config.plugin('remax-runtime-options-plugin').use(RemaxPlugins.RuntimeOptions, [options, api]);
+
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
 
   if (options.analyze) {

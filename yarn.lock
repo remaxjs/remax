@@ -258,10 +258,10 @@
   dependencies:
     "@babel/types" "^7.10.1"
 
-"@babel/helper-validator-identifier@^7.10.1", "@babel/helper-validator-identifier@^7.9.5":
-  version "7.10.1"
-  resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.10.1.tgz#5770b0c1a826c4f53f5ede5e153163e0318e94b5"
-  integrity sha512-5vW/JXLALhczRCWP0PnFDMCJAchlBvM7f4uk/jXritBnIa6E1KmqmtrS3yn1LAnxFBypQ3eneLuXjsnfQsgILw==
+"@babel/helper-validator-identifier@^7.10.1", "@babel/helper-validator-identifier@^7.10.3", "@babel/helper-validator-identifier@^7.9.5":
+  version "7.10.3"
+  resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.10.3.tgz#60d9847f98c4cea1b279e005fdb7c28be5412d15"
+  integrity sha512-bU8JvtlYpJSBPuj1VUmKpFGaDZuLxASky3LhaKj3bmpSTY6VWooSM8msk+Z0CZoErFye2tlABF6yDkT3FOPAXw==
 
 "@babel/helper-wrap-function@^7.10.1":
   version "7.10.1"
@@ -1227,11 +1227,11 @@
     to-fast-properties "^2.0.0"
 
 "@babel/types@^7.0.0", "@babel/types@^7.10.0", "@babel/types@^7.10.1", "@babel/types@^7.10.2", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.4.0", "@babel/types@^7.4.4", "@babel/types@^7.7.2", "@babel/types@^7.7.4", "@babel/types@^7.8.0", "@babel/types@^7.9.0", "@babel/types@^7.9.5":
-  version "7.10.2"
-  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.10.2.tgz#30283be31cad0dbf6fb00bd40641ca0ea675172d"
-  integrity sha512-AD3AwWBSz0AWF0AkCN9VPiWrvldXq+/e3cHa4J89vo4ymjz1XwrBFFVZmkJTsQIPNk+ZVomPSXUJqq8yyjZsng==
+  version "7.10.3"
+  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.10.3.tgz#6535e3b79fea86a6b09e012ea8528f935099de8e"
+  integrity sha512-nZxaJhBXBQ8HVoIcGsf9qWep3Oh3jCENK54V4mRF7qaJabVsAYdbTtmSD8WmAp1R6ytPiu5apMwSXyxB1WlaBA==
   dependencies:
-    "@babel/helper-validator-identifier" "^7.10.1"
+    "@babel/helper-validator-identifier" "^7.10.3"
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
@@ -2682,10 +2682,10 @@
     object-assign "^4.1.1"
     postcss "^6.0.19"
 
-"@remax/react-devtools-core@^4.7.0":
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/@remax/react-devtools-core/-/react-devtools-core-4.7.0.tgz#ba643d7220a654f136d9bb9fdf47cf4c1e6c2f2a"
-  integrity sha512-KY8kIuJADkTMOe+o0wozhHD+2Fp7503j1MVe3Ndt3aVhGS9bRVwkQ+mA+v0SXxfmA77cD14LYCTPdHDKiYlpRg==
+"@remax/react-devtools-core@^4.7.1":
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/@remax/react-devtools-core/-/react-devtools-core-4.7.1.tgz#e1caacf8b83733db65111b4c6800b7c6f67a85d4"
+  integrity sha512-9kS22dkKvgOmOjVwfkOeLJWxr9XwY2HTbhErdfHPQDnCtHN9RUoloeGfWoXo11tKs/EzpH6GProbM9uVBCzqLQ==
   dependencies:
     shell-quote "^1.6.1"
     ws "^7"
@@ -3118,6 +3118,18 @@
     "@types/node" "*"
     "@types/webpack" "*"
 
+"@types/lodash.merge@^4.6.6":
+  version "4.6.6"
+  resolved "https://registry.yarnpkg.com/@types/lodash.merge/-/lodash.merge-4.6.6.tgz#b84b403c1d31bc42d51772d1cd5557fa008cd3d6"
+  integrity sha512-IB90krzMf7YpfgP3u/EvZEdXVvm4e3gJbUvh5ieuI+o+XqiNEt6fCzqNRaiLlPVScLI59RxIGZMQ3+Ko/DJ8vQ==
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*":
+  version "4.14.156"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.156.tgz#cbe30909c89a1feeb7c60803e785344ea0ec82d1"
+  integrity sha512-l2AgHXcKUwx2DsvP19wtRPqZ4NkONjmorOdq4sMcxIjqdIuuV/ULo2ftuv4NUpevwfW7Ju/UKLqo0ZXuEt/8lQ==
+
 "@types/lodash@4.14.150":
   version "4.14.150"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.150.tgz#649fe44684c3f1fcb6164d943c5a61977e8cf0bd"
@@ -3257,17 +3269,10 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
 
-"@types/puppeteer@*":
+"@types/puppeteer@*", "@types/puppeteer@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/puppeteer/-/puppeteer-3.0.0.tgz#24cdcc131e319477608d893f0017e08befd70423"
   integrity sha512-59+fkfHHXHzX5rgoXIMnZyzum7ZLx/Wc3fhsOduFThpTpKbzzdBHMZsrkKGLunimB4Ds/tI5lXTRLALK8Mmnhg==
-  dependencies:
-    "@types/node" "*"
-
-"@types/puppeteer@^2.0.0":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@types/puppeteer/-/puppeteer-2.1.1.tgz#dfbec9de3db4328ec9b66ab2cbb1875033bc22f6"
-  integrity sha512-FqPZvUtnpTGrqbHvPUn76pvVcBPEVEqZftrdOjr6YRkaaxkjKQ8dQLNaQBjER7Lvd1Q6+0R0XR+N3tYGWBSzNw==
   dependencies:
     "@types/node" "*"
 
@@ -11452,9 +11457,9 @@ less-loader@5.0.0:
     pify "^4.0.1"
 
 less-loader@^6.0.0:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/less-loader/-/less-loader-6.1.1.tgz#cb17cc2b7acba46e5d6932416e0ba8fa5964fcfe"
-  integrity sha512-K8WPJLbQZPszy4RD9Tsruyre4zrvEo8kE4yFfg7Gnr2H4DuYBxmNACul4UOy3wlEMBHeBElLmVLZaxaSGuL5Bw==
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/less-loader/-/less-loader-6.1.2.tgz#793f2ab76dea3c4fca6a27f3effceab16fc3cd9a"
+  integrity sha512-80g+EURm8H98wirYTNnIJMxVnJU9NYIXRs7rxsghL8C+UyuGzsqDXPgQcLUrNlItMwUviYeBfSOEyULI6iza+g==
   dependencies:
     clone "^2.1.2"
     less "^3.11.3"
@@ -11715,6 +11720,11 @@ lodash.memoize@4.1.2, lodash.memoize@4.x, lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
+
+lodash.merge@^4.6.2:
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
+  integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
 lodash.mergewith@^4.6.2:
   version "4.6.2"
@@ -14855,9 +14865,9 @@ react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-i
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
 react-lazyload@^2.6.7:
-  version "2.6.7"
-  resolved "https://registry.yarnpkg.com/react-lazyload/-/react-lazyload-2.6.7.tgz#9f5df01858ca11780ecf6be39ed9b17d845e7349"
-  integrity sha512-IauJMTOuO73egkBQ/brm0uVMMyxo/2LWCnnzjh7FlvxRMy4P1D5ZjZX9UBMCKRJUqJD441uT+n0hEXlfcjcm8g==
+  version "2.6.8"
+  resolved "https://registry.yarnpkg.com/react-lazyload/-/react-lazyload-2.6.8.tgz#bbe750102fb249ac78061f8284b557e6e6e71c72"
+  integrity sha512-21iCBeqe8FSjgRxYuf0lt0iyiT451+No9kHHJO/TdyeH2oLoabpMX/mBG81BQBQ17S8pqfD/13YSihw1zWBzhw==
 
 react-reconciler@0.25.1, react-reconciler@^0.25.1:
   version "0.25.1"

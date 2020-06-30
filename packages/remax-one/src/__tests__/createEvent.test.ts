@@ -245,6 +245,7 @@ describe('create event', () => {
           "touches": Array [],
           "type": "event",
         },
+        "stopPropagation": undefined,
         "target": Object {
           "dataset": Object {},
           "id": 1,

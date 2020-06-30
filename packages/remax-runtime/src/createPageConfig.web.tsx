@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { PullToRefresh } from '@remax/web';
-import qs from 'qs';
 import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName } from './lifecycle';
 
@@ -52,7 +51,6 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     constructor(props: any) {
       super(props);
 
-      page.query = qs.parse(window.location.search.replace(/^\?/, ''));
       props.cacheLifecycles.didCache(this.componentDidCache);
       props.cacheLifecycles.didRecover(this.componentDidRecover);
     }

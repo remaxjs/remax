@@ -40,6 +40,7 @@ export const createTapEvent = (originalEvent: any): TapEvent => ({
 
 export const createTouchEvent = (originalEvent: any): TouchEvent => ({
   type: originalEvent.type,
+  stopPropagation: originalEvent.stopPropagation,
   target: createTarget(originalEvent.target, originalEvent.detail),
   currentTarget: createCurrentTarget(originalEvent.currentTarget),
   touches: originalEvent.touches,

@@ -2,9 +2,10 @@
   "name": "@remax/runtime",
   "version": "2.5.5",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
-  "main": "cjs",
-  "module": "esm",
-  "types": "cjs/index.d.ts",
+  "main": "./cjs/index.js",
+  "esnext": "./esm/index.js",
+  "module": "./esm/index.js",
+  "typings": "./esm/index.d.ts",
   "keywords": [
     "react",
     "miniapp",
@@ -34,6 +35,7 @@
   "dependencies": {
     "@remax/types": "2.5.5",
     "@remax/web": "2.5.5",
+    "lodash.merge": "^4.6.2",
     "qs": "^6.9.3",
     "react-reconciler": "0.25.1",
     "scheduler": "0.19.1"
@@ -41,6 +43,7 @@
   "devDependencies": {
     "@remax/shared": "2.5.5",
     "@types/jest": "^26.0.0",
+    "@types/lodash.merge": "^4.6.6",
     "@types/node": "^14.0.1",
     "@types/react": "^16.9.33",
     "@types/react-reconciler": "^0.18.0",

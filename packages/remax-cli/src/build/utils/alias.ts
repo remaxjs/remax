@@ -10,8 +10,6 @@ export default (options: Options, target: Platform) => {
     '@': path.resolve(options.cwd, options.rootDir),
     // 防止 link 开发时加载多个 React
     react: path.resolve(options.cwd, 'node_modules', 'react'),
-    // 配合 webpack-virtual-modules
-    '@remax/runtime-plugin': path.join(options.cwd, 'node_modules/@remax/runtime-plugin.js'),
   };
 
   if (target !== Platform.web) {

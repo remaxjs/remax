@@ -1,10 +1,10 @@
 import plainStyle from './utils/plainStyle';
-import { hostComponents } from './createHostComponent';
+import * as RuntimeOptions from './RuntimeOptions';
 
 export function getAlias(prop: string, type: string) {
   prop = prop.replace('className', 'class');
 
-  const hostComponent = hostComponents[type];
+  const hostComponent = RuntimeOptions.get('hostComponents')[type];
 
   const prefix = `${process.env.REMAX_PLATFORM}-`;
 
