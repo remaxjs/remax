@@ -98,10 +98,10 @@
     istanbul-lib-coverage "^2.0.1"
     semver "^5.5.0"
 
-"@alipay/remix-appx-components@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.npm.alibaba-inc.com/@alipay/remix-appx-components/download/@alipay/remix-appx-components-0.0.1.tgz#fdf41489110ba2c91fc1d26bb3effc9d97f491c2"
-  integrity sha1-/fQUiRELoskfwdJrs+/8nZf0kcI=
+"@alipay/remix-appx-components@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.npm.alibaba-inc.com/@alipay/remix-appx-components/download/@alipay/remix-appx-components-0.0.2.tgz#4f48fffea866a5e5ac6490c69913d50d93d8a796"
+  integrity sha1-T0j//qhmpeWsZJDGmRPVDZPYp5Y=
   dependencies:
     "@ali/anima-router" "^1.0.5"
     "@babel/runtime" "^7.8.7"
@@ -5983,11 +5983,6 @@ babel-plugin-transform-regenerator@^6.24.1:
   integrity sha1-4HA2lvveJ/Cj78rPi03KL3s6jy8=
   dependencies:
     regenerator-transform "^0.10.0"
-
-babel-plugin-transform-rename-import@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.npm.alibaba-inc.com/babel-plugin-transform-rename-import/download/babel-plugin-transform-rename-import-2.3.0.tgz#5d9d645f937b0ca5c26a24b2510a06277b6ffd9b"
-  integrity sha1-XZ1kX5N7DKXCaiSyUQoGJ3tv/Zs=
 
 babel-plugin-transform-runtime@^6.23.0:
   version "6.23.0"

@@ -9,7 +9,5 @@ export {
   unstable_batchedUpdates,
 } from '@alipay/remix-runtime';
 
-import 'mini-types/types/app';
-import 'mini-types/types/page';
 import 'mini-types/types/api';
 export * from '@alipay/remix-ali';
