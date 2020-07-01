@@ -25,7 +25,7 @@ var pluginDriver = new _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver
   return p.default || p;
 }));
 _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["RuntimeOptions"].apply({
-  platform: wechat,
+  platform: "wechat",
   debug: false,
   pxToRpx: true,
   pluginDriver: pluginDriver,
