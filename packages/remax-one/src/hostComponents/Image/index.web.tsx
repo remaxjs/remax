@@ -6,8 +6,10 @@ import clsx from 'clsx';
 
 export type ImageProps = ImageWebProps;
 
-const Image: React.FC<ImageWebProps> = props => {
-  const { className, src, style, mode, onTap, onLoad, onError, ...restProps } = filterProps<ImageWebProps>(props);
+const Image: React.ForwardRefRenderFunction<any, ImageWebProps> = (props, ref) => {
+  const { className, src, style, mode = 'scaleToFill', onTap, onLoad, onError, ...restProps } = filterProps<
+    ImageWebProps
+  >(props);
   const isWidthFixMode = mode === 'widthFix';
 
   return (
@@ -16,7 +18,7 @@ const Image: React.FC<ImageWebProps> = props => {
       onClick={onTap}
       className={clsx('remax-image', className)}
       style={{
-        ...modeStyle[mode || 'scaleToFill'],
+        ...modeStyle[mode],
         backgroundImage: `url(${src})`,
         backgroundRepeat: `no-repeat`,
         ...style,
@@ -24,6 +26,7 @@ const Image: React.FC<ImageWebProps> = props => {
     >
       <img
         src={src}
+        ref={ref}
         style={{
           visibility: 'hidden',
           width: isWidthFixMode ? '100%' : undefined,
@@ -35,8 +38,4 @@ const Image: React.FC<ImageWebProps> = props => {
     </div>
   );
 };
-export default Image;
-
-Image.defaultProps = {
-  mode: 'scaleToFill',
-};
+export default React.forwardRef(Image);
