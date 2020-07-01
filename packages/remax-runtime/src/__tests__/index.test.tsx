@@ -8,6 +8,8 @@ import Container from '../Container';
 import createPageWrapper from '../createPageWrapper';
 // eslint-disable-next-line @typescript-eslint/camelcase
 import { useNativeEffect, usePageInstance } from '../hooks';
+import { RuntimeOptions } from '..';
+import { Platform } from '@remax/types';
 
 function delay(ms: number) {
   if (typeof ms !== 'number') {
@@ -42,10 +44,12 @@ const p = {
 
 describe('ali remax render', () => {
   beforeEach(() => {
-    process.env.REMAX_PLATFORM = 'ali';
+    RuntimeOptions.apply({
+      platform: Platform.ali,
+    });
   });
   afterEach(() => {
-    process.env.REMAX_PLATFORM = '';
+    RuntimeOptions.reset();
     resetInstanceId();
   });
 
@@ -460,90 +464,102 @@ it('useEffect works', done => {
   render(<Page />, container);
 });
 
-it('pure rerender when props changed', done => {
-  const payload: any[] = [];
-  const context = {
-    setData: (data: any) => {
-      payload.push(data);
-    },
-  };
+describe('flatten update', () => {
+  beforeAll(() => {
+    RuntimeOptions.apply({
+      platform: Platform.wechat,
+    });
+  });
 
-  class Page extends React.Component {
-    state = {
-      value: 'foo',
+  afterAll(() => {
+    RuntimeOptions.reset();
+  });
+
+  it('pure rerender when props changed', done => {
+    const payload: any[] = [];
+    const context = {
+      setData: (data: any) => {
+        payload.push(data);
+      },
     };
 
-    setValue(value: string) {
-      this.setState({ value });
-    }
+    class Page extends React.Component {
+      state = {
+        value: 'foo',
+      };
 
-    render() {
-      return (
-        <View style={{ width: '32px' }}>
-          <Input value={this.state.value} />
-        </View>
-      );
-    }
-  }
-  const container = new Container(context);
-  const page = React.createRef<any>();
-  render(<Page ref={page} />, container);
-
-  expect.assertions(2);
-
-  page.current.setValue('bar');
-
-  setTimeout(() => {
-    expect(payload).toHaveLength(2);
-    expect(payload[1]).toMatchInlineSnapshot(`
-      Object {
-        "root.nodes.7.nodes.6.props.value": "bar",
+      setValue(value: string) {
+        this.setState({ value });
       }
-    `);
-    done();
-  }, 5);
-});
 
-it('pure rerender when props delete', done => {
-  const payload: any[] = [];
-  const context = {
-    setData: (data: any) => {
-      payload.push(data);
-    },
-  };
+      render() {
+        return (
+          <View style={{ width: '32px' }}>
+            <Input value={this.state.value} />
+          </View>
+        );
+      }
+    }
+    const container = new Container(context);
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, container);
 
-  class Page extends React.Component {
-    state = {
-      value: 'foo',
+    expect.assertions(2);
+
+    page.current.setValue('bar');
+
+    setTimeout(() => {
+      expect(payload).toHaveLength(2);
+      expect(payload[1]).toMatchInlineSnapshot(`
+        Object {
+          "root.nodes.7.nodes.6.props.value": "bar",
+        }
+      `);
+      done();
+    }, 5);
+  });
+
+  it('pure rerender when props delete', done => {
+    const payload: any[] = [];
+    const context = {
+      setData: (data: any) => {
+        payload.push(data);
+      },
     };
 
-    setValue(value: string) {
-      this.setState({ value });
-    }
+    class Page extends React.Component {
+      state = {
+        value: 'foo',
+      };
 
-    render() {
-      return (
-        <View style={{ width: '32px' }}>{!this.state.value ? <Input /> : <Input value={this.state.value} />}</View>
-      );
-    }
-  }
-  const container = new Container(context);
-  const page = React.createRef<any>();
-  render(<Page ref={page} />, container);
-
-  expect.assertions(2);
-
-  page.current.setValue(undefined);
-
-  setTimeout(() => {
-    expect(payload).toHaveLength(2);
-    expect(payload[1]).toMatchInlineSnapshot(`
-      Object {
-        "root.nodes.10.nodes.9.props.value": null,
+      setValue(value: string) {
+        this.setState({ value });
       }
-    `);
-    done();
-  }, 5);
+
+      render() {
+        return (
+          <View style={{ width: '32px' }}>{!this.state.value ? <Input /> : <Input value={this.state.value} />}</View>
+        );
+      }
+    }
+    const container = new Container(context);
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, container);
+
+    expect.assertions(2);
+
+    page.current.setValue(undefined);
+
+    setTimeout(() => {
+      expect(payload).toHaveLength(2);
+      expect(payload[1]).toMatchInlineSnapshot(`
+        Object {
+          "root.nodes.10.nodes.9.props.value": null,
+        }
+      `);
+      done();
+    }, 5);
+  });
 });
 
 it('useNativeEffect once works', done => {

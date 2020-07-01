@@ -1,7 +1,9 @@
-import PluginDriver from './PluginDriver';
 import merge from 'lodash.merge';
+import { Platform } from '@remax/types';
+import PluginDriver from './PluginDriver';
 
 interface RuntimeOptions {
+  platform: Platform | '';
   pxToRpx: boolean;
   debug: boolean;
   hostComponents: any;
@@ -11,7 +13,8 @@ interface RuntimeOptions {
   history: any;
 }
 
-let runtimeOptions: RuntimeOptions = {
+const defaultRuntimeOptions: RuntimeOptions = {
+  platform: '',
   pxToRpx: true,
   hostComponents: {},
   debug: false,
@@ -21,10 +24,16 @@ let runtimeOptions: RuntimeOptions = {
   history: {},
 };
 
-export function apply(options: RuntimeOptions) {
+let runtimeOptions = defaultRuntimeOptions;
+
+export function apply(options: Partial<RuntimeOptions>) {
   runtimeOptions = merge(runtimeOptions, options);
 }
 
 export function get(key: keyof RuntimeOptions) {
   return runtimeOptions[key];
+}
+
+export function reset() {
+  runtimeOptions = defaultRuntimeOptions;
 }

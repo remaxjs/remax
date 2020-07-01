@@ -6,6 +6,8 @@ import { reset as resetInstanceId } from '../instanceId';
 import Container from '../Container';
 // eslint-disable-next-line @typescript-eslint/camelcase
 import { useNativeEffect } from '../hooks';
+import { Platform } from '@remax/types';
+import { RuntimeOptions } from '..';
 
 const p = {
   setData(state: any, callback: Function) {
@@ -19,10 +21,13 @@ const p = {
 
 describe('remax render', () => {
   beforeAll(() => {
-    process.env.REMAX_PLATFORM = 'toutiao';
+    RuntimeOptions.apply({
+      platform: Platform.toutiao,
+    });
   });
 
   afterEach(() => {
+    RuntimeOptions.reset();
     resetInstanceId();
   });
 
