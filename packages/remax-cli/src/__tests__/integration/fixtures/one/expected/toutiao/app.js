@@ -25,6 +25,8 @@ var pluginDriver = new _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver
   return p.default || p;
 }));
 _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["RuntimeOptions"].apply({
+  platform: toutiao,
+  debug: false,
   pxToRpx: true,
   pluginDriver: pluginDriver,
   hostComponents: _remax_runtime_options___WEBPACK_IMPORTED_MODULE_1__["hostComponents"],
