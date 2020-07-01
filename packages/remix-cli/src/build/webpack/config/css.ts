@@ -24,7 +24,11 @@ export function addCSSRule(webpackConfig: Config, options: Options, web: boolean
   const rule = webpackConfig.module.rule(ruleConfig.name).test(ruleConfig.test);
 
   function applyLoaders(rule: Config.Rule<Config.Rule<Config.Module>>, cssModules: boolean) {
-    rule.use('mini-css-extract-loader').loader(MiniCssExtractPlugin.loader);
+    if (options.watch && web) {
+      rule.use('style-loader').loader(require.resolve('style-loader'));
+    } else {
+      rule.use('mini-css-extract-loader').loader(MiniCssExtractPlugin.loader);
+    }
 
     rule
       .use('css-loader')
