@@ -190,6 +190,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   const runtimeOptions = {
     pxToRpx: options.pxToRpx,
     debug: !!process.env.REMAX_DEBUG,
+    platform: options.target,
     pluginFiles: api.getRuntimePluginFiles(),
     hostComponents: '[]',
     pageEvents: '{}',

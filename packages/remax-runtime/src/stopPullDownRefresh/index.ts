@@ -1,3 +1,3 @@
-declare function stopPullDownRefresh(): void;
-
-export default stopPullDownRefresh;
+export default function stopPullDownRefresh() {
+  // do nothing
+}
