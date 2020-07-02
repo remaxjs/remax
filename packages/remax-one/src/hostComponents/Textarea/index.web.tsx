@@ -7,7 +7,7 @@ import clsx from 'clsx';
 
 export type TextareaProps = TextareaWebProps;
 
-const Textarea: React.FC<TextareaWebProps> = props => {
+const Textarea: React.ForwardRefRenderFunction<any, TextareaWebProps> = (props, ref) => {
   const { onConfirm, onKeyPress, autoHeight, className, placeholderStyle, ...restProps } = filterProps(props);
   const [placeholderStyleClassName] = useWebPlaceholderStyle(placeholderStyle);
 
@@ -27,10 +27,6 @@ const Textarea: React.FC<TextareaWebProps> = props => {
     return <TextareaAutoSize {...restProps} className={textareaClassName} onKeyPress={handleKeyPress} />;
   }
 
-  return <textarea {...restProps} className={textareaClassName} onKeyPress={handleKeyPress} />;
+  return <textarea {...restProps} className={textareaClassName} ref={ref} onKeyPress={handleKeyPress} />;
 };
-export default Textarea;
-
-Textarea.defaultProps = {
-  onChange: () => void 0,
-};
+export default React.forwardRef(Textarea);
