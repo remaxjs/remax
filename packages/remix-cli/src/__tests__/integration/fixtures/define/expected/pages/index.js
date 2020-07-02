@@ -292,12 +292,20 @@ __webpack_require__.r(__webpack_exports__);
       "x": "x",
       "y": "y",
       "disabled": "disabled",
+      "outOfBounds": "out-of-bounds",
+      "damping": "damping",
+      "friction": "friction",
+      "scale": "scale",
+      "scaleMin": "scale-min",
+      "scaleMax": "scale-max",
+      "scaleValue": "scale-value",
       "onTouchStart": "onTouchStart",
       "onTouchMove": "onTouchMove",
       "onTouchEnd": "onTouchEnd",
       "onTouchCancel": "onTouchCancel",
       "onChange": "onChange",
-      "onChangeEnd": "onChangeEnd"
+      "onChangeEnd": "onChangeEnd",
+      "onScale": "onScale"
     }
   },
   "navigator": {
