@@ -11,3 +11,9 @@ export interface RadioProps extends BaseProps {
 }
 
 export const Radio = createHostComponent<RadioProps>('radio');
+
+Radio.defaultProps = {
+  checked: false,
+  disabled: false,
+  color: '#F85959',
+};

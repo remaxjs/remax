@@ -12,3 +12,10 @@ export interface SwitchProps extends BaseProps {
 }
 
 export const Switch = createHostComponent<SwitchProps>('switch');
+
+Switch.defaultProps = {
+  checked: false,
+  disabled: false,
+  type: 'switch',
+  color: '#F85959',
+};
