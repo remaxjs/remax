@@ -57,12 +57,14 @@ $ cd my-app && yarn
 ```javascript
 // remax.config.js
 module.export = {
-  // 从 2.6.0 版本开始无需开启这个选项
-  one: true,
   // 通过环境变量区分不同平台的输出目录
   output: 'dist/' + process.env.REMAX_PLATFORM,
 };
 ```
+
+> 旧版本兼容
+>
+> 2.6.0 之前的版本需要在 remax.config.js 中配置 one: true 来开启 remax/one 特性
 
 ## 小程序配置
 

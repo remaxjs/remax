@@ -4,6 +4,7 @@ module.exports = {
     "alias": {
       "id": "id",
       "className": "class",
+      "style": "style",
       "size": "size",
       "type": "type",
       "plain": "plain",
