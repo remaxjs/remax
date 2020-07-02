@@ -13,3 +13,11 @@ export interface NavigatorProps extends BaseProps {
 }
 
 export const Navigator = createHostComponent<NavigatorProps>('navigator');
+
+Navigator.defaultProps = {
+  openType: 'navigate',
+  hoverClassName: 'navigator-hover',
+  hoverStartTime: 50,
+  hoverStayTime: 400,
+  hoverStopPropagation: false,
+};

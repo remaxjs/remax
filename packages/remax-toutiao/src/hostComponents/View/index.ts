@@ -24,3 +24,10 @@ export interface ViewProps extends BaseProps {
 }
 
 export const View = createHostComponent<ViewProps>('view');
+
+View.defaultProps = {
+  hoverClassName: 'none',
+  hoverStartTime: 50,
+  hoverStayTime: 400,
+  hoverStopPropagation: false,
+};

@@ -23,3 +23,15 @@ export interface TextareaProps extends BaseProps {
 }
 
 export const Textarea = createHostComponent<TextareaProps>('textarea');
+
+Textarea.defaultProps = {
+  disabled: false,
+  maxlength: 140,
+  focus: false,
+  autoHeight: false,
+  fixed: false,
+  cursorSpacing: 0,
+  cursor: -1,
+  selectionStart: -1,
+  selectionEnd: -1,
+};

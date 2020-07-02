@@ -14,9 +14,27 @@ export interface SwiperProps extends BaseProps {
   displayMultipleItems?: number;
   circular?: boolean;
   vertical?: boolean;
+  previousMargin?: string;
+  nextMargin?: string;
   onChange?: (e: any) => void;
   onTransition?: (e: any) => void;
   onAnimationFinish?: (e: any) => void;
 }
 
 export const Swiper = createHostComponent<SwiperProps>('swiper');
+
+Swiper.defaultProps = {
+  indicatorDots: false,
+  indicatorColor: 'rgba(0, 0, 0, 0.3)',
+  indicatorActiveColor: 'rgba(0, 0, 0, 0)',
+  autoplay: false,
+  current: 0,
+  currentItemId: '',
+  interval: 5000,
+  previousMargin: '',
+  nextMargin: '',
+  displayMultipleItems: 1,
+  duration: 500,
+  circular: false,
+  vertical: false,
+};

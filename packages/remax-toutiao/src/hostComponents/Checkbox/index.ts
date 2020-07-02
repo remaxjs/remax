@@ -11,3 +11,8 @@ export interface CheckboxProps extends BaseProps {
 }
 
 export const Checkbox = createHostComponent<CheckboxProps>('checkbox');
+
+Checkbox.defaultProps = {
+  disabled: false,
+  checked: false,
+};

@@ -32,3 +32,8 @@ export interface ImageProps extends BaseProps {
 }
 
 export const Image = createHostComponent<ImageProps>('image');
+
+Image.defaultProps = {
+  mode: 'scaleToFill',
+  lazyLoad: false,
+};

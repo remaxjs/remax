@@ -48,3 +48,8 @@ interface RegionProps {
 export type PickerProps<T> = T extends Mode ? { mode: T } & PickerPropsMap[T] : never;
 
 export const Picker = createHostComponent<PickerProps<Mode>>('picker');
+
+Picker.defaultProps = {
+  mode: 'selector',
+  disabled: false,
+};
