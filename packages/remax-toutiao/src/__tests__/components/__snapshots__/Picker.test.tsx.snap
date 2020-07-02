@@ -2,6 +2,7 @@
 
 exports[`Picker render correctly 1`] = `
 <picker
+  disabled={false}
   mode="selector"
 />
 `;

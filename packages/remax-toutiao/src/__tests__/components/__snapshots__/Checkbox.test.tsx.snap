@@ -1,3 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Checkbox render correctly 1`] = `<checkbox />`;
+exports[`Checkbox render correctly 1`] = `
+<checkbox
+  checked={false}
+  disabled={false}
+/>
+`;

@@ -2,7 +2,16 @@
 
 exports[`TextArea render correctly 1`] = `
 <textarea
+  autoHeight={false}
   className="class"
+  cursor={-1}
+  cursorSpacing={0}
+  disabled={false}
+  fixed={false}
+  focus={false}
+  maxlength={140}
+  selectionEnd={-1}
+  selectionStart={-1}
   value=""
 />
 `;
