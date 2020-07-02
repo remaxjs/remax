@@ -28,17 +28,20 @@ export default (entry: string) => {
           const declaration = path.node.declaration;
           path.replaceWith(t.variableDeclaration('const', [t.variableDeclarator(appId, declaration)]));
           appConfigExpression(path, appId);
-          path.stop();
+          skip = true;
         } else if (t.isFunctionDeclaration(path.node.declaration) || t.isClassDeclaration(path.node.declaration)) {
           const declaration = path.node.declaration;
           const appId = path.scope.generateUidIdentifierBasedOnNode(path.node);
           declaration.id = appId;
           path.replaceWith(declaration);
           appConfigExpression(path, appId);
-          path.stop();
+          skip = true;
         }
       },
       Identifier(path: NodePath<t.Identifier>) {
+        if (skip) {
+          return;
+        }
         // 防止跟小程序的  App 冲突
         if (path.node.name === 'App') {
           path.scope.rename('App', path.scope.generateUidIdentifier('App').name);
