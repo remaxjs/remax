@@ -24,6 +24,15 @@ describe('props alias', () => {
     ).toEqual({
       class: 'class-name',
     });
+
+    expect(
+      propsAlias(
+        {
+          style: null,
+        },
+        'any'
+      )
+    ).toMatchSnapshot();
   });
 
   it('transform style prop correctly', () => {

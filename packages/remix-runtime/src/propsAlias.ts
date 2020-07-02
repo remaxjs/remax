@@ -17,7 +17,7 @@ export function getAlias(prop: string, type: string) {
 }
 
 function getValue(prop: string, value: any): any {
-  if (prop.toLowerCase().endsWith('style') && typeof value === 'object') {
+  if (prop.toLowerCase().endsWith('style') && Object.prototype.toString.call(value) === '[object Object]') {
     return plainStyle(value);
   }
 
