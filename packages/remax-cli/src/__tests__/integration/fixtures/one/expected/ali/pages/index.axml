@@ -10,6 +10,10 @@
   <template name="REMAX_TPL_1_button">
   <button 
     
+    app-parameter="{{item.props['app-parameter']}}"
+    
+    
+    
     class="{{item.props['class']}}"
     
     
@@ -42,11 +46,39 @@
     
     
     
+    loading="{{item.props['loading']}}"
+    
+    
+    
+    onGetAuthorize="{{item.props['onGetAuthorize']}}"
+    
+    
+    
     onTap="{{item.props['onTap']}}"
     
     
     
-    style="{{item.props['style']}}"
+    open-type="{{item.props['open-type']}}"
+    
+    
+    
+    plain="{{item.props['plain']}}"
+    
+    
+    
+    public-id="{{item.props['public-id']}}"
+    
+    
+    
+    scope="{{item.props['scope']}}"
+    
+    
+    
+    size="{{item.props['size']}}"
+    
+    
+    
+    type="{{item.props['type']}}"
     
     
     
@@ -333,6 +365,10 @@
     
     
     
+    report-submit="{{item.props['report-submit']}}"
+    
+    
+    
     style="{{item.props['style']}}"
     
     
@@ -392,6 +428,10 @@
     
     
     id="{{item.props['id']}}"
+    
+    
+    
+    lazy-load="{{item.props['lazy-load']}}"
     
     
     
@@ -464,7 +504,15 @@
     
     
     
+    cursor="{{item.props['cursor']}}"
+    
+    
+    
     disabled="{{item.props['disabled']}}"
+    
+    
+    
+    enableNative="{{item.props['enableNative']}}"
     
     
     
@@ -508,7 +556,23 @@
     
     
     
+    placeholder-class="{{item.props['placeholder-class']}}"
+    
+    
+    
     placeholder-style="{{item.props['placeholder-style']}}"
+    
+    
+    
+    randomNumber="{{item.props['randomNumber']}}"
+    
+    
+    
+    selection-end="{{item.props['selection-end']}}"
+    
+    
+    
+    selection-start="{{item.props['selection-start']}}"
     
     
     
@@ -1493,7 +1557,15 @@
     
     
     
+    decode="{{item.props['decode']}}"
+    
+    
+    
     id="{{item.props['id']}}"
+    
+    
+    
+    number-of-lines="{{item.props['number-of-lines']}}"
     
     
     
@@ -1502,6 +1574,10 @@
     
     
     selectable="{{item.props['selectable']}}"
+    
+    
+    
+    space="{{item.props['space']}}"
     
     
     
@@ -1530,7 +1606,15 @@
     
     
     
+    controlled="{{item.props['controlled']}}"
+    
+    
+    
     disabled="{{item.props['disabled']}}"
+    
+    
+    
+    enableNative="{{item.props['enableNative']}}"
     
     
     
@@ -1570,7 +1654,15 @@
     
     
     
+    placeholder-class="{{item.props['placeholder-class']}}"
+    
+    
+    
     placeholder-style="{{item.props['placeholder-style']}}"
+    
+    
+    
+    show-count="{{item.props['show-count']}}"
     
     
     
@@ -1732,6 +1824,14 @@
     
     
     
+    disable-scroll="{{item.props['disable-scroll']}}"
+    
+    
+    
+    hidden="{{item.props['hidden']}}"
+    
+    
+    
     hover-class="{{item.props['hover-class']}}"
     
     
@@ -1744,7 +1844,35 @@
     
     
     
+    hover-stop-propagation="{{item.props['hover-stop-propagation']}}"
+    
+    
+    
     id="{{item.props['id']}}"
+    
+    
+    
+    onAnimationEnd="{{item.props['onAnimationEnd']}}"
+    
+    
+    
+    onAnimationIteration="{{item.props['onAnimationIteration']}}"
+    
+    
+    
+    onAnimationStart="{{item.props['onAnimationStart']}}"
+    
+    
+    
+    onAppear="{{item.props['onAppear']}}"
+    
+    
+    
+    onDisappear="{{item.props['onDisappear']}}"
+    
+    
+    
+    onFirstAppear="{{item.props['onFirstAppear']}}"
     
     
     
@@ -1772,7 +1900,7 @@
     
     
     
-    role="{{item.props['role']}}"
+    onTransitionEnd="{{item.props['onTransitionEnd']}}"
     
     
     

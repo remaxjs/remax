@@ -24,7 +24,7 @@ import { Button } from 'remax/one';
 | hoverClassName | string                                                       | 按住按钮后对应的样式类                                       |
 | hoverStartTime | number                                                       | 按住后多久出现点击态，单位毫秒                               |
 | hoverStayTime  | boolean                                                      | 手指松开后点击态保留时间                                     |
-| formType       | 'submit' \| 'reset'                                          | 用于 form 组件，点击分别会触发 form 组件的 submit/reset 事件 |
+| type           | 'submit' \| 'reset'                                          | 用于 form 组件，点击分别会触发 form 组件的 submit/reset 事件 |
 | onTap          | ((event: [TapEvent](/api/remax-one/event#tapevent))) => void | 点击事件                                                     |
 
 > 注意

@@ -7,6 +7,14 @@
 
   <template name="REMAX_TPL_button">
   <button 
+    animation="{{i.props['animation']}}" 
+    app-parameter="{{i.props['app-parameter']}}" 
+    bindcontact="{{i.props['bindcontact']}}" 
+    binderror="{{i.props['binderror']}}" 
+    bindgetphonenumber="{{i.props['bindgetphonenumber']}}" 
+    bindgetuserinfo="{{i.props['bindgetuserinfo']}}" 
+    bindlaunchapp="{{i.props['bindlaunchapp']}}" 
+    bindopensetting="{{i.props['bindopensetting']}}" 
     bindtap="{{i.props['bindtap']}}" 
     class="{{i.props['class']}}" 
     disabled="{{i.props['disabled']}}" 
@@ -16,7 +24,17 @@
     hover-stay-time="{{i.props['hover-stay-time']}}" 
     hover-stop-propagation="{{i.props['hover-stop-propagation']}}" 
     id="{{i.props['id']}}" 
+    lang="{{i.props['lang']}}" 
+    loading="{{i.props['loading']}}" 
+    open-type="{{i.props['open-type']}}" 
+    plain="{{i.props['plain']}}" 
+    send-message-img="{{i.props['send-message-img']}}" 
+    send-message-path="{{i.props['send-message-path']}}" 
+    send-message-title="{{i.props['send-message-title']}}" 
+    session-from="{{i.props['session-from']}}" 
+    show-message-card="{{i.props['show-message-card']}}" 
     style="{{i.props['style']}}" 
+    type="{{i.props['type']}}" 
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
@@ -95,10 +113,13 @@
 
   <template name="REMAX_TPL_form">
   <form 
+    animation="{{i.props['animation']}}" 
     bindreset="{{i.props['bindreset']}}" 
     bindsubmit="{{i.props['bindsubmit']}}" 
     class="{{i.props['class']}}" 
     id="{{i.props['id']}}" 
+    report-submit="{{i.props['report-submit']}}" 
+    report-submit-timeout="{{i.props['report-submit-timeout']}}" 
     style="{{i.props['style']}}" 
   >
     
@@ -131,6 +152,7 @@
 
   <template name="REMAX_TPL_image">
   <image 
+    animation="{{i.props['animation']}}" 
     binderror="{{i.props['binderror']}}" 
     bindload="{{i.props['bindload']}}" 
     bindtap="{{i.props['bindtap']}}" 
@@ -140,7 +162,9 @@
     bindtouchstart="{{i.props['bindtouchstart']}}" 
     class="{{i.props['class']}}" 
     id="{{i.props['id']}}" 
+    lazy-load="{{i.props['lazy-load']}}" 
     mode="{{i.props['mode']}}" 
+    show-menu-by-longpress="{{i.props['show-menu-by-longpress']}}" 
     src="{{i.props['src']}}" 
     style="{{i.props['style']}}" 
   >
@@ -155,21 +179,30 @@
 
   <template name="REMAX_TPL_input">
   <input 
+    adjust-position="{{i.props['adjust-position']}}" 
+    animation="{{i.props['animation']}}" 
+    auto-focus="{{i.props['auto-focus']}}" 
     bindblur="{{i.props['bindblur']}}" 
     bindconfirm="{{i.props['bindconfirm']}}" 
     bindfocus="{{i.props['bindfocus']}}" 
     bindinput="{{i.props['bindinput']}}" 
+    bindkeyboardheightchange="{{i.props['bindkeyboardheightchange']}}" 
+    bindtap="{{i.props['bindtap']}}" 
     class="{{i.props['class']}}" 
     confirm-hold="{{i.props['confirm-hold']}}" 
     confirm-type="{{i.props['confirm-type']}}" 
+    cursor="{{i.props['cursor']}}" 
+    cursor-spacing="{{i.props['cursor-spacing']}}" 
     disabled="{{i.props['disabled']}}" 
     focus="{{i.props['focus']}}" 
-    id="{{i.props['id']}}" 
     maxlength="{{i.props['maxlength']}}" 
     name="{{i.props['name']}}" 
     password="{{i.props['password']}}" 
     placeholder="{{i.props['placeholder']}}" 
+    placeholder-class="{{i.props['placeholder-class']}}" 
     placeholder-style="{{i.props['placeholder-style']}}" 
+    selection-end="{{i.props['selection-end']}}" 
+    selection-start="{{i.props['selection-start']}}" 
     style="{{i.props['style']}}" 
     type="{{i.props['type']}}" 
     value="{{i.props['value']}}" 
@@ -185,6 +218,7 @@
 
   <template name="REMAX_TPL_label">
   <label 
+    animation="{{i.props['animation']}}" 
     class="{{i.props['class']}}" 
     for="{{i.props['for']}}" 
     id="{{i.props['id']}}" 
@@ -201,14 +235,25 @@
 
   <template name="REMAX_TPL_navigator">
   <navigator 
+    animation="{{i.props['animation']}}" 
+    app-id="{{i.props['app-id']}}" 
+    bindcomplete="{{i.props['bindcomplete']}}" 
+    bindfail="{{i.props['bindfail']}}" 
+    bindsuccess="{{i.props['bindsuccess']}}" 
     class="{{i.props['class']}}" 
+    delta="{{i.props['delta']}}" 
+    extra-data="{{i.props['extra-data']}}" 
     hover-class="{{i.props['hover-class']}}" 
     hover-start-time="{{i.props['hover-start-time']}}" 
     hover-stay-time="{{i.props['hover-stay-time']}}" 
+    hover-stop-propagation="{{i.props['hover-stop-propagation']}}" 
     id="{{i.props['id']}}" 
     open-type="{{i.props['open-type']}}" 
+    path="{{i.props['path']}}" 
     style="{{i.props['style']}}" 
+    target="{{i.props['target']}}" 
     url="{{i.props['url']}}" 
+    version="{{i.props['version']}}" 
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
@@ -503,10 +548,13 @@
 
   <template name="REMAX_TPL_text">
   <text 
+    animation="{{i.props['animation']}}" 
     bindtap="{{i.props['bindtap']}}" 
     class="{{i.props['class']}}" 
+    decode="{{i.props['decode']}}" 
     id="{{i.props['id']}}" 
     selectable="{{i.props['selectable']}}" 
+    space="{{i.props['space']}}" 
     style="{{i.props['style']}}" 
   >
     
@@ -520,19 +568,33 @@
 
   <template name="REMAX_TPL_textarea">
   <textarea 
+    adjust-position="{{i.props['adjust-position']}}" 
+    animation="{{i.props['animation']}}" 
+    auto-focus="{{i.props['auto-focus']}}" 
     auto-height="{{i.props['auto-height']}}" 
     bindblur="{{i.props['bindblur']}}" 
     bindconfirm="{{i.props['bindconfirm']}}" 
     bindfocus="{{i.props['bindfocus']}}" 
     bindinput="{{i.props['bindinput']}}" 
+    bindkeyboardheightchange="{{i.props['bindkeyboardheightchange']}}" 
+    bindlinechange="{{i.props['bindlinechange']}}" 
     class="{{i.props['class']}}" 
+    controlled="{{i.props['controlled']}}" 
+    cursor="{{i.props['cursor']}}" 
+    cursor-spacing="{{i.props['cursor-spacing']}}" 
     disabled="{{i.props['disabled']}}" 
+    fixed="{{i.props['fixed']}}" 
     focus="{{i.props['focus']}}" 
     id="{{i.props['id']}}" 
     maxlength="{{i.props['maxlength']}}" 
     name="{{i.props['name']}}" 
     placeholder="{{i.props['placeholder']}}" 
+    placeholder-class="{{i.props['placeholder-class']}}" 
     placeholder-style="{{i.props['placeholder-style']}}" 
+    selection-end="{{i.props['selection-end']}}" 
+    selection-start="{{i.props['selection-start']}}" 
+    show-confirm-bar="{{i.props['show-confirm-bar']}}" 
+    show-count="{{i.props['show-count']}}" 
     style="{{i.props['style']}}" 
     value="{{i.props['value']}}" 
   >
@@ -599,18 +661,24 @@
   <template name="REMAX_TPL_view">
   <view 
     animation="{{i.props['animation']}}" 
-    aria-role="{{i.props['aria-role']}}" 
+    bindanimationend="{{i.props['bindanimationend']}}" 
+    bindanimationiteration="{{i.props['bindanimationiteration']}}" 
+    bindanimationstart="{{i.props['bindanimationstart']}}" 
     bindlongtap="{{i.props['bindlongtap']}}" 
     bindtap="{{i.props['bindtap']}}" 
     bindtouchcancel="{{i.props['bindtouchcancel']}}" 
     bindtouchend="{{i.props['bindtouchend']}}" 
     bindtouchmove="{{i.props['bindtouchmove']}}" 
     bindtouchstart="{{i.props['bindtouchstart']}}" 
+    bindtransitionend="{{i.props['bindtransitionend']}}" 
     class="{{i.props['class']}}" 
     data-foo="{{i.props['data-foo']}}" 
+    disable-scroll="{{i.props['disable-scroll']}}" 
+    hidden="{{i.props['hidden']}}" 
     hover-class="{{i.props['hover-class']}}" 
     hover-start-time="{{i.props['hover-start-time']}}" 
     hover-stay-time="{{i.props['hover-stay-time']}}" 
+    hover-stop-propagation="{{i.props['hover-stop-propagation']}}" 
     id="{{i.props['id']}}" 
     style="{{i.props['style']}}" 
   >
@@ -625,8 +693,9 @@
 
   <template name="REMAX_TPL_web-view">
   <web-view 
+    binderror="{{i.props['binderror']}}" 
+    bindload="{{i.props['bindload']}}" 
     bindmessage="{{i.props['bindmessage']}}" 
-    id="{{i.props['id']}}" 
     src="{{i.props['src']}}" 
   >
     

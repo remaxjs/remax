@@ -1,13 +1,8 @@
 import createHostComponent from '../../createHostComponent';
-import TextProps from './props';
+import TextProps, { defaults } from './props';
 
 export type { TextProps };
 
-const Text = createHostComponent<TextProps>('text', {
-  wechat: {
-    selectable: false,
-    'wechat-decode': false,
-  },
-});
+const Text = createHostComponent<TextProps>('text', null, defaults);
 
 export default Text;

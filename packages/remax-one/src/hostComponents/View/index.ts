@@ -1,15 +1,8 @@
 import createHostComponent from '../../createHostComponent';
-import ViewProps from './props';
+import ViewProps, { defaults } from './props';
 
 export type { ViewProps };
 
-const View = createHostComponent<ViewProps>('view', {
-  wechat: {
-    hoverClassName: 'none',
-    'wechat-hover-stop-propagation': false,
-    hoverStartTime: 50,
-    hoverStayTime: 400,
-  },
-});
+const View = createHostComponent<ViewProps>('view', null, defaults);
 
 export default View;

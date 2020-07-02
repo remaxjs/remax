@@ -1,4 +1,6 @@
-import { TapEvent } from '../../types';
+import { TapEvent } from '../../../types';
+
+export { default as defaults } from './default';
 
 interface CommonProps {
   // 通用属性

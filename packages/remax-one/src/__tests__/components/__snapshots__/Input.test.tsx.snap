@@ -4,7 +4,7 @@ exports[`Input render correctly in ali 1`] = `
 <input
   className="class"
   controlled={false}
-  maxLength={140}
+  maxlength={140}
   onBlur={[Function]}
   onConfirm={[Function]}
   onFocus={[Function]}
@@ -26,7 +26,7 @@ exports[`Input render correctly in toutiao 1`] = `
 <input
   className="class"
   controlled={false}
-  maxLength={140}
+  maxlength={140}
   onBlur={[Function]}
   onConfirm={[Function]}
   onFocus={[Function]}
@@ -71,7 +71,7 @@ exports[`Input render correctly in wechat 1`] = `
   controlled={false}
   disabled={false}
   focus={false}
-  maxLength={140}
+  maxlength={140}
   onBlur={[Function]}
   onConfirm={[Function]}
   onFocus={[Function]}

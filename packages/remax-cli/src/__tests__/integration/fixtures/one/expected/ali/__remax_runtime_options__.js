@@ -4,14 +4,24 @@ module.exports = {
     "alias": {
       "id": "id",
       "className": "class",
-      "style": "style",
+      "size": "size",
+      "type": "type",
+      "plain": "plain",
       "disabled": "disabled",
+      "loading": "loading",
+      "hoverClass": "hover-class",
       "hoverClassName": "hover-class",
       "hoverStartTime": "hover-start-time",
       "hoverStayTime": "hover-stay-time",
       "hoverStopPropagation": "hover-stop-propagation",
-      "type": "form-type",
-      "onTap": "onTap"
+      "formType": "form-type",
+      "openType": "open-type",
+      "scope": "scope",
+      "onClick": "onTap",
+      "onTap": "onTap",
+      "appParameter": "app-parameter",
+      "publicId": "public-id",
+      "onGetAuthorize": "onGetAuthorize"
     }
   },
   "canvas": {
@@ -91,6 +101,7 @@ module.exports = {
       "id": "id",
       "className": "class",
       "style": "style",
+      "reportSubmit": "report-submit",
       "onSubmit": "onSubmit",
       "onReset": "onReset"
     }
@@ -112,13 +123,15 @@ module.exports = {
       "mode": "mode",
       "className": "class",
       "style": "style",
+      "lazyLoad": "lazy-load",
       "onLoad": "onLoad",
       "onError": "onError",
       "onTap": "onTap",
       "onTouchStart": "onTouchStart",
-      "onTouchEnd": "onTouchEnd",
       "onTouchMove": "onTouchMove",
-      "onTouchCancel": "onTouchCancel"
+      "onTouchEnd": "onTouchEnd",
+      "onTouchCancel": "onTouchCancel",
+      "onClick": "onTap"
     }
   },
   "input": {
@@ -127,22 +140,28 @@ module.exports = {
       "className": "class",
       "style": "style",
       "value": "value",
-      "defaultValue": "value",
       "name": "name",
       "type": "type",
       "password": "password",
       "placeholder": "placeholder",
+      "placeholderStyle": "placeholder-style",
+      "placeholderClass": "placeholder-class",
+      "placeholderClassName": "placeholder-class",
       "disabled": "disabled",
+      "maxlength": "maxlength",
       "focus": "focus",
       "confirmType": "confirm-type",
       "confirmHold": "confirm-hold",
-      "placeholderStyle": "placeholder-style",
+      "cursor": "cursor",
+      "selectionStart": "selection-start",
+      "selectionEnd": "selection-end",
+      "randomNumber": "randomNumber",
+      "controlled": "controlled",
+      "enableNative": "enableNative",
       "onInput": "onInput",
       "onConfirm": "onConfirm",
       "onFocus": "onFocus",
-      "onBlur": "onBlur",
-      "controlled": "controlled",
-      "maxLength": "maxlength"
+      "onBlur": "onBlur"
     }
   },
   "label": {
@@ -150,7 +169,7 @@ module.exports = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "htmlFor": "for"
+      "for": "for"
     }
   },
   "lifestyle": {
@@ -230,11 +249,12 @@ module.exports = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "url": "url",
-      "action": "open-type",
+      "openType": "open-type",
+      "hoverClass": "hover-class",
       "hoverClassName": "hover-class",
       "hoverStartTime": "hover-start-time",
-      "hoverStayTime": "hover-stay-time"
+      "hoverStayTime": "hover-stay-time",
+      "url": "url"
     }
   },
   "picker-view-column": {
@@ -417,6 +437,10 @@ module.exports = {
       "className": "class",
       "style": "style",
       "selectable": "selectable",
+      "space": "space",
+      "decode": "decode",
+      "numberOfLines": "number-of-lines",
+      "onClick": "onTap",
       "onTap": "onTap"
     }
   },
@@ -429,33 +453,49 @@ module.exports = {
       "value": "value",
       "placeholder": "placeholder",
       "placeholderStyle": "placeholder-style",
+      "placeholderClass": "placeholder-class",
+      "placeholderClassName": "placeholder-class",
       "disabled": "disabled",
+      "maxlength": "maxlength",
       "focus": "focus",
       "autoHeight": "auto-height",
+      "showCount": "show-count",
+      "controlled": "controlled",
+      "enableNative": "enableNative",
       "onInput": "onInput",
       "onFocus": "onFocus",
       "onBlur": "onBlur",
-      "onConfirm": "onConfirm",
-      "maxlength": "maxlength"
+      "onConfirm": "onConfirm"
     }
   },
   "view": {
     "alias": {
       "id": "id",
-      "role": "role",
+      "disableScroll": "disable-scroll",
       "hoverClass": "hover-class",
       "hoverClassName": "hover-class",
       "hoverStartTime": "hover-start-time",
       "hoverStayTime": "hover-stay-time",
+      "hidden": "hidden",
       "className": "class",
       "style": "style",
       "animation": "animation",
+      "hoverStopPropagation": "hover-stop-propagation",
+      "onClick": "onTap",
       "onTap": "onTap",
       "onTouchStart": "onTouchStart",
       "onTouchMove": "onTouchMove",
       "onTouchEnd": "onTouchEnd",
       "onTouchCancel": "onTouchCancel",
-      "onLongTap": "onLongTap"
+      "onLongTap": "onLongTap",
+      "onLongClick": "onLongTap",
+      "onTransitionEnd": "onTransitionEnd",
+      "onAnimationIteration": "onAnimationIteration",
+      "onAnimationStart": "onAnimationStart",
+      "onAnimationEnd": "onAnimationEnd",
+      "onAppear": "onAppear",
+      "onDisappear": "onDisappear",
+      "onFirstAppear": "onFirstAppear"
     }
   },
   "web-view": {

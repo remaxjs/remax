@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { ImageLoadEvent, ImageErrorEvent, TapEvent, TouchStartEvent } from '../../types';
+import { ImageLoadEvent, ImageErrorEvent, TapEvent, TouchStartEvent } from '../../../types';
+
+export { default as defaults } from './default';
 
 interface CommonProps {
   // 通用属性

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import createHostComponent from '../../createHostComponent';
 import { TapEvent } from '../../types';
+import * as props from './props';
 
 export interface ButtonProps extends React.AriaAttributes {
   // 通用属性
@@ -23,12 +24,6 @@ export interface ButtonProps extends React.AriaAttributes {
   onTap?: (event: TapEvent) => void;
 }
 
-const Button = createHostComponent<ButtonProps>('button', {
-  wechat: {
-    hoverClassName: 'button-hover',
-    hoverStartTime: 20,
-    hoverStayTime: 70,
-  },
-});
+const Button = createHostComponent<ButtonProps>('button', props.alias, props.defaults);
 
 export default Button;

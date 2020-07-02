@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { InputEvent } from '../../types';
-import { createCallback, createInputEvent } from '../../createHostComponent';
+import { createCallback, createInputEvent, aliasProps } from '../../createHostComponent';
 import { InputProps } from './props';
+import * as propsConfig from './props';
 
 export type { InputProps };
 
@@ -97,9 +98,14 @@ export default class Input extends React.Component<InputProps, InputState> {
       inputProps.maxLength = inputProps.maxLength ?? 140;
     }
 
-    return React.createElement('input', {
-      ...inputProps,
-      ...this.state,
-    });
+    const nextProps = aliasProps(
+      {
+        ...inputProps,
+        ...this.state,
+      },
+      propsConfig.alias
+    );
+
+    return React.createElement('input', nextProps);
   }
 }

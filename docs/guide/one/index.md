@@ -52,13 +52,12 @@ $ yarn create remax-app my-app
 $ cd my-app && yarn
 ```
 
-或者在已有的项目中引入：
-
-在 `remax.config.js` 中设置 `one: true` 来开启 Remax One。
+或者在已有的项目中配置：
 
 ```javascript
 // remax.config.js
 module.export = {
+  // 从 2.6.0 版本开始无需开启这个选项
   one: true,
   // 通过环境变量区分不同平台的输出目录
   output: 'dist/' + process.env.REMAX_PLATFORM,
