@@ -36,7 +36,8 @@
   "workspaces": {
     "nohoist": [
       "mini-antui",
-      "@alipay/tiny-cli"
+      "@alipay/tiny-cli",
+      "react"
     ]
   }
 }
