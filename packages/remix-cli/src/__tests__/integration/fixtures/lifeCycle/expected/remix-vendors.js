@@ -1543,7 +1543,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DEPRECATED_CATCH_TYPE", function() { return DEPRECATED_CATCH_TYPE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SYNTHETIC_TYPES", function() { return SYNTHETIC_TYPES; });
 var DEPRECATED_CATCH_TYPE = 'catchClick';
-var SYNTHETIC_TYPES = ['onClick', 'onTap', 'onLongClick', 'onLongTap'];
+var SYNTHETIC_TYPES = ['onClick', 'onTap', 'onLongClick', 'onLongTap', 'onTouchMove', 'onTouchStart', 'onTouchEnd'];
 
 /***/ }),
 /* 17 */
