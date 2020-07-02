@@ -494,7 +494,8 @@ module.exports = {
       "onFullScreenChange": "onFullScreenChange",
       "onTap": "onTap",
       "onClick": "onTap",
-      "onUserAction": "onUserAction"
+      "onUserAction": "onUserAction",
+      "enableNative": "enableNative"
     }
   }
 },

@@ -2001,6 +2001,10 @@
     
     
     
+    enableNative="{{item.props['enableNative']}}"
+    
+    
+    
     enableProgressGesture="{{item.props['enableProgressGesture']}}"
     
     

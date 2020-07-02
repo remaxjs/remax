@@ -816,6 +816,7 @@
     controls="{{node.props['controls']}}" 
     direction="{{node.props['direction']}}" 
     duration="{{node.props['duration']}}" 
+    enableNative="{{node.props['enableNative']}}" 
     enableProgressGesture="{{node.props['enableProgressGesture']}}" 
     id="{{node.props['id']}}" 
     initial-time="{{node.props['initial-time']}}" 
