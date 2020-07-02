@@ -1,47 +1,24 @@
-require('./../runtime.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[4],[
-/* 0 */,
-/* 1 */,
-/* 2 */
-/***/ (function(module, exports) {
-
-module.exports = require("@alipay/remix-runtime");
-
-/***/ }),
-/* 3 */,
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
-/***/ }),
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */
+require('./runtime.js');
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[1],[
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(15);
+module.exports = __webpack_require__(1);
 
 
 /***/ }),
-/* 15 */
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _alipay_remix__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16);
-/* harmony import */ var _alipay_remix__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 function _typeof(obj) {
@@ -161,65 +138,49 @@ function _getPrototypeOf(o) {
   return _getPrototypeOf(o);
 }
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
+
+
+var _App = /*#__PURE__*/function (_React$Component) {
+  _inherits(_App, _React$Component);
+
+  var _super = _createSuper(_App);
+
+  function _App() {
+    _classCallCheck(this, _App);
+
+    return _super.apply(this, arguments);
   }
 
-  return obj;
-}
-
-
-
-
-var _ClassPage = /*#__PURE__*/function (_React$Component) {
-  _inherits(_ClassPage, _React$Component);
-
-  var _super = _createSuper(_ClassPage);
-
-  function _ClassPage() {
-    var _this;
-
-    _classCallCheck(this, _ClassPage);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "onHide", function () {});
-
-    return _this;
-  }
-
-  _createClass(_ClassPage, [{
-    key: "onShow",
-    value: function onShow() {}
-  }, {
+  _createClass(_App, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_alipay_remix__WEBPACK_IMPORTED_MODULE_2__["View"], null, "class page");
+      console.log(parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0___default.a);
+      return this.props.children;
     }
   }]);
 
-  return _ClassPage;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+  return _App;
+}(react__WEBPACK_IMPORTED_MODULE_2__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Page(Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_ClassPage, "pages/classPage")));
+/* harmony default export */ __webpack_exports__["default"] = (App(Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_1__["createAppConfig"])(_App)));
 
 /***/ }),
-/* 16 */
+/* 2 */
 /***/ (function(module, exports) {
 
-module.exports = require("@alipay/remix");
+module.exports = require("parsec-hooks/lib/refStateHooks");
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = require("@alipay/remix-runtime");
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+module.exports = require("react");
 
 /***/ })
-],[[14,0]]]);
+],[[0,0]]]);
