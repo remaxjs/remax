@@ -1609,6 +1609,10 @@
     
     
     
+    enableNative="{{item.props['enableNative']}}"
+    
+    
+    
     focus="{{item.props['focus']}}"
     
     

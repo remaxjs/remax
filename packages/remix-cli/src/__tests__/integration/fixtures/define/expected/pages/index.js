@@ -517,6 +517,7 @@ __webpack_require__.r(__webpack_exports__);
       "autoHeight": "auto-height",
       "showCount": "show-count",
       "controlled": "controlled",
+      "enableNative": "enableNative",
       "onInput": "onInput",
       "onFocus": "onFocus",
       "onBlur": "onBlur",
