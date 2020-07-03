@@ -53,7 +53,7 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
 
       app._mount(this);
 
-      return this.callLifecycle(Lifecycle.load);
+      return this.callLifecycle(Lifecycle.load, query);
     },
 
     onUnload(this: any) {
