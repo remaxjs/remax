@@ -45,6 +45,7 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
         React.createElement(PageWrapper, {
           page: this,
           query,
+          container: this.container,
           ref: this.wrapperRef,
         }),
         this.container,

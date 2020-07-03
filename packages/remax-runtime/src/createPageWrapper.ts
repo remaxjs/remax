@@ -3,6 +3,7 @@ import isClassComponent from './utils/isClassComponent';
 import { Lifecycle, Callback, callbackName } from './lifecycle';
 import PageInstanceContext from './PageInstanceContext';
 import { ForwardRef } from './ReactIs';
+import Container from './Container';
 
 export interface PageProps<Q = {}> {
   location: {
@@ -11,7 +12,7 @@ export interface PageProps<Q = {}> {
 }
 
 export default function createPageWrapper(Page: React.ComponentType<any>) {
-  return class PageWrapper extends React.Component<{ page: any; query: any }> {
+  return class PageWrapper extends React.Component<{ page: any; container: Container; query: any }> {
     // 页面组件的实例
     pageComponentInstance: any = null;
 
@@ -53,7 +54,7 @@ export default function createPageWrapper(Page: React.ComponentType<any>) {
 
       return React.createElement(
         PageInstanceContext.Provider,
-        { value: this.props.page },
+        { value: { page: this.props.page, container: this.props.container } },
         React.createElement(Page, props)
       );
     }
