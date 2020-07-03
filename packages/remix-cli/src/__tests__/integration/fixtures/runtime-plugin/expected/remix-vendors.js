@@ -537,7 +537,7 @@ function () {
 
       return value;
     },
-    enumerable: false,
+    enumerable: true,
     configurable: true
   });
   Object.defineProperty(VNode.prototype, "children", {
@@ -552,7 +552,7 @@ function () {
 
       return arr;
     },
-    enumerable: false,
+    enumerable: true,
     configurable: true
   });
   Object.defineProperty(VNode.prototype, "path", {
@@ -576,7 +576,7 @@ function () {
 
       return dataPath;
     },
-    enumerable: false,
+    enumerable: true,
     configurable: true
   });
 
@@ -638,7 +638,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function getAlias(prop, type) {
-  var _a, _b;
+  var _a, _b, _c;
 
   prop = prop.replace('className', 'class');
   var hostComponent = _createHostComponent__WEBPACK_IMPORTED_MODULE_1__["hostComponents"][type];
@@ -648,7 +648,7 @@ function getAlias(prop, type) {
     return prop.replace(new RegExp("^" + prefix), '');
   }
 
-  return (_b = (_a = hostComponent === null || hostComponent === void 0 ? void 0 : hostComponent.alias) === null || _a === void 0 ? void 0 : _a[prop]) !== null && _b !== void 0 ? _b : prop;
+  return _c = (_b = (_a = hostComponent) === null || _a === void 0 ? void 0 : _a.alias) === null || _b === void 0 ? void 0 : _b[prop], _c !== null && _c !== void 0 ? _c : prop;
 }
 
 function getValue(prop, value) {
@@ -722,8 +722,10 @@ var __spread = undefined && undefined.__spread || function () {
 var vendorPrefixes = ['webkit', 'moz', 'ms', 'o'];
 
 var transformReactStyleKey = function transformReactStyleKey(key) {
-  // css3 var
-  if (key === null || key === void 0 ? void 0 : key.startsWith('--')) {
+  var _a, _b; // css3 var
+
+
+  if ((_a = key) === null || _a === void 0 ? void 0 : _a.startsWith('--')) {
     return key;
   }
 
@@ -731,7 +733,7 @@ var transformReactStyleKey = function transformReactStyleKey(key) {
     return '-' + y.toLowerCase();
   }); // vendor prefix
 
-  if (styleValue === null || styleValue === void 0 ? void 0 : styleValue.startsWith('-')) {
+  if ((_b = styleValue) === null || _b === void 0 ? void 0 : _b.startsWith('-')) {
     var firstWord_1 = styleValue.split('-').filter(function (s) {
       return s;
     })[0];
