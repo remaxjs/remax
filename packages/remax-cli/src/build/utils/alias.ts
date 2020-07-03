@@ -10,6 +10,7 @@ export default (options: Options, target: Platform) => {
     '@': path.resolve(options.cwd, options.rootDir),
     // 防止 link 开发时加载多个 React
     react: path.resolve(options.cwd, 'node_modules', 'react'),
+    'react-router': path.resolve(options.cwd, 'node_modules', 'react-router'),
   };
 
   if (target !== Platform.web) {
