@@ -11,12 +11,8 @@ export function usePageInstance() {
   return useContext(PageInstanceContext);
 }
 
-export function useQuery<Q extends {} = { [name: string]: string }>(): Q {
-  const pageInstance: any = useContext(PageInstanceContext);
-  return pageInstance.query;
-}
-
 export { default as useNativeEffect } from './useNativeEffect';
+export { default as useQuery } from './useQuery';
 
 export function usePageEvent(eventName: string, callback: Callback) {
   const pageInstance = useContext(PageInstanceContext);

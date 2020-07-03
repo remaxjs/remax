@@ -17,4 +17,10 @@ describe('works', () => {
     await goTo('/pages/two/index');
     await expect(page).toMatch('page two');
   });
+
+  it('passes query to page', async () => {
+    await goTo('/pages/query/index?name=foo');
+    await expect(page).toMatch('query from props: foo');
+    await expect(page).toMatch('query from hook: foo');
+  });
 });

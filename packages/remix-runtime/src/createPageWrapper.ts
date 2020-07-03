@@ -10,8 +10,8 @@ export interface PageProps<Q = {}> {
   };
 }
 
-export default function createPageWrapper(Page: React.ComponentType<any>, query: object) {
-  return class PageWrapper extends React.Component<{ page: any }> {
+export default function createPageWrapper(Page: React.ComponentType<any>) {
+  return class PageWrapper extends React.Component<{ page: any; query: any }> {
     // 页面组件的实例
     pageComponentInstance: any = null;
 
@@ -43,7 +43,7 @@ export default function createPageWrapper(Page: React.ComponentType<any>, query:
     render() {
       const props: any = {
         location: {
-          query: query || {},
+          query: this.props.query || {},
         },
       };
 
