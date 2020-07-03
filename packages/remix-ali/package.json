@@ -18,7 +18,7 @@
   "dependencies": {
     "@alipay/remix-shared": "0.0.5",
     "mini-types": "^0.1.1",
-    "@alipay/remix-appx-components": "^0.0.2"
+    "@alipay/remix-appx-components": "^0.0.x"
   },
   "devDependencies": {
     "@alipay/remix-types": "0.0.5",

@@ -98,10 +98,10 @@
     istanbul-lib-coverage "^2.0.1"
     semver "^5.5.0"
 
-"@alipay/remix-appx-components@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.npm.alibaba-inc.com/@alipay/remix-appx-components/download/@alipay/remix-appx-components-0.0.2.tgz#4f48fffea866a5e5ac6490c69913d50d93d8a796"
-  integrity sha1-T0j//qhmpeWsZJDGmRPVDZPYp5Y=
+"@alipay/remix-appx-components@^0.0.x":
+  version "0.0.3"
+  resolved "https://registry.npm.alibaba-inc.com/@alipay/remix-appx-components/download/@alipay/remix-appx-components-0.0.3.tgz#9e85e51d5235cda1aef191d88b99e1535158d078"
+  integrity sha1-noXlHVI1zaGu8ZHYi5nhU1FY0Hg=
   dependencies:
     "@ali/anima-router" "^1.0.5"
     "@babel/runtime" "^7.8.7"
