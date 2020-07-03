@@ -25,6 +25,9 @@
     "test": "jest",
     "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },
+  "peerDependencies": {
+    "@remax/macro": "2.5.5"
+  },
   "dependencies": {
     "@babel/core": "^7.7.4",
     "@babel/helper-module-imports": "^7.7.4",
@@ -32,13 +35,11 @@
     "@babel/preset-typescript": "^7.7.4",
     "@babel/register": "^7.7.0",
     "@babel/types": "^7.7.4",
-    "@remax/macro": "2.5.5",
     "@remax/plugin-devtools": "2.5.5",
     "@remax/postcss-px2units": "^0.2.0",
     "@remax/postcss-tag": "2.5.5",
     "@remax/shared": "2.5.5",
     "@remax/types": "2.5.5",
-    "@types/webpackbar": "^4.0.0",
     "address": "^1.1.2",
     "babel-loader": "^8.1.0",
     "babel-preset-remax": "2.5.5",
@@ -100,6 +101,7 @@
     "@types/semver": "^7.1.0",
     "@types/universal-analytics": "^0.4.4",
     "@types/webpack": "^4.41.11",
+    "@types/webpackbar": "^4.0.0",
     "@types/webpack-dev-server": "^3.10.1",
     "@types/webpack-sources": "^0.1.7",
     "@types/yargs": "^15.0.0",

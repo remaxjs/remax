@@ -1,6 +1,7 @@
 import { Compiler, compilation } from 'webpack';
 import { Options } from '@remax/types';
 import { appEvents, pageEvents, hostComponents } from '@remax/macro';
+console.log(require.resolve('@remax/macro'));
 import { slash } from '@remax/shared';
 import getModules from '../../utils/modules';
 import { getPages } from '../../../getEntries';
