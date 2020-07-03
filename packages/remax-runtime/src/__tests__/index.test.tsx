@@ -627,9 +627,9 @@ it('usePageInstance works', done => {
     }, []);
 
     return <View />;
-  }, {});
+  });
   const container = new Container(p);
-  render(<Page page={{ data: {} }} />, container);
+  render(<Page page={{ data: {} }} query={{}} />, container);
 });
 
 describe('Remax Suspense placeholder', () => {

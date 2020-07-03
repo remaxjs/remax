@@ -36,7 +36,7 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
     lifecycleCallback: {} as any,
 
     onLoad(this: any, query: any) {
-      const PageWrapper = createPageWrapper(Page, query);
+      const PageWrapper = createPageWrapper(Page);
       this.pageId = generatePageId();
 
       this.query = query;
@@ -44,6 +44,7 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
       this.element = createPortal(
         React.createElement(PageWrapper, {
           page: this,
+          query,
           ref: this.wrapperRef,
         }),
         this.container,
