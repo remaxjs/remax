@@ -10,8 +10,8 @@ describe('createPageWrapper', () => {
   }
 
   it('get Page ref', () => {
-    const WrappedPage = createPageWrapper(Page, {});
-    const testRenderer = TestRenderer.create(<WrappedPage page={null} />);
+    const WrappedPage = createPageWrapper(Page);
+    const testRenderer = TestRenderer.create(<WrappedPage page={null} query={{}} />);
     const instance = testRenderer.getInstance() as any;
     expect(instance.pageComponentInstance).toBeInstanceOf(Page);
   });
@@ -22,16 +22,16 @@ describe('createPageWrapper', () => {
         return <PageComponent ref={ref} />;
       });
     };
-    const WrappedPage = createPageWrapper(hoc(Page), {});
-    const testRenderer = TestRenderer.create(<WrappedPage page={null} />);
+    const WrappedPage = createPageWrapper(hoc(Page));
+    const testRenderer = TestRenderer.create(<WrappedPage page={null} query={{}} />);
     const instance = testRenderer.getInstance() as any;
     expect(instance.pageComponentInstance).toBeInstanceOf(Page);
   });
 
   it('does not pass ref to FC', () => {
     const FCPage: React.FC = props => <view>hi</view>;
-    const WrappedPage = createPageWrapper(FCPage, {});
-    const testRenderer = TestRenderer.create(<WrappedPage page={null} />);
+    const WrappedPage = createPageWrapper(FCPage);
+    const testRenderer = TestRenderer.create(<WrappedPage page={null} query={{}} />);
     const instance = testRenderer.getInstance() as any;
     expect(instance.pageComponentInstance).toBeNull();
   });

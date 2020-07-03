@@ -1,4 +1,4 @@
-const pages = ['pages/one/index', 'pages/two/index'];
+const pages = ['pages/one/index', 'pages/two/index', 'pages/query/index'];
 
 module.exports.ali = {
   pages,
