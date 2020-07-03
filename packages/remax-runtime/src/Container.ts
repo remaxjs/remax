@@ -5,7 +5,7 @@ import nativeEffector from './nativeEffect';
 import * as RuntimeOptions from './RuntimeOptions';
 
 interface SpliceUpdate {
-  path: string;
+  path: string[];
   start: number;
   id: number;
   deleteCount: number;
@@ -16,7 +16,7 @@ interface SpliceUpdate {
 }
 
 interface SetUpdate {
-  path: string;
+  path: string[];
   name: string;
   value: any;
   type: 'set';
@@ -26,12 +26,13 @@ interface SetUpdate {
 export default class Container {
   context: any;
   root: VNode;
+  rootKey: string;
   updateQueue: Array<SpliceUpdate | SetUpdate> = [];
   _rootContainer?: FiberRoot;
   stopUpdate?: boolean;
   rendered = false;
 
-  constructor(context: any) {
+  constructor(context: any, rootKey = 'root') {
     this.context = context;
 
     this.root = new VNode({
@@ -40,6 +41,7 @@ export default class Container {
       container: this,
     });
     this.root.mounted = true;
+    this.rootKey = rootKey;
   }
 
   requestUpdate(update: SpliceUpdate | SetUpdate, immediately?: boolean) {
@@ -52,6 +54,10 @@ export default class Container {
       }
       this.updateQueue.push(update);
     }
+  }
+
+  normalizeUpdatePath(paths: string[]) {
+    return [this.rootKey, ...paths].join('.');
   }
 
   applyUpdate() {
@@ -86,7 +92,11 @@ export default class Container {
           if (update.type === 'splice') {
             this.context.$spliceData(
               {
-                [update.path + '.children']: [update.start, update.deleteCount, ...update.items],
+                [this.normalizeUpdatePath([...update.path, 'children'])]: [
+                  update.start,
+                  update.deleteCount,
+                  ...update.items,
+                ],
               },
               callback
             );
@@ -95,7 +105,7 @@ export default class Container {
           if (update.type === 'set') {
             this.context.setData(
               {
-                [update.path + '.' + update.name]: update.value,
+                [this.normalizeUpdatePath([...update.path, update.name])]: update.value,
               },
               callback
             );
@@ -113,13 +123,13 @@ export default class Container {
         return acc;
       }
       if (update.type === 'splice') {
-        acc[update.path + '.nodes.' + update.id] = update.items[0] || null;
+        acc[this.normalizeUpdatePath([...update.path, 'nodes', update.id.toString()])] = update.items[0] || null;
 
         if (update.children) {
-          acc[update.path + '.children'] = (update.children || []).map(c => c.id);
+          acc[this.normalizeUpdatePath([...update.path, 'children'])] = (update.children || []).map(c => c.id);
         }
       } else {
-        acc[update.path + '.' + update.name] = update.value;
+        acc[this.normalizeUpdatePath([...update.path, update.name])] = update.value;
       }
       return acc;
     }, {});

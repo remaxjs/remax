@@ -40,4 +40,10 @@ describe('works', () => {
     await expect(page).toMatch('query from props: foo');
     await expect(page).toMatch('query from hook: foo');
   });
+
+  it('renders modal component', async () => {
+    await goTo('/pages/modal/index');
+
+    await expect(page).toMatch('modal component');
+  });
 });

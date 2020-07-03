@@ -264,61 +264,7 @@ describe('ali remax render', () => {
     render(<Page ref={page} />, container);
     expect(container.root).toMatchSnapshot();
     page.current.update();
-    expect(container.updateQueue).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "name": "class",
-          "node": Object {
-            "children": Array [],
-            "id": 1,
-            "props": Object {
-              "class": "updateClassName",
-              "disabled": true,
-              "style": "display:flex;flex:2;",
-            },
-            "text": undefined,
-            "type": "input",
-          },
-          "path": "root.children.0.children[0].props",
-          "type": "set",
-          "value": "updateClassName",
-        },
-        Object {
-          "name": "disabled",
-          "node": Object {
-            "children": Array [],
-            "id": 1,
-            "props": Object {
-              "class": "updateClassName",
-              "disabled": true,
-              "style": "display:flex;flex:2;",
-            },
-            "text": undefined,
-            "type": "input",
-          },
-          "path": "root.children.0.children[0].props",
-          "type": "set",
-          "value": true,
-        },
-        Object {
-          "name": "style",
-          "node": Object {
-            "children": Array [],
-            "id": 1,
-            "props": Object {
-              "class": "updateClassName",
-              "disabled": true,
-              "style": "display:flex;flex:2;",
-            },
-            "text": undefined,
-            "type": "input",
-          },
-          "path": "root.children.0.children[0].props",
-          "type": "set",
-          "value": "display:flex;flex:2;",
-        },
-      ]
-    `);
+    expect(container.updateQueue).toMatchSnapshot();
     expect(container.root).toMatchSnapshot();
   });
 
@@ -629,7 +575,8 @@ it('usePageInstance works', done => {
     return <View />;
   });
   const container = new Container(p);
-  render(<Page page={{ data: {} }} query={{}} />, container);
+  const modalContainer = new Container({});
+  render(<Page page={{ data: {} }} query={{}} modalContainer={modalContainer} />, container);
 });
 
 describe('Remax Suspense placeholder', () => {

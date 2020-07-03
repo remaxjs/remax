@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import PageInstanceContext from '../PageInstanceContext';
+import PageContext from '../PageContext';
 
 export default function useQuery<Q extends {} = { [name: string]: string }>(): Q {
-  const pageInstance: any = useContext(PageInstanceContext);
-  return pageInstance.query;
+  const pageInstance: any = useContext(PageContext)?.page;
+  return pageInstance?.query;
 }

@@ -191,10 +191,10 @@ export default class VNode {
     for (let i = 0; i < payload.length; i = i + 2) {
       const [propName, propValue] = toRawProps(payload[i], payload[i + 1], this.type);
 
-      let path = this.parent!.path + '.nodes.' + this.id + '.props';
+      let path = [...this.parent!.path, 'nodes', this.id.toString(), 'props'];
 
       if (RuntimeOptions.get('platform') === 'ali') {
-        path = this.parent!.path + '.children[' + this.index + '].props';
+        path = [...this.parent!.path, `children[${this.index}].props`];
       }
 
       this.container.requestUpdate({
@@ -232,7 +232,7 @@ export default class VNode {
   }
 
   get path() {
-    let dataPath = 'root';
+    const dataPath: string[] = [];
     const parents = [];
     let parent = this.parent;
 
@@ -245,9 +245,11 @@ export default class VNode {
       const child = parents[i + 1] || this;
 
       if (RuntimeOptions.get('platform') === 'ali') {
-        dataPath += '.children.' + child.index + '';
+        dataPath.push('children');
+        dataPath.push(child.index.toString());
       } else {
-        dataPath += '.nodes.' + child.id + '';
+        dataPath.push('nodes');
+        dataPath.push(child.id.toString());
       }
     }
 

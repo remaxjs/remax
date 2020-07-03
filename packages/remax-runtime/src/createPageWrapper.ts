@@ -1,7 +1,7 @@
 import * as React from 'react';
 import isClassComponent from './utils/isClassComponent';
 import { Lifecycle, Callback, callbackName } from './lifecycle';
-import PageInstanceContext from './PageInstanceContext';
+import PageContext from './PageContext';
 import { ForwardRef } from './ReactIs';
 import Container from './Container';
 
@@ -12,7 +12,7 @@ export interface PageProps<Q = {}> {
 }
 
 export default function createPageWrapper(Page: React.ComponentType<any>) {
-  return class PageWrapper extends React.Component<{ page: any; container: Container; query: any }> {
+  return class PageWrapper extends React.Component<{ page: any; query: any; modalContainer: Container }> {
     // 页面组件的实例
     pageComponentInstance: any = null;
 
@@ -53,8 +53,8 @@ export default function createPageWrapper(Page: React.ComponentType<any>) {
       }
 
       return React.createElement(
-        PageInstanceContext.Provider,
-        { value: { page: this.props.page, container: this.props.container } },
+        PageContext.Provider,
+        { value: { page: this.props.page, modalContainer: this.props.modalContainer } },
         React.createElement(Page, props)
       );
     }

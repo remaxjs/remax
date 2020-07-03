@@ -509,7 +509,10 @@ Array [
       "text": undefined,
       "type": "view",
     },
-    "path": "root.children.0",
+    "path": Array [
+      "children",
+      "0",
+    ],
     "start": 1,
     "type": "splice",
   },
@@ -656,7 +659,10 @@ Array [
       "text": undefined,
       "type": "view",
     },
-    "path": "root.children.0",
+    "path": Array [
+      "children",
+      "0",
+    ],
     "start": 1,
     "type": "splice",
   },
@@ -726,7 +732,10 @@ Array [
       "text": undefined,
       "type": "view",
     },
-    "path": "root.children.0",
+    "path": Array [
+      "children",
+      "0",
+    ],
     "start": 1,
     "type": "splice",
   },
@@ -1198,6 +1207,74 @@ Object {
   "text": undefined,
   "type": "root",
 }
+`;
+
+exports[`ali remax render update element props 2`] = `
+Array [
+  Object {
+    "name": "class",
+    "node": Object {
+      "children": Array [],
+      "id": 1,
+      "props": Object {
+        "class": "updateClassName",
+        "disabled": true,
+        "style": "display:flex;flex:2;",
+      },
+      "text": undefined,
+      "type": "input",
+    },
+    "path": Array [
+      "children",
+      "0",
+      "children[0].props",
+    ],
+    "type": "set",
+    "value": "updateClassName",
+  },
+  Object {
+    "name": "disabled",
+    "node": Object {
+      "children": Array [],
+      "id": 1,
+      "props": Object {
+        "class": "updateClassName",
+        "disabled": true,
+        "style": "display:flex;flex:2;",
+      },
+      "text": undefined,
+      "type": "input",
+    },
+    "path": Array [
+      "children",
+      "0",
+      "children[0].props",
+    ],
+    "type": "set",
+    "value": true,
+  },
+  Object {
+    "name": "style",
+    "node": Object {
+      "children": Array [],
+      "id": 1,
+      "props": Object {
+        "class": "updateClassName",
+        "disabled": true,
+        "style": "display:flex;flex:2;",
+      },
+      "text": undefined,
+      "type": "input",
+    },
+    "path": Array [
+      "children",
+      "0",
+      "children[0].props",
+    ],
+    "type": "set",
+    "value": "display:flex;flex:2;",
+  },
+]
 `;
 
 exports[`ali remax render update element props 3`] = `

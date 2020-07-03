@@ -1,5 +1,3 @@
-<template is="REMAX_TPL" data="{{ root: root }}" />
-
 <template name="REMAX_TPL">
   <block a:for="{{root.children}}" a:key="{{item.id}}">
     <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
@@ -489,6 +487,32 @@
 </template>
 
   
+  <template name="REMAX_TPL_1_index10">
+  <index10 
+    ref="{{item.props['__ref']}}"
+  >
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          class="{{item.props['class']}}" 
+          id="{{item.props['id']}}" 
+          ns:attr="{{item.props['ns:attr']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </index10>
+</template>
+
+  
   <template name="REMAX_TPL_1_index2">
   <index2 
     ref="{{item.props['__ref']}}"
@@ -512,32 +536,6 @@
     </block>
     
   </index2>
-</template>
-
-  
-  <template name="REMAX_TPL_1_index9">
-  <index9 
-    ref="{{item.props['__ref']}}"
-  >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          class="{{item.props['class']}}" 
-          id="{{item.props['id']}}" 
-          ns:attr="{{item.props['ns:attr']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </index9>
 </template>
 
   
@@ -2003,3 +2001,6 @@
 <template name="REMAX_TPL_1_CONTAINER">
   <template is="{{'REMAX_TPL_1_' + item.type}}" data="{{item: item}}" />
 </template>
+
+<template is="REMAX_TPL" data="{{ root: root }}" />
+<template is="REMAX_TPL" data="{{ root: modalRoot }}" />

@@ -1,0 +1,12 @@
+.cat-image {
+  width: 100px;
+  height: 100px;
+}
+
+.dog-image {
+  background-image: url('~@/assets/images/dog.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+}
