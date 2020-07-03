@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/remaxjs/remax/compare/v2.5.5...v2.6.0) (2020-07-03)
+
+### Bug Fixes
+
+- 补全 useAppEvent usePageEvent 类型 ([#1120](https://github.com/remaxjs/remax/issues/1120)) ([91096a4](https://github.com/remaxjs/remax/commit/91096a45dba6fe5e9cfc406404a474f3c2967017))
+
 ## [2.5.5](https://github.com/remaxjs/remax/compare/v2.5.4...v2.5.5) (2020-06-18)
 
 **Note:** Version bump only for package @remax/macro
