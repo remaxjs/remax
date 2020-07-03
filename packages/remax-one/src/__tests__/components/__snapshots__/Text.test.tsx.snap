@@ -27,8 +27,6 @@ exports[`Text render correctly in web 1`] = `
 exports[`Text render correctly in wechat 1`] = `
 <text
   className="class"
-  selectable={false}
-  wechat-decode={false}
 >
   text
 </text>

@@ -147,15 +147,6 @@ export default class API {
     plugin = typeof plugin === 'function' ? plugin() : plugin;
     this.registerHostComponents(plugin.hostComponents);
     this.plugins.push(plugin);
-
-    if (one) {
-      const onePath = '@remax/one/node';
-
-      const plugin = require(onePath).default || require(onePath);
-      const one = plugin();
-      this.registerHostComponents(one.hostComponents);
-      this.plugins.push(one);
-    }
   }
 
   public registerPlugins(plugins: Plugin[] = []) {

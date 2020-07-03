@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { InputEvent } from '../../types';
+import { InputEvent } from '../../../types';
+
+export { default as alias } from './alias';
 
 interface CommonProps {
   // 通用属性

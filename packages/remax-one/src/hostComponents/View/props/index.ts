@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { TapEvent, TouchStartEvent, TouchEndEvent, TouchMoveEvent, TouchCancelEvent } from '../../types';
+import { TapEvent, TouchStartEvent, TouchEndEvent, TouchMoveEvent, TouchCancelEvent } from '../../../types';
+
+export { default as defaults } from './default';
 
 interface CommonProps {
   // 通用属性

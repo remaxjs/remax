@@ -3,4 +3,4 @@ import { LabelProps } from './props';
 
 export type { LabelProps };
 
-export default createHostComponent<LabelProps>('label');
+export default createHostComponent<LabelProps>('label', { htmlFor: 'for' });

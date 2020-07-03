@@ -1,3 +1,5 @@
+export { default as defaults } from './default';
+
 export interface NavigatorProps {
   readonly dataset?: DOMStringMap;
   id?: string;

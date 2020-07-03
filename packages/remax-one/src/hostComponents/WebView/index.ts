@@ -8,6 +8,6 @@ export interface WebViewProps extends React.AriaAttributes {
   onMessage?: (event: Event) => void;
 }
 
-const WebView = createHostComponent<WebViewProps>('web-view');
+const WebView = createHostComponent<WebViewProps>('web-view', null);
 
 export default WebView;

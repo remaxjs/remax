@@ -2,16 +2,37 @@ module.exports = {
           hostComponents: {
   "button": {
     "alias": {
-      "id": "id",
       "className": "class",
+      "id": "id",
       "style": "style",
+      "type": "type",
+      "plain": "plain",
       "disabled": "disabled",
+      "loading": "loading",
+      "formType": "form-type",
+      "openType": "open-type",
+      "hoverClass": "hover-class",
       "hoverClassName": "hover-class",
+      "hoverStopPropagation": "hover-stop-propagation",
       "hoverStartTime": "hover-start-time",
       "hoverStayTime": "hover-stay-time",
-      "hoverStopPropagation": "hover-stop-propagation",
-      "type": "form-type",
-      "onTap": "bindtap"
+      "lang": "lang",
+      "sessionFrom": "session-from",
+      "sendMessageTitle": "send-message-title",
+      "sendMessagePath": "send-message-path",
+      "sendMessageImg": "send-message-img",
+      "appParameter": "app-parameter",
+      "showMessageCard": "show-message-card",
+      "onGetUserinfo": "bindgetuserinfo",
+      "onGetUserInfo": "bindgetuserinfo",
+      "onContact": "bindcontact",
+      "onGetPhoneNumber": "bindgetphonenumber",
+      "onError": "binderror",
+      "onOpenSetting": "bindopensetting",
+      "onLaunchApp": "bindlaunchapp",
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "animation": "animation"
     }
   },
   "canvas": {
@@ -62,8 +83,11 @@ module.exports = {
       "id": "id",
       "className": "class",
       "style": "style",
+      "reportSubmit": "report-submit",
       "onSubmit": "bindsubmit",
-      "onReset": "bindreset"
+      "onReset": "bindreset",
+      "reportSubmitTimeout": "report-submit-timeout",
+      "animation": "animation"
     }
   },
   "icon": {
@@ -84,36 +108,50 @@ module.exports = {
       "mode": "mode",
       "className": "class",
       "style": "style",
+      "lazyLoad": "lazy-load",
       "onLoad": "bindload",
       "onError": "binderror",
       "onTap": "bindtap",
+      "onClick": "bindtap",
       "onTouchStart": "bindtouchstart",
-      "onTouchEnd": "bindtouchend",
       "onTouchMove": "bindtouchmove",
-      "onTouchCancel": "bindtouchcancel"
+      "onTouchEnd": "bindtouchend",
+      "onTouchCancel": "bindtouchcancel",
+      "showMenuByLongpress": "show-menu-by-longpress",
+      "animation": "animation"
     }
   },
   "input": {
     "alias": {
-      "id": "id",
+      "autoFocus": "auto-focus",
       "className": "class",
-      "style": "style",
-      "value": "value",
-      "defaultValue": "value",
-      "name": "name",
-      "type": "type",
-      "password": "password",
-      "placeholder": "placeholder",
-      "disabled": "disabled",
       "focus": "focus",
+      "name": "name",
+      "maxlength": "maxlength",
+      "value": "value",
+      "style": "style",
+      "password": "password",
+      "type": "type",
       "confirmType": "confirm-type",
       "confirmHold": "confirm-hold",
+      "cursor": "cursor",
+      "selectionStart": "selection-start",
+      "selectionEnd": "selection-end",
+      "adjustPosition": "adjust-position",
+      "placeholder": "placeholder",
       "placeholderStyle": "placeholder-style",
+      "placeholderClass": "placeholder-class",
+      "placeholderClassName": "placeholder-class",
+      "disabled": "disabled",
+      "cursorSpacing": "cursor-spacing",
       "onInput": "bindinput",
-      "onConfirm": "bindconfirm",
+      "onTap": "bindtap",
+      "onClick": "bindtap",
       "onFocus": "bindfocus",
       "onBlur": "bindblur",
-      "maxLength": "maxlength"
+      "onConfirm": "bindconfirm",
+      "onKeyboardHeightChange": "bindkeyboardheightchange",
+      "animation": "animation"
     }
   },
   "label": {
@@ -121,7 +159,8 @@ module.exports = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "htmlFor": "for"
+      "for": "for",
+      "animation": "animation"
     }
   },
   "navigator": {
@@ -129,11 +168,23 @@ module.exports = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "url": "url",
-      "action": "open-type",
+      "openType": "open-type",
+      "hoverClass": "hover-class",
       "hoverClassName": "hover-class",
       "hoverStartTime": "hover-start-time",
-      "hoverStayTime": "hover-stay-time"
+      "hoverStayTime": "hover-stay-time",
+      "url": "url",
+      "target": "target",
+      "delta": "delta",
+      "appId": "app-id",
+      "path": "path",
+      "extraData": "extra-data",
+      "version": "version",
+      "hoverStopPropagation": "hover-stop-propagation",
+      "onSuccess": "bindsuccess",
+      "onFail": "bindfail",
+      "onComplete": "bindcomplete",
+      "animation": "animation"
     }
   },
   "picker-view-column": {
@@ -343,7 +394,10 @@ module.exports = {
       "className": "class",
       "style": "style",
       "selectable": "selectable",
-      "onTap": "bindtap"
+      "space": "space",
+      "decode": "decode",
+      "onTap": "bindtap",
+      "animation": "animation"
     }
   },
   "textarea": {
@@ -355,14 +409,29 @@ module.exports = {
       "value": "value",
       "placeholder": "placeholder",
       "placeholderStyle": "placeholder-style",
+      "placeholderClass": "placeholder-class",
+      "placeholderClassName": "placeholder-class",
       "disabled": "disabled",
+      "maxlength": "maxlength",
+      "autoFocus": "auto-focus",
       "focus": "focus",
+      "fixed": "fixed",
       "autoHeight": "auto-height",
-      "onInput": "bindinput",
+      "showCount": "show-count",
+      "controlled": "controlled",
+      "cursorSpacing": "cursor-spacing",
+      "cursor": "cursor",
+      "showConfirmBar": "show-confirm-bar",
+      "selectionStart": "selection-start",
+      "selectionEnd": "selection-end",
+      "adjustPosition": "adjust-position",
       "onFocus": "bindfocus",
       "onBlur": "bindblur",
+      "onLineChange": "bindlinechange",
+      "onInput": "bindinput",
       "onConfirm": "bindconfirm",
-      "maxlength": "maxlength"
+      "onKeyboardHeightChange": "bindkeyboardheightchange",
+      "animation": "animation"
     }
   },
   "video": {
@@ -411,27 +480,37 @@ module.exports = {
   "view": {
     "alias": {
       "id": "id",
-      "role": "aria-role",
+      "disableScroll": "disable-scroll",
       "hoverClass": "hover-class",
       "hoverClassName": "hover-class",
       "hoverStartTime": "hover-start-time",
       "hoverStayTime": "hover-stay-time",
+      "hidden": "hidden",
       "className": "class",
       "style": "style",
       "animation": "animation",
+      "hoverStopPropagation": "hover-stop-propagation",
       "onTap": "bindtap",
+      "onClick": "bindtap",
       "onTouchStart": "bindtouchstart",
       "onTouchMove": "bindtouchmove",
       "onTouchEnd": "bindtouchend",
       "onTouchCancel": "bindtouchcancel",
-      "onLongTap": "bindlongtap"
+      "onLongTap": "bindlongtap",
+      "onLongClick": "bindlongtap",
+      "onTransitionEnd": "bindtransitionend",
+      "onAnimationIteration": "bindanimationiteration",
+      "onAnimationStart": "bindanimationstart",
+      "onAnimationEnd": "bindanimationend"
     }
   },
   "web-view": {
     "alias": {
-      "id": "id",
       "src": "src",
-      "onMessage": "bindmessage"
+      "progressbarColor": "progressbar-color",
+      "onMessage": "bindmessage",
+      "onLoad": "bindload",
+      "onError": "binderror"
     }
   }
 },

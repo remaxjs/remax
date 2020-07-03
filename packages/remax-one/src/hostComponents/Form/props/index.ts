@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { FormEvent } from '../../types';
+import { FormEvent } from '../../../types';
+
+export { default as defaults } from './default';
 
 interface CommonProps {
   // 通用属性

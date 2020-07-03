@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { InputEvent } from '../../types';
+import { InputEvent } from '../../../types';
 
 interface CommonProps {
   // 通用属性
