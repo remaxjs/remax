@@ -86,6 +86,10 @@ function assignDefaultProps(inputProps: any, defaultProps: any) {
 }
 
 export function aliasProps(props: any, alias: { [key: string]: string }) {
+  if (!alias) {
+    return props;
+  }
+
   const nextProps: any = {};
 
   for (const key in props) {

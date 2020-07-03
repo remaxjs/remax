@@ -1,9 +1,9 @@
 import createHostComponent from '../../createHostComponent';
 import ImageProps from './props';
-import * as props from './props';
+import defaults from './props/default';
 
 export type { ImageProps };
 
-const Image = createHostComponent<ImageProps>('image', null, props.defaults);
+const Image = createHostComponent<ImageProps>('image', null, defaults);
 
 export default Image;

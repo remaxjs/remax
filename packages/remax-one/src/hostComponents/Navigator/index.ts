@@ -1,5 +1,6 @@
 import createHostComponent from '../../createHostComponent';
-import { NavigatorProps, defaults } from './props';
+import { NavigatorProps } from './props';
+import defaults from './props/default';
 
 export type { NavigatorProps };
 

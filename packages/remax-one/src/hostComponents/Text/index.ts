@@ -1,5 +1,6 @@
 import createHostComponent from '../../createHostComponent';
-import TextProps, { defaults } from './props';
+import TextProps from './props';
+import defaults from './props/default';
 
 export type { TextProps };
 

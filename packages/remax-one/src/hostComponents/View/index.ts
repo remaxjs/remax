@@ -1,5 +1,6 @@
 import createHostComponent from '../../createHostComponent';
-import ViewProps, { defaults } from './props';
+import ViewProps from './props';
+import defaults from './props/default';
 
 export type { ViewProps };
 

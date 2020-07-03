@@ -1,9 +1,9 @@
 import createHostComponent from '../../createHostComponent';
-import * as props from './props';
+import defaults from './props/default';
 import { FormProps } from './props';
 
 export type { FormProps };
 
-const Form = createHostComponent<FormProps>('form', null, props.defaults);
+const Form = createHostComponent<FormProps>('form', null, defaults);
 
 export default Form;

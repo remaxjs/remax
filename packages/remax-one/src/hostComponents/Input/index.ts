@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { InputEvent } from '../../types';
 import { createCallback, createInputEvent, aliasProps } from '../../createHostComponent';
-import { InputProps } from './props';
-import * as propsConfig from './props';
+import type { InputProps } from './props';
+import alias from './props/alias';
 
 export type { InputProps };
 
@@ -103,7 +103,7 @@ export default class Input extends React.Component<InputProps, InputState> {
         ...inputProps,
         ...this.state,
       },
-      propsConfig.alias
+      alias
     );
 
     return React.createElement('input', nextProps);
