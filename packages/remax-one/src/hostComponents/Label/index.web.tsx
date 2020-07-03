@@ -8,4 +8,4 @@ const Label: React.ForwardRefRenderFunction<any, LabelProps> = (props, ref) => (
   <label {...filterProps(props)} ref={ref} />
 );
 
-export default Label;
+export default React.forwardRef(Label);
