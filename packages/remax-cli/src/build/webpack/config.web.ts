@@ -91,7 +91,7 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
       .plugin('webpack-copy-plugin')
       .use(CopyPlugin, [[{ from: publicDirPath, to: path.join(options.cwd, options.output) }]]);
   }
-  console.log(path.join(publicDirPath, 'index.html'), options.cwd);
+
   config.plugin('html-webpack-plugin').use(HtmlWebpackPlugin, [
     {
       template: fs.existsSync(path.join(publicDirPath, 'index.html'))
