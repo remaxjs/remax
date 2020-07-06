@@ -41,3 +41,11 @@ export default () => {
   return <Image src="/images/icon.png" />;
 };
 ```
+
+<!-- TODO: 这个写什么版本？ -->
+
+> 2.6.0 开始支持
+
+在项目根目录下创建 `public/index.html` 文件
+
+你可以将 web 端 `默认html模板文件` 替换成你自定义的 `html模板文件`，remax 将在 `id=remax-app` 的元素中渲染
