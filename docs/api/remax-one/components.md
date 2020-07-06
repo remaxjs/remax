@@ -226,8 +226,6 @@ import { WebView } from 'remax/one';
 
 ## Modal
 
-> 任何平台都可以使用 Modal 组件
-
 > turboPages 暂不支持使用 Modal
 
 Modal 组件是一种简单的覆盖在其他视图之上显示内容的方式。
