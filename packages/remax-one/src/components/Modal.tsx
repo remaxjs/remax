@@ -1,4 +1,4 @@
-import * as React from 'React';
+import * as React from 'react';
 import { usePageContext, createPortal } from '@remax/runtime';
 
 export default function RemaxModal({ children }: React.PropsWithChildren<{}>) {
