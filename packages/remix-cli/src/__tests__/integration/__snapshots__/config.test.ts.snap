@@ -3,8 +3,8 @@
 exports[`remix config schema validation 1`] = `
 "Invalid configuration object. remix has been initialized using a configuration object that does not match the API schema.
  - configuration has an unknown property 'xxx'. These properties are valid:
-   object { turboPages?, notify?, pxToRpx?, cwd?, progress?, compressTemplate?, output?, rootDir?, one?, configWebpack?, plugins? }
- - configuration.turboPages should be an array:
+   object { dynamicPages?, notify?, pxToRpx?, cwd?, progress?, compressTemplate?, output?, rootDir?, configWebpack?, plugins? }
+ - configuration.dynamicPages should be an array:
    [any, ...]
  - configuration.notify should be a boolean.
  - configuration.pxToRpx should be a boolean.

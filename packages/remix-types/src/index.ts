@@ -8,7 +8,7 @@ export enum Platform {
 }
 
 export interface Options {
-  turboPages?: string[];
+  dynamicPages?: string[];
   pxToRpx: boolean;
   cwd: string;
   progress: boolean;

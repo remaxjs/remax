@@ -1,5 +1,5 @@
 module.exports = {
-  turboPages: 1,
+  dynamicPages: 1,
   xxx: 1,
   pxToRpx: 1,
   cwd: 1,

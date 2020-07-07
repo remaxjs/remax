@@ -1,7 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "turboPages": {
+    "dynamicPages": {
       "type": "array"
     },
     "notify": {
@@ -24,9 +24,6 @@
     },
     "rootDir": {
       "type": "string"
-    },
-    "one": {
-      "type": "boolean"
     },
     "configWebpack": {
       "anyOf": [{ "instanceof": "Function" }]
