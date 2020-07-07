@@ -1,3 +1,3 @@
 module.exports = {
-  turboPages: ['pages/index', 'pages/entry/index'],
+  dynamicPages: ['pages/turboPageDisabled'],
 };

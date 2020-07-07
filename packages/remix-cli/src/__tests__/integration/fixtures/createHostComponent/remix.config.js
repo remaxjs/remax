@@ -1,4 +1,4 @@
-const appConfig = require('./source/app.config');
+const appConfig = require('./src/app.config').ali;
 const dynamicPages = [...appConfig.pages];
 
 if (Array.isArray(appConfig.subPackages)) {
@@ -9,5 +9,4 @@ if (Array.isArray(appConfig.subPackages)) {
 
 module.exports = {
   dynamicPages,
-  rootDir: 'source',
 };

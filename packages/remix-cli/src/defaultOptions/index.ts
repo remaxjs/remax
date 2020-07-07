@@ -2,7 +2,7 @@ import { Options } from '@alipay/remix-types';
 
 export function getDefaultOptions(): Options {
   return {
-    turboPages: [],
+    dynamicPages: [],
     pxToRpx: true,
     cwd: process.cwd(),
     progress: true,

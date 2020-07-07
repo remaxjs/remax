@@ -27,7 +27,7 @@ import baseConfig from './baseConfig';
 
 function prepare(api: API, options: Options, target: Platform) {
   const meta = api.getMeta();
-  const turboPagesEnabled = options.turboPages && options.turboPages.length > 0;
+  // const turboPagesEnabled = options.turboPages && options.turboPages.length > 0;
 
   const stubModules = [Platform.ali]
     .filter(name => target !== name)
@@ -37,7 +37,7 @@ function prepare(api: API, options: Options, target: Platform) {
 
   return {
     meta,
-    turboPagesEnabled,
+    // turboPagesEnabled,
     stubModules,
     publicPath,
   };
@@ -55,7 +55,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
 
   baseConfig(config, options, target);
 
-  const { meta, turboPagesEnabled, stubModules, publicPath } = prepare(api, options, target);
+  const { meta, stubModules, publicPath } = prepare(api, options, target);
   const { app, pages } = getEntries(options, api);
 
   config.entry(app.name).add(app.filename);
@@ -111,37 +111,35 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     });
 
   // turbo pages
-  if (turboPagesEnabled) {
-    // webpack chain 的配置顺序是反过来的
-    config.module
-      .rule('turbo-page')
-      .pre()
-      .use('turbo-page-postprocess')
-      .loader('babel')
-      .options({
-        usePlugins: [staticCompiler.postProcess],
-        reactPreset: false,
-      })
-      .end()
-      .test(moduleMatcher)
-      .use('turbo-page-render')
-      .loader('babel')
-      .options({
-        usePlugins: [staticCompiler.render.bind(null, api)],
-        reactPreset: false,
-      })
-      .end()
-      .test(filename => {
-        const { pages } = getEntries(options, api);
-        return !!TurboPages.filter(pages, options).find(p => p.filename === slash(filename));
-      })
-      .use('turbo-page-preprocess')
-      .loader('babel')
-      .options({
-        usePlugins: [staticCompiler.preprocess],
-        reactPreset: false,
-      });
-  }
+  // webpack chain 的配置顺序是反过来的
+  config.module
+    .rule('turbo-page')
+    .pre()
+    .use('turbo-page-postprocess')
+    .loader('babel')
+    .options({
+      usePlugins: [staticCompiler.postProcess],
+      reactPreset: false,
+    })
+    .end()
+    .test(moduleMatcher)
+    .use('turbo-page-render')
+    .loader('babel')
+    .options({
+      usePlugins: [staticCompiler.render.bind(null, api)],
+      reactPreset: false,
+    })
+    .end()
+    .test(filename => {
+      const { pages } = getEntries(options, api);
+      return !!TurboPages.filter(pages, options).find(p => p.filename === slash(filename));
+    })
+    .use('turbo-page-preprocess')
+    .loader('babel')
+    .options({
+      usePlugins: [staticCompiler.preprocess],
+      reactPreset: false,
+    });
 
   config.module
     .rule('js')
