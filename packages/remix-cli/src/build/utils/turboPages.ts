@@ -10,7 +10,7 @@ export function validate(route: string, options: Options) {
   }
   const page = rename(slash(route).replace(slash(path.join(options.cwd, options.rootDir)) + '/', ''), '');
 
-  return isMatch(page, options.turboPages ?? []);
+  return !isMatch(page, options.dynamicPages ?? []);
 }
 
 export function filter(pages: EntryInfo[], options: Options) {

@@ -18,6 +18,10 @@ lint:
   agent:
     docker:
       image: reg.docker.alibaba-inc.com/puppeteer/ci-puppeteer:2.0.0
+      resourceRequirements:
+        cpu: 16
+        memory: 32
+        ephemeral-storage: 20
   stage: check
   script:
     - yarn run lint
@@ -31,8 +35,8 @@ test:
     docker:
       image: reg.docker.alibaba-inc.com/puppeteer/ci-puppeteer:2.0.0
       resourceRequirements:
-        cpu: 2
-        memory: 4
+        cpu: 16
+        memory: 32
         ephemeral-storage: 20
   stage: check
   script:
@@ -45,8 +49,8 @@ e2e:mini:
     docker:
       image: reg.docker.alibaba-inc.com/puppeteer/ci-puppeteer:2.0.0
       resourceRequirements:
-        cpu: 2
-        memory: 4
+        cpu: 16
+        memory: 32
         ephemeral-storage: 20
   stage: check
   script:
@@ -58,6 +62,10 @@ e2e:web:
   agent:
     docker:
       image: reg.docker.alibaba-inc.com/puppeteer/ci-puppeteer:2.0.0
+      resourceRequirements:
+        cpu: 16
+        memory: 32
+        ephemeral-storage: 20
   stage: check
   script:
     - yarn run build

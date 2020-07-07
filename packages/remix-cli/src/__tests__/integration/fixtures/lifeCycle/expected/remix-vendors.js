@@ -29,9 +29,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hooks__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(40);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageInstance", function() { return _hooks__WEBPACK_IMPORTED_MODULE_6__["usePageInstance"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useQuery", function() { return _hooks__WEBPACK_IMPORTED_MODULE_6__["useQuery"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useNativeEffect", function() { return _hooks__WEBPACK_IMPORTED_MODULE_6__["useNativeEffect"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useQuery", function() { return _hooks__WEBPACK_IMPORTED_MODULE_6__["useQuery"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePageEvent", function() { return _hooks__WEBPACK_IMPORTED_MODULE_6__["usePageEvent"]; });
 
@@ -2542,12 +2542,13 @@ function createPageConfig(Page, name) {
     wrapperRef: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createRef"](),
     lifecycleCallback: {},
     onLoad: function onLoad(query) {
-      var PageWrapper = Object(_createPageWrapper__WEBPACK_IMPORTED_MODULE_2__["default"])(Page, query);
+      var PageWrapper = Object(_createPageWrapper__WEBPACK_IMPORTED_MODULE_2__["default"])(Page);
       this.pageId = generatePageId();
       this.query = query;
       this.container = new _Container__WEBPACK_IMPORTED_MODULE_5__["default"](this);
       this.element = Object(_ReactPortal__WEBPACK_IMPORTED_MODULE_6__["createPortal"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](PageWrapper, {
         page: this,
+        query: query,
         ref: this.wrapperRef
       }), this.container, this.pageId);
 
@@ -2755,7 +2756,7 @@ var __spread = undefined && undefined.__spread || function () {
 
 
 
-function createPageWrapper(Page, query) {
+function createPageWrapper(Page) {
   return (
     /** @class */
     function (_super) {
@@ -2804,7 +2805,7 @@ function createPageWrapper(Page, query) {
 
         var props = {
           location: {
-            query: query || {}
+            query: this.props.query || {}
           }
         };
 
@@ -3150,7 +3151,6 @@ function createNativeComponent(name) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "usePageInstance", function() { return usePageInstance; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useQuery", function() { return useQuery; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "usePageEvent", function() { return usePageEvent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useAppEvent", function() { return useAppEvent; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21);
@@ -3160,6 +3160,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AppInstanceContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(29);
 /* harmony import */ var _useNativeEffect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(41);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useNativeEffect", function() { return _useNativeEffect__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+
+/* harmony import */ var _useQuery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(42);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useQuery", function() { return _useQuery__WEBPACK_IMPORTED_MODULE_5__["default"]; });
 
 
 
@@ -3172,10 +3175,7 @@ __webpack_require__.r(__webpack_exports__);
 function usePageInstance() {
   return Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_PageInstanceContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
 }
-function useQuery() {
-  var pageInstance = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_PageInstanceContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
-  return pageInstance.query;
-}
+
 
 function usePageEvent(eventName, callback) {
   var pageInstance = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_PageInstanceContext__WEBPACK_IMPORTED_MODULE_2__["default"]);
@@ -3211,6 +3211,23 @@ function useNativeEffect(listener, deps) {
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useLayoutEffect"])(function () {
     return _nativeEffect__WEBPACK_IMPORTED_MODULE_1__["default"].connect(listener, !!deps);
   }, deps);
+}
+
+/***/ }),
+/* 42 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return useQuery; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _PageInstanceContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(33);
+
+
+function useQuery() {
+  var pageInstance = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_PageInstanceContext__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  return pageInstance.query;
 }
 
 /***/ })

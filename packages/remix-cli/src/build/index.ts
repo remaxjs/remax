@@ -19,9 +19,6 @@ react版本: ${rv}, remix需要: ${rrv}
 }
 
 export function run(options: Options, api: API): webpack.Compiler {
-  if (options.turboPages && options.turboPages.length > 0 && options.target !== Platform.ali) {
-    throw new Error('turboPages 目前仅支持 ali 平台开启');
-  }
   reactVersionCheck();
   if (options.target === Platform.web) {
     // 兼容 herbox 所以用 require
