@@ -19,6 +19,6 @@ const greet = () => ({
 });
 
 module.exports = {
-  turboPages: ['pages/turbo-page/index'],
+  dynamicPages: ['pages/index/index', 'pages/insert-before/index', 'pages/native-component/index', 'packageA/**/*'],
   plugins: [greet()],
 };
