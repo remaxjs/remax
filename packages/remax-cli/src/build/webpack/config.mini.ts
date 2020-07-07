@@ -198,7 +198,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   };
 
   const virtualModules = new VirtualModulesPlugin({
-    [runtimeOptionsPath]: ejs.render(runtimeOptionsTemplate, runtimeOptions),
+    [runtimeOptionsPath]: ejs.render(runtimeOptionsTemplate, runtimeOptions, { debug: false }),
   });
   config.plugin('webpack-virtual-modules').use(virtualModules);
 
