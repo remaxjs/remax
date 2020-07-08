@@ -790,7 +790,8 @@ module.exports = {
       "onTransitionEnd": "bindtransitionend",
       "onAnimationIteration": "bindanimationiteration",
       "onAnimationStart": "bindanimationstart",
-      "onAnimationEnd": "bindanimationend"
+      "onAnimationEnd": "bindanimationend",
+      "catchTouchMove": "catchtouchmove"
     }
   },
   "web-view": {
