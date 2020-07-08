@@ -1,9 +1,12 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 export interface VideoProps {
   src: string;
   id?: string;
   className?: string;
+  style?: React.CSSProperties;
+  posterSize?: 'contain' | 'fill' | 'cover';
   poster?: string;
   objectFit?: 'contain' | 'fill' | 'cover';
   initialTime?: number;
