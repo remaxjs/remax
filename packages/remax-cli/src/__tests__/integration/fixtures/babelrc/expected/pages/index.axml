@@ -1827,6 +1827,10 @@
     
     
     
+    posterSize="{{item.props['posterSize']}}"
+    
+    
+    
     show-center-play-btn="{{item.props['show-center-play-btn']}}"
     
     
@@ -1844,6 +1848,10 @@
     
     
     src="{{item.props['src']}}"
+    
+    
+    
+    style="{{item.props['style']}}"
     
     
     

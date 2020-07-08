@@ -835,11 +835,13 @@
     onTimeUpdate="{{node.props['onTimeUpdate']}}" 
     onUserAction="{{node.props['onUserAction']}}" 
     poster="{{node.props['poster']}}" 
+    posterSize="{{node.props['posterSize']}}" 
     show-center-play-btn="{{node.props['show-center-play-btn']}}" 
     show-fullscreen-btn="{{node.props['show-fullscreen-btn']}}" 
     show-mute-btn="{{node.props['show-mute-btn']}}" 
     show-play-btn="{{node.props['show-play-btn']}}" 
     src="{{node.props['src']}}" 
+    style="{{node.props['style']}}" 
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </video>
