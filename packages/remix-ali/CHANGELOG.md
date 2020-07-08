@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.6](http://code.alipay.com/remix/remix/compare/v2.4.0...v0.0.6) (2020-07-08)
+
+### Bug Fixes
+
+- 修复 MovableView 缺失的属性 ([d497c75](http://code.alipay.com/remix/remix/commits/d497c750c1ff7eb0ed43c13d31e30249a0b3b75d))
+- 修复 Textarea[enableNative] 不生效的问题 ([d4d9591](http://code.alipay.com/remix/remix/commits/d4d959183c2455d750171ac8b288508188add40d))
+- 修复并增加用例 ([3a653fb](http://code.alipay.com/remix/remix/commits/3a653fb5404662832fced8463ae0ba4fd91e2483))
+
+### Features
+
+- @alipay/remix/ali 支持 h5 降级，引用@alipay/remix-appx-components 仓库； ([fb67110](http://code.alipay.com/remix/remix/commits/fb6711073af6e7bd172a91ce8f5ae125934ebc60))
+
 ## [0.0.5](http://code.alipay.com/remix/remix/compare/v0.0.4...v0.0.5) (2020-06-09)
 
 **Note:** Version bump only for package @alipay/remix-ali

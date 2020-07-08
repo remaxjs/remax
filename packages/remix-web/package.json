@@ -1,6 +1,6 @@
 {
   "name": "@alipay/remix-web",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Shim of web for remix",
   "author": "Wei Zhu <yesmeck@gmail.com>",
   "homepage": "https://code.alipay.com/remix/remix#readme",
@@ -24,7 +24,7 @@
     "url": "https://code.alipay.com/remix/remix/issues"
   },
   "dependencies": {
-    "@alipay/remix-router": "0.0.5",
+    "@alipay/remix-router": "0.0.6",
     "@loadable/component": "^5.12.0",
     "rmc-pull-to-refresh": "^1.0.12",
     "umi-hd": "^5.0.1"

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.6](http://code.alipay.com/remix/remix/compare/v2.4.0...v0.0.6) (2020-07-08)
+
+### Bug Fixes
+
+- 修复 style 属性解析报错 ([e259467](http://code.alipay.com/remix/remix/commits/e259467598a12a77d5e633370e3dc4304b35bf2d))
+- 修正 web 端的 props.location.query ([ffeefd9](http://code.alipay.com/remix/remix/commits/ffeefd9f31d41303456992f07f0a6f3cda1d832b))
+
+### Features
+
+- onTouchStart onTouchMove onTouchEnd 无法阻止冒泡 ([2ba3786](http://code.alipay.com/remix/remix/commits/2ba37865da53fa85ebebde23fc4f26b06f4bebce))
+
 ## [0.0.5](http://code.alipay.com/remix/remix/compare/v0.0.4...v0.0.5) (2020-06-09)
 
 **Note:** Version bump only for package @alipay/remix-runtime

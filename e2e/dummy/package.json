@@ -1,7 +1,7 @@
 {
   "name": "e2e-dummy",
   "private": true,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Remix Project",
   "main": "index.js",
   "keywords": [],
@@ -13,7 +13,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@alipay/remix": "0.0.5",
+    "@alipay/remix": "0.0.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
