@@ -20,8 +20,6 @@
     "lint": "eslint \"packages/*/src/**/*.{ts,tsx}\"",
     "release": "lerna publish --force-publish --exact --registry=http://registry.npm.alibaba-inc.com",
     "postrelease": "./scripts/postrelease",
-    "site:build": "lerna run --scope website --stream build",
-    "site:deploy": "lerna run --scope website --stream deploy",
     "install:codesandbox": "PUPPETEER_SKIP_DOWNLOAD=1 yarn install",
     "noop": "node -v",
     "authors": "./scripts/authors"
@@ -67,7 +65,6 @@
   },
   "workspaces": [
     "packages/*",
-    "e2e/*",
-    "website"
+    "e2e/*"
   ]
 }
