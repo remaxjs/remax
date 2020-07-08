@@ -1,8 +1,7 @@
 {
   "packages": [
     "packages/*",
-    "e2e/*",
-    "website"
+    "e2e/*"
   ],
   "command": {
     "publish": {
