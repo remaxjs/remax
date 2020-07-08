@@ -4,7 +4,10 @@ exports[`Input render correctly 1`] = `
 <input
   cursor={-1}
   cursorSpacing={0}
+  disabled={false}
+  focus={false}
   maxlength={140}
+  password={false}
   selectionEnd={-1}
   selectionStart={-1}
   type="text"

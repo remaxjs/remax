@@ -3,6 +3,7 @@
 exports[`Icon render correctly 1`] = `
 <icon
   className="class"
+  size={24}
   type="info"
 />
 `;

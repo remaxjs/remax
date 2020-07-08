@@ -30,8 +30,11 @@ export const Input = createHostComponent<InputProps>('input');
 
 Input.defaultProps = {
   type: 'text',
+  password: false,
   value: '',
+  disabled: false,
   maxlength: 140,
+  focus: false,
   selectionEnd: -1,
   selectionStart: -1,
   cursorSpacing: 0,

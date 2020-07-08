@@ -85,12 +85,27 @@ function assignDefaultProps(inputProps: any, defaultProps: any) {
   }
 }
 
+export function aliasProps(props: any, alias: { [key: string]: string }) {
+  if (!alias) {
+    return props;
+  }
+
+  const nextProps: any = {};
+
+  for (const key in props) {
+    nextProps[alias[key] ?? key] = props[key];
+  }
+
+  return nextProps;
+}
+
 export default function createHostComponent<P = any>(
   name: string,
+  alias: {
+    [key: string]: string;
+  } | null,
   defaults?: {
-    [key: string]: {
-      [key: string]: any;
-    };
+    [key: string]: any;
   }
 ) {
   const Component: React.ForwardRefRenderFunction<any, P> = (props: any, ref: React.Ref<any>) => {
@@ -100,13 +115,7 @@ export default function createHostComponent<P = any>(
 
     // 默认属性根据平台在这里设置
     if (defaults) {
-      if (process.env.REMAX_PLATFORM === 'wechat') {
-        assignDefaultProps(inputProps, defaults['wechat']);
-      } else if (process.env.REMAX_PLATFORM === 'toutiao') {
-        assignDefaultProps(inputProps, defaults['toutiao']);
-      } else if (process.env.REMAX_PLATFORM === 'ali') {
-        assignDefaultProps(inputProps, defaults['ali']);
-      }
+      assignDefaultProps(inputProps, defaults);
     }
 
     if (props.onLongTap) {
@@ -169,7 +178,14 @@ export default function createHostComponent<P = any>(
       }
     }
 
-    return React.createElement(name, { ...inputProps, ref });
+    let nextProps = inputProps;
+
+    if (alias) {
+      nextProps = aliasProps(inputProps, alias);
+    }
+    nextProps.ref = ref;
+
+    return React.createElement(name, nextProps);
   };
 
   if (process.env.NODE_ENV === 'development') {

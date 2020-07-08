@@ -4,6 +4,7 @@ module.exports = {
     "alias": {
       "id": "id",
       "className": "class",
+      "style": "style",
       "size": "size",
       "type": "type",
       "plain": "plain",
@@ -534,7 +535,8 @@ module.exports = {
       "onFullScreenChange": "onFullScreenChange",
       "onTap": "onTap",
       "onClick": "onTap",
-      "onUserAction": "onUserAction"
+      "onUserAction": "onUserAction",
+      "enableNative": "enableNative"
     }
   }
 },

@@ -19,3 +19,7 @@ export interface IconProps extends BaseProps {
 }
 
 export const Icon = createHostComponent<IconProps>('icon');
+
+Icon.defaultProps = {
+  size: 24,
+};

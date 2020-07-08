@@ -11,3 +11,7 @@ export interface FormProps extends BaseProps {
 }
 
 export const Form = createHostComponent<FormProps>('form');
+
+Form.defaultProps = {
+  reportSubmit: false,
+};

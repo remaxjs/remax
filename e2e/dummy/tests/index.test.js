@@ -35,8 +35,9 @@ describe('works', () => {
     await expect(page).toMatch('page two');
   });
 
-  it('useQuery', async () => {
-    await goTo('/pages/two/index?q=query');
-    await expect(page).toMatch('query');
+  it('passes query to page', async () => {
+    await goTo('/pages/query/index?name=foo');
+    await expect(page).toMatch('query from props: foo');
+    await expect(page).toMatch('query from hook: foo');
   });
 });

@@ -4,6 +4,8 @@ import { filterProps } from '../../utils/isPlatformSpecifyProp';
 
 export type FormProps = FormWebProps;
 
-const Form: React.FC<FormWebProps> = props => <form {...filterProps(props)} />;
+const Form: React.ForwardRefRenderFunction<any, FormWebProps> = (props, ref) => (
+  <form {...filterProps(props)} ref={ref} />
+);
 
-export default Form;
+export default React.forwardRef(Form);

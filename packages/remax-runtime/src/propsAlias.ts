@@ -6,7 +6,7 @@ export function getAlias(prop: string, type: string) {
 
   const hostComponent = RuntimeOptions.get('hostComponents')[type];
 
-  const prefix = `${process.env.REMAX_PLATFORM}-`;
+  const prefix = `${RuntimeOptions.get('platform')}-`;
 
   // 判断是否是平台独有属性
   if (prop.startsWith(prefix)) {

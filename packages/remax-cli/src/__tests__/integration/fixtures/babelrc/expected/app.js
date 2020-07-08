@@ -35,6 +35,8 @@ for (var _i = 0; _i < _a.length; _i++) {
 
 var pluginDriver = new _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver"](_r);
 _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["RuntimeOptions"].apply({
+  platform: "ali",
+  debug: false,
   pxToRpx: true,
   pluginDriver: pluginDriver,
   hostComponents: _remax_runtime_options___WEBPACK_IMPORTED_MODULE_1__["hostComponents"],

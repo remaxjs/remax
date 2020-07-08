@@ -27,6 +27,7 @@ export const alias = {
   onTap: 'onTap',
   onClick: 'onTap',
   onUserAction: 'onUserAction',
+  enableNative: 'enableNative',
 };
 
 export const props = Object.values(alias);

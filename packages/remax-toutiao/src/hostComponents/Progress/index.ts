@@ -13,3 +13,13 @@ export interface ProgressProps extends BaseProps {
 }
 
 export const Progress = createHostComponent<ProgressProps>('progress');
+
+Progress.defaultProps = {
+  percent: 0,
+  strokeWidth: 6,
+  color: '#F85959',
+  activeColor: '#F85959',
+  backgroundColor: '#EBEBEB',
+  active: false,
+  activeMode: 'backwards',
+};

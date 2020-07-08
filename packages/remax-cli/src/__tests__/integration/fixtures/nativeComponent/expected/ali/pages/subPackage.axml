@@ -78,6 +78,10 @@
     
     
     
+    style="{{item.props['style']}}"
+    
+    
+    
     type="{{item.props['type']}}"
     
     
@@ -1730,6 +1734,10 @@
     
     
     duration="{{item.props['duration']}}"
+    
+    
+    
+    enableNative="{{item.props['enableNative']}}"
     
     
     

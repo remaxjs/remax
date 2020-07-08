@@ -1,3 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Swiper render correctly 1`] = `<swiper />`;
+exports[`Swiper render correctly 1`] = `
+<swiper
+  autoplay={false}
+  circular={false}
+  current={0}
+  currentItemId=""
+  displayMultipleItems={1}
+  duration={500}
+  indicatorActiveColor="rgba(0, 0, 0, 0)"
+  indicatorColor="rgba(0, 0, 0, 0.3)"
+  indicatorDots={false}
+  interval={5000}
+  nextMargin=""
+  previousMargin=""
+  vertical={false}
+/>
+`;

@@ -17,3 +17,11 @@ export interface ScrollViewProps extends BaseProps {
 }
 
 export const ScrollView = createHostComponent<ScrollViewProps>('scroll-view');
+
+ScrollView.defaultProps = {
+  scrollX: false,
+  scrollY: false,
+  upperThreshold: 50,
+  lowerThreshold: 50,
+  scrollWithAnimation: false,
+};

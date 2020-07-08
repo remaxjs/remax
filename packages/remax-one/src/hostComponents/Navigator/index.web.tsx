@@ -6,7 +6,7 @@ import { filterProps } from '../../utils/isPlatformSpecifyProp';
 
 export type { NavigatorProps };
 
-const Navigator: React.FC<NavigatorProps> = props => {
+const Navigator: React.ForwardRefRenderFunction<any, NavigatorProps> = (props, ref) => {
   const { className, url, action, hoverClassName, hoverStartTime, hoverStayTime, ...restProps } = filterProps(props);
   const history = RuntimeOptions.get('history');
 
@@ -28,4 +28,4 @@ const Navigator: React.FC<NavigatorProps> = props => {
 
   return <div {...restProps} className={clsx(className)} onClick={handleTap} />;
 };
-export default Navigator;
+export default React.forwardRef(Navigator);

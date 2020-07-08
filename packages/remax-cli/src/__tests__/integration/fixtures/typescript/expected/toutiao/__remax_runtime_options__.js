@@ -507,6 +507,7 @@ module.exports = {
   "web-view": {
     "alias": {
       "src": "src",
+      "progressbarColor": "progressbar-color",
       "onMessage": "bindmessage",
       "onLoad": "bindload",
       "onError": "binderror"

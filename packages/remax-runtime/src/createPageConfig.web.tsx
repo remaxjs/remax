@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { PullToRefresh } from '@remax/web';
+import qs from 'qs';
 import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName } from './lifecycle';
 
@@ -10,13 +11,13 @@ interface LifeCycleCallback {
 interface PageConfigProps {
   appConfig: any;
   pageConfig: any;
+  location: any;
 }
 
 const DEFAULT_REACH_BOTTOM_DISTANCE = 50;
 
 export default function createPageConfig(Page: React.ComponentType<any>) {
   const page = {
-    query: {},
     lifeCycleCallback: {} as LifeCycleCallback,
     wrapperRef: React.createRef<any>(),
     registerLifecycle(lifeCycle: Lifecycle, callback: () => any) {
@@ -45,7 +46,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     },
   };
 
-  const PageWrapper = createPageWrapper(Page, page.query);
+  const PageWrapper = createPageWrapper(Page);
 
   return class PageConfig extends React.Component<PageConfigProps> {
     constructor(props: any) {
@@ -145,10 +146,11 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     };
 
     render() {
-      const { appConfig } = this.props;
+      const { appConfig, location } = this.props;
       const { refreshing } = this.state;
       const hasTabBar = !!appConfig.tabBar;
       const className = `remax-page ${hasTabBar ? 'with-tab-bar' : ''}`;
+      const query = qs.parse(location.search, { ignoreQueryPrefix: true });
 
       if (this.isPullDownRefreshEnabled()) {
         return (
@@ -156,6 +158,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
             <div className={className}>
               {React.createElement(PageWrapper, {
                 page,
+                query,
                 ref: page.wrapperRef,
               })}
             </div>
@@ -167,6 +170,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
         <div className={className}>
           {React.createElement(PageWrapper, {
             page,
+            query,
             ref: page.wrapperRef,
           })}
         </div>

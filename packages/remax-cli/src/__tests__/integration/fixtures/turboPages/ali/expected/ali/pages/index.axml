@@ -201,6 +201,7 @@
     public-id="{{node.props['public-id']}}" 
     scope="{{node.props['scope']}}" 
     size="{{node.props['size']}}" 
+    style="{{node.props['style']}}" 
     type="{{node.props['type']}}" 
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
@@ -816,6 +817,7 @@
     controls="{{node.props['controls']}}" 
     direction="{{node.props['direction']}}" 
     duration="{{node.props['duration']}}" 
+    enableNative="{{node.props['enableNative']}}" 
     enableProgressGesture="{{node.props['enableProgressGesture']}}" 
     id="{{node.props['id']}}" 
     initial-time="{{node.props['initial-time']}}" 

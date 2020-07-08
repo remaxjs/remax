@@ -1,18 +1,25 @@
+import { Platform } from '@remax/types';
 import propsAlias, { getAlias } from '../propsAlias';
-
-jest.mock('../RuntimeOptions', () => ({
-  get() {
-    return {
-      foo: {
-        alias: {
-          camelCase: 'kebab-case',
-        },
-      },
-    };
-  },
-}));
+import * as RuntimeOptions from '../RuntimeOptions';
 
 describe('props alias', () => {
+  beforeAll(() => {
+    RuntimeOptions.apply({
+      platform: Platform.ali,
+      hostComponents: {
+        foo: {
+          alias: {
+            camelCase: 'kebab-case',
+          },
+        },
+      },
+    });
+  });
+
+  afterAll(() => {
+    RuntimeOptions.reset();
+  });
+
   it('transform className prop correctly', () => {
     expect(getAlias('className', 'any')).toBe('class');
 
@@ -73,8 +80,6 @@ describe('props alias', () => {
   });
 
   it('transform platform props', () => {
-    process.env.REMAX_PLATFORM = 'ali';
     expect(getAlias('ali-prop', 'any')).toBe('prop');
-    process.env.REMAX_PLATFORM = '';
   });
 });

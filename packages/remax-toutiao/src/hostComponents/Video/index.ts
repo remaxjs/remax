@@ -39,3 +39,13 @@ export interface VideoProps extends BaseProps {
 }
 
 export const Video = createHostComponent<VideoProps>('video');
+
+Video.defaultProps = {
+  autoplay: false,
+  loop: false,
+  showFullscreenBtn: true,
+  showPlayBtn: true,
+  controls: true,
+  objectFit: 'contain',
+  playBtnPosition: 'center',
+};

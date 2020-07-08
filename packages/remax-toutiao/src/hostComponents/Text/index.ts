@@ -9,3 +9,9 @@ export interface TextProps extends BaseProps {
 }
 
 export const Text = createHostComponent<TextProps>('text');
+
+Text.defaultProps = {
+  selectable: false,
+  space: false,
+  decode: false,
+};

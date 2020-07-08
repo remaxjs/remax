@@ -3,6 +3,9 @@
 exports[`Text render correctly 1`] = `
 <text
   className="class"
+  decode={false}
+  selectable={false}
+  space={false}
 >
   text
 </text>

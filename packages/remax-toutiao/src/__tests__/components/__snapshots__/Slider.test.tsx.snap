@@ -1,3 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Slider render correctly 1`] = `<slider />`;
+exports[`Slider render correctly 1`] = `
+<slider
+  activeColor="#1aad19"
+  backgroundColor="#e9e9e9"
+  blockColor="#ffffff"
+  blockSize={28}
+  color="#e9e9e9"
+  disabled={false}
+  max={100}
+  min={0}
+  selectedColor="#1aad19"
+  showValue={false}
+  step={1}
+  value={0}
+/>
+`;

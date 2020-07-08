@@ -10,6 +10,10 @@ export default defineConfig({
   navs: [
     null, // null 值代表保留约定式生成的导航，只做增量配置
     {
+      title: 'awesome-remax',
+      path: 'https://github.com/remaxjs/awesome-remax',
+    },
+    {
       title: '开发博客',
       path: 'https://zhuanlan.zhihu.com/remaxjs',
     },

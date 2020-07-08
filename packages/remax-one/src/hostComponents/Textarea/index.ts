@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { InputEvent } from '../../types';
-import { createCallback, createInputEvent } from '../../createHostComponent';
+import { createCallback, createInputEvent, aliasProps } from '../../createHostComponent';
 import { TextareaProps } from './props';
+import alias from './props/alias';
 
 export type { TextareaProps };
 
@@ -96,9 +97,14 @@ export default class Textarea extends React.Component<TextareaProps, TextareaSta
       inputProps.autoHeight = inputProps.autoHeight ?? false;
     }
 
-    return React.createElement('textarea', {
-      ...inputProps,
-      ...this.state,
-    });
+    const nextProps = aliasProps(
+      {
+        ...inputProps,
+        ...this.state,
+      },
+      alias
+    );
+
+    return React.createElement('textarea', nextProps);
   }
 }
