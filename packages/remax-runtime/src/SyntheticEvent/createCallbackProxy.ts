@@ -12,14 +12,14 @@ function isSyntheticType(inputType: string) {
   return !!SYNTHETIC_TYPES.find(type => type === inputType);
 }
 
-function createBaseSyntheticEvent(node: VNode, nativeEvent: any) {
+function createBaseSyntheticEvent(node: VNode, eventType: string, nativeEvent: any) {
   if (!nativeEvent) {
     return;
   }
 
   // 添加阻止冒泡方法
   nativeEvent.stopPropagation = () => {
-    stopPropagation(node);
+    stopPropagation(node, eventType);
   };
 
   return nativeEvent;
@@ -31,10 +31,10 @@ export function createCallbackProxy(eventType: string, node: VNode, callback: (.
   }
 
   return function (nativeEvent: any, ...restParams: any) {
-    const syntheticEvent = createBaseSyntheticEvent(node, nativeEvent);
+    const syntheticEvent = createBaseSyntheticEvent(node, eventType, nativeEvent);
 
-    if (isPropagationStopped) {
-      validatePropagation(node);
+    if (isPropagationStopped[eventType]) {
+      validatePropagation(node, eventType);
       return;
     }
 
