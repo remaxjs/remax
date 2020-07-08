@@ -25,8 +25,10 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
 
   const config: any = {
     data: {
-      action: {},
       root: {
+        children: [],
+      },
+      modalRoot: {
         children: [],
       },
     },
@@ -40,11 +42,13 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
       this.pageId = generatePageId();
 
       this.query = query;
-      this.container = new Container(this);
+      this.container = new Container(this, 'root');
+      this.modalContainer = new Container(this, 'modalRoot');
       this.element = createPortal(
         React.createElement(PageWrapper, {
           page: this,
           query,
+          modalContainer: this.modalContainer,
           ref: this.wrapperRef,
         }),
         this.container,

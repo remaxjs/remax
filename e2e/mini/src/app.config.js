@@ -7,6 +7,7 @@ module.exports = {
     'pages/native-component/commonChunk1',
     'pages/native-component/commonChunk2',
     'pages/turbo-page/index',
+    'pages/modal/index',
   ],
   window: {
     defaultTitle: 'Alipay App',

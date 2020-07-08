@@ -10,6 +10,7 @@ import createPageWrapper from '../createPageWrapper';
 import { useNativeEffect, usePageInstance } from '../hooks';
 import { RuntimeOptions } from '..';
 import { Platform } from '@remax/types';
+import usePageContext from '../hooks/usePageContext';
 
 function delay(ms: number) {
   if (typeof ms !== 'number') {
@@ -264,61 +265,7 @@ describe('ali remax render', () => {
     render(<Page ref={page} />, container);
     expect(container.root).toMatchSnapshot();
     page.current.update();
-    expect(container.updateQueue).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "name": "class",
-          "node": Object {
-            "children": Array [],
-            "id": 1,
-            "props": Object {
-              "class": "updateClassName",
-              "disabled": true,
-              "style": "display:flex;flex:2;",
-            },
-            "text": undefined,
-            "type": "input",
-          },
-          "path": "root.children.0.children[0].props",
-          "type": "set",
-          "value": "updateClassName",
-        },
-        Object {
-          "name": "disabled",
-          "node": Object {
-            "children": Array [],
-            "id": 1,
-            "props": Object {
-              "class": "updateClassName",
-              "disabled": true,
-              "style": "display:flex;flex:2;",
-            },
-            "text": undefined,
-            "type": "input",
-          },
-          "path": "root.children.0.children[0].props",
-          "type": "set",
-          "value": true,
-        },
-        Object {
-          "name": "style",
-          "node": Object {
-            "children": Array [],
-            "id": 1,
-            "props": Object {
-              "class": "updateClassName",
-              "disabled": true,
-              "style": "display:flex;flex:2;",
-            },
-            "text": undefined,
-            "type": "input",
-          },
-          "path": "root.children.0.children[0].props",
-          "type": "set",
-          "value": "display:flex;flex:2;",
-        },
-      ]
-    `);
+    expect(container.updateQueue).toMatchSnapshot();
     expect(container.root).toMatchSnapshot();
   });
 
@@ -617,6 +564,23 @@ it('useNativeEffect deps works', done => {
   render(<Page />, container);
 });
 
+it('usePageContext works', done => {
+  const container = new Container(p);
+  const modalContainer = new Container({});
+  const Page = createPageWrapper(() => {
+    const ctx = usePageContext();
+
+    React.useEffect(() => {
+      expect(ctx?.page).toBeDefined();
+      expect(ctx?.modalContainer).toBe(modalContainer);
+      done();
+    }, []);
+
+    return <View />;
+  });
+  render(<Page page={{ data: {} }} query={{}} modalContainer={modalContainer} />, container);
+});
+
 it('usePageInstance works', done => {
   const Page = createPageWrapper(() => {
     const instance = usePageInstance();
@@ -629,7 +593,8 @@ it('usePageInstance works', done => {
     return <View />;
   });
   const container = new Container(p);
-  render(<Page page={{ data: {} }} query={{}} />, container);
+  const modalContainer = new Container({});
+  render(<Page page={{ data: {} }} query={{}} modalContainer={modalContainer} />, container);
 });
 
 describe('Remax Suspense placeholder', () => {
