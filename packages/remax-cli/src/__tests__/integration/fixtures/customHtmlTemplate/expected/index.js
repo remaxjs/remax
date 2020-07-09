@@ -44,35 +44,10 @@ var page_0 = Object(remax_web__WEBPACK_IMPORTED_MODULE_5__["loadable"])(function
     return Object(remax__WEBPACK_IMPORTED_MODULE_4__["createPageConfig"])(c);
   });
 });
-var page_1 = Object(remax_web__WEBPACK_IMPORTED_MODULE_5__["loadable"])(function () {
-  return __webpack_require__.e(/* import() | pages/index2 */ 3).then(__webpack_require__.bind(null, 15)).then(function (_ref2) {
-    var c = _ref2.default;
-    return Object(remax__WEBPACK_IMPORTED_MODULE_4__["createPageConfig"])(c);
-  });
-});
-var page_2 = Object(remax_web__WEBPACK_IMPORTED_MODULE_5__["loadable"])(function () {
-  return __webpack_require__.e(/* import() | packageA/pages/index */ 4).then(__webpack_require__.bind(null, 16)).then(function (_ref3) {
-    var c = _ref3.default;
-    return Object(remax__WEBPACK_IMPORTED_MODULE_4__["createPageConfig"])(c);
-  });
-});
-var page_3 = Object(remax_web__WEBPACK_IMPORTED_MODULE_5__["loadable"])(function () {
-  return __webpack_require__.e(/* import() | packageA/pages/index2 */ 5).then(__webpack_require__.bind(null, 17)).then(function (_ref4) {
-    var c = _ref4.default;
-    return Object(remax__WEBPACK_IMPORTED_MODULE_4__["createPageConfig"])(c);
-  });
-});
 var page_manifest_0 = {};
-var page_manifest_1 = {};
-var page_manifest_2 = {};
-var page_manifest_3 = {};
 var app_config = {
-  "pages": ["pages/index", "pages/index2"],
-  "title": "Web App",
-  "subpackages": [{
-    "root": "packageA",
-    "pages": ["pages/index", "pages/index2"]
-  }]
+  "pages": ["pages/index"],
+  "title": "Web App"
 };
 var history = !app_config.router || app_config.router.type !== 'browser' ? Object(remax_web__WEBPACK_IMPORTED_MODULE_5__["createHashHistory"])() : Object(remax_web__WEBPACK_IMPORTED_MODULE_5__["createBrowserHistory"])();
 var first_page_path = app_config.pages[0] || '';
@@ -95,33 +70,6 @@ Object(remax_web__WEBPACK_IMPORTED_MODULE_5__["render"])( /*#__PURE__*/react__WE
 }, function (props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](page_0, _objectSpread(_objectSpread({}, props), {}, {
     pageConfig: page_manifest_0,
-    appConfig: app_config
-  }));
-}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](remax_web__WEBPACK_IMPORTED_MODULE_5__["CacheRoute"], {
-  className: "remax-cached-router-wrapper",
-  path: "/pages/index2",
-  exact: true
-}, function (props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](page_1, _objectSpread(_objectSpread({}, props), {}, {
-    pageConfig: page_manifest_1,
-    appConfig: app_config
-  }));
-}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](remax_web__WEBPACK_IMPORTED_MODULE_5__["CacheRoute"], {
-  className: "remax-cached-router-wrapper",
-  path: "/packageA/pages/index",
-  exact: true
-}, function (props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](page_2, _objectSpread(_objectSpread({}, props), {}, {
-    pageConfig: page_manifest_2,
-    appConfig: app_config
-  }));
-}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](remax_web__WEBPACK_IMPORTED_MODULE_5__["CacheRoute"], {
-  className: "remax-cached-router-wrapper",
-  path: "/packageA/pages/index2",
-  exact: true
-}, function (props) {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](page_3, _objectSpread(_objectSpread({}, props), {}, {
-    pageConfig: page_manifest_3,
     appConfig: app_config
   }));
 })))), document.getElementById('remax-app'));
@@ -230,24 +178,6 @@ module.exports = require("@remax/runtime");
 /***/ }),
 /* 10 */,
 /* 11 */
-/***/ (function(module, exports) {
-
-module.exports = require("regenerator-runtime");
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
-module.exports = require("remax/wechat");
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-module.exports = require("remax/ali");
-
-/***/ }),
-/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = require("remax/one");
