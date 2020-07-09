@@ -214,11 +214,6 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
   config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [options, api]);
 
-  config.externals([
-    {
-      '/__remax_runtime_options__': `require('/__remax_runtime_options__')`,
-    },
-  ]);
   config.plugin('remax-runtime-options-plugin').use(RemaxPlugins.RuntimeOptions, [options, api]);
 
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
@@ -240,6 +235,20 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   }
 
   api.configWebpack(context);
+
+  const externals = config.get('externals');
+  const runtimeOptionsExternal = {
+    '/__remax_runtime_options__': `require('/__remax_runtime_options__')`,
+  };
+
+  if (Array.isArray(externals)) {
+    config.set('externals', [...externals, runtimeOptionsExternal]);
+  } else {
+    config.set('externals', {
+      ...externals,
+      ...runtimeOptionsExternal,
+    });
+  }
 
   return config.toConfig();
 }
