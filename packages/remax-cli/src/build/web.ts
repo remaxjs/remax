@@ -30,15 +30,7 @@ export default function buildWeb(api: API, options: Options): webpack.Compiler {
       output.message(`📎 http://localhost:${port}`, 'blue');
       output.message(`📎 http://${address.ip()}:${port}\n`, 'blue');
 
-      const server = new WebpackDevServer(compiler, {
-        publicPath: webpackOptions.output!.publicPath!,
-        compress: true,
-        hot: true,
-        open: false,
-        historyApiFallback: true,
-        port,
-        noInfo: true,
-      });
+      const server = new WebpackDevServer(compiler, webpackOptions.devServer);
 
       compiler.hooks.done.tap('web-dev', stats => {
         console.log(
