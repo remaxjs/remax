@@ -1,7 +1,6 @@
 export { default as logger } from './build/utils/output';
 import yargs from 'yargs';
 import { build } from './build';
-import analytics from './analytics';
 
 export let cli = yargs;
 
@@ -21,7 +20,6 @@ export function run(args: any, callback?: yargs.ParseCallback) {
         // ignore
       },
       (argv: any) => {
-        analytics.event('cli', 'build', argv.target).send();
         build(argv);
       }
     );
