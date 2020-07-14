@@ -53,6 +53,24 @@ export default options => {
 
 ## Hooks
 
+### onBuildStart
+
+构建开始前执行。可以用这个 hook 获取 Remax 的所有构建配置，但是注意不能在这个 hook 里改变构建配置。
+
+#### 参数
+
+- `params`
+  -  `config` - Remax 的构建配置。
+
+```js
+{
+  onBuildStart({ config }) {
+    console.log(config.target);
+  }
+}
+```
+
+
 ### onAppConfig
 
 修改应用配置，注意跟运行时 hook `onAppConfig` 的区别，这个 hook 修改的是 `app.json`。
@@ -187,9 +205,9 @@ export default options => {
 
 ### onAppComponent
 
-封装 App 组件。
+封装 App 组件，并返回一个新的组件。
 
-### 参数
+#### 参数
 
 - `params`
   - `component` - App 组件
@@ -211,9 +229,9 @@ export default options => {
 
 ### onPageComponent
 
-封装页面组件。
+封装页面组件，并返回一个新的组件。
 
-### 参数
+#### 参数
 
 - `params`
   - `page` - 页面路径，如: `pages/home/index`。

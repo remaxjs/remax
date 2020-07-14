@@ -22,6 +22,8 @@ export function run(options: Options): webpack.Compiler {
     throw new Error('turboPages 目前仅支持 ali 平台开启');
   }
 
+  api.onBuildStart(options);
+
   if (options.target === Platform.web) {
     // 兼容 herbox 所以用 require
     const buildWeb = require('./web').default;
