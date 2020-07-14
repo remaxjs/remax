@@ -48,6 +48,10 @@
     
     
     
+    onError="{{item.props['onError']}}"
+    
+    
+    
     onGetAuthorize="{{item.props['onGetAuthorize']}}"
     
     

@@ -22,7 +22,8 @@ module.exports = {
       "onTap": "onTap",
       "appParameter": "app-parameter",
       "publicId": "public-id",
-      "onGetAuthorize": "onGetAuthorize"
+      "onGetAuthorize": "onGetAuthorize",
+      "onError": "onError"
     }
   },
   "canvas": {
