@@ -80,3 +80,11 @@ _默认值：_`[]`
 是否对生成的模板文件进行压缩，如果在预览小程序是碰到体积超限，可以超时开启这个选项。
 
 _默认值：_`process.env.NODE_ENV === 'production'`
+
+## `plugins`
+
+添加编译时插件，具体可参考[《使用插件》](/guide/advanced/plugin)
+
+## `runtimePlugins`
+
+添加运行时插件，具体可参考[《使用插件》](/guide/advanced/plugin)
