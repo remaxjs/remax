@@ -1,6 +1,6 @@
 {
   "name": "@remax/macro",
-  "version": "2.7.0",
+  "version": "2.7.1",
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -36,8 +36,8 @@
     "typescript": "^3.7.3"
   },
   "dependencies": {
-    "@remax/shared": "2.7.0",
-    "@remax/types": "2.7.0",
+    "@remax/shared": "2.7.1",
+    "@remax/types": "2.7.1",
     "@types/babel__traverse": "^7.0.8"
   },
   "publishConfig": {
