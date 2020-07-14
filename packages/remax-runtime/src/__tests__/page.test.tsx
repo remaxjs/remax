@@ -1,20 +1,17 @@
 import * as React from 'react';
 import './helpers/setupGlobals';
-import createPageConfig, { resetPageId } from '../createPageConfig';
+import createPageConfig from '../createPageConfig';
 import { usePageEvent } from '../../src';
 import { PageProps } from '../createPageWrapper';
+import * as RuntimeOptions from '../RuntimeOptions';
 import View from './helpers/View';
 import Page from './helpers/Page';
-import createAppConfig from '../createAppConfig';
 
-jest.mock('../stopPullDownRefresh', () => () => void 0);
-jest.mock('../RuntimeOptions', () => ({
-  get(key: 'appEvents' | 'pageEvents') {
-    const options = {
-      pluginDriver: {
-        onAppConfig: (config: any) => config,
-        onPageConfig: (config: any) => config,
-      },
+const TEST_PAGE = 'pages/test/index';
+
+describe('page', () => {
+  beforeAll(() => {
+    RuntimeOptions.apply({
       appEvents: [
         'onLaunch',
         'onShow',
@@ -43,29 +40,11 @@ jest.mock('../RuntimeOptions', () => ({
           'onTabItemTap',
         ],
       },
-    };
-
-    return options[key];
-  },
-}));
-
-const TEST_PAGE = 'pages/test/index';
-
-describe('page', () => {
-  beforeEach(() => {
-    // mock mini program getApp api
-    const app = createAppConfig(undefined);
-    app.onLaunch();
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
-    global.getApp = () => app;
+    });
   });
 
-  afterEach(() => {
-    resetPageId();
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore
-    global.getApp = undefined;
+  afterAll(() => {
+    RuntimeOptions.reset();
   });
 
   it('create page config', () => {
@@ -73,6 +52,7 @@ describe('page', () => {
       return <View>foo</View>;
     };
     const page = Page(createPageConfig(Foo, TEST_PAGE));
+    getApp().onLaunch();
     page.load();
     expect(page.config.wrapper).not.toBeNull();
   });

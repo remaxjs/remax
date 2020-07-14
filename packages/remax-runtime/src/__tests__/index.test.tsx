@@ -574,7 +574,7 @@ it('usePageContext works', done => {
     }, []);
 
     return <View />;
-  });
+  }, '');
   render(<Page page={{ data: {} }} query={{}} modalContainer={modalContainer} />, container);
 });
 
@@ -588,7 +588,7 @@ it('usePageInstance works', done => {
     }, []);
 
     return <View />;
-  });
+  }, '');
   const container = new Container(p);
   const modalContainer = new Container({});
   render(<Page page={{ data: {} }} query={{}} modalContainer={modalContainer} />, container);

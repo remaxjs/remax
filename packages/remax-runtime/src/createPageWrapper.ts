@@ -4,6 +4,7 @@ import { Lifecycle, Callback, callbackName } from './lifecycle';
 import PageContext from './PageContext';
 import { ForwardRef } from './ReactIs';
 import Container from './Container';
+import * as RuntimeOptions from './RuntimeOptions';
 
 export interface PageProps<Q = {}> {
   location: {
@@ -11,7 +12,8 @@ export interface PageProps<Q = {}> {
   };
 }
 
-export default function createPageWrapper(Page: React.ComponentType<any>) {
+export default function createPageWrapper(Page: React.ComponentType<any>, name: string) {
+  const WrappedPage = RuntimeOptions.get('pluginDriver').onPageComponent({ component: Page, page: name });
   return class PageWrapper extends React.Component<{ page: any; query: any; modalContainer: Container }> {
     // 页面组件的实例
     pageComponentInstance: any = null;
@@ -55,7 +57,7 @@ export default function createPageWrapper(Page: React.ComponentType<any>) {
       return React.createElement(
         PageContext.Provider,
         { value: { page: this.props.page, modalContainer: this.props.modalContainer } },
-        React.createElement(Page, props)
+        React.createElement(WrappedPage, props)
       );
     }
   };

@@ -3,14 +3,11 @@ import './helpers/setupGlobals';
 import App from './helpers/App';
 import { useAppEvent } from '../hooks';
 import createAppConfig from '../createAppConfig';
+import * as RuntimeOptions from '../RuntimeOptions';
 
-jest.mock('../RuntimeOptions', () => ({
-  get(key: 'appEvents' | 'pageEvents') {
-    const options = {
-      pluginDriver: {
-        onAppConfig: (config: any) => config,
-        onPageConfig: (config: any) => config,
-      },
+describe('app', () => {
+  beforeAll(() => {
+    RuntimeOptions.apply({
       appEvents: [
         'onLaunch',
         'onShow',
@@ -39,13 +36,13 @@ jest.mock('../RuntimeOptions', () => ({
           'onTabItemTap',
         ],
       },
-    };
+    });
+  });
 
-    return options[key];
-  },
-}));
+  afterAll(() => {
+    RuntimeOptions.reset();
+  });
 
-describe('app', () => {
   it('lifecycle methods', () => {
     const log: string[] = [];
     class Foo extends React.Component {

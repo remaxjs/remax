@@ -54,7 +54,7 @@ export function apply(options: Partial<RuntimeOptions>) {
   runtimeOptions = merge(options);
 }
 
-export function get(key: keyof RuntimeOptions) {
+export function get<K extends keyof RuntimeOptions>(key: K) {
   return runtimeOptions[key];
 }
 

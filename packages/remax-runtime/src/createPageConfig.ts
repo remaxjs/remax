@@ -38,7 +38,7 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
     lifecycleCallback: {} as any,
 
     onLoad(this: any, query: any) {
-      const PageWrapper = createPageWrapper(Page);
+      const PageWrapper = createPageWrapper(Page, name);
       this.pageId = generatePageId();
 
       this.query = query;
@@ -192,5 +192,5 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
     }
   });
 
-  return RuntimeOptions.get('pluginDriver').onPageConfig(config);
+  return RuntimeOptions.get('pluginDriver').onPageConfig({ config, page: name });
 }

@@ -167,11 +167,12 @@ export default options => {
 #### 参数
 
 - `params`
+  - `page` - 页面路径，如: `pages/home/index`。
   - `config` - Remax 生成的 Page 配置。
 
 ```js
 {
-  onPageConfig(config) {
+  onPageConfig({ config }) {
     const onLoad = config.onLoad;
     config.onLoad = () => {
       console.log('onLoad');
@@ -180,6 +181,58 @@ export default options => {
       }
     }
     return config;
+  }
+}
+```
+
+### onAppComponent
+
+封装 App 组件。
+
+### 参数
+
+- `params`
+  - `component` - App 组件
+
+```js
+{
+  onAppComponent({ component }) {
+    // 注意这里一定要用 React.forwardRef 把 ref 传下去
+    return React.forwardRef((props, ref) => {
+      return React.createElement(
+        FooContext.Provider,
+        null,
+        React.createElement(component, { ...props, ref })
+      );
+    });
+  }
+}
+```
+
+### onPageComponent
+
+封装页面组件。
+
+### 参数
+
+- `params`
+  - `page` - 页面路径，如: `pages/home/index`。
+  - `component` - 页面组件
+
+```js
+{
+  onPageComponent({ component, page }) {
+    if (page === 'pages/home/index') {
+      // 注意这里一定要用 React.forwardRef 把 ref 传下去
+      return React.forwardRef((props, ref) => {
+        return React.createElement(
+          AppLayout,
+          null,
+          React.createElement(component, { ...props, ref })
+        );
+      });
+    }
+    return component;
   }
 }
 ```
