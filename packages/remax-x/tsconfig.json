@@ -1,0 +1,31 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "esm",
+    "lib": ["es2015", "dom"],
+    "declaration": true,
+    "jsx": "react",
+    "types": ["@types/jest", "@types/node"],
+    "skipLibCheck": true,
+    "downlevelIteration": true
+  },
+  "include": [
+    "src/**/*",
+    "typings/**/*",
+    "../../node_modules/mini-types/types/app.d.ts",
+    "../../node_modules/mini-types/types/page.d.ts",
+    "../../node_modules/mini-types/types/api/index.d.ts",
+    "../../node_modules/miniprogram-api-typings/types/wx/lib.wx.api.d.ts"
+  ],
+  "exclude": [
+    "src/__mocks__",
+    "cjs",
+    "esm"
+  ],
+  "references": [
+    {
+      "path": "../remax-web"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "e2e-x",
+  "private": true,
+  "version": "2.7.0",
+  "description": "intergration tests for Remax",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Wei Zhu <yesmeck@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "remax build -t ali -w",
+    "prebuild": "rimraf dist",
+    "build": "remax build -t ali",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "remax": "2.7.0"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.3"
+  },
+  "workspaces": {
+    "nohoist": [
+      "react"
+    ]
+  }
+}

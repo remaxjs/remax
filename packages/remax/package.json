@@ -30,6 +30,7 @@
     "@remax/toutiao": "2.7.0",
     "@remax/web": "2.7.0",
     "@remax/wechat": "2.7.0",
+    "@remax/x": "^0.0.2",
     "mini-types": "^0.1.1",
     "miniprogram-api-typings": "^2.10.4"
   },

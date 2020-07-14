@@ -7,7 +7,7 @@ import { getPages } from '../../getEntries';
 import API from '../../API';
 
 function pageConfigExpression(path: NodePath<t.ExportDefaultDeclaration>, id: t.Identifier, name: string) {
-  const createId = addNamed(path, 'createPageConfig', '@remax/runtime');
+  const createId = addNamed(path, 'createPageConfig', '@remax/x');
   const insert: Node[] = [
     t.exportDefaultDeclaration(
       t.callExpression(t.identifier('Page'), [t.callExpression(createId, [id, t.stringLiteral(name)])])

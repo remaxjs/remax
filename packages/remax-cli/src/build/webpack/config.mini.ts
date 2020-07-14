@@ -14,7 +14,6 @@ import extensions, { moduleMatcher } from '../../extensions';
 import getEntries from '../../getEntries';
 import * as TurboPages from '../utils/turboPages';
 import * as staticCompiler from '../babel/compiler/static';
-import appEntry from '../babel/app';
 import pageEntry from '../babel/page';
 import pageEvent from '../babel/pageEvent';
 import appEvent from '../babel/appEvent';
@@ -106,7 +105,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .options({
       babelrc: false,
       configFile: resolveBabelConfig(options),
-      usePlugins: [appEntry(app.filename), pageEntry(options, api)],
+      usePlugins: [pageEntry(options, api)],
       reactPreset: false,
     });
 

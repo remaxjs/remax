@@ -1,0 +1,35 @@
+{
+  "name": "@remax/x",
+  "version": "0.0.2",
+  "description": "> TODO: description",
+  "author": "Meck Zhu <yesmeck@gmail.com>",
+  "homepage": "https://github.com/remaxjs/remax#readme",
+  "license": "MIT",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remaxjs/remax.git"
+  },
+  "scripts": {
+    "clean": "rimraf esm cjs tsconfig.tsbuildinfo",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "build:cjs": "tsc --module CommonJS --outDir cjs",
+    "test": "jest",
+    "test:debug": "npx --node-arg=--inspect-brk jest -i"
+  },
+  "bugs": {
+    "url": "https://github.com/remaxjs/remax/issues"
+  },
+  "dependencies": {
+    "@types/react-reconciler": "^0.18.0",
+    "bezier-easing": "^2.1.0",
+    "css-layout": "^1.1.1",
+    "react-reconciler": "^0.25.1",
+    "yoga-layout-wasm": "^1.9.3-alpha.7"
+  }
+}

@@ -17,6 +17,9 @@
       "path": "./packages/remax-runtime"
     },
     {
+      "path": "./packages/remax-x"
+    },
+    {
       "path": "./packages/remax-toutiao"
     },
     {
