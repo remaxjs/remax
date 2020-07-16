@@ -88,28 +88,6 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   });
   config.optimization.minimize(options.minimize ?? false);
 
-  config.module
-    .rule('config')
-    .pre()
-    .test(filename => {
-      const { app, pages } = getEntries(options, api);
-      if (slash(filename) === app.filename) {
-        return true;
-      }
-      if (pages.find(p => p.filename === slash(filename))) {
-        return true;
-      }
-      return false;
-    })
-    .use('babel')
-    .loader('babel')
-    .options({
-      babelrc: false,
-      configFile: resolveBabelConfig(options),
-      usePlugins: [appEntry(app.filename), pageEntry(options, api)],
-      reactPreset: false,
-    });
-
   // turbo pages
   if (turboPagesEnabled) {
     // webpack chain 的配置顺序是反过来的
@@ -151,7 +129,14 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .options({
       babelrc: false,
       configFile: resolveBabelConfig(options),
-      usePlugins: [appEvent(app.filename), pageEvent(options), componentManifest(api, config), fixRegeneratorRuntime()],
+      usePlugins: [
+        appEntry(app.filename),
+        pageEntry(options, api),
+        appEvent(app.filename),
+        pageEvent(options),
+        componentManifest(api, config),
+        fixRegeneratorRuntime(),
+      ],
       reactPreset: true,
       api,
       compact: process.env.NODE_ENV === 'production',
