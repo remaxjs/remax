@@ -64,6 +64,8 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
 
     componentDidMount() {
       this.setTitle();
+      page.callLifecycle(Lifecycle.load);
+      page.callLifecycle(Lifecycle.show);
       page.callLifecycle(Lifecycle.ready);
 
       this.handlePageScroll();
