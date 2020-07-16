@@ -105,7 +105,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .loader('babel')
     .options({
       babelrc: false,
-      configFile: resolveBabelConfig(options),
+      configFile: false,
       usePlugins: [appEntry(app.filename), pageEntry(options, api)],
       reactPreset: false,
     });
