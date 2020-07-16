@@ -1,6 +1,6 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
-import { TEMPLATE_ID, ENTRY } from '../constants';
+import { TEMPLATE_ID, ENTRY, EXPRESSION_BLOCK } from '../constants';
 import { createTemplate, templateInfoMap } from '../render/templates';
 import { JSXNode, RenderNode } from '../types';
 import * as helpers from '../helpers';
@@ -135,6 +135,12 @@ export default function render(api: API) {
       // case: JSXText TODO: 由于 JSXText 无法记录 template id，这里先不处理
       // case: JSXSpreadChild 未知使用场景
       if (!t.isJSXElement(node.node)) {
+        return;
+      }
+
+      // block 动态模板不应该生成 templateID
+      const name = (node.node.openingElement.name as any).name;
+      if (name === EXPRESSION_BLOCK) {
         return;
       }
 
