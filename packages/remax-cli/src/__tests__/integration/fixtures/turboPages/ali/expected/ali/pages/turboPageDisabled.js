@@ -131,4 +131,4 @@ function _Index() {
 /* harmony default export */ __webpack_exports__["default"] = (Page(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_Index, "pages/turboPageDisabled")));
 
 /***/ })
-],[[12,0,4]]]);
+],[[12,0,5]]]);

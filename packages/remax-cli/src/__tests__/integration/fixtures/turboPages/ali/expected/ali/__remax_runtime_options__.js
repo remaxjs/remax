@@ -548,7 +548,8 @@ module.exports = {
 },
           pageEvents: {
   "pages/index": [],
-  "pages/turboPageDisabled": []
+  "pages/turboPageDisabled": [],
+  "pages/fragmentRoot": []
 },
           appEvents: []
         }
