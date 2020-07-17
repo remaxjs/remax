@@ -6,8 +6,8 @@ export interface MovableViewProps {
   id?: string;
   className?: string;
   style?: React.CSSProperties;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   direction?: 'all' | 'vertical' | 'horizontal' | 'none';
   x?: number;
   y?: number;
