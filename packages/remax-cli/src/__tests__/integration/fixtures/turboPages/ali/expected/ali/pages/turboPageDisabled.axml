@@ -1634,7 +1634,8 @@
   >
     
     <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      <block a:if="{{item.type === 'plain-text'}}">{{item.text}}</block>
+      <template a:else is="REMAX_TPL_1_CONTAINER" data="{{item: item.children[0]}}" />
     </block>
     
   </text>
