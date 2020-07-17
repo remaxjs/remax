@@ -179,4 +179,4 @@ function _Index() {
 module.exports = require("remax/ali");
 
 /***/ })
-],[[7,0,4]]]);
+],[[7,0,5]]]);

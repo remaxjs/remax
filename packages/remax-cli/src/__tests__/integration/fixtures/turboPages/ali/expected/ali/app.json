@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index",
-    "pages/turboPageDisabled"
+    "pages/turboPageDisabled",
+    "pages/fragmentRoot"
   ],
   "window": {
     "defaultTitle": "Ali App",
