@@ -64,6 +64,11 @@ export interface PickerProps extends BaseProps {
    * 可为每一列的顶部添加一个自定义的项
    */
   customItem?: string;
+  /**
+   * 点击时触发
+   */
+  onClick?: (event: any) => any;
+  onTap?: (event: any) => any;
 }
 
 /**
