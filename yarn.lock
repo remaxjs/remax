@@ -2643,12 +2643,13 @@
     write-file-atomic "^2.3.0"
 
 "@loadable/component@^5.12.0":
-  version "5.12.0"
-  resolved "https://registry.yarnpkg.com/@loadable/component/-/component-5.12.0.tgz#34d056d15f53dc08d04e9203cad6867cf4f7306c"
-  integrity sha512-eDG7FPZ8tCFA/mqu2IrYV6eS+UxGBo21PwtEV9QpkpYrx25xKRXzJUm36yfQPK3o7jXu43xpPkwiU4mLWcjJlw==
+  version "5.13.1"
+  resolved "https://registry.yarnpkg.com/@loadable/component/-/component-5.13.1.tgz#b7650a76f9cc1cccf17f79265dc05b9e62daaaa2"
+  integrity sha512-qTNfTv5bVfb9eTKNUOMzPweRnxzNaxCmLZEsFEMn+kxpd86iXae+IpibXFJlnb052Q4fVkcWM2tvmWLc/+HzLg==
   dependencies:
     "@babel/runtime" "^7.7.7"
     hoist-non-react-statics "^3.3.1"
+    react-is "^16.12.0"
 
 "@marionebl/sander@^0.6.0":
   version "0.6.1"
