@@ -1355,6 +1355,7 @@ type="{{_h.v(i.props['type'])}}">
 bindcancel="{{_h.v(i.props['bindcancel'])}}"
 bindchange="{{_h.v(i.props['bindchange'])}}"
 bindcolumnchange="{{_h.v(i.props['bindcolumnchange'])}}"
+bindtap="{{_h.v(i.props['bindtap'])}}"
 class="{{_h.v(i.props['class'])}}"
 custom-item="{{_h.v(i.props['custom-item'])}}"
 disabled="{{_h.v(i.props['disabled'])}}"
