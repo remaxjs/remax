@@ -496,7 +496,9 @@ module.exports = {
       "end": "end",
       "fields": "fields",
       "customItem": "custom-item",
-      "disabled": "disabled"
+      "disabled": "disabled",
+      "onClick": "bindtap",
+      "onTap": "bindtap"
     }
   },
   "progress": {
