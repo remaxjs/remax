@@ -248,7 +248,12 @@ export interface AppConfig {
    * 分包结构配置
    * 1.7.3
    */
-  subpackages?: Array<Record<string, any>>;
+  subpackages?: Array<{
+    root: 'string';
+    name?: 'string';
+    pages: [];
+    independent?: boolean;
+  }>;
   /**
    * Worker 代码放置的目录
    * 1.9.90
