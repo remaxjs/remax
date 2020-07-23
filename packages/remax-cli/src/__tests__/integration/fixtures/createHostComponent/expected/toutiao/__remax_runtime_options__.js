@@ -226,7 +226,8 @@ module.exports = {
       "fields": "fields",
       "customItem": "custom-item",
       "disabled": "disabled",
-      "animation": "animation"
+      "animation": "animation",
+      "mode": "mode"
     }
   },
   "progress": {

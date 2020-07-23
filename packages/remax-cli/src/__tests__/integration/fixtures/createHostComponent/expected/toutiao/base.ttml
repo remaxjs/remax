@@ -309,6 +309,7 @@
     start="{{i.props['start']}}" 
     style="{{i.props['style']}}" 
     value="{{i.props['value']}}" 
+    mode="{{i.props['mode']}}"
   >
     
     <block tt:for="{{i.children}}" tt:key="{{id}}">
