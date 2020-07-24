@@ -44,14 +44,29 @@ function createRevasTouchEvent(e: TouchEvent): RevasTouchEvent {
 }
 
 export function createPageConfig(Page: React.ComponentType<any>) {
+  console.log(JSON.stringify(Page));
   return {
     onReady(this: any) {
-      const { pixelRatio: scale, screenWidth: width, screenHeight: height } = my.getSystemInfoSync();
-      const ctx: any = my.createCanvasContext('remax-canvas');
-      const canvas = new RevasCanvas(ctx);
-      this.container = new Container(canvas);
-      canvas.transform.scale(scale, scale);
-      render(React.createElement(Page), this.container, { width, height, scale });
+      console.log('on ready');
+      const { pixelRatio: scale, screenWidth: width, screenHeight: height } = wx.getSystemInfoSync();
+      wx.createSelectorQuery()
+        .select('#remax-canvas')
+        .fields({
+          node: true,
+          size: true,
+        })
+        .exec((res: any) => {
+          console.log(res);
+          const c = res[0].node;
+          const ctx = c.getContext('2d');
+          const canvas = new RevasCanvas(ctx);
+          this.container = new Container(canvas);
+          // canvas.transform.scale(scale, scale);
+          c.width = res[0].width * scale;
+          c.height = res[0].height * scale;
+          ctx.scale(scale, scale);
+          render(React.createElement(Page), this.container, { width, height, scale });
+        });
     },
 
     handleTouch(this: any, e: any) {

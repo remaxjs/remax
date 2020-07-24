@@ -156,7 +156,8 @@ function drawContent(
         if (usePath) {
           ctx.fill();
         } else {
-          ctx.fillRect(frame.x, frame.y, frame.width, frame.height);
+          console.log(frame, style.backgroundColor);
+          ctx.fillRect(frame.x, frame.y, frame.height, frame.height);
         }
       }
 

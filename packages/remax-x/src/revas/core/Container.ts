@@ -68,7 +68,9 @@ export class Container {
       }
       canvas.context.clearRect(0, 0, this.width, this.height);
       drawNode(canvas, _root!, this);
-      requestAnimationFrame(this.ready);
+      console.log('draw');
+      this.ready();
+      // requestAnimationFrame(this.ready);
     }
   };
 
