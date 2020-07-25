@@ -31,6 +31,7 @@ export default class AppContainer {
   applyUpdate() {
     this.context._pages.forEach((page: any) => {
       page.container.applyUpdate();
+      page.modalContainer.applyUpdate();
     });
   }
 

@@ -5,3 +5,4 @@ yarn.lock
 .vscode
 .DS_Store
 !src/node_modules
+miniapptools_dist/
