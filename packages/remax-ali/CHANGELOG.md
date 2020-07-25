@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.4](https://github.com/remaxjs/remax/compare/v2.7.3...v2.7.4) (2020-07-25)
+
+### Bug Fixes
+
+- 修复 config 中分包配置类型缺失的问题 ([06af55c](https://github.com/remaxjs/remax/commit/06af55cd684f7dd2c9be78d0de1d9669d5d86b1a))
+- **ali:** 修复 MovableArea 的类型错误 ([65c2b92](https://github.com/remaxjs/remax/commit/65c2b922fb47f7d0f4b73fbbdfd550189cdb01a0))
+
 ## [2.7.3](https://github.com/remaxjs/remax/compare/v2.7.2...v2.7.3) (2020-07-17)
 
 ### Bug Fixes

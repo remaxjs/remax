@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.4](https://github.com/remaxjs/remax/compare/v2.7.3...v2.7.4) (2020-07-25)
+
+### Bug Fixes
+
+- 修复 config 中分包配置类型缺失的问题 ([06af55c](https://github.com/remaxjs/remax/commit/06af55cd684f7dd2c9be78d0de1d9669d5d86b1a))
+- 修复 Picker 组件缺失 onClick 和 onTap 事件 ([#1170](https://github.com/remaxjs/remax/issues/1170)) ([d6c4d4a](https://github.com/remaxjs/remax/commit/d6c4d4af02da276dbbbf9a8a74c91cb1128cf70b))
+
 ## [2.7.3](https://github.com/remaxjs/remax/compare/v2.7.2...v2.7.3) (2020-07-17)
 
 **Note:** Version bump only for package @remax/wechat

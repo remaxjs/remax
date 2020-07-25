@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.4](https://github.com/remaxjs/remax/compare/v2.7.3...v2.7.4) (2020-07-25)
+
+### Bug Fixes
+
+- **toutiao:** 修复 Picker 组件 mode 属性不生效的问题 ([#1180](https://github.com/remaxjs/remax/issues/1180)) ([009bd6d](https://github.com/remaxjs/remax/commit/009bd6da55fb6c251b63bde8713cf065683fef5b))
+- 修复 Picker 组件缺失 onClick 和 onTap 事件 ([#1170](https://github.com/remaxjs/remax/issues/1170)) ([d6c4d4a](https://github.com/remaxjs/remax/commit/d6c4d4af02da276dbbbf9a8a74c91cb1128cf70b))
+
 ## [2.7.3](https://github.com/remaxjs/remax/compare/v2.7.2...v2.7.3) (2020-07-17)
 
 ### Bug Fixes
