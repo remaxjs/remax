@@ -24,10 +24,8 @@ export function validate(node: VNode, eventType: string) {
     return;
   }
 
-  for (let i = 0; i < SYNTHETIC_TYPES.length; i++) {
-    if (parent.props?.[SYNTHETIC_TYPES[i]]) {
-      return;
-    }
+  if (parent.props?.[eventType]) {
+    return;
   }
 
   validate(parent, eventType);
