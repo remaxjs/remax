@@ -102,8 +102,8 @@ describe('synthetic event', () => {
           },
           'onClick',
         ],
-        [second, 'onTouchStart'],
         [third, 'onClick'],
+        [second, 'onTouchStart'],
       ];
 
       const tester = new SyntheticEventTester(callbacks);
