@@ -1,7 +1,7 @@
 import { FiberRoot } from 'react-reconciler';
 import { Node, RevasTouchEvent } from './Node';
-// import { updateLayout } from './css-layout'
-import { updateLayout } from './yoga-layout';
+import { updateLayout } from './css-layout';
+// import { updateLayout } from './yoga-layout';
 import { promise } from './yoga-layout/init';
 import { drawNode } from './draw';
 import { getNodeByTouch, emitTouch } from './touch';
