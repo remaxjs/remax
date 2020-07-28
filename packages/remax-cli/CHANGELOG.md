@@ -3,13 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.6](https://github.com/remaxjs/remax/compare/v2.7.5...v2.7.6) (2020-07-28)
+
+### Bug Fixes
+
+- 修复入口文件无法按平台扩展名加载的问题 ([#1197](https://github.com/remaxjs/remax/issues/1197)) ([623b8f4](https://github.com/remaxjs/remax/commit/623b8f42082781ef33f5a764bdc8917d07c8a983))
+
 ## [2.7.5](https://github.com/remaxjs/remax/compare/v2.7.4...v2.7.5) (2020-07-28)
 
 **Note:** Version bump only for package @remax/cli
-
-
-
-
 
 ## [2.7.4](https://github.com/remaxjs/remax/compare/v2.7.3...v2.7.4) (2020-07-25)
 

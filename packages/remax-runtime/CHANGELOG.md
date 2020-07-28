@@ -3,16 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.7.5](https://github.com/remaxjs/remax/compare/v2.7.4...v2.7.5) (2020-07-28)
+## [2.7.6](https://github.com/remaxjs/remax/compare/v2.7.5...v2.7.6) (2020-07-28)
 
+**Note:** Version bump only for package @remax/runtime
+
+## [2.7.5](https://github.com/remaxjs/remax/compare/v2.7.4...v2.7.5) (2020-07-28)
 
 ### Bug Fixes
 
-* 修复 stopPropagation 有可能导致方法不再触发的问题 ([1d6f961](https://github.com/remaxjs/remax/commit/1d6f9618d5cd5a31559d832f2cbd4d51a16ec0a1))
-
-
-
-
+- 修复 stopPropagation 有可能导致方法不再触发的问题 ([1d6f961](https://github.com/remaxjs/remax/commit/1d6f9618d5cd5a31559d832f2cbd4d51a16ec0a1))
 
 ## [2.7.4](https://github.com/remaxjs/remax/compare/v2.7.3...v2.7.4) (2020-07-25)
 

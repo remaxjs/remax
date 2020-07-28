@@ -3,16 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.7.5](https://github.com/remaxjs/remax/compare/v2.7.4...v2.7.5) (2020-07-28)
+## [2.7.6](https://github.com/remaxjs/remax/compare/v2.7.5...v2.7.6) (2020-07-28)
 
+**Note:** Version bump only for package @remax/plugin-devtools
+
+## [2.7.5](https://github.com/remaxjs/remax/compare/v2.7.4...v2.7.5) (2020-07-28)
 
 ### Bug Fixes
 
-* 修复阿里小程序无法链接 React Devtools 的问题 ([#1188](https://github.com/remaxjs/remax/issues/1188)) ([21c5fd0](https://github.com/remaxjs/remax/commit/21c5fd0b5253a17f3ea99efa96f6380dbf395710))
-
-
-
-
+- 修复阿里小程序无法链接 React Devtools 的问题 ([#1188](https://github.com/remaxjs/remax/issues/1188)) ([21c5fd0](https://github.com/remaxjs/remax/commit/21c5fd0b5253a17f3ea99efa96f6380dbf395710))
 
 ## [2.7.4](https://github.com/remaxjs/remax/compare/v2.7.3...v2.7.4) (2020-07-25)
 
