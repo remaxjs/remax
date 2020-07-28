@@ -8,7 +8,7 @@ import API from '../../API';
 export function generatePageRoutesInfo(options: Options, pages: EntryInfo[], api: API) {
   return pages.map(p => {
     const ROOT = slash(path.join(options.cwd, options.rootDir)) + '/';
-    const configFile = pageConfigFile(p.filename);
+    const configFile = pageConfigFile(p.filename, options);
     const config = api.onPageConfig({
       page: p.name,
       config: configFile ? readManifest(configFile, Platform.web) : {},

@@ -20,7 +20,7 @@ export function getPages(options: Options, api: API): EntryInfo[] {
       ...ret,
       {
         name: page,
-        filename: slash(searchJSFile(path.join(ROOT_DIR, page))),
+        filename: slash(searchJSFile(path.join(ROOT_DIR, page), options.target!)),
       },
     ],
     []
@@ -34,7 +34,7 @@ export function getPages(options: Options, api: API): EntryInfo[] {
           ...ret,
           {
             name: slash(path.join(pack.root, page)),
-            filename: slash(searchJSFile(path.join(ROOT_DIR, pack.root, page))),
+            filename: slash(searchJSFile(path.join(ROOT_DIR, pack.root, page), options.target!)),
           },
         ],
         []
@@ -49,7 +49,7 @@ export default function getEntries(options: Options, api: API): Entries {
   const entries: Entries = {
     app: {
       name: 'app',
-      filename: slash(searchJSFile(path.join(options.cwd, options.rootDir, 'app'))),
+      filename: slash(searchJSFile(path.join(options.cwd, options.rootDir, 'app'), options.target!)),
     },
     pages: getPages(options, api),
   };
