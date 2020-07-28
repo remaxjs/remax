@@ -18,7 +18,7 @@ export default function createPageManifest(
 ) {
   const rootPath = slash(path.join(options.cwd, options.rootDir) + '/');
   const manifestPath = page.filename.replace(matcher, '.json').replace(rootPath, '');
-  const config = readManifest(pageConfigFile(page.filename), options.target!);
+  const config = readManifest(pageConfigFile(page.filename, options), options.target!);
   const usingComponents = getUsingComponents(modules, options, compilation);
 
   config.usingComponents = {
