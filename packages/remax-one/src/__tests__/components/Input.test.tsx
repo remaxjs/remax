@@ -38,7 +38,7 @@ describe('Input', () => {
 
     expect(instance.props.value).toEqual('1');
 
-    const originalEvent = {
+    const nativeEvent = {
       target: {},
       currentTarget: {},
       detail: {
@@ -48,7 +48,7 @@ describe('Input', () => {
     };
 
     act(() => {
-      instance.props.onInput(originalEvent);
+      instance.props.onInput(nativeEvent);
     });
 
     expect(instance.props.value).toEqual('2');

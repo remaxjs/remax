@@ -7,7 +7,7 @@ import {
   createTapEvent,
 } from '../createHostComponent';
 import { ImageLoadEvent, FormEvent, TapEvent, TouchEvent } from '../types';
-const originalEvent = {
+const nativeEvent = {
   target: {
     id: 1,
     offsetLeft: 0,
@@ -38,7 +38,7 @@ describe('create event', () => {
   it('createInputEvent', () => {
     const callback = createCallback((e: InputEvent) => e, createInputEvent);
 
-    const event = callback!(originalEvent);
+    const event = callback!(nativeEvent);
     expect(event).toMatchInlineSnapshot(`
       Object {
         "currentTarget": Object {
@@ -46,6 +46,26 @@ describe('create event', () => {
           "id": 1,
           "offsetLeft": 0,
           "offsetTop": 0,
+        },
+        "nativeEvent": Object {
+          "changedTouches": Array [],
+          "currentTarget": Object {
+            "dataset": Object {},
+            "id": 1,
+            "offsetLeft": 0,
+            "offsetTop": 0,
+          },
+          "detail": Object {
+            "value": "value",
+          },
+          "target": Object {
+            "dataset": Object {},
+            "id": 1,
+            "offsetLeft": 0,
+            "offsetTop": 0,
+          },
+          "touches": Array [],
+          "type": "event",
         },
         "originalEvent": Object {
           "changedTouches": Array [],
@@ -82,7 +102,7 @@ describe('create event', () => {
   it('createImageEvent', () => {
     const callback = createCallback((e: ImageLoadEvent) => e, createImageEvent);
 
-    const event = callback!(originalEvent);
+    const event = callback!(nativeEvent);
     expect(event).toMatchInlineSnapshot(`
       Object {
         "currentTarget": Object {
@@ -90,6 +110,26 @@ describe('create event', () => {
           "id": 1,
           "offsetLeft": 0,
           "offsetTop": 0,
+        },
+        "nativeEvent": Object {
+          "changedTouches": Array [],
+          "currentTarget": Object {
+            "dataset": Object {},
+            "id": 1,
+            "offsetLeft": 0,
+            "offsetTop": 0,
+          },
+          "detail": Object {
+            "value": "value",
+          },
+          "target": Object {
+            "dataset": Object {},
+            "id": 1,
+            "offsetLeft": 0,
+            "offsetTop": 0,
+          },
+          "touches": Array [],
+          "type": "event",
         },
         "originalEvent": Object {
           "changedTouches": Array [],
@@ -126,7 +166,7 @@ describe('create event', () => {
   it('createFormEvent', () => {
     const callback = createCallback((e: FormEvent) => e, createFormEvent);
 
-    const event = callback!(originalEvent);
+    const event = callback!(nativeEvent);
     expect(event).toMatchInlineSnapshot(`
       Object {
         "currentTarget": Object {
@@ -134,6 +174,26 @@ describe('create event', () => {
           "id": 1,
           "offsetLeft": 0,
           "offsetTop": 0,
+        },
+        "nativeEvent": Object {
+          "changedTouches": Array [],
+          "currentTarget": Object {
+            "dataset": Object {},
+            "id": 1,
+            "offsetLeft": 0,
+            "offsetTop": 0,
+          },
+          "detail": Object {
+            "value": "value",
+          },
+          "target": Object {
+            "dataset": Object {},
+            "id": 1,
+            "offsetLeft": 0,
+            "offsetTop": 0,
+          },
+          "touches": Array [],
+          "type": "event",
         },
         "originalEvent": Object {
           "changedTouches": Array [],
@@ -170,7 +230,7 @@ describe('create event', () => {
   it('createTapEvent', () => {
     const callback = createCallback((e: TapEvent) => e, createTapEvent);
 
-    const event = callback!(originalEvent);
+    const event = callback!(nativeEvent);
     expect(event).toMatchInlineSnapshot(`
       Object {
         "currentTarget": Object {
@@ -178,6 +238,26 @@ describe('create event', () => {
           "id": 1,
           "offsetLeft": 0,
           "offsetTop": 0,
+        },
+        "nativeEvent": Object {
+          "changedTouches": Array [],
+          "currentTarget": Object {
+            "dataset": Object {},
+            "id": 1,
+            "offsetLeft": 0,
+            "offsetTop": 0,
+          },
+          "detail": Object {
+            "value": "value",
+          },
+          "target": Object {
+            "dataset": Object {},
+            "id": 1,
+            "offsetLeft": 0,
+            "offsetTop": 0,
+          },
+          "touches": Array [],
+          "type": "event",
         },
         "originalEvent": Object {
           "changedTouches": Array [],
@@ -215,7 +295,7 @@ describe('create event', () => {
   it('createTouchEvent', () => {
     const callback = createCallback((e: TouchEvent) => e, createTouchEvent);
 
-    const event = callback!(originalEvent);
+    const event = callback!(nativeEvent);
     expect(event).toMatchInlineSnapshot(`
       Object {
         "changedTouches": Array [],
@@ -224,6 +304,26 @@ describe('create event', () => {
           "id": 1,
           "offsetLeft": 0,
           "offsetTop": 0,
+        },
+        "nativeEvent": Object {
+          "changedTouches": Array [],
+          "currentTarget": Object {
+            "dataset": Object {},
+            "id": 1,
+            "offsetLeft": 0,
+            "offsetTop": 0,
+          },
+          "detail": Object {
+            "value": "value",
+          },
+          "target": Object {
+            "dataset": Object {},
+            "id": 1,
+            "offsetLeft": 0,
+            "offsetTop": 0,
+          },
+          "touches": Array [],
+          "type": "event",
         },
         "originalEvent": Object {
           "changedTouches": Array [],
