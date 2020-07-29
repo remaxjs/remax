@@ -36,6 +36,7 @@ export const createTapEvent = (originalEvent: any): TapEvent => ({
   target: createTarget(originalEvent.target, originalEvent.detail),
   currentTarget: createCurrentTarget(originalEvent.currentTarget),
   originalEvent,
+  nativeEvent: originalEvent,
 });
 
 export const createTouchEvent = (originalEvent: any): TouchEvent => ({
@@ -46,6 +47,7 @@ export const createTouchEvent = (originalEvent: any): TouchEvent => ({
   touches: originalEvent.touches,
   changedTouches: originalEvent.touches,
   originalEvent,
+  nativeEvent: originalEvent,
 });
 
 export const createImageEvent = (originalEvent: any): ImageLoadEvent | ImageErrorEvent => ({
@@ -53,6 +55,7 @@ export const createImageEvent = (originalEvent: any): ImageLoadEvent | ImageErro
   target: createTarget(originalEvent.target, originalEvent.detail),
   currentTarget: createCurrentTarget(originalEvent.currentTarget),
   originalEvent,
+  nativeEvent: originalEvent,
 });
 
 export function createCallback(fn: Function | undefined, eventCreator: Function) {
@@ -68,6 +71,7 @@ export const createInputEvent = (originalEvent: any): InputEvent => ({
   target: createTarget(originalEvent.target, originalEvent.detail),
   currentTarget: createCurrentTarget(originalEvent.currentTarget),
   originalEvent,
+  nativeEvent: originalEvent,
 });
 
 export const createFormEvent = (originalEvent: any): FormEvent => ({
@@ -75,6 +79,7 @@ export const createFormEvent = (originalEvent: any): FormEvent => ({
   target: createTarget(originalEvent.target, originalEvent.detail),
   currentTarget: createCurrentTarget(originalEvent.currentTarget),
   originalEvent,
+  nativeEvent: originalEvent,
 });
 
 function assignDefaultProps(inputProps: any, defaultProps: any) {

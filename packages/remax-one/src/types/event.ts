@@ -42,7 +42,9 @@ export interface Event {
   target: EventTarget;
   currentTarget: EventCurrentTarget;
   type: string;
+  // 已废弃
   originalEvent: any;
+  nativeEvent: any;
 }
 
 export interface TouchEvent extends Event {
