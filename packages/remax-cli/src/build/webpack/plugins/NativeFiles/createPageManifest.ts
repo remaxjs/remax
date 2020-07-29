@@ -2,7 +2,7 @@ import * as path from 'path';
 import { compilation } from 'webpack';
 import { Options, EntryInfo } from '@remax/types';
 import { slash } from '@remax/shared';
-import { matcher } from '../../../../extensions';
+import { targetExtensions } from '../../../../extensions';
 import readManifest from '../../../../readManifest';
 import * as cacheable from './cacheable';
 import { pageConfigFile } from '../../../utils/paths';
@@ -17,6 +17,7 @@ export default function createPageManifest(
   api: API
 ) {
   const rootPath = slash(path.join(options.cwd, options.rootDir) + '/');
+  const matcher = new RegExp(`(${targetExtensions(options.target!).join('|')})$`);
   const manifestPath = page.filename.replace(matcher, '.json').replace(rootPath, '');
   const config = readManifest(pageConfigFile(page.filename, options), options.target!);
   const usingComponents = getUsingComponents(modules, options, compilation);
