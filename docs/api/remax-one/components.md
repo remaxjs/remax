@@ -125,7 +125,7 @@ import { Label } from 'remax/one';
 | id        | string              | 节点 id           |
 | className | string              | 节点样式类        |
 | style     | React.CssProperties | 节点 inline style |
-| for       | string              | 绑定控件的 id     |
+| htmlFor   | string              | 绑定控件的 id     |
 
 ## Text
 
