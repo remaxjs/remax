@@ -3,15 +3,10 @@ import * as path from 'path';
 import { Options, Platform } from '@remax/types';
 import getEntries from '../../getEntries';
 import API from '../../API';
-import extensions from '../../extensions';
+import { targetExtensions } from '../../extensions';
 
 export function searchJSFile(file: string, target: Platform) {
-  let ext = extensions.map(ext => `.${target}${ext}`);
-  if (target !== Platform.web) {
-    ext = ext.concat(extensions.map(ext => `.mini${ext}`));
-  }
-  ext = ext.concat(extensions);
-  for (const e of ext) {
+  for (const e of targetExtensions(target)) {
     const extFile = file + e;
     if (fs.existsSync(extFile)) {
       return extFile;

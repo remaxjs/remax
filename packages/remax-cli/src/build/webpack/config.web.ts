@@ -12,7 +12,7 @@ import VirtualModulesPlugin from 'webpack-virtual-modules';
 import * as RemaxPlugins from './plugins';
 import ejs from 'ejs';
 import { Platform } from '@remax/types';
-import extensions, { moduleMatcher } from '../../extensions';
+import { moduleMatcher, targetExtensions } from '../../extensions';
 import getEntries from '../../getEntries';
 import getAppConfig from '../utils/getAppConfig';
 import { cssConfig, addCSSRule, RuleConfig } from './config/css';
@@ -43,7 +43,7 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
 
   config.devtool(process.env.NODE_ENV === 'development' ? 'cheap-module-source-map' : false);
   config.output.publicPath(publicPath);
-  config.resolve.extensions.merge(extensions.map(ex => `.web${ex}`).concat(extensions));
+  config.resolve.extensions.merge(targetExtensions(options.target!));
   config.output.filename(process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].js' : '[name].js');
   config.optimization.runtimeChunk({
     name: 'runtime',

@@ -10,7 +10,7 @@ import WebpackBar from 'webpackbar';
 import { Options, Platform } from '@remax/types';
 import { slash } from '@remax/shared';
 import ejs from 'ejs';
-import extensions, { moduleMatcher } from '../../extensions';
+import { moduleMatcher, targetExtensions } from '../../extensions';
 import getEntries from '../../getEntries';
 import * as TurboPages from '../utils/turboPages';
 import * as staticCompiler from '../babel/compiler/static';
@@ -65,12 +65,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
 
   config.devtool(false);
 
-  config.resolve.extensions.merge(
-    extensions
-      .map(ext => `.${target}${ext}`)
-      .concat(extensions.map(ext => `.mini${ext}`))
-      .concat(extensions)
-  );
+  config.resolve.extensions.merge(targetExtensions(options.target!));
   config.output.filename('[name].js');
   config.output.globalObject(meta.global);
   config.output.publicPath(publicPath);

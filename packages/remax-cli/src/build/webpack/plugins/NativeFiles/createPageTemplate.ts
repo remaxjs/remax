@@ -2,20 +2,22 @@ import * as path from 'path';
 import { sortBy } from 'lodash';
 import { compilation } from 'webpack';
 import ejs from 'ejs';
-import { Options, Meta } from '@remax/types';
+import { Options, Meta, Platform } from '@remax/types';
 import { slash } from '@remax/shared';
 import * as componentManifest from '../../../../build/babel/componentManifest';
 import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDepth';
 import * as cacheable from './cacheable';
 import API from '../../../../API';
 import getUsingComponents from './getUsingComponents';
+import { targetExtensions } from '../../../../extensions';
 
-export function pageFilename(pagePath: string) {
-  let value = path.basename(pagePath);
-  const ext = path.extname(value);
-  value = value.replace(ext, '');
-
-  return value;
+function pageFilename(pagePath: string, target: Platform) {
+  const filename = path.basename(pagePath);
+  for (const ext of targetExtensions(target)) {
+    if (filename.endsWith(ext)) {
+      return filename.replace(new RegExp(`${ext}$`), '');
+    }
+  }
 }
 
 export function createRenderOptions(
@@ -52,7 +54,7 @@ export default async function createPageTemplate(
   const pagePath = path.relative(rootDir, pageFile);
   const pageDir = path.dirname(pagePath);
 
-  const fileName = slash(path.join(pageDir, `${pageFilename(pagePath)}${meta.template.extension}`));
+  const fileName = slash(path.join(pageDir, `${pageFilename(pagePath, options.target!)}${meta.template.extension}`));
 
   const ejsOptions: { [props: string]: any } = {
     ...createRenderOptions(api, options, modules, compilation),
@@ -60,7 +62,7 @@ export default async function createPageTemplate(
   };
 
   if (meta.jsHelper) {
-    ejsOptions.jsHelper = `./${pageFilename(pagePath)}_helper${meta.jsHelper.extension}`;
+    ejsOptions.jsHelper = `./${pageFilename(pagePath, options.target!)}_helper${meta.jsHelper.extension}`;
   }
 
   let source: string = await ejs.renderFile(meta.ejs.page, ejsOptions, {
