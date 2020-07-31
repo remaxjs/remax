@@ -41,7 +41,7 @@
     "@remax/wechat": "2.7.7",
     "clsx": "^1.1.0",
     "react-autosize-textarea": "^7.0.0",
-    "react-lazyload": "^2.6.7",
+    "react-lazyload": "^3.0.0",
     "rmc-feedback": "^2.0.0"
   },
   "publishConfig": {
