@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 export { default as defaults } from './default';
 
 export interface NavigatorProps {

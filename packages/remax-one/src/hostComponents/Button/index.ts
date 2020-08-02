@@ -25,6 +25,6 @@ export interface ButtonProps extends React.AriaAttributes {
   onTap?: (event: TapEvent) => void;
 }
 
-const Button = createHostComponent<ButtonProps>('button', alias, defaults);
+const Button: React.ComponentType<ButtonProps> = createHostComponent<ButtonProps>('button', alias, defaults);
 
 export default Button;
