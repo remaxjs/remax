@@ -16,4 +16,4 @@ export interface CanvasProps {
   onTouchCancel?: (e: any) => void;
   onLongTap?: (e: any) => void;
 }
-export const Canvas = createHostComponent<CanvasProps>('canvas');
+export const Canvas: React.ComponentType<CanvasProps> = createHostComponent<CanvasProps>('canvas');

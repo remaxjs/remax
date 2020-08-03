@@ -20,4 +20,4 @@ export interface ImageProps {
   onTouchCancel?: (e: any) => void;
 }
 
-export const Image = createHostComponent<ImageProps>('image');
+export const Image: React.ComponentType<ImageProps> = createHostComponent<ImageProps>('image');

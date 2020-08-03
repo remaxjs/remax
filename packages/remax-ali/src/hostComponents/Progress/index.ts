@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 export interface ProgressProps {
@@ -12,4 +13,4 @@ export interface ProgressProps {
   active?: boolean;
 }
 
-export const Progress = createHostComponent<ProgressProps>('progress');
+export const Progress: React.ComponentType<ProgressProps> = createHostComponent<ProgressProps>('progress');

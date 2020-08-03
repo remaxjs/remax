@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 export interface SwiperItemProps {
@@ -5,4 +6,4 @@ export interface SwiperItemProps {
   key: string;
 }
 
-export const SwiperItem = createHostComponent<SwiperItemProps>('swiper-item');
+export const SwiperItem: React.ComponentType<SwiperItemProps> = createHostComponent<SwiperItemProps>('swiper-item');

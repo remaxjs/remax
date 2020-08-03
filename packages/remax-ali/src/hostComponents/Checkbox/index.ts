@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 export interface CheckboxProps {
@@ -12,4 +13,4 @@ export interface CheckboxProps {
   onChange?: (e: any) => void;
 }
 
-export const Checkbox = createHostComponent<CheckboxProps>('checkbox');
+export const Checkbox: React.ComponentType<CheckboxProps> = createHostComponent<CheckboxProps>('checkbox');

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 export interface SwitchProps {
@@ -12,4 +13,4 @@ export interface SwitchProps {
   onChange?: (e: any) => void;
 }
 
-export const Switch = createHostComponent<SwitchProps>('switch');
+export const Switch: React.ComponentType<SwitchProps> = createHostComponent<SwitchProps>('switch');

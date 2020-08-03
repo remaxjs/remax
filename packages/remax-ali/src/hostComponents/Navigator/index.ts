@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 export interface NavigatorProps {
@@ -11,4 +12,4 @@ export interface NavigatorProps {
   url: string;
 }
 
-export const Navigator = createHostComponent<NavigatorProps>('navigator');
+export const Navigator: React.ComponentType<NavigatorProps> = createHostComponent<NavigatorProps>('navigator');

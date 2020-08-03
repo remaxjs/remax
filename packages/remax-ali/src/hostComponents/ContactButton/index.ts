@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 export interface ContactButtonProps {
@@ -10,4 +11,6 @@ export interface ContactButtonProps {
   alipayCardNo?: string;
 }
 
-export const ContactButton = createHostComponent<ContactButtonProps>('contact-button');
+export const ContactButton: React.ComponentType<ContactButtonProps> = createHostComponent<ContactButtonProps>(
+  'contact-button'
+);

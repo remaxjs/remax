@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 export interface PickerProps {
@@ -11,4 +12,4 @@ export interface PickerProps {
   disabled?: boolean;
   onChange?: (e: any) => void;
 }
-export const Picker = createHostComponent<PickerProps>('picker');
+export const Picker: React.ComponentType<PickerProps> = createHostComponent<PickerProps>('picker');

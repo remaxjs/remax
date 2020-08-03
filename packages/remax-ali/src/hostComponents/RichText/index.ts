@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 export interface RichTextNode {
@@ -12,4 +13,4 @@ export interface RichTextProps {
   nodes?: RichTextNode[];
 }
 
-export const RichText = createHostComponent<RichTextProps>('rich-text');
+export const RichText: React.ComponentType<RichTextProps> = createHostComponent<RichTextProps>('rich-text');
