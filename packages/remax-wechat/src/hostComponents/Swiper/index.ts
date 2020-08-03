@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { BaseProps } from '../../types/component';
 import { createHostComponent } from '@remax/shared';
 
@@ -41,7 +42,7 @@ export interface SwiperProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html
  */
-export const Swiper = createHostComponent('swiper');
+export const Swiper: React.ComponentType<SwiperProps> = createHostComponent<SwiperProps>('swiper');
 
 Swiper.defaultProps = {
   indicatorDots: false,

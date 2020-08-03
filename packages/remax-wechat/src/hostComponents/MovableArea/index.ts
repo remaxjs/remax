@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -9,7 +10,7 @@ export interface MovableAreaProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/movable-area.html
  */
-export const MovableArea = createHostComponent<MovableAreaProps>('movable-area');
+export const MovableArea: React.ComponentType<MovableAreaProps> = createHostComponent<MovableAreaProps>('movable-area');
 
 MovableArea.defaultProps = {
   scaleArea: false,

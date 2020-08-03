@@ -132,4 +132,4 @@ RemaxVideo.defaultProps = {
   showScreenLockButton: false,
 };
 
-export const Video = createHostComponent(hostComponentName, RemaxVideo);
+export const Video: React.ComponentType<VideoProps> = createHostComponent<VideoProps>(hostComponentName, RemaxVideo);

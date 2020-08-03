@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -15,7 +16,7 @@ export interface FormProps extends BaseProps {
 /**
  * @see https://developers.weixin.qq.com/miniprogram/dev/component/form.html
  */
-export const Form = createHostComponent<FormProps>('form');
+export const Form: React.ComponentType<FormProps> = createHostComponent<FormProps>('form');
 
 Form.defaultProps = {
   reportSubmit: false,

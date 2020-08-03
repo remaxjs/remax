@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -18,7 +19,9 @@ export interface FunctionalPageNavigatorProps extends BaseProps {
 /**
  * @see https://developers.weixin.qq.com/miniprogram/dev/component/functional-page-navigator.html
  */
-export const FunctionalPageNavigator = createHostComponent<FunctionalPageNavigatorProps>('functional-page-navigator');
+export const FunctionalPageNavigator: React.ComponentType<FunctionalPageNavigatorProps> = createHostComponent<
+  FunctionalPageNavigatorProps
+>('functional-page-navigator');
 
 FunctionalPageNavigator.defaultProps = {
   version: 'release',

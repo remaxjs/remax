@@ -110,17 +110,17 @@ export interface InputProps extends BaseProps {
    * 键盘输入时触发，event.detail = {value, cursor, keyCode}，keyCode 为键值，
    * 2.1.0 起支持，处理函数可以直接 return 一个字符串，将替换输入框的内容。
    */
-  onInput?: (...params: any) => void;
+  onInput?: (...params: any[]) => void;
   /**
    * 1.0.0
    * 输入框聚焦时触发，event.detail = { value, height }，height 为键盘高度，在基础库 1.9.90 起支持
    */
-  onFocus?: (...params: any) => void;
+  onFocus?: (...params: any[]) => void;
   /**
    * 1.0.0
    * 输入框失去焦点时触发，event.detail = {value: value}
    */
-  onBlur?: (...params: any) => void;
+  onBlur?: (...params: any[]) => void;
   /**
    * 1.0.0
    * 点击完成按钮时触发，event.detail = {value: value}
@@ -136,7 +136,7 @@ export interface InputProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/input.html
  */
-export const Input = createHostComponent<InputProps>('input');
+export const Input: React.ComponentType<InputProps> = createHostComponent<InputProps>('input');
 
 Input.defaultProps = {
   type: 'text',

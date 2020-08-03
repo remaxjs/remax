@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -24,7 +25,7 @@ export interface CameraProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/camera.html
  */
-export const Camera = createHostComponent<CameraProps>('camera');
+export const Camera: React.ComponentType<CameraProps> = createHostComponent<CameraProps>('camera');
 
 Camera.defaultProps = {
   mode: 'normal',

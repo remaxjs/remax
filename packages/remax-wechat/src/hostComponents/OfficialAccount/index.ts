@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -11,4 +12,6 @@ export interface OfficialAccountProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/official-account.html
  */
-export const OfficialAccount = createHostComponent<OfficialAccountProps>('official-account');
+export const OfficialAccount: React.ComponentType<OfficialAccountProps> = createHostComponent<OfficialAccountProps>(
+  'official-account'
+);

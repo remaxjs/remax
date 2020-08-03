@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -26,7 +27,7 @@ export interface OpenDataProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/open-data.html
  */
-export const OpenData = createHostComponent<OpenDataProps>('open-data');
+export const OpenData: React.ComponentType<OpenDataProps> = createHostComponent<OpenDataProps>('open-data');
 
 OpenData.defaultProps = {
   lang: 'en',
