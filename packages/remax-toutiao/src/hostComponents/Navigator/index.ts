@@ -1,5 +1,6 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
 
+import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface NavigatorProps extends BaseProps {
@@ -12,7 +13,7 @@ export interface NavigatorProps extends BaseProps {
   hoverStopPropagation?: boolean;
 }
 
-export const Navigator = createHostComponent<NavigatorProps>('navigator');
+export const Navigator: React.ComponentType<NavigatorProps> = createHostComponent<NavigatorProps>('navigator');
 
 Navigator.defaultProps = {
   openType: 'navigate',

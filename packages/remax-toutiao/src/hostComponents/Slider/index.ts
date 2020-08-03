@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
@@ -20,7 +21,7 @@ export interface SliderProps extends BaseProps {
   onChanging?: (e: any) => void;
 }
 
-export const Slider = createHostComponent<SliderProps>('slider');
+export const Slider: React.ComponentType<SliderProps> = createHostComponent<SliderProps>('slider');
 
 Slider.defaultProps = {
   min: 0,
