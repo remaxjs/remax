@@ -11,6 +11,7 @@ describe('props alias', () => {
           alias: {
             camelCase: 'kebab-case',
           },
+          props: ['kebab-case'],
         },
       },
     });
