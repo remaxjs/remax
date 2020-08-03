@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Image } from 'remax/ali';
+import { View, Text, Image, Navigator, Button, WebView } from 'remax/ali';
 import catImage from '@/assets/images/cat.jpg';
 import './index.css';
 
@@ -37,6 +37,9 @@ export default () => {
       <Image className="cat-image" src={catImage} />
       {/* CASE: css 中引用静态资源 */}
       <View className="dog-image" />
+      <Navigator url={'../one/index'} openType={'navigate'}>
+        One Tip
+      </Navigator>
     </View>
   );
 };
