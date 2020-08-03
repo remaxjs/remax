@@ -1,11 +1,11 @@
-import { Platform } from '@remax/types';
+import { Platform, HostComponent } from '@remax/types';
 import PluginDriver from './PluginDriver';
 
 interface RuntimeOptions {
   platform: Platform | '';
   pxToRpx: boolean;
   debug: boolean;
-  hostComponents: any;
+  hostComponents: Record<string, HostComponent>;
   pluginDriver: PluginDriver;
   pageEvents: Record<string, string[]>;
   appEvents: string[];
@@ -30,7 +30,17 @@ function merge(...options: Array<Partial<RuntimeOptions>>) {
     acc.appEvents = option.appEvents || acc.appEvents;
     acc.debug = option.debug ?? acc.debug;
     acc.history = option.history || acc.history;
-    acc.hostComponents = option.hostComponents || acc.hostComponents;
+
+    Object.keys(option.hostComponents ?? {}).forEach(k => {
+      const inputHostComponent = option.hostComponents?.[k];
+      acc.hostComponents[k] = acc.hostComponents[k] ?? {};
+      acc.hostComponents[k].additional = inputHostComponent?.additional ?? acc.hostComponents[k].additional;
+      acc.hostComponents[k].alias = Object.assign(acc.hostComponents[k].alias ?? {}, inputHostComponent?.alias ?? {});
+      acc.hostComponents[k].props = Array.from(
+        new Set([...(acc.hostComponents[k].props ?? []), ...(inputHostComponent?.props ?? [])])
+      );
+    });
+
     acc.pluginDriver = option.pluginDriver || acc.pluginDriver;
     acc.pageEvents = option.pageEvents || acc.pageEvents;
     acc.platform = option.platform || acc.platform;

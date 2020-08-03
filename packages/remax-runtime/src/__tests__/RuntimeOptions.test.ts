@@ -11,6 +11,7 @@ describe('RuntimeOptions', () => {
           alias: {
             onClick: 'onTap',
           },
+          props: ['onTap'],
         },
       },
       pageEvents: {},
@@ -27,6 +28,7 @@ describe('RuntimeOptions', () => {
           alias: {
             className: 'class',
           },
+          props: ['class'],
         },
       },
       pageEvents: {},
