@@ -12,7 +12,7 @@ describe('createPageWrapper', () => {
 
   it('get Page ref', () => {
     const modalContainer = new Container({});
-    const WrappedPage = createPageWrapper(Page);
+    const WrappedPage = createPageWrapper(Page, '');
     const testRenderer = TestRenderer.create(<WrappedPage page={null} query={{}} modalContainer={modalContainer} />);
     const instance = testRenderer.getInstance() as any;
     expect(instance.pageComponentInstance).toBeInstanceOf(Page);
@@ -25,7 +25,7 @@ describe('createPageWrapper', () => {
         return <PageComponent ref={ref} />;
       });
     };
-    const WrappedPage = createPageWrapper(hoc(Page));
+    const WrappedPage = createPageWrapper(hoc(Page), '');
     const testRenderer = TestRenderer.create(<WrappedPage page={null} query={{}} modalContainer={modalContainer} />);
     const instance = testRenderer.getInstance() as any;
     expect(instance.pageComponentInstance).toBeInstanceOf(Page);
@@ -34,7 +34,7 @@ describe('createPageWrapper', () => {
   it('does not pass ref to FC', () => {
     const modalContainer = new Container({});
     const FCPage: React.FC = props => <view>hi</view>;
-    const WrappedPage = createPageWrapper(FCPage);
+    const WrappedPage = createPageWrapper(FCPage, '');
     const testRenderer = TestRenderer.create(<WrappedPage page={null} query={{}} modalContainer={modalContainer} />);
     const instance = testRenderer.getInstance() as any;
     expect(instance.pageComponentInstance).toBeNull();

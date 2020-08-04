@@ -1,47 +1,8 @@
 import * as React from 'react';
-import { createPageConfig, createAppConfig, usePageEvent, PluginDriver } from '../../src';
+import { createPageConfig, createAppConfig, usePageEvent } from '../../src';
 import { useQuery } from '../hooks';
 import { resetPageId } from '../createPageConfig';
 import Page from './helpers/Page';
-
-jest.mock('../stopPullDownRefresh', () => () => void 0);
-jest.mock('../RuntimeOptions', () => ({
-  get(key: 'appEvents' | 'pageEvents') {
-    const options = {
-      pluginDriver: new PluginDriver([]),
-      appEvents: [
-        'onLaunch',
-        'onShow',
-        'onHide',
-        'onShareAppMessage',
-        'onPageNotFound',
-        'onError',
-        'onUnhandledRejection',
-        'onThemeChange',
-      ],
-      pageEvents: {
-        'pages/test/only/onshow': ['onShow'],
-        'pages/test/index': [
-          'onShow',
-          'onHide',
-          'onPullDownRefresh',
-          'onPullIntercept',
-          'onReachBottom',
-          'onPageScroll',
-          'onShareAppMessage',
-          'onTitleClick',
-          'onOptionMenuClick',
-          'onPopMenuClick',
-          'onReady',
-          'onResize',
-          'onTabItemTap',
-        ],
-      },
-    };
-
-    return options[key];
-  },
-}));
 
 const ALL_EVENTS_PAGE = 'pages/test/index';
 const NO_APP_SHARE_AND_PAGE_SCROLL_PAGE = 'pages/test/only/onshow';

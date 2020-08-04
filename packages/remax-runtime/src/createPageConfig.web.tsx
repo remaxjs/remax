@@ -16,7 +16,7 @@ interface PageConfigProps {
 
 const DEFAULT_REACH_BOTTOM_DISTANCE = 50;
 
-export default function createPageConfig(Page: React.ComponentType<any>) {
+export default function createPageConfig(Page: React.ComponentType<any>, name: string) {
   const page = {
     lifeCycleCallback: {} as LifeCycleCallback,
     wrapperRef: React.createRef<any>(),
@@ -46,7 +46,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     },
   };
 
-  const PageWrapper = createPageWrapper(Page);
+  const PageWrapper = createPageWrapper(Page, name);
 
   return class PageConfig extends React.Component<PageConfigProps> {
     constructor(props: any) {

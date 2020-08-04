@@ -39,8 +39,8 @@ describe('RuntimeOptions', () => {
 
     expect(RuntimeOptions.get('pxToRpx')).toBe(false);
     expect(RuntimeOptions.get('history')).toBe('history');
-    expect(RuntimeOptions.get('hostComponents').button.alias.onClick).toBe('onTap');
-    expect(RuntimeOptions.get('hostComponents').button.alias.className).toBe('class');
+    expect(RuntimeOptions.get('hostComponents').button.alias?.onClick).toBe('onTap');
+    expect(RuntimeOptions.get('hostComponents').button.alias?.className).toBe('class');
     expect(RuntimeOptions.get('appEvents')).toEqual(['onShow', 'onHide']);
   });
 });

@@ -1,6 +1,8 @@
 interface Plugin {
   onAppConfig?: ({ config }: { config: any }) => any;
-  onPageConfig?: ({ config }: { config: any }) => any;
+  onPageConfig?: ({ config, page }: { config: any; page: string }) => any;
+  onAppComponent?: ({ component }: { component: React.ComponentType }) => React.ComponentType;
+  onPageComponent?: ({ component, page }: { component: React.ComponentType; page: string }) => React.ComponentType;
 }
 
 export default class PluginDriver {
@@ -19,12 +21,30 @@ export default class PluginDriver {
     }, config);
   }
 
-  onPageConfig(config: any) {
+  onPageConfig({ config, page }: { config: any; page: string }) {
     return this.plugins.reduce((acc, plugin) => {
       if (typeof plugin.onPageConfig === 'function') {
-        acc = plugin.onPageConfig({ config: acc });
+        acc = plugin.onPageConfig({ config: acc, page });
       }
       return acc;
     }, config);
+  }
+
+  onAppComponent(component: React.ComponentType) {
+    return this.plugins.reduce((acc, plugin) => {
+      if (typeof plugin.onAppComponent === 'function') {
+        acc = plugin.onAppComponent({ component: acc });
+      }
+      return acc;
+    }, component);
+  }
+
+  onPageComponent({ component, page }: { component: React.ComponentType; page: string }) {
+    return this.plugins.reduce((acc, plugin) => {
+      if (typeof plugin.onPageComponent === 'function') {
+        acc = plugin.onPageComponent({ component: acc, page });
+      }
+      return acc;
+    }, component);
   }
 }

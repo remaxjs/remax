@@ -15,6 +15,7 @@ class DefaultAppComponent extends React.Component {
 }
 
 export default function createAppConfig(this: any, App: any) {
+  const WrappedApp = RuntimeOptions.get('pluginDriver').onAppComponent(App);
   const createConfig = (AppComponent: React.ComponentType<any> = DefaultAppComponent) => {
     const config: any = {
       _container: new AppContainer(),
@@ -118,5 +119,5 @@ export default function createAppConfig(this: any, App: any) {
     return RuntimeOptions.get('pluginDriver').onAppConfig(config);
   };
 
-  return createConfig(App);
+  return createConfig(WrappedApp);
 }
