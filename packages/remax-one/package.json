@@ -24,7 +24,6 @@
     "@types/jest": "^26.0.0",
     "@types/react": "^16.9.33",
     "@types/react-dom": "^16.9.6",
-    "@types/react-lazyload": "^2.6.0",
     "@types/react-test-renderer": "^16.9.1",
     "jest": "^26.0.1",
     "react": "^16.12.0",
@@ -41,7 +40,6 @@
     "@remax/wechat": "2.7.7",
     "clsx": "^1.1.0",
     "react-autosize-textarea": "^7.0.0",
-    "react-lazyload": "^2.6.7",
     "rmc-feedback": "^2.0.0"
   },
   "publishConfig": {
