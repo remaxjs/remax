@@ -9,7 +9,6 @@ module.exports = {
     'pages/turbo-page/index',
     'pages/turbo-page/fragmentRoot',
     'pages/modal/index',
-    'pages/one/index',
   ],
   window: {
     defaultTitle: 'Alipay App',
