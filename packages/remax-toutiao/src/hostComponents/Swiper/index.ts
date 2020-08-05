@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
@@ -21,7 +22,7 @@ export interface SwiperProps extends BaseProps {
   onAnimationFinish?: (e: any) => void;
 }
 
-export const Swiper = createHostComponent<SwiperProps>('swiper');
+export const Swiper: React.ComponentType<SwiperProps> = createHostComponent<SwiperProps>('swiper');
 
 Swiper.defaultProps = {
   indicatorDots: false,

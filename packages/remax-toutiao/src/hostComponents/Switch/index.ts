@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
@@ -11,7 +12,7 @@ export interface SwitchProps extends BaseProps {
   color?: string;
 }
 
-export const Switch = createHostComponent<SwitchProps>('switch');
+export const Switch: React.ComponentType<SwitchProps> = createHostComponent<SwitchProps>('switch');
 
 Switch.defaultProps = {
   checked: false,

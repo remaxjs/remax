@@ -32,4 +32,4 @@ export interface ViewProps {
   onFirstAppear?: (e: any) => void;
 }
 
-export const View = createHostComponent<ViewProps>('view');
+export const View: React.ComponentType<ViewProps> = createHostComponent<ViewProps>('view');

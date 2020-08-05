@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 export interface IconProps {
@@ -19,4 +20,4 @@ export interface IconProps {
   color?: string;
 }
 
-export const Icon = createHostComponent<IconProps>('icon');
+export const Icon: React.ComponentType<IconProps> = createHostComponent<IconProps>('icon');

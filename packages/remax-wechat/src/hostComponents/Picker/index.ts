@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -74,7 +75,7 @@ export interface PickerProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/picker.html
  */
-export const Picker = createHostComponent<PickerProps>('picker');
+export const Picker: React.ComponentType<PickerProps> = createHostComponent<PickerProps>('picker');
 
 Picker.defaultProps = {
   mode: 'selector',

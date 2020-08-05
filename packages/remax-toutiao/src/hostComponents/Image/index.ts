@@ -31,7 +31,7 @@ export interface ImageProps extends BaseProps {
   onTouchCancel?: (e: any) => void;
 }
 
-export const Image = createHostComponent<ImageProps>('image');
+export const Image: React.ComponentType<ImageProps> = createHostComponent<ImageProps>('image');
 
 Image.defaultProps = {
   mode: 'scaleToFill',

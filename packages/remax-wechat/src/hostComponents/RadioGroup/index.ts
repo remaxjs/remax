@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -9,4 +10,4 @@ export interface RadioGroupProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/radio-group.html
  */
-export const RadioGroup = createHostComponent<RadioGroupProps>('radio-group');
+export const RadioGroup: React.ComponentType<RadioGroupProps> = createHostComponent<RadioGroupProps>('radio-group');

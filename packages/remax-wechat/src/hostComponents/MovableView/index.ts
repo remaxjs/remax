@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -45,7 +46,7 @@ export interface MovableViewProps extends Omit<BaseProps, 'animation'> {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/movable-view.html
  */
-export const MovableView = createHostComponent<MovableViewProps>('movable-view');
+export const MovableView: React.ComponentType<MovableViewProps> = createHostComponent<MovableViewProps>('movable-view');
 
 MovableView.defaultProps = {
   direction: 'none',

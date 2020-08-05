@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
@@ -16,7 +17,7 @@ export interface ScrollViewProps extends BaseProps {
   onScroll?: (e: any) => void;
 }
 
-export const ScrollView = createHostComponent<ScrollViewProps>('scroll-view');
+export const ScrollView: React.ComponentType<ScrollViewProps> = createHostComponent<ScrollViewProps>('scroll-view');
 
 ScrollView.defaultProps = {
   scrollX: false,

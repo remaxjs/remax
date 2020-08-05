@@ -8,4 +8,4 @@ export interface CoverViewProps {
   onTap?: (e: any) => void;
 }
 
-export const CoverView = createHostComponent<CoverViewProps>('cover-view');
+export const CoverView: React.ComponentType<CoverViewProps> = createHostComponent<CoverViewProps>('cover-view');

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 export interface LifestyleProps {
@@ -6,4 +7,4 @@ export interface LifestyleProps {
   onFollow?: (e: any) => void;
 }
 
-export const Lifestyle = createHostComponent<LifestyleProps>('lifestyle');
+export const Lifestyle: React.ComponentType<LifestyleProps> = createHostComponent<LifestyleProps>('lifestyle');

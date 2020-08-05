@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -32,7 +33,7 @@ export interface ProgressProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/progress.html
  */
-export const Progress = createHostComponent<ProgressProps>('progress');
+export const Progress: React.ComponentType<ProgressProps> = createHostComponent<ProgressProps>('progress');
 
 Progress.defaultProps = {
   showInfo: false,

@@ -26,4 +26,4 @@ export interface ButtonProps {
   onError?: (e: any) => void;
 }
 
-export const Button = createHostComponent<ButtonProps>('button');
+export const Button: React.ComponentType<ButtonProps> = createHostComponent<ButtonProps>('button');

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -77,7 +78,7 @@ export interface LivePusherProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html
  */
-export const LivePusher = createHostComponent<LivePusherProps>('live-pusher');
+export const LivePusher: React.ComponentType<LivePusherProps> = createHostComponent<LivePusherProps>('live-pusher');
 
 LivePusher.defaultProps = {
   mode: 'RTC',

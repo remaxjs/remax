@@ -34,4 +34,4 @@ export interface VideoProps {
   onUserAction?: (e: any) => void;
 }
 
-export const Video = createHostComponent<VideoProps>('video');
+export const Video: React.ComponentType<VideoProps> = createHostComponent<VideoProps>('video');

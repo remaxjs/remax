@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -72,7 +73,7 @@ export interface ImageProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/image.html
  */
-export const Image = createHostComponent<ImageProps>('image');
+export const Image: React.ComponentType<ImageProps> = createHostComponent<ImageProps>('image');
 
 Image.defaultProps = {
   mode: 'scaleToFill',

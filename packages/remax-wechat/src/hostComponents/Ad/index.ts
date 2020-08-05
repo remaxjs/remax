@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -17,7 +18,7 @@ export interface AdProps extends BaseProps {
   adTheme?: string;
 }
 
-export const Ad = createHostComponent<AdProps>('ad');
+export const Ad: React.ComponentType<AdProps> = createHostComponent<AdProps>('ad');
 
 Ad.defaultProps = {
   adType: 'banner',

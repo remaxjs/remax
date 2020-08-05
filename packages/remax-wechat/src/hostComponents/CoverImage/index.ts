@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -13,4 +14,4 @@ export interface CoverImageProps extends BaseProps {
 /**
  * @see https://developers.weixin.qq.com/miniprogram/dev/component/cover-image.html
  */
-export const CoverImage = createHostComponent<CoverImageProps>('cover-image');
+export const CoverImage: React.ComponentType<CoverImageProps> = createHostComponent<CoverImageProps>('cover-image');

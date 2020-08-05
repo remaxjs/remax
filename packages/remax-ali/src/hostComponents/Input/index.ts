@@ -30,4 +30,4 @@ export interface InputProps {
   onBlur?: (e: any) => void;
 }
 
-export const Input = createHostComponent<InputProps>('input');
+export const Input: React.ComponentType<InputProps> = createHostComponent<InputProps>('input');

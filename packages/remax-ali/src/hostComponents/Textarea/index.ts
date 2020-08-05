@@ -23,4 +23,4 @@ export interface TextareaProps {
   onConfirm?: (e: any) => void;
 }
 
-export const Textarea = createHostComponent<TextareaProps>('textarea');
+export const Textarea: React.ComponentType<TextareaProps> = createHostComponent<TextareaProps>('textarea');

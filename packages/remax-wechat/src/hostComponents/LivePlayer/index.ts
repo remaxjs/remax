@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -44,7 +45,7 @@ export interface LivePlayerProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html
  */
-export const LivePlayer = createHostComponent<LivePlayerProps>('live-player');
+export const LivePlayer: React.ComponentType<LivePlayerProps> = createHostComponent<LivePlayerProps>('live-player');
 
 LivePlayer.defaultProps = {
   mode: 'live',

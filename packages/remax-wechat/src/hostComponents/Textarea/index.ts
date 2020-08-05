@@ -33,16 +33,16 @@ export interface TextareaProps extends BaseProps {
   /** 是否去掉 iOS 下的默认内边距 2.10.0 */
   disableDefaultPadding?: boolean;
 
-  onInput?: (...params: any) => void;
-  onFocus?: (...params: any) => void;
-  onBlur?: (...params: any) => void;
+  onInput?: (...params: any[]) => void;
+  onFocus?: (...params: any[]) => void;
+  onBlur?: (...params: any[]) => void;
   onConfirm?: (event: any) => any;
   onKeyboardHeightChange?: (event: any) => any;
 }
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/textarea.html
  */
-export const Textarea = createHostComponent<TextareaProps>('textarea');
+export const Textarea: React.ComponentType<TextareaProps> = createHostComponent<TextareaProps>('textarea');
 
 Textarea.defaultProps = {
   placeholderClassName: 'textarea-placeholder',

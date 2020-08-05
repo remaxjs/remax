@@ -25,4 +25,4 @@ export interface PickerViewProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/picker-view.html
  */
-export const PickerView = createHostComponent<PickerViewProps>('picker-view');
+export const PickerView: React.ComponentType<PickerViewProps> = createHostComponent<PickerViewProps>('picker-view');

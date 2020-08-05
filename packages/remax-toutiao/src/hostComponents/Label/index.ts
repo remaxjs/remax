@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
@@ -6,4 +7,4 @@ export interface LabelProps extends BaseProps {
   for?: string;
 }
 
-export const Label = createHostComponent<LabelProps>('label');
+export const Label: React.ComponentType<LabelProps> = createHostComponent<LabelProps>('label');

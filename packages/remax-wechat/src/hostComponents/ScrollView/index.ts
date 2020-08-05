@@ -1,23 +1,6 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
-
-export const ScrollView = createHostComponent<ScrollViewProps>('scroll-view');
-
-ScrollView.defaultProps = {
-  upperThreshold: 50,
-  lowerThreshold: 50,
-  scrollX: false,
-  scrollY: false,
-  scrollWithAnimation: false,
-  enableBackToTop: false,
-  enableFlex: false,
-  scrollAnchoring: false,
-  refresherEnabled: false,
-  refresherThreshold: 45,
-  refresherDefaultStyle: 'black',
-  refresherBackground: '#fff',
-  refresherTriggered: false,
-};
 
 export interface ScrollViewProps extends BaseProps {
   /** (default: false) 允许横向滚动 1.0.0 */
@@ -67,3 +50,21 @@ export interface ScrollViewProps extends BaseProps {
   /** 自定义下拉刷新被中止 2.10.1 */
   onRefresherAbort?: (event: any) => void;
 }
+
+export const ScrollView: React.ComponentType<ScrollViewProps> = createHostComponent<ScrollViewProps>('scroll-view');
+
+ScrollView.defaultProps = {
+  upperThreshold: 50,
+  lowerThreshold: 50,
+  scrollX: false,
+  scrollY: false,
+  scrollWithAnimation: false,
+  enableBackToTop: false,
+  enableFlex: false,
+  scrollAnchoring: false,
+  refresherEnabled: false,
+  refresherThreshold: 45,
+  refresherDefaultStyle: 'black',
+  refresherBackground: '#fff',
+  refresherTriggered: false,
+};

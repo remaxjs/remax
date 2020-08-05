@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 export interface SliderProps {
@@ -20,4 +21,4 @@ export interface SliderProps {
   onChanging?: (e: any) => void;
 }
 
-export const Slider = createHostComponent<SliderProps>('slider');
+export const Slider: React.ComponentType<SliderProps> = createHostComponent<SliderProps>('slider');

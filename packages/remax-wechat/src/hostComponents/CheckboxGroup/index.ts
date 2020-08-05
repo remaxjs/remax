@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -12,4 +13,6 @@ export interface CheckboxGroupProps extends BaseProps {
 /**
  * @see https://developers.weixin.qq.com/miniprogram/dev/component/checkbox-group.html
  */
-export const CheckboxGroup = createHostComponent<CheckboxGroupProps>('checkbox-group');
+export const CheckboxGroup: React.ComponentType<CheckboxGroupProps> = createHostComponent<CheckboxGroupProps>(
+  'checkbox-group'
+);

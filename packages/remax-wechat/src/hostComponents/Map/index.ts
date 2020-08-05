@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -68,7 +69,8 @@ export interface MapProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/map.html
  */
-export const Map = createHostComponent<MapProps>('map');
+export const Map: React.ComponentType<MapProps> = createHostComponent<MapProps>('map');
+
 Map.defaultProps = {
   scale: 16,
   showLocation: false,
