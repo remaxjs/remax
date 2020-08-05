@@ -28,16 +28,6 @@ Remax 支持直接使用原生组件库。具体请参考 [小程序自定义组
 
 具体可参考 [跨平台开发](/guide/one)。
 
-## WebStorm IDE 编辑器下 api 类型无提示问题
-
-原因是非项目的直接依赖，WebStorm 就不会去索引它。以 wechat 平台为例，我们进行以下操作即可:
-
-把 node_modules/@remax/wechat 这个目录设置为 “not excluded”
-
-[相关 issue 链接](https://github.com/remaxjs/remax/issues/598)
-
-<img width="800" src="https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*HkStQ4JvAyYAAAAAAAAAAABkARQnAQ" />
-
 ## 使用高阶组件导致页面的生命周期未调用
 
 如果使用了 Redux 的 connect ，请将 connect 的 option.forwardRef 设置为 true[文档](https://react-redux.js.org/api/connect#forwardref-boolean)。其它第三方库的高阶组件的处理方式也类似。原因如下。
