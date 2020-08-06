@@ -72,6 +72,13 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   config.optimization.runtimeChunk({ name: 'runtime' });
   config.optimization.splitChunks({
     cacheGroups: {
+      remaxVendorStyles: {
+        name: 'remax-vendors',
+        test: /.css$/,
+        chunks: 'initial',
+        minChunks: 2,
+        minSize: 0,
+      },
       remaxVendors: {
         name: 'remax-vendors',
         test: moduleMatcher,

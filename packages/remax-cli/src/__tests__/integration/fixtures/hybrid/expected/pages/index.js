@@ -132,12 +132,7 @@ module.exports = require("remax/wechat");
 
 /***/ }),
 /* 13 */,
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
+/* 14 */,
 /* 15 */
 /***/ (function(module) {
 

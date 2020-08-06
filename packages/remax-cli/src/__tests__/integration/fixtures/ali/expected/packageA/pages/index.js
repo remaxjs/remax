@@ -1,54 +1,30 @@
 require('./../../runtime.js');
 require('./../../remax-vendors.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[3],[
-/* 0 */,
-/* 1 */,
-/* 2 */
-/***/ (function(module, exports) {
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[3],{
 
-module.exports = require("@remax/runtime");
-
-/***/ }),
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
-/***/ }),
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */
+/***/ 11:
 /***/ (function(module, exports) {
 
 module.exports = require("remax/ali");
 
 /***/ }),
-/* 12 */,
-/* 13 */,
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
 
-// extracted by mini-css-extract-plugin
+/***/ 2:
+/***/ (function(module, exports) {
+
+module.exports = require("@remax/runtime");
 
 /***/ }),
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */
+
+/***/ 20:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(21);
 
 
 /***/ }),
-/* 21 */
+
+/***/ 21:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -94,10 +70,19 @@ var _page = function _page() {
 /* harmony default export */ __webpack_exports__["default"] = (Page(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_page, "packageA/pages/index")));
 
 /***/ }),
-/* 22 */
+
+/***/ 22:
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
+/***/ }),
+
+/***/ 6:
+/***/ (function(module, exports) {
+
+module.exports = require("react");
+
 /***/ })
-],[[20,0,5]]]);
+
+},[[20,0,4]]]);
