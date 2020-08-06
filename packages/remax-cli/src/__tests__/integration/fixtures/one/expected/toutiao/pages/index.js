@@ -1,5 +1,6 @@
 require('./../runtime.js');
 require('./../remax-vendors.js');
+require('./../remax-styles.js');
 (tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[2],[
 /* 0 */,
 /* 1 */,
@@ -182,4 +183,4 @@ __webpack_require__.r(__webpack_exports__);
 module.exports = {"page-index":"page-index___1ZW9Y"};
 
 /***/ })
-],[[8,0,4]]]);
+],[[8,0,5,4]]]);

@@ -1,5 +1,6 @@
 require('./../../runtime.js');
 require('./../../remax-vendors.js');
+require('./../../remax-styles.js');
 (my["webpackJsonp"] = my["webpackJsonp"] || []).push([[3],{
 
 /***/ 11:
@@ -85,4 +86,4 @@ module.exports = require("react");
 
 /***/ })
 
-},[[20,0,4]]]);
+},[[20,0,6,4]]]);

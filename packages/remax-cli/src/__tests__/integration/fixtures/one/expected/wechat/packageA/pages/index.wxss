@@ -1,4 +1,4 @@
-@import "./../../remax-vendors.wxss";
+@import "./../../remax-styles.wxss";
 .pageA-index {
   background-color: aliceblue;
 }

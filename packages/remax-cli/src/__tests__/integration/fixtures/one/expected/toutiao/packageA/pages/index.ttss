@@ -1,4 +1,4 @@
-@import "./../../remax-vendors.ttss";
+@import "./../../remax-styles.ttss";
 .pageA-index {
   background-color: aliceblue;
 }

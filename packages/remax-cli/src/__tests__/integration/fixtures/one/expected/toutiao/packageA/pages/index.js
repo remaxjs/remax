@@ -1,5 +1,6 @@
 require('./../../runtime.js');
 require('./../../remax-vendors.js');
+require('./../../remax-styles.js');
 (tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[3],[
 /* 0 */,
 /* 1 */,
@@ -101,4 +102,4 @@ module.exports = require("@remax/one");
 // extracted by mini-css-extract-plugin
 
 /***/ })
-],[[20,0,4]]]);
+],[[20,0,5,4]]]);

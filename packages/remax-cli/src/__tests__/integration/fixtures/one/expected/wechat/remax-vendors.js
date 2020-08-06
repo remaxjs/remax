@@ -1,4 +1,4 @@
-(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[4],{
+(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[5],{
 
 /***/ 13:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -21,13 +21,6 @@ __webpack_require__.r(__webpack_exports__);
     className: "c ".concat(className)
   }, "c");
 });
-
-/***/ }),
-
-/***/ 15:
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ })
 
