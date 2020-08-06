@@ -1,4 +1,5 @@
 require('./runtime.js');
+require('./remax-styles.js');
 (my["webpackJsonp"] = my["webpackJsonp"] || []).push([[1],[
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -148,4 +149,4 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "31d6cfe0d16ae931b73c59d7e0c089c0.png");
 
 /***/ })
-],[[0,0]]]);
+],[[0,0,4]]]);

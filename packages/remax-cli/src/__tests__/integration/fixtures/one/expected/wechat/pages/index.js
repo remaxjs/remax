@@ -1,5 +1,6 @@
 require('./../runtime.js');
 require('./../remax-vendors.js');
+require('./../remax-styles.js');
 (wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[2],[
 /* 0 */,
 /* 1 */,
@@ -143,12 +144,7 @@ module.exports = require("remax/wechat");
 module.exports = require("remax/ali");
 
 /***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
+/* 15 */,
 /* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -183,4 +179,4 @@ __webpack_require__.r(__webpack_exports__);
 module.exports = {"page-index":"page-index___1ZW9Y"};
 
 /***/ })
-],[[8,0,4]]]);
+],[[8,0,5,4]]]);
