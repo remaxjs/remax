@@ -10,7 +10,7 @@ export default function nativeComponent(this: loader.LoaderContext, source: stri
   }
 
   const resourcePath = this.resourcePath;
-  const { remaxOptions, api } = utils.getOptions(this);
+  const { remaxOptions, api } = utils.getOptions(this) as any;
 
   if (!isNativeComponent(resourcePath)) {
     return source;
