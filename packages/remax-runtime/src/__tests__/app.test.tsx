@@ -28,6 +28,7 @@ describe('app', () => {
           'onReachBottom',
           'onPageScroll',
           'onShareAppMessage',
+          'onShareTimeline',
           'onTitleClick',
           'onOptionMenuClick',
           'onPopMenuClick',

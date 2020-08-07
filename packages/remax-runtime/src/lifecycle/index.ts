@@ -12,6 +12,7 @@ export enum Lifecycle {
   reachBottom = 'reachBottom',
   pageScroll = 'pageScroll',
   shareAppMessage = 'shareAppMessage',
+  shareTimeline = 'shareTimeline',
   titleClick = 'titleClick',
   optionMenuClick = 'optionMenuClick',
   popMenuClick = 'popMenuClick',

@@ -32,6 +32,7 @@ describe('page', () => {
           'onReachBottom',
           'onPageScroll',
           'onShareAppMessage',
+          'onShareTimeline',
           'onTitleClick',
           'onOptionMenuClick',
           'onPopMenuClick',
@@ -97,6 +98,13 @@ describe('page', () => {
           return {};
         });
 
+        usePageEvent('onShareTimeline', object => {
+          log.push(object.from);
+          log.push('useShareTimeline');
+
+          return {};
+        });
+
         usePageEvent('onTitleClick', () => {
           log.push('useTitleClick');
         });
@@ -147,6 +155,7 @@ describe('page', () => {
       page.reachBottom();
       page.pageScroll();
       page.shareAppMessage();
+      page.shareTimeline();
       page.titleClick();
       page.optionMenuClick();
       page.popMenuClick();
@@ -169,6 +178,8 @@ describe('page', () => {
         'usePageScroll',
         'menu',
         'useShareAppMessage',
+        'menu',
+        'useShareTimeline',
         'useTitleClick',
         'useOptionMenuClick',
         'usePopMenuClick',
@@ -276,6 +287,11 @@ describe('page', () => {
         log.push('onShareAppMessage');
       }
 
+      onShareTimeline(object: any) {
+        log.push(object.from);
+        log.push('onShareTimeline');
+      }
+
       onTitleClick() {
         log.push('onTitleClick');
       }
@@ -324,6 +340,7 @@ describe('page', () => {
     page.reachBottom();
     page.pageScroll();
     page.shareAppMessage();
+    page.shareTimeline();
     page.titleClick();
     page.optionMenuClick();
     page.popMenuClick();
@@ -346,6 +363,8 @@ describe('page', () => {
       'onPageScroll',
       'menu',
       'onShareAppMessage',
+      'menu',
+      'onShareTimeline',
       'onTitleClick',
       'onOptionMenuClick',
       'onPopMenuClick',
