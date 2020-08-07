@@ -113,7 +113,7 @@ var defaultAppContext = new Proxy({}, {
     throw new Error('This object should never be called');
   }
 });
-var AppContext = Object(react__WEBPACK_IMPORTED_MODULE_1__["createContext"])(defaultAppContext);
+var AppContext = /*#__PURE__*/Object(react__WEBPACK_IMPORTED_MODULE_1__["createContext"])(defaultAppContext);
 
 var AppContextProvider = function AppContextProvider(props) {
   var context = useAppContextValue();
