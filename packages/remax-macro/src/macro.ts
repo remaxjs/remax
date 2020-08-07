@@ -46,6 +46,7 @@ type PageEventName =
   | 'onReachBottom'
   | 'onPageScroll'
   | 'onShareAppMessage'
+  | 'onShareTimeline'
   | 'onTitleClick'
   | 'onOptionMenuClick'
   | 'onPopMenuClick'

@@ -5,7 +5,7 @@ import { pageClassEvents } from '../webpack/plugins/RuntimeOptions';
 import { Options } from '@remax/types';
 import { slash } from '@remax/shared';
 
-const lifecycleEvents = ['onPageScroll', 'onShareAppMessage'];
+const lifecycleEvents = ['onPageScroll', 'onShareAppMessage', 'onShareTimeline'];
 
 export default (options: Options) => {
   let skip = false;

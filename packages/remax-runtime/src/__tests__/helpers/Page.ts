@@ -57,6 +57,14 @@ class Page {
     });
   }
 
+  shareTimeline() {
+    this.config.onShareTimeline({
+      from: 'menu',
+      target: undefined,
+      webViewUrl: 'https://www.alipay.com',
+    });
+  }
+
   titleClick() {
     this.config.onTitleClick();
   }

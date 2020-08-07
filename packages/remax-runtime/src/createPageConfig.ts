@@ -184,6 +184,10 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
     onShareAppMessage(options: any) {
       return this.callLifecycle(Lifecycle.shareAppMessage, options) || {};
     },
+
+    onShareTimeline(options: any) {
+      return this.callLifecycle(Lifecycle.shareTimeline, options) || {};
+    },
   };
 
   pageEvents(name).forEach(eventName => {
