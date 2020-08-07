@@ -101,4 +101,9 @@ Remax 默认为微信的每个 host 组件定义了嵌套层数。其中 `View` 
 
 开发模式下默认不压缩文件以保证快速的响应文件变更，如需在开发模式进行真机调试（压缩文件），可以使用　`--minimize` 或 `-m` 参数开启，会增加整体构建时间，请酌情使用。
 
-注意：minimize 压缩不等同于生产模式！
+> 注意
+>
+> minimize 压缩不等同于生产模式！
+> 在 wechat 平台上使用 `--minimize` 参数预览时，需要在开发工具 IDE 本地设置中关闭"上传代码压缩混淆（如下图)"选项，否则 Webpack 和 IDE 的双重压缩会导致编译器无法解析语法而报错。
+
+<img width="400" src="https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*mx6OQKvo_FEAAAAAAAAAAABkARQnAQ" />
