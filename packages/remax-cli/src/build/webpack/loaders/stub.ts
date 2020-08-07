@@ -7,7 +7,7 @@ export default function stub(this: loader.LoaderContext, source: string) {
     this.cacheable();
   }
 
-  const modules: string[] = utils.getOptions(this).modules;
+  const modules: string[] = utils.getOptions(this).modules as any;
 
   if (modules.every(module => slash(this.resourcePath).indexOf(module) === -1)) {
     return source;
