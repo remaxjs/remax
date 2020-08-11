@@ -27,7 +27,7 @@
     "authors": "./scripts/authors"
   },
   "dependencies": {
-    "@commitlint/cli": "^8.1.0",
+    "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^8.1.0",
     "@typescript-eslint/eslint-plugin": "^2.12.0",
     "@typescript-eslint/parser": "^2.12.0",
