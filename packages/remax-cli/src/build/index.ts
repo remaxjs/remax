@@ -13,7 +13,8 @@ export function run(options: Options): webpack.Compiler {
   const api = new API();
 
   const plugins = [...options.plugins];
-  if (process.env.NODE_ENV === 'development' && options.target !== Platform.web) {
+  // TODO: baidu 小程序暂不支持 devtools
+  if (process.env.NODE_ENV === 'development' && options.target !== Platform.web && options.target !== Platform.baidu) {
     plugins.push(devtools());
   }
   api.registerPlugins(plugins);
