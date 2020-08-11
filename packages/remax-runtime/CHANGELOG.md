@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
+
+
+### Bug Fixes
+
+* **wechat:** 微信增加 onShareTimeline 生命周期 ([3e5f3cb](https://github.com/remaxjs/remax/commit/3e5f3cb0be474cee2d577f024ae7be100c8456c4))
+
+
+
+
+
 ## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
 
 **Note:** Version bump only for package @remax/runtime

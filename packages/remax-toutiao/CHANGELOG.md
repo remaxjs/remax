@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
+
+
+### Bug Fixes
+
+* 修复 WebStrom 中组件不自动提示属性的问题 ([#1203](https://github.com/remaxjs/remax/issues/1203)) ([b3b7a8b](https://github.com/remaxjs/remax/commit/b3b7a8b8202c880e9b6efa307a678991d0cccc74))
+
+
+
+
+
 ## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
 
 **Note:** Version bump only for package @remax/toutiao

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
+
+
+### Bug Fixes
+
+* **wechat:** 微信增加 onShareTimeline 生命周期 ([3e5f3cb](https://github.com/remaxjs/remax/commit/3e5f3cb0be474cee2d577f024ae7be100c8456c4))
+* 修复 WebStrom 中组件不自动提示属性的问题 ([#1203](https://github.com/remaxjs/remax/issues/1203)) ([b3b7a8b](https://github.com/remaxjs/remax/commit/b3b7a8b8202c880e9b6efa307a678991d0cccc74))
+* 修复样式会被重复打包的问题 ([#1214](https://github.com/remaxjs/remax/issues/1214)) ([7c7e065](https://github.com/remaxjs/remax/commit/7c7e065b315d82e765a8e015a13f2ae54b2ff49a))
+
+
+
+
+
 ## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
 
 
