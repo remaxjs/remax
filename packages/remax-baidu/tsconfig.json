@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "esm",
+    "lib": ["ES2015", "DOM"],
+    "declaration": true,
+    "jsx": "react",
+    "types": ["@types/jest", "@types/node"],
+    "downlevelIteration": true
+  },
+  "include": ["src/**/*", "typings/**/*"],
+  "references": [
+    {
+      "path": "../remax-types"
+    },
+    {
+      "path": "../remax-shared"
+    }
+  ]
+}
