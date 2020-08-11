@@ -15,6 +15,9 @@ module.exports = () => ({
       case 'wechat':
         globalName = 'wx';
         break;
+      case 'baidu':
+        globalName = 'swan';
+        break;
       default:
         break;
     }
@@ -33,6 +36,6 @@ module.exports = () => ({
     ]);
   },
   registerRuntimePlugin() {
-    return require.resolve('./lib/runtime')
-  }
+    return require.resolve('./lib/runtime');
+  },
 });

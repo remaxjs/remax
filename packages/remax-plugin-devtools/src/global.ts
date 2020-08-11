@@ -15,4 +15,9 @@ if (typeof tt !== 'undefined') {
   global = tt;
 }
 
+if (typeof swan !== 'undefined') {
+  // eslint-disable-next-line no-undef
+  global = swan;
+}
+
 export default global;

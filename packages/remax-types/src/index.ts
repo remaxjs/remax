@@ -7,6 +7,7 @@ export enum Platform {
   'wechat' = 'wechat',
   'ali' = 'ali',
   'toutiao' = 'toutiao',
+  'baidu' = 'baidu',
 }
 
 export interface Options {
