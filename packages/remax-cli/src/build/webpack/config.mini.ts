@@ -226,7 +226,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
 
   const externals = config.get('externals');
   const runtimeOptionsExternal = {
-    '/__remax_runtime_options__': `require('/__remax_runtime_options__')`,
+    '/__remax_runtime_options__': `require('./__remax_runtime_options__')`,
   };
 
   if (Array.isArray(externals)) {
