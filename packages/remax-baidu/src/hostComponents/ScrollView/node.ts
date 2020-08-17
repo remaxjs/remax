@@ -1,4 +1,9 @@
 export const alias = {
+  id: 'id',
+  hidden: 'hidden',
+  className: 'class',
+  style: 'style',
+  animation: 'animation',
   scrollX: ' scroll-x',
   scrollY: ' scroll-y',
   upperThreshold: ' upper-threshold',

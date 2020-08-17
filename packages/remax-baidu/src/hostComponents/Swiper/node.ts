@@ -1,4 +1,9 @@
 export const alias = {
+  id: 'id',
+  hidden: 'hidden',
+  className: 'class',
+  style: 'style',
+  animation: 'animation',
   indicatorDots: 'indicator-dots',
   indicatorColor: 'indicator-color',
   indicatorActiveColor: 'indicator-active-color',
