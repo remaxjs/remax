@@ -1,7 +1,7 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
-    'scope-enum': [2, 'always', ['cli', 'ali', 'wechat', 'remax', 'toutiao', 'one', 'web']],
+    'scope-enum': [2, 'always', ['cli', 'ali', 'wechat', 'remax', 'toutiao', 'one', 'web', 'baidu']],
     'type-enum': [
       2,
       'always',

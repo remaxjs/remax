@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-/** 微信内置组件公共属性 */
-// reference: https://developers.weixin.qq.com/miniprogram/dev/framework/view/component.html
 export interface BaseProps {
   /** 自定义属性: 组件上触发的事件时，会发送给事件处理函数 */
   readonly dataset?: DOMStringMap;
@@ -13,40 +11,34 @@ export interface BaseProps {
   style?: React.CSSProperties;
   /** 组件是否显示: 所有组件默认显示 */
   hidden?: boolean;
-  /** 动画对象: 由`wx.createAnimation`创建 */
+  /** 动画对象: 由`swan.createAnimation`创建 */
   animation?: Array<Record<string, any>>;
-
-  // reference: https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html
-  /** 点击时触发 */
-  onClick?: (event: TouchEvent) => void;
-  /** 手指触摸动作开始 */
-  onTouchStart?: (event: TouchEvent) => void;
-  /** 手指触摸后移动 */
-  onTouchMove?: (event: TouchEvent) => void;
-  /** 手指触摸动作被打断，如来电提醒，弹窗 */
-  onTouchCancel?: (event: TouchEvent) => void;
-  /** 手指触摸动作结束 */
-  onTouchEnd?: (event: TouchEvent) => void;
-  /** 手指触摸后，超过350ms再离开，如果指定了事件回调函数并触发了这个事件，tap事件将不被触发 */
-  onLongPress?: (event: TouchEvent) => void;
-  /** 手指触摸后，超过350ms再离开（推荐使用longpress事件代替） */
+  // reference: https://smartprogram.baidu.com/docs/develop/framework/view_incident/
+  /** 触摸后马上离开 */
+  onTap?: (event: TouchEvent) => void;
+  /** 触摸后超过 350ms 再离开（推荐使用 longpress 事件代替） */
   onLongTap?: (event: TouchEvent) => void;
-  /** 会在 WXSS transition 或 wx.createAnimation 动画结束后触发 */
-  onTransitionEnd?: (event: CustomEvent) => void;
-  /** 会在一个 WXSS animation 动画开始时触发 */
-  onAnimationStart?: (event: CustomEvent) => void;
-  /** 会在一个 WXSS animation 一次迭代结束时触发 */
-  onAnimationiteration?: (event: CustomEvent) => void;
-  /** 会在一个 WXSS animation 动画完成时触发 */
-  onAnimationEnd?: (event: CustomEvent) => void;
-  /** 在支持 3D Touch 的 iPhone 设备，重按时会触发 */
+  /** 触摸后超过 350ms 再离开，如果是指定了事件回调函数并触发了这个事件，tap 事件将不被触发 */
+  onLongPress?: (event: TouchEvent) => void;
+  /** 触摸开始时 */
+  onTouchStart?: (event: TouchEvent) => void;
+  /** 触摸后移动时 */
+  onTouchMove?: (event: TouchEvent) => void;
+  /** 触摸后被打断时，如来电等 */
+  onTouchCancel?: (event: TouchEvent) => void;
+  /** 触摸结束时 */
+  onTouchEnd?: (event: TouchEvent) => void;
+  /** 支持 3D Touch 的 iPhone 设备，重按时会触发。 */
   onTouchForceChange?: (event: TouchEvent) => void;
-
-  /** 点击时触发同时阻止事件冒泡 */
-  catchClick?: (event: any) => any;
+  /** 会在 transition 或 swan.createAnimation 动画结束后触发 */
+  onTransitionEnd?: (event: TouchEvent) => void;
+  /** 会在 animation 动画开始时触发 */
+  onAnimationStart?: (event: CustomEvent) => void;
+  /** 会在 animation 一次迭代结束时触发 */
+  onAnimationIteration?: (event: CustomEvent) => void;
+  /** 会在 animation 动画完成时触发 */
+  onAnimationEnd?: (event: CustomEvent) => void;
 }
-
-// reference: https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html
 
 interface Target {
   /** 事件源组件的id */
