@@ -17,7 +17,7 @@ export interface ScrollViewProps extends BaseProps {
   onScroll?: (event: any) => void;
 }
 
-export const ScrollView: React.ComponentType<ScrollViewProps> = createHostComponent<ScrollViewProps>('ScrollView');
+export const ScrollView: React.ComponentType<ScrollViewProps> = createHostComponent<ScrollViewProps>('scroll-view');
 
 ScrollView.defaultProps = {
   scrollX: false,

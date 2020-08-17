@@ -20,7 +20,7 @@ export interface SwiperProps extends BaseProps {
   onAnimationFinish?: (event: any) => void;
 }
 
-export const Swiper: React.ComponentType<SwiperProps> = createHostComponent<SwiperProps>('Swiper');
+export const Swiper: React.ComponentType<SwiperProps> = createHostComponent<SwiperProps>('swiper');
 
 Swiper.defaultProps = {
   indicatorDots: false,
