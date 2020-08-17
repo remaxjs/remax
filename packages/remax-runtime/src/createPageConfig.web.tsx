@@ -68,21 +68,23 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
       page.callLifecycle(Lifecycle.show);
       page.callLifecycle(Lifecycle.ready);
 
-      this.handlePageScroll();
+      this.registerPageScroll();
     }
 
     componentWillUnmount() {
-      window.removeEventListener('scroll', this.scrollEvent);
+      this.unregisterPageScroll();
     }
 
     componentDidCache = () => {
       this.title = document.title;
       page.callLifecycle(Lifecycle.hide);
+      this.unregisterPageScroll();
     };
 
     componentDidRecover = () => {
       this.setTitle();
       page.callLifecycle(Lifecycle.show);
+      this.registerPageScroll();
     };
 
     setTitle = () => {
@@ -110,8 +112,12 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
       page.callLifecycle(Lifecycle.pageScroll, event);
     };
 
-    handlePageScroll = () => {
+    registerPageScroll = () => {
       window.addEventListener('scroll', this.scrollEvent);
+    };
+
+    unregisterPageScroll = () => {
+      window.removeEventListener('scroll', this.scrollEvent);
     };
 
     handleRefresh = async () => {
