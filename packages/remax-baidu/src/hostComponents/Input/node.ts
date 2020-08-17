@@ -1,0 +1,27 @@
+export const alias = {
+  id: 'id',
+  className: 'class',
+  style: 'style',
+  value: 'value',
+  type: 'type',
+  password: 'password',
+  placeholder: 'placeholder',
+  placeholderStyle: 'placeholder-style',
+  placeholderClassName: 'placeholder-class',
+  disabled: 'disabled',
+  maxLength: 'maxlength',
+  cursorSpacing: 'cursor-spacing',
+  focus: 'focus',
+  confirmType: 'confirm-type',
+  confirmHold: 'confirm-hold',
+  cursor: 'cursor',
+  selectionStart: 'selection-start',
+  selectionEnd: 'selection-end',
+  adjustPosition: 'adjust-position',
+  onInput: 'bindinput',
+  onFocus: 'bindfocus',
+  onBlur: 'bindblur',
+  onConfirm: 'bindconfirm',
+};
+
+export const props = Object.values(alias);
