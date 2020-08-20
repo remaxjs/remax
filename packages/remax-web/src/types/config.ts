@@ -38,10 +38,15 @@ export interface AppConfig {
    */
   reachBottomOffset?: number;
   /**
-   * 默认值：hash
-   * history 类型
+   * router 配置
    */
-  historyType?: 'hash' | 'browser';
+  router: {
+    /**
+     * 默认值：hash
+     * history 类型
+     */
+    type?: 'hash' | 'browser';
+  };
   /**
    * 设置底部 tab bar 的表现
    */
