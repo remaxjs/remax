@@ -1,6 +1,5 @@
 export const alias = {
   id: 'id',
-  hidden: 'hidden',
   className: 'class',
   style: 'style',
   animation: 'animation',

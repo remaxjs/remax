@@ -11,6 +11,7 @@ import * as Checkbox from './Checkbox/node';
 import * as CheckboxGroup from './CheckboxGroup/node';
 import * as Form from './Form/node';
 import * as Input from './Input/node';
+import * as Image from './Image/node';
 import * as Label from './Label/node';
 import * as Textarea from './Textarea/Node';
 import * as Video from './Video/Node';

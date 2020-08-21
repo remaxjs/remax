@@ -3,7 +3,6 @@ export const alias = {
   className: 'class',
   style: 'style',
   animation: 'animation',
-  hidden: 'hidden',
   hoverClassName: 'hover-class',
   hoverStopPropagation: 'hover-stop-propagation',
   hoverStartTime: 'hover-start-time',
