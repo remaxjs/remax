@@ -1,4 +1,4 @@
-import { launchApp, delay } from './helpers';
+import { launchApp } from './helpers';
 
 describe('静态化页面', () => {
   it('正常渲染', async () => {

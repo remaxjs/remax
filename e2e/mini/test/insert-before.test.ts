@@ -1,4 +1,4 @@
-import { launchApp, delay } from './helpers';
+import { launchApp } from './helpers';
 
 const checkInitialState = () => {
   const a = document.getElementById('a')!;
@@ -41,7 +41,7 @@ describe('insert before', () => {
     const toggleB2 = await app.waitForSelector('#toggle-b2');
     await toggleB.click();
     await toggleB2.click();
-    await delay(200);
+    await app.waitFor(200);
 
     expected = await app.evaluate(() => {
       const a = document.getElementById('a')!;
@@ -85,7 +85,7 @@ describe('insert before', () => {
     // 再把元素删掉
     await toggleB.click();
     await toggleB2.click();
-    await delay(200);
+    await app.waitFor(200);
 
     expected = await app.evaluate(checkInitialState);
     expect(expected).toBe(0);

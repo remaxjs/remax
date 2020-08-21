@@ -10,8 +10,10 @@
   "scripts": {
     "dev": "remax build -t ali -w",
     "prebuild": "rimraf dist",
-    "build": "remax build -t ali",
-    "test": "jest"
+    "build": "remax build -t ali && cd build && cube build --no-prod --webng=appxng --native=false --appxcompatible && mv dist ..",
+    "pretest": "npm run build",
+    "test": "jest",
+    "serve": "http-server --cors --port=8888 -s"
   },
   "dependencies": {
     "clsx": "^1.0.4",
@@ -25,11 +27,12 @@
     "@types/puppeteer": "^3.0.0",
     "@types/react": "^16.9.1",
     "cross-env": "^6.0.3",
+    "http-server": "^0.12.3",
     "jest": "^26.2.2",
     "jest-puppeteer": "^4.4.0",
     "merge": "^1.2.1",
     "rimraf": "^2.6.3",
-    "ts-jest": "^24.1.0",
+    "ts-jest": "^26.2.0",
     "typescript": "^3.7.2"
   },
   "workspaces": {
