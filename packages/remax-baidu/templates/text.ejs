@@ -1,0 +1,34 @@
+<%_
+function propsKeyTpl(props, nodePath) {
+  return props.map(key => `${key}="{{_h.v(${nodePath}.props['${key}'])}}"`).join('\n')
+} 
+function nestedText(depth) {
+  const header = [];
+  const footer = [];
+  const paths = ['', 'a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef'];
+  for (let d = 1; d <= depth; d++) {
+    const nodePaths = paths[d];
+    const nodeParentPaths = paths[d - 1];
+    const nodeKey = nodePaths[nodePaths.length - 1]
+    const nodeParentPath = 'i'+ nodeParentPaths.split('').map(i=> '.nodes['+i+']').join('')
+    const nodePath = 'i'+ nodePaths.split('').map(p => '.nodes[' + p + ']').join('')
+    header.push(`<block s-for="${nodeKey} in ${nodeParentPath}.children">`);
+    header.push(`<block s-if="${nodePath}.children">`);
+    header.push(`<text ${propsKeyTpl(props, nodePath)}>`)
+    footer.unshift(`</block>`)
+    footer.unshift(`</block>`)
+    footer.unshift(`{{${nodePath}.text}}`);
+    footer.unshift(`<block s-else>`)
+    footer.unshift(`</block>`)
+    footer.unshift(`</text>`)
+  }
+  return [...header, `<text>text 深度 > ${depth}</text>`, ...footer].join('\n')
+}
+_%>
+
+<template name="REMAX_TPL_1_<%= id %>">
+  <text <%- propsKeyTpl(props, 'i') %>>
+    <%- nestedText(depth) %>
+  </text>
+</template>
+       
