@@ -19,7 +19,6 @@ export const alias = {
   onAnimationStart: 'bindanimationstart',
   onAnimationIteration: 'bindanimationiteration',
   onAnimationEnd: 'bindanimationend',
-  catchTouchMove: 'catchtouchmove',
 };
 
 export const props = Object.values(alias);
