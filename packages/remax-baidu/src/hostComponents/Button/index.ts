@@ -6,7 +6,7 @@ export interface ButtonProps extends BaseProps {
   size?: 'default' | 'mini';
   type?: 'primary' | 'default' | 'warn';
   plain?: boolean;
-  formType?: 'submit' | 'reset';
+  formType?: 'submit' | 'reset' | 'buttonclick';
   openType?:
     | 'share'
     | 'getUserInfo'
@@ -36,4 +36,11 @@ Button.defaultProps = {
   hoverClassName: 'button-hover',
   hoverStartTime: 20,
   hoverStayTime: 70,
+  hoverStopPropagation: false,
+  disabled: false,
+  loading: false,
+  size: 'default',
+  type: 'default',
+  plain: false,
+  formType: 'buttonclick',
 };

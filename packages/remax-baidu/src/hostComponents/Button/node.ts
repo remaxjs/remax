@@ -8,7 +8,7 @@ export const alias = {
   plain: 'plain',
   formType: 'form-type',
   openType: 'open-type',
-  hoverClass: 'hover-class',
+  hoverClassName: 'hover-class',
   hoverStopPropagation: 'hover-stop-propagation',
   hoverStartTime: 'hover-start-time',
   hoverStayTime: 'hover-stay-time',
