@@ -18,6 +18,8 @@ export const alias = {
   displayMultipleItems: 'display-multiple-items',
   onChange: 'bindchange',
   onAnimationFinish: 'bindanimationfinish',
+  onTap: 'bindtap',
+  onClick: 'bindtap',
 };
 
 export const props = Object.values(alias);

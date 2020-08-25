@@ -12,6 +12,12 @@ export const alias = {
   originalSrc: 'original-src',
   onError: 'binderror',
   onLoad: 'bindload',
+  onClick: 'bindtap',
+  onTap: 'bindtap',
+  onTouchStart: 'bindtouchstart',
+  onTouchMove: 'bindtouchmove',
+  onTouchEnd: 'bindtouchend',
+  onTouchCancel: 'bindtouchcancel',
 };
 
 export const props = Object.values(alias);

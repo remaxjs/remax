@@ -15,6 +15,14 @@ export const alias = {
   onScrollToupper: ' bindscrolltoupper',
   onScrollTolower: ' bindscrolltolower',
   onScroll: ' bindscroll',
+  onTap: 'bindtap',
+  onClick: 'bindtap',
+  onTouchStart: 'bindtouchstart',
+  onTouchMove: 'bindtouchmove',
+  onTouchEnd: 'bindtouchend',
+  onTouchCancel: 'bindtouchcancel',
+  onLongTap: 'bindlongtap',
+  onLongClick: 'bindlongtap',
 };
 
 export const props = Object.values(alias);

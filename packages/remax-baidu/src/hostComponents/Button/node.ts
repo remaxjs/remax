@@ -20,6 +20,8 @@ export const alias = {
   onContact: 'bindcontact',
   onChooseAddress: 'bindchooseAddress',
   onChooseInvoiceTitle: 'bindchooseInvoiceTitle',
+  onTap: 'bindtap',
+  onClick: 'bindtap',
   contact: 'contact',
 };
 

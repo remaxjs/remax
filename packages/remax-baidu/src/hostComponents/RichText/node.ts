@@ -11,6 +11,14 @@ export const alias = {
   text: 'text',
   imageMenuPrevent: 'image-menu-prevent',
   preview: 'preview',
+  onTap: 'bindtap',
+  onClick: 'bindtap',
+  onTouchStart: 'bindtouchstart',
+  onTouchMove: 'bindtouchmove',
+  onTouchEnd: 'bindtouchend',
+  onTouchCancel: 'bindtouchcancel',
+  onLongTap: 'bindlongtap',
+  onLongClick: 'bindlongtap',
 };
 
 export const props = Object.values(alias);

@@ -26,6 +26,9 @@
       "path": "./packages/remax-wechat"
     },
     {
+      "path": "./packages/remax-baidu"
+    },
+    {
       "path": "./packages/remax-macro"
     },
     {

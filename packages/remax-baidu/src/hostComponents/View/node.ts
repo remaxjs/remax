@@ -8,6 +8,7 @@ export const alias = {
   hoverStartTime: 'hover-start-time',
   hoverStayTime: 'hover-stay-time',
   onTap: 'bindtap',
+  onClick: 'bindtap',
   onLongTap: 'bindlongtap',
   onLongPress: 'bindlongpress',
   OnTouchStart: 'bindtouchstart',
