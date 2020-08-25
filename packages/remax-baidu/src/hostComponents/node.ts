@@ -13,8 +13,8 @@ import * as Form from './Form/node';
 import * as Input from './Input/node';
 import * as Image from './Image/node';
 import * as Label from './Label/node';
-import * as Textarea from './Textarea/Node';
-import * as Video from './Video/Node';
+import * as Textarea from './Textarea/node';
+import * as Video from './Video/node';
 
 const hostComponents = new Map();
 
