@@ -5,6 +5,7 @@
     "packages/remax-macro",
     "packages/remax-ali",
     "packages/remax-wechat",
+    "packages/remax-baidu",
     "packages/remax-toutiao",
     "packages/remax-router",
     "packages/remax-web",
@@ -15,5 +16,7 @@
     "packages/postcss-remax-tag",
     "packages/remax-cli"
   ],
-  "sandboxes": ["github/remaxjs/examples/tree/master/one"]
+  "sandboxes": [
+    "github/remaxjs/examples/tree/master/one"
+  ]
 }
