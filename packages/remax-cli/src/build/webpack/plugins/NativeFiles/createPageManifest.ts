@@ -8,6 +8,7 @@ import * as cacheable from './cacheable';
 import { pageConfigFile } from '../../../utils/paths';
 import API from '../../../../API';
 import getUsingComponents from './getUsingComponents';
+import { isUserNativeRedirectPage } from '../../../utils/nativeComponent';
 
 export default function createPageManifest(
   options: Options,
@@ -22,6 +23,9 @@ export default function createPageManifest(
   const config = readManifest(pageConfigFile(page.filename, options), options.target!);
   const usingComponents = getUsingComponents(modules, options, compilation);
 
+  if (isUserNativeRedirectPage(page.filename, options)) {
+    config.component = true;
+  }
   config.usingComponents = {
     ...(config.usingComponents || {}),
     ...usingComponents,

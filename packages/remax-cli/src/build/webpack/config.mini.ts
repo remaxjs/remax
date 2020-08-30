@@ -7,7 +7,7 @@ import CopyPlugin from 'copy-webpack-plugin';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import WebpackBar from 'webpackbar';
-import { Options, Platform } from '@remax/types';
+import { Options, Platform, EntryInfo } from '@remax/types';
 import { slash } from '@remax/shared';
 import ejs from 'ejs';
 import { moduleMatcher, targetExtensions } from '../../extensions';
@@ -52,15 +52,22 @@ function resolveBabelConfig(options: Options) {
 
 export default function webpackConfig(api: API, options: Options, target: Platform): webpack.Configuration {
   const config = new Config();
+  const virtualPages: EntryInfo[] = [];
 
   baseConfig(config, options, target);
 
   const { meta, turboPagesEnabled, stubModules, publicPath } = prepare(api, options, target);
   const { app, pages } = getEntries(options, api);
 
+  options.pages = pages;
   config.entry(app.name).add(app.filename);
   pages.forEach(p => {
-    config.entry(p.name).add(p.filename);
+    if (p.isComponent) {
+      virtualPages.push(p);
+      config.entry(p.name).prepend(p.filename);
+    } else {
+      config.entry(p.name).add(p.filename);
+    }
   });
 
   config.devtool(false);
@@ -137,7 +144,7 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
         pageEntry(options, api),
         appEvent(app.filename),
         pageEvent(options),
-        componentManifest(api, config),
+        componentManifest(api, config, options),
         fixRegeneratorRuntime(),
       ],
       reactPreset: true,
@@ -184,10 +191,11 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     pageEvents: '{}',
     appEvents: '[]',
   };
-
-  const virtualModules = new VirtualModulesPlugin({
+  const virtualParams = {
     [runtimeOptionsPath]: ejs.render(runtimeOptionsTemplate, runtimeOptions, { debug: false }),
-  });
+  };
+  virtualPages.forEach(p => (virtualParams[p.filename] = fs.readFileSync(p.originFilename || '', 'utf8')));
+  const virtualModules = new VirtualModulesPlugin(virtualParams);
   config.plugin('webpack-virtual-modules').use(virtualModules);
 
   const publicDirPath = path.join(options.cwd, 'public');

@@ -1,10 +1,10 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
-import { HostComponent } from '@remax/types';
+import { HostComponent, Options } from '@remax/types';
 import { kebabCase } from 'lodash';
 import { registerNativeComponent } from '@remax/macro';
 import { LEAF, ENTRY, TEMPLATE_ID } from './compiler/static/constants';
-import { getSourcePath, isNativeComponent } from '../utils/nativeComponent';
+import { getSourcePath, isNativeComponent, isUserNativeComponent } from '../utils/nativeComponent';
 import API from '../../API';
 import Config from 'webpack-chain';
 
@@ -61,7 +61,7 @@ function getNativePluginComponentName(path: NodePath<t.JSXElement>) {
   return arg0.value;
 }
 
-function getNativeComponentName(path: NodePath<t.JSXElement>, importer: string, config: Config) {
+function getNativeComponentName(path: NodePath<t.JSXElement>, importer: string, config: Config, options: Options) {
   const node = path.node;
   const openingElement = node.openingElement;
 
@@ -91,7 +91,7 @@ function getNativeComponentName(path: NodePath<t.JSXElement>, importer: string, 
     const source = importNode.source.value;
     const sourcePath = getSourcePath(source, importer, config);
 
-    if (!isNativeComponent(sourcePath)) {
+    if (!isNativeComponent(sourcePath) && !isUserNativeComponent(sourcePath, options)) {
       return;
     }
 
@@ -365,7 +365,7 @@ function registerHostComponentManifest(
   nativeComponentManifests.set(id, component);
 }
 
-export default function hostComponent(api: API, config: Config) {
+export default function hostComponent(api: API, config: Config, options: Options) {
   return {
     visitor: {
       JSXElement: (path: NodePath<t.JSXElement>, state: any) => {
@@ -377,7 +377,7 @@ export default function hostComponent(api: API, config: Config) {
           return;
         }
 
-        name = getNativeComponentName(path, importer, config) || getNativePluginComponentName(path);
+        name = getNativeComponentName(path, importer, config, options) || getNativePluginComponentName(path);
 
         if (name) {
           registerNativeComponentManifest(api, name, path.node);
