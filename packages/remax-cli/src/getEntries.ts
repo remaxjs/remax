@@ -11,7 +11,7 @@ export function getPages(options: Options, api: API): EntryInfo[] {
   const appConfig = getAppConfig(options, api);
   const ROOT_DIR = path.join(options.cwd, options.rootDir);
   const subPackages = appConfig.subPackages || appConfig.subpackages || [];
-  const nativeComponents = appConfig.nativeComponents || {};
+  const nativeComponents = appConfig.nativeComponents || [];
 
   if (!appConfig.pages || appConfig.pages.length === 0) {
     throw new Error('app.config.js|ts 并未配置页面参数');
