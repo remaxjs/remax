@@ -249,9 +249,9 @@ export interface AppConfig {
    * 1.7.3
    */
   subpackages?: Array<{
-    root: 'string';
-    name?: 'string';
-    pages: [];
+    root: string;
+    name?: string;
+    pages: string[];
     independent?: boolean;
   }>;
   /**
