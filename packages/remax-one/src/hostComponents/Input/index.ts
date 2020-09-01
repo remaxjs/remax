@@ -1,4 +1,5 @@
 import * as React from 'react';
+import memoizeOne from 'memoize-one';
 import { InputEvent } from '../../types';
 import { createCallback, createInputEvent, aliasProps } from '../../createHostComponent';
 import type { InputProps } from './props';
@@ -10,6 +11,11 @@ export interface InputState {
   value?: string;
   controlled: boolean;
 }
+
+const createInputCallback = memoizeOne(createCallback);
+const createConfirmCallback = memoizeOne(createCallback);
+const createFocusCallback = memoizeOne(createCallback);
+const createBlurCallback = memoizeOne(createCallback);
 
 export default class Input extends React.Component<InputProps, InputState> {
   // 平台独有的属性默认值写在这
@@ -64,25 +70,26 @@ export default class Input extends React.Component<InputProps, InputState> {
 
     // 微信
     // 注意，微信要对 input 受控，必须要在 onInput 方法返回值
-    return controlled ? this.props.value : e.target.value;
+    return controlled ? this.props.value : undefined;
   };
 
   render() {
-    const inputProps = {
-      ...this.props,
-      onInput: createCallback(this.handleInput, createInputEvent),
-    };
+    const inputProps = { ...this.props };
+
+    if (inputProps.onInput) {
+      inputProps.onInput = createInputCallback(this.handleInput, createInputEvent);
+    }
 
     if (inputProps.onConfirm) {
-      inputProps.onConfirm = createCallback(this.props.onConfirm, createInputEvent);
+      inputProps.onConfirm = createConfirmCallback(this.props.onConfirm, createInputEvent);
     }
 
     if (inputProps.onFocus) {
-      inputProps.onFocus = createCallback(this.props.onFocus, createInputEvent);
+      inputProps.onFocus = createFocusCallback(this.props.onFocus, createInputEvent);
     }
 
     if (inputProps.onBlur) {
-      inputProps.onBlur = createCallback(this.props.onBlur, createInputEvent);
+      inputProps.onBlur = createBlurCallback(this.props.onBlur, createInputEvent);
     }
 
     // 通用属性的默认属性根据平台在这里设置
