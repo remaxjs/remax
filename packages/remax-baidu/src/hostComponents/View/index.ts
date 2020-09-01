@@ -20,8 +20,10 @@ export interface ViewProps extends BaseProps {
   onAnimationEnd?: (event: any) => any;
   catchTouchMove?: (event: any) => any;
 }
+
 /**
- * https://developers.weixin.qq.com/miniprogram/dev/component/view.html
+ * 百度小程序暂不支持 flex 布局
+ * https://github.com/NervJS/taro/issues/6015
  */
 export const View: React.ComponentType<ViewProps> = createHostComponent<ViewProps>('view');
 

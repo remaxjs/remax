@@ -9,12 +9,18 @@ import * as RichText from './RichText/node';
 import * as Text from './Text/node';
 import * as Checkbox from './Checkbox/node';
 import * as CheckboxGroup from './CheckboxGroup/node';
+import * as Radio from './Radio/node';
+import * as RadioGroup from './RadioGroup/node';
 import * as Form from './Form/node';
 import * as Input from './Input/node';
 import * as Image from './Image/node';
 import * as Label from './Label/node';
 import * as Textarea from './Textarea/node';
 import * as Video from './Video/node';
+import * as Picker from './Picker/node';
+import * as PickerView from './PickerView/node';
+import * as PickerViewColumn from './PickerViewColumn/node';
+import * as WebView from './WebView/node';
 
 const hostComponents = new Map();
 
@@ -29,11 +35,17 @@ hostComponents.set('rich-text', RichText);
 hostComponents.set('text', Text);
 hostComponents.set('checkbox', Checkbox);
 hostComponents.set('checkbox-group', CheckboxGroup);
+hostComponents.set('radio', Radio);
+hostComponents.set('radio-group', RadioGroup);
 hostComponents.set('form', Form);
 hostComponents.set('input', Input);
 hostComponents.set('image', Image);
 hostComponents.set('label', Label);
 hostComponents.set('textarea', Textarea);
 hostComponents.set('video', Video);
+hostComponents.set('picker', Picker);
+hostComponents.set('picker-view', PickerView);
+hostComponents.set('picker-view-column', PickerViewColumn);
+hostComponents.set('web-view', WebView);
 
 export default hostComponents;
