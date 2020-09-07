@@ -26,16 +26,16 @@
 	};
 </import-sjs>
 <%_ for (let component of components) { %>
-	<%_ var componentDepth = depth[component.id] || 10; %>
+	<%_ let componentDepth = depth[component.id] || 10; %>
 	<%_ if (component.id === 'text') { %> 
 		<%- include('./text.ejs', {
 		props: component.props,
 		id: component.id,
 		type: component.type,
 		depth: componentDepth
-		}) _%> 
+		}) _%>
 	<%_ } else { _%>
-		<%_ for (var i = 1; i <= componentDepth; i++) { %>
+		<%_ for (let i = 1; i <= componentDepth; i++) { %>
 		<%- include('./component.ejs', {
 			props: component.props,
 			id: component.id,
@@ -49,8 +49,8 @@
 <template name="REMAX_TPL_1_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
-<%_ for (var i = 1; i <= depth['view']; i++) { %>
-<template name="REMAX_TPL_<%=i%>_CONTAINER" data="{{{i: i}}}">
-	<template is="{{_h.tid(i.type, an)}}" data="{{{i: i, an: an + ',' + i.type, tid: <%= i %>}}}" />
+<%_ for (let d = 1; d <= depth['view']; d++) { %>
+<template name="REMAX_TPL_<%= d %>_CONTAINER" data="{{{i: i}}}">
+	<template is="{{_h.tid(i.type, an)}}" data="{{{i: i, an: an + ',' + i.type, tid: <%= d %>}}}" />
 </template>
 <%_ } _%>
