@@ -2,7 +2,7 @@
 <block s-for="i.children">
   <swiper-item item-id="{{i.nodes[item].props.itemId}}">
     <block s-for="i.nodes[item].children" s-for-item="sItem">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}}" />
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: i.nodes[item].nodes[sItem], an: an, tid: tid + 1 }}}" />
     </block>
   </swiper-item>
 </block>
@@ -13,16 +13,16 @@
       <%=slotView.props[i]%>="{{i.nodes[item].props['<%=slotView.props[i]%>']}}" <%}%>
     >
       <block s-for="i.nodes[item].children" s-for-item="sItem">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}}" />
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: i.nodes[item].nodes[sItem], an: an, tid: tid + 1 }}}" />
       </block>
     </view>
   </block>
   <block s-else>
-    <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: i.nodes[item], a: a, tid: tid + 1 }}}" />
+    <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: i.nodes[item], an: an, tid: tid + 1 }}}" />
   </block>
 </block>
 <%_ } else { _%>
 <block s-for="i.children">
-  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: i.nodes[item], a: a, tid: tid + 1 }}}" />
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: i.nodes[item], an: an, tid: tid + 1 }}}" />
 </block>
 <%_ } _%>

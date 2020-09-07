@@ -1,6 +1,6 @@
 <template name="REMAX_TPL">
 	<block s-for="root.children">
-		<template is="REMAX_TPL_1_CONTAINER" data="{{{i: root.nodes[item], a: ''}}}" />
+		<template is="REMAX_TPL_1_CONTAINER" data="{{{i: root.nodes[item], an: ''}}}" />
 	</block>
 </template>
 
@@ -51,6 +51,6 @@
 </template>
 <%_ for (var i = 1; i <= depth['view']; i++) { %>
 <template name="REMAX_TPL_<%=i%>_CONTAINER" data="{{{i: i}}}">
-	<template is="{{_h.tid(i.type, a)}}" data="{{{i: i, a: a + ',' + i.type, tid: <%= i %>}}}" />
+	<template is="{{_h.tid(i.type, an)}}" data="{{{i: i, an: an + ',' + i.type, tid: <%= i %>}}}" />
 </template>
 <%_ } _%>
