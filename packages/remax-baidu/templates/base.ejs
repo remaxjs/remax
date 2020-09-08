@@ -33,6 +33,7 @@
 		depth: componentDepth
 		}) _%>
 	<%_ } else if (component.id === 'view') { %> 
+		<%# TODO view 成组嵌套解决 https://github.com/NervJS/taro/issues/6015 但在性能上大幅下降 %>
 		<%_ for (let i = 1; i <= componentDepth; i++) { %>
 			<%- include('./view.ejs', {
 			props: component.props,
