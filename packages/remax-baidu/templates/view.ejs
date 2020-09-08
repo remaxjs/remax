@@ -1,36 +1,66 @@
 <%_
-function propsKeyTpl(props, nodePath) {
+function propsKeyTpl(props, nodePath, isCatch) {
+  // 互斥事件
+  if (isCatch) {
+      props = props.filter(key => key !== 'bindtouchmove')
+    } else {
+      props = props.filter(key => key !== 'catchtouchmove') 
+    }
   return props.map(key => `${key}="{{_h.v(${nodePath}.props['${key}'])}}"`).join('\n')
 } 
 function nestedView(depth) {
-  const header = [];
-  const footer = [];
+  const viewsTpl = [];
   const paths = 'abcdefghjklmnopqrstuvwxyz';
   for (let d = 1; d <= depth; d++) {
     const nodePaths = paths.substring(0, d);
     const nodeParentPaths = paths.substring(0,d - 1);
     const nodeKey = nodePaths[nodePaths.length - 1]
-    const nodeParentPath = 'i'+ nodeParentPaths.split('').map(i => '.nodes[' + i + ']').join('')
-    const nodePath       = 'i'+ nodePaths      .split('').map(p => '.nodes[' + p + ']').join('')
-    header.push(`<block s-for="${nodeKey} in ${nodeParentPath}.children">`);
-    header.push(`<block s-if="${nodePath}.type === 'view'">`);
-    header.push(`<view ${propsKeyTpl(props, nodePath)}>`)
-    footer.unshift(`</block>`)
-    footer.unshift(`</block>`)
-    footer.unshift(`<template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: ${nodePath}, an: an, tid: tid + 1 }}}" />`)
-    footer.unshift(`<block s-else>`)
-    footer.unshift(`</block>`)
-    footer.unshift(`</view>`)
+    const nodeParentPath = 'i' + nodeParentPaths.split('').map(i => '.nodes[' + i + ']').join('');
+    const nodePath       = 'i' + nodePaths      .split('').map(p => '.nodes[' + p + ']').join('');
+    const viewTpl = []
+    viewTpl.push(`<block s-for="${nodeKey} in ${nodeParentPath}.children">`);
+      viewTpl.push(`<block s-if="${nodePath}.type === 'view' && ${nodePath}.props['catchtouchmove']">`);
+        viewTpl.push(`<view data-flex="c" ${propsKeyTpl(props, nodePath, true)}>`);
+          viewTpl.push(`{body}`);
+        viewTpl.push(`</view>`);
+      viewTpl.push(`</block>`);
+      viewTpl.push(`<block s-elif="${nodePath}.type === 'view'">`);
+        viewTpl.push(`<view data-flex="c" ${propsKeyTpl(props, nodePath, false)}>`);
+          viewTpl.push(`{body}`);
+        viewTpl.push(`</view>`);
+      viewTpl.push(`</block>`);
+      viewTpl.push(`<block s-else>`);
+        viewTpl.push(`<template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: ${nodePath}, an: an, tid: tid + 1 }}}" />`);
+      viewTpl.push(`</block>`);
+    viewTpl.push(`</block>`);
+    viewsTpl.push(viewTpl.join('\n'));
   }
   const externalPaths = paths.substring(0, depth);
   const externalPath = 'i' + externalPaths.split('').map(i => '.nodes[' + i + ']').join('');
-  return [...header, `<template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: ${externalPath}, an: an, tid: tid + 1 }}}" />`, ...footer].join('\n')
+  const externalView = `
+  <block s-for="cc in ${externalPath}.children">
+    <template ccc is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: ${externalPath}.nodes[cc], an: an, tid: tid + 1 }}}" />
+  </block>
+  `
+  if (viewsTpl.length > 0) {
+    return viewsTpl.reduceRight((acc, viewTpl)=> {
+      return viewTpl.replace(/\{body\}/g, acc);
+    }, externalView)
+  }
+  return externalView;
 }
 _%>
 
 <template name="REMAX_TPL_<%= templateId %>_<%= id %>">
-  <view <%- propsKeyTpl(props, 'i') %>>
-    <%- nestedView(depth) %>
-  </view>
+  <block s-if="props['catchtouchmove']">
+    <view data-flex="p" <%- propsKeyTpl(props, 'i', true) %>>
+      <%- nestedView(depth) %>
+    </view>
+  </block>
+  <block s-else>
+    <view data-flex="p" <%- propsKeyTpl(props, 'i', false) %>>
+      <%- nestedView(depth) %>
+    </view>
+  </block>
 </template>
        
