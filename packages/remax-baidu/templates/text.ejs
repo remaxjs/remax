@@ -5,10 +5,10 @@ function propsKeyTpl(props, nodePath) {
 function nestedText(depth) {
   const header = [];
   const footer = [];
-  const paths = ['', 'a', 'ab', 'abc', 'abcd', 'abcde', 'abcdef'];
+  const paths = 'abcdefghjklmnopqrstuvwxyz';
   for (let d = 1; d <= depth; d++) {
-    const nodePaths = paths[d];
-    const nodeParentPaths = paths[d - 1];
+    const nodePaths = paths.substring(0, d);
+    const nodeParentPaths = paths.substring(0,d - 1);
     const nodeKey = nodePaths[nodePaths.length - 1]
     const nodeParentPath = 'i'+ nodeParentPaths.split('').map(i=> '.nodes['+i+']').join('')
     const nodePath = 'i'+ nodePaths.split('').map(p => '.nodes[' + p + ']').join('')

@@ -1,0 +1,36 @@
+<%_
+function propsKeyTpl(props, nodePath) {
+  return props.map(key => `${key}="{{_h.v(${nodePath}.props['${key}'])}}"`).join('\n')
+} 
+function nestedView(depth) {
+  const header = [];
+  const footer = [];
+  const paths = 'abcdefghjklmnopqrstuvwxyz';
+  for (let d = 1; d <= depth; d++) {
+    const nodePaths = paths.substring(0, d);
+    const nodeParentPaths = paths.substring(0,d - 1);
+    const nodeKey = nodePaths[nodePaths.length - 1]
+    const nodeParentPath = 'i'+ nodeParentPaths.split('').map(i => '.nodes[' + i + ']').join('')
+    const nodePath       = 'i'+ nodePaths      .split('').map(p => '.nodes[' + p + ']').join('')
+    header.push(`<block s-for="${nodeKey} in ${nodeParentPath}.children">`);
+    header.push(`<block s-if="${nodePath}.type === 'view'">`);
+    header.push(`<view ${propsKeyTpl(props, nodePath)}>`)
+    footer.unshift(`</block>`)
+    footer.unshift(`</block>`)
+    footer.unshift(`<template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: ${nodePath}, an: an, tid: tid + 1 }}}" />`)
+    footer.unshift(`<block s-else>`)
+    footer.unshift(`</block>`)
+    footer.unshift(`</view>`)
+  }
+  const externalPaths = paths.substring(0, depth);
+  const externalPath = 'i' + externalPaths.split('').map(i => '.nodes[' + i + ']').join('');
+  return [...header, `<template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: ${externalPath}, an: an, tid: tid + 1 }}}" />`, ...footer].join('\n')
+}
+_%>
+
+<template name="REMAX_TPL_<%= templateId %>_<%= id %>">
+  <view <%- propsKeyTpl(props, 'i') %>>
+    <%- nestedView(depth) %>
+  </view>
+</template>
+       

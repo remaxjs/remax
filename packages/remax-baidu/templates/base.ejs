@@ -13,13 +13,11 @@
 		tid: function (type, ancestor) {
 			var items = ancestor.split(',');
 			var depth = 1;
-
 			for (var i = 0; i < items.length; i++) {
 				if (type === items[i]) {
 					depth = depth + 1;
 				}
 			}
-
 			var id = 'REMAX_TPL_' + depth + '_' + type;
 			return id;
 		}
@@ -34,6 +32,16 @@
 		type: component.type,
 		depth: componentDepth
 		}) _%>
+	<%_ } else if (component.id === 'view') { %> 
+		<%_ for (let i = 1; i <= componentDepth; i++) { %>
+			<%- include('./view.ejs', {
+			props: component.props,
+			id: component.id,
+			type: component.type,
+			templateId: i,
+			depth: 2
+			}) _%> 
+		<%_ } _%>
 	<%_ } else { _%>
 		<%_ for (let i = 1; i <= componentDepth; i++) { %>
 		<%- include('./component.ejs', {
