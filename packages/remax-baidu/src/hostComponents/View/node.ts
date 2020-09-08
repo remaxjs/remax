@@ -11,7 +11,7 @@ export const alias = {
   onClick: 'bindtap',
   onLongTap: 'bindlongtap',
   onLongPress: 'bindlongpress',
-  OnTouchStart: 'bindtouchstart',
+  onTouchStart: 'bindtouchstart',
   onTouchMove: 'bindtouchmove',
   onTouchCancel: 'bindtouchcancel',
   onTouchEnd: 'bindtouchend',
