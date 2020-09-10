@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.9](https://github.com/remaxjs/remax/compare/v2.7.8...v2.7.9) (2020-09-10)
+
+
+### Bug Fixes
+
+* **wechat:** 修复微信小程序 app.config.ts 声明错误问题 ([#1257](https://github.com/remaxjs/remax/issues/1257)) ([b2077ae](https://github.com/remaxjs/remax/commit/b2077aeaf1f559ff78532ea8d9136660691f02b4))
+* **wechat:** 微信添加 catchTouchMove 的类型定义 ([6efda1d](https://github.com/remaxjs/remax/commit/6efda1d0004f0e6588138068516f516d0016e4e2))
+
+
+
+
+
 ## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
 
 

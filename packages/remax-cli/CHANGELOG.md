@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.9](https://github.com/remaxjs/remax/compare/v2.7.8...v2.7.9) (2020-09-10)
+
+
+### Bug Fixes
+
+* 允许使用 Page 命名页面组件 ([#1273](https://github.com/remaxjs/remax/issues/1273)) ([bfa8032](https://github.com/remaxjs/remax/commit/bfa8032a5f62ad7bc6f82fce7096009a917be727)), closes [#1262](https://github.com/remaxjs/remax/issues/1262)
+
+
+
+
+
 ## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
 
 

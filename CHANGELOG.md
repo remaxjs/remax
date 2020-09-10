@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.9](https://github.com/remaxjs/remax/compare/v2.7.8...v2.7.9) (2020-09-10)
+
+
+### Bug Fixes
+
+* 允许使用 Page 命名页面组件 ([#1273](https://github.com/remaxjs/remax/issues/1273)) ([bfa8032](https://github.com/remaxjs/remax/commit/bfa8032a5f62ad7bc6f82fce7096009a917be727)), closes [#1262](https://github.com/remaxjs/remax/issues/1262)
+* **ali:** 修复同一个页面的生命周期会重复触发的问题 ([2af7537](https://github.com/remaxjs/remax/commit/2af753700e3048d231c0fb7d137e327e2089b9a7)), closes [#1225](https://github.com/remaxjs/remax/issues/1225)
+* **toutiao:** 修复飞书开发者工具运行报错的问题 ([00db2bf](https://github.com/remaxjs/remax/commit/00db2bf5d228c7ab6d1e695ce3d01b4e7e6e2aab))
+* **web:** 修复 app config 中 router 配置的类型错误 ([b4f2c84](https://github.com/remaxjs/remax/commit/b4f2c84e7c00fd3e69dc8e7edd221e556bbdc346))
+* **web:** 修复 web 下即使离开页面 onPageScroll 事件也会触发的问题 ([#1232](https://github.com/remaxjs/remax/issues/1232)) ([7ae649e](https://github.com/remaxjs/remax/commit/7ae649ec03598dc5afed1552dbe12f9c74297c2e))
+* **wechat:** 修复微信小程序 app.config.ts 声明错误问题 ([#1257](https://github.com/remaxjs/remax/issues/1257)) ([b2077ae](https://github.com/remaxjs/remax/commit/b2077aeaf1f559ff78532ea8d9136660691f02b4))
+* **wechat:** 微信添加 catchTouchMove 的类型定义 ([6efda1d](https://github.com/remaxjs/remax/commit/6efda1d0004f0e6588138068516f516d0016e4e2))
+
+
+
+
+
 ## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
 
 
