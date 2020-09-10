@@ -12758,10 +12758,10 @@ parse5@^3.0.1:
   dependencies:
     "@types/node" "*"
 
-parsec-hooks@^0.0.92:
-  version "0.0.92"
-  resolved "https://registry.yarnpkg.com/parsec-hooks/-/parsec-hooks-0.0.92.tgz#110a5d33ee6ccf3977cd7fd1ec12c5448f96635e"
-  integrity sha512-Gb95KzMu7YdEKkvYWhrCWsHq/LTmHNVVnDW8ZeCVh83G8gkZsJRbaW1QJLMRr9BKjE55sOYA6djfyq0BlDvBqQ==
+parsec-hooks@^0.0.106:
+  version "0.0.106"
+  resolved "https://registry.yarnpkg.com/parsec-hooks/-/parsec-hooks-0.0.106.tgz#b09dea5d83258c74ce032fe9a79e5ec3ebeb8cf0"
+  integrity sha512-LmkpkEvmZfmNWjI/O+bu8OaKKQt6hTQhtAC/ex/A+5/qp5TwrHENLNaBe9NXpd7kVAEHGJl8sZfZ9KWD+RkehA==
   dependencies:
     "@babel/runtime" "^7.10.3"
     classnames "^2.2.6"
