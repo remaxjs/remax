@@ -7,7 +7,7 @@
   "types": "web.d.ts",
   "dependencies": {
     "@remax/react-router-cache-route": "^1.8.4",
-    "history": "^4.10.1",
+    "history": "^5.0.0",
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
