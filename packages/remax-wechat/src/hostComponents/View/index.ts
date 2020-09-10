@@ -22,6 +22,7 @@ export interface ViewProps extends BaseProps {
   onAnimationIteration?: (event: any) => any;
   onAnimationStart?: (event: any) => any;
   onAnimationEnd?: (event: any) => any;
+  catchTouchMove?: boolean | ((event: any) => any);
 }
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/view.html
