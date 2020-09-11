@@ -1,6 +1,6 @@
 {
   "name": "@remax/shared",
-  "version": "2.7.9",
+  "version": "2.7.10",
   "description": "Remax Shared",
   "main": "cjs/index.js",
   "module": "esm/index.js",
