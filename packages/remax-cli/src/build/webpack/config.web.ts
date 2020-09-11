@@ -129,16 +129,17 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
 
   api.configWebpack(context);
 
-  const devServer = config.get('devServer');
+  const devServer = config.get('devServer') || {};
 
-  config.set('devServer', {
-    publicPath,
-    compress: true,
-    hot: true,
-    open: false,
-    historyApiFallback: true,
-    noInfo: true,
-    ...devServer,
+  config.devServer.publicPath(publicPath);
+  config.devServer.compress(true);
+  config.devServer.hot(true);
+  config.devServer.open(false);
+  config.devServer.historyApiFallback(true);
+  config.devServer.noInfo(true);
+
+  Object.keys(devServer).forEach(key => {
+    config.devServer.set(key, devServer[key]);
   });
 
   return config.toConfig();
