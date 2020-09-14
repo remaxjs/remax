@@ -60,10 +60,6 @@ export default class Input extends React.Component<InputProps, InputState> {
   handleInput = (e: InputEvent) => {
     const { controlled } = this.state;
 
-    if (!controlled) {
-      this.setState({ value: e.target.value });
-    }
-
     if (typeof this.props.onInput === 'function') {
       return this.props.onInput(e);
     }

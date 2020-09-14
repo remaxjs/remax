@@ -1,4 +1,5 @@
 import * as React from 'react';
+import memoizeOne from 'memoize-one';
 import {
   TapEvent,
   TouchEvent,
@@ -104,6 +105,22 @@ export function aliasProps(props: any, alias: { [key: string]: string }) {
   return nextProps;
 }
 
+const createLongTapCallback = memoizeOne(createCallback);
+const createTapCallback = memoizeOne(createCallback);
+const createTouchStartCallback = memoizeOne(createCallback);
+const createTouchMoveCallback = memoizeOne(createCallback);
+const createTouchEndCallback = memoizeOne(createCallback);
+const createTouchCancelCallback = memoizeOne(createCallback);
+const createChangeCallback = memoizeOne(createCallback);
+const createInputCallback = memoizeOne(createCallback);
+const createConfirmCallback = memoizeOne(createCallback);
+const createFocusCallback = memoizeOne(createCallback);
+const createBlurCallback = memoizeOne(createCallback);
+const createSubmitCallback = memoizeOne(createCallback);
+const createResetCallback = memoizeOne(createCallback);
+const createImageLoadCallback = memoizeOne(createCallback);
+const createImageErrorCallback = memoizeOne(createCallback);
+
 export default function createHostComponent<P = any>(
   name: string,
   alias: {
@@ -124,62 +141,62 @@ export default function createHostComponent<P = any>(
     }
 
     if (props.onLongTap) {
-      inputProps.onLongTap = createCallback(inputProps.onLongTap, createTapEvent);
+      inputProps.onLongTap = createLongTapCallback(inputProps.onLongTap, createTapEvent);
     }
     if (inputProps.onTap) {
-      inputProps.onTap = createCallback(inputProps.onTap, createTapEvent);
+      inputProps.onTap = createTapCallback(inputProps.onTap, createTapEvent);
     }
 
     if (inputProps.onTouchStart) {
-      inputProps.onTouchStart = createCallback(inputProps.onTouchStart, createTouchEvent);
+      inputProps.onTouchStart = createTouchStartCallback(inputProps.onTouchStart, createTouchEvent);
     }
 
     if (inputProps.onTouchMove) {
-      inputProps.onTouchMove = createCallback(inputProps.onTouchMove, createTouchEvent);
+      inputProps.onTouchMove = createTouchMoveCallback(inputProps.onTouchMove, createTouchEvent);
     }
 
     if (inputProps.onTouchEnd) {
-      inputProps.onTouchEnd = createCallback(inputProps.onTouchEnd, createTouchEvent);
+      inputProps.onTouchEnd = createTouchEndCallback(inputProps.onTouchEnd, createTouchEvent);
     }
 
     if (inputProps.onTouchCancel) {
-      inputProps.onTouchCancel = createCallback(inputProps.onTouchCancel, createTouchEvent);
+      inputProps.onTouchCancel = createTouchCancelCallback(inputProps.onTouchCancel, createTouchEvent);
     }
 
     if (inputProps.onChange) {
-      inputProps.onChange = createCallback(inputProps.onChange, createInputEvent);
+      inputProps.onChange = createChangeCallback(inputProps.onChange, createInputEvent);
     }
 
     if (inputProps.onInput) {
-      inputProps.onInput = createCallback(inputProps.onInput, createInputEvent);
+      inputProps.onInput = createInputCallback(inputProps.onInput, createInputEvent);
     }
 
     if (inputProps.onConfirm) {
-      inputProps.onConfirm = createCallback(inputProps.onConfirm, createInputEvent);
+      inputProps.onConfirm = createConfirmCallback(inputProps.onConfirm, createInputEvent);
     }
 
     if (inputProps.onFocus) {
-      inputProps.onFocus = createCallback(inputProps.onFocus, createInputEvent);
+      inputProps.onFocus = createFocusCallback(inputProps.onFocus, createInputEvent);
     }
 
     if (inputProps.onBlur) {
-      inputProps.onBlur = createCallback(inputProps.onBlur, createInputEvent);
+      inputProps.onBlur = createBlurCallback(inputProps.onBlur, createInputEvent);
     }
 
     if (inputProps.onSubmit) {
-      inputProps.onSubmit = createCallback(inputProps.onSubmit, createFormEvent);
+      inputProps.onSubmit = createSubmitCallback(inputProps.onSubmit, createFormEvent);
     }
 
     if (inputProps.onReset) {
-      inputProps.onReset = createCallback(inputProps.onReset, createFormEvent);
+      inputProps.onReset = createResetCallback(inputProps.onReset, createFormEvent);
     }
 
     if (name === 'image') {
       if (inputProps.onLoad) {
-        inputProps.onLoad = createCallback(props.onLoad, createImageEvent);
+        inputProps.onLoad = createImageLoadCallback(props.onLoad, createImageEvent);
       }
       if (inputProps.onError) {
-        inputProps.onError = createCallback(props.onError, createImageEvent);
+        inputProps.onError = createImageErrorCallback(props.onError, createImageEvent);
       }
     }
 
