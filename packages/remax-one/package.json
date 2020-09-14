@@ -39,6 +39,7 @@
     "@remax/toutiao": "2.7.10",
     "@remax/wechat": "2.7.10",
     "clsx": "^1.1.0",
+    "memoize-one": "^5.1.1",
     "react-autosize-textarea": "^7.0.0",
     "rmc-feedback": "^2.0.0"
   },
