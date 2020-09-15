@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 
-export default function Modal({ children }: React.PropsWithChildren<{}>) {
+export default function Modal({ children }: React.PropsWithChildren<Record<string, any>>) {
   const domNode = React.useRef(document.createElement('div'));
 
   React.useEffect(() => {

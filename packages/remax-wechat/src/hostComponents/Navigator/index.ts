@@ -16,7 +16,7 @@ export interface NavigatorProps extends BaseProps {
   /** 当target="miniProgram"时有效，打开的页面路径，如果为空则打开首页 2.0.7 */
   path?: string;
   /** 当target="miniProgram"时有效，需要传递给目标小程序的数据，目标小程序可在 App.onLaunch()，App.onShow() 中获取到这份数据。详情 2.0.7 */
-  extraData?: object;
+  extraData?: any;
   /** (default: release) 当target="miniProgram"时有效，要打开的小程序版本 2.0.7 */
   version?: 'develop' | 'trial' | 'release';
   /** (default: navigator-hover) 指定点击时的样式类，当hover-class="none"时，没有点击态效果 1.0.0 */

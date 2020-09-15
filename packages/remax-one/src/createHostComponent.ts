@@ -59,7 +59,7 @@ export const createImageEvent = (originalEvent: any): ImageLoadEvent | ImageErro
   nativeEvent: originalEvent,
 });
 
-export function createCallback(fn: Function | undefined, eventCreator: Function) {
+export function createCallback(fn: (event: any) => void | undefined, eventCreator: (event: any) => any) {
   if (typeof fn !== 'function') {
     return undefined;
   }
