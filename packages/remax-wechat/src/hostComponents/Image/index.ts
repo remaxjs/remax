@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps, TouchEvent } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface ImageProps extends BaseProps {
   /**

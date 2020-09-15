@@ -1,2 +1,2 @@
 export * from './config';
-export { TouchEvent } from './component';
+export { TouchEvent, GenericEvent } from './component';
