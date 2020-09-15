@@ -39,7 +39,7 @@ function isStubAttribute(attribute: t.JSXAttribute | t.JSXSpreadAttribute) {
  * @param {t.JSXElement|t.JSXFragment} node
  * @returns
  */
-function isStubElement(node: t.JSXElement | t.JSXFragment, path: NodePath<any>) {
+function isStubElement(node: t.JSXElement | t.JSXFragment, path: NodePath<any>): boolean {
   let isSelfStub = false;
 
   if (t.isJSXFragment(node)) {
@@ -65,7 +65,7 @@ function isStubElement(node: t.JSXElement | t.JSXFragment, path: NodePath<any>) 
     isSelfStub = attributes.every(isStubAttribute);
   }
 
-  const isChildrenVoid = node.children.every(c => {
+  const isChildrenVoid: boolean = node.children.every(c => {
     if (t.isJSXElement(c) || t.isJSXFragment(c)) {
       return isStubElement(c, path);
     }
