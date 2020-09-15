@@ -62,7 +62,7 @@ export default async function build(app: string, target: Platform, options: Part
   const externals: any = [
     nodeExternals({
       modulesDir: path.resolve(__dirname, '../../../../../../node_modules'),
-      whitelist: options.externalsIgnore,
+      allowlist: options.externalsIgnore,
     }),
     {
       '@remax/runtime': JSON.stringify('@remax/runtime'),
