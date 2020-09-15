@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface MapProps extends BaseProps {
   /** 中心经度 1.0.0 */
@@ -54,17 +54,17 @@ export interface MapProps extends BaseProps {
   /** 配置项 2.8.2 */
   setting?: any;
   /** 点击标记点时触发，e.detail = {markerId} 1.0.0 */
-  onMarkerClick?: (event: any) => any;
+  onMarkerClick?: (event: GenericEvent) => any;
   /** 点击控件时触发，e.detail = {controlId} 1.0.0 */
-  onControlClick?: (event: any) => any;
+  onControlClick?: (event: GenericEvent) => any;
   /** 点击标记点对应的气泡时触发e.detail = {markerId} 1.2.0 */
-  onCalloutClick?: (event: any) => any;
+  onCalloutClick?: (event: GenericEvent) => any;
   /** 在地图渲染更新完成时触发 1.6.0 */
-  onUpdated?: (event: any) => any;
+  onUpdated?: (event: GenericEvent) => any;
   /** 视野发生变化时触发， 2.3.0 */
-  onRegionChange?: (event: any) => any;
+  onRegionChange?: (event: GenericEvent) => any;
   /** 点击地图poi点时触发，e.detail = {name, longitude, latitude} 2.3.0 */
-  onPoiTap?: (event: any) => any;
+  onPoiTap?: (event: GenericEvent) => any;
 }
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/map.html

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface SwitchProps extends BaseProps {
   name?: string;
@@ -13,7 +13,7 @@ export interface SwitchProps extends BaseProps {
   /** #04BE02 switch 的颜色，同 css 的 color 1.0.0 */
   color?: string;
   /** checked 改变时触发 change 事件，event.detail={ value} 1.0.0 */
-  onChange?: (event: any) => any;
+  onChange?: (event: GenericEvent) => any;
 }
 
 /**

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 import { createHostComponent } from '@remax/shared';
 
 export interface InputProps extends BaseProps {
@@ -110,27 +110,27 @@ export interface InputProps extends BaseProps {
    * 键盘输入时触发，event.detail = {value, cursor, keyCode}，keyCode 为键值，
    * 2.1.0 起支持，处理函数可以直接 return 一个字符串，将替换输入框的内容。
    */
-  onInput?: (...params: any[]) => void;
+  onInput?: (event: GenericEvent) => void;
   /**
    * 1.0.0
    * 输入框聚焦时触发，event.detail = { value, height }，height 为键盘高度，在基础库 1.9.90 起支持
    */
-  onFocus?: (...params: any[]) => void;
+  onFocus?: (event: GenericEvent) => void;
   /**
    * 1.0.0
    * 输入框失去焦点时触发，event.detail = {value: value}
    */
-  onBlur?: (...params: any[]) => void;
+  onBlur?: (event: GenericEvent) => void;
   /**
    * 1.0.0
    * 点击完成按钮时触发，event.detail = {value: value}
    */
-  onConfirm?: (event: any) => any;
+  onConfirm?: (event: GenericEvent) => any;
   /**
    * 2.7.0
    * 键盘高度发生变化的时候触发此事件，event.detail = {height: height, duration: duration}
    */
-  onKeyboardHeightChange?: (event: any) => any;
+  onKeyboardHeightChange?: (event: GenericEvent) => any;
 }
 
 /**

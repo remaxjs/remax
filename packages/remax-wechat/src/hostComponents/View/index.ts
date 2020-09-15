@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, TouchEvent } from '../../types/component';
 
 export interface ViewProps extends BaseProps {
   slot?: string;
@@ -13,16 +13,16 @@ export interface ViewProps extends BaseProps {
   /** (default: 400) 手指松开后点击态保留时间，单位毫秒 1.0.0  */
   hoverStayTime?: number;
   disableScroll?: boolean;
-  onTouchStart?: (event: any) => any;
-  onTouchMove?: (event: any) => any;
-  onTouchEnd?: (event: any) => any;
-  onTouchCancel?: (event: any) => any;
-  onLongClick?: (event: any) => any;
+  onTouchStart?: (event: TouchEvent) => any;
+  onTouchMove?: (event: TouchEvent) => any;
+  onTouchEnd?: (event: TouchEvent) => any;
+  onTouchCancel?: (event: TouchEvent) => any;
+  onLongClick?: (event: TouchEvent) => any;
   onTransitionEnd?: (event: any) => any;
   onAnimationIteration?: (event: any) => any;
   onAnimationStart?: (event: any) => any;
   onAnimationEnd?: (event: any) => any;
-  catchTouchMove?: boolean | ((event: any) => any);
+  catchTouchMove?: boolean | ((event: TouchEvent) => any);
 }
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/view.html

@@ -18,6 +18,8 @@ export interface BaseProps {
 
   // reference: https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html
   /** 点击时触发 */
+  onTap?: (event: TouchEvent) => void;
+  /** 点击时触发 */
   onClick?: (event: TouchEvent) => void;
   /** 手指触摸动作开始 */
   onTouchStart?: (event: TouchEvent) => void;
@@ -32,13 +34,13 @@ export interface BaseProps {
   /** 手指触摸后，超过350ms再离开（推荐使用longpress事件代替） */
   onLongTap?: (event: TouchEvent) => void;
   /** 会在 WXSS transition 或 wx.createAnimation 动画结束后触发 */
-  onTransitionEnd?: (event: CustomEvent) => void;
+  onTransitionEnd?: (event: GenericEvent) => void;
   /** 会在一个 WXSS animation 动画开始时触发 */
-  onAnimationStart?: (event: CustomEvent) => void;
+  onAnimationStart?: (event: GenericEvent) => void;
   /** 会在一个 WXSS animation 一次迭代结束时触发 */
-  onAnimationiteration?: (event: CustomEvent) => void;
+  onAnimationiteration?: (event: GenericEvent) => void;
   /** 会在一个 WXSS animation 动画完成时触发 */
-  onAnimationEnd?: (event: CustomEvent) => void;
+  onAnimationEnd?: (event: GenericEvent) => void;
   /** 在支持 3D Touch 的 iPhone 设备，重按时会触发 */
   onTouchForceChange?: (event: TouchEvent) => void;
 
@@ -73,7 +75,7 @@ export interface BaseEvent {
 }
 
 /** 自定义事件对象属性列表 */
-export interface CustomEvent<Detail = any> extends BaseEvent {
+export interface GenericEvent<Detail = any> extends BaseEvent {
   /** 额外的信息 */
   detail: Detail;
 }

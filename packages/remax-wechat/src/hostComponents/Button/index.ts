@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface ButtonProps extends BaseProps {
   /**
@@ -112,32 +112,32 @@ export interface ButtonProps extends BaseProps {
    * 用户点击该按钮时，会返回获取到的用户信息，回调的detail数据与wx.getUserInfo返回的一致，
    * open-type="getUserInfo"时有效
    */
-  onGetUserInfo?: (event: any) => any;
+  onGetUserInfo?: (event: GenericEvent) => any;
   /**
    * 1.5.0
    * 客服消息回调，open-type="contact"时有效
    */
-  onContact?: (event: any) => any;
+  onContact?: (event: GenericEvent) => any;
   /**
    * 1.2.0
    * 获取用户手机号回调，open-type=getPhoneNumber时有效
    */
-  onGetPhoneNumber?: (event: any) => any;
+  onGetPhoneNumber?: (event: GenericEvent) => any;
   /**
    * 1.9.5
    * 当使用开放能力时，发生错误的回调，open-type=launchApp时有效
    */
-  onError?: (event: any) => any;
+  onError?: (event: GenericEvent) => any;
   /**
    * 2.0.7
    * 在打开授权设置页后回调，open-type=openSetting时有效
    */
-  onOpenSetting?: (event: any) => any;
+  onOpenSetting?: (event: GenericEvent) => any;
   /**
    * 2.4.4
    * 打开 APP 成功的回调，open-type=launchApp时有效
    */
-  onLaunchApp?: (event: any) => any;
+  onLaunchApp?: (event: GenericEvent) => any;
 }
 
 /**

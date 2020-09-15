@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/slider.html
@@ -49,7 +49,7 @@ export interface SliderProps extends BaseProps {
   /** (default: false) 是否显示当前 value 1.0.0 */
   showValue?: boolean;
   /** 完成一次拖动后触发的事件，event.detail = {value} 1.0.0 */
-  onChange?: (event: any) => any;
+  onChange?: (event: GenericEvent) => any;
   /** 拖动过程中触发的事件，event.detail = {value} 1.7.0 */
-  onChanging?: (event: any) => any;
+  onChanging?: (event: GenericEvent) => any;
 }
