@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface NavigatorProps extends BaseProps {
   /** (default: self) 在哪个目标上发生跳转，默认当前小程序 2.0.7 */
@@ -28,11 +28,11 @@ export interface NavigatorProps extends BaseProps {
   /** (default: 600) 手指松开后点击态保留时间，单位毫秒 1.0.0 */
   hoverStayTime?: number;
   /** 当target="miniProgram"时有效，跳转小程序成功 2.0.7 */
-  onSuccess?: (event: any) => any;
+  onSuccess?: (event: GenericEvent) => any;
   /** 当target="miniProgram"时有效，跳转小程序失败 2.0.7 */
-  onFail?: (event: any) => any;
+  onFail?: (event: GenericEvent) => any;
   /** 当target="miniProgram"时有效，跳转小程序完成 2.0.7 */
-  onComplete?: (event: any) => any;
+  onComplete?: (event: GenericEvent) => any;
 }
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/navigator.html

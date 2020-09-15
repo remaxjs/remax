@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 import { createHostComponent } from '@remax/shared';
 
 export interface SwiperProps extends BaseProps {
@@ -32,11 +32,11 @@ export interface SwiperProps extends BaseProps {
   /** 指定 swiper 切换缓动动画类型 2.6.5  */
   easingFunction?: 'default' | 'linear' | 'easeInCubic' | 'easeOutCubic' | 'easeInOutCubic';
   /** current 改变时会触发 change 事件，event.detail = {current, source} 1.0.0 */
-  onChange?: (event: any) => any;
+  onChange?: (event: GenericEvent) => any;
   /** swiper-item 的位置发生改变时会触发 transition 事件，event.detail = {dx: dx, dy: dy} 2.4.3 */
-  onTransition?: (event: any) => any;
+  onTransition?: (event: GenericEvent) => any;
   /** 动画结束时会触发 animationfinish 事件，event.detail 同上 1.9.0 */
-  onAnimationFinish?: (event: any) => any;
+  onAnimationFinish?: (event: GenericEvent) => any;
 }
 
 /**

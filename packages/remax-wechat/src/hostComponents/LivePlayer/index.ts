@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface LivePlayerProps extends BaseProps {
   /** 音视频地址。目前仅支持 flv, rtmp 格式 1.7.0  */
@@ -30,17 +30,17 @@ export interface LivePlayerProps extends BaseProps {
   /** 设置小窗模式： push, pop，空字符串或通过数组形式设置多种模式（如： ["push", "pop"]） 2.10.3 */
   pictureInPictureMode?: string | string[];
   /** 播放状态变化事件，detail = {code} 1.7.0  */
-  onStateChange?: (event: any) => any;
+  onStateChange?: (event: GenericEvent) => any;
   /** 全屏变化事件，detail = {direction, fullScreen} 1.7.0  */
-  onFullscreenChange?: (event: any) => any;
+  onFullscreenChange?: (event: GenericEvent) => any;
   /** 网络状态通知，detail = {info} 1.9.0  */
-  onNetStatus?: (event: any) => any;
+  onNetStatus?: (event: GenericEvent) => any;
   /** 播放音量大小通知，detail = {}	2.10.0 */
-  onAudioVolumeNotify?: (event: any) => any;
+  onAudioVolumeNotify?: (event: GenericEvent) => any;
   /** 播放器进入小窗	2.11.0 */
-  onEnterPictureInPicture?: (event: any) => any;
+  onEnterPictureInPicture?: (event: GenericEvent) => any;
   /** 播放器退出小窗	2.11.0 */
-  onLeavePictureInPicture?: (event: any) => any;
+  onLeavePictureInPicture?: (event: GenericEvent) => any;
 }
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html
