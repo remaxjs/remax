@@ -52,7 +52,7 @@
     "react": "^16.8.6",
     "react-test-renderer": "^16.9.0",
     "ts-jest": "^26.0.0",
-    "typescript": "^3.7.3"
+    "typescript": "^4.0.2"
   },
   "gitHead": "06dcaa3df31f6bde22b6d07a979c361dc137351f"
 }

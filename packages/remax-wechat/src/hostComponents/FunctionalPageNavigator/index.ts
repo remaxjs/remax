@@ -8,7 +8,7 @@ export interface FunctionalPageNavigatorProps extends BaseProps {
   /** 要跳转到的功能页 2.1.0  */
   name?: 'loginAndGetUserInfo' | 'requestPayment';
   /** 功能页参数，参数格式与具体功能页相关 2.1.0  */
-  args?: object;
+  args?: any;
   /** 功能页返回，且操作成功时触发， detail 格式与具体功能页相关 2.1.0  */
   onSuccess?: (event: any) => any;
   /** 功能页返回，且操作失败时触发， detail 格式与具体功能页相关 2.1.0  */

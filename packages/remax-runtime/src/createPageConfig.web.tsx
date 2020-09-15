@@ -5,7 +5,7 @@ import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName } from './lifecycle';
 
 interface LifeCycleCallback {
-  [key: string]: Function[];
+  [key: string]: Array<() => void>;
 }
 
 interface PageConfigProps {

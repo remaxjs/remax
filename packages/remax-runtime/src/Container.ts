@@ -60,7 +60,7 @@ export default class Container {
     const startTime = new Date().getTime();
 
     if (typeof this.context.$spliceData === 'function') {
-      let $batchedUpdates = (callback: Function) => {
+      let $batchedUpdates = (callback: () => void) => {
         callback();
       };
 
@@ -141,7 +141,7 @@ export default class Container {
     this.stopUpdate = true;
   }
 
-  createCallback(name: string, fn: Function) {
+  createCallback(name: string, fn: (...params: any) => any) {
     this.context[name] = fn;
   }
 

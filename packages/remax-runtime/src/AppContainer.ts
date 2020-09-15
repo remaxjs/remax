@@ -35,7 +35,7 @@ export default class AppContainer {
     });
   }
 
-  createCallback(name: string, fn: Function) {
+  createCallback(name: string, fn: (...params: any) => any) {
     this.context[name] = fn;
   }
 

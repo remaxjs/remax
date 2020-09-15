@@ -1,4 +1,4 @@
-export type Listener = Function;
+export type Listener = () => void;
 
 interface ListenerConfig {
   listener: Listener;

@@ -12,7 +12,7 @@ export interface VideoProps extends BaseProps {
   /** 是否显示默认播放控件（播放/暂停按钮、播放进度、时间） 1.0.0 */
   controls?: boolean;
   /** 弹幕列表 1.0.0 */
-  danmuList?: object[];
+  danmuList?: any[];
   /** 是否显示弹幕按钮，只在初始化时有效，不能动态变更 1.0.0 */
   danmuBtn?: boolean;
   /** 是否展示弹幕，只在初始化时有效，不能动态变更 1.0.0 */

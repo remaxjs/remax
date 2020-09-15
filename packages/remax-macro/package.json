@@ -33,7 +33,7 @@
     "jest": "^26.0.1",
     "react": "^16.12.0",
     "ts-jest": "^26.0.0",
-    "typescript": "^3.7.3"
+    "typescript": "^4.0.2"
   },
   "dependencies": {
     "@remax/shared": "2.7.10",

@@ -6,7 +6,7 @@ import { ForwardRef } from './ReactIs';
 import Container from './Container';
 import * as RuntimeOptions from './RuntimeOptions';
 
-export interface PageProps<Q = {}> {
+export interface PageProps<Q = Record<string, string>> {
   location: {
     query: Q;
   };

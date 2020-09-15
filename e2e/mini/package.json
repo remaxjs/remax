@@ -33,7 +33,7 @@
     "merge": "^1.2.1",
     "rimraf": "^2.6.3",
     "ts-jest": "^26.2.0",
-    "typescript": "^3.7.2"
+    "typescript": "^4.0.2"
   },
   "workspaces": {
     "nohoist": [
