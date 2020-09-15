@@ -10,16 +10,6 @@ describe('Input', () => {
     const instance = testRenderer.root.findByType('input');
 
     expect(instance.props.value).toEqual('1');
-
-    instance.props.onInput({
-      target: {},
-      currentTarget: {},
-      detail: {
-        value: '2',
-      },
-    });
-
-    expect(instance.props.value).toEqual('2');
   });
 
   it('value', () => {

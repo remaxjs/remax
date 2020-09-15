@@ -56,7 +56,7 @@
 /******/ 	// object to store loaded CSS chunks
 /******/ 	var installedCssChunks = {
 /******/ 		0: 0
-/******/ 	}
+/******/ 	};
 /******/
 /******/ 	// object to store loaded and loading chunks
 /******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
