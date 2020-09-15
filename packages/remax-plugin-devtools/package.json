@@ -1,6 +1,6 @@
 {
   "name": "@remax/plugin-devtools",
-  "version": "2.7.10",
+  "version": "2.8.0",
   "description": "Inject React Devtools to Remax",
   "keywords": [
     "react"
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@remax/react-devtools-core": "^4.7.1",
-    "@remax/shared": "2.7.10",
+    "@remax/shared": "2.8.0",
     "webpack-inject-plugin": "^1.5.4"
   }
 }
