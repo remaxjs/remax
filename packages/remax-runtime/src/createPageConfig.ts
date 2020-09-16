@@ -20,33 +20,36 @@ export function resetPageId() {
   idCounter = 0;
 }
 
-const defaultData = {
-  root: {
-    children: [],
-  },
-  modalRoot: {
-    children: [],
-  },
-};
-
-const defaultLifecycleCallback: any = {};
-
 export default function createPageConfig(Page: React.ComponentType<any>, name: string) {
   const app = getApp() as any;
 
   const config: any = {
-    data: defaultData,
+    data: {
+      root: {
+        children: [],
+      },
+      modalRoot: {
+        children: [],
+      },
+    },
 
     wrapperRef: React.createRef<any>(),
 
-    lifecycleCallback: defaultLifecycleCallback,
+    lifecycleCallback: {},
 
     onLoad(this: any, query: any) {
       const PageWrapper = createPageWrapper(Page, name);
       this.pageId = generatePageId();
 
-      this.lifecycleCallback = defaultLifecycleCallback;
-      this.data = defaultData;
+      this.lifecycleCallback = {};
+      this.data = {
+        root: {
+          children: [],
+        },
+        modalRoot: {
+          children: [],
+        },
+      };
 
       this.query = query;
       this.container = new Container(this, 'root');
