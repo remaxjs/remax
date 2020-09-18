@@ -3,56 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.8.1](https://github.com/remaxjs/remax/compare/v2.8.0...v2.8.1) (2020-09-16)
+## [2.8.2](https://github.com/remaxjs/remax/compare/v2.8.1...v2.8.2) (2020-09-18)
 
 **Note:** Version bump only for package @remax/web
 
+## [2.8.1](https://github.com/remaxjs/remax/compare/v2.8.0...v2.8.1) (2020-09-16)
 
-
-
+**Note:** Version bump only for package @remax/web
 
 # [2.8.0](https://github.com/remaxjs/remax/compare/v2.7.10...v2.8.0) (2020-09-15)
 
 **Note:** Version bump only for package @remax/web
 
-
-
-
-
 ## [2.7.10](https://github.com/remaxjs/remax/compare/v2.7.9...v2.7.10) (2020-09-11)
 
 **Note:** Version bump only for package @remax/web
 
-
-
-
-
 ## [2.7.9](https://github.com/remaxjs/remax/compare/v2.7.8...v2.7.9) (2020-09-10)
-
 
 ### Bug Fixes
 
-* **web:** 修复 app config 中 router 配置的类型错误 ([b4f2c84](https://github.com/remaxjs/remax/commit/b4f2c84e7c00fd3e69dc8e7edd221e556bbdc346))
-
-
-
-
+- **web:** 修复 app config 中 router 配置的类型错误 ([b4f2c84](https://github.com/remaxjs/remax/commit/b4f2c84e7c00fd3e69dc8e7edd221e556bbdc346))
 
 ## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
 
 **Note:** Version bump only for package @remax/web
 
-
-
-
-
 ## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
 
 **Note:** Version bump only for package @remax/web
-
-
-
-
 
 ## [2.7.6](https://github.com/remaxjs/remax/compare/v2.7.5...v2.7.6) (2020-07-28)
 

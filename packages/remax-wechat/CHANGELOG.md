@@ -3,63 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.2](https://github.com/remaxjs/remax/compare/v2.8.1...v2.8.2) (2020-09-18)
+
+### Bug Fixes
+
+- **wechat:** 微信 Button 组件支持 QQ 小程序新增参数 ([#1297](https://github.com/remaxjs/remax/issues/1297)) ([1d9a839](https://github.com/remaxjs/remax/commit/1d9a8396b4c967e7474d9e3d6735e195e570f088))
+
 ## [2.8.1](https://github.com/remaxjs/remax/compare/v2.8.0...v2.8.1) (2020-09-16)
 
 **Note:** Version bump only for package @remax/wechat
 
-
-
-
-
 # [2.8.0](https://github.com/remaxjs/remax/compare/v2.7.10...v2.8.0) (2020-09-15)
-
 
 ### Features
 
-* **wechat:** 导出 TouchEvent GenericEvent 事件定义 ([#1286](https://github.com/remaxjs/remax/issues/1286)) ([27a90cd](https://github.com/remaxjs/remax/commit/27a90cd5aef63ff84e43c25f57101b080387f638)), closes [#1062](https://github.com/remaxjs/remax/issues/1062)
-
-
-
-
+- **wechat:** 导出 TouchEvent GenericEvent 事件定义 ([#1286](https://github.com/remaxjs/remax/issues/1286)) ([27a90cd](https://github.com/remaxjs/remax/commit/27a90cd5aef63ff84e43c25f57101b080387f638)), closes [#1062](https://github.com/remaxjs/remax/issues/1062)
 
 ## [2.7.10](https://github.com/remaxjs/remax/compare/v2.7.9...v2.7.10) (2020-09-11)
 
 **Note:** Version bump only for package @remax/wechat
 
-
-
-
-
 ## [2.7.9](https://github.com/remaxjs/remax/compare/v2.7.8...v2.7.9) (2020-09-10)
-
 
 ### Bug Fixes
 
-* **wechat:** 修复微信小程序 app.config.ts 声明错误问题 ([#1257](https://github.com/remaxjs/remax/issues/1257)) ([b2077ae](https://github.com/remaxjs/remax/commit/b2077aeaf1f559ff78532ea8d9136660691f02b4))
-* **wechat:** 微信添加 catchTouchMove 的类型定义 ([6efda1d](https://github.com/remaxjs/remax/commit/6efda1d0004f0e6588138068516f516d0016e4e2))
-
-
-
-
+- **wechat:** 修复微信小程序 app.config.ts 声明错误问题 ([#1257](https://github.com/remaxjs/remax/issues/1257)) ([b2077ae](https://github.com/remaxjs/remax/commit/b2077aeaf1f559ff78532ea8d9136660691f02b4))
+- **wechat:** 微信添加 catchTouchMove 的类型定义 ([6efda1d](https://github.com/remaxjs/remax/commit/6efda1d0004f0e6588138068516f516d0016e4e2))
 
 ## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
 
-
 ### Bug Fixes
 
-* 修复 WebStrom 中组件不自动提示属性的问题 ([#1203](https://github.com/remaxjs/remax/issues/1203)) ([b3b7a8b](https://github.com/remaxjs/remax/commit/b3b7a8b8202c880e9b6efa307a678991d0cccc74))
-
-
-
-
+- 修复 WebStrom 中组件不自动提示属性的问题 ([#1203](https://github.com/remaxjs/remax/issues/1203)) ([b3b7a8b](https://github.com/remaxjs/remax/commit/b3b7a8b8202c880e9b6efa307a678991d0cccc74))
 
 ## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
 
 **Note:** Version bump only for package @remax/wechat
-
-
-
-
 
 ## [2.7.6](https://github.com/remaxjs/remax/compare/v2.7.5...v2.7.6) (2020-07-28)
 

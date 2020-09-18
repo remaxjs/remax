@@ -1,7 +1,7 @@
 {
   "name": "e2e-dummy",
   "private": true,
-  "version": "2.8.1",
+  "version": "2.8.2",
   "description": "Remax Project",
   "main": "index.js",
   "keywords": [],
@@ -15,7 +15,7 @@
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "remax": "2.8.1"
+    "remax": "2.8.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
