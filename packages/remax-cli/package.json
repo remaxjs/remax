@@ -73,7 +73,7 @@
     "webpack-chain": "^6.4.0",
     "webpack-dev-server": "^3.10.3",
     "webpack-sources": "^1.4.3",
-    "webpack-virtual-modules": "^0.2.1",
+    "webpack-virtual-modules": "^0.3.1",
     "webpackbar": "^4.0.0",
     "yargs": "^16.0.3"
   },
