@@ -13,7 +13,7 @@ export interface VideoProps extends BaseProps {
   objectFit?: 'contain' | 'fill' | 'cover';
   poster?: string;
   pageGesture?: boolean;
-  direction?: string;
+  direction?: number;
   showProgress?: boolean;
   showFullscreenBtn?: boolean;
   enableProgressGesture?: boolean;
@@ -43,16 +43,19 @@ export interface VideoProps extends BaseProps {
 export const Video: React.ComponentType<VideoProps> = createHostComponent<VideoProps>('video');
 
 Video.defaultProps = {
+  initialTime: 0,
   controls: true,
   autoPlay: false,
   loop: false,
   muted: false,
   objectFit: 'contain',
   pageGesture: false,
+  direction: 0,
   showProgress: true,
   showFullscreenBtn: true,
   enableProgressGesture: true,
   danmuBtn: false,
+  danmuList: [],
   enableDanmu: false,
   showPlayBtn: true,
   showCenterPlayBtn: true,
