@@ -21,8 +21,6 @@ export function resetPageId() {
 }
 
 export default function createPageConfig(Page: React.ComponentType<any>, name: string) {
-  const app = getApp() as any;
-
   const config: any = {
     data: {
       root: {
@@ -64,7 +62,7 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
         this.container,
         this.pageId
       );
-
+      const app = getApp() as any;
       app._mount(this);
 
       return this.callLifecycle(Lifecycle.load, query);
@@ -74,6 +72,7 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
       this.callLifecycle(Lifecycle.unload);
       this.unloaded = true;
       this.container.clearUpdate();
+      const app = getApp() as any;
       app._unmount(this);
     },
 
