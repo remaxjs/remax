@@ -2572,6 +2572,21 @@
   resolved "https://registry.yarnpkg.com/@remax/react-router-cache-route/-/react-router-cache-route-1.8.4.tgz#cf9ddad48b9ee5ef8439c705f2c865bd2c673543"
   integrity sha512-W17U/5/y6ZjMdfVw400AY3hrBJCr6UC+f/6VUANU0O41pH68eGY0gwxRlR3aa6eQfT6ztMSfvLLPjzBAOjhoKg==
 
+"@remax/shared@2.7.7":
+  version "2.7.7"
+  resolved "https://registry.yarnpkg.com/@remax/shared/-/shared-2.7.7.tgz#9cb67383f66624c0603c925c134b89b609896463"
+  integrity sha512-7b+dv/vdgVnDvHP2qOJPTAFsySn9Rvc+kJclL+dF+mZON+hUSZOcwazuz+8faG8xCMXSo36uuBpafKfbusRxXw==
+
+"@remax/types@2.7.7":
+  version "2.7.7"
+  resolved "https://registry.yarnpkg.com/@remax/types/-/types-2.7.7.tgz#3a96259cdc8d2deaa1c5f78463caa4b5feba7be2"
+  integrity sha512-cSYzeY0HlSPXcl+AYieiLDhxStm41EKdGCSrcNScodFPgQwB+BYGR84UaLzV2Y7U9giZx94oMz1tPxWm//nK+A==
+  dependencies:
+    "@babel/types" "^7.8.0"
+    "@types/webpack" "^4.41.10"
+    "@types/yargs" "^15.0.0"
+    webpack-chain "^6.4.0"
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -16982,6 +16997,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typescript@^3.7.4:
+  version "3.9.7"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
+  integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
 
 typescript@^4.0.2:
   version "4.0.2"
