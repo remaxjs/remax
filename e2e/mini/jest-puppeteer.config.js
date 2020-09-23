@@ -4,8 +4,8 @@ module.exports = {
   },
   server: {
     debug: true,
-    command: 'yarn build && NODE_ENV=development tiny river',
+    command: 'http-server --cors --port=8888 -s',
     port: 8888,
-    launchTimeout: 30000,
+    launchTimeout: 60000
   },
 };

@@ -6,7 +6,6 @@ import render from '../render';
 import { reset as resetInstanceId } from '../instanceId';
 import Container from '../Container';
 import createPageWrapper from '../createPageWrapper';
-// eslint-disable-next-line @typescript-eslint/camelcase
 import { useNativeEffect, usePageInstance } from '../hooks';
 import { RuntimeOptions } from '..';
 import { Platform } from '@remax/types';
@@ -24,17 +23,17 @@ function delay(ms: number) {
 }
 
 const p = {
-  setData(state: any, callback: Function) {
+  setData(state: any, callback: () => void) {
     setTimeout(() => {
       if (typeof callback === 'function') {
         callback();
       }
     });
   },
-  $batchedUpdates(callback: Function) {
+  $batchedUpdates(callback: () => void) {
     callback();
   },
-  $spliceData(state: any, callback: Function) {
+  $spliceData(state: any, callback: () => void) {
     setTimeout(() => {
       if (typeof callback === 'function') {
         callback();

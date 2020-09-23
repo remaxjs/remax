@@ -6,43 +6,18 @@ jest.setTimeout(20 * 1000);
 
 declare const page: Page;
 
-const getFrame = (type: 'page' | 'frame', doc: Page | Frame): Frame | undefined => {
-  if (type === 'page') {
-    return (doc as Page).frames()[0];
-  }
-
-  return (doc as Frame).childFrames()[0];
-};
-
-export const waitForFrame = (page: Page | Frame, type: 'page' | 'frame' = 'page') =>
-  new Promise<Frame>(resolve => {
-    const checkFrame = () => {
-      const frame = getFrame(type, page);
-      if (frame) {
-        resolve(frame);
-        return;
-      }
-
-      if (type === 'frame') {
-        setTimeout(checkFrame);
-      } else {
-        (page as Page).once(`frameattached`, checkFrame);
-      }
-    };
-    checkFrame();
-  });
-
 export const openPage = (url: string) => {
   const pageQuery = encodeURIComponent(url.replace(/^\//, ''));
   return page.goto(
-    `http://river.alipay.net/appx.html?page=${pageQuery}&launchParams=%7B"enableTabBar"%3A"YES"%7D&url=http://127.0.0.1:8888/`
+    `https://appx.dev/appx.html?page=${pageQuery}&url=http://127.0.0.1:8888/dist/webng/&launchParams=%7B"appxRouteFramework"%3A"YES"%2C"appxRouteBizPrefix"%3A""%2C"enableTabBar"%3A"YES"%7D`
   );
 };
 
 export const launchApp = async (url: string) => {
   await openPage(url);
-  const simulartorFrame = await waitForFrame(page);
-  return waitForFrame(simulartorFrame, 'frame');
+  await page.waitForFunction('window.frames.length === 2');
+  const app = await page.frames()[1];
+  return app;
 };
 
 export const delay = (time = 100) =>

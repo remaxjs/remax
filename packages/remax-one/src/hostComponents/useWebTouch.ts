@@ -3,11 +3,11 @@ import { LONG_TAP_DURATION } from '../constants';
 
 interface UseWebTouchParams {
   hoverDelay?: number;
-  onLongTap?: Function;
-  onTouchCancel?: Function;
-  onTouchEnd?: Function;
-  onTouchMove?: Function;
-  onTouchStart?: Function;
+  onLongTap?: (event: any) => void;
+  onTouchCancel?: (event: any) => void;
+  onTouchEnd?: (event: any) => void;
+  onTouchMove?: (event: any) => void;
+  onTouchStart?: (event: any) => void;
   hoverDuration?: number;
 }
 

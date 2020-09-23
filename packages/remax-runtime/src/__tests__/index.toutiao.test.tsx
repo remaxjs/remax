@@ -4,13 +4,12 @@ import View from './helpers/View';
 import render from '../render';
 import { reset as resetInstanceId } from '../instanceId';
 import Container from '../Container';
-// eslint-disable-next-line @typescript-eslint/camelcase
 import { useNativeEffect } from '../hooks';
 import { Platform } from '@remax/types';
 import { RuntimeOptions } from '..';
 
 const p = {
-  setData(state: any, callback: Function) {
+  setData(state: any, callback: () => void) {
     setTimeout(() => {
       if (typeof callback === 'function') {
         callback();

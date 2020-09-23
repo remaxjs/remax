@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface OfficialAccountProps extends BaseProps {
   /** 组件加载成功时触发 */
-  onLoad?: (event: any) => any;
+  onLoad?: (event: GenericEvent) => any;
   /** 组件加载失败时触发 */
-  onError?: (event: any) => any;
+  onError?: (event: GenericEvent) => any;
 }
 
 /**

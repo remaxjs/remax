@@ -35,11 +35,21 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
 
     wrapperRef: React.createRef<any>(),
 
-    lifecycleCallback: {} as any,
+    lifecycleCallback: {},
 
     onLoad(this: any, query: any) {
       const PageWrapper = createPageWrapper(Page, name);
       this.pageId = generatePageId();
+
+      this.lifecycleCallback = {};
+      this.data = {
+        root: {
+          children: [],
+        },
+        modalRoot: {
+          children: [],
+        },
+      };
 
       this.query = query;
       this.container = new Container(this, 'root');
@@ -107,25 +117,25 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
     events: {
       // 页面返回时触发
       onBack(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.back, e);
+        return this.callLifecycle(Lifecycle.back, e);
       },
 
       // 键盘高度变化时触发
       onKeyboardHeight(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.keyboardHeight, e);
+        return this.callLifecycle(Lifecycle.keyboardHeight, e);
       },
 
       onTabItemTap(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.tabItemTap, e);
+        return this.callLifecycle(Lifecycle.tabItemTap, e);
       },
 
       // 点击但切换tabItem前触发
       beforeTabItemTap(this: any) {
-        return config.callLifecycle(Lifecycle.beforeTabItemTap);
+        return this.callLifecycle(Lifecycle.beforeTabItemTap);
       },
 
       onResize(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.resize, e);
+        return this.callLifecycle(Lifecycle.resize, e);
       },
     },
 

@@ -3,16 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
+## [2.8.2](https://github.com/remaxjs/remax/compare/v2.8.1...v2.8.2) (2020-09-18)
 
+**Note:** Version bump only for package @remax/one
+
+## [2.8.1](https://github.com/remaxjs/remax/compare/v2.8.0...v2.8.1) (2020-09-16)
+
+**Note:** Version bump only for package @remax/one
+
+# [2.8.0](https://github.com/remaxjs/remax/compare/v2.7.10...v2.8.0) (2020-09-15)
+
+### Performance Improvements
+
+- 优化 remax/one 组件渲染性能 ([#1264](https://github.com/remaxjs/remax/issues/1264)) ([7721da2](https://github.com/remaxjs/remax/commit/7721da2460d118b73a0c694a51359588d5689215))
+
+## [2.7.10](https://github.com/remaxjs/remax/compare/v2.7.9...v2.7.10) (2020-09-11)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.7.9](https://github.com/remaxjs/remax/compare/v2.7.8...v2.7.9) (2020-09-10)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
 
 ### Bug Fixes
 
-* **one:** 修复事件对象没有 nativeEvent 的问题 ([#1199](https://github.com/remaxjs/remax/issues/1199)) ([a7308c3](https://github.com/remaxjs/remax/commit/a7308c37ffdbc523dc2d710f9b0463c6ea390142))
+- 修复 WebStrom 中组件不自动提示属性的问题 ([#1203](https://github.com/remaxjs/remax/issues/1203)) ([b3b7a8b](https://github.com/remaxjs/remax/commit/b3b7a8b8202c880e9b6efa307a678991d0cccc74))
 
+## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
 
+### Bug Fixes
 
-
+- **one:** 修复事件对象没有 nativeEvent 的问题 ([#1199](https://github.com/remaxjs/remax/issues/1199)) ([a7308c3](https://github.com/remaxjs/remax/commit/a7308c37ffdbc523dc2d710f9b0463c6ea390142))
 
 ## [2.7.6](https://github.com/remaxjs/remax/compare/v2.7.5...v2.7.6) (2020-07-28)
 

@@ -3,17 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
-
+## [2.8.2](https://github.com/remaxjs/remax/compare/v2.8.1...v2.8.2) (2020-09-18)
 
 ### Bug Fixes
 
-* **one:** 修复事件对象没有 nativeEvent 的问题 ([#1199](https://github.com/remaxjs/remax/issues/1199)) ([a7308c3](https://github.com/remaxjs/remax/commit/a7308c37ffdbc523dc2d710f9b0463c6ea390142))
-* 修复入口文件使用平台扩展名时生成的模板名错误的问题 ([#1198](https://github.com/remaxjs/remax/issues/1198)) ([bdf4a67](https://github.com/remaxjs/remax/commit/bdf4a67e61469e95181e3b21f9ff3e396fb92a4f))
+- **wechat:** 微信 Button 组件支持 QQ 小程序新增参数 ([#1297](https://github.com/remaxjs/remax/issues/1297)) ([1d9a839](https://github.com/remaxjs/remax/commit/1d9a8396b4c967e7474d9e3d6735e195e570f088))
 
+## [2.8.1](https://github.com/remaxjs/remax/compare/v2.8.0...v2.8.1) (2020-09-16)
 
+### Bug Fixes
 
+- 修复同一页面的生命周期会重复触发的问题 ([#1289](https://github.com/remaxjs/remax/issues/1289)) ([4e8fef1](https://github.com/remaxjs/remax/commit/4e8fef1dfe5f26824aecc0d530da23cf48aef758)), closes [#1288](https://github.com/remaxjs/remax/issues/1288)
 
+# [2.8.0](https://github.com/remaxjs/remax/compare/v2.7.10...v2.8.0) (2020-09-15)
+
+### Features
+
+- **wechat:** 导出 TouchEvent GenericEvent 事件定义 ([#1286](https://github.com/remaxjs/remax/issues/1286)) ([27a90cd](https://github.com/remaxjs/remax/commit/27a90cd5aef63ff84e43c25f57101b080387f638)), closes [#1062](https://github.com/remaxjs/remax/issues/1062)
+
+### Performance Improvements
+
+- 优化 remax/one 组件渲染性能 ([#1264](https://github.com/remaxjs/remax/issues/1264)) ([7721da2](https://github.com/remaxjs/remax/commit/7721da2460d118b73a0c694a51359588d5689215))
+
+## [2.7.10](https://github.com/remaxjs/remax/compare/v2.7.9...v2.7.10) (2020-09-11)
+
+### Bug Fixes
+
+- **web:** 修复开发模式下 browser history 不能直接打开路由的问题 ([1d6a910](https://github.com/remaxjs/remax/commit/1d6a910f7859f966824433ba6100773edccc7841))
+
+## [2.7.9](https://github.com/remaxjs/remax/compare/v2.7.8...v2.7.9) (2020-09-10)
+
+### Bug Fixes
+
+- 允许使用 Page 命名页面组件 ([#1273](https://github.com/remaxjs/remax/issues/1273)) ([bfa8032](https://github.com/remaxjs/remax/commit/bfa8032a5f62ad7bc6f82fce7096009a917be727)), closes [#1262](https://github.com/remaxjs/remax/issues/1262)
+- **ali:** 修复同一个页面的生命周期会重复触发的问题 ([2af7537](https://github.com/remaxjs/remax/commit/2af753700e3048d231c0fb7d137e327e2089b9a7)), closes [#1225](https://github.com/remaxjs/remax/issues/1225)
+- **toutiao:** 修复飞书开发者工具运行报错的问题 ([00db2bf](https://github.com/remaxjs/remax/commit/00db2bf5d228c7ab6d1e695ce3d01b4e7e6e2aab))
+- **web:** 修复 app config 中 router 配置的类型错误 ([b4f2c84](https://github.com/remaxjs/remax/commit/b4f2c84e7c00fd3e69dc8e7edd221e556bbdc346))
+- **web:** 修复 web 下即使离开页面 onPageScroll 事件也会触发的问题 ([#1232](https://github.com/remaxjs/remax/issues/1232)) ([7ae649e](https://github.com/remaxjs/remax/commit/7ae649ec03598dc5afed1552dbe12f9c74297c2e))
+- **wechat:** 修复微信小程序 app.config.ts 声明错误问题 ([#1257](https://github.com/remaxjs/remax/issues/1257)) ([b2077ae](https://github.com/remaxjs/remax/commit/b2077aeaf1f559ff78532ea8d9136660691f02b4))
+- **wechat:** 微信添加 catchTouchMove 的类型定义 ([6efda1d](https://github.com/remaxjs/remax/commit/6efda1d0004f0e6588138068516f516d0016e4e2))
+
+## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
+
+### Bug Fixes
+
+- **wechat:** 微信增加 onShareTimeline 生命周期 ([3e5f3cb](https://github.com/remaxjs/remax/commit/3e5f3cb0be474cee2d577f024ae7be100c8456c4))
+- 修复 WebStrom 中组件不自动提示属性的问题 ([#1203](https://github.com/remaxjs/remax/issues/1203)) ([b3b7a8b](https://github.com/remaxjs/remax/commit/b3b7a8b8202c880e9b6efa307a678991d0cccc74))
+- 修复样式会被重复打包的问题 ([#1214](https://github.com/remaxjs/remax/issues/1214)) ([7c7e065](https://github.com/remaxjs/remax/commit/7c7e065b315d82e765a8e015a13f2ae54b2ff49a))
+
+## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
+
+### Bug Fixes
+
+- **one:** 修复事件对象没有 nativeEvent 的问题 ([#1199](https://github.com/remaxjs/remax/issues/1199)) ([a7308c3](https://github.com/remaxjs/remax/commit/a7308c37ffdbc523dc2d710f9b0463c6ea390142))
+- 修复入口文件使用平台扩展名时生成的模板名错误的问题 ([#1198](https://github.com/remaxjs/remax/issues/1198)) ([bdf4a67](https://github.com/remaxjs/remax/commit/bdf4a67e61469e95181e3b21f9ff3e396fb92a4f))
 
 ## [2.7.6](https://github.com/remaxjs/remax/compare/v2.7.5...v2.7.6) (2020-07-28)
 

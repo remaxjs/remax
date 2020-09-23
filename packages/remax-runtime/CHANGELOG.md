@@ -3,13 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
+## [2.8.2](https://github.com/remaxjs/remax/compare/v2.8.1...v2.8.2) (2020-09-18)
 
 **Note:** Version bump only for package @remax/runtime
 
+## [2.8.1](https://github.com/remaxjs/remax/compare/v2.8.0...v2.8.1) (2020-09-16)
 
+### Bug Fixes
 
+- 修复同一页面的生命周期会重复触发的问题 ([#1289](https://github.com/remaxjs/remax/issues/1289)) ([4e8fef1](https://github.com/remaxjs/remax/commit/4e8fef1dfe5f26824aecc0d530da23cf48aef758)), closes [#1288](https://github.com/remaxjs/remax/issues/1288)
 
+# [2.8.0](https://github.com/remaxjs/remax/compare/v2.7.10...v2.8.0) (2020-09-15)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.7.10](https://github.com/remaxjs/remax/compare/v2.7.9...v2.7.10) (2020-09-11)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.7.9](https://github.com/remaxjs/remax/compare/v2.7.8...v2.7.9) (2020-09-10)
+
+### Bug Fixes
+
+- **ali:** 修复同一个页面的生命周期会重复触发的问题 ([2af7537](https://github.com/remaxjs/remax/commit/2af753700e3048d231c0fb7d137e327e2089b9a7)), closes [#1225](https://github.com/remaxjs/remax/issues/1225)
+- **toutiao:** 修复飞书开发者工具运行报错的问题 ([00db2bf](https://github.com/remaxjs/remax/commit/00db2bf5d228c7ab6d1e695ce3d01b4e7e6e2aab))
+- **web:** 修复 web 下即使离开页面 onPageScroll 事件也会触发的问题 ([#1232](https://github.com/remaxjs/remax/issues/1232)) ([7ae649e](https://github.com/remaxjs/remax/commit/7ae649ec03598dc5afed1552dbe12f9c74297c2e))
+
+## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
+
+### Bug Fixes
+
+- **wechat:** 微信增加 onShareTimeline 生命周期 ([3e5f3cb](https://github.com/remaxjs/remax/commit/3e5f3cb0be474cee2d577f024ae7be100c8456c4))
+
+## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
+
+**Note:** Version bump only for package @remax/runtime
 
 ## [2.7.6](https://github.com/remaxjs/remax/compare/v2.7.5...v2.7.6) (2020-07-28)
 

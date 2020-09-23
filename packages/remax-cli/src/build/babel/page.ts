@@ -57,6 +57,16 @@ export default function page(options: Options, api: API) {
           skip = true;
         }
       },
+      Identifier(path: NodePath<t.Identifier>) {
+        if (skip) {
+          return;
+        }
+        // 防止跟小程序的 Page 冲突
+        if (path.node.name === 'Page') {
+          path.scope.rename('Page', path.scope.generateUidIdentifier('Page').name);
+          return;
+        }
+      },
     },
   };
 }

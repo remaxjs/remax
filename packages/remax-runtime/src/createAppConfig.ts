@@ -49,6 +49,12 @@ export default function createAppConfig(this: any, App: any) {
       },
 
       _mount(pageInstance: any) {
+        /**
+         * 飞书开发者工具的问题，这里的 this 跟 getApp 拿到的不是同一个实例
+         */
+        if (!this._container.context) {
+          this._container.context = this;
+        }
         this._pages.push(pageInstance);
         this._render();
       },

@@ -12,14 +12,12 @@ describe('page query hook', () => {
     // mock mini program getApp api
     const app = createAppConfig(undefined);
     app.onLaunch();
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
     // @ts-ignore
     global.getApp = () => app;
   });
 
   afterEach(() => {
     resetPageId();
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
     // @ts-ignore
     global.getApp = undefined;
   });

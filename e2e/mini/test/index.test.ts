@@ -1,4 +1,4 @@
-import { launchApp, delay } from './helpers';
+import { launchApp } from './helpers';
 import { Page, Frame } from 'puppeteer';
 
 declare const page: Page;
@@ -45,8 +45,8 @@ describe('首页', () => {
 
     expect(images).toMatchInlineSnapshot(`
       Array [
-        "http://127.0.0.1:8888/7285019d500b66029accbcfd7275e33a.jpg",
-        "http://127.0.0.1:8888/6e6a60f044924f71fec456293be371f9.jpg",
+        "http://127.0.0.1:8888/dist/webng/7285019d500b66029accbcfd7275e33a.jpg",
+        "http://127.0.0.1:8888/dist/webng/6e6a60f044924f71fec456293be371f9.jpg",
       ]
     `);
   });

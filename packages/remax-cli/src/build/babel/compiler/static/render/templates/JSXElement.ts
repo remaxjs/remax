@@ -23,7 +23,7 @@ export default function JSXElement(
   node: RenderNode<t.JSXElement>,
   path: NodePath,
   dataPath: Array<string | number>,
-  createTemplate: Function
+  createTemplate: (api: API, child: any, path: NodePath, dataPath: Array<string | number>) => string
 ) {
   const { node: element, children } = node;
   const attributes = element.openingElement.attributes;

@@ -1,6 +1,6 @@
 {
   "name": "@remax/runtime",
-  "version": "2.7.7",
+  "version": "2.8.2",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "./cjs/index.js",
   "esnext": "./esm/index.js",
@@ -33,9 +33,9 @@
     "@types/react": "^16.9.33"
   },
   "dependencies": {
-    "@remax/shared": "2.7.7",
-    "@remax/types": "2.7.7",
-    "@remax/web": "2.7.7",
+    "@remax/shared": "2.8.2",
+    "@remax/types": "2.8.2",
+    "@remax/web": "2.8.2",
     "qs": "^6.9.3",
     "react-reconciler": "0.25.1",
     "scheduler": "0.19.1"
@@ -52,7 +52,7 @@
     "react": "^16.8.6",
     "react-test-renderer": "^16.9.0",
     "ts-jest": "^26.0.0",
-    "typescript": "^3.7.3"
+    "typescript": "^4.0.2"
   },
   "gitHead": "06dcaa3df31f6bde22b6d07a979c361dc137351f"
 }

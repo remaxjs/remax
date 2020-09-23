@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 import { createHostComponent } from '@remax/shared';
 
 const hostComponentName = 'video';
@@ -12,7 +12,7 @@ export interface VideoProps extends BaseProps {
   /** 是否显示默认播放控件（播放/暂停按钮、播放进度、时间） 1.0.0 */
   controls?: boolean;
   /** 弹幕列表 1.0.0 */
-  danmuList?: object[];
+  danmuList?: any[];
   /** 是否显示弹幕按钮，只在初始化时有效，不能动态变更 1.0.0 */
   danmuBtn?: boolean;
   /** 是否展示弹幕，只在初始化时有效，不能动态变更 1.0.0 */
@@ -72,20 +72,20 @@ export interface VideoProps extends BaseProps {
   /** 在全屏模式下，是否开启亮度与音量调节手势 2.6.2 */
   vslideGestureInFullscreen?: boolean;
   /** 当开始/继续播放时触发play事件 1.0.0 */
-  onPlay?: (event: any) => any;
+  onPlay?: (event: GenericEvent) => any;
   /** 当暂停播放时触发 pause 事件 1.0.0 */
-  onPause?: (event: any) => any;
+  onPause?: (event: GenericEvent) => any;
   /** 当播放到末尾时触发 ended 事件 1.0.0 */
-  onEnded?: (event: any) => any;
+  onEnded?: (event: GenericEvent) => any;
   /** 播放进度变化时触发，event.detail = {currentTime, duration} 。触发频率 250ms 一次 1.0.0 */
-  onTimeUpdate?: (event: any) => any;
+  onTimeUpdate?: (event: GenericEvent) => any;
   /** 视频进入和退出全屏时触发，event.detail = {fullScreen, direction}，direction 有效值为 vertical 或 horizontal 1.4.0 */
-  onFullScreenChange?: (event: any) => any;
+  onFullScreenChange?: (event: GenericEvent) => any;
   /** 视频出现缓冲时触发 1.7.0 */
-  onWaiting?: (event: any) => any;
+  onWaiting?: (event: GenericEvent) => any;
   /** 视频播放出错时触发 1.7.0 */
-  onError?: (event: any) => any;
-  onProgress?: (event: any) => any;
+  onError?: (event: GenericEvent) => any;
+  onProgress?: (event: GenericEvent) => any;
 }
 
 const VideoRender: React.ForwardRefRenderFunction<any, VideoProps> = (props, ref) => {

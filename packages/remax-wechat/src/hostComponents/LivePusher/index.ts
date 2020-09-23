@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface LivePusherProps extends BaseProps {
   /** 推流地址。目前仅支持 flv, rtmp 格式 1.7.0  */
@@ -62,17 +62,17 @@ export interface LivePusherProps extends BaseProps {
   /** (default: 640) 上推的视频流的分辨率高度	2.10.0 */
   videoHeight?: number;
   /** 状态变化事件，detail = {code} 1.7.0 */
-  onStateChange?: (event: any) => any;
+  onStateChange?: (event: GenericEvent) => any;
   /** 网络状态通知，detail = {info} 1.9.0 */
-  onNetStatus?: (event: any) => any;
+  onNetStatus?: (event: GenericEvent) => any;
   /** 渲染错误事件，detail = {errMsg, errCode} 1.7.4 */
-  onError?: (event: any) => any;
+  onError?: (event: GenericEvent) => any;
   /** 背景音开始播放时触发 2.4.0 */
-  onBgmStart?: (event: any) => any;
+  onBgmStart?: (event: GenericEvent) => any;
   /** 背景音进度变化时触发，detail = {progress, duration} 2.4.0 */
-  onBgmProgress?: (event: any) => any;
+  onBgmProgress?: (event: GenericEvent) => any;
   /** 背景音播放完成时触发 2.4.0 */
-  onBgmComplete?: (event: any) => any;
+  onBgmComplete?: (event: GenericEvent) => any;
 }
 
 /**

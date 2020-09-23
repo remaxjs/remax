@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface ProgressProps extends BaseProps {
   /** 百分比0~100 1.0.0 */
@@ -28,7 +28,7 @@ export interface ProgressProps extends BaseProps {
    */
   duration?: number;
   /** 动画完成事件 2.4.1 */
-  onActiveEnd?: (event: any) => any;
+  onActiveEnd?: (event: GenericEvent) => any;
 }
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/progress.html

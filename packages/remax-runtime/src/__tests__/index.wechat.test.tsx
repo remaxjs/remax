@@ -19,7 +19,7 @@ function delay(ms: number) {
 }
 
 const p = {
-  setData(state: any, callback: Function) {
+  setData(state: any, callback: () => void) {
     setTimeout(() => {
       if (typeof callback === 'function') {
         callback();

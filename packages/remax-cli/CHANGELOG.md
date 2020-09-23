@@ -3,16 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
-
+## [2.8.2](https://github.com/remaxjs/remax/compare/v2.8.1...v2.8.2) (2020-09-18)
 
 ### Bug Fixes
 
-* 修复入口文件使用平台扩展名时生成的模板名错误的问题 ([#1198](https://github.com/remaxjs/remax/issues/1198)) ([bdf4a67](https://github.com/remaxjs/remax/commit/bdf4a67e61469e95181e3b21f9ff3e396fb92a4f))
+- **wechat:** 微信 Button 组件支持 QQ 小程序新增参数 ([#1297](https://github.com/remaxjs/remax/issues/1297)) ([1d9a839](https://github.com/remaxjs/remax/commit/1d9a8396b4c967e7474d9e3d6735e195e570f088))
 
+## [2.8.1](https://github.com/remaxjs/remax/compare/v2.8.0...v2.8.1) (2020-09-16)
 
+**Note:** Version bump only for package @remax/cli
 
+# [2.8.0](https://github.com/remaxjs/remax/compare/v2.7.10...v2.8.0) (2020-09-15)
 
+**Note:** Version bump only for package @remax/cli
+
+## [2.7.10](https://github.com/remaxjs/remax/compare/v2.7.9...v2.7.10) (2020-09-11)
+
+### Bug Fixes
+
+- **web:** 修复开发模式下 browser history 不能直接打开路由的问题 ([1d6a910](https://github.com/remaxjs/remax/commit/1d6a910f7859f966824433ba6100773edccc7841))
+
+## [2.7.9](https://github.com/remaxjs/remax/compare/v2.7.8...v2.7.9) (2020-09-10)
+
+### Bug Fixes
+
+- 允许使用 Page 命名页面组件 ([#1273](https://github.com/remaxjs/remax/issues/1273)) ([bfa8032](https://github.com/remaxjs/remax/commit/bfa8032a5f62ad7bc6f82fce7096009a917be727)), closes [#1262](https://github.com/remaxjs/remax/issues/1262)
+
+## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
+
+### Bug Fixes
+
+- **wechat:** 微信增加 onShareTimeline 生命周期 ([3e5f3cb](https://github.com/remaxjs/remax/commit/3e5f3cb0be474cee2d577f024ae7be100c8456c4))
+- 修复样式会被重复打包的问题 ([#1214](https://github.com/remaxjs/remax/issues/1214)) ([7c7e065](https://github.com/remaxjs/remax/commit/7c7e065b315d82e765a8e015a13f2ae54b2ff49a))
+
+## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
+
+### Bug Fixes
+
+- 修复入口文件使用平台扩展名时生成的模板名错误的问题 ([#1198](https://github.com/remaxjs/remax/issues/1198)) ([bdf4a67](https://github.com/remaxjs/remax/commit/bdf4a67e61469e95181e3b21f9ff3e396fb92a4f))
 
 ## [2.7.6](https://github.com/remaxjs/remax/compare/v2.7.5...v2.7.6) (2020-07-28)
 
