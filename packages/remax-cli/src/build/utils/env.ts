@@ -8,11 +8,12 @@ export default function getEnvironment(options: Options, target: string) {
   const envFilePath = path.join(options.cwd, '.env');
 
   const NODE_ENV = process.env.NODE_ENV;
+  const dotenvSymbol = process.env[options.dotenvSymbol || 'NODE_ENV'];
 
   // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
   const dotenvFiles = [
-    `${envFilePath}.${NODE_ENV}.local`,
-    `${envFilePath}.${NODE_ENV}`,
+    `${envFilePath}.${dotenvSymbol}.local`,
+    `${envFilePath}.${dotenvSymbol}`,
     // Don't include `.env.local` for `test` environment
     // since normally you expect tests to produce the same
     // results for everyone

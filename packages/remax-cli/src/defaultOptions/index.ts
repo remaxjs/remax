@@ -13,5 +13,6 @@ export function getDefaultOptions(): Options {
     UNSAFE_wechatTemplateDepth,
     plugins: [],
     notify: false,
+    dotenvSymbol: 'NODE_ENV',
   };
 }

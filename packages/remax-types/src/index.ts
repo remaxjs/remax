@@ -27,6 +27,7 @@ export interface Options {
   target?: Platform;
   analyze?: boolean;
   minimize?: boolean;
+  dotenvSymbol?: string;
 }
 
 export type Config = Partial<Options>;

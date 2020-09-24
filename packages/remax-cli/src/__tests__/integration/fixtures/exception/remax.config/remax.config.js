@@ -10,4 +10,5 @@ module.exports = {
   compressTemplate: 1,
   configWebpack: 1,
   plugins: 1,
+  dotenvSymbol: 1,
 };

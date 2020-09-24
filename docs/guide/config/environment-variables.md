@@ -74,3 +74,19 @@ REMAX_APP_BASE_URL=https://example.com/api
 DOMAIN=www.example.com
 REMAX_APP_API=$DOMAIN/api
 ```
+
+## 自定义启用dotenv的环境变量名称
+
+默认以 `NODE_ENV` 环境变量来区分加载 `dotenv` 文件配置，也可以配置项 `dotenvSymbol` 进行自定义
+
+启动命令：
+
+```shell
+APP_ENV=staging remax build -t ali
+```
+
+```js
+module.exports = {
+  dotenvSymbol: 'APP_ENV'
+}
+```

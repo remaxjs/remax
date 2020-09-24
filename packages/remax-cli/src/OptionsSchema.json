@@ -33,6 +33,9 @@
     },
     "plugins": {
       "type": "array"
+    },
+    "dotenvSymbol": {
+      "type": "string"
     }
   },
   "additionalProperties": false
