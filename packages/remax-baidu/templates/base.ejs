@@ -1,65 +1,54 @@
 <template name="REMAX_TPL">
-	<block s-for="root.children">
-		<template is="REMAX_TPL_1_CONTAINER" data="{{{i: root.nodes[item], an: ''}}}" />
-	</block>
+  <block s-for="root.children">
+    <template style="{{root.nodes[item].props.style}}" class="{{root.nodes[item].props.class}}" is="REMAX_TPL_1_CONTAINER" data="{{{i: root.nodes[item], an: ''}}}" />
+  </block>
 </template>
 
 <import-sjs module="_h">
-	var elements = {};
-	module.exports = {
-		v: function(value) {
-			return value !== undefined ? value : '';
-		},
-		tid: function (type, ancestor) {
-			var items = ancestor.split(',');
-			var depth = 1;
-			for (var i = 0; i < items.length; i++) {
-				if (type === items[i]) {
-					depth = depth + 1;
-				}
-			}
-			var id = 'REMAX_TPL_' + depth + '_' + type;
-			return id;
-		}
-	};
+  var elements = {};
+  module.exports = {
+    v: function(value) {
+      return value !== undefined ? value : '';
+    },
+    tid: function (type, ancestor) {
+      var items = ancestor.split(',');
+      var depth = 1;
+      for (var i = 0; i < items.length; i++) {
+        if (type === items[i]) {
+          depth = depth + 1;
+        }
+      }
+      var id = 'REMAX_TPL_' + depth + '_' + type;
+      return id;
+    }
+  };
 </import-sjs>
 <%_ for (let component of components) { %>
-	<%_ let componentDepth = depth[component.id] || 10; %>
-	<%_ if (component.id === 'text') { %> 
-		<%- include('./text.ejs', {
-		props: component.props,
-		id: component.id,
-		type: component.type,
-		depth: componentDepth
-		}) _%>
-	<%_ } else if (component.id === 'viewFlex') { %> 
-		<%# TODO view 成组嵌套解决 https://github.com/NervJS/taro/issues/6015 但在性能上大幅下降 %>
-		<%_ for (let i = 1; i <= componentDepth; i++) { %>
-			<%- include('./view.ejs', {
-			props: component.props,
-			id: component.id,
-			type: component.type,
-			templateId: i,
-			depth: 2
-			}) _%> 
-		<%_ } _%>
-	<%_ } else { _%>
-		<%_ for (let i = 1; i <= componentDepth; i++) { %>
-		<%- include('./component.ejs', {
-			props: component.props,
-			id: component.id,
-			templateId: i,
-			type: component.type,
-			slotView: slotView
-		}) _%>
-		<%_ } _%>
-	<%_ } _%>
+  <%_ let componentDepth = depth[component.id] || 10; %>
+  <%_ if (component.id === 'text') { %> 
+    <%- include('./text.ejs', {
+    props: component.props,
+    id: component.id,
+    type: component.type,
+    depth: componentDepth
+    }) _%>
+  <%_ } else { _%>
+    <%_ for (let i = 1; i <= componentDepth; i++) { %>
+    <%- include('./component.ejs', {
+      props: component.props,
+      id: component.id,
+      templateId: i,
+      type: component.type,
+      slotView: slotView
+    }) _%>
+    <%_ } _%>
+  <%_ } _%>
 <%_ } _%>
 <template name="REMAX_TPL_1_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
+  <block>{{i.text}}</block>
 </template>
 <%_ for (let d = 1; d <= depth['view']; d++) { %>
 <template name="REMAX_TPL_<%= d %>_CONTAINER" data="{{{i: i}}}">
-	<template is="{{_h.tid(i.type, an)}}" data="{{{i: i, an: an + ',' + i.type, tid: <%= d %>}}}" />
+  <template is="{{_h.tid(i.type, an)}}" data="{{{i: i, an: an + ',' + i.type, tid: <%= d %>}}}" />
 </template>
 <%_ } _%>

@@ -23,6 +23,6 @@
 </block>
 <%_ } else { _%>
 <block s-for="i.children">
-  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: i.nodes[item], an: an, tid: tid + 1 }}}" />
+  <template style="{{i.nodes[item].props.style}}" class="{{i.nodes[item].props.class}}" is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{{i: i.nodes[item], an: an, tid: tid + 1 }}}" />
 </block>
 <%_ } _%>
