@@ -4,6 +4,7 @@ import { BaseProps } from '../../types/component';
 
 export interface InputProps extends BaseProps {
   value?: string;
+  name?: string;
   type?: 'text' | 'number' | 'idcard' | 'digit';
   password?: boolean;
   placeholder?: string;
