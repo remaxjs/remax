@@ -1,6 +1,6 @@
 <template name="REMAX_TPL">
   <block s-for="root.children">
-    <template style="{{root.nodes[item].props.style}}" class="{{root.nodes[item].props.class}}" is="REMAX_TPL_1_CONTAINER" data="{{{i: root.nodes[item], an: ''}}}" />
+    <template is="REMAX_TPL_1_CONTAINER" data="{{{i: root.nodes[item], an: ''}}}" />
   </block>
 </template>
 
