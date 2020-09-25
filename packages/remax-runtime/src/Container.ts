@@ -49,7 +49,12 @@ export default class Container {
   }
 
   normalizeUpdatePath(paths: string[]) {
-    return [this.rootKey, ...paths].join('.');
+    return paths.reduce((acc, key) => {
+      if (key.indexOf('-') > -1) {
+        return acc + `['${key}']`;
+      }
+      return acc + '.' + key;
+    }, this.rootKey);
   }
 
   applyUpdate() {
