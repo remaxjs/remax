@@ -1,10 +1,8 @@
 <template name="REMAX_TPL_<%=templateId%>_<%=id%>">
-  <%_ function propsKeyTpl(props, isCatch) {
+  <%_ function propsKeyTpl(props, ignorekey) {
     // 互斥事件
-    if (isCatch) {
-      props = props.filter(key => key !== 'bindtouchmove')
-    } else {
-      props = props.filter(key => key !== 'catchtouchmove') 
+    if (ignorekey) {
+      props = props.filter(key => key !== ignorekey)
     }
     return props
       .map(key => `${key}="{{_h.v(i.props['${key}'])}}"`)
@@ -13,17 +11,29 @@
   <%_ if (id === 'view') { _%>
   <%# view 标签需要区分是否含 catchtouchmove 事件，区分渲染模板 %>
   <block s-if="{{i.props['catchtouchmove']}}">
-    <<%=id%> <%- propsKeyTpl(props, true) %>>
+    <<%=id%> <%- propsKeyTpl(props, 'bindtouchmove') %>>
       <%- include('./children.ejs', { props: props, id: id, type: type, slotView: slotView }) %>
     </<%=id%>>
   </block>
   <block s-else>
-    <<%=id%> <%- propsKeyTpl(props, false) %>>
+    <<%=id%> <%- propsKeyTpl(props, 'catchtouchmove') %>>
       <%- include('./children.ejs', { props: props, id: id, type: type, slotView: slotView }) %>
     </<%=id%>>
   </block>
-  <%_ } else { _%>
-  <<%=id%> <%- propsKeyTpl(props, false) %>>
+  <%_ } else if (id === 'label') { _%>
+  <%# label 标签对 for 属性为空，导致嵌套使用无效 %>
+  <block s-if="{{i.props['for']}}">
+    <<%=id%> <%- propsKeyTpl(props) %>>
+      <%- include('./children.ejs', { props: props, id: id, type: type, slotView: slotView }) %>
+    </<%=id%>>
+  </block>
+  <block s-else>
+    <<%=id%> <%- propsKeyTpl(props, 'for') %>>
+      <%- include('./children.ejs', { props: props, id: id, type: type, slotView: slotView }) %>
+    </<%=id%>>
+  </block>
+  <%_ } else {_%>
+  <<%=id%> <%- propsKeyTpl(props) %>>
     <%- include('./children.ejs', { props: props, id: id, type: type, slotView: slotView }) %>
   </<%=id%>>
   <%_ } _%>

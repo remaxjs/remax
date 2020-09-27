@@ -15,6 +15,7 @@ export * from './RichText';
 export * from './ScrollView';
 export * from './Swiper';
 export * from './SwiperItem';
+export * from './Switch';
 export * from './Text';
 export * from './Textarea';
 export * from './View';
