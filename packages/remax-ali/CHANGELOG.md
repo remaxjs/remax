@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.3](https://github.com/remaxjs/remax/compare/v2.8.2...v2.8.3) (2020-09-28)
+
+### Bug Fixes
+
+- **ali:** 修复 AppConfig 类型 ([8b1fa47](https://github.com/remaxjs/remax/commit/8b1fa47329a99e47035ecbfa6fec097cc52be7b8))
+
 ## [2.8.2](https://github.com/remaxjs/remax/compare/v2.8.1...v2.8.2) (2020-09-18)
 
 **Note:** Version bump only for package @remax/ali
