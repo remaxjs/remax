@@ -31,7 +31,7 @@
     "@remax/web": "2.8.3",
     "@remax/wechat": "2.8.3",
     "mini-types": "^0.1.1",
-    "miniprogram-api-typings": "^2.10.4"
+    "miniprogram-api-typings": "^3.1.2"
   },
   "gitHead": "06dcaa3df31f6bde22b6d07a979c361dc137351f"
 }

@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "@remax/shared": "2.8.3",
-    "miniprogram-api-typings": "^2.10.4"
+    "miniprogram-api-typings": "^3.1.2"
   },
   "devDependencies": {
     "@remax/types": "2.8.3",
