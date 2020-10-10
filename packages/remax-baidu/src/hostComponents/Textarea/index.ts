@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface TextareaProps extends BaseProps {
   value?: string;
@@ -21,11 +21,11 @@ export interface TextareaProps extends BaseProps {
   selectionStart?: number;
   selectionEnd?: number;
   adjustPosition?: boolean;
-  onFocus?: string;
-  onBlur?: string;
-  onLinechange?: string;
-  onInput?: string;
-  onConfirm?: string;
+  onFocus?: (e: GenericEvent) => void;
+  onBlur?: (e: GenericEvent) => void;
+  onLinechange?: (e: GenericEvent) => void;
+  onInput?: (e: GenericEvent) => void;
+  onConfirm?: (e: GenericEvent) => void;
 }
 
 export const Textarea: React.ComponentType<TextareaProps> = createHostComponent<TextareaProps>('textarea');

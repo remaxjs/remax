@@ -33,11 +33,11 @@ export interface BaseProps {
   /** 会在 transition 或 swan.createAnimation 动画结束后触发 */
   onTransitionEnd?: (event: TouchEvent) => void;
   /** 会在 animation 动画开始时触发 */
-  onAnimationStart?: (event: CustomEvent) => void;
+  onAnimationStart?: (event: GenericEvent) => void;
   /** 会在 animation 一次迭代结束时触发 */
-  onAnimationIteration?: (event: CustomEvent) => void;
+  onAnimationIteration?: (event: GenericEvent) => void;
   /** 会在 animation 动画完成时触发 */
-  onAnimationEnd?: (event: CustomEvent) => void;
+  onAnimationEnd?: (event: GenericEvent) => void;
 }
 
 interface Target {
@@ -65,7 +65,7 @@ export interface BaseEvent {
 }
 
 /** 自定义事件对象属性列表 */
-export interface CustomEvent<Detail = any> extends BaseEvent {
+export interface GenericEvent<Detail = any> extends BaseEvent {
   /** 额外的信息 */
   detail: Detail;
 }
