@@ -12987,10 +12987,10 @@ parse5@^3.0.1:
   dependencies:
     "@types/node" "*"
 
-parsec-hooks@^0.0.106:
-  version "0.0.106"
-  resolved "https://registry.yarnpkg.com/parsec-hooks/-/parsec-hooks-0.0.106.tgz#b09dea5d83258c74ce032fe9a79e5ec3ebeb8cf0"
-  integrity sha512-LmkpkEvmZfmNWjI/O+bu8OaKKQt6hTQhtAC/ex/A+5/qp5TwrHENLNaBe9NXpd7kVAEHGJl8sZfZ9KWD+RkehA==
+parsec-hooks@^0.0.112:
+  version "0.0.112"
+  resolved "https://registry.yarnpkg.com/parsec-hooks/-/parsec-hooks-0.0.112.tgz#039f0162d57e569991bd5500321318e9a46b9a24"
+  integrity sha512-nGyvadrmKX/xEn+zdgnozKfVBSZRPDK8/dNisY+Mxjla1+sYFDemJhR87XfFwVK3mm/iE6JjKZgpcDDH18+4Kg==
   dependencies:
     "@babel/runtime" "^7.10.3"
     classnames "^2.2.6"
@@ -12999,6 +12999,8 @@ parsec-hooks@^0.0.106:
     intersection-observer "^0.8.0"
     qs "^6.9.4"
     rc-field-form "^1.2.0"
+    resize-observer-polyfill "^1.5.1"
+    unstated-next "^1.1.0"
 
 parseurl@~1.3.2, parseurl@~1.3.3:
   version "1.3.3"
@@ -15043,6 +15045,11 @@ reserved-words@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/reserved-words/-/reserved-words-0.1.2.tgz#00a0940f98cd501aeaaac316411d9adc52b31ab1"
   integrity sha1-AKCUD5jNUBrqqsMWQR2a3FKzGrE=
+
+resize-observer-polyfill@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
 
 resolve-cwd@3.0.0, resolve-cwd@^3.0.0:
   version "3.0.0"
@@ -17340,6 +17347,11 @@ unset-value@^1.0.0:
   dependencies:
     has-value "^0.3.1"
     isobject "^3.0.0"
+
+unstated-next@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/unstated-next/-/unstated-next-1.1.0.tgz#7bb4911a12fdf3cc8ad3eb11a0b315e4a8685ea8"
+  integrity sha512-AAn47ZncPvgBGOvMcn8tSRxsrqwf2VdAPxLASTuLJvZt4rhKfDvUkmYZLGfclImSfTVMv7tF4ynaVxin0JjDCA==
 
 upath@^1.1.1, upath@^1.2.0:
   version "1.2.0"
