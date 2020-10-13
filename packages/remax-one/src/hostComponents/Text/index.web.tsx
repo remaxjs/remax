@@ -5,7 +5,7 @@ import { filterProps } from '../../utils/isPlatformSpecifyProp';
 
 export type TextProps = TextWebProps;
 
-const Text: React.FC<TextWebProps> = props => {
+const Text: React.ForwardRefRenderFunction<any, TextWebProps> = (props, ref) => {
   const {
     onTap,
     onTouchStart,
@@ -56,6 +56,7 @@ const Text: React.FC<TextWebProps> = props => {
       className={clsx(className, {
         'remax-text-selectable': selectable,
       })}
+      ref={ref}
       onClick={onTap}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
@@ -65,4 +66,4 @@ const Text: React.FC<TextWebProps> = props => {
   );
 };
 
-export default Text;
+export default React.forwardRef(Text);

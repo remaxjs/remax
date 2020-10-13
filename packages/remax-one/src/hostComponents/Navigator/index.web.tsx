@@ -1,13 +1,14 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { history } from '@remax/router/web';
+import { RuntimeOptions } from '@remax/runtime';
 import { NavigatorProps } from './props';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
 
 export type { NavigatorProps };
 
-const Navigator: React.FC<NavigatorProps> = props => {
+const Navigator: React.ForwardRefRenderFunction<any, NavigatorProps> = (props, ref) => {
   const { className, url, action, hoverClassName, hoverStartTime, hoverStayTime, ...restProps } = filterProps(props);
+  const history = RuntimeOptions.get('history');
 
   function handleTap() {
     switch (action) {
@@ -27,4 +28,4 @@ const Navigator: React.FC<NavigatorProps> = props => {
 
   return <div {...restProps} className={clsx(className)} onClick={handleTap} />;
 };
-export default Navigator;
+export default React.forwardRef(Navigator);

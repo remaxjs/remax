@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -9,4 +10,4 @@ export interface CoverViewProps extends BaseProps {
 /**
  * @see https://developers.weixin.qq.com/miniprogram/dev/component/cover-view.html
  */
-export const CoverView = createHostComponent<CoverViewProps>('cover-view');
+export const CoverView: React.ComponentType<CoverViewProps> = createHostComponent<CoverViewProps>('cover-view');

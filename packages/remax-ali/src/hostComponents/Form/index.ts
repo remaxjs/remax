@@ -10,4 +10,4 @@ export interface FormProps {
   onReset?: (e: any) => void;
 }
 
-export const Form = createHostComponent<FormProps>('form');
+export const Form: React.ComponentType<FormProps> = createHostComponent<FormProps>('form');

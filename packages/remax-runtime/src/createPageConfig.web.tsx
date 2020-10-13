@@ -5,19 +5,19 @@ import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName } from './lifecycle';
 
 interface LifeCycleCallback {
-  [key: string]: Function[];
+  [key: string]: Array<() => void>;
 }
 
 interface PageConfigProps {
   appConfig: any;
   pageConfig: any;
+  location: any;
 }
 
 const DEFAULT_REACH_BOTTOM_DISTANCE = 50;
 
-export default function createPageConfig(Page: React.ComponentType<any>) {
+export default function createPageConfig(Page: React.ComponentType<any>, name: string) {
   const page = {
-    query: {},
     lifeCycleCallback: {} as LifeCycleCallback,
     wrapperRef: React.createRef<any>(),
     registerLifecycle(lifeCycle: Lifecycle, callback: () => any) {
@@ -46,13 +46,12 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     },
   };
 
-  const PageWrapper = createPageWrapper(Page, page.query);
+  const PageWrapper = createPageWrapper(Page, name);
 
   return class PageConfig extends React.Component<PageConfigProps> {
     constructor(props: any) {
       super(props);
 
-      page.query = qs.parse(window.location.search.replace(/^\?/, ''));
       props.cacheLifecycles.didCache(this.componentDidCache);
       props.cacheLifecycles.didRecover(this.componentDidRecover);
     }
@@ -65,23 +64,27 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
 
     componentDidMount() {
       this.setTitle();
+      page.callLifecycle(Lifecycle.load);
+      page.callLifecycle(Lifecycle.show);
       page.callLifecycle(Lifecycle.ready);
 
-      this.handlePageScroll();
+      this.registerPageScroll();
     }
 
     componentWillUnmount() {
-      window.removeEventListener('scroll', this.scrollEvent);
+      this.unregisterPageScroll();
     }
 
     componentDidCache = () => {
       this.title = document.title;
       page.callLifecycle(Lifecycle.hide);
+      this.unregisterPageScroll();
     };
 
     componentDidRecover = () => {
       this.setTitle();
       page.callLifecycle(Lifecycle.show);
+      this.registerPageScroll();
     };
 
     setTitle = () => {
@@ -109,8 +112,12 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
       page.callLifecycle(Lifecycle.pageScroll, event);
     };
 
-    handlePageScroll = () => {
+    registerPageScroll = () => {
       window.addEventListener('scroll', this.scrollEvent);
+    };
+
+    unregisterPageScroll = () => {
+      window.removeEventListener('scroll', this.scrollEvent);
     };
 
     handleRefresh = async () => {
@@ -147,10 +154,11 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
     };
 
     render() {
-      const { appConfig } = this.props;
+      const { appConfig, location } = this.props;
       const { refreshing } = this.state;
       const hasTabBar = !!appConfig.tabBar;
       const className = `remax-page ${hasTabBar ? 'with-tab-bar' : ''}`;
+      const query = qs.parse(location.search, { ignoreQueryPrefix: true });
 
       if (this.isPullDownRefreshEnabled()) {
         return (
@@ -158,6 +166,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
             <div className={className}>
               {React.createElement(PageWrapper, {
                 page,
+                query,
                 ref: page.wrapperRef,
               })}
             </div>
@@ -169,6 +178,7 @@ export default function createPageConfig(Page: React.ComponentType<any>) {
         <div className={className}>
           {React.createElement(PageWrapper, {
             page,
+            query,
             ref: page.wrapperRef,
           })}
         </div>

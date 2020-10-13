@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -15,7 +16,7 @@ export interface RadioProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/radio.html
  */
-export const Radio = createHostComponent<RadioProps>('radio');
+export const Radio: React.ComponentType<RadioProps> = createHostComponent<RadioProps>('radio');
 
 Radio.defaultProps = {
   checked: false,

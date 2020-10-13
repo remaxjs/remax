@@ -43,5 +43,14 @@ describe('diffProperties', () => {
     ).toBeFalsy();
 
     expect(!!diffProperties({ children: '1' }, { children: 1 })).toBeTruthy();
+
+    expect(diffProperties({ className: 'foo' }, { style: { width: 5 } })).toEqual([
+      'className',
+      '',
+      'style',
+      null,
+      'style',
+      { width: 5 },
+    ]);
   });
 });

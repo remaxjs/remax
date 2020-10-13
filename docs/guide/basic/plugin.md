@@ -51,7 +51,7 @@ export default ()  => (
 ```javascript
 import { requirePlugin } from 'remax/macro';
 
-const myPlugin = requirePlugin('plugin://myPlugin/hello');
+const myPlugin = requirePlugin('myPlugin');
 
 myPlugin.hello();
 

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 export interface RadioProps {
@@ -11,4 +12,4 @@ export interface RadioProps {
   color?: string;
 }
 
-export const Radio = createHostComponent<RadioProps>('radio');
+export const Radio: React.ComponentType<RadioProps> = createHostComponent<RadioProps>('radio');

@@ -2,7 +2,9 @@ export const alias = {
   className: 'class',
   src: 'src',
   id: 'id',
+  style: 'style',
   poster: 'poster',
+  posterSize: 'posterSize',
   objectFit: 'objectFit',
   initialTime: 'initial-time',
   duration: 'duration',
@@ -27,6 +29,7 @@ export const alias = {
   onTap: 'onTap',
   onClick: 'onTap',
   onUserAction: 'onUserAction',
+  enableNative: 'enableNative',
 };
 
 export const props = Object.values(alias);

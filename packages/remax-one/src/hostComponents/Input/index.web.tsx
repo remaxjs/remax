@@ -6,7 +6,7 @@ import clsx from 'clsx';
 
 export type InputProps = InputWebProps;
 
-const Input: React.FC<InputWebProps> = props => {
+const Input: React.ForwardRefRenderFunction<any, InputWebProps> = (props, ref) => {
   const { password, type, onConfirm, onKeyPress, placeholderStyle, className, ...restProps } = filterProps(props);
   const [placeholderStyleClassName] = useWebPlaceholderStyle(placeholderStyle);
 
@@ -25,14 +25,11 @@ const Input: React.FC<InputWebProps> = props => {
   return (
     <input
       {...restProps}
+      ref={ref}
       type={inputType}
       onKeyPress={handleKeyPress}
       className={clsx('remax-input', className, placeholderStyleClassName)}
     />
   );
 };
-export default Input;
-
-Input.defaultProps = {
-  onChange: () => void 0,
-};
+export default React.forwardRef(Input);

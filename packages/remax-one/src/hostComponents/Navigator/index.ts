@@ -1,16 +1,10 @@
+import * as React from 'react';
 import createHostComponent from '../../createHostComponent';
 import { NavigatorProps } from './props';
+import defaults from './props/default';
 
 export type { NavigatorProps };
 
-export default createHostComponent<NavigatorProps>('navigator', {
-  wechat: {
-    'wechat-target': 'self',
-    'wechat-open-type': 'navigate',
-    'wechat-delta': 1,
-    hoverClassName: 'navigator-hover',
-    'wechat-hover-stop-propagation': false,
-    hoverStartTime: 50,
-    hoverStayTime: 600,
-  },
-});
+const Navigator: React.ComponentType<NavigatorProps> = createHostComponent<NavigatorProps>('navigator', null, defaults);
+
+export default Navigator;

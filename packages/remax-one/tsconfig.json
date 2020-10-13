@@ -13,6 +13,9 @@
   "exclude": ["cjs", "esm"],
   "references": [
     {
+      "path": "../remax-runtime"
+    },
+    {
       "path": "../remax-types"
     },
     {

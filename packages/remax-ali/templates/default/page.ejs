@@ -1,5 +1,3 @@
-<template is="REMAX_TPL" data="{{ root: root }}" />
-
 <template name="REMAX_TPL">
   <block a:for="{{root.children}}" a:key="{{item.id}}">
     <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
@@ -22,3 +20,6 @@
 <template name="REMAX_TPL_1_CONTAINER">
   <template is="{{'REMAX_TPL_1_' + item.type}}" data="{{item: item}}" />
 </template>
+
+<template is="REMAX_TPL" data="{{ root: root }}" />
+<template is="REMAX_TPL" data="{{ root: modalRoot }}" />

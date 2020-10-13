@@ -16,6 +16,11 @@
         </block>
       </swiper-item>
     </block>
+    <% } else if (id === 'text') { %>
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.type === 'plain-text'}}">{{item.text}}</block>
+      <template a:else is="REMAX_TPL_1_CONTAINER" data="{{item: item.children[0]}}" />
+    </block>
     <% } else if (id === 'picker') { %>
     <view>
       <template is="REMAX_TPL_1_CONTAINER" data="{{item: item.children[0]}}" />

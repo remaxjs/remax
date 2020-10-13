@@ -1,5 +1,3 @@
-<template is="REMAX_TPL" data="{{ root: root }}" />
-
 <template name="REMAX_TPL">
   <block a:for="{{root.children}}" a:key="{{item.id}}">
     <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
@@ -50,6 +48,10 @@
     
     
     
+    onError="{{item.props['onError']}}"
+    
+    
+    
     onGetAuthorize="{{item.props['onGetAuthorize']}}"
     
     
@@ -75,6 +77,10 @@
     
     
     size="{{item.props['size']}}"
+    
+    
+    
+    style="{{item.props['style']}}"
     
     
     
@@ -816,11 +822,19 @@
     
     
     
+    damping="{{item.props['damping']}}"
+    
+    
+    
     direction="{{item.props['direction']}}"
     
     
     
     disabled="{{item.props['disabled']}}"
+    
+    
+    
+    friction="{{item.props['friction']}}"
     
     
     
@@ -840,6 +854,10 @@
     
     
     
+    onScale="{{item.props['onScale']}}"
+    
+    
+    
     onTouchCancel="{{item.props['onTouchCancel']}}"
     
     
@@ -853,6 +871,26 @@
     
     
     onTouchStart="{{item.props['onTouchStart']}}"
+    
+    
+    
+    out-of-bounds="{{item.props['out-of-bounds']}}"
+    
+    
+    
+    scale="{{item.props['scale']}}"
+    
+    
+    
+    scale-max="{{item.props['scale-max']}}"
+    
+    
+    
+    scale-min="{{item.props['scale-min']}}"
+    
+    
+    
+    scale-value="{{item.props['scale-value']}}"
     
     
     
@@ -1583,7 +1621,8 @@
   >
     
     <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      <block a:if="{{item.type === 'plain-text'}}">{{item.text}}</block>
+      <template a:else is="REMAX_TPL_1_CONTAINER" data="{{item: item.children[0]}}" />
     </block>
     
   </text>
@@ -1606,6 +1645,10 @@
     
     
     disabled="{{item.props['disabled']}}"
+    
+    
+    
+    enableNative="{{item.props['enableNative']}}"
     
     
     
@@ -1698,6 +1741,10 @@
     
     
     
+    enableNative="{{item.props['enableNative']}}"
+    
+    
+    
     enableProgressGesture="{{item.props['enableProgressGesture']}}"
     
     
@@ -1766,6 +1813,10 @@
     
     
     
+    posterSize="{{item.props['posterSize']}}"
+    
+    
+    
     show-center-play-btn="{{item.props['show-center-play-btn']}}"
     
     
@@ -1783,6 +1834,10 @@
     
     
     src="{{item.props['src']}}"
+    
+    
+    
+    style="{{item.props['style']}}"
     
     
     
@@ -1934,3 +1989,6 @@
 <template name="REMAX_TPL_1_CONTAINER">
   <template is="{{'REMAX_TPL_1_' + item.type}}" data="{{item: item}}" />
 </template>
+
+<template is="REMAX_TPL" data="{{ root: root }}" />
+<template is="REMAX_TPL" data="{{ root: modalRoot }}" />

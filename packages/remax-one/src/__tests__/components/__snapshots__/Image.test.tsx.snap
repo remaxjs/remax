@@ -19,11 +19,7 @@ exports[`Image render correctly in toutiao 1`] = `
 exports[`Image render correctly in wechat 1`] = `
 <image
   className="class"
-  mode="scaleToFill"
   onError={[Function]}
   onLoad={[Function]}
-  wechat-lazyLoad={false}
-  wechat-show-menu-by-longpress={false}
-  wechat-webp={false}
 />
 `;

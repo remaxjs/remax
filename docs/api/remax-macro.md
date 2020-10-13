@@ -2,7 +2,7 @@
 title: remax/macro
 ---
 
-`remax/macro` 下包含的是基于 [bable-plugin-macros](https://github.com/kentcdodds/babel-plugin-macros) 的宏。
+`remax/macro` 下包含的是基于 [babel-plugin-macros](https://github.com/kentcdodds/babel-plugin-macros) 的宏。
 
 _带有 `?` 的选项表示非必填项_
 

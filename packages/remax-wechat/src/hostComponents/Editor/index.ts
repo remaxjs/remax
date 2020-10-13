@@ -1,5 +1,6 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface EditorProps extends BaseProps {
   /** 设置编辑器为只读 2.7.0  */
@@ -13,21 +14,21 @@ export interface EditorProps extends BaseProps {
   /** 点击图片时显示修改尺寸控件 2.7.0  */
   showImgResize?: boolean;
   /** 编辑器初始化完成时触发 2.7.0  */
-  onReady?: (event: any) => any;
+  onReady?: (event: GenericEvent) => any;
   /** 编辑器聚焦时触发，event.detail = {html, text, delta} 2.7.0  */
-  onFocus?: (event: any) => any;
+  onFocus?: (event: GenericEvent) => any;
   /** 编辑器失去焦点时触发，detail = {html, text, delta} 2.7.0  */
-  onBlur?: (event: any) => any;
+  onBlur?: (event: GenericEvent) => any;
   /** 编辑器内容改变时触发，detail = {html, text, delta} 2.7.0  */
-  onInput?: (event: any) => any;
+  onInput?: (event: GenericEvent) => any;
   /** 通过 Context 方法改变编辑器内样式时触发，返回选区已设置的样式 2.7.0  */
-  onStatusChange?: (event: any) => any;
+  onStatusChange?: (event: GenericEvent) => any;
 }
 
 /**
  * @see https://developers.weixin.qq.com/miniprogram/dev/component/editor.html
  */
-export const Editor = createHostComponent<EditorProps>('editor');
+export const Editor: React.ComponentType<EditorProps> = createHostComponent<EditorProps>('editor');
 
 Editor.defaultProps = {
   readOnly: false,

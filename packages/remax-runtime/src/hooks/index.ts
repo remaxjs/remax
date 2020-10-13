@@ -1,6 +1,6 @@
 import { useLayoutEffect, useContext } from 'react';
 import { registerLifecycle, Callback, lifeCycleName } from '../lifecycle';
-import PageInstanceContext from '../PageInstanceContext';
+import PageContext from '../PageContext';
 import AppInstanceContext from '../AppInstanceContext';
 
 /**
@@ -8,18 +8,14 @@ import AppInstanceContext from '../AppInstanceContext';
  */
 
 export function usePageInstance() {
-  return useContext(PageInstanceContext);
-}
-
-export function useQuery<Q extends {} = { [name: string]: string }>(): Q {
-  const pageInstance: any = useContext(PageInstanceContext);
-  return pageInstance.query;
+  return useContext(PageContext)?.page;
 }
 
 export { default as useNativeEffect } from './useNativeEffect';
+export { default as useQuery } from './useQuery';
 
 export function usePageEvent(eventName: string, callback: Callback) {
-  const pageInstance = useContext(PageInstanceContext);
+  const pageInstance = useContext(PageContext)?.page;
   const lifeCycle = lifeCycleName(eventName);
   useLayoutEffect(() => {
     return registerLifecycle(pageInstance, lifeCycle, callback);

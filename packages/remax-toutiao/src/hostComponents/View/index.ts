@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
@@ -23,4 +24,11 @@ export interface ViewProps extends BaseProps {
   onAnimationEnd?: (e: any) => any;
 }
 
-export const View = createHostComponent<ViewProps>('view');
+export const View: React.ComponentType<ViewProps> = createHostComponent<ViewProps>('view');
+
+View.defaultProps = {
+  hoverClassName: 'none',
+  hoverStartTime: 50,
+  hoverStayTime: 400,
+  hoverStopPropagation: false,
+};

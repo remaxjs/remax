@@ -276,6 +276,7 @@
     end="{{i.props['end']}}" 
     fields="{{i.props['fields']}}" 
     id="{{i.props['id']}}" 
+    mode="{{i.props['mode']}}" 
     name="{{i.props['name']}}" 
     range="{{i.props['range']}}" 
     range-key="{{i.props['range-key']}}" 

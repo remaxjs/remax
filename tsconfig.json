@@ -33,6 +33,9 @@
     },
     {
       "path": "./packages/remax-cli"
+    },
+    {
+      "path": "./packages/remax-plugin-devtools"
     }
   ]
 }

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
@@ -38,4 +39,14 @@ export interface VideoProps extends BaseProps {
   onWaiting?: (event: any) => any;
 }
 
-export const Video = createHostComponent<VideoProps>('video');
+export const Video: React.ComponentType<VideoProps> = createHostComponent<VideoProps>('video');
+
+Video.defaultProps = {
+  autoplay: false,
+  loop: false,
+  showFullscreenBtn: true,
+  showPlayBtn: true,
+  controls: true,
+  objectFit: 'contain',
+  playBtnPosition: 'center',
+};

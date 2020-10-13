@@ -3,9 +3,11 @@ import { createHostComponent } from '@remax/shared';
 
 export interface MovableAreaProps {
   readonly dataset?: DOMStringMap;
+  id?: string;
+  className?: string;
   style?: React.CSSProperties;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }
 
-export const MovableArea = createHostComponent<MovableAreaProps>('movable-area');
+export const MovableArea: React.ComponentType<MovableAreaProps> = createHostComponent<MovableAreaProps>('movable-area');

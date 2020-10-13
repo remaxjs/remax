@@ -3,19 +3,57 @@ import './helpers/setupGlobals';
 import createPageConfig from '../createPageConfig';
 import { usePageEvent } from '../../src';
 import { PageProps } from '../createPageWrapper';
+import * as RuntimeOptions from '../RuntimeOptions';
 import View from './helpers/View';
 import Page from './helpers/Page';
-
-jest.mock('../stopPullDownRefresh', () => () => void 0);
 
 const TEST_PAGE = 'pages/test/index';
 
 describe('page', () => {
+  beforeAll(() => {
+    RuntimeOptions.apply({
+      appEvents: [
+        'onLaunch',
+        'onShow',
+        'onHide',
+        'onShareAppMessage',
+        'onPageNotFound',
+        'onError',
+        'onUnhandledRejection',
+        'onThemeChange',
+      ],
+      pageEvents: {
+        'pages/test/only/onshow': ['onShow'],
+        'pages/test/index': [
+          'onShow',
+          'onHide',
+          'onPullDownRefresh',
+          'onPullIntercept',
+          'onReachBottom',
+          'onPageScroll',
+          'onShareAppMessage',
+          'onShareTimeline',
+          'onTitleClick',
+          'onOptionMenuClick',
+          'onPopMenuClick',
+          'onReady',
+          'onResize',
+          'onTabItemTap',
+        ],
+      },
+    });
+  });
+
+  afterAll(() => {
+    RuntimeOptions.reset();
+  });
+
   it('create page config', () => {
     const Foo = () => {
       return <View>foo</View>;
     };
     const page = Page(createPageConfig(Foo, TEST_PAGE));
+    getApp().onLaunch();
     page.load();
     expect(page.config.wrapper).not.toBeNull();
   });
@@ -56,6 +94,13 @@ describe('page', () => {
         usePageEvent('onShareAppMessage', object => {
           log.push(object.from);
           log.push('useShareAppMessage');
+
+          return {};
+        });
+
+        usePageEvent('onShareTimeline', object => {
+          log.push(object.from);
+          log.push('useShareTimeline');
 
           return {};
         });
@@ -110,6 +155,7 @@ describe('page', () => {
       page.reachBottom();
       page.pageScroll();
       page.shareAppMessage();
+      page.shareTimeline();
       page.titleClick();
       page.optionMenuClick();
       page.popMenuClick();
@@ -132,6 +178,8 @@ describe('page', () => {
         'usePageScroll',
         'menu',
         'useShareAppMessage',
+        'menu',
+        'useShareTimeline',
         'useTitleClick',
         'useOptionMenuClick',
         'usePopMenuClick',
@@ -239,6 +287,11 @@ describe('page', () => {
         log.push('onShareAppMessage');
       }
 
+      onShareTimeline(object: any) {
+        log.push(object.from);
+        log.push('onShareTimeline');
+      }
+
       onTitleClick() {
         log.push('onTitleClick');
       }
@@ -287,6 +340,7 @@ describe('page', () => {
     page.reachBottom();
     page.pageScroll();
     page.shareAppMessage();
+    page.shareTimeline();
     page.titleClick();
     page.optionMenuClick();
     page.popMenuClick();
@@ -309,6 +363,8 @@ describe('page', () => {
       'onPageScroll',
       'menu',
       'onShareAppMessage',
+      'menu',
+      'onShareTimeline',
       'onTitleClick',
       'onOptionMenuClick',
       'onPopMenuClick',

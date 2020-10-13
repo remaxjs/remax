@@ -1,23 +1,6 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
-
-export const ScrollView = createHostComponent<ScrollViewProps>('scroll-view');
-
-ScrollView.defaultProps = {
-  upperThreshold: 50,
-  lowerThreshold: 50,
-  scrollX: false,
-  scrollY: false,
-  scrollWithAnimation: false,
-  enableBackToTop: false,
-  enableFlex: false,
-  scrollAnchoring: false,
-  refresherEnabled: false,
-  refresherThreshold: 45,
-  refresherDefaultStyle: 'black',
-  refresherBackground: '#fff',
-  refresherTriggered: false,
-};
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface ScrollViewProps extends BaseProps {
   /** (default: false) 允许横向滚动 1.0.0 */
@@ -41,11 +24,11 @@ export interface ScrollViewProps extends BaseProps {
   /** (default: false) 启用 flexbox 布局。开启后，当前节点声明了 display: flex 就会成为 flex container，并作用于其孩子节点。 2.7.3 */
   enableFlex?: boolean;
   /** 滚动到顶部/左边时触发 1.0.0 */
-  onScrollToUpper?: (event: any) => any;
+  onScrollToUpper?: (event: GenericEvent) => any;
   /** 滚动到底部/右边时触发 1.0.0 */
-  onScrollToLower?: (event: any) => void;
+  onScrollToLower?: (event: GenericEvent) => void;
   /** 滚动时触发，event.detail = {scrollLeft, scrollTop, scrollHeight, scrollWidth, deltaX, deltaY} 1.0.0 */
-  onScroll?: (event: any) => any;
+  onScroll?: (event: GenericEvent) => any;
   /** 开启 scroll anchoring 特性，即控制滚动位置不随内容变化而抖动，仅在 iOS 下生效，安卓下可参考 CSS overflow-anchor 属性。	2.8.2 */
   scrollAnchoring?: boolean;
   /** 开启自定义下拉刷新	2.10.1 */
@@ -59,11 +42,29 @@ export interface ScrollViewProps extends BaseProps {
   /** 设置当前下拉刷新状态，true 表示下拉刷新已经被触发，false 表示下拉刷新未被触发	2.10.1 */
   refresherTriggered?: boolean;
   /** 自定义下拉刷新控件被下拉	2.10.1 */
-  onRefresherPulling?: (event: any) => void;
+  onRefresherPulling?: (event: GenericEvent) => void;
   /** 自定义下拉刷新被触发	2.10.1 */
-  onRefresherRefresh?: (event: any) => void;
+  onRefresherRefresh?: (event: GenericEvent) => void;
   /**	自定义下拉刷新被复位	2.10.1 */
-  onRefresherRestore?: (event: any) => void;
+  onRefresherRestore?: (event: GenericEvent) => void;
   /** 自定义下拉刷新被中止 2.10.1 */
-  onRefresherAbort?: (event: any) => void;
+  onRefresherAbort?: (event: GenericEvent) => void;
 }
+
+export const ScrollView: React.ComponentType<ScrollViewProps> = createHostComponent<ScrollViewProps>('scroll-view');
+
+ScrollView.defaultProps = {
+  upperThreshold: 50,
+  lowerThreshold: 50,
+  scrollX: false,
+  scrollY: false,
+  scrollWithAnimation: false,
+  enableBackToTop: false,
+  enableFlex: false,
+  scrollAnchoring: false,
+  refresherEnabled: false,
+  refresherThreshold: 45,
+  refresherDefaultStyle: 'black',
+  refresherBackground: '#fff',
+  refresherTriggered: false,
+};

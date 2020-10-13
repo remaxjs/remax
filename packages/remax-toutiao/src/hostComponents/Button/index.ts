@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 import { BaseProps } from '../../types/component';
@@ -17,4 +18,15 @@ export interface ButtonProps extends BaseProps {
   onGetPhoneNumber?: (e: any) => void;
 }
 
-export const Button = createHostComponent<ButtonProps>('button');
+export const Button: React.ComponentType<ButtonProps> = createHostComponent<ButtonProps>('button');
+
+Button.defaultProps = {
+  size: 'default',
+  type: 'default',
+  disabled: false,
+  loading: false,
+  hoverClassName: 'button-hover',
+  hoverStartTime: 20,
+  hoverStayTime: 70,
+  hoverStopPropagation: false,
+};

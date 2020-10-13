@@ -12,7 +12,7 @@ import VirtualModulesPlugin from 'webpack-virtual-modules';
 import * as RemaxPlugins from './plugins';
 import ejs from 'ejs';
 import { Platform } from '@remax/types';
-import extensions, { moduleMatcher } from '../../extensions';
+import { moduleMatcher, targetExtensions } from '../../extensions';
 import getEntries from '../../getEntries';
 import getAppConfig from '../utils/getAppConfig';
 import { cssConfig, addCSSRule, RuleConfig } from './config/css';
@@ -43,7 +43,7 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
 
   config.devtool(process.env.NODE_ENV === 'development' ? 'cheap-module-source-map' : false);
   config.output.publicPath(publicPath);
-  config.resolve.extensions.merge(extensions.map(ex => `.web${ex}`).concat(extensions));
+  config.resolve.extensions.merge(targetExtensions(options.target!));
   config.output.filename(process.env.NODE_ENV === 'production' ? '[name].[chunkhash:8].js' : '[name].js');
   config.optimization.runtimeChunk({
     name: 'runtime',
@@ -94,13 +94,9 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
 
   config.plugin('html-webpack-plugin').use(HtmlWebpackPlugin, [
     {
-      template: path.resolve(__dirname, '../../../template/index.html.ejs'),
-    },
-  ]);
-
-  config.plugin('define-plugin').use(webpack.DefinePlugin, [
-    {
-      __REMAX_HOST_COMPONENTS__: JSON.stringify({}),
+      template: fs.existsSync(path.join(publicDirPath, 'index.html'))
+        ? path.join(publicDirPath, 'index.html')
+        : path.resolve(__dirname, '../../../template/index.html.ejs'),
     },
   ]);
 
@@ -132,6 +128,19 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
   }
 
   api.configWebpack(context);
+
+  const devServer = config.get('devServer') || {};
+
+  config.devServer.publicPath(publicPath);
+  config.devServer.compress(true);
+  config.devServer.hot(true);
+  config.devServer.open(false);
+  config.devServer.historyApiFallback(true);
+  config.devServer.noInfo(true);
+
+  Object.keys(devServer).forEach(key => {
+    config.devServer.set(key, devServer[key]);
+  });
 
   return config.toConfig();
 }

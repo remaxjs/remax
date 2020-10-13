@@ -9,4 +9,4 @@ export interface CoverImageProps {
   onTap?: (e: any) => void;
 }
 
-export const CoverImage = createHostComponent<CoverImageProps>('cover-image');
+export const CoverImage: React.ComponentType<CoverImageProps> = createHostComponent<CoverImageProps>('cover-image');

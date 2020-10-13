@@ -26,6 +26,7 @@ export interface Options {
   watch?: boolean;
   target?: Platform;
   analyze?: boolean;
+  minimize?: boolean;
 }
 
 export type Config = Partial<Options>;
@@ -142,6 +143,8 @@ export interface Plugin {
    * options.phase 组件被引入的阶段，import | jsx | extra
    */
   shouldHostComponentRegister?: (options: ShouldHostComponentRegister) => boolean;
+
+  onBuildStart?: (params: { config: Options }) => void;
 
   /**
    * 修改 webpack 配置

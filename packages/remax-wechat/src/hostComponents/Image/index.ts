@@ -1,5 +1,6 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface ImageProps extends BaseProps {
   /**
@@ -57,22 +58,18 @@ export interface ImageProps extends BaseProps {
    * 1.0.0
    * 当错误发生时触发，，event.detail = {errMsg}
    */
-  onError?: (event: any) => any;
+  onError?: (event: GenericEvent) => any;
   /**
    * 1.0.0
    * 当图片载入完毕时触发，event.detail = {height, width}
    */
-  onLoad?: (event: any) => any;
-  onTouchStart?: (e: any) => void;
-  onTouchMove?: (e: any) => void;
-  onTouchEnd?: (e: any) => void;
-  onTouchCancel?: (e: any) => void;
+  onLoad?: (event: GenericEvent) => any;
 }
 
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/image.html
  */
-export const Image = createHostComponent<ImageProps>('image');
+export const Image: React.ComponentType<ImageProps> = createHostComponent<ImageProps>('image');
 
 Image.defaultProps = {
   mode: 'scaleToFill',

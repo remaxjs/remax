@@ -58,6 +58,18 @@ useAppEvent('onError', () => {});
 
 ## Page 生命周期
 
+## onLoad
+
+页面加载时触发
+
+```js
+import { usePageEvent } from 'remax/macro';
+
+...
+
+usePageEvent('onLoad', () => {});
+```
+
 ## onShow
 
 页面可见时触发。

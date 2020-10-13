@@ -3,8 +3,47 @@ import './helpers/setupGlobals';
 import App from './helpers/App';
 import { useAppEvent } from '../hooks';
 import createAppConfig from '../createAppConfig';
+import * as RuntimeOptions from '../RuntimeOptions';
 
 describe('app', () => {
+  beforeAll(() => {
+    RuntimeOptions.apply({
+      appEvents: [
+        'onLaunch',
+        'onShow',
+        'onHide',
+        'onShareAppMessage',
+        'onPageNotFound',
+        'onError',
+        'onUnhandledRejection',
+        'onThemeChange',
+      ],
+      pageEvents: {
+        'pages/test/only/onshow': ['onShow'],
+        'pages/test/index': [
+          'onShow',
+          'onHide',
+          'onPullDownRefresh',
+          'onPullIntercept',
+          'onReachBottom',
+          'onPageScroll',
+          'onShareAppMessage',
+          'onShareTimeline',
+          'onTitleClick',
+          'onOptionMenuClick',
+          'onPopMenuClick',
+          'onReady',
+          'onResize',
+          'onTabItemTap',
+        ],
+      },
+    });
+  });
+
+  afterAll(() => {
+    RuntimeOptions.reset();
+  });
+
   it('lifecycle methods', () => {
     const log: string[] = [];
     class Foo extends React.Component {

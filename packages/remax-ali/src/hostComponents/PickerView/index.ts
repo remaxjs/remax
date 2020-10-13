@@ -14,4 +14,4 @@ export interface PickerViewProps {
   onChange?: (e: any) => void;
 }
 
-export const PickerView = createHostComponent<PickerViewProps>('picker-view');
+export const PickerView: React.ComponentType<PickerViewProps> = createHostComponent<PickerViewProps>('picker-view');

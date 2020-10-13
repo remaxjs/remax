@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from 'remax/one';
+import { View } from 'remax/one';
 
 export default () => {
   return <View>page two</View>;

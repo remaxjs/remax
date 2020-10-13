@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
@@ -20,7 +21,7 @@ export interface TextProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/text.html
  */
-export const Text = createHostComponent<TextProps>('text');
+export const Text: React.ComponentType<TextProps> = createHostComponent<TextProps>('text');
 
 Text.defaultProps = {
   selectable: false,

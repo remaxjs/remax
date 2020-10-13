@@ -10,16 +10,6 @@ describe('Input', () => {
     const instance = testRenderer.root.findByType('input');
 
     expect(instance.props.value).toEqual('1');
-
-    instance.props.onInput({
-      target: {},
-      currentTarget: {},
-      detail: {
-        value: '2',
-      },
-    });
-
-    expect(instance.props.value).toEqual('2');
   });
 
   it('value', () => {
@@ -38,7 +28,7 @@ describe('Input', () => {
 
     expect(instance.props.value).toEqual('1');
 
-    const originalEvent = {
+    const nativeEvent = {
       target: {},
       currentTarget: {},
       detail: {
@@ -48,7 +38,7 @@ describe('Input', () => {
     };
 
     act(() => {
-      instance.props.onInput(originalEvent);
+      instance.props.onInput(nativeEvent);
     });
 
     expect(instance.props.value).toEqual('2');

@@ -1,6 +1,6 @@
 import './polyfills/Function';
 import * as React from 'react';
-import { pluginDriver } from '@remax/runtime-plugin';
+import * as RuntimeOptions from './RuntimeOptions';
 import render from './render';
 import AppContainer from './AppContainer';
 import isClassComponent from './utils/isClassComponent';
@@ -15,15 +15,18 @@ class DefaultAppComponent extends React.Component {
 }
 
 export default function createAppConfig(this: any, App: any) {
+  const WrappedApp = RuntimeOptions.get('pluginDriver').onAppComponent(App);
   const createConfig = (AppComponent: React.ComponentType<any> = DefaultAppComponent) => {
     const config: any = {
-      _container: new AppContainer(this),
+      _container: new AppContainer(),
 
       _pages: [] as any[],
 
       _instance: React.createRef<any>(),
 
       onLaunch(options: any) {
+        this._container.context = this;
+
         this._render();
 
         return this.callLifecycle(AppLifecycle.launch, options);
@@ -46,6 +49,12 @@ export default function createAppConfig(this: any, App: any) {
       },
 
       _mount(pageInstance: any) {
+        /**
+         * 飞书开发者工具的问题，这里的 this 跟 getApp 拿到的不是同一个实例
+         */
+        if (!this._container.context) {
+          this._container.context = this;
+        }
         this._pages.push(pageInstance);
         this._render();
       },
@@ -113,8 +122,8 @@ export default function createAppConfig(this: any, App: any) {
       }
     });
 
-    return pluginDriver.onAppConfig(config);
+    return RuntimeOptions.get('pluginDriver').onAppConfig(config);
   };
 
-  return createConfig(App);
+  return createConfig(WrappedApp);
 }

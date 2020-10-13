@@ -12,6 +12,7 @@ export enum Lifecycle {
   reachBottom = 'reachBottom',
   pageScroll = 'pageScroll',
   shareAppMessage = 'shareAppMessage',
+  shareTimeline = 'shareTimeline',
   titleClick = 'titleClick',
   optionMenuClick = 'optionMenuClick',
   popMenuClick = 'popMenuClick',
@@ -36,14 +37,14 @@ export enum AppLifecycle {
 }
 
 export function lifeCycleName(name: string): Lifecycle {
-  if (name.startsWith('before') || name === 'unload') {
+  if (name.startsWith('before')) {
     return name as Lifecycle;
   }
   return lowercase(name.slice(2)) as Lifecycle;
 }
 
 export function callbackName(name: string) {
-  if (name.startsWith('before') || name === 'unload') {
+  if (name.startsWith('before')) {
     return name;
   }
 

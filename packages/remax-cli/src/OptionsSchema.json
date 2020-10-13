@@ -4,9 +4,6 @@
     "turboPages": {
       "type": "array"
     },
-    "notify": {
-      "type": "boolean"
-    },
     "pxToRpx": {
       "type": "boolean"
     },

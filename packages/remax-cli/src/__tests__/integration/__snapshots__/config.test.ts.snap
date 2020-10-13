@@ -3,10 +3,9 @@
 exports[`remax config schema validation 1`] = `
 "Invalid configuration object. remax has been initialized using a configuration object that does not match the API schema.
  - configuration has an unknown property 'xxx'. These properties are valid:
-   object { turboPages?, notify?, pxToRpx?, cwd?, progress?, compressTemplate?, output?, rootDir?, UNSAFE_wechatTemplateDepth?, one?, configWebpack?, plugins? }
+   object { turboPages?, pxToRpx?, cwd?, progress?, compressTemplate?, output?, rootDir?, UNSAFE_wechatTemplateDepth?, one?, configWebpack?, plugins? }
  - configuration.turboPages should be an array:
    [any, ...]
- - configuration.notify should be a boolean.
  - configuration.pxToRpx should be a boolean.
  - configuration.cwd should be a string.
  - configuration.progress should be a boolean.

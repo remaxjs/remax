@@ -1,4 +1,4 @@
-import { launchApp, delay } from './helpers';
+import { launchApp } from './helpers';
 
 describe('静态化页面', () => {
   it('正常渲染', async () => {
@@ -52,5 +52,15 @@ describe('静态化页面', () => {
     await expect(app).toMatchElement('div', { text: 'Deep Object View' });
     await expect(app).toMatchElement('div', { text: 'Conditional View' });
     await expect(app).toMatchElement('div', { text: 'plain-text-leaf' });
+  });
+
+  it('在根节点使用 Fragment', async () => {
+    const app = await launchApp('/pages/turbo-pages/fragmentRoot');
+
+    await expect(app).toMatch('0');
+    await expect(app).toMatch('1');
+    await expect(app).toMatch('2');
+    await expect(app).toMatch('3');
+    await expect(app).toMatch('view');
   });
 });

@@ -1,15 +1,25 @@
+import 'remax/web/normalize.css';
+import 'remax/web/app.css';
+
 import App from './app';
 import * as React from 'react';
 import { createPageConfig, createAppConfig } from 'remax';
-import { Router, CacheSwitch, CacheRoute, Route, Redirect, Link, history, render, hd, loadable } from 'remax/web';
-import 'remax/web/normalize.css';
-import 'remax/web/app.css';
+import { Router, CacheSwitch, CacheRoute, Route, Redirect, Link, createHashHistory, createBrowserHistory, render, hd, loadable } from 'remax/web';
+import { RuntimeOptions } from '@remax/runtime';
 
 hd();
 
 <%- pages.map((page, i) => `const page_${i} = loadable(() => import(/* webpackChunkName: "${page.route}" */'${page.path}').then(({ default: c }) => createPageConfig(c)));`).join('\n') %>
 <%- pages.map((page, i) => `const page_manifest_${i} = ${JSON.stringify(page.config)}`).join('\n') %>
 <%- `const app_config = ${JSON.stringify(appConfig)}\n` %>
+
+const history = (!app_config.router || app_config.router.type !== 'browser') ? createHashHistory() : createBrowserHistory();
+
+let first_page_path = app_config.pages[0] || '';
+first_page_path = !first_page_path.startsWith('/') ? '/' + first_page_path : first_page_path;
+
+RuntimeOptions.apply({ history });
+
 
 <% const tabBarConfig = appConfig.tabBar %>
 <% const hasTabBar = tabBarConfig && tabBarConfig.items && tabBarConfig.items.length > 0; %>
@@ -18,10 +28,8 @@ const AppConfig = createAppConfig(App);
 
  <% if (hasTabBar) { %>
 function TabBar() {
-  const [currentPath, setCurrentPath] = React.useState(null);
+  const [currentPath, setCurrentPath] = React.useState(history.location.pathname);
   React.useEffect(() => {
-    setCurrentPath(window.location.pathname);
-
     return history.listen((location, action) => {
       setCurrentPath(location.pathname);
     });
@@ -32,13 +40,17 @@ function TabBar() {
       url = '/' + url;
     }
 
+    if (currentPath === '/') {
+      return first_page_path === url;
+    }
+
     return currentPath === url;
   }
 
   return (
     <div className="remax-tab-bar" style={{ backgroundColor: '<%- tabBarConfig.backgroundColor || '' %>' }}>
         <%- tabBarConfig.items.map((tab, i) => `
-        <Link to="${tab.url}" className="remax-tab-item">
+        <Link replace={true} to="${(tab.url || '').startsWith('/') ? tab.url : '/' + tab.url}" className="remax-tab-item">
           <div className="remax-tab-item-image" style={{ backgroundImage: \`url(\$\{isActiveTab('${tab.url}') ? '${tab.activeImage || tab.image}' : '${tab.image}'\})\` }} />
           <div
             className={'remax-tab-item-title ' + (isActiveTab('${tab.url}') ? 'active' : '')}

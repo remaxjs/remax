@@ -10,7 +10,7 @@ import WebpackBar from 'webpackbar';
 import { Options, Platform } from '@remax/types';
 import { slash } from '@remax/shared';
 import ejs from 'ejs';
-import extensions, { moduleMatcher } from '../../extensions';
+import { moduleMatcher, targetExtensions } from '../../extensions';
 import getEntries from '../../getEntries';
 import * as TurboPages from '../utils/turboPages';
 import * as staticCompiler from '../babel/compiler/static';
@@ -65,50 +65,31 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
 
   config.devtool(false);
 
-  config.resolve.extensions.merge(
-    extensions
-      .map(ext => `.${target}${ext}`)
-      .concat(extensions.map(ext => `.mini${ext}`))
-      .concat(extensions)
-  );
+  config.resolve.extensions.merge(targetExtensions(options.target!));
   config.output.filename('[name].js');
   config.output.globalObject(meta.global);
   config.output.publicPath(publicPath);
   config.optimization.runtimeChunk({ name: 'runtime' });
   config.optimization.splitChunks({
     cacheGroups: {
+      remaxStyles: {
+        name: 'remax-styles',
+        test: new RegExp(`(.css|.less|.sass|.scss|.stylus|.styl|${api.meta.style})$`),
+        chunks: 'initial',
+        minChunks: 2,
+        minSize: 0,
+      },
       remaxVendors: {
         name: 'remax-vendors',
         test: moduleMatcher,
         chunks: 'initial',
         minChunks: 2,
         minSize: 0,
+        priority: 2,
       },
     },
   });
-  config.optimization.minimize(false);
-
-  config.module
-    .rule('config')
-    .pre()
-    .test(filename => {
-      const { app, pages } = getEntries(options, api);
-      if (slash(filename) === app.filename) {
-        return true;
-      }
-      if (pages.find(p => p.filename === slash(filename))) {
-        return true;
-      }
-      return false;
-    })
-    .use('babel')
-    .loader('babel')
-    .options({
-      babelrc: false,
-      configFile: resolveBabelConfig(options),
-      usePlugins: [appEntry(app.filename), pageEntry(options, api)],
-      reactPreset: false,
-    });
+  config.optimization.minimize(options.minimize ?? false);
 
   // turbo pages
   if (turboPagesEnabled) {
@@ -151,7 +132,14 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .options({
       babelrc: false,
       configFile: resolveBabelConfig(options),
-      usePlugins: [appEvent(app.filename), pageEvent(options), componentManifest(api, config), fixRegeneratorRuntime()],
+      usePlugins: [
+        appEntry(app.filename),
+        pageEntry(options, api),
+        appEvent(app.filename),
+        pageEvent(options),
+        componentManifest(api, config),
+        fixRegeneratorRuntime(),
+      ],
       reactPreset: true,
       api,
       compact: process.env.NODE_ENV === 'production',
@@ -180,12 +168,25 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     .use('file')
     .loader(require.resolve('file-loader'));
 
-  const pluginTemplate = fs.readFileSync(path.resolve(__dirname, '../../../template/plugin.js.ejs'), 'utf-8');
-  const pluginPath = slash('node_modules/@remax/runtime-plugin.js');
+  const runtimeOptionsTemplate = fs.readFileSync(
+    path.resolve(__dirname, '../../../template/apply-runtime-options.js.ejs'),
+    'utf-8'
+  );
+  const runtimeOptionsPath = slash('node_modules/@remax/apply-runtime-options.js');
+  config.entry(app.name).prepend('@remax/apply-runtime-options');
+
+  const runtimeOptions = {
+    pxToRpx: options.pxToRpx,
+    debug: !!process.env.REMAX_DEBUG,
+    platform: options.target,
+    pluginFiles: api.getRuntimePluginFiles(),
+    hostComponents: '[]',
+    pageEvents: '{}',
+    appEvents: '[]',
+  };
+
   const virtualModules = new VirtualModulesPlugin({
-    [pluginPath]: ejs.render(pluginTemplate, {
-      pluginFiles: api.getRuntimePluginFiles(),
-    }),
+    [runtimeOptionsPath]: ejs.render(runtimeOptionsTemplate, runtimeOptions, { debug: false }),
   });
   config.plugin('webpack-virtual-modules').use(virtualModules);
 
@@ -200,7 +201,9 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
   config.plugin('remax-native-files-plugin').use(RemaxPlugins.NativeFiles, [options, api]);
-  config.plugin('remax-define-plugin').use(RemaxPlugins.Define, [options, api]);
+
+  config.plugin('remax-runtime-options-plugin').use(RemaxPlugins.RuntimeOptions, [options, api]);
+
   config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
 
   if (options.analyze) {
@@ -220,6 +223,20 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
   }
 
   api.configWebpack(context);
+
+  const externals = config.get('externals');
+  const runtimeOptionsExternal = {
+    '/__remax_runtime_options__': `require('/__remax_runtime_options__')`,
+  };
+
+  if (Array.isArray(externals)) {
+    config.set('externals', [...externals, runtimeOptionsExternal]);
+  } else {
+    config.set('externals', {
+      ...externals,
+      ...runtimeOptionsExternal,
+    });
+  }
 
   return config.toConfig();
 }

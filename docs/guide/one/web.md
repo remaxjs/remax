@@ -17,6 +17,8 @@ $ remax build -t web
 
 为了与小程序对齐，Remax 为 Web 平台也提供了一份与小程序类似的应用配置。
 
+> router 配置从 2.6.0 开始支持
+
 ```js
 // app.config.js
 module.exports.web = {
@@ -28,6 +30,10 @@ module.exports.web = {
   pullToRefresh: false,
   // 触底滚动的默认距离，单位 px
   reachBottomOffset: 50,
+  router: {
+    // history 类型，支持 hash 和 browser
+    type: 'hash',
+  },
   // tab bar 配置
   tabBar: {
     // 背景色

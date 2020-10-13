@@ -52,18 +52,19 @@ $ yarn create remax-app my-app
 $ cd my-app && yarn
 ```
 
-或者在已有的项目中引入：
-
-在 `remax.config.js` 中设置 `one: true` 来开启 Remax One。
+或者在已有的项目中配置：
 
 ```javascript
 // remax.config.js
 module.export = {
-  one: true,
   // 通过环境变量区分不同平台的输出目录
   output: 'dist/' + process.env.REMAX_PLATFORM,
 };
 ```
+
+> 旧版本兼容
+>
+> 2.6.0 之前的版本需要在 remax.config.js 中配置 one: true 来开启 remax/one 特性
 
 ## 小程序配置
 
@@ -141,19 +142,6 @@ export default () => {
 `@remax/cli` 会优先读取 `[target].js` 文件，这个规则针对 CSS 等其他文件同样有效。
 
 > 注意：上面的例子中的 `src/api/showToast/index.js` 是必须的，也就是说不能只提供带有平台后缀的文件。
-
-> 注意：由于微信的限制，在同构组件时，微信端的代码需要在 jsx 中写明：
-
-```jsx
-// src/components/Checkbox/index.wechat.js
-import * as React from 'react';
-import { Checkbox } from 'remax/wechat';
-
-// 受限于微信的静态约束，必须在同构文件中写明你使用了从 remax 导出的组件
-export default function WechatCheckbox(props) {
-  return <Checkbox {...props} />;
-}
-```
 
 ## 使用环境变量区分不同平台的代码
 

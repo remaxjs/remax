@@ -1,4 +1,5 @@
 import * as React from 'react';
+import memoizeOne from 'memoize-one';
 import {
   TapEvent,
   TouchEvent,
@@ -9,6 +10,7 @@ import {
   InputEvent,
   FormEvent,
 } from './types';
+import { formatDisplayName } from '@remax/shared';
 
 export function createTarget(target: any, detail: any): EventTarget {
   return {
@@ -35,15 +37,18 @@ export const createTapEvent = (originalEvent: any): TapEvent => ({
   target: createTarget(originalEvent.target, originalEvent.detail),
   currentTarget: createCurrentTarget(originalEvent.currentTarget),
   originalEvent,
+  nativeEvent: originalEvent,
 });
 
 export const createTouchEvent = (originalEvent: any): TouchEvent => ({
   type: originalEvent.type,
+  stopPropagation: originalEvent.stopPropagation,
   target: createTarget(originalEvent.target, originalEvent.detail),
   currentTarget: createCurrentTarget(originalEvent.currentTarget),
   touches: originalEvent.touches,
   changedTouches: originalEvent.touches,
   originalEvent,
+  nativeEvent: originalEvent,
 });
 
 export const createImageEvent = (originalEvent: any): ImageLoadEvent | ImageErrorEvent => ({
@@ -51,9 +56,10 @@ export const createImageEvent = (originalEvent: any): ImageLoadEvent | ImageErro
   target: createTarget(originalEvent.target, originalEvent.detail),
   currentTarget: createCurrentTarget(originalEvent.currentTarget),
   originalEvent,
+  nativeEvent: originalEvent,
 });
 
-export function createCallback(fn: Function | undefined, eventCreator: Function) {
+export function createCallback(fn: ((event: any) => void) | undefined, eventCreator: (event: any) => any) {
   if (typeof fn !== 'function') {
     return undefined;
   }
@@ -66,6 +72,7 @@ export const createInputEvent = (originalEvent: any): InputEvent => ({
   target: createTarget(originalEvent.target, originalEvent.detail),
   currentTarget: createCurrentTarget(originalEvent.currentTarget),
   originalEvent,
+  nativeEvent: originalEvent,
 });
 
 export const createFormEvent = (originalEvent: any): FormEvent => ({
@@ -73,6 +80,7 @@ export const createFormEvent = (originalEvent: any): FormEvent => ({
   target: createTarget(originalEvent.target, originalEvent.detail),
   currentTarget: createCurrentTarget(originalEvent.currentTarget),
   originalEvent,
+  nativeEvent: originalEvent,
 });
 
 function assignDefaultProps(inputProps: any, defaultProps: any) {
@@ -83,12 +91,43 @@ function assignDefaultProps(inputProps: any, defaultProps: any) {
   }
 }
 
+export function aliasProps(props: any, alias: { [key: string]: string }) {
+  if (!alias) {
+    return props;
+  }
+
+  const nextProps: any = {};
+
+  for (const key in props) {
+    nextProps[alias[key] ?? key] = props[key];
+  }
+
+  return nextProps;
+}
+
+const createLongTapCallback = memoizeOne(createCallback);
+const createTapCallback = memoizeOne(createCallback);
+const createTouchStartCallback = memoizeOne(createCallback);
+const createTouchMoveCallback = memoizeOne(createCallback);
+const createTouchEndCallback = memoizeOne(createCallback);
+const createTouchCancelCallback = memoizeOne(createCallback);
+const createChangeCallback = memoizeOne(createCallback);
+const createInputCallback = memoizeOne(createCallback);
+const createConfirmCallback = memoizeOne(createCallback);
+const createFocusCallback = memoizeOne(createCallback);
+const createBlurCallback = memoizeOne(createCallback);
+const createSubmitCallback = memoizeOne(createCallback);
+const createResetCallback = memoizeOne(createCallback);
+const createImageLoadCallback = memoizeOne(createCallback);
+const createImageErrorCallback = memoizeOne(createCallback);
+
 export default function createHostComponent<P = any>(
   name: string,
+  alias: {
+    [key: string]: string;
+  } | null,
   defaults?: {
-    [key: string]: {
-      [key: string]: any;
-    };
+    [key: string]: any;
   }
 ) {
   const Component: React.ForwardRefRenderFunction<any, P> = (props: any, ref: React.Ref<any>) => {
@@ -98,77 +137,82 @@ export default function createHostComponent<P = any>(
 
     // 默认属性根据平台在这里设置
     if (defaults) {
-      if (process.env.REMAX_PLATFORM === 'wechat') {
-        assignDefaultProps(inputProps, defaults['wechat']);
-      } else if (process.env.REMAX_PLATFORM === 'toutiao') {
-        assignDefaultProps(inputProps, defaults['toutiao']);
-      } else if (process.env.REMAX_PLATFORM === 'ali') {
-        assignDefaultProps(inputProps, defaults['ali']);
-      }
+      assignDefaultProps(inputProps, defaults);
     }
 
     if (props.onLongTap) {
-      inputProps.onLongTap = createCallback(inputProps.onLongTap, createTapEvent);
+      inputProps.onLongTap = createLongTapCallback(inputProps.onLongTap, createTapEvent);
     }
     if (inputProps.onTap) {
-      inputProps.onTap = createCallback(inputProps.onTap, createTapEvent);
+      inputProps.onTap = createTapCallback(inputProps.onTap, createTapEvent);
     }
 
     if (inputProps.onTouchStart) {
-      inputProps.onTouchStart = createCallback(inputProps.onTouchStart, createTouchEvent);
+      inputProps.onTouchStart = createTouchStartCallback(inputProps.onTouchStart, createTouchEvent);
     }
 
     if (inputProps.onTouchMove) {
-      inputProps.onTouchMove = createCallback(inputProps.onTouchMove, createTouchEvent);
+      inputProps.onTouchMove = createTouchMoveCallback(inputProps.onTouchMove, createTouchEvent);
     }
 
     if (inputProps.onTouchEnd) {
-      inputProps.onTouchEnd = createCallback(inputProps.onTouchEnd, createTouchEvent);
+      inputProps.onTouchEnd = createTouchEndCallback(inputProps.onTouchEnd, createTouchEvent);
     }
 
     if (inputProps.onTouchCancel) {
-      inputProps.onTouchCancel = createCallback(inputProps.onTouchCancel, createTouchEvent);
+      inputProps.onTouchCancel = createTouchCancelCallback(inputProps.onTouchCancel, createTouchEvent);
     }
 
     if (inputProps.onChange) {
-      inputProps.onChange = createCallback(inputProps.onChange, createInputEvent);
+      inputProps.onChange = createChangeCallback(inputProps.onChange, createInputEvent);
     }
 
     if (inputProps.onInput) {
-      inputProps.onInput = createCallback(inputProps.onInput, createInputEvent);
+      inputProps.onInput = createInputCallback(inputProps.onInput, createInputEvent);
     }
 
     if (inputProps.onConfirm) {
-      inputProps.onConfirm = createCallback(inputProps.onConfirm, createInputEvent);
+      inputProps.onConfirm = createConfirmCallback(inputProps.onConfirm, createInputEvent);
     }
 
     if (inputProps.onFocus) {
-      inputProps.onFocus = createCallback(inputProps.onFocus, createInputEvent);
+      inputProps.onFocus = createFocusCallback(inputProps.onFocus, createInputEvent);
     }
 
     if (inputProps.onBlur) {
-      inputProps.onBlur = createCallback(inputProps.onBlur, createInputEvent);
+      inputProps.onBlur = createBlurCallback(inputProps.onBlur, createInputEvent);
     }
 
     if (inputProps.onSubmit) {
-      inputProps.onSubmit = createCallback(inputProps.onSubmit, createFormEvent);
+      inputProps.onSubmit = createSubmitCallback(inputProps.onSubmit, createFormEvent);
     }
 
     if (inputProps.onReset) {
-      inputProps.onReset = createCallback(inputProps.onReset, createFormEvent);
+      inputProps.onReset = createResetCallback(inputProps.onReset, createFormEvent);
     }
 
     if (name === 'image') {
       if (inputProps.onLoad) {
-        inputProps.onLoad = createCallback(props.onLoad, createImageEvent);
+        inputProps.onLoad = createImageLoadCallback(props.onLoad, createImageEvent);
       }
       if (inputProps.onError) {
-        inputProps.onError = createCallback(props.onError, createImageEvent);
+        inputProps.onError = createImageErrorCallback(props.onError, createImageEvent);
       }
     }
 
-    return React.createElement(name, { ...inputProps, ref });
+    let nextProps = inputProps;
+
+    if (alias) {
+      nextProps = aliasProps(inputProps, alias);
+    }
+    nextProps.ref = ref;
+
+    return React.createElement(name, nextProps);
   };
+
+  if (process.env.NODE_ENV === 'development') {
+    Component.displayName = formatDisplayName(name);
+  }
 
   return React.forwardRef<any, React.PropsWithChildren<P>>(Component);
 }

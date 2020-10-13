@@ -1,5 +1,6 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface PickerProps extends BaseProps {
   name?: string;
@@ -23,8 +24,8 @@ export interface PickerProps extends BaseProps {
    * 1.9.90
    * 取消选择时触发
    */
-  onCancel?: (event: any) => any;
-  onChange?: (event: any) => void;
+  onCancel?: (event: GenericEvent) => any;
+  onChange?: (event: GenericEvent) => void;
   /**
    * 列改变时触发
    */
@@ -69,7 +70,7 @@ export interface PickerProps extends BaseProps {
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/picker.html
  */
-export const Picker = createHostComponent<PickerProps>('picker');
+export const Picker: React.ComponentType<PickerProps> = createHostComponent<PickerProps>('picker');
 
 Picker.defaultProps = {
   mode: 'selector',

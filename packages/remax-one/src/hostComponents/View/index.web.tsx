@@ -6,11 +6,11 @@ import useWebTouch from '../useWebTouch';
 
 export type ViewProps = ViewWebProps;
 
-const View: React.FC<ViewWebProps> = props => {
+const View: React.ForwardRefRenderFunction<any, ViewProps> = (props, ref) => {
   const {
     hoverClassName,
-    hoverStartTime,
-    hoverStayTime,
+    hoverStartTime = 50,
+    hoverStayTime = 400,
     className,
     onTouchStart,
     onTouchMove,
@@ -33,6 +33,7 @@ const View: React.FC<ViewWebProps> = props => {
   return (
     <div
       {...restProps}
+      ref={ref}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -43,9 +44,4 @@ const View: React.FC<ViewWebProps> = props => {
   );
 };
 
-View.defaultProps = {
-  hoverStayTime: 400,
-  hoverStartTime: 50,
-};
-
-export default View;
+export default React.forwardRef(View);

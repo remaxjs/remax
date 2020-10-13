@@ -14,4 +14,4 @@ export interface TextProps {
   onClick?: (e: any) => void;
 }
 
-export const Text = createHostComponent<TextProps>('text');
+export const Text: React.ComponentType<TextProps> = createHostComponent<TextProps>('text');

@@ -16,6 +16,8 @@ export const alias = {
   fields: 'fields',
   customItem: 'custom-item',
   disabled: 'disabled',
+  onClick: 'bindtap',
+  onTap: 'bindtap',
 };
 
 export const props = Object.values(alias);

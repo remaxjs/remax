@@ -27,7 +27,7 @@ function ReactComp({ children }) {
         </>
         {<View>View inside Expression</View>}
         {React.Children.map(children, (child, index) => {
-          if (index === 2) {
+          if (index === 1) {
             return child;
           }
           return React.cloneElement(child, { id: 'reactComp' + index });

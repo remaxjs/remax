@@ -4,6 +4,8 @@ import { filterProps } from '../../utils/isPlatformSpecifyProp';
 
 export type { LabelProps };
 
-const Label: React.FC<LabelProps> = props => <label {...filterProps(props)} />;
+const Label: React.ForwardRefRenderFunction<any, LabelProps> = (props, ref) => (
+  <label {...filterProps(props)} ref={ref} />
+);
 
-export default Label;
+export default React.forwardRef(Label);

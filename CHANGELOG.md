@@ -3,6 +3,193 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.3](https://github.com/remaxjs/remax/compare/v2.8.2...v2.8.3) (2020-09-28)
+
+### Bug Fixes
+
+- **ali:** 修复 AppConfig 类型 ([8b1fa47](https://github.com/remaxjs/remax/commit/8b1fa47329a99e47035ecbfa6fec097cc52be7b8))
+
+## [2.8.2](https://github.com/remaxjs/remax/compare/v2.8.1...v2.8.2) (2020-09-18)
+
+### Bug Fixes
+
+- **wechat:** 微信 Button 组件支持 QQ 小程序新增参数 ([#1297](https://github.com/remaxjs/remax/issues/1297)) ([1d9a839](https://github.com/remaxjs/remax/commit/1d9a8396b4c967e7474d9e3d6735e195e570f088))
+
+## [2.8.1](https://github.com/remaxjs/remax/compare/v2.8.0...v2.8.1) (2020-09-16)
+
+### Bug Fixes
+
+- 修复同一页面的生命周期会重复触发的问题 ([#1289](https://github.com/remaxjs/remax/issues/1289)) ([4e8fef1](https://github.com/remaxjs/remax/commit/4e8fef1dfe5f26824aecc0d530da23cf48aef758)), closes [#1288](https://github.com/remaxjs/remax/issues/1288)
+
+# [2.8.0](https://github.com/remaxjs/remax/compare/v2.7.10...v2.8.0) (2020-09-15)
+
+### Features
+
+- **wechat:** 导出 TouchEvent GenericEvent 事件定义 ([#1286](https://github.com/remaxjs/remax/issues/1286)) ([27a90cd](https://github.com/remaxjs/remax/commit/27a90cd5aef63ff84e43c25f57101b080387f638)), closes [#1062](https://github.com/remaxjs/remax/issues/1062)
+
+### Performance Improvements
+
+- 优化 remax/one 组件渲染性能 ([#1264](https://github.com/remaxjs/remax/issues/1264)) ([7721da2](https://github.com/remaxjs/remax/commit/7721da2460d118b73a0c694a51359588d5689215))
+
+## [2.7.10](https://github.com/remaxjs/remax/compare/v2.7.9...v2.7.10) (2020-09-11)
+
+### Bug Fixes
+
+- **web:** 修复开发模式下 browser history 不能直接打开路由的问题 ([1d6a910](https://github.com/remaxjs/remax/commit/1d6a910f7859f966824433ba6100773edccc7841))
+
+## [2.7.9](https://github.com/remaxjs/remax/compare/v2.7.8...v2.7.9) (2020-09-10)
+
+### Bug Fixes
+
+- 允许使用 Page 命名页面组件 ([#1273](https://github.com/remaxjs/remax/issues/1273)) ([bfa8032](https://github.com/remaxjs/remax/commit/bfa8032a5f62ad7bc6f82fce7096009a917be727)), closes [#1262](https://github.com/remaxjs/remax/issues/1262)
+- **ali:** 修复同一个页面的生命周期会重复触发的问题 ([2af7537](https://github.com/remaxjs/remax/commit/2af753700e3048d231c0fb7d137e327e2089b9a7)), closes [#1225](https://github.com/remaxjs/remax/issues/1225)
+- **toutiao:** 修复飞书开发者工具运行报错的问题 ([00db2bf](https://github.com/remaxjs/remax/commit/00db2bf5d228c7ab6d1e695ce3d01b4e7e6e2aab))
+- **web:** 修复 app config 中 router 配置的类型错误 ([b4f2c84](https://github.com/remaxjs/remax/commit/b4f2c84e7c00fd3e69dc8e7edd221e556bbdc346))
+- **web:** 修复 web 下即使离开页面 onPageScroll 事件也会触发的问题 ([#1232](https://github.com/remaxjs/remax/issues/1232)) ([7ae649e](https://github.com/remaxjs/remax/commit/7ae649ec03598dc5afed1552dbe12f9c74297c2e))
+- **wechat:** 修复微信小程序 app.config.ts 声明错误问题 ([#1257](https://github.com/remaxjs/remax/issues/1257)) ([b2077ae](https://github.com/remaxjs/remax/commit/b2077aeaf1f559ff78532ea8d9136660691f02b4))
+- **wechat:** 微信添加 catchTouchMove 的类型定义 ([6efda1d](https://github.com/remaxjs/remax/commit/6efda1d0004f0e6588138068516f516d0016e4e2))
+
+## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
+
+### Bug Fixes
+
+- **wechat:** 微信增加 onShareTimeline 生命周期 ([3e5f3cb](https://github.com/remaxjs/remax/commit/3e5f3cb0be474cee2d577f024ae7be100c8456c4))
+- 修复 WebStrom 中组件不自动提示属性的问题 ([#1203](https://github.com/remaxjs/remax/issues/1203)) ([b3b7a8b](https://github.com/remaxjs/remax/commit/b3b7a8b8202c880e9b6efa307a678991d0cccc74))
+- 修复样式会被重复打包的问题 ([#1214](https://github.com/remaxjs/remax/issues/1214)) ([7c7e065](https://github.com/remaxjs/remax/commit/7c7e065b315d82e765a8e015a13f2ae54b2ff49a))
+
+## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
+
+### Bug Fixes
+
+- **one:** 修复事件对象没有 nativeEvent 的问题 ([#1199](https://github.com/remaxjs/remax/issues/1199)) ([a7308c3](https://github.com/remaxjs/remax/commit/a7308c37ffdbc523dc2d710f9b0463c6ea390142))
+- 修复入口文件使用平台扩展名时生成的模板名错误的问题 ([#1198](https://github.com/remaxjs/remax/issues/1198)) ([bdf4a67](https://github.com/remaxjs/remax/commit/bdf4a67e61469e95181e3b21f9ff3e396fb92a4f))
+
+## [2.7.6](https://github.com/remaxjs/remax/compare/v2.7.5...v2.7.6) (2020-07-28)
+
+### Bug Fixes
+
+- 修复入口文件无法按平台扩展名加载的问题 ([#1197](https://github.com/remaxjs/remax/issues/1197)) ([623b8f4](https://github.com/remaxjs/remax/commit/623b8f42082781ef33f5a764bdc8917d07c8a983))
+
+## [2.7.5](https://github.com/remaxjs/remax/compare/v2.7.4...v2.7.5) (2020-07-28)
+
+### Bug Fixes
+
+- 修复 stopPropagation 有可能导致方法不再触发的问题 ([1d6f961](https://github.com/remaxjs/remax/commit/1d6f9618d5cd5a31559d832f2cbd4d51a16ec0a1))
+- 修复阿里小程序无法链接 React Devtools 的问题 ([#1188](https://github.com/remaxjs/remax/issues/1188)) ([21c5fd0](https://github.com/remaxjs/remax/commit/21c5fd0b5253a17f3ea99efa96f6380dbf395710))
+
+## [2.7.4](https://github.com/remaxjs/remax/compare/v2.7.3...v2.7.4) (2020-07-25)
+
+### Bug Fixes
+
+- **toutiao:** 修复 Picker 组件 mode 属性不生效的问题 ([#1180](https://github.com/remaxjs/remax/issues/1180)) ([009bd6d](https://github.com/remaxjs/remax/commit/009bd6da55fb6c251b63bde8713cf065683fef5b))
+- 修复 config 中分包配置类型缺失的问题 ([06af55c](https://github.com/remaxjs/remax/commit/06af55cd684f7dd2c9be78d0de1d9669d5d86b1a))
+- 修复 Picker 组件缺失 onClick 和 onTap 事件 ([#1170](https://github.com/remaxjs/remax/issues/1170)) ([d6c4d4a](https://github.com/remaxjs/remax/commit/d6c4d4af02da276dbbbf9a8a74c91cb1128cf70b))
+- **ali:** 修复 MovableArea 的类型错误 ([65c2b92](https://github.com/remaxjs/remax/commit/65c2b922fb47f7d0f4b73fbbdfd550189cdb01a0))
+
+## [2.7.3](https://github.com/remaxjs/remax/compare/v2.7.2...v2.7.3) (2020-07-17)
+
+### Bug Fixes
+
+- **ali:** 修复 Text 组件的 decode 属性不生效的问题 ([#1167](https://github.com/remaxjs/remax/issues/1167)) ([a9e9bff](https://github.com/remaxjs/remax/commit/a9e9bffdce51f15054a05e0f1400307f7db5d428))
+
+## [2.7.2](https://github.com/remaxjs/remax/compare/v2.7.1...v2.7.2) (2020-07-16)
+
+### Bug Fixes
+
+- 修复 babel.config.js 中配置的插件会执行两次的问题 ([#1164](https://github.com/remaxjs/remax/issues/1164)) ([a308524](https://github.com/remaxjs/remax/commit/a30852432603cd99138ef41c48bea372659b0014))
+- 修复 turboPages 模式使用 Fragment 可能死循环的问题 ([#1161](https://github.com/remaxjs/remax/issues/1161)) ([ee897e8](https://github.com/remaxjs/remax/commit/ee897e856fc83b61cd5c24aee5f65b14d84e14bb))
+- **web:** 修复 onLoad 和 onShow 事件不触发的问题 ([f871ae1](https://github.com/remaxjs/remax/commit/f871ae190c2244c1596211536adae46eb070da5d))
+
+## [2.7.1](https://github.com/remaxjs/remax/compare/v2.7.0...v2.7.1) (2020-07-14)
+
+### Bug Fixes
+
+- **ali:** 修复 Button onError 属性不生效的问题 ([2464c90](https://github.com/remaxjs/remax/commit/2464c905df1d79fde795709d0abe04359c9a180c))
+
+# [2.7.0](https://github.com/remaxjs/remax/compare/v2.6.0...v2.7.0) (2020-07-09)
+
+### Bug Fixes
+
+- 修复 devServer 配置无法定制的问题 ([f856852](https://github.com/remaxjs/remax/commit/f8568522267a224a6a0cf04bede1a79bd629b86b)), closes [#1116](https://github.com/remaxjs/remax/issues/1116)
+- 修复 externals 配置可能被覆盖的问题 ([2dbc4a8](https://github.com/remaxjs/remax/commit/2dbc4a8854d2b4b366b02b5b8e46af7281a836e1))
+- **ali:** 修复 Video 组件 style, posterSize 属性不生效的问题 ([4120ea8](https://github.com/remaxjs/remax/commit/4120ea8e612988e20efc108c7869e1c2ffe256c4))
+- **wechat:** view 支持 catchTouchMove 事件 ([#1105](https://github.com/remaxjs/remax/issues/1105)) ([901cc2d](https://github.com/remaxjs/remax/commit/901cc2d63396d373d35c2bdd17fecccb81f94703))
+- 修复 onClick 和 onTouchStart 阻止冒泡会互相影响的问题 ([be9af42](https://github.com/remaxjs/remax/commit/be9af42d9a19866afcf613af11dbdf8502089744))
+- 修复开启 REMAX_DEBUG 后显示 ejs debug 信息的问题 ([#1141](https://github.com/remaxjs/remax/issues/1141)) ([9ce6352](https://github.com/remaxjs/remax/commit/9ce635207a2866d46b74a308397300da1d1f0579))
+- 修复页面 onLoad 事件缺少 query 参数的问题 ([#1134](https://github.com/remaxjs/remax/issues/1134)) ([a7547c1](https://github.com/remaxjs/remax/commit/a7547c182f0cf31719c27d539a115616b19d075f))
+
+### Features
+
+- web 端支持自定义模板 ([#1115](https://github.com/remaxjs/remax/issues/1115)) ([c602637](https://github.com/remaxjs/remax/commit/c6026378093bc2bf31aaa69e421ff4e136009d05))
+- 新增 Modal 组件 ([#1133](https://github.com/remaxjs/remax/issues/1133)) ([4c801d4](https://github.com/remaxjs/remax/commit/4c801d4ad239c1eee8c7b073cf506c44cb3e0bb5))
+
+# [2.6.0](https://github.com/remaxjs/remax/compare/v2.5.5...v2.6.0) (2020-07-03)
+
+### Bug Fixes
+
+- **ali:** Video 组件支持 enableNative 属性 ([0398f49](https://github.com/remaxjs/remax/commit/0398f495cf0d6deb072df91a00d5d7ac531ecc34))
+- **ali:** 补充 Video objectFill 属性 type 定义 ([d965f42](https://github.com/remaxjs/remax/commit/d965f428c65c40356cd80cfc0d74173385bc108f))
+- **one:** 修复 TouchEvent stopPropagation 属性 ([2fb2c0f](https://github.com/remaxjs/remax/commit/2fb2c0fca0f8102948ab315c23fa1d54994434fa)), closes [#1101](https://github.com/remaxjs/remax/issues/1101)
+- **toutiao:** 修复部分组件缺少默认值的问题 ([#1128](https://github.com/remaxjs/remax/issues/1128)) ([cc00bb3](https://github.com/remaxjs/remax/commit/cc00bb32f43f3fbb614681869bd1b2a7ddd85dee))
+- **web:** web 端函数组件缺少 ref forward ([#1124](https://github.com/remaxjs/remax/issues/1124)) ([990cde6](https://github.com/remaxjs/remax/commit/990cde64ce936300eebc004196d85c3046865d49))
+- **web:** 修复 web 下 useQuery 无法获取到参数的问题 ([c6e6b75](https://github.com/remaxjs/remax/commit/c6e6b7516a14c88ddc326f167a932befd18c720e)), closes [#1112](https://github.com/remaxjs/remax/issues/1112)
+- **web:** 修复样式加载顺序问题 ([#1129](https://github.com/remaxjs/remax/issues/1129)) ([af8db50](https://github.com/remaxjs/remax/commit/af8db5035567ed41a5e5eca4996aac9cfe0d5d27))
+- **web:** 修复页面组件无法获取 props.location.query 的问题 ([#1132](https://github.com/remaxjs/remax/issues/1132)) ([7422aff](https://github.com/remaxjs/remax/commit/7422affac4e3b5f334c768e29645ba25efd008e7))
+- 修复 React Devtools 会监听所有 WebSocket 链接的问题 ([#1119](https://github.com/remaxjs/remax/issues/1119)) ([875182d](https://github.com/remaxjs/remax/commit/875182d98ee35d988ccc4899d47e9f2ca83a554a))
+- 补全 useAppEvent usePageEvent 类型 ([#1120](https://github.com/remaxjs/remax/issues/1120)) ([91096a4](https://github.com/remaxjs/remax/commit/91096a45dba6fe5e9cfc406404a474f3c2967017))
+
+### Features
+
+- **cli:** 开发模式下支持压缩文件 ([#1102](https://github.com/remaxjs/remax/issues/1102)) ([167bba6](https://github.com/remaxjs/remax/commit/167bba6e0b98d2500e582b919f92aaca19420bca))
+
+## [2.5.5](https://github.com/remaxjs/remax/compare/v2.5.4...v2.5.5) (2020-06-18)
+
+### Bug Fixes
+
+- **wechat:** 修复条件渲染错误 ([#1100](https://github.com/remaxjs/remax/issues/1100)) ([a204ec7](https://github.com/remaxjs/remax/commit/a204ec7dd3ade1b6b97cd834f018fafa67ec960a)), closes [#1096](https://github.com/remaxjs/remax/issues/1096) [#1099](https://github.com/remaxjs/remax/issues/1099)
+
+## [2.5.4](https://github.com/remaxjs/remax/compare/v2.5.3...v2.5.4) (2020-06-18)
+
+### Bug Fixes
+
+- 修复部分自定义 babel 插件不生效的问题 ([#1097](https://github.com/remaxjs/remax/issues/1097)) ([b72d1ad](https://github.com/remaxjs/remax/commit/b72d1ad5e3da497fa3c4884f0b005d1b4c5333ce)), closes [#1094](https://github.com/remaxjs/remax/issues/1094)
+- **ali:** 修复 Swiper[style] 类型 ([4397e4e](https://github.com/remaxjs/remax/commit/4397e4e700141c97284a04d3142eb10696b31f82))
+- **ali:** 修复 Video 组件缺少 className 属性的类型定义 ([9c927d1](https://github.com/remaxjs/remax/commit/9c927d1a805012e75fce810e8615207e1112e08d))
+
+## [2.5.3](https://github.com/remaxjs/remax/compare/v2.5.2...v2.5.3) (2020-06-17)
+
+### Bug Fixes
+
+- **web:** 修复 React DevTools 引起的运行错误 ([15cf022](https://github.com/remaxjs/remax/commit/15cf02269024fa6f3480c295de2ad99618168443))
+
+## [2.5.2](https://github.com/remaxjs/remax/compare/v2.5.1...v2.5.2) (2020-06-16)
+
+### Bug Fixes
+
+- **ali:** 修复条件渲染 JSX 可能导致报错的问题 ([#1092](https://github.com/remaxjs/remax/issues/1092)) ([309bc5b](https://github.com/remaxjs/remax/commit/309bc5b22c08679f1a159cd2fb53644f8a42da15))
+
+## [2.5.1](https://github.com/remaxjs/remax/compare/v2.5.0...v2.5.1) (2020-06-16)
+
+### Bug Fixes
+
+- 修复 windows 下编译报错 ([#1091](https://github.com/remaxjs/remax/issues/1091)) ([0b2caa8](https://github.com/remaxjs/remax/commit/0b2caa844d7245c1cd46816450d7b84896b449e7))
+- **ali:** 修复 MovableView 缺失的属性 ([#1089](https://github.com/remaxjs/remax/issues/1089)) ([d54847d](https://github.com/remaxjs/remax/commit/d54847d6af4deb1d5e6a271ae5a5d171cca51f58))
+
+# [2.5.0](https://github.com/remaxjs/remax/compare/v2.4.1...v2.5.0) (2020-06-15)
+
+### Bug Fixes
+
+- **ali:** 修复 Textarea[enableNative] 不生效的问题 ([7724528](https://github.com/remaxjs/remax/commit/77245283adb1662330647250b1eb27bcc724d3db))
+- **cli:** 修复 notify 命令不生效的问题 ([#1071](https://github.com/remaxjs/remax/issues/1071)) ([e229c48](https://github.com/remaxjs/remax/commit/e229c48b624deb95c54ced5fad9ce4f61b381663))
+- **toutiao:** 修复 View Input 的 props 类型 ([#1041](https://github.com/remaxjs/remax/issues/1041)) ([f52d7f6](https://github.com/remaxjs/remax/commit/f52d7f616aef90baa52abea42f14e86d66cb233a))
+- **wechat:** 修复更新已删除的节点导致报错的问题 ([#1078](https://github.com/remaxjs/remax/issues/1078)) ([84f45fa](https://github.com/remaxjs/remax/commit/84f45fab73a1fd86326bd52806a465e6c96a00ef)), closes [#1065](https://github.com/remaxjs/remax/issues/1065)
+- **wechat:** 添加 API offKeyboardHeightChange ([#1073](https://github.com/remaxjs/remax/issues/1073)) ([154ecd3](https://github.com/remaxjs/remax/commit/154ecd3946ad864cd96e9da014b6efa4a5850e6f))
+
+### Features
+
+- 支持 React DevTools ([#994](https://github.com/remaxjs/remax/issues/994)) ([396b326](https://github.com/remaxjs/remax/commit/396b3269d05f4d3218c3c3637d2aaaca03a5673c))
+- **remax:** onTouchStart onTouchMove onTouchEnd 支持阻止冒泡 ([#1072](https://github.com/remaxjs/remax/issues/1072)) ([5a532c1](https://github.com/remaxjs/remax/commit/5a532c1935e900e8a86e288077d92338a46832f5)), closes [#1068](https://github.com/remaxjs/remax/issues/1068)
+
 ## [2.4.1](https://github.com/remaxjs/remax/compare/v2.4.0...v2.4.1) (2020-06-10)
 
 ### Bug Fixes

@@ -6,21 +6,34 @@ import render from '../render';
 import { reset as resetInstanceId } from '../instanceId';
 import Container from '../Container';
 import createPageWrapper from '../createPageWrapper';
-// eslint-disable-next-line @typescript-eslint/camelcase
 import { useNativeEffect, usePageInstance } from '../hooks';
+import { RuntimeOptions } from '..';
+import { Platform } from '@remax/types';
+import usePageContext from '../hooks/usePageContext';
+
+function delay(ms: number) {
+  if (typeof ms !== 'number') {
+    throw new Error('Must specify ms');
+  }
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve();
+    }, ms);
+  });
+}
 
 const p = {
-  setData(state: any, callback: Function) {
+  setData(state: any, callback: () => void) {
     setTimeout(() => {
       if (typeof callback === 'function') {
         callback();
       }
     });
   },
-  $batchedUpdates(callback: Function) {
+  $batchedUpdates(callback: () => void) {
     callback();
   },
-  $spliceData(state: any, callback: Function) {
+  $spliceData(state: any, callback: () => void) {
     setTimeout(() => {
       if (typeof callback === 'function') {
         callback();
@@ -31,10 +44,13 @@ const p = {
 
 describe('ali remax render', () => {
   beforeEach(() => {
-    process.env.REMAX_PLATFORM = 'ali';
+    RuntimeOptions.apply({
+      platform: Platform.ali,
+    });
+    resetInstanceId();
   });
   afterEach(() => {
-    process.env.REMAX_PLATFORM = '';
+    RuntimeOptions.reset();
     resetInstanceId();
   });
 
@@ -119,13 +135,10 @@ describe('ali remax render', () => {
     const page = React.createRef<any>();
     render(<Page ref={page} />, container);
     expect(container.root).toMatchSnapshot();
-    expect(container.updateQueue).toMatchSnapshot();
     page.current.show();
     expect(container.root).toMatchSnapshot();
-    expect(container.updateQueue).toMatchSnapshot();
     page.current.hide();
     expect(container.root).toMatchSnapshot();
-    expect(container.updateQueue).toMatchSnapshot();
   });
 
   it('conditional render', () => {
@@ -249,28 +262,6 @@ describe('ali remax render', () => {
     render(<Page ref={page} />, container);
     expect(container.root).toMatchSnapshot();
     page.current.update();
-    expect(container.updateQueue).toMatchInlineSnapshot(`
-      Array [
-        Object {
-          "name": "class",
-          "path": "root.children.0.children[0].props",
-          "type": "set",
-          "value": "updateClassName",
-        },
-        Object {
-          "name": "disabled",
-          "path": "root.children.0.children[0].props",
-          "type": "set",
-          "value": true,
-        },
-        Object {
-          "name": "style",
-          "path": "root.children.0.children[0].props",
-          "type": "set",
-          "value": "display:flex;flex:2;",
-        },
-      ]
-    `);
     expect(container.root).toMatchSnapshot();
   });
 
@@ -416,90 +407,102 @@ it('useEffect works', done => {
   render(<Page />, container);
 });
 
-it('pure rerender when props changed', done => {
-  const payload: any[] = [];
-  const context = {
-    setData: (data: any) => {
-      payload.push(data);
-    },
-  };
+describe('flatten update', () => {
+  beforeAll(() => {
+    RuntimeOptions.apply({
+      platform: Platform.wechat,
+    });
+  });
 
-  class Page extends React.Component {
-    state = {
-      value: 'foo',
+  afterAll(() => {
+    RuntimeOptions.reset();
+  });
+
+  it('pure rerender when props changed', done => {
+    const payload: any[] = [];
+    const context = {
+      setData: (data: any) => {
+        payload.push(data);
+      },
     };
 
-    setValue(value: string) {
-      this.setState({ value });
-    }
+    class Page extends React.Component {
+      state = {
+        value: 'foo',
+      };
 
-    render() {
-      return (
-        <View style={{ width: '32px' }}>
-          <Input value={this.state.value} />
-        </View>
-      );
-    }
-  }
-  const container = new Container(context);
-  const page = React.createRef<any>();
-  render(<Page ref={page} />, container);
-
-  expect.assertions(2);
-
-  page.current.setValue('bar');
-
-  setTimeout(() => {
-    expect(payload).toHaveLength(2);
-    expect(payload[1]).toMatchInlineSnapshot(`
-      Object {
-        "root.nodes.7.nodes.6.props.value": "bar",
+      setValue(value: string) {
+        this.setState({ value });
       }
-    `);
-    done();
-  }, 5);
-});
 
-it('pure rerender when props delete', done => {
-  const payload: any[] = [];
-  const context = {
-    setData: (data: any) => {
-      payload.push(data);
-    },
-  };
+      render() {
+        return (
+          <View style={{ width: '32px' }}>
+            <Input value={this.state.value} />
+          </View>
+        );
+      }
+    }
+    const container = new Container(context);
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, container);
 
-  class Page extends React.Component {
-    state = {
-      value: 'foo',
+    expect.assertions(2);
+
+    page.current.setValue('bar');
+
+    setTimeout(() => {
+      expect(payload).toHaveLength(2);
+      expect(payload[1]).toMatchInlineSnapshot(`
+        Object {
+          "root.nodes.7.nodes.6.props.value": "bar",
+        }
+      `);
+      done();
+    }, 5);
+  });
+
+  it('pure rerender when props delete', done => {
+    const payload: any[] = [];
+    const context = {
+      setData: (data: any) => {
+        payload.push(data);
+      },
     };
 
-    setValue(value: string) {
-      this.setState({ value });
-    }
+    class Page extends React.Component {
+      state = {
+        value: 'foo',
+      };
 
-    render() {
-      return (
-        <View style={{ width: '32px' }}>{!this.state.value ? <Input /> : <Input value={this.state.value} />}</View>
-      );
-    }
-  }
-  const container = new Container(context);
-  const page = React.createRef<any>();
-  render(<Page ref={page} />, container);
-
-  expect.assertions(2);
-
-  page.current.setValue(undefined);
-
-  setTimeout(() => {
-    expect(payload).toHaveLength(2);
-    expect(payload[1]).toMatchInlineSnapshot(`
-      Object {
-        "root.nodes.10.nodes.9.props.value": null,
+      setValue(value: string) {
+        this.setState({ value });
       }
-    `);
-    done();
-  }, 5);
+
+      render() {
+        return (
+          <View style={{ width: '32px' }}>{!this.state.value ? <Input /> : <Input value={this.state.value} />}</View>
+        );
+      }
+    }
+    const container = new Container(context);
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, container);
+
+    expect.assertions(2);
+
+    page.current.setValue(undefined);
+
+    setTimeout(() => {
+      expect(payload).toHaveLength(2);
+      expect(payload[1]).toMatchInlineSnapshot(`
+        Object {
+          "root.nodes.10.nodes.9.props.value": null,
+        }
+      `);
+      done();
+    }, 5);
+  });
 });
 
 it('useNativeEffect once works', done => {
@@ -557,6 +560,23 @@ it('useNativeEffect deps works', done => {
   render(<Page />, container);
 });
 
+it('usePageContext works', done => {
+  const container = new Container(p);
+  const modalContainer = new Container({});
+  const Page = createPageWrapper(() => {
+    const ctx = usePageContext();
+
+    React.useEffect(() => {
+      expect(ctx?.page).toBeDefined();
+      expect(ctx?.modalContainer).toBe(modalContainer);
+      done();
+    }, []);
+
+    return <View />;
+  }, '');
+  render(<Page page={{ data: {} }} query={{}} modalContainer={modalContainer} />, container);
+});
+
 it('usePageInstance works', done => {
   const Page = createPageWrapper(() => {
     const instance = usePageInstance();
@@ -567,23 +587,13 @@ it('usePageInstance works', done => {
     }, []);
 
     return <View />;
-  }, {});
+  }, '');
   const container = new Container(p);
-  render(<Page page={{ data: {} }} />, container);
+  const modalContainer = new Container({});
+  render(<Page page={{ data: {} }} query={{}} modalContainer={modalContainer} />, container);
 });
 
 describe('Remax Suspense placeholder', () => {
-  function delay(ms: number) {
-    if (typeof ms !== 'number') {
-      throw new Error('Must specify ms');
-    }
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve();
-      }, ms);
-    });
-  }
-
   function createTextResource(ms: number, text: string) {
     let status = 'pending';
     let result: any;

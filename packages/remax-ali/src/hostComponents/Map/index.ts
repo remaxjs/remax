@@ -137,4 +137,4 @@ export interface MapProps extends MapCoordinate {
   onTap?: (e: any) => void;
 }
 
-export const Map = createHostComponent<MapProps>('map');
+export const Map: React.ComponentType<MapProps> = createHostComponent<MapProps>('map');

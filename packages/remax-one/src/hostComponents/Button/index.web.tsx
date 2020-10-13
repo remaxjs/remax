@@ -6,11 +6,11 @@ import useWebTouch from '../useWebTouch';
 
 export type ButtonProps = ButtonWebProps;
 
-const Button: React.FC<ButtonWebProps> = props => {
+const Button: React.ForwardRefRenderFunction<any, ButtonWebProps> = (props, ref) => {
   const {
     hoverClassName,
-    hoverStartTime,
-    hoverStayTime,
+    hoverStartTime = 400,
+    hoverStayTime = 50,
     className,
     onTouchStart,
     onTouchMove,
@@ -36,6 +36,7 @@ const Button: React.FC<ButtonWebProps> = props => {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      ref={ref}
       onTouchCancel={handleTouchCancel}
       className={clsx('remax-button', className, { [hoverClassName || '']: hovered })}
       onClick={onTap}
@@ -43,9 +44,4 @@ const Button: React.FC<ButtonWebProps> = props => {
   );
 };
 
-Button.defaultProps = {
-  hoverStayTime: 400,
-  hoverStartTime: 50,
-};
-
-export default Button;
+export default React.forwardRef(Button);

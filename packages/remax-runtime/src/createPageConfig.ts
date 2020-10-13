@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { pluginDriver } from '@remax/runtime-plugin';
+import * as RuntimeOptions from './RuntimeOptions';
 import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName, pageEvents } from './lifecycle';
 import stopPullDownRefresh from './stopPullDownRefresh';
@@ -25,25 +25,40 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
 
   const config: any = {
     data: {
-      action: {},
       root: {
+        children: [],
+      },
+      modalRoot: {
         children: [],
       },
     },
 
     wrapperRef: React.createRef<any>(),
 
-    lifecycleCallback: {} as any,
+    lifecycleCallback: {},
 
     onLoad(this: any, query: any) {
-      const PageWrapper = createPageWrapper(Page, query);
+      const PageWrapper = createPageWrapper(Page, name);
       this.pageId = generatePageId();
 
+      this.lifecycleCallback = {};
+      this.data = {
+        root: {
+          children: [],
+        },
+        modalRoot: {
+          children: [],
+        },
+      };
+
       this.query = query;
-      this.container = new Container(this);
+      this.container = new Container(this, 'root');
+      this.modalContainer = new Container(this, 'modalRoot');
       this.element = createPortal(
         React.createElement(PageWrapper, {
           page: this,
+          query,
+          modalContainer: this.modalContainer,
           ref: this.wrapperRef,
         }),
         this.container,
@@ -52,7 +67,7 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
 
       app._mount(this);
 
-      return this.callLifecycle(Lifecycle.load);
+      return this.callLifecycle(Lifecycle.load, query);
     },
 
     onUnload(this: any) {
@@ -102,25 +117,25 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
     events: {
       // 页面返回时触发
       onBack(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.back, e);
+        return this.callLifecycle(Lifecycle.back, e);
       },
 
       // 键盘高度变化时触发
       onKeyboardHeight(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.keyboardHeight, e);
+        return this.callLifecycle(Lifecycle.keyboardHeight, e);
       },
 
       onTabItemTap(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.tabItemTap, e);
+        return this.callLifecycle(Lifecycle.tabItemTap, e);
       },
 
       // 点击但切换tabItem前触发
       beforeTabItemTap(this: any) {
-        return config.callLifecycle(Lifecycle.beforeTabItemTap);
+        return this.callLifecycle(Lifecycle.beforeTabItemTap);
       },
 
       onResize(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.resize, e);
+        return this.callLifecycle(Lifecycle.resize, e);
       },
     },
 
@@ -179,6 +194,10 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
     onShareAppMessage(options: any) {
       return this.callLifecycle(Lifecycle.shareAppMessage, options) || {};
     },
+
+    onShareTimeline(options: any) {
+      return this.callLifecycle(Lifecycle.shareTimeline, options) || {};
+    },
   };
 
   pageEvents(name).forEach(eventName => {
@@ -187,5 +206,5 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
     }
   });
 
-  return pluginDriver.onPageConfig(config);
+  return RuntimeOptions.get('pluginDriver').onPageConfig({ config, page: name });
 }

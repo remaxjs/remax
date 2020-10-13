@@ -5,7 +5,7 @@ import Container from '../Container';
 class SyntheticEventTester {
   callbacks: Array<((...params: any) => void) | null> = [];
 
-  constructor(callbacks: Array<((...params: any) => void) | null>) {
+  constructor(params: any[]) {
     const container = new Container({});
     const root = new VNode({
       id: 1,
@@ -13,7 +13,7 @@ class SyntheticEventTester {
       container,
     });
 
-    callbacks.reverse().reduce((parent, cb, index) => {
+    params.reverse().reduce((parent, [cb, event], index) => {
       const node = new VNode({
         id: index + 2,
         type: 'view',
@@ -21,9 +21,9 @@ class SyntheticEventTester {
         props: {},
       });
 
-      const callback = createCallbackProxy('onClick', node, cb || (() => void 0));
+      const callback = createCallbackProxy(event, node, cb || (() => void 0));
       if (cb) {
-        node.props.onClick = callback;
+        node.props[event] = callback;
       }
 
       this.callbacks.unshift(cb ? callback : null);
@@ -40,7 +40,7 @@ class SyntheticEventTester {
 
 describe('synthetic event', () => {
   describe('stop propagation', () => {
-    it('only accept onClick', () => {
+    it('only accept valid type', () => {
       const onTap = () => void 0;
 
       const node = new VNode({
@@ -62,7 +62,11 @@ describe('synthetic event', () => {
       const first = jest.fn();
       const second = jest.fn();
       const third = jest.fn();
-      const callbacks = [first, second, third];
+      const callbacks = [
+        [first, 'onClick'],
+        [second, 'onClick'],
+        [third, 'onClick'],
+      ];
       const tester = new SyntheticEventTester(callbacks);
 
       tester.trigger();
@@ -86,17 +90,51 @@ describe('synthetic event', () => {
       expect(() => newOnTap()).not.toThrow();
     });
 
+    it('each type works independent', () => {
+      const first = jest.fn();
+      const second = jest.fn();
+      const third = jest.fn();
+      const callbacks = [
+        [
+          (e: any) => {
+            e.stopPropagation();
+            first();
+          },
+          'onClick',
+        ],
+        [third, 'onClick'],
+        [second, 'onTouchStart'],
+      ];
+
+      const tester = new SyntheticEventTester(callbacks);
+
+      tester.trigger();
+
+      expect(first).toBeCalled();
+      expect(second).toBeCalled();
+      expect(third).not.toBeCalled();
+
+      tester.trigger();
+
+      expect(first).toBeCalled();
+      expect(second).toBeCalled();
+      expect(third).not.toBeCalled();
+    });
+
     it('stop at first', () => {
       const first = jest.fn();
       const second = jest.fn();
       const third = jest.fn();
       const callbacks = [
-        (e: any) => {
-          e.stopPropagation();
-          first();
-        },
-        second,
-        third,
+        [
+          (e: any) => {
+            e.stopPropagation();
+            first();
+          },
+          'onClick',
+        ],
+        [second, 'onClick'],
+        [third, 'onClick'],
       ];
 
       const tester = new SyntheticEventTester(callbacks);
@@ -119,15 +157,18 @@ describe('synthetic event', () => {
       const second = jest.fn();
       const third = jest.fn();
       const callbacks = [
-        first,
-        null,
-        (e: any) => {
-          e.stopPropagation();
-          second();
-        },
-        null,
-        third,
-        null,
+        [first, 'onClick'],
+        [null, 'onClick'],
+        [
+          (e: any) => {
+            e.stopPropagation();
+            second();
+          },
+          'onClick',
+        ],
+        [null, 'onClick'],
+        [third, 'onClick'],
+        [null, 'onClick'],
       ];
 
       const tester = new SyntheticEventTester(callbacks);
@@ -150,15 +191,18 @@ describe('synthetic event', () => {
       const second = jest.fn();
       const third = jest.fn();
       const callbacks = [
-        first,
-        null,
-        second,
-        null,
-        (e: any) => {
-          e.stopPropagation();
-          third();
-        },
-        null,
+        [first, 'onClick'],
+        [null, 'onClick'],
+        [second, 'onClick'],
+        [null, 'onClick'],
+        [
+          (e: any) => {
+            e.stopPropagation();
+            third();
+          },
+          'onClick',
+        ],
+        [null, 'onClick'],
       ];
 
       const tester = new SyntheticEventTester(callbacks);

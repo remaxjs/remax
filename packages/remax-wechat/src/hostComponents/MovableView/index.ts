@@ -1,5 +1,6 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 // can't extends from BaseProps, bacause this MovableViewProps overwrite animation to boolean
 export interface MovableViewProps extends Omit<BaseProps, 'animation'> {
@@ -31,21 +32,19 @@ export interface MovableViewProps extends Omit<BaseProps, 'animation'> {
    * 是否使用动画 2.1.0
    */
   animation?: boolean;
-  onClick?: (event: any) => any;
-  catchClick?: (event: any) => any;
   /** 拖动过程中触发的事件，event.detail = {x, y, source} 1.9.90 */
-  onChange?: (event: any) => any;
+  onChange?: (event: GenericEvent) => any;
   /** 缩放过程中触发的事件，event.detail = {x, y, scale}，x和y字段在2.1.0之后支持 1.9.90 */
-  onScale?: (event: any) => any;
+  onScale?: (event: GenericEvent) => any;
   /** 初次手指触摸后移动为横向的移动时触发，如果catch此事件，则意味着touchmove事件也被catch 1.9.90 */
-  hTouchMove?: (event: any) => any;
+  hTouchMove?: (event: GenericEvent) => any;
   /** 初次手指触摸后移动为纵向的移动时触发，如果catch此事件，则意味着touchmove事件也被catch 1.9.90 */
-  vTouchMove?: (event: any) => any;
+  vTouchMove?: (event: GenericEvent) => any;
 }
 /**
  * https://developers.weixin.qq.com/miniprogram/dev/component/movable-view.html
  */
-export const MovableView = createHostComponent<MovableViewProps>('movable-view');
+export const MovableView: React.ComponentType<MovableViewProps> = createHostComponent<MovableViewProps>('movable-view');
 
 MovableView.defaultProps = {
   direction: 'none',

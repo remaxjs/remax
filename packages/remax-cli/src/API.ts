@@ -1,5 +1,5 @@
 import * as t from '@babel/types';
-import { Plugin, Meta, HostComponent, Platform } from '@remax/types';
+import { Plugin, Meta, HostComponent, Platform, Options } from '@remax/types';
 import { hostComponents } from '@remax/macro';
 import { slash } from '@remax/shared';
 import { merge } from 'lodash';
@@ -93,6 +93,14 @@ export default class API {
     }, true);
   }
 
+  onBuildStart(config: Options) {
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.onBuildStart === 'function') {
+        plugin.onBuildStart({ config });
+      }
+    });
+  }
+
   onAppConfig(config: any) {
     return this.plugins.reduce((acc, plugin) => {
       if (typeof plugin.onAppConfig === 'function') {
@@ -147,19 +155,10 @@ export default class API {
     plugin = typeof plugin === 'function' ? plugin() : plugin;
     this.registerHostComponents(plugin.hostComponents);
     this.plugins.push(plugin);
-
-    if (one) {
-      const onePath = '@remax/one/node';
-
-      const plugin = require(onePath).default || require(onePath);
-      const one = plugin();
-      this.registerHostComponents(one.hostComponents);
-      this.plugins.push(one);
-    }
   }
 
-  public registerPlugins(plugins: Plugin[]) {
-    plugins?.forEach(plugin => {
+  public registerPlugins(plugins: Plugin[] = []) {
+    plugins.forEach(plugin => {
       if (plugin) {
         this.registerHostComponents(plugin.hostComponents);
         this.plugins.push(plugin);

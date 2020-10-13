@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { createHostComponent } from '@remax/shared';
 
 export interface LabelProps {
@@ -7,4 +8,4 @@ export interface LabelProps {
   className?: string;
 }
 
-export const Label = createHostComponent<LabelProps>('label');
+export const Label: React.ComponentType<LabelProps> = createHostComponent<LabelProps>('label');

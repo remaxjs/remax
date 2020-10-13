@@ -12,7 +12,7 @@
 		<img src="https://img.shields.io/travis/remaxjs/remax/master?style=flat-square" alt="Travis CI build status" />
 	</a>
 	<a href="https://github.com/remaxjs/remax/actions?workflow=Node+CI">
-		<img src="https://github.com/remaxjs/remax/workflows/Node%20CI/badge.svg" alt="CI build status" />
+		<img src="https://github.com/remaxjs/remax/workflows/Build%20&%20Test/badge.svg" alt="CI build status" />
 	</a>
 	<a href="https://codecov.io/gh/remaxjs/remax">
 		<img src="https://img.shields.io/codecov/c/github/remaxjs/remax/master.svg?style=flat-square" alt="Codecov" />

@@ -1,38 +1,31 @@
 <template name="REMAX_TPL_<%=templateId%>_<%=id%>">
-  <%_ function propsKeyTpl(props) {
+  <%_ function propsKeyTpl(props, isCatch) {
+    // 互斥事件
+    if (isCatch) {
+      props = props.filter(key => key !== 'bindtouchmove')
+    } else {
+      props = props.filter(key => key !== 'catchtouchmove') 
+    }
+
     return props
       .map(key => `${key}="{{_h.v(i.props['${key}'])}}"`)
       .join('\n')
   } _%>
-  <<%=id%>
-    <%- propsKeyTpl(props) %>>
-    <%_ if (id === 'swiper') { _%>
-    <block wx:for="{{i.children}}" wx:key="*this">
-      <swiper-item item-id="{{i.nodes[item].props.itemId}}" key="{{i.nodes[item].props.key}}">
-        <block wx:for="{{i.nodes[item].children}}" wx:key="*this" wx:for-item="sItem">
-          <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}" />
-        </block>
-      </swiper-item>
-    </block>
-    <%_ } else if (type === 'native') { _%>
-    <block wx:for="{{i.children}}" wx:key="*this">
-      <block wx:if="{{i.nodes[item].props['slot']}}">
-        <view slot="{{i.nodes[item].props['slot']}}" <% for(let i=0;i < slotView.props.length; i++) { %>
-          <%=slotView.props[i]%>="{{i.nodes[item].props['<%=slotView.props[i]%>']}}" <%}%>
-        >
-          <block wx:for="{{i.nodes[item].children}}" wx:key="*this" wx:for-item="sItem">
-            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}" />
-          </block>
-        </view>
-      </block>
-      <block wx:else>
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-      </block>
-    </block>
-    <%_ } else { _%>
-    <block wx:for="{{i.children}}" wx:key="*this">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
-    </block>
-    <%_ } _%>
+  <%_ if (id === 'view') { _%>
+  <%# view 标签需要区分是否含 catchtouchmove 事件，区分渲染模板 %>
+  <block wx:if="{{i.props['catchtouchmove']}}">
+    <<%=id%> <%- propsKeyTpl(props, true) %>>
+      <%- include('./children.ejs', { props: props, id: id, type: type, slotView: slotView }) %>
+    </<%=id%>>
+  </block>
+  <block wx:else>
+    <<%=id%> <%- propsKeyTpl(props, false) %>>
+      <%- include('./children.ejs', { props: props, id: id, type: type, slotView: slotView }) %>
+    </<%=id%>>
+  </block>
+  <%_ } else { _%>
+  <<%=id%> <%- propsKeyTpl(props, false) %>>
+    <%- include('./children.ejs', { props: props, id: id, type: type, slotView: slotView }) %>
   </<%=id%>>
+  <%_ } _%>
 </template>

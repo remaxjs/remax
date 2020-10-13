@@ -1,5 +1,6 @@
 import { CSSProperties } from 'react';
 import { isUnitlessNumber } from './CSSProperty';
+import { RuntimeOptions } from '@remax/runtime';
 
 const vendorPrefixes = ['webkit', 'moz', 'ms', 'o'];
 
@@ -51,7 +52,7 @@ const plainStyle = (style?: CSSProperties) => {
         value = value + 'rpx';
       }
 
-      return [...acc, `${transformReactStyleKey(key)}:${__REMAX_PX2RPX__ ? transformPx(value) : value};`];
+      return [...acc, `${transformReactStyleKey(key)}:${RuntimeOptions.get('pxToRpx') ? transformPx(value) : value};`];
     }, [])
     .join('\n');
 };

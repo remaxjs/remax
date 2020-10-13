@@ -1,6 +1,7 @@
 export const alias = {
   id: 'id',
   className: 'class',
+  style: 'style',
   size: 'size',
   type: 'type',
   plain: 'plain',
@@ -19,6 +20,7 @@ export const alias = {
   appParameter: 'app-parameter',
   publicId: 'public-id',
   onGetAuthorize: 'onGetAuthorize',
+  onError: 'onError',
 };
 
 export const props = Object.values(alias);
