@@ -6,7 +6,7 @@ interface PresetOption {
   decorators?: any;
   'class-properties'?: any;
   'throw-if-namespace'?: boolean;
-  target?: any;
+  targets?: any;
 }
 
 function preset(api: any, presetOption: PresetOption) {
@@ -21,9 +21,9 @@ function preset(api: any, presetOption: PresetOption) {
   const throwIfNamespace =
     typeof presetOption['throw-if-namespace'] === 'undefined' ? false : presetOption['throw-if-namespace'];
   const targets =
-    typeof presetOption.target === 'undefined'
+    typeof presetOption.targets === 'undefined'
       ? ['chrome >= 49', 'firefox >= 64', 'ios >= 8', 'Android > 4.4']
-      : presetOption.target;
+      : presetOption.targets;
 
   const presets: any[] = [[require.resolve('@babel/preset-env'), { targets }]];
 
