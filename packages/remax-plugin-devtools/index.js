@@ -33,6 +33,6 @@ module.exports = () => ({
     ]);
   },
   registerRuntimePlugin() {
-    return require.resolve('./lib/runtime')
-  }
+    return require.resolve('./lib/runtime');
+  },
 });

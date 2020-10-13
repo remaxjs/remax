@@ -6,6 +6,6 @@ module.exports = {
     debug: true,
     command: 'http-server --cors --port=8888 -s',
     port: 8888,
-    launchTimeout: 60000
+    launchTimeout: 60000,
   },
 };

@@ -60,7 +60,7 @@ export default options => {
 #### 参数
 
 - `params`
-  -  `config` - Remax 的构建配置。
+  - `config` - Remax 的构建配置。
 
 ```js
 {
@@ -70,7 +70,6 @@ export default options => {
 }
 ```
 
-
 ### onAppConfig
 
 修改应用配置，注意跟运行时 hook `onAppConfig` 的区别，这个 hook 修改的是 `app.json`。
@@ -78,7 +77,7 @@ export default options => {
 #### 参数
 
 - `params`
-  -  `config` - `app.json` 配置。
+  - `config` - `app.json` 配置。
 
 ```js
 {
