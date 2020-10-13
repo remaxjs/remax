@@ -27,7 +27,7 @@ describe('page', () => {
         usePageEvent('onLoad', () => {
           log.push('useLoad');
         });
-        usePageEvent('unload', () => {
+        usePageEvent('onUnload', () => {
           log.push('useUnload');
         });
         usePageEvent('onReady', () => {
@@ -210,8 +210,8 @@ describe('page', () => {
         log.push('onLoad');
       }
 
-      unload() {
-        log.push('unload');
+      onUnload() {
+        log.push('onUnload');
       }
 
       onShow() {
@@ -320,7 +320,7 @@ describe('page', () => {
       'onTabItemTap',
       'onResize',
       'onResize',
-      'unload',
+      'onUnload',
       'componentWillUnmount',
     ]);
   });
