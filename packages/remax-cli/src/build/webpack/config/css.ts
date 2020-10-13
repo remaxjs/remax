@@ -2,8 +2,10 @@ import * as path from 'path';
 import * as fs from 'fs';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { Options } from '@remax/types';
+import { Options, Platform } from '@remax/types';
 import { slash } from '@remax/shared';
+import * as webpack from 'webpack';
+import * as loaderUtils from 'loader-utils';
 
 export interface RuleConfig {
   name: string;
@@ -34,6 +36,27 @@ export function addCSSRule(webpackConfig: Config, options: Options, web: boolean
         modules: cssModules
           ? {
               localIdentName: '[local]___[hash:base64:5]',
+              getLocalIdent(
+                loaderContext: webpack.loader.LoaderContext,
+                localIdentName: string,
+                localName: string,
+                options: any
+              ) {
+                // 百度小程序 flex item 样式分离
+                if (localName.startsWith('remax_flex_')) {
+                  return localName;
+                }
+                if (!options.context) {
+                  options.context = loaderContext.rootContext;
+                }
+                const request = path.relative(options.context, loaderContext.resourcePath).replace(/\\/g, '/');
+                options.content = `${options.hashPrefix + request}+${localName}`;
+                localIdentName = localIdentName.replace(/\[local\]/gi, localName);
+
+                const hash = loaderUtils.interpolateName(loaderContext, localIdentName, options);
+
+                return hash;
+              },
             }
           : false,
       });
@@ -58,6 +81,9 @@ export function addCSSRule(webpackConfig: Config, options: Options, web: boolean
                     }
                   : {}),
               [require.resolve('@remax/postcss-tag')]: web && {},
+              [require.resolve('postcss-flex-item')]: options.target === Platform.baidu && {
+                prefix: 'remax_flex_',
+              },
             },
           },
         },

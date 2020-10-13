@@ -1,9 +1,13 @@
 <template name="REMAX_TPL">
   <block s-for="root.children">
-    <template is="REMAX_TPL_1_CONTAINER" data="{{{i: root.nodes[item], an: ''}}}" />
+    <template
+      class="{{_h.fc(root.nodes[item].props.class)}}"
+      style="{{_h.fst(root.nodes[item].props.style)}}"
+      is="REMAX_TPL_1_CONTAINER"
+      data="{{{i: root.nodes[item], an: ''}}}"
+    />
   </block>
 </template>
-
 <import-sjs module="_h">
   var elements = {};
   module.exports = {
@@ -20,6 +24,38 @@
       }
       var id = 'REMAX_TPL_' + depth + '_' + type;
       return id;
+    },
+    fc: function (selectors) {
+      if(!selectors) return '';
+      return selectors.split(' ').map(function(c){
+        return c.replace(/___\S+/, '')
+      }).map(function(c) {
+        return 'remax_flex_' + c
+      }).join(' ')
+    },
+    fst: function (style) {
+      if(!style) return '';
+      var fs = '';
+      var properties = style.split(';');
+      properties.forEach(function(p) {
+        var pv = p.split(':');
+        if (['flex', 'order', 'flex-basis', 'flex-grow', 'flex-shrink'].indexOf(pv[0]) > -1) {
+          fs = fs + p + ';'
+        }
+      })
+      return fs;
+    },
+    st: function (style) {
+      if(!style) return '';
+      var ns = ''
+      var properties = style.split(';');
+      properties.forEach(function(p) {
+        var pv = p.split(':');
+        if (['flex', 'order', 'flex-basis', 'flex-grow', 'flex-shrink'].indexOf(pv[0]) == -1) {
+          ns = ns + p + ';'
+        }
+      })
+      return ns;
     }
   };
 </import-sjs>

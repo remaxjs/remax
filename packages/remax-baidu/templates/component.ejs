@@ -5,7 +5,13 @@
       props = props.filter(key => key !== ignorekey)
     }
     return props
-      .map(key => `${key}="{{_h.v(i.props['${key}'])}}"`)
+      .map(key => {
+        if (key === 'style') {
+          return `${key}="{{_h.st(i.props['${key}'])}}"`
+        } else {
+          return `${key}="{{_h.v(i.props['${key}'])}}"`
+        }
+      })
       .join('\n')
   } _%>
   <%_ if (id === 'view') { _%>
