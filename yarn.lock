@@ -13378,10 +13378,10 @@ postcss-env-function@^2.0.2:
     postcss "^7.0.2"
     postcss-values-parser "^2.0.0"
 
-postcss-flex-item@^1.1.0:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/postcss-flex-item/-/postcss-flex-item-1.1.1.tgz#4bfa92f2c04042ad8e4d2d2ff088d24ac41627fc"
-  integrity sha512-PjU6qMPJ6XFMo86dzrwL3vxjD9XtXuxxzsCjhUrcX+86HlaiFa89HWDqYjoH8Oroewz9tJTudfT1WXc9T70Law==
+postcss-flex-item@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/postcss-flex-item/-/postcss-flex-item-1.2.0.tgz#c644f463f2fdb775858843c3e8bc2532aa9e518a"
+  integrity sha512-QyiQ1Uwx1k9eOUlVSl7SP7QlsVmQFAgRPt3uLtlG7OhJm/ntWrwBVVNoKBx3lm4ATANy4x0HtBDAYUgg3bvo1A==
   dependencies:
     postcss "^7.0.0"
 

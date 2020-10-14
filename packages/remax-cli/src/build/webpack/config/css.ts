@@ -22,6 +22,8 @@ function resolvePostcssConfig(options: Options) {
   return slash(path.resolve(__dirname, '../../../..'));
 }
 
+const REMAX_FLEX_PREFIX = 'remax_flex_';
+
 export function addCSSRule(webpackConfig: Config, options: Options, web: boolean, ruleConfig: RuleConfig) {
   const rule = webpackConfig.module.rule(ruleConfig.name).test(ruleConfig.test);
 
@@ -43,7 +45,7 @@ export function addCSSRule(webpackConfig: Config, options: Options, web: boolean
                 options: any
               ) {
                 // 百度小程序 flex item 样式分离
-                if (localName.startsWith('remax_flex_')) {
+                if (localName.startsWith(REMAX_FLEX_PREFIX)) {
                   return localName;
                 }
                 if (!options.context) {
@@ -53,9 +55,7 @@ export function addCSSRule(webpackConfig: Config, options: Options, web: boolean
                 options.content = `${options.hashPrefix + request}+${localName}`;
                 localIdentName = localIdentName.replace(/\[local\]/gi, localName);
 
-                const hash = loaderUtils.interpolateName(loaderContext, localIdentName, options);
-
-                return hash;
+                return loaderUtils.interpolateName(loaderContext, localIdentName, options);
               },
             }
           : false,
@@ -82,7 +82,10 @@ export function addCSSRule(webpackConfig: Config, options: Options, web: boolean
                   : {}),
               [require.resolve('@remax/postcss-tag')]: web && {},
               [require.resolve('postcss-flex-item')]: options.target === Platform.baidu && {
-                prefix: 'remax_flex_',
+                prefix: REMAX_FLEX_PREFIX,
+                validSelector: function (selector: string) {
+                  return selector !== 'page';
+                },
               },
             },
           },
