@@ -19,8 +19,8 @@
     fc: function (selectors) {
       if(!selectors) return '';
       return selectors.split(/\s+/).map(function(c){
-        return 'remax_flex_' + c.replace(/___\S+/, '')
-      }).join(' ')
+        return 'remax_flex_' + c.replace(/___\S+\b/, '');
+      }).join(' ');
     },
     fst: function (style) {
       if(!style) return '';
@@ -31,19 +31,19 @@
         if (['flex', 'order', 'flex-basis', 'flex-grow', 'flex-shrink'].indexOf(pv[0]) > -1) {
           ns = ns + p + ';'
         }
-      })
+      });
       return ns;
     },
     st: function (style) {
       if(!style) return '';
-      var ns = ''
+      var ns = '';
       var properties = style.split(';');
       properties.forEach(function(p) {
         var pv = p.split(':');
         if (['flex', 'order', 'flex-basis', 'flex-grow', 'flex-shrink'].indexOf(pv[0]) == -1) {
           ns = ns + p + ';'
         }
-      })
+      });
       return ns;
     }
   };
