@@ -3,26 +3,18 @@
     <template
       class="{{_h.fc(root.nodes[item].props.class)}}"
       style="{{_h.fst(root.nodes[item].props.style)}}"
-      is="REMAX_TPL_1_CONTAINER"
-      data="{{{i: root.nodes[item], an: ''}}}"
+      is="{{_h.tid(root.nodes[item].type)}}"
+      data="{{{ i: root.nodes[item] }}}"
     />
   </block>
 </template>
 <import-sjs module="_h">
-  var elements = {};
   module.exports = {
     v: function(value) {
       return value !== undefined ? value : '';
     },
-    tid: function (type, ancestor) {
-      var items = ancestor.split(',');
-      var depth = 1;
-      for (var i = 0; i < items.length; i++) {
-        if (type === items[i]) {
-          depth = depth + 1;
-        }
-      }
-      var id = 'REMAX_TPL_' + depth + '_' + type;
+    tid: function (type) {
+      var id = 'REMAX_TPL_1_' + type;
       return id;
     },
     fc: function (selectors) {
@@ -69,22 +61,15 @@
     depth: componentDepth
     }) _%>
   <%_ } else { _%>
-    <%_ for (let i = 1; i <= componentDepth; i++) { %>
     <%- include('./component.ejs', {
       props: component.props,
       id: component.id,
-      templateId: i,
+      templateId: 1,
       type: component.type,
       slotView: slotView
     }) _%>
-    <%_ } _%>
   <%_ } _%>
 <%_ } _%>
 <template name="REMAX_TPL_1_plain-text" data="{{i: i}}">
   <block>{{i.text}}</block>
 </template>
-<%_ for (let d = 1; d <= depth['view']; d++) { %>
-<template name="REMAX_TPL_<%= d %>_CONTAINER" data="{{{i: i}}}">
-  <template is="{{_h.tid(i.type, an)}}" data="{{{i: i, an: an + ',' + i.type, tid: <%= d %>}}}" />
-</template>
-<%_ } _%>
