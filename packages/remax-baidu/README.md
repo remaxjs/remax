@@ -1,3 +1,3 @@
-# Remax Wechat
+# Remax baidu
 
-Remax adapter plugin for wechat
+Remax adapter plugin for baidu
