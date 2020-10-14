@@ -14,28 +14,25 @@
       return value !== undefined ? value : '';
     },
     tid: function (type) {
-      var id = 'REMAX_TPL_1_' + type;
-      return id;
+      return 'REMAX_TPL_1_' + type;
     },
     fc: function (selectors) {
       if(!selectors) return '';
-      return selectors.split(' ').map(function(c){
-        return c.replace(/___\S+/, '')
-      }).map(function(c) {
-        return 'remax_flex_' + c
+      return selectors.split(/\s+/).map(function(c){
+        return 'remax_flex_' + c.replace(/___\S+/, '')
       }).join(' ')
     },
     fst: function (style) {
       if(!style) return '';
-      var fs = '';
+      var ns = '';
       var properties = style.split(';');
       properties.forEach(function(p) {
         var pv = p.split(':');
         if (['flex', 'order', 'flex-basis', 'flex-grow', 'flex-shrink'].indexOf(pv[0]) > -1) {
-          fs = fs + p + ';'
+          ns = ns + p + ';'
         }
       })
-      return fs;
+      return ns;
     },
     st: function (style) {
       if(!style) return '';
@@ -53,6 +50,7 @@
 </import-sjs>
 <%_ for (let component of components) { %>
   <%_ let componentDepth = depth[component.id] || 10; %>
+  <%/* 百度 text 标签内不能嵌套 template */%>
   <%_ if (component.id === 'text') { %> 
     <%- include('./text.ejs', {
     props: component.props,
