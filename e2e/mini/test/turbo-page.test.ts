@@ -55,7 +55,7 @@ describe('静态化页面', () => {
   });
 
   it('在根节点使用 Fragment', async () => {
-    const app = await launchApp('/pages/turbo-pages/fragmentRoot');
+    const app = await launchApp('/pages/turbo-page/fragmentRoot');
 
     await expect(app).toMatch('0');
     await expect(app).toMatch('1');
