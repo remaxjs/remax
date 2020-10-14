@@ -71,7 +71,6 @@ export interface AppConfig {
 export type CLI = yargs.Argv;
 export type ExtendsCLIOptions = { cli: CLI };
 export type Meta = {
-  components?: string;
   global: string;
   template: {
     extension: string;
