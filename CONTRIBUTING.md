@@ -24,7 +24,7 @@
 
 ## 开发
 
-在开始之前推荐你先了解一下[《Remax 实现原理》](https://remaxjs.org/advanced-guide/implementation-notes)
+在开始之前推荐你先了解一下[《Remax 实现原理》](https://remaxjs.org/guide/implementation-notes)
 
 ### 构建项目
 
