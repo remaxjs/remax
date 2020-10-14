@@ -3,10 +3,12 @@ import hostComponents from '../hostComponents/node';
 import { PluginConstructor } from '@remax/types';
 
 const EJS_TPL_ROOT = path.join(__dirname, '../../templates');
+const COMPONENTS_ROOT = path.join(__dirname, '../../components');
 
 const plugin: PluginConstructor = () => {
   return {
     meta: {
+      components: COMPONENTS_ROOT, // 存在公共组件
       global: 'swan',
       template: {
         extension: '.swan',

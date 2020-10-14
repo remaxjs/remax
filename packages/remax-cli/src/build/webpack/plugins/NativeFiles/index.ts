@@ -5,6 +5,7 @@ import createAppManifest from './createAppManifest';
 import createPageTemplate, { createBaseTemplate } from './createPageTemplate';
 import createTurboPageTemplate from './createTurboPageTemplate';
 import createPageManifest from './createPageManifest';
+import createAppComponents from './createAppComponents';
 import * as turboPages from '../../../utils/turboPages';
 import getModules from '../../../utils/modules';
 import { getPages } from '../../../../getEntries';
@@ -30,6 +31,9 @@ export default class NativeFilesPlugin {
 
       // base template
       await createBaseTemplate(this.api, options, meta, compilation);
+
+      // adapter components
+      await createAppComponents(this.api, options, meta, compilation);
 
       Promise.all(
         getPages(options, this.api).map(async page => {
