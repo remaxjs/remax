@@ -52,7 +52,7 @@ export default () => {
 
 返回当前页面实例
 
-## useNativeEffect(callback)
+## useNativeEffect(callback, deps?)
 
 原生 setData 回调执行 hook。用于在 React rerender 后，小程序真正更新的时机的 hook。
 在 Remax 的机制中，`React.useEffect` 只能反映 React 的 render 完成了，不代表小程序渲染完成。因此通过 `useNativeEffect` 来处理小程序 setData 的 callback 回调。
@@ -79,6 +79,7 @@ export default () => {
 #### 参数
 
 1. `callback` 回调函数，与 `useEffect` 类似，可以返回一个函数处理 unsubscribe 时的逻辑。
+2. `deps` 依赖参数，与 `useEffect` 类似，只有依赖项发生了变化，才会触发回调执行。
 
 #### 返回值
 
