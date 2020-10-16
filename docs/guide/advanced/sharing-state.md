@@ -9,6 +9,6 @@ order: 43
 
 具体的例子可以参考：https://github.com/remaxjs/examples/tree/master/ali
 
-我们也推荐使用 [unstated](https://github.com/jamiebuilds/unstated)、[constate](https://github.com/diegohaz/constate) 这样的超轻量库。
+我们也推荐使用 [unstated-next](https://github.com/jamiebuilds/unstated-next)、[constate](https://github.com/diegohaz/constate) 这样的超轻量库。
 
 当然，如果你也可以直接使用 Redux/Dva/Mobx 等社区常用的状态管理方案。
