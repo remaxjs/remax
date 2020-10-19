@@ -6,7 +6,7 @@ export interface RichTextProps extends BaseProps {
   nodes?: string | any[];
   selectable?: boolean;
   name?: string;
-  attrs?: object;
+  attrs?: Record<string, unknown>;
   children?: any[];
   text?: string;
   imageMenuPrevent?: boolean;

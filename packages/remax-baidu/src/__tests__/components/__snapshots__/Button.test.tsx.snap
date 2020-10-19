@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button render correctly 1`] = `
+<button
+  className="class"
+  disabled={false}
+  formType="buttonclick"
+  hoverClassName="button-hover"
+  hoverStartTime={20}
+  hoverStayTime={70}
+  hoverStopPropagation={false}
+  loading={false}
+  plain={false}
+  size="default"
+  type="default"
+>
+  Button
+</button>
+`;

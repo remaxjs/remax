@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextArea render correctly 1`] = `
+<textarea
+  adjustPosition={true}
+  autoFocus={false}
+  autoHeight={false}
+  className="class"
+  confirmHold={false}
+  confirmType="default"
+  cursor={-1}
+  cursorSpacing={0}
+  disabled={false}
+  fixed={false}
+  focus={false}
+  maxLength={140}
+  selectionEnd={-1}
+  selectionStart={-1}
+  showConfirmBar={true}
+  value=""
+/>
+`;

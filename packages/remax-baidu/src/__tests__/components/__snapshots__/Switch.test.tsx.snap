@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch render correctly 1`] = `
+<switch
+  checked={false}
+  color="#3c76ff"
+  disabled={false}
+  type="switch"
+/>
+`;

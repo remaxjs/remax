@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`View render correctly 1`] = `
+<view
+  className="class"
+  hidden={false}
+  hoverClassName="none"
+  hoverStartTime={50}
+  hoverStayTime={400}
+  hoverStopPropagation={false}
+>
+  view
+</view>
+`;

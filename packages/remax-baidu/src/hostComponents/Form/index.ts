@@ -3,7 +3,7 @@ import { createHostComponent } from '@remax/shared';
 import { BaseProps } from '../../types/component';
 
 export interface FormProps extends BaseProps {
-  reportSubmit?: false;
+  reportSubmit?: boolean;
   reportType?: 'default' | 'subscribe';
   templateId?: string | string[];
   subscribeId?: string;

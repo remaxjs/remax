@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input render correctly 1`] = `
+<input
+  adjustPosition={true}
+  confirmHold={false}
+  cursorSpacing={0}
+  disabled={false}
+  focus={false}
+  maxLength={140}
+  password={false}
+  placeholderClassName="input-placeholder"
+  selectionEnd={-1}
+  selectionStart={-1}
+  type="text"
+  value=""
+/>
+`;

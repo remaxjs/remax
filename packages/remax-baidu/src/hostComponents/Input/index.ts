@@ -8,7 +8,7 @@ export interface InputProps extends BaseProps {
   type?: 'text' | 'number' | 'idcard' | 'digit';
   password?: boolean;
   placeholder?: string;
-  placeholderStyle?: string;
+  placeholderStyle?: React.CSSProperties;
   placeholderClassName?: string;
   disabled?: boolean;
   maxLength?: number;

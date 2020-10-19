@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox render correctly 1`] = `
+<checkbox
+  checked={false}
+  color="#3c76ff"
+  disabled={false}
+/>
+`;

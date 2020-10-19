@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollView render correctly 1`] = `
+<scroll-view
+  enableBackToTop={false}
+  lowerThreshold={50}
+  scrollWithAnimation={false}
+  scrollX={false}
+  scrollY={false}
+  upperThreshold={50}
+/>
+`;

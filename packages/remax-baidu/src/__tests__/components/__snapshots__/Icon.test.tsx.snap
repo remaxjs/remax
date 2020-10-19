@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon render correctly 1`] = `
+<icon
+  className="class"
+  size={23}
+  type="info"
+/>
+`;
