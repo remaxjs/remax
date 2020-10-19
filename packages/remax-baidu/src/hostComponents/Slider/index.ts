@@ -19,25 +19,25 @@ Slider.defaultProps = {
 
 export interface SliderProps extends BaseProps {
   /** 最小值 */
-  min: number;
+  min?: number;
   /** 最大值 */
-  max: number;
+  max?: number;
   /** 步长，取值必须大于 0，并且可被 (max - min) 整除  */
-  step: number;
+  step?: number;
   /** 是否禁用  */
-  disabled: boolean;
+  disabled?: boolean;
   /** 当前取值  */
-  value: number;
+  value?: number;
   /** 背景条的颜色  */
-  backgroundColor: string;
+  backgroundColor?: string;
   /** 滑块的大小，取值范围为 12 - 28  */
-  blockSize: number;
+  blockSize?: number;
   /** 滑块的颜色 */
-  blockColor: string;
+  blockColor?: string;
   /** 已选择的颜色  */
-  activeColor: string;
+  activeColor?: string;
   /** 是否显示当前 value */
-  showValue: boolean;
+  showValue?: boolean;
   onChange?: (event: GenericEvent) => any;
   onChanging?: (event: GenericEvent) => any;
 }
