@@ -146,4 +146,11 @@ export interface AppConfig {
      */
     pages: [];
   }>;
+
+  plugins?: {
+    [name: string]: {
+      version: string;
+      provider: string;
+    };
+  };
 }

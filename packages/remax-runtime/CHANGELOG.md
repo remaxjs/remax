@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.4](https://github.com/remaxjs/remax/compare/v2.8.3...v2.8.4) (2020-10-14)
+
+### Bug Fixes
+
+- 修复 onUnload 事件不触发的问题 ([#1324](https://github.com/remaxjs/remax/issues/1324)) ([5c53ed8](https://github.com/remaxjs/remax/commit/5c53ed81455d7e2699e4b37409fad97e6f06aa2d))
+
+## [2.8.3](https://github.com/remaxjs/remax/compare/v2.8.2...v2.8.3) (2020-09-28)
+
+**Note:** Version bump only for package @remax/runtime
+
 ## [2.8.2](https://github.com/remaxjs/remax/compare/v2.8.1...v2.8.2) (2020-09-18)
 
 **Note:** Version bump only for package @remax/runtime
