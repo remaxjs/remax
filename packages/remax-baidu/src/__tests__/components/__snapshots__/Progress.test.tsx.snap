@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Progress render correctly 1`] = `
+<progress
+  active={false}
+  activeColor="#09BB07"
+  activeMode="backwards"
+  backgroundColor="#E6E6E6"
+  borderRadius={0}
+  color="#09BB07"
+  duration={20}
+  fontSize={16}
+  showInfo={false}
+  strokeWidth={2}
+/>
+`;
