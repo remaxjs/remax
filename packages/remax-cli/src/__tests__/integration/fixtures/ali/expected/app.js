@@ -45,7 +45,7 @@ module.exports = require("@remax/runtime");
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = require('/__remax_runtime_options__');
+module.exports = require('./__remax_runtime_options__');
 
 /***/ }),
 /* 4 */
