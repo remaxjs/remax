@@ -60,7 +60,7 @@ module.exports = require("remax/ali");
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"hello":"hello___BqWu5"};
+module.exports = {"hello":"hello___3zRuV"};
 
 /***/ })
 ],[[6,0]]]);

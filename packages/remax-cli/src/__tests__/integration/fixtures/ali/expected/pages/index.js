@@ -145,7 +145,7 @@ module.exports = JSON.parse("{\"data\":\"value\"}");
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"page-index":"page-index___1ZW9Y"};
+module.exports = {"page-index":"page-index___3fFK_"};
 
 /***/ })
 ],[[8,0,6,4]]]);
