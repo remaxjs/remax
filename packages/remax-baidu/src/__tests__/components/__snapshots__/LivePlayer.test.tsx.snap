@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LivePlayer render correctly 1`] = `
+<live-player
+  autoPlay={false}
+  backgroundMute={false}
+  maxCache={3}
+  minCache={1}
+  muted={false}
+  objectFit="contain"
+  orientation="vertical"
+/>
+`;

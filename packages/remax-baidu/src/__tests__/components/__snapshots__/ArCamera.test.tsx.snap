@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArCamera render correctly 1`] = `
+<ar-camera
+  flash="auto"
+  type={0}
+/>
+`;

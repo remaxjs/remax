@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnimationVideo render correctly 1`] = `
+<animation-video
+  autoPlay={false}
+  canvasStyle={
+    Object {
+      "height": "400px",
+      "width": "400px",
+    }
+  }
+  loop={false}
+  resourceHeight={400}
+  resourceWidth={800}
+/>
+`;

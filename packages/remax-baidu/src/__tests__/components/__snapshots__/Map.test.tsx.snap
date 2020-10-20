@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map render correctly 1`] = `
+<swiper
+  enable3D={false}
+  enableOverlooking={false}
+  enableRotate={false}
+  enableScroll={true}
+  enableZoom={true}
+  scale={16}
+  showCompass={false}
+  showLocation={false}
+/>
+`;

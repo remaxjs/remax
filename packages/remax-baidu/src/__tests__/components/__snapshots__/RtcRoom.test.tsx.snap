@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RtcRoom render correctly 1`] = `
+<rtc-room
+  bitrate={900}
+  devicePosition="front"
+  enableAgc={false}
+  enableAns={false}
+  enableAutoFocus={true}
+  enableCamera={true}
+  enableMic={true}
+  enableRemoteMirror={false}
+  enableZoom={false}
+  localMirror="auto"
+  soundMode="speaker"
+  videoHeight={640}
+  videoWidth={360}
+/>
+`;
