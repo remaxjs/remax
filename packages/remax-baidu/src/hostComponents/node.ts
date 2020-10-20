@@ -1,5 +1,6 @@
 import * as Ad from './Ad/node';
 import * as Button from './Button/node';
+import * as Canvas from './Canvas/node';
 import * as Checkbox from './Checkbox/node';
 import * as CheckboxGroup from './CheckboxGroup/node';
 import * as CoverImage from './CoverImage/node';
@@ -35,6 +36,7 @@ const hostComponents = new Map();
 
 hostComponents.set('ad', Ad);
 hostComponents.set('button', Button);
+hostComponents.set('canvas', Canvas);
 hostComponents.set('checkbox-group', CheckboxGroup);
 hostComponents.set('checkbox', Checkbox);
 hostComponents.set('cover-image', CoverImage);

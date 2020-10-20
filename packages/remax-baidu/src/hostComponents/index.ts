@@ -1,5 +1,6 @@
 export * from './Ad';
 export * from './Button';
+export * from './Canvas';
 export * from './Checkbox';
 export * from './CheckboxGroup';
 export * from './CoverImage';
