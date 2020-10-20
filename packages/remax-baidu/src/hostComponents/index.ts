@@ -26,6 +26,8 @@ export * from './Slider';
 export * from './Swiper';
 export * from './SwiperItem';
 export * from './Switch';
+export * from './Tabs';
+export * from './TabItem';
 export * from './Text';
 export * from './Textarea';
 export * from './Video';

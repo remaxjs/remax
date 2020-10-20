@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs render correctly 1`] = `
+<tabs
+  className="class"
+  maxTabItemAmount={5}
+  tabsActiveTextColor="#000"
+  tabsBackgroundColor="#fff"
+  tabsInactiveTextColor="#666"
+  tabsUnderlineColor="#333"
+>
+  <tab-item
+    label="A"
+  />
+  <tab-item
+    label="B"
+  />
+  <tab-item
+    label="C"
+  />
+</tabs>
+`;
