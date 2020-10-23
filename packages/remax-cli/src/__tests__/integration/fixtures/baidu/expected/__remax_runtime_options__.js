@@ -12,6 +12,70 @@ module.exports = {
       "adTheme": "ad-theme"
     }
   },
+  "animation-video": {
+    "alias": {
+      "id": "id",
+      "style": "style",
+      "className": "class",
+      "animation": "animation",
+      "resourceWidth": "resource-width",
+      "resourceHeight": "resource-height",
+      "canvasStyle": "canvas-style",
+      "path": "path",
+      "loop": "loop",
+      "autoPlay": "autoplay",
+      "onStarted": "bindstarted",
+      "onEnded": "bindended"
+    }
+  },
+  "animation-view": {
+    "alias": {
+      "id": "id",
+      "style": "style",
+      "className": "class",
+      "animation": "animation",
+      "path": "path",
+      "loop": "loop",
+      "autoPlay": "autoplay",
+      "action": "action",
+      "hidden": "hidden",
+      "onEnded": "bindended"
+    }
+  },
+  "ar-camera": {
+    "alias": {
+      "className": "class",
+      "id": "id",
+      "style": "style",
+      "animation": "animation",
+      "key": "key",
+      "type": "type",
+      "flash": "flash",
+      "onError": "binderror",
+      "onLoad": "bindload",
+      "onMessage": "bindmessage",
+      "onScancode": "bindscancode"
+    }
+  },
+  "audio": {
+    "alias": {
+      "className": "class",
+      "id": "id",
+      "style": "style",
+      "animation": "animation",
+      "src": "src",
+      "loop": "loop",
+      "controls": "controls",
+      "poster": "poster",
+      "name": "name",
+      "author": "author",
+      "onError": "binderror",
+      "onPlay": "bindplay",
+      "onPause": "bindpause",
+      "onTimeUpdate": "bindtimeupdate",
+      "onEnded": "bindended"
+    }
+  },
   "button": {
     "alias": {
       "className": "class",
@@ -38,6 +102,30 @@ module.exports = {
       "onTap": "bindtap",
       "onClick": "bindtap",
       "contact": "contact"
+    }
+  },
+  "camera": {
+    "alias": {
+      "className": "class",
+      "id": "id",
+      "style": "style",
+      "animation": "animation",
+      "devicePosition": "device-position",
+      "flash": "flash",
+      "onStop": "bindstop",
+      "onError": "binderror"
+    }
+  },
+  "canvas": {
+    "alias": {
+      "canvasId": "canvas-id",
+      "disableScroll": "disable-scroll",
+      "onTouchStart": "bindtouchstart",
+      "onTouchMove": "bindtouchmove",
+      "onTouchEnd": "bindtouchend",
+      "onTouchCancel": "bindtouchcancel",
+      "onLongap": "bindlongtap",
+      "onError": "binderror"
     }
   },
   "checkbox-group": {
@@ -162,6 +250,56 @@ module.exports = {
       "for": "for",
       "onClick": "bindtap",
       "onTap": "bindtap"
+    }
+  },
+  "live-player": {
+    "alias": {
+      "className": "class",
+      "id": "id",
+      "style": "style",
+      "animation": "animation",
+      "src": "src",
+      "autoPlay": "autoplay",
+      "muted": "muted",
+      "orientation": "orientation",
+      "objectFit": "object-fit",
+      "backgroundMute": "background-mute",
+      "minCache": "min-cache",
+      "maxCache": "max-cache",
+      "onStateChange": "bindstatechange",
+      "onNetstatus": "bindnetstatus",
+      "onFullscreenChange": "bindfullscreenchange"
+    }
+  },
+  "map": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "style": "style",
+      "animation": "animation",
+      "longitude": "longitude",
+      "latitude": "latitude",
+      "scale": "scale",
+      "markers": "markers",
+      "polyline": "polyline",
+      "polygons": "polygons",
+      "circles": "circles",
+      "controls": "controls",
+      "includePoints": "include-points",
+      "showLocation": "show-location",
+      "enable3D": "enable-3D",
+      "showCompass": "show-compass",
+      "enableOverlooking": "enable-overlooking",
+      "enableZoom": "enable-zoom",
+      "enableScroll": "enable-scroll",
+      "enableRotate": "enable-rotate",
+      "onMarkerTap": "bindmarkertap",
+      "onCalloutTap": "bindcallouttap",
+      "onControlTap": "bindcontroltap",
+      "onRegionChange": "bindregionchange",
+      "onTap": "bindtap",
+      "onUpdated": "bindupdated",
+      "onPoitap": "bindpoitap"
     }
   },
   "movable-area": {
@@ -330,6 +468,39 @@ module.exports = {
       "onLongClick": "bindlongtap"
     }
   },
+  "rtc-room-item": {
+    "alias": {
+      "className": "class",
+      "id": "id",
+      "style": "style",
+      "animation": "animation",
+      "type": "type",
+      "userId": "user-id"
+    }
+  },
+  "rtc-room": {
+    "alias": {
+      "className": "class",
+      "id": "id",
+      "style": "style",
+      "animation": "animation",
+      "enableCamera": "enable-camera",
+      "enableAutoFocus": "enable-auto-focus",
+      "enableZoom": "enable-zoom",
+      "devicePosition": "device-position",
+      "enableMic": "enable-mic",
+      "enableAgc": "enable-agc",
+      "enableAns": "enable-ans",
+      "bitrate": "bitrate",
+      "videoWidth": "video-width",
+      "videoHeight": "video-height",
+      "enableRemoteMirror": "enable-remote-mirror",
+      "localMirror": "local-mirror",
+      "soundMode": "sound-mode",
+      "onStateChange": "bindstatechange",
+      "onError": "binderror"
+    }
+  },
   "scroll-view": {
     "alias": {
       "id": "id",
@@ -424,6 +595,34 @@ module.exports = {
       "color": "color",
       "type": "type",
       "onChange": "bindchange"
+    }
+  },
+  "tab-item": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "style": "style",
+      "animation": "animation",
+      "label": "label",
+      "name": "name",
+      "badgeType": "badge-type",
+      "badgeText": "badge-text"
+    }
+  },
+  "tabs": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "style": "style",
+      "animation": "animation",
+      "tabsBackgroundColor": "tabs-background-color",
+      "tabsActiveTextColor": "tabs-active-text-color",
+      "tabsInactiveTextColor": "tabs-inactive-text-color",
+      "tabsUnderlineColor": "tabs-underline-color",
+      "activeName": "active-name",
+      "urlQueryName": "url-query-name",
+      "maxTabItemAmount": "max-tab-item-amount",
+      "onTabChange": "bindtabchange"
     }
   },
   "text": {

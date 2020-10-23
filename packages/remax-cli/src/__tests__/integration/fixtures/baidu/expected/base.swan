@@ -69,6 +69,94 @@ unit-id="{{_h.v(i.props['unit-id'])}}">
 
 
   
+    <template name="REMAX_TPL_1_animation-video">
+  <animation-video animation="{{_h.v(i.props['animation'])}}"
+autoplay="{{_h.v(i.props['autoplay'])}}"
+bindended="{{_h.v(i.props['bindended'])}}"
+bindstarted="{{_h.v(i.props['bindstarted'])}}"
+canvas-style="{{_h.v(i.props['canvas-style'])}}"
+class="{{_h.v(i.props['class'])}}"
+id="{{_h.v(i.props['id'])}}"
+loop="{{_h.v(i.props['loop'])}}"
+path="{{_h.v(i.props['path'])}}"
+resource-height="{{_h.v(i.props['resource-height'])}}"
+resource-width="{{_h.v(i.props['resource-width'])}}"
+style="{{_h.st(i.props['style'])}}">
+    <block s-for="i.children">
+  <template class="{{_h.fc(i.nodes[item].props.class)}}" style="{{_h.fst(i.nodes[item].props.style)}}" is="{{_h.tid(i.nodes[item].type)}}" data="{{{i: i.nodes[item] }}}" />
+</block>
+
+  </animation-video>
+</template>
+
+
+  
+    <template name="REMAX_TPL_1_animation-view">
+  <animation-view action="{{_h.v(i.props['action'])}}"
+animation="{{_h.v(i.props['animation'])}}"
+autoplay="{{_h.v(i.props['autoplay'])}}"
+bindended="{{_h.v(i.props['bindended'])}}"
+class="{{_h.v(i.props['class'])}}"
+hidden="{{_h.v(i.props['hidden'])}}"
+id="{{_h.v(i.props['id'])}}"
+loop="{{_h.v(i.props['loop'])}}"
+path="{{_h.v(i.props['path'])}}"
+style="{{_h.st(i.props['style'])}}">
+    <block s-for="i.children">
+  <template class="{{_h.fc(i.nodes[item].props.class)}}" style="{{_h.fst(i.nodes[item].props.style)}}" is="{{_h.tid(i.nodes[item].type)}}" data="{{{i: i.nodes[item] }}}" />
+</block>
+
+  </animation-view>
+</template>
+
+
+  
+    <template name="REMAX_TPL_1_ar-camera">
+  <ar-camera animation="{{_h.v(i.props['animation'])}}"
+binderror="{{_h.v(i.props['binderror'])}}"
+bindload="{{_h.v(i.props['bindload'])}}"
+bindmessage="{{_h.v(i.props['bindmessage'])}}"
+bindscancode="{{_h.v(i.props['bindscancode'])}}"
+class="{{_h.v(i.props['class'])}}"
+flash="{{_h.v(i.props['flash'])}}"
+id="{{_h.v(i.props['id'])}}"
+key="{{_h.v(i.props['key'])}}"
+style="{{_h.st(i.props['style'])}}"
+type="{{_h.v(i.props['type'])}}">
+    <block s-for="i.children">
+  <template class="{{_h.fc(i.nodes[item].props.class)}}" style="{{_h.fst(i.nodes[item].props.style)}}" is="{{_h.tid(i.nodes[item].type)}}" data="{{{i: i.nodes[item] }}}" />
+</block>
+
+  </ar-camera>
+</template>
+
+
+  
+    <template name="REMAX_TPL_1_audio">
+  <audio animation="{{_h.v(i.props['animation'])}}"
+author="{{_h.v(i.props['author'])}}"
+bindended="{{_h.v(i.props['bindended'])}}"
+binderror="{{_h.v(i.props['binderror'])}}"
+bindpause="{{_h.v(i.props['bindpause'])}}"
+bindplay="{{_h.v(i.props['bindplay'])}}"
+bindtimeupdate="{{_h.v(i.props['bindtimeupdate'])}}"
+class="{{_h.v(i.props['class'])}}"
+controls="{{_h.v(i.props['controls'])}}"
+id="{{_h.v(i.props['id'])}}"
+loop="{{_h.v(i.props['loop'])}}"
+name="{{_h.v(i.props['name'])}}"
+poster="{{_h.v(i.props['poster'])}}"
+src="{{_h.v(i.props['src'])}}"
+style="{{_h.st(i.props['style'])}}">
+    <block s-for="i.children">
+  <template class="{{_h.fc(i.nodes[item].props.class)}}" style="{{_h.fst(i.nodes[item].props.style)}}" is="{{_h.tid(i.nodes[item].type)}}" data="{{{i: i.nodes[item] }}}" />
+</block>
+
+  </audio>
+</template>
+
+
+  
     <template name="REMAX_TPL_1_button">
   <button animation="{{_h.v(i.props['animation'])}}"
 bindchooseAddress="{{_h.v(i.props['bindchooseAddress'])}}"
@@ -98,6 +186,42 @@ type="{{_h.v(i.props['type'])}}">
 </block>
 
   </button>
+</template>
+
+
+  
+    <template name="REMAX_TPL_1_camera">
+  <camera animation="{{_h.v(i.props['animation'])}}"
+binderror="{{_h.v(i.props['binderror'])}}"
+bindstop="{{_h.v(i.props['bindstop'])}}"
+class="{{_h.v(i.props['class'])}}"
+device-position="{{_h.v(i.props['device-position'])}}"
+flash="{{_h.v(i.props['flash'])}}"
+id="{{_h.v(i.props['id'])}}"
+style="{{_h.st(i.props['style'])}}">
+    <block s-for="i.children">
+  <template class="{{_h.fc(i.nodes[item].props.class)}}" style="{{_h.fst(i.nodes[item].props.style)}}" is="{{_h.tid(i.nodes[item].type)}}" data="{{{i: i.nodes[item] }}}" />
+</block>
+
+  </camera>
+</template>
+
+
+  
+    <template name="REMAX_TPL_1_canvas">
+  <canvas binderror="{{_h.v(i.props['binderror'])}}"
+bindlongtap="{{_h.v(i.props['bindlongtap'])}}"
+bindtouchcancel="{{_h.v(i.props['bindtouchcancel'])}}"
+bindtouchend="{{_h.v(i.props['bindtouchend'])}}"
+bindtouchmove="{{_h.v(i.props['bindtouchmove'])}}"
+bindtouchstart="{{_h.v(i.props['bindtouchstart'])}}"
+canvas-id="{{_h.v(i.props['canvas-id'])}}"
+disable-scroll="{{_h.v(i.props['disable-scroll'])}}">
+    <block s-for="i.children">
+  <template class="{{_h.fc(i.nodes[item].props.class)}}" style="{{_h.fst(i.nodes[item].props.style)}}" is="{{_h.tid(i.nodes[item].type)}}" data="{{{i: i.nodes[item] }}}" />
+</block>
+
+  </canvas>
 </template>
 
 
@@ -286,6 +410,68 @@ style="{{_h.st(i.props['style'])}}">
 
     </label>
   </block>
+</template>
+
+
+  
+    <template name="REMAX_TPL_1_live-player">
+  <live-player animation="{{_h.v(i.props['animation'])}}"
+autoplay="{{_h.v(i.props['autoplay'])}}"
+background-mute="{{_h.v(i.props['background-mute'])}}"
+bindfullscreenchange="{{_h.v(i.props['bindfullscreenchange'])}}"
+bindnetstatus="{{_h.v(i.props['bindnetstatus'])}}"
+bindstatechange="{{_h.v(i.props['bindstatechange'])}}"
+class="{{_h.v(i.props['class'])}}"
+id="{{_h.v(i.props['id'])}}"
+max-cache="{{_h.v(i.props['max-cache'])}}"
+min-cache="{{_h.v(i.props['min-cache'])}}"
+muted="{{_h.v(i.props['muted'])}}"
+object-fit="{{_h.v(i.props['object-fit'])}}"
+orientation="{{_h.v(i.props['orientation'])}}"
+src="{{_h.v(i.props['src'])}}"
+style="{{_h.st(i.props['style'])}}">
+    <block s-for="i.children">
+  <template class="{{_h.fc(i.nodes[item].props.class)}}" style="{{_h.fst(i.nodes[item].props.style)}}" is="{{_h.tid(i.nodes[item].type)}}" data="{{{i: i.nodes[item] }}}" />
+</block>
+
+  </live-player>
+</template>
+
+
+  
+    <template name="REMAX_TPL_1_map">
+  <map animation="{{_h.v(i.props['animation'])}}"
+bindcallouttap="{{_h.v(i.props['bindcallouttap'])}}"
+bindcontroltap="{{_h.v(i.props['bindcontroltap'])}}"
+bindmarkertap="{{_h.v(i.props['bindmarkertap'])}}"
+bindpoitap="{{_h.v(i.props['bindpoitap'])}}"
+bindregionchange="{{_h.v(i.props['bindregionchange'])}}"
+bindtap="{{_h.v(i.props['bindtap'])}}"
+bindupdated="{{_h.v(i.props['bindupdated'])}}"
+circles="{{_h.v(i.props['circles'])}}"
+class="{{_h.v(i.props['class'])}}"
+controls="{{_h.v(i.props['controls'])}}"
+enable-3D="{{_h.v(i.props['enable-3D'])}}"
+enable-overlooking="{{_h.v(i.props['enable-overlooking'])}}"
+enable-rotate="{{_h.v(i.props['enable-rotate'])}}"
+enable-scroll="{{_h.v(i.props['enable-scroll'])}}"
+enable-zoom="{{_h.v(i.props['enable-zoom'])}}"
+id="{{_h.v(i.props['id'])}}"
+include-points="{{_h.v(i.props['include-points'])}}"
+latitude="{{_h.v(i.props['latitude'])}}"
+longitude="{{_h.v(i.props['longitude'])}}"
+markers="{{_h.v(i.props['markers'])}}"
+polygons="{{_h.v(i.props['polygons'])}}"
+polyline="{{_h.v(i.props['polyline'])}}"
+scale="{{_h.v(i.props['scale'])}}"
+show-compass="{{_h.v(i.props['show-compass'])}}"
+show-location="{{_h.v(i.props['show-location'])}}"
+style="{{_h.st(i.props['style'])}}">
+    <block s-for="i.children">
+  <template class="{{_h.fc(i.nodes[item].props.class)}}" style="{{_h.fst(i.nodes[item].props.style)}}" is="{{_h.tid(i.nodes[item].type)}}" data="{{{i: i.nodes[item] }}}" />
+</block>
+
+  </map>
 </template>
 
 
@@ -519,6 +705,51 @@ text="{{_h.v(i.props['text'])}}">
 
 
   
+    <template name="REMAX_TPL_1_rtc-room">
+  <rtc-room animation="{{_h.v(i.props['animation'])}}"
+binderror="{{_h.v(i.props['binderror'])}}"
+bindstatechange="{{_h.v(i.props['bindstatechange'])}}"
+bitrate="{{_h.v(i.props['bitrate'])}}"
+class="{{_h.v(i.props['class'])}}"
+device-position="{{_h.v(i.props['device-position'])}}"
+enable-agc="{{_h.v(i.props['enable-agc'])}}"
+enable-ans="{{_h.v(i.props['enable-ans'])}}"
+enable-auto-focus="{{_h.v(i.props['enable-auto-focus'])}}"
+enable-camera="{{_h.v(i.props['enable-camera'])}}"
+enable-mic="{{_h.v(i.props['enable-mic'])}}"
+enable-remote-mirror="{{_h.v(i.props['enable-remote-mirror'])}}"
+enable-zoom="{{_h.v(i.props['enable-zoom'])}}"
+id="{{_h.v(i.props['id'])}}"
+local-mirror="{{_h.v(i.props['local-mirror'])}}"
+sound-mode="{{_h.v(i.props['sound-mode'])}}"
+style="{{_h.st(i.props['style'])}}"
+video-height="{{_h.v(i.props['video-height'])}}"
+video-width="{{_h.v(i.props['video-width'])}}">
+    <block s-for="i.children">
+  <template class="{{_h.fc(i.nodes[item].props.class)}}" style="{{_h.fst(i.nodes[item].props.style)}}" is="{{_h.tid(i.nodes[item].type)}}" data="{{{i: i.nodes[item] }}}" />
+</block>
+
+  </rtc-room>
+</template>
+
+
+  
+    <template name="REMAX_TPL_1_rtc-room-item">
+  <rtc-room-item animation="{{_h.v(i.props['animation'])}}"
+class="{{_h.v(i.props['class'])}}"
+id="{{_h.v(i.props['id'])}}"
+style="{{_h.st(i.props['style'])}}"
+type="{{_h.v(i.props['type'])}}"
+user-id="{{_h.v(i.props['user-id'])}}">
+    <block s-for="i.children">
+  <template class="{{_h.fc(i.nodes[item].props.class)}}" style="{{_h.fst(i.nodes[item].props.style)}}" is="{{_h.tid(i.nodes[item].type)}}" data="{{{i: i.nodes[item] }}}" />
+</block>
+
+  </rtc-room-item>
+</template>
+
+
+  
     <template name="REMAX_TPL_1_scroll-view">
   <scroll-view  bindscroll="{{_h.v(i.props[' bindscroll'])}}"
  bindscrolltolower="{{_h.v(i.props[' bindscrolltolower'])}}"
@@ -627,6 +858,46 @@ value="{{_h.v(i.props['value'])}}">
 </block>
 
   </switch>
+</template>
+
+
+  
+    <template name="REMAX_TPL_1_tab-item">
+  <tab-item animation="{{_h.v(i.props['animation'])}}"
+badge-text="{{_h.v(i.props['badge-text'])}}"
+badge-type="{{_h.v(i.props['badge-type'])}}"
+class="{{_h.v(i.props['class'])}}"
+id="{{_h.v(i.props['id'])}}"
+label="{{_h.v(i.props['label'])}}"
+name="{{_h.v(i.props['name'])}}"
+style="{{_h.st(i.props['style'])}}">
+    <block s-for="i.children">
+  <template class="{{_h.fc(i.nodes[item].props.class)}}" style="{{_h.fst(i.nodes[item].props.style)}}" is="{{_h.tid(i.nodes[item].type)}}" data="{{{i: i.nodes[item] }}}" />
+</block>
+
+  </tab-item>
+</template>
+
+
+  
+    <template name="REMAX_TPL_1_tabs">
+  <tabs active-name="{{_h.v(i.props['active-name'])}}"
+animation="{{_h.v(i.props['animation'])}}"
+bindtabchange="{{_h.v(i.props['bindtabchange'])}}"
+class="{{_h.v(i.props['class'])}}"
+id="{{_h.v(i.props['id'])}}"
+max-tab-item-amount="{{_h.v(i.props['max-tab-item-amount'])}}"
+style="{{_h.st(i.props['style'])}}"
+tabs-active-text-color="{{_h.v(i.props['tabs-active-text-color'])}}"
+tabs-background-color="{{_h.v(i.props['tabs-background-color'])}}"
+tabs-inactive-text-color="{{_h.v(i.props['tabs-inactive-text-color'])}}"
+tabs-underline-color="{{_h.v(i.props['tabs-underline-color'])}}"
+url-query-name="{{_h.v(i.props['url-query-name'])}}">
+    <block s-for="i.children">
+  <template class="{{_h.fc(i.nodes[item].props.class)}}" style="{{_h.fst(i.nodes[item].props.style)}}" is="{{_h.tid(i.nodes[item].type)}}" data="{{{i: i.nodes[item] }}}" />
+</block>
+
+  </tabs>
 </template>
 
 
