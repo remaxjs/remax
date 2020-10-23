@@ -13,3 +13,7 @@ import { ReactReconcilerInst } from './render';
 export const unstable_batchedUpdates = ReactReconcilerInst.batchedUpdates;
 
 export { RuntimeOptions };
+
+export default {
+  unstable_batchedUpdates,
+};
