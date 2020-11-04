@@ -3,13 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.6](https://github.com/remaxjs/remax/compare/v2.8.5...v2.8.6) (2020-11-04)
+
+### Bug Fixes
+
+- 修复 DevTools 引起的 onLaunch 参数丢失问题 ([#1357](https://github.com/remaxjs/remax/issues/1357)) ([9f65ba9](https://github.com/remaxjs/remax/commit/9f65ba9a7f5808a98ecaf767d11138c18554899f))
+
 ## [2.8.5](https://github.com/remaxjs/remax/compare/v2.8.4...v2.8.5) (2020-10-23)
 
 **Note:** Version bump only for package @remax/plugin-devtools
-
-
-
-
 
 ## [2.8.4](https://github.com/remaxjs/remax/compare/v2.8.3...v2.8.4) (2020-10-14)
 

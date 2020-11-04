@@ -3,16 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.8.5](https://github.com/remaxjs/remax/compare/v2.8.4...v2.8.5) (2020-10-23)
-
+## [2.8.6](https://github.com/remaxjs/remax/compare/v2.8.5...v2.8.6) (2020-11-04)
 
 ### Bug Fixes
 
-* 修复使用 react-query@2.21.0 构建报错的问题 ([d915ef7](https://github.com/remaxjs/remax/commit/d915ef792bbfd16527dcf63829a16145654f55dd)), closes [#1339](https://github.com/remaxjs/remax/issues/1339)
+- 修复 configWebpack 无法修改 plugins 里配置的问题 ([#1356](https://github.com/remaxjs/remax/issues/1356)) ([6308a8e](https://github.com/remaxjs/remax/commit/6308a8eed0122c6046fe0865b14a8c5121874380))
+- 修复 DevTools 引起的 onLaunch 参数丢失问题 ([#1357](https://github.com/remaxjs/remax/issues/1357)) ([9f65ba9](https://github.com/remaxjs/remax/commit/9f65ba9a7f5808a98ecaf767d11138c18554899f))
+- 完善 useQuery 类型定义 ([#1350](https://github.com/remaxjs/remax/issues/1350)) ([1bfcd22](https://github.com/remaxjs/remax/commit/1bfcd222aa844ba0bac7247a9235bf6eebe5449a))
 
+## [2.8.5](https://github.com/remaxjs/remax/compare/v2.8.4...v2.8.5) (2020-10-23)
 
+### Bug Fixes
 
-
+- 修复使用 react-query@2.21.0 构建报错的问题 ([d915ef7](https://github.com/remaxjs/remax/commit/d915ef792bbfd16527dcf63829a16145654f55dd)), closes [#1339](https://github.com/remaxjs/remax/issues/1339)
 
 ## [2.8.4](https://github.com/remaxjs/remax/compare/v2.8.3...v2.8.4) (2020-10-14)
 
