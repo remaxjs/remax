@@ -218,11 +218,11 @@ export default function webpackConfig(api: API, options: Options, target: Platfo
     },
   };
 
+  api.configWebpack(context);
+
   if (typeof options.configWebpack === 'function') {
     options.configWebpack(context);
   }
-
-  api.configWebpack(context);
 
   const externals = config.get('externals');
   const runtimeOptionsExternal = {

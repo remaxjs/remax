@@ -123,11 +123,11 @@ export default function webpackConfig(api: API, options: Options): webpack.Confi
     },
   };
 
+  api.configWebpack(context);
+
   if (typeof options.configWebpack === 'function') {
     options.configWebpack(context);
   }
-
-  api.configWebpack(context);
 
   const devServer = config.get('devServer') || {};
 
