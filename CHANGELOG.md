@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.7](https://github.com/remaxjs/remax/compare/v2.8.6...v2.8.7) (2020-11-12)
+
+### Bug Fixes
+
+- **wechat:** 修复微信端节点交换时渲染错误的问题 ([#1364](https://github.com/remaxjs/remax/issues/1364)) ([62281ff](https://github.com/remaxjs/remax/commit/62281ff69c0da59c7bdf1a477188fbd41abee579)), closes [#1363](https://github.com/remaxjs/remax/issues/1363)
+
 ## [2.8.6](https://github.com/remaxjs/remax/compare/v2.8.5...v2.8.6) (2020-11-04)
 
 ### Bug Fixes
