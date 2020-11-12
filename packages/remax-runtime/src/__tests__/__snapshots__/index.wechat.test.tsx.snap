@@ -361,18 +361,18 @@ Object {
 exports[`wechat remax render render correctly 1`] = `
 Object {
   "children": Array [
-    3,
+    2,
   ],
-  "id": 1,
+  "id": 0,
   "nodes": Object {
-    "3": Object {
+    "2": Object {
       "children": Array [
-        2,
+        1,
       ],
-      "id": 3,
+      "id": 2,
       "nodes": Object {
-        "2": Object {
-          "id": 2,
+        "1": Object {
+          "id": 1,
           "text": "hello",
           "type": "plain-text",
         },
@@ -581,6 +581,154 @@ Object {
   "props": undefined,
   "text": undefined,
   "type": "root",
+}
+`;
+
+exports[`wechat remax render swaps items 1`] = `
+Object {
+  "root.children": Array [
+    7,
+  ],
+  "root.nodes.7": Object {
+    "children": Array [
+      3,
+      6,
+    ],
+    "id": 7,
+    "nodes": Object {
+      "3": Object {
+        "children": Array [
+          1,
+          2,
+        ],
+        "id": 3,
+        "nodes": Object {
+          "1": Object {
+            "id": 1,
+            "text": "0",
+            "type": "plain-text",
+          },
+          "2": Object {
+            "id": 2,
+            "text": "a",
+            "type": "plain-text",
+          },
+        },
+        "props": Object {},
+        "text": undefined,
+        "type": "view",
+      },
+      "6": Object {
+        "children": Array [
+          4,
+          5,
+        ],
+        "id": 6,
+        "nodes": Object {
+          "4": Object {
+            "id": 4,
+            "text": "1",
+            "type": "plain-text",
+          },
+          "5": Object {
+            "id": 5,
+            "text": "b",
+            "type": "plain-text",
+          },
+        },
+        "props": Object {},
+        "text": undefined,
+        "type": "view",
+      },
+    },
+    "props": Object {
+      "id": "1",
+    },
+    "text": undefined,
+    "type": "view",
+  },
+}
+`;
+
+exports[`wechat remax render swaps items 2`] = `
+Object {
+  "root.nodes.7.children": Array [
+    6,
+    3,
+  ],
+  "root.nodes.7.nodes.3": Object {
+    "children": Array [
+      1,
+      2,
+    ],
+    "id": 3,
+    "nodes": Object {
+      "1": Object {
+        "id": 1,
+        "text": "1",
+        "type": "plain-text",
+      },
+      "2": Object {
+        "id": 2,
+        "text": "a",
+        "type": "plain-text",
+      },
+    },
+    "props": Object {},
+    "text": undefined,
+    "type": "view",
+  },
+  "root.nodes.7.nodes.3.nodes.1": Object {
+    "id": 1,
+    "text": "1",
+    "type": "plain-text",
+  },
+  "root.nodes.7.nodes.6.nodes.4": Object {
+    "id": 4,
+    "text": "0",
+    "type": "plain-text",
+  },
+}
+`;
+
+exports[`wechat remax render swaps items 3`] = `
+Object {
+  "root.nodes.7.children": Array [
+    3,
+    6,
+  ],
+  "root.nodes.7.nodes.3.nodes.1": Object {
+    "id": 1,
+    "text": "0",
+    "type": "plain-text",
+  },
+  "root.nodes.7.nodes.6": Object {
+    "children": Array [
+      4,
+      5,
+    ],
+    "id": 6,
+    "nodes": Object {
+      "4": Object {
+        "id": 4,
+        "text": "1",
+        "type": "plain-text",
+      },
+      "5": Object {
+        "id": 5,
+        "text": "b",
+        "type": "plain-text",
+      },
+    },
+    "props": Object {},
+    "text": undefined,
+    "type": "view",
+  },
+  "root.nodes.7.nodes.6.nodes.4": Object {
+    "id": 4,
+    "text": "1",
+    "type": "plain-text",
+  },
 }
 `;
 

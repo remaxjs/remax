@@ -250,6 +250,49 @@ describe('wechat remax render', () => {
     });
   });
 
+  it('swaps items', () => {
+    const logs: any = [];
+    class App extends React.Component {
+      state = {
+        list: ['a', 'b'],
+      };
+
+      swap() {
+        const { list } = this.state;
+        this.setState({
+          list: [list[1], list[0]],
+        });
+      }
+
+      render() {
+        const { list } = this.state;
+        return (
+          <View id="1">
+            {list.map((item, index) => (
+              <View key={item}>
+                {index}
+                {item}
+              </View>
+            ))}
+          </View>
+        );
+      }
+    }
+
+    const container = new Container({
+      setData(action: any) {
+        logs.push(action);
+      },
+    });
+    const app = React.createRef<any>();
+    render(<App ref={app} />, container);
+    expect(logs.pop()).toMatchSnapshot();
+    app.current.swap();
+    expect(logs.pop()).toMatchSnapshot();
+    app.current.swap();
+    expect(logs.pop()).toMatchSnapshot();
+  });
+
   it("does not update deleted node's children node", async () => {
     const logs: any = [];
     class App extends React.Component {

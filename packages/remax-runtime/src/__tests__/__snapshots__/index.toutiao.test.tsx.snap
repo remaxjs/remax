@@ -361,18 +361,18 @@ Object {
 exports[`remax render render correctly 1`] = `
 Object {
   "children": Array [
-    3,
+    2,
   ],
-  "id": 1,
+  "id": 0,
   "nodes": Object {
-    "3": Object {
+    "2": Object {
       "children": Array [
-        2,
+        1,
       ],
-      "id": 3,
+      "id": 2,
       "nodes": Object {
-        "2": Object {
-          "id": 2,
+        "1": Object {
+          "id": 1,
           "text": "hello",
           "type": "plain-text",
         },
