@@ -52,9 +52,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   if (false) {}
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], {
-    _tid: "5da6971-1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["Text"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("block", null, "test")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["Text"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("block", null, "hello")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["Text"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("block", null, "hello world")));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["Text"], null, "test"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["Text"], null, "hello"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["Text"], null, "hello world"));
 });
 
 /***/ }),

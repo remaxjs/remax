@@ -3,7 +3,6 @@ import * as webpack from 'webpack';
 import Config from 'webpack-chain';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import baseConfig from './baseConfig';
-import { reactVersion } from '../../remixVersion';
 import webBaseConfig from './webBaseConfig';
 import Builder from '../Builder';
 import FallbackEntry from '../entries/FallbackEntry';
@@ -23,7 +22,6 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
         chunks: [entry.name],
         template: path.resolve(__dirname, '../../../template/index.html.ejs'),
         env: process.env.NODE_ENV,
-        reactVersion: reactVersion(),
       },
     ]);
   };

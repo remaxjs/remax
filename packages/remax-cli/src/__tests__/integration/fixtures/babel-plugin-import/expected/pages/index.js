@@ -60,9 +60,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   console.log(parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0___default.a);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax__WEBPACK_IMPORTED_MODULE_2__["View"], {
-    _tid: "5da6971-1"
-  }, "hello");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax__WEBPACK_IMPORTED_MODULE_2__["View"], null, "hello");
 });
 
 /***/ }),

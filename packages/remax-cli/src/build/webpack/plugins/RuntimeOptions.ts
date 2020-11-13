@@ -40,13 +40,13 @@ export default class RuntimeOptionsPlugin {
     appEvents: any,
     assetsPath: string
   ) {
-    compilation.assets[path.join(assetsPath, '__remix_runtime_options__.js')] = new OriginalSource(
+    compilation.assets[path.join(assetsPath, '__remax_runtime_options__.js')] = new OriginalSource(
       `module.exports = {
       hostComponents: ${JSON.stringify(hostComponents, null, 2)},
       pageEvents: ${JSON.stringify(pageEvents, null, 2)},
       appEvents: ${JSON.stringify(appEvents, null, 2)}
     }`,
-      '__remix_runtime_options__.js'
+      '__remax_runtime_options__.js'
     );
   }
 

@@ -18,8 +18,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
   var className = _ref.className;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], {
-    className: "c ".concat(className),
-    _tid: "78e68df-1"
+    className: "c ".concat(className)
   }, "c");
 });
 

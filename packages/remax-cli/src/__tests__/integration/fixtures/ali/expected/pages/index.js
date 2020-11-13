@@ -58,45 +58,13 @@ __webpack_require__.r(__webpack_exports__);
 var _data_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(17, 1);
 /* harmony import */ var _index_module_css_modules__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(18);
 /* harmony import */ var _index_module_css_modules__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_index_module_css_modules__WEBPACK_IMPORTED_MODULE_5__);
+
+
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
-}
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
 
@@ -108,9 +76,7 @@ function _asyncToGenerator(fn) {
   var _;
 
   var props = {};
-  var TextElement = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax__WEBPACK_IMPORTED_MODULE_2__["Text"], {
-    _tid: "5da6971-1"
-  }));
+  var TextElement = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax__WEBPACK_IMPORTED_MODULE_2__["Text"], null));
 
   function handleClick() {
     return _handleClick.apply(this, arguments);
@@ -139,11 +105,10 @@ function _asyncToGenerator(fn) {
 
   var value = (_ = 0) !== null && _ !== void 0 ? _ : 1;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax__WEBPACK_IMPORTED_MODULE_2__["View"], {
-    className: _index_module_css_modules__WEBPACK_IMPORTED_MODULE_5___default.a['page-index'],
-    _tid: "5da6971-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("block", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_C__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    className: _index_module_css_modules__WEBPACK_IMPORTED_MODULE_5___default.a['page-index']
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](_components_C__WEBPACK_IMPORTED_MODULE_3__["default"], {
     className: "b"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax__WEBPACK_IMPORTED_MODULE_2__["View"], _extends({
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax__WEBPACK_IMPORTED_MODULE_2__["View"], _extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
@@ -152,7 +117,7 @@ function _asyncToGenerator(fn) {
     key: "my-view"
   }, props, {
     __key: "my-view"
-  }), "foo", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("block", null, _data_json__WEBPACK_IMPORTED_MODULE_4__ === null || _data_json__WEBPACK_IMPORTED_MODULE_4__ === void 0 ? void 0 : _data_json__WEBPACK_IMPORTED_MODULE_4__.data), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("block", null, value)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"]("block", null, TextElement));
+  }), "foo", _data_json__WEBPACK_IMPORTED_MODULE_4__ === null || _data_json__WEBPACK_IMPORTED_MODULE_4__ === void 0 ? void 0 : _data_json__WEBPACK_IMPORTED_MODULE_4__.data, value), TextElement);
 });
 
 /***/ }),

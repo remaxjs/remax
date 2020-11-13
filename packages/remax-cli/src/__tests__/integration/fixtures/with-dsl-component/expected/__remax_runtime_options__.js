@@ -1,5 +1,5 @@
 module.exports = {
-          hostComponents: {
+      hostComponents: {
   "button": {
     "alias": {
       "id": "id",
@@ -21,7 +21,8 @@ module.exports = {
       "onTap": "onTap",
       "appParameter": "app-parameter",
       "publicId": "public-id",
-      "onGetAuthorize": "onGetAuthorize"
+      "onGetAuthorize": "onGetAuthorize",
+      "onError": "onError"
     }
   },
   "canvas": {
@@ -387,6 +388,9 @@ module.exports = {
   },
   "swiper-item": {
     "alias": {
+      "id": "id",
+      "className": "class",
+      "style": "style",
       "key": "key"
     }
   },
@@ -510,7 +514,9 @@ module.exports = {
       "className": "class",
       "src": "src",
       "id": "id",
+      "style": "style",
       "poster": "poster",
+      "posterSize": "posterSize",
       "objectFit": "objectFit",
       "initialTime": "initial-time",
       "duration": "duration",
@@ -537,12 +543,50 @@ module.exports = {
       "onUserAction": "onUserAction"
     }
   },
-  "ddd": {
-    "alias": {}
+  "lottie": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "autoplay": "autoplay",
+      "path": "path",
+      "djangoId": "djangoId",
+      "md5": "md5",
+      "speed": "speed",
+      "repeatCount": "repeatCount",
+      "autoReverse": "autoReverse",
+      "assetsPath": "assetsPath",
+      "placeholder": "placeholder",
+      "optimize": "optimize",
+      "onDataReady": "onDataReady",
+      "onDataFailed": "onDataFailed",
+      "onDataLoadReady": "onDataLoadReady",
+      "onAnimationStart": "onAnimationStart",
+      "onAnimationEnd": "onAnimationEnd",
+      "onAnimationRepeat": "onAnimationRepeat",
+      "onAnimationCancel": "onAnimationCancel"
+    }
+  },
+  "camera": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "style": "style",
+      "mode": "mode",
+      "devicePosition": "device-position",
+      "flash": "flash",
+      "outputDimension": "outputDimension",
+      "applyMicPermissionWhenInit": "applyMicPermissionWhenInit",
+      "frameSize": "frame-size",
+      "frameFormat": "frame-format",
+      "maxDuration": "max-duration",
+      "onStop": "onStop",
+      "onError": "onError",
+      "onScanCode": "onScanCode"
+    }
   }
 },
-          pageEvents: {
+      pageEvents: {
   "pages/index": []
 },
-          appEvents: []
-        }
+      appEvents: []
+    }

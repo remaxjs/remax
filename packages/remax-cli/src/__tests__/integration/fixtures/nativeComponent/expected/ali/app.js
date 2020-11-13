@@ -16,8 +16,8 @@ module.exports = __webpack_require__(4);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _remix_runtime_options___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
-/* harmony import */ var _remix_runtime_options___WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_remix_runtime_options___WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _remax_runtime_options___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+/* harmony import */ var _remax_runtime_options___WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_remax_runtime_options___WEBPACK_IMPORTED_MODULE_1__);
 
 
 var pluginDriver = new _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver"]([].map(function (p) {
@@ -28,9 +28,9 @@ _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["RuntimeOptions"].apply({
   debug: false,
   pxToRpx: true,
   pluginDriver: pluginDriver,
-  hostComponents: _remix_runtime_options___WEBPACK_IMPORTED_MODULE_1__["hostComponents"],
-  pageEvents: _remix_runtime_options___WEBPACK_IMPORTED_MODULE_1__["pageEvents"],
-  appEvents: _remix_runtime_options___WEBPACK_IMPORTED_MODULE_1__["appEvents"]
+  hostComponents: _remax_runtime_options___WEBPACK_IMPORTED_MODULE_1__["hostComponents"],
+  pageEvents: _remax_runtime_options___WEBPACK_IMPORTED_MODULE_1__["pageEvents"],
+  appEvents: _remax_runtime_options___WEBPACK_IMPORTED_MODULE_1__["appEvents"]
 });
 
 /***/ }),

@@ -21,7 +21,8 @@ module.exports = {
       "onTap": "onTap",
       "appParameter": "app-parameter",
       "publicId": "public-id",
-      "onGetAuthorize": "onGetAuthorize"
+      "onGetAuthorize": "onGetAuthorize",
+      "onError": "onError"
     }
   },
   "canvas": {
@@ -513,7 +514,9 @@ module.exports = {
       "className": "class",
       "src": "src",
       "id": "id",
+      "style": "style",
       "poster": "poster",
+      "posterSize": "posterSize",
       "objectFit": "objectFit",
       "initialTime": "initial-time",
       "duration": "duration",
@@ -583,11 +586,7 @@ module.exports = {
   }
 },
       pageEvents: {
-  "pages/index": [],
-  "pages/index2": [],
-  "pages/index3": [],
-  "pages/index4": [],
-  "pages/subPackage": []
+  "pages/foo": []
 },
       appEvents: []
     }

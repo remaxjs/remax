@@ -59,17 +59,14 @@ __webpack_require__.r(__webpack_exports__);
   }, {
     label: '2.2'
   }]];
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(remax__WEBPACK_IMPORTED_MODULE_1__["View"], {
-    _tid: "5da6971-1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(remax__WEBPACK_IMPORTED_MODULE_1__["PickerView"], null, columns.map(function (colum, idx) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(remax__WEBPACK_IMPORTED_MODULE_1__["View"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(remax__WEBPACK_IMPORTED_MODULE_1__["PickerView"], null, columns.map(function (colum, idx) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(remax__WEBPACK_IMPORTED_MODULE_1__["PickerViewColumn"], {
       key: idx
     }, colum.map(function (item, index) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(remax__WEBPACK_IMPORTED_MODULE_1__["View"], {
         key: index,
-        _tid: "5da6971-2",
         __key: index
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("block", null, item.label));
+      }, item.label);
     }));
   })));
 });

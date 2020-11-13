@@ -55,9 +55,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], {
-    _tid: "5da6971-1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("block", null, _circularDependency1__WEBPACK_IMPORTED_MODULE_2__["A"]), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("block", null, _circularDependency2__WEBPACK_IMPORTED_MODULE_3__["C"]));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], null, _circularDependency1__WEBPACK_IMPORTED_MODULE_2__["A"], _circularDependency2__WEBPACK_IMPORTED_MODULE_3__["C"]);
 });
 
 /***/ }),

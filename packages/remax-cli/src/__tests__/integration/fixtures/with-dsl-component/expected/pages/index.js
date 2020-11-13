@@ -55,11 +55,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Index() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], {
-    _tid: "5da6971-1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["Image"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["Image"], {
     src: cat
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("block", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](empty__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("block", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_empty__WEBPACK_IMPORTED_MODULE_3__["Empty2"], null)));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](empty__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_empty__WEBPACK_IMPORTED_MODULE_3__["Empty2"], null));
 }
 
 /***/ }),

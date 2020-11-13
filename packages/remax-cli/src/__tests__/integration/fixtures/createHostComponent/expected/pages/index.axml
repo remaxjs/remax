@@ -436,48 +436,6 @@
   
   
   
-  <template name="REMAX_TPL_1_custom-component">
-  <custom-component 
-    
-    foo="{{item.props['foo']}}"
-    
-    
-    
-  >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
-  </custom-component>
-</template>
-
-  
-  
-  
-  <template name="REMAX_TPL_1_foo-bar">
-  <foo-bar 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    foo="{{item.props['foo']}}"
-    
-    
-    
-  >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
-  </foo-bar>
-</template>
-
-  
-  
-  
   <template name="REMAX_TPL_1_form">
   <form 
     

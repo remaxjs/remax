@@ -59,9 +59,7 @@ __webpack_require__.r(__webpack_exports__);
   Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["usePageEvent"])('onShow', function () {
     console.log('on show');
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax__WEBPACK_IMPORTED_MODULE_2__["View"], {
-    _tid: "5da6971-1"
-  }, "view");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax__WEBPACK_IMPORTED_MODULE_2__["View"], null, "view");
 });
 
 /***/ }),
@@ -89,9 +87,7 @@ __webpack_require__.r(__webpack_exports__);
   Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["usePageEvent"])('onShareAppMessage', function () {
     console.log('onShareAppMessage');
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax__WEBPACK_IMPORTED_MODULE_2__["View"], {
-    _tid: "153295a-1"
-  }, "module");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax__WEBPACK_IMPORTED_MODULE_2__["View"], null, "module");
 });
 
 /***/ })

@@ -54,16 +54,25 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function timesTwo(arr) {
-  return arr.map(function (n) {
+  var _a = arr;
+
+  var _f = function _f(n) {
     return n * 2;
-  });
+  };
+
+  var _r = [];
+
+  for (var _i = 0; _i < _a.length; _i++) {
+    _r.push(_f(_a[_i], _i, _a));
+  }
+
+  return _r;
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   console.log(timesTwo([1, 2, 3]));
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], {
-    className: _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.text,
-    _tid: "5da6971-1"
+    className: _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.text
   }, "hello");
 });
 

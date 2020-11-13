@@ -52,25 +52,22 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var props = {};
-  var TextElement = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["cloneElement"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["Text"], {
-    _tid: "357dcb9-1"
-  }));
+  var TextElement = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["cloneElement"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["Text"], null));
 
   function handleClick() {}
 
   function handleTouchStart() {}
 
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], {
-    className: "pageA-index",
-    _tid: "357dcb9-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("block", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_components_C__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    className: "pageA-index"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_components_C__WEBPACK_IMPORTED_MODULE_2__["default"], {
     className: "a"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], _extends({
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], _extends({
     onClick: handleClick,
     onTouchStart: handleTouchStart,
     id: "view",
     "data-foo": "bar"
-  }, props), "foo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("block", null, TextElement));
+  }, props), "foo"), TextElement);
 });
 
 /***/ }),

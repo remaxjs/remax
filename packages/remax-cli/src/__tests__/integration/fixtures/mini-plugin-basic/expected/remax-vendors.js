@@ -15,9 +15,8 @@ console.log('greeting');
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
   var name = _ref.name;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], {
-    id: "greeting",
-    _tid: "e0baf38-1"
-  }, "Hello ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("block", null, name));
+    id: "greeting"
+  }, "Hello ", name);
 });
 
 /***/ }),

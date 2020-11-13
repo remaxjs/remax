@@ -1,25 +1,12 @@
 import { Options } from '@remax/types';
 import output from './utils/output';
-import remixVersion, { reactReconcilerPeerReactVersion, reactVersion } from '../remixVersion';
 import { Platform } from '@remax/types';
 import * as webpack from 'webpack';
-import semver from 'semver';
 import API from '../API';
 
-function reactVersionCheck() {
-  const rv = reactVersion();
-  const rrv = reactReconcilerPeerReactVersion();
-  const f = semver.satisfies(rv, rrv);
-  if (!f) {
-    output.warn(`\
-项目的react版本与remix不匹配，可能会出现未知异常！！！
-react版本: ${rv}, remix需要: ${rrv}
-    `);
-  }
-}
+const version = require('remax/package.json').version;
 
 export function run(options: Options, api: API): webpack.Compiler {
-  reactVersionCheck();
   if (options.target === Platform.web) {
     // 兼容 herbox 所以用 require
     const WebBuilder = require('./WebBuilder').default;
@@ -35,7 +22,7 @@ export function buildApp(options: Options, api: API) {
 
   process.env.REMAX_PLATFORM = target;
 
-  output.message(`\n⌨️  remax v${remixVersion()}\n`, 'green');
+  output.message(`\n⌨️  remax v${version}\n`, 'green');
 
   const result = run(options, api);
 
@@ -47,7 +34,7 @@ export function buildMiniPlugin(options: Options) {
 
   process.env.REMAX_PLATFORM = target;
 
-  output.message(`\n⌨️  remax v${remixVersion()}\n`, 'green');
+  output.message(`\n⌨️  remax v${version}\n`, 'green');
   output.message(`🔨 构建插件`, 'blue');
 
   const api = new API();

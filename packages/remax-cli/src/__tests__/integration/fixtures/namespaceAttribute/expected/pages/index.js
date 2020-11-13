@@ -59,11 +59,9 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 function Index() {
   var props = {};
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], {
-    _tid: "5da6971-1"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("block", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_components_native_component__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_components_native_component__WEBPACK_IMPORTED_MODULE_2__["default"], _extends({
     "ns:prop": "ns:value"
-  }, props))));
+  }, props)));
 }
 
 /***/ }),
