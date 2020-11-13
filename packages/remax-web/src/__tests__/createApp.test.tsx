@@ -108,14 +108,14 @@ describe('createApp', () => {
                   backgroundColor: 'white',
                   items: [
                     {
-                      name: 'foo',
-                      pagePath: 'pages/foo',
-                      icon: '/assets/foo.png',
+                      title: 'foo',
+                      url: 'pages/foo',
+                      image: '/assets/foo.png',
                     },
                     {
-                      name: 'bar',
-                      pagePath: 'pages/bar',
-                      icon: '/assets/bar.png',
+                      title: 'bar',
+                      url: 'pages/bar',
+                      image: '/assets/bar.png',
                     },
                   ],
                 },

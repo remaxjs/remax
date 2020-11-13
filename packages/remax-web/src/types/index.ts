@@ -17,19 +17,19 @@ export interface TabItem {
   /**
    * 设置页面路径
    */
-  pagePath: string;
+  url: string;
   /**
    * 名称
    */
-  name: string;
+  title: string;
   /**
    * 平常图标路径
    */
-  icon: string;
+  image: string;
   /**
    * 高亮图标路径
    */
-  activeIcon?: string;
+  activeImage?: string;
 }
 
 export interface TabBarConfig {

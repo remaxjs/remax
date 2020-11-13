@@ -1,35 +1,4 @@
-*,
-*:after,
-*:before {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-html {
-  line-height: 1.2;
-}
-
-body {
-  user-select: none;
-  font-size: 16px;
-  font-family: PingFang SC, Helvetica Neue;
-  background: transparent;
-}
-
-*[contenteditable] {
-  -webkit-user-select: auto !important;
-}
-
-*:focus {
-  outline: none;
-}
-
-a {
-  background: transparent;
-  text-decoration: none;
-  outline: none;
-}
-
-.remax-button {
+.remix-button {
   /* prettier-ignore */
   font-size: 18PX;
   /* prettier-ignore */
@@ -56,7 +25,7 @@ a {
   border: 1PX solid rgb(238, 238, 238);
 }
 
-.remax-input {
+.remix-input {
   /* prettier-ignore */
   font-size: 17PX;
   /* prettier-ignore */
@@ -69,7 +38,7 @@ a {
   box-sizing: content-box;
 }
 
-.remax-textarea {
+.remix-textarea {
   position: relative;
   background-color: rgb(255, 255, 255);
   /* prettier-ignore */
@@ -82,7 +51,7 @@ a {
   line-height: 1.4;
 }
 
-.remax-image {
+.remix-image {
   background-repeat: no-repeat;
   display: inline-block;
   overflow: hidden;
@@ -93,25 +62,26 @@ a {
   height: 225PX;
 }
 
-.remax-text-selectable {
+.remix-text-selectable {
   user-select: text;
 }
 
-.remax-web-view {
+.remix-web-view {
   width: 100%;
   min-height: 100vh;
 }
 
-.remax-page.with-tab-bar {
+.remix-page.with-tab-bar {
   padding-bottom: 96px;
 }
 
-.remax-page {
+.remix-page {
   min-height: 100vh;
   box-sizing: border-box;
+  font-size: 32px;
 }
 
-.remax-page.disable-scroll {
+.remix-page.disable-scroll {
   overflow: hidden;
 }
 
@@ -133,12 +103,12 @@ a {
   margin-top: -100px;
 }
 
-.remax-pull-to-refresh-loading {
+.remix-pull-to-refresh-loading {
   width: 100px;
   height: 100px;
 }
 
-.remax-tab-bar {
+.remix-tab-bar {
   height: 96px;
   position: fixed;
   bottom: 0;
@@ -152,7 +122,7 @@ a {
   z-index: 999999;
 }
 
-.remax-tab-bar .remax-tab-item {
+.remix-tab-bar .remix-tab-item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -160,7 +130,7 @@ a {
   height: 100%;
 }
 
-.remax-tab-bar .remax-tab-item .remax-tab-item-image {
+.remix-tab-bar .remix-tab-item .remix-tab-item-image {
   height: 34px;
   width: 34px;
   background-size: contain;
@@ -168,12 +138,9 @@ a {
   background-repeat: no-repeat;
 }
 
-.remax-tab-bar .remax-tab-item .remax-tab-item-title {
-  font-size: 12px;
-  color: #333;
-  transform: scale(0.7);
+.remix-tab-bar .remix-tab-item .remix-tab-item-title {
 }
 
-.remax-tab-bar .remax-tab-item .remax-tab-item-title.active {
+.remix-tab-bar .remix-tab-item .remix-tab-item-title.active {
   color: #108ee9;
 }

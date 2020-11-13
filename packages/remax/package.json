@@ -2,7 +2,9 @@
   "name": "remax",
   "version": "2.8.10",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
-  "main": "index.js",
+  "main": "./cjs/index.js",
+  "module": "./esm/index.js",
+  "types": "./esm/index.d.ts",
   "bin": {
     "remax": "./bin/remax"
   },
@@ -21,6 +23,12 @@
     "url": "git+https://github.com/remaxjs/remax.git"
   },
   "homepage": "https://remaxjs.org",
+  "scripts": {
+    "prebuild": "rm -rf cjs esm",
+    "build": "tsc",
+    "build:cjs": "tsc --module CommonJS --outDir cjs",
+    "prepack": "npm run build"
+  },
   "dependencies": {
     "@remax/ali": "2.8.10",
     "@remax/cli": "2.8.10",

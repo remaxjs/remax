@@ -24,20 +24,20 @@ export function TabBar({ config, history }: { config: TabBarConfig; history: His
 
   return (
     <div className="remax-tab-bar" style={{ backgroundColor: config.backgroundColor ?? '' }}>
-      {config.items.map(item => (
-        <TabBarItem key={item.name} config={config} isActive={isActive(item.pagePath)} item={item} />
+      {config.items.map((item, index) => (
+        <TabBarItem key={index} config={config} isActive={isActive(item.url)} item={item} />
       ))}
     </div>
   );
 }
 
 function TabBarItem({ config, isActive, item }: { config: TabBarConfig; isActive: boolean; item: TabItem }) {
-  const icon = isActive ? item.activeIcon || item.icon : item.icon;
+  const icon = isActive ? item.activeImage || item.image : item.image;
   const textColor = config.textColor ?? '#333';
   const selectedColor = config.selectedColor ?? '#108ee9';
 
   return (
-    <Link to={`/${item.pagePath}`} className="remax-tab-item">
+    <Link to={`/${item.url}`} className="remax-tab-item">
       <div className="remax-tab-item-image" style={{ backgroundImage: `url(${icon})` }} />
       <div
         className="remax-tab-item-title"
@@ -45,7 +45,7 @@ function TabBarItem({ config, isActive, item }: { config: TabBarConfig; isActive
           color: isActive ? selectedColor : textColor,
         }}
       >
-        {item.name}
+        {item.title}
       </div>
     </Link>
   );

@@ -44,6 +44,9 @@
       "path": "./packages/remax-one"
     },
     {
+      "path": "./packages/remax-web"
+    },
+    {
       "path": "./packages/remax-macro"
     },
     {
@@ -51,6 +54,9 @@
     },
     {
       "path": "./packages/remax-cli"
+    },
+    {
+      "path": "./packages/remax"
     }
   ]
 }
