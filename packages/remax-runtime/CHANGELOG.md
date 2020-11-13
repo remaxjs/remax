@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.8](https://github.com/remaxjs/remax/compare/v2.8.7...v2.8.8) (2020-11-13)
+
+### Bug Fixes
+
+- 修复节点交换时渲染错误的问题 ([9be6614](https://github.com/remaxjs/remax/commit/9be66149610acefe23192c3815ef49828de92b7a))
+
 ## [2.8.7](https://github.com/remaxjs/remax/compare/v2.8.6...v2.8.7) (2020-11-12)
 
 ### Bug Fixes

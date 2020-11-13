@@ -1,7 +1,7 @@
 {
   "name": "e2e-mini",
   "private": true,
-  "version": "2.8.7",
+  "version": "2.8.8",
   "description": "intergration tests for Remax",
   "main": "index.js",
   "keywords": [],
@@ -19,7 +19,7 @@
     "clsx": "^1.0.4",
     "mini-antui": "^0.4.34",
     "react": "^16.8.6",
-    "remax": "2.8.7"
+    "remax": "2.8.8"
   },
   "devDependencies": {
     "@types/expect-puppeteer": "^4.4.0",
