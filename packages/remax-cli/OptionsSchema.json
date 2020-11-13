@@ -1,7 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "dynamicPages": {
+    "turboRenders": {
       "type": "boolean"
     },
     "notify": {
