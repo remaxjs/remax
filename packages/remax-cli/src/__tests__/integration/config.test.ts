@@ -2,7 +2,7 @@ import * as path from 'path';
 import getConfig from '../../getConfig';
 import { testBuildApp } from './helpers/runTest';
 
-describe('remix config', () => {
+describe('remax config', () => {
   it('override output', () => {
     process.chdir(path.join(__dirname, 'fixtures/config'));
     const result = getConfig();

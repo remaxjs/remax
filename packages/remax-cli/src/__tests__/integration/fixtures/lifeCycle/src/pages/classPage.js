@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from '@alipay/remix';
+import { View } from 'remax';
 import hoc from './hoc';
 
 class ClassPage extends React.Component {

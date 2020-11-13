@@ -126,7 +126,7 @@
 <block ><template is="TPL_DEFAULT" data="{{root: node.children[8]}}" />
 </block>
 
-<text >{{'Remix.Text'}}</text>
+<text >{{'remax.Text'}}</text>
 
 <block ><template is="TPL_DEFAULT" data="{{root: node.children[10]}}" />
 </block>
@@ -220,7 +220,7 @@
 </template>
 
 <template name="TPL_5da6971-9">
-  <text >{{'Remix.Text'}}</text>
+  <text >{{'remax.Text'}}</text>
 
 </template>
 
@@ -373,15 +373,6 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </cover-view>
-</template>
-  
-
-  
-<template name="TPL_ddd">
-  <ddd 
-  >
-    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
-  </ddd>
 </template>
   
 

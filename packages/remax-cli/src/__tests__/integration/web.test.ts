@@ -2,11 +2,11 @@ import { testBuildApp } from './helpers/runTest';
 import { Platform } from '@remax/types';
 import * as path from 'path';
 
-describe('build remix web app', () => {
+describe('build remax web app', () => {
   testBuildApp('web', Platform.web);
 });
 
-describe('build remix web app - multi page', () => {
+describe('build remax web app - multi page', () => {
   testBuildApp(
     'web',
     Platform.web,

@@ -3,7 +3,7 @@ import { compilation } from 'webpack';
 import SourceCache from '../../../SourceCache';
 import Builder from '../../Builder';
 
-const PLUGIN_NAME = 'RemixPluginAssetPlugin';
+const PLUGIN_NAME = 'RemaxPluginAssetPlugin';
 
 export default class PluginAssetPlugin {
   builder: Builder;

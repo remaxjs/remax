@@ -28,7 +28,7 @@ export interface PluginOptions {
 }
 
 export interface BuildOptions {
-  dynamicPages?: boolean;
+  turboRenders?: boolean;
   pxToRpx: boolean;
   cwd: string;
   progress: boolean;

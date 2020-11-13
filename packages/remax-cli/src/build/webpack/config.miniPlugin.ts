@@ -17,7 +17,7 @@ import { addCSSRule, cssConfig, RuleConfig } from './config/css';
 import baseConfig from './baseConfig';
 import fs from 'fs';
 import CopyPlugin from 'copy-webpack-plugin';
-import * as RemixPlugins from './plugins';
+import * as RemaxPlugins from './plugins';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import Builder from '../Builder';
 import NativeEntry from '../entries/NativeEntry';
@@ -59,7 +59,7 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
   config.optimization.splitChunks({
     cacheGroups: {
       remixVendors: {
-        name: 'remix-vendors',
+        name: 'remax-vendors',
         test: moduleMatcher,
         chunks: 'initial',
         minChunks: 2,
@@ -69,9 +69,9 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
   });
   config.optimization.minimize(false);
 
-  if (!builder.options.dynamicPages) {
+  if (builder.options.turboRenders) {
     const options = {
-      isHostComponentPackage: (pkg: string) => pkg.startsWith('@alipay/remix'),
+      isHostComponentPackage: (pkg: string) => pkg.startsWith('remax'),
     };
     // turbo pages
     config.module
@@ -149,11 +149,11 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
     path.resolve(__dirname, '../../../template/app-runtime-options.js.ejs'),
     'utf-8'
   );
-  const runtimeOptionsPath = slash('node_modules/@remix/apply-runtime-options.js');
+  const runtimeOptionsPath = slash('node_modules/@remax/apply-runtime-options.js');
 
   entries.forEach(entry => {
     if (!(entry instanceof NativeEntry)) {
-      config.entry(entry.name).prepend('@remix/apply-runtime-options');
+      config.entry(entry.name).prepend('@remax/apply-runtime-options');
     }
   });
 
@@ -180,19 +180,19 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
 
   config.externals([
     {
-      '/__remix_runtime_options__': '/__remix_runtime_options__',
+      '/__remax_runtime_options__': '/__remax_runtime_options__',
     },
   ]);
 
   config.plugin('webpackbar').use(WebpackBar);
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
-  config.plugin('remix-optimize-entries-plugin').use(RemixPlugins.OptimizeEntries, [meta]);
-  config.plugin('remix-plugin-asset-plugin').use(RemixPlugins.PluginAsset, [builder]);
-  config.plugin('remix-page-asset-plugin').use(RemixPlugins.PageAsset, [builder]);
-  config.plugin('remix-runtime-options-plugin').use(RemixPlugins.RuntimeOptions, [builder]);
-  config.plugin('remix-coverage-ignore-plugin').use(RemixPlugins.CoverageIgnore);
-  config.plugin('remix-component-asset-plugin').use(RemixPlugins.ComponentAsset, [builder]);
-  config.plugin('remix-native-asset-plugin').use(RemixPlugins.NativeAsset, [builder]);
+  config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);
+  config.plugin('remax-plugin-asset-plugin').use(RemaxPlugins.PluginAsset, [builder]);
+  config.plugin('remax-page-asset-plugin').use(RemaxPlugins.PageAsset, [builder]);
+  config.plugin('remax-runtime-options-plugin').use(RemaxPlugins.RuntimeOptions, [builder]);
+  config.plugin('remax-coverage-ignore-plugin').use(RemaxPlugins.CoverageIgnore);
+  config.plugin('remax-component-asset-plugin').use(RemaxPlugins.ComponentAsset, [builder]);
+  config.plugin('remax-native-asset-plugin').use(RemaxPlugins.NativeAsset, [builder]);
 
   if (builder.options.analyze) {
     config.plugin('webpack-bundle-analyzer').use(BundleAnalyzerPlugin);

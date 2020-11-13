@@ -1,4 +1,4 @@
-@import "./remix-styles.acss";
+@import "./remax-styles.acss";
 page {
   background-image: url('/assets/images/dont-exist.jpg');
   background: #eee;

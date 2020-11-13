@@ -1,6 +1,6 @@
 import * as React from 'react';
 import A from '@/components/a';
-import { View } from '@alipay/remix';
+import { View } from 'remax';
 
 function timesTwo(arr) {
   return arr.map(n => n * 2);

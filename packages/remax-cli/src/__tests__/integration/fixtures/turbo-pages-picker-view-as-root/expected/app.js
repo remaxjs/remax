@@ -37,13 +37,13 @@ _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["RuntimeOptions"].apply({
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = require("@alipay/remix/runtime");
+module.exports = require("@alipay/remax/runtime");
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = require('/__remix_runtime_options__');
+module.exports = require('/__remax_runtime_options__');
 
 /***/ }),
 /* 4 */

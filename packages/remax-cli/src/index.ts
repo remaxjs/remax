@@ -6,13 +6,13 @@ import API from './API';
 import { builtinPlugins } from './builtinPlugins';
 import output from './build/utils/output';
 
-export default class RemixCLI {
+export default class RemaxCLI {
   options?: Options;
   api?: API;
 
   run(args: any, callback?: yargs.ParseCallback) {
     const argv: any = require('yargs-parser')(args);
-    process.env.REMIX_PLATFORM = argv.t || argv.target || 'ali';
+    process.env.REMAX_PLATFORM = argv.t || argv.target || 'ali';
 
     this.options = getConfig();
     this.api = new API();
@@ -39,7 +39,7 @@ export default class RemixCLI {
 
   initCLI() {
     return yargs
-      .scriptName('remix')
+      .scriptName('remax')
       .usage('Usage: $0 <command> [options]')
       .command<any>(
         'build',
@@ -79,8 +79,8 @@ export default class RemixCLI {
           output.message('🚀 开始构建\n', 'blue');
           buildApp({ ...this.options, ...argv }, this.api!);
           try {
-            require('remax-stats').run({ type: 'remix' });
-            require('@alipay/remix-stats').run({ buildType: argv.target === Platform.web ? 'web-app' : 'mini-app' });
+            require('remax-stats').run({ type: 'remax' });
+            require('@alipay/remax-stats').run({ buildType: argv.target === Platform.web ? 'web-app' : 'mini-app' });
           } catch (e) {
             // ignore
           }
@@ -106,8 +106,8 @@ export default class RemixCLI {
           (argv: any) => {
             buildMiniPlugin({ ...this.options, ...argv });
             try {
-              require('remax-stats').run({ type: 'remix' });
-              require('@alipay/remix-stats').run({ buildType: 'mini-plugin' });
+              require('remax-stats').run({ type: 'remax' });
+              require('@alipay/remax-stats').run({ buildType: 'mini-plugin' });
             } catch (e) {
               // ignore
             }

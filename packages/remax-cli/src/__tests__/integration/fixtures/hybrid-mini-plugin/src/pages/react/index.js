@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from '@alipay/remix';
+import { View } from 'remax';
 import MiniGreet from '../../components/mini-greet';
 import ReactGreet from '../../components/react-greet';
 

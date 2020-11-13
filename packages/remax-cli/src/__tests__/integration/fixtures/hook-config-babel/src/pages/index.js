@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from '@alipay/remix';
+import { View } from 'remax';
 import styles from './index.css';
 
 function timesTwo(arr) {

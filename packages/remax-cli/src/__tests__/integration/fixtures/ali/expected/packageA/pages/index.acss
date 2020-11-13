@@ -1,4 +1,4 @@
-@import "./../../remix-styles.acss";
+@import "./../../remax-styles.acss";
 .pageA-index {
   background-color: aliceblue;
 }

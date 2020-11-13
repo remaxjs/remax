@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from '@alipay/remix';
+import { View } from 'remax';
 import NativeComponent from '@/components/native-component';
 import './index.css';
 

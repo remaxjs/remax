@@ -1,5 +1,5 @@
 require('./../runtime.js');
-require('./../remix-vendors.js');
+require('./../remax-vendors.js');
 (my["webpackJsonp"] = my["webpackJsonp"] || []).push([[3],[
 /* 0 */,
 /* 1 */,
@@ -25,7 +25,7 @@ module.exports = require("react");
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = require("@alipay/remix");
+module.exports = require("@alipay/remax");
 
 /***/ }),
 /* 12 */,

@@ -1,5 +1,5 @@
 require('./../runtime.js');
-require('./../remix-vendors.js');
+require('./../remax-vendors.js');
 (my["webpackJsonp"] = my["webpackJsonp"] || []).push([[2],[
 /* 0 */,
 /* 1 */,
@@ -100,7 +100,7 @@ var PluginComponent2 = Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = require("@alipay/remix");
+module.exports = require("@alipay/remax");
 
 /***/ }),
 /* 12 */,

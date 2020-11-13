@@ -22,7 +22,7 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
   config.optimization.splitChunks({
     cacheGroups: {
       remixStyles: {
-        name: 'remix-styles',
+        name: 'remax-styles',
         test: new RegExp(`(.css|.less|.sass|.scss|.stylus|.styl|${builder.api.meta.style})$`),
         chunks: 'all',
         minChunks: 2,

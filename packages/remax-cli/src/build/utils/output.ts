@@ -14,7 +14,7 @@ export const output = (content: string | string[], color: 'red' | 'green' | 'blu
 
   if (notify) {
     notifier.notify({
-      title: 'Remix',
+      title: 'remax',
       message: message.join(' '),
     });
   }

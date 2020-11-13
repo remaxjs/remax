@@ -33,9 +33,9 @@ export function run(options: Options, api: API): webpack.Compiler {
 export function buildApp(options: Options, api: API) {
   const { target } = options;
 
-  process.env.REMIX_PLATFORM = target;
+  process.env.REMAX_PLATFORM = target;
 
-  output.message(`\n⌨️  Remix v${remixVersion()}\n`, 'green');
+  output.message(`\n⌨️  remax v${remixVersion()}\n`, 'green');
 
   const result = run(options, api);
 
@@ -45,9 +45,9 @@ export function buildApp(options: Options, api: API) {
 export function buildMiniPlugin(options: Options) {
   const { target } = options;
 
-  process.env.REMIX_PLATFORM = target;
+  process.env.REMAX_PLATFORM = target;
 
-  output.message(`\n⌨️  Remix v${remixVersion()}\n`, 'green');
+  output.message(`\n⌨️  remax v${remixVersion()}\n`, 'green');
   output.message(`🔨 构建插件`, 'blue');
 
   const api = new API();

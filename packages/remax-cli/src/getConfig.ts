@@ -17,7 +17,7 @@ function readJavascriptConfig(path: string) {
 }
 
 export default function getConfig(validate = true): Options {
-  const configPath: string = path.join(process.cwd(), './remix.config');
+  const configPath: string = path.join(process.cwd(), './remax.config');
 
   let options = {};
 
@@ -27,7 +27,7 @@ export default function getConfig(validate = true): Options {
 
   if (validate) {
     validateOptions(schema as any, options, {
-      name: 'remix',
+      name: 'remax',
     });
   }
 

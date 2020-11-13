@@ -8,7 +8,7 @@ import { OriginalSource } from 'webpack-sources';
 import Builder from '../../Builder';
 import PageEntry from '../../entries/PageEntry';
 
-const PLUGIN_NAME = 'RemixRuntimeOptionsPlugin';
+const PLUGIN_NAME = 'RemaxRuntimeOptionsPlugin';
 
 type Events = Set<string>;
 

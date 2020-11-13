@@ -61,7 +61,7 @@ export function addCSSRule(webpackConfig: Config, options: Options, web: boolean
                       divisor: 100,
                     }
                   : {}),
-              [require.resolve('@alipay/remix-postcss-tag')]: web && {},
+              [require.resolve('@remax/postcss-tag')]: web && {},
             },
           },
         },

@@ -35,7 +35,7 @@ describe('api', () => {
 
   it('install adapter plugin', () => {
     expect(api.adapter.target).toEqual('ali');
-    expect(api.adapter.packageName).toEqual('@alipay/remix-ali');
+    expect(api.adapter.packageName).toEqual('@remax/ali');
   });
 
   it('processProps', () => {

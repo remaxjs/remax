@@ -48,11 +48,11 @@ interface Options {
   externalsIgnore: string[];
 }
 
-export async function buildApp(app: string, target: Platform, options: Partial<Options> = {}, extraRemixOptions?: any) {
+export async function buildApp(app: string, target: Platform, options: Partial<Options> = {}, extraRemaxOptions?: any) {
   const cwd = path.resolve(__dirname, `../fixtures/${app}`);
   process.chdir(cwd);
   process.env.NODE_ENV = 'test';
-  process.env.REMIX_PLATFORM = target;
+  process.env.REMAX_PLATFORM = target;
 
   const config = getConfig();
   const api = new API();
@@ -62,7 +62,7 @@ export async function buildApp(app: string, target: Platform, options: Partial<O
   const externals: any = [
     nodeExternals({
       modulesDir: path.resolve(__dirname, '../../../../../../node_modules'),
-      whitelist: options.externalsIgnore,
+      allowlist: options.externalsIgnore,
     }),
   ];
 
@@ -86,7 +86,7 @@ export async function buildApp(app: string, target: Platform, options: Partial<O
         config.configWebpack(context);
       }
     },
-    ...extraRemixOptions,
+    ...extraRemaxOptions,
   };
 
   const builder = target === Platform.web ? new WebBuilder(api, remixOptions) : new MiniBuilder(api, remixOptions);
@@ -136,7 +136,7 @@ export async function buildMiniPlugin(app: string, target: Platform, options: Pa
   const cwd = path.resolve(__dirname, `../fixtures/${app}`);
   process.chdir(cwd);
   process.env.NODE_ENV = 'test';
-  process.env.REMIX_PLATFORM = target;
+  process.env.REMAX_PLATFORM = target;
 
   const config = getConfig();
   const api = new API();
@@ -146,7 +146,7 @@ export async function buildMiniPlugin(app: string, target: Platform, options: Pa
   const externals: any = [
     nodeExternals({
       modulesDir: path.resolve(__dirname, '../../../../../../node_modules'),
-      whitelist: options.externalsIgnore,
+      allowlist: options.externalsIgnore,
     }),
   ];
 

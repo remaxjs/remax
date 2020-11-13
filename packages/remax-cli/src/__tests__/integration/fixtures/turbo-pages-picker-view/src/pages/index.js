@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, PickerView, PickerViewColumn } from '@alipay/remix';
+import { View, PickerView, PickerViewColumn } from 'remax';
 
 export default props => {
   const columns = [

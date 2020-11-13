@@ -5,7 +5,7 @@ module.exports = function (api) {
     plugins: ['loop-optimizer'],
     presets: [
       [
-        '@alipay/babel-preset-remix',
+        'babel-preset-remax',
         {
           typescript: {
             allowNamespaces: true,

@@ -34,7 +34,7 @@ function compositionComponents(compilation: compilation.Compilation) {
 /**
  * 编译小程序自定义组件流程
  *
- * 1. 通过 @babel/plugin-remix-host-component 找出每个 module 中从外部 import 的 composition component，放入 Store.compositionComponents；
+ * 1. 通过 @babel/plugin-remax-host-component 找出每个 module 中从外部 import 的 composition component，放入 Store.compositionComponents；
  * 2. 通过 webpack loader 找出所有小程序自定义组件，放入 Store.nativeComponent；
  * 3. 在 getUsingComponents 方法中通过 compilation.modules 递归遍历所有 page 的 dependencies；
  * 4. 通过 1、2 中的信息从 dependencies 中找出 page 依赖的小程序自定义组件。

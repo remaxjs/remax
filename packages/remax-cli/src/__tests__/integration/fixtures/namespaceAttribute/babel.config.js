@@ -4,7 +4,7 @@ module.exports = function (api) {
   return {
     presets: [
       [
-        '@alipay/babel-preset-remix',
+        'babel-preset-remax',
         {
           'throw-if-namespace': false,
         },

@@ -12,11 +12,11 @@ module.exports = __webpack_require__(1);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _alipay_remix_web__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
-/* harmony import */ var _alipay_remix_web__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_web__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _remax_web__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+/* harmony import */ var _remax_web__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_remax_web__WEBPACK_IMPORTED_MODULE_1__);
 
 
-Object(_alipay_remix_web__WEBPACK_IMPORTED_MODULE_1__["bootstrap"])({
+Object(_remax_web__WEBPACK_IMPORTED_MODULE_1__["bootstrap"])({
   appComponent: _app__WEBPACK_IMPORTED_MODULE_0__["default"],
   appConfig: {
     "pages": ["pages/index/index", "pages/index/index2"],
@@ -71,14 +71,14 @@ module.exports = require("react");
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = require("@alipay/remix/web");
+module.exports = require("@remax/web");
 
 /***/ }),
 /* 6 */,
 /* 7 */
 /***/ (function(module, exports) {
 
-module.exports = require("@alipay/remix");
+module.exports = require("remax");
 
 /***/ })
 ],[[0,0]]]);

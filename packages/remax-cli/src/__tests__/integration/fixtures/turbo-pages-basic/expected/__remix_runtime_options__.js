@@ -583,9 +583,6 @@ module.exports = {
       "onError": "onError",
       "onScanCode": "onScanCode"
     }
-  },
-  "ddd": {
-    "alias": {}
   }
 },
       pageEvents: {

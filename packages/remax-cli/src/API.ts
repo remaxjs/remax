@@ -163,7 +163,7 @@ export default class API {
 
   public registerAdapterPlugins(targetName: Platform) {
     this.adapter.target = targetName;
-    this.adapter.packageName = '@alipay/remix-' + targetName;
+    this.adapter.packageName = '@remax/' + targetName;
 
     const packagePath = this.adapter.packageName + '/node';
 

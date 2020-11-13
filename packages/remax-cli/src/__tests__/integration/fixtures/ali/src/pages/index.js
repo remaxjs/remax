@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from '@alipay/remix';
+import { View, Text } from 'remax';
 import C from '@/components/C';
 // 测试引用 json 模块
 import dataJson from './data.json';

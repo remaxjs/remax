@@ -56,7 +56,7 @@
 /******/ 	// object to store loaded CSS chunks
 /******/ 	var installedCssChunks = {
 /******/ 		0: 0
-/******/ 	}
+/******/ 	};
 /******/
 /******/ 	// object to store loaded and loading chunks
 /******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
@@ -69,7 +69,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"2":"remix-styles","3":"pages/index/index","4":"pages/index/index2"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"2":"remax-styles","3":"pages/index/index","4":"pages/index/index2"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -107,7 +107,7 @@
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"2":"remix-styles","3":"pages/index/index","4":"pages/index/index2"}[chunkId]||chunkId) + ".css";
+/******/ 				var href = "" + ({"2":"remax-styles","3":"pages/index/index","4":"pages/index/index2"}[chunkId]||chunkId) + ".css";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

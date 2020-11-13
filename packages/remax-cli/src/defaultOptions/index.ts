@@ -2,7 +2,7 @@ import { Options } from '@remax/types';
 
 export function getDefaultOptions(): Options {
   return {
-    dynamicPages: false,
+    turboRenders: false,
     pxToRpx: true,
     cwd: process.cwd(),
     progress: true,

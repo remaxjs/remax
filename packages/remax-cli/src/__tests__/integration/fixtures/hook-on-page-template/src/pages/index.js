@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from '@alipay/remix';
+import { View } from 'remax';
 
 export default () => {
   return <View>hello</View>;

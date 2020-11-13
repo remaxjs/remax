@@ -89,7 +89,7 @@ export default function preprocess(options: Options) {
           throwOnDeprecatedCatchAttr(attributes);
 
           /**
-           *  为 remix-plugin-spm 开的后门
+           *  为 remax-plugin-spm 开的后门
            */
           if (attributes.some(attr => t.isJSXAttribute(attr) && attr.name.name === 'data-aspm-expo')) {
             if (!attributes.some(attr => t.isJSXAttribute(attr) && attr.name.name === 'onAppear')) {

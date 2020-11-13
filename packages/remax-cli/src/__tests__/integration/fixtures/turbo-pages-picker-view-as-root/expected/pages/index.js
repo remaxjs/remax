@@ -70,7 +70,7 @@ module.exports = require("@remax/runtime");
 /* 9 */
 /***/ (function(module, exports) {
 
-module.exports = require("@alipay/remix");
+module.exports = require("@alipay/remax");
 
 /***/ })
 ],[[6,0]]]);

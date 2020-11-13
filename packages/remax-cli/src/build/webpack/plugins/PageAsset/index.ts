@@ -8,7 +8,7 @@ import Builder from '../../../Builder';
 import { Compiler } from 'webpack';
 import PageEntry from '../../../entries/PageEntry';
 
-const PLUGIN_NAME = 'RemixPageAssetPlugin';
+const PLUGIN_NAME = 'RemaxPageAssetPlugin';
 
 export default class PageAssetPlugin {
   builder: Builder;
@@ -40,13 +40,13 @@ export default class PageAssetPlugin {
           const modules = [...getModules(chunk), page.filename];
           await createManifest(this.builder, page, compilation, this.cache);
 
-          if (options.dynamicPages) {
-            // page template
-            await createPageTemplate(this.builder.api, options, page, meta, compilation, this.cache);
-          } else {
+          if (options.turboRenders) {
             // turbo page
             await createTurboTemplate(this.builder.api, options, page, modules, meta, compilation);
             await createIsolatedTemplate(meta, compilation);
+          } else {
+            // page template
+            await createPageTemplate(this.builder.api, options, page, meta, compilation, this.cache);
           }
         })
       ).then(() => {

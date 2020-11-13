@@ -11,7 +11,7 @@ export default class MpaEntry extends VirtualEntry {
     return `
       import App from '@/app';
       import Page from './${path.basename(this.filename)}';
-      import { bootstrapMpa } from '@alipay/remix/web';
+      import { bootstrapMpa } from '@remax/web';
 
       bootstrapMpa({
         appComponent: App,

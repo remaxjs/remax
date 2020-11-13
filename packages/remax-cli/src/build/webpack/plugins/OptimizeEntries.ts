@@ -4,7 +4,7 @@ import { ConcatSource } from 'webpack-sources';
 import { Meta } from '@remax/types';
 import { slash } from '@remax/shared';
 
-const PLUGIN_NAME = 'RemixOptimizeEntriesPlugin';
+const PLUGIN_NAME = 'RemaxOptimizeEntriesPlugin';
 
 export default class OptimizeEntriesPlugin {
   meta: Meta;

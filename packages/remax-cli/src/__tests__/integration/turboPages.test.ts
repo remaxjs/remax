@@ -5,8 +5,4 @@ describe('turbo pages', () => {
   testBuildApp('turbo-pages-fragment-root');
   testBuildApp('turbo-pages-picker-view');
   testBuildApp('turbo-pages-swiper');
-
-  describe('test spm', function () {
-    testBuildApp('turbo-pages-spm');
-  });
 });

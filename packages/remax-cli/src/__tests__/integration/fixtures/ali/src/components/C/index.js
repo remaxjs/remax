@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from '@alipay/remix';
+import { View } from 'remax';
 import './index.css';
 
 // 测试 case: 样式引入先后顺序

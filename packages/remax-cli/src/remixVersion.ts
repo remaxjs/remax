@@ -1,5 +1,5 @@
 export default function remixVersion() {
-  return require('@alipay/remix/package.json').version;
+  return require('@alipay/remax/package.json').version;
 }
 
 export function reactVersion() {

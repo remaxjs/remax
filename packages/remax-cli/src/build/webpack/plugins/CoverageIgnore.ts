@@ -1,7 +1,7 @@
 import { ConcatSource } from 'webpack-sources';
 import { Compiler } from 'webpack';
 
-const PLUGIN_NAME = 'RemixCoverageIgnorePlugin';
+const PLUGIN_NAME = 'RemaxCoverageIgnorePlugin';
 
 /**
  * 伙伴会为每个小程序构建一个覆盖率包来统计测试覆盖率。

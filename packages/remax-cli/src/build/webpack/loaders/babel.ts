@@ -12,7 +12,7 @@ interface CustomOptions {
 
 function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
   const remixPresetIndex = presets.findIndex(
-    preset => preset.file && preset.file.resolved.includes(`${path.sep}@alipay/babel-preset-remix${path.sep}`)
+    preset => preset.file && preset.file.resolved.includes(`${path.sep}babel-preset-remax${path.sep}`)
   );
 
   const defaultOptions = {
@@ -23,7 +23,7 @@ function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
   const existOptions = remixPresetIndex !== -1 ? presets[remixPresetIndex].options : {};
 
   const remixPreset = babel.createConfigItem(
-    [require.resolve('@alipay/babel-preset-remix'), merge({}, defaultOptions, existOptions)],
+    [require.resolve('babel-preset-remax'), merge({}, defaultOptions, existOptions)],
     {
       type: `preset`,
     }

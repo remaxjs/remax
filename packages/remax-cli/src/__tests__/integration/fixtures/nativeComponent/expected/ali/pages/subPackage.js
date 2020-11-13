@@ -4,7 +4,7 @@ require('./../runtime.js');
 /***/ 11:
 /***/ (function(module, exports) {
 
-module.exports = require("@alipay/remix");
+module.exports = require("@alipay/remax");
 
 /***/ }),
 

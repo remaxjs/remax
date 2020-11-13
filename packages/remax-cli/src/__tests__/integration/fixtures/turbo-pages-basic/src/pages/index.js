@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Fragment } from 'react';
-import { View, View as CustomView, Text } from '@alipay/remix';
-import { createHostComponent } from '@alipay/remix/macro';
-import * as Remix from '@alipay/remix';
+import { View, View as CustomView, Text } from 'remax';
+import { createHostComponent } from '@remax/macro';
+import * as remax from 'remax';
 import NativeComponent from '@/components/nativeComponent';
 
 const RenameView = View;
@@ -53,7 +53,7 @@ export default function Index() {
         <Fragment>Fragment</Fragment>
         <React.Fragment>React.Fragment</React.Fragment>
         <DDD />
-        <Remix.Text>Remix.Text</Remix.Text>
+        <remax.Text>remax.Text</remax.Text>
         <NativeComponent ns:attr="1" />
         <ReactComp>
           <View>React Component First Child</View>

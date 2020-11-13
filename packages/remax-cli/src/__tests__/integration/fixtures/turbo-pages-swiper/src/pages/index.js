@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Swiper, SwiperItem } from '@alipay/remix';
+import { View, Swiper, SwiperItem } from 'remax';
 
 export default props => {
   const pictures = ['https://example.com/1.jpg', 'https://example.com/2.jpg'];

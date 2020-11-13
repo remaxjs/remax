@@ -4,7 +4,7 @@ export default class SpaEntry extends VirtualEntry {
   outputSource() {
     return `
       import App from '@/app';
-      import { bootstrap } from '@alipay/remix/web';
+      import { bootstrap } from '@remax/web';
 
       bootstrap({
         appComponent: App,

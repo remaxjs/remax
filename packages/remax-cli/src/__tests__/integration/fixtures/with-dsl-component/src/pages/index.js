@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Image } from '@alipay/remix';
+import { View, Image } from 'remax';
 import Empty from 'empty';
 import { Empty2 } from './empty';
 

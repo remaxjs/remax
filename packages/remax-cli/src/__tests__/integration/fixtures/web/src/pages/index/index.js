@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Image, Checkbox, Label, Swiper, SwiperItem } from '@alipay/remix';
+import { View, Text, Image, Checkbox, Label, Swiper, SwiperItem } from 'remax';
 import styles from './index.css';
 
 const arr = [1, 2, 3, 4];

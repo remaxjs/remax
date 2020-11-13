@@ -8,13 +8,13 @@ export function testBuildApp(
   target: Platform = Platform.ali,
   outputPath?: string,
   options?: any,
-  extraRemixOptions?: any
+  extraRemaxOptions?: any
 ) {
   it(
     `build ${app} on target ${target}`,
     async () => {
       Store.reset();
-      const result = await buildApp(app, target, options, extraRemixOptions);
+      const result = await buildApp(app, target, options, extraRemaxOptions);
       expect(result).toMatchOutput(outputPath || path.resolve(__dirname, `../fixtures/${app}/expected`));
     },
 

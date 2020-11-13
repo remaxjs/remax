@@ -7,7 +7,7 @@ import createTurboTemplate from '../PageAsset/createTurboTemplate';
 import Builder from '../../../Builder';
 import ComponentEntry from '../../../entries/ComponentEntry';
 
-const PLUGIN_NAME = 'RemixComponentAssetPlugin';
+const PLUGIN_NAME = 'RemaxComponentAssetPlugin';
 
 export default class ComponentAssetPlugin {
   builder: Builder;
@@ -34,11 +34,11 @@ export default class ComponentAssetPlugin {
           const modules = [...getModules(chunk), component.filename];
 
           let templatePromise;
-          if (options.dynamicPages) {
-            templatePromise = createTemplate(component, options, meta, compilation, this.cache);
-          } else {
+          if (options.turboRenders) {
             // turbo page
             templatePromise = createTurboTemplate(this.builder.api, options, component, modules, meta, compilation);
+          } else {
+            templatePromise = createTemplate(component, options, meta, compilation, this.cache);
           }
 
           await Promise.all([

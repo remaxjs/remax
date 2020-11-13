@@ -585,8 +585,6 @@ module.exports = {
     }
   }
 },
-      pageEvents: {
-  "pages/foo": []
-},
+      pageEvents: {},
       appEvents: []
     }

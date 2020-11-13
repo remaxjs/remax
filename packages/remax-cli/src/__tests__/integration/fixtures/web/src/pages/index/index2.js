@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Image } from '@alipay/remix';
+import { View, Text, Image } from 'remax';
 import styles from './index.css';
 
 export default props => {
