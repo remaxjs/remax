@@ -137,6 +137,7 @@ export default class VNode {
     this.size += 1;
 
     node.parent = this;
+    node.deleted = false; // 交换节点时删除的节点会被复用
 
     if (referenceNode === this.firstChild) {
       this.firstChild = node;
