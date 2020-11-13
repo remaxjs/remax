@@ -26,7 +26,7 @@
   "dependencies": {
     "@loadable/component": "^5.12.0",
     "@remax/one": "^2.8.10",
-    "@remax/router": "2.8.10",
+    "@remax/react-router-cache-route": "^1.8.4",
     "rmc-pull-to-refresh": "^1.0.12",
     "umi-hd": "^5.0.1"
   },

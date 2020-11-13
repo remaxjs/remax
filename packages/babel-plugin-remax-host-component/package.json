@@ -25,8 +25,8 @@
     "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },
   "dependencies": {
-    "@remax/macro": "2.8.6",
-    "@remax/shared": "2.8.6",
+    "@remax/macro": "2.8.8",
+    "@remax/shared": "2.8.8",
     "@babel/helper-plugin-utils": "^7.10.4",
     "@babel/traverse": "^7.11.0",
     "@babel/types": "^7.11.0"

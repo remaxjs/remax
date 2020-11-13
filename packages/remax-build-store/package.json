@@ -24,7 +24,7 @@
     "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },
   "dependencies": {
-    "@remax/types": "2.8.6"
+    "@remax/types": "2.8.8"
   },
   "gitHead": "df52bc6f39ef4b222b7da44c4e3c5744e4196a43"
 }
