@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "xx": "plugin://myPlugin/xx",
-    "dddd": "plugin://myPlugin/dddd"
+    "my-plugin-xx-f094b58": "plugin://myPlugin/xx",
+    "my-plugin-dddd-5ebbbd9": "plugin://myPlugin/dddd"
   }
 }

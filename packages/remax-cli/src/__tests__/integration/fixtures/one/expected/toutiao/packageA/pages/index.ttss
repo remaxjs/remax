@@ -1,9 +1,0 @@
-@import "./../../remax-styles.ttss";
-.pageA-index {
-  background-color: aliceblue;
-}
-
-.a {
-  background-color: blue;
-}
-

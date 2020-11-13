@@ -1,0 +1,41 @@
+{
+  "name": "babel-plugin-remax-lifecycle",
+  "version": "0.0.1",
+  "description": "使用真正的 React 构建跨平台小程序",
+  "author": "Wei Zhu <yesmeck@gmail.com>",
+  "homepage": "https://remaxjs.org",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:remaxjs/remax.git"
+  },
+  "scripts": {
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "test": "jest",
+    "test:debug": "npx --node-arg=--inspect-brk jest -i"
+  },
+  "dependencies": {
+    "@babel/helper-plugin-utils": "^7.10.4",
+    "@babel/traverse": "^7.11.0",
+    "@babel/types": "^7.11.0"
+  },
+  "devDependencies": {
+    "@remax/build-store": "0.0.1",
+    "@babel/core": "^7.11.0",
+    "@types/jest": "^26.0.8",
+    "jest": "^26.2.2",
+    "ts-jest": "^26.1.4",
+    "typescript": "^3.9.7"
+  },
+  "gitHead": "df52bc6f39ef4b222b7da44c4e3c5744e4196a43"
+}

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 import { BaseProps } from '../../types/component';
 

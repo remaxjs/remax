@@ -1,5 +1,6 @@
 import * as React from 'react';
 import memoizeOne from 'memoize-one';
+import { formatDisplayName } from '@remax/framework-shared';
 import {
   TapEvent,
   TouchEvent,
@@ -10,7 +11,6 @@ import {
   InputEvent,
   FormEvent,
 } from './types';
-import { formatDisplayName } from '@remax/shared';
 
 export function createTarget(target: any, detail: any): EventTarget {
   return {

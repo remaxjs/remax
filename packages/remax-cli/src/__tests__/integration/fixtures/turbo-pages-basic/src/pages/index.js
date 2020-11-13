@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { Fragment } from 'react';
-import { View, View as CustomView, Text } from 'remax/ali';
-import { createHostComponent } from 'remax/macro';
-import * as Remax from 'remax/ali';
+import { View, View as CustomView, Text } from '@alipay/remix';
+import { createHostComponent } from '@alipay/remix/macro';
+import * as Remix from '@alipay/remix';
 import NativeComponent from '@/components/nativeComponent';
-import RemaxWindow from 'remax-window';
 
 const RenameView = View;
 
@@ -41,6 +40,7 @@ export default function Index() {
     <View entry>
       <>
         {'expression entry'}
+        {123313}
         <Fragment>
           <Text>Fragment Text 1</Text>
           <Text>Fragment Text 2</Text>
@@ -53,7 +53,7 @@ export default function Index() {
         <Fragment>Fragment</Fragment>
         <React.Fragment>React.Fragment</React.Fragment>
         <DDD />
-        <Remax.Text>Remax.Text</Remax.Text>
+        <Remix.Text>Remix.Text</Remix.Text>
         <NativeComponent ns:attr="1" />
         <ReactComp>
           <View>React Component First Child</View>
@@ -76,7 +76,6 @@ export default function Index() {
           long long long long long long long long long long long long text long long long long long long long long long
           long long long text
         </Text>
-        <RemaxWindow />
         {'Literal Expression'}
         <Deep.Object.View>Deep Object View</Deep.Object.View>
         <RenameView>Rename View</RenameView>

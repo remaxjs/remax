@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface VideoProps {
   src: string;
@@ -21,7 +21,6 @@ export interface VideoProps {
   showCenterPlayBtn?: boolean;
   showMuteBtn?: boolean;
   enableProgressGesture?: boolean;
-  enableNative?: boolean;
   mobilenetHintType?: 0 | 1 | 3;
   onPlay?: (e: any) => void;
   onPause?: (e: any) => void;
@@ -34,4 +33,4 @@ export interface VideoProps {
   onUserAction?: (e: any) => void;
 }
 
-export const Video: React.ComponentType<VideoProps> = createHostComponent<VideoProps>('video');
+export const Video = createHostComponent<VideoProps>('video') as React.ComponentType<VideoProps>;

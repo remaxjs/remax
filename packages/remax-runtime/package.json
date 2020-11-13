@@ -33,6 +33,7 @@
     "@types/react": "^16.9.33"
   },
   "dependencies": {
+    "@remax/framework-shared": "^0.0.1",
     "@remax/shared": "2.8.10",
     "@remax/types": "2.8.10",
     "@remax/web": "2.8.10",

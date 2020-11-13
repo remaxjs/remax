@@ -7,7 +7,7 @@ import { reset as resetInstanceId } from '../instanceId';
 import Container from '../Container';
 import createPageWrapper from '../createPageWrapper';
 import { useNativeEffect, usePageInstance } from '../hooks';
-import { RuntimeOptions } from '..';
+import { RuntimeOptions } from '@remax/framework-shared';
 import { Platform } from '@remax/types';
 import usePageContext from '../hooks/usePageContext';
 

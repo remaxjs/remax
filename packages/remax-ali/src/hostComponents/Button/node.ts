@@ -1,7 +1,8 @@
+import { unique } from '@remax/shared';
+
 export const alias = {
   id: 'id',
   className: 'class',
-  style: 'style',
   size: 'size',
   type: 'type',
   plain: 'plain',
@@ -23,4 +24,4 @@ export const alias = {
   onError: 'onError',
 };
 
-export const props = Object.values(alias);
+export const props = unique(Object.values(alias));

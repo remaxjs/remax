@@ -1,50 +1,58 @@
 import { Options } from '@remax/types';
-import devtools from '@remax/plugin-devtools';
 import output from './utils/output';
-import remaxVersion from '../remaxVersion';
+import remixVersion, { reactReconcilerPeerReactVersion, reactVersion } from '../remixVersion';
 import { Platform } from '@remax/types';
-import getConfig from '../getConfig';
 import * as webpack from 'webpack';
+import semver from 'semver';
 import API from '../API';
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-
-export function run(options: Options): webpack.Compiler {
-  const api = new API();
-
-  const plugins = [...options.plugins];
-  if (process.env.NODE_ENV === 'development' && options.target !== Platform.web) {
-    plugins.push(devtools());
-  }
-  api.registerPlugins(plugins);
-
-  if (options.turboPages && options.turboPages.length > 0 && options.target !== Platform.ali) {
-    throw new Error('turboPages 目前仅支持 ali 平台开启');
-  }
-
-  api.onBuildStart(options);
-
-  if (options.target === Platform.web) {
-    // 兼容 herbox 所以用 require
-    const buildWeb = require('./web').default;
-    return buildWeb(api, options);
-  } else {
-    const buildMini = require('./mini').default;
-    return buildMini(api, options);
+function reactVersionCheck() {
+  const rv = reactVersion();
+  const rrv = reactReconcilerPeerReactVersion();
+  const f = semver.satisfies(rv, rrv);
+  if (!f) {
+    output.warn(`\
+项目的react版本与remix不匹配，可能会出现未知异常！！！
+react版本: ${rv}, remix需要: ${rrv}
+    `);
   }
 }
 
-export function build(argv: Pick<Options, 'target' | 'watch' | 'notify' | 'port' | 'analyze' | 'minimize'>) {
-  const { target } = argv;
+export function run(options: Options, api: API): webpack.Compiler {
+  reactVersionCheck();
+  if (options.target === Platform.web) {
+    // 兼容 herbox 所以用 require
+    const WebBuilder = require('./WebBuilder').default;
+    return new WebBuilder(api, options).run();
+  } else {
+    const MiniBuilder = require('./MiniBuilder').default;
+    return new MiniBuilder(api, options).run();
+  }
+}
 
-  process.env.REMAX_PLATFORM = target;
+export function buildApp(options: Options, api: API) {
+  const { target } = options;
 
-  const { compressTemplate, ...options } = getConfig();
+  process.env.REMIX_PLATFORM = target;
 
-  output.message(`\n⌨️  Remax v${remaxVersion()}\n`, 'green');
-  output.message(`🎯 平台 ${target}`, 'blue');
+  output.message(`\n⌨️  Remix v${remixVersion()}\n`, 'green');
 
-  const result = run({ ...options, ...argv, compressTemplate: argv.minimize });
+  const result = run(options, api);
 
   return result;
+}
+
+export function buildMiniPlugin(options: Options) {
+  const { target } = options;
+
+  process.env.REMIX_PLATFORM = target;
+
+  output.message(`\n⌨️  Remix v${remixVersion()}\n`, 'green');
+  output.message(`🔨 构建插件`, 'blue');
+
+  const api = new API();
+  api.registerPlugins([]);
+
+  const MiniPluginBuilder = require('./MiniPluginBuilder').default;
+  return new MiniPluginBuilder(api, options).run();
 }

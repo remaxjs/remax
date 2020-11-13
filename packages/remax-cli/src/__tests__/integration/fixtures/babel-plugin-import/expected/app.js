@@ -14,37 +14,36 @@ module.exports = __webpack_require__(4);
 "use strict";
 /* istanbul ignore next */
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _remax_runtime_options___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
-/* harmony import */ var _remax_runtime_options___WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_remax_runtime_options___WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _remix_runtime_options___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+/* harmony import */ var _remix_runtime_options___WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_remix_runtime_options___WEBPACK_IMPORTED_MODULE_1__);
 
 
-
-var pluginDriver = new _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver"]([].map(function (p) {
+var pluginDriver = new _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver"]([].map(function (p) {
   return p.default || p;
 }));
-_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["RuntimeOptions"].apply({
+_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["RuntimeOptions"].apply({
   platform: "ali",
   debug: false,
   pxToRpx: true,
   pluginDriver: pluginDriver,
-  hostComponents: _remax_runtime_options___WEBPACK_IMPORTED_MODULE_1__["hostComponents"],
-  pageEvents: _remax_runtime_options___WEBPACK_IMPORTED_MODULE_1__["pageEvents"],
-  appEvents: _remax_runtime_options___WEBPACK_IMPORTED_MODULE_1__["appEvents"]
+  hostComponents: _remix_runtime_options___WEBPACK_IMPORTED_MODULE_1__["hostComponents"],
+  pageEvents: _remix_runtime_options___WEBPACK_IMPORTED_MODULE_1__["pageEvents"],
+  appEvents: _remix_runtime_options___WEBPACK_IMPORTED_MODULE_1__["appEvents"]
 });
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = require("@remax/runtime");
+module.exports = require("@alipay/remix/runtime");
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
-module.exports = require('/__remax_runtime_options__');
+module.exports = require('/__remix_runtime_options__');
 
 /***/ }),
 /* 4 */
@@ -52,13 +51,30 @@ module.exports = require('/__remax_runtime_options__');
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
-/* harmony import */ var parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
-/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_remax_runtime__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/* harmony import */ var _alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _app_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
 
+
+App(Object(_alipay_remix_runtime__WEBPACK_IMPORTED_MODULE_0__["createAppConfig"])(_app_js__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = require("@remax/runtime");
+
+/***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return App; });
+/* harmony import */ var parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
+/* harmony import */ var parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -85,18 +101,18 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-var _App = /*#__PURE__*/function (_React$Component) {
-  _inherits(_App, _React$Component);
+var App = /*#__PURE__*/function (_React$Component) {
+  _inherits(App, _React$Component);
 
-  var _super = _createSuper(_App);
+  var _super = _createSuper(App);
 
-  function _App() {
-    _classCallCheck(this, _App);
+  function App() {
+    _classCallCheck(this, App);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(_App, [{
+  _createClass(App, [{
     key: "render",
     value: function render() {
       console.log(parsec_hooks_lib_refStateHooks__WEBPACK_IMPORTED_MODULE_0___default.a);
@@ -104,19 +120,19 @@ var _App = /*#__PURE__*/function (_React$Component) {
     }
   }]);
 
-  return _App;
-}(react__WEBPACK_IMPORTED_MODULE_2__["Component"]);
+  return App;
+}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (App(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_1__["createAppConfig"])(_App)));
+
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports) {
 
 module.exports = require("parsec-hooks/lib/refStateHooks");
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = require("react");

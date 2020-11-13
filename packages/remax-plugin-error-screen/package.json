@@ -1,0 +1,34 @@
+{
+  "name": "@remax/plugin-error-screen",
+  "version": "0.0.1",
+  "description": "使用真正的 React 构建跨平台小程序",
+  "author": "Wei Zhu <yesmeck@gmail.com>",
+  "homepage": "https://remaxjs.org",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:remaxjs/remax.git"
+  },
+  "scripts": {
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
+    "prebuild": "npm run clean",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@remax/redbox-react": "^1.0.0",
+    "webpack-virtual-modules": "^0.3.1"
+  },
+  "devDependencies": {
+    "remax": "2.8.6",
+    "@types/react": "^16.9.49"
+  },
+  "gitHead": "df52bc6f39ef4b222b7da44c4e3c5744e4196a43"
+}

@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <% if (htmlWebpackPlugin.options.env === 'production') { %>
+      <script src="https://gw.alipayobjects.com/os/lib/react/<%- htmlWebpackPlugin.options.reactVersion %>/umd/react.production.min.js"></script>
+      <script src="https://gw.alipayobjects.com/os/lib/react-dom/<%- htmlWebpackPlugin.options.reactVersion %>/umd/react-dom.production.min.js"></script>
+    <% } %>
   </head>
   <body>
     <div id="remax-app"></div>

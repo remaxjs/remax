@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "foo-index-11b8f33": "../../components/foo/index",
+    "bar-index-8837ac4": "../../components/bar/index"
+  }
+}

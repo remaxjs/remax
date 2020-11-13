@@ -1,12 +1,33 @@
 import * as path from 'path';
-import build, { JEST_BUILD_TIMEOUT } from './build';
+import { buildApp, JEST_BUILD_TIMEOUT, buildMiniPlugin } from './build';
 import { Platform } from '@remax/types';
+import Store from '@remax/build-store';
 
-export default function runTest(app: string, target: Platform = Platform.ali, outputPath?: string, options?: any) {
+export function testBuildApp(
+  app: string,
+  target: Platform = Platform.ali,
+  outputPath?: string,
+  options?: any,
+  extraRemixOptions?: any
+) {
   it(
     `build ${app} on target ${target}`,
     async () => {
-      const result = await build(app, target, options);
+      Store.reset();
+      const result = await buildApp(app, target, options, extraRemixOptions);
+      expect(result).toMatchOutput(outputPath || path.resolve(__dirname, `../fixtures/${app}/expected`));
+    },
+
+    JEST_BUILD_TIMEOUT
+  );
+}
+
+export function testBuildMiniPlugin(app: string, target: Platform = Platform.ali, outputPath?: string, options?: any) {
+  it(
+    `build ${app} on target ${target}`,
+    async () => {
+      Store.reset();
+      const result = await buildMiniPlugin(app, target, options);
       expect(result).toMatchOutput(outputPath || path.resolve(__dirname, `../fixtures/${app}/expected`));
     },
 

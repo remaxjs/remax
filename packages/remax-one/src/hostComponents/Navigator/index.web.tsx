@@ -1,6 +1,6 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { RuntimeOptions } from '@remax/runtime';
+import { RuntimeOptions } from '@remax/framework-shared';
 import { NavigatorProps } from './props';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
 

@@ -1,4 +1,4 @@
-import * as RuntimeOptions from '../RuntimeOptions';
+import { RuntimeOptions } from '@remax/framework-shared';
 
 export function pageEvents(name: string): string[] {
   return RuntimeOptions.get('pageEvents')[name] || [];

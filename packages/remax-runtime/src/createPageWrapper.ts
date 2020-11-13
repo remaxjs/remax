@@ -4,7 +4,7 @@ import { Lifecycle, Callback, callbackName } from './lifecycle';
 import PageContext from './PageContext';
 import { ForwardRef } from './ReactIs';
 import Container from './Container';
-import * as RuntimeOptions from './RuntimeOptions';
+import { RuntimeOptions } from '@remax/framework-shared';
 
 export interface PageProps<Q = Record<string, string>> {
   location: {

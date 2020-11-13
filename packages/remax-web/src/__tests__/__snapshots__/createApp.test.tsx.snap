@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createApp defaultTitle pullRefresh renders pullRefresh 1`] = `
+<div
+  className="remax-cached-router-wrapper"
+>
+  <div
+    className="rmc-pull-to-refresh rmc-pull-to-refresh-down"
+    scale={0.6}
+  >
+    <div
+      className="rmc-pull-to-refresh-content-wrapper"
+    >
+      <div
+        className="rmc-pull-to-refresh-content rmc-pull-to-refresh-transition"
+      >
+        <div
+          className="rmc-pull-to-refresh-indicator"
+        >
+          <svg
+            className="remax-pull-to-refresh-loading"
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="0"
+              cy="16"
+              r="0"
+              transform="translate(8 0)"
+            >
+              <animate
+                attributeName="r"
+                begin="0"
+                calcMode="spline"
+                dur="1.2s"
+                keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8"
+                keyTimes="0;0.2;0.7;1"
+                repeatCount="indefinite"
+                values="2; 2; 2; 2"
+              />
+            </circle>
+            <circle
+              cx="0"
+              cy="16"
+              r="0"
+              transform="translate(16 0)"
+            >
+              <animate
+                attributeName="r"
+                begin="0.3"
+                calcMode="spline"
+                dur="1.2s"
+                keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8"
+                keyTimes="0;0.2;0.7;1"
+                repeatCount="indefinite"
+                values="2; 2; 2; 2"
+              />
+            </circle>
+            <circle
+              cx="0"
+              cy="16"
+              r="0"
+              transform="translate(24 0)"
+            >
+              <animate
+                attributeName="r"
+                begin="0.6"
+                calcMode="spline"
+                dur="1.2s"
+                keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8"
+                keyTimes="0;0.2;0.7;1"
+                repeatCount="indefinite"
+                values="2; 2; 2; 2"
+              />
+            </circle>
+          </svg>
+        </div>
+        <div>
+          <div
+            className="remax-page "
+          >
+            <div>
+              index
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`createApp defaultTitle tabBar renders tabBar correctly 1`] = `
+Array [
+  <div
+    className="remax-cached-router-wrapper"
+  >
+    <div
+      className="remax-page with-tab-bar"
+    >
+      <div>
+        foo
+      </div>
+    </div>
+  </div>,
+  <div
+    className="remax-tab-bar"
+    style={
+      Object {
+        "backgroundColor": "white",
+      }
+    }
+  >
+    <a
+      className="remax-tab-item"
+      href="/pages/foo"
+      onClick={[Function]}
+    >
+      <div
+        className="remax-tab-item-image"
+        style={
+          Object {
+            "backgroundImage": "url(/assets/foo.png)",
+          }
+        }
+      />
+      <div
+        className="remax-tab-item-title"
+        style={
+          Object {
+            "color": "blue",
+          }
+        }
+      >
+        foo
+      </div>
+    </a>
+    <a
+      className="remax-tab-item"
+      href="/pages/bar"
+      onClick={[Function]}
+    >
+      <div
+        className="remax-tab-item-image"
+        style={
+          Object {
+            "backgroundImage": "url(/assets/bar.png)",
+          }
+        }
+      />
+      <div
+        className="remax-tab-item-title"
+        style={
+          Object {
+            "color": "red",
+          }
+        }
+      >
+        bar
+      </div>
+    </a>
+  </div>,
+]
+`;
+
+exports[`createApp renders app correctly 1`] = `
+<div
+  className="remax-cached-router-wrapper"
+>
+  <div
+    className="remax-page "
+  >
+    <div>
+      foo
+    </div>
+  </div>
+</div>
+`;

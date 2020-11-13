@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { View } from 'remax';
+import { View } from '@alipay/remix';
 import hoc from './hoc';
 
 class ClassPage extends React.Component {
-  onPageScroll() {}
+  onShow() {}
 
-  onShareAppMessage = () => {};
+  onHide = () => {};
 
   render() {
     return <View>class page</View>;

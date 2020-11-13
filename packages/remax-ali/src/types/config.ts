@@ -133,6 +133,7 @@ export interface AppConfig {
      */
     items: TabItem[];
   };
+
   /**
    * 分包配置
    */

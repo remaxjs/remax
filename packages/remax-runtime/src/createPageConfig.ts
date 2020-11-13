@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as RuntimeOptions from './RuntimeOptions';
+import { RuntimeOptions } from '@remax/framework-shared';
 import createPageWrapper from './createPageWrapper';
 import { Lifecycle, callbackName, pageEvents } from './lifecycle';
 import stopPullDownRefresh from './stopPullDownRefresh';

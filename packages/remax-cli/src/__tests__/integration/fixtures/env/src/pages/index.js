@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from 'remax/ali';
+import { View, Text } from '@alipay/remix';
 
 export default () => {
   if (process.env.NODE_ENV === 'production') {
@@ -9,8 +9,8 @@ export default () => {
   return (
     <View>
       <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.REMAX_APP_HELLO}</Text>
-      <Text>{process.env.REMAX_APP_MESSAGE}</Text>
+      <Text>{process.env.REMIX_APP_HELLO}</Text>
+      <Text>{process.env.REMIX_APP_MESSAGE}</Text>
     </View>
   );
 };

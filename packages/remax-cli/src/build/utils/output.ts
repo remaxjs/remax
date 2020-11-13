@@ -1,4 +1,3 @@
-import * as path from 'path';
 import notifier from 'node-notifier';
 
 const COLORS = {
@@ -9,26 +8,20 @@ const COLORS = {
 };
 const RESET = '\x1b[0m';
 
-export const output = (content: string | string[], color: 'red' | 'green' | 'blue' | 'yellow') => {
+export const output = (content: string | string[], color: 'red' | 'green' | 'blue' | 'yellow', notify = false) => {
   const message = Array.isArray(content) ? content : [content];
   console.log(`${COLORS[color]}%s${RESET}`, ...message);
+
+  if (notify) {
+    notifier.notify({
+      title: 'Remix',
+      message: message.join(' '),
+    });
+  }
 };
-
-function log(type: 'error' | 'warn', message: string) {
-  console[type](message);
-}
-
-function notice(message: string) {
-  notifier.notify({
-    title: 'Remax build error',
-    message,
-    icon: path.join(__dirname, '../../../error.png'),
-  });
-}
 
 export default {
   message: output,
-  error: (message: string) => log('error', message),
-  warn: (message: string) => log('warn', message),
-  notice,
+  error: (message: string, notify?: boolean) => output(`\n🚨 ${message}`, 'red', notify),
+  warn: (message: string, notify?: boolean) => output(`\n⚠️ ${message}`, 'yellow', notify),
 };

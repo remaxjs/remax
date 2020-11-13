@@ -1,6 +1,6 @@
 import './polyfills/Function';
 import * as React from 'react';
-import * as RuntimeOptions from './RuntimeOptions';
+import { RuntimeOptions } from '@remax/framework-shared';
 import render from './render';
 import AppContainer from './AppContainer';
 import isClassComponent from './utils/isClassComponent';

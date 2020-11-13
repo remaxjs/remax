@@ -7,6 +7,8 @@ type Env = Record<string, string | undefined>;
 export default function getEnvironment(options: Options, target: string) {
   const envFilePath = path.join(options.cwd, '.env');
 
+  process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
   const NODE_ENV = process.env.NODE_ENV;
 
   // https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use
@@ -35,16 +37,16 @@ export default function getEnvironment(options: Options, target: string) {
     }
   });
 
-  // 注入所有 REMAX_APP_ 开头的环境变量
-  const REMAX_APP = /^REMAX_APP_/i;
+  // 注入所有 REMIX_APP_ 开头的环境变量
+  const REMIX_APP = /^REMIX_APP_/i;
 
   const builtiEnv: Env = {
     NODE_ENV: process.env.NODE_ENV || 'development',
-    REMAX_PLATFORM: target,
+    REMIX_PLATFORM: target,
   };
 
   const raw = Object.keys(process.env)
-    .filter(key => REMAX_APP.test(key))
+    .filter(key => REMIX_APP.test(key))
     .reduce((env: Env, key) => {
       env[key] = process.env[key] as string;
       return env;

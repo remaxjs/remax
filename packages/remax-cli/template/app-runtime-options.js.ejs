@@ -1,0 +1,18 @@
+import { RuntimeOptions, PluginDriver } from 'remax/runtime';
+import { pageEvents, appEvents, hostComponents } from '/__remax_runtime_options__';
+
+const pluginDriver = new PluginDriver([
+<% pluginFiles.forEach(file => { %>
+  require('<%- file %>'),
+<% }) %>
+].map(p => p.default || p));
+
+RuntimeOptions.apply({
+  platform: "<%- platform %>",
+  debug: <%- debug %>,
+  pxToRpx: <%- pxToRpx %>,
+  pluginDriver,
+  hostComponents,
+  pageEvents,
+  appEvents,
+})

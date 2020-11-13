@@ -1,31 +1,30 @@
-import * as fs from 'fs';
 import * as path from 'path';
-import { Options, Platform } from '@remax/types';
-import getEntries from '../../getEntries';
-import API from '../../API';
-import { targetExtensions } from '../../extensions';
+import { slash } from '@remax/shared';
+import { Options } from '@remax/types';
+import crypto from 'crypto';
 
-export function searchJSFile(file: string, target: Platform) {
-  for (const e of targetExtensions(target)) {
-    const extFile = file + e;
-    if (fs.existsSync(extFile)) {
-      return extFile;
-    }
+const hash = (name: string) => crypto.createHash('md5').update(name).digest('hex');
+
+export function replaceExtension(file: string, ext: string) {
+  const oldExt = path.extname(file);
+  return file.replace(new RegExp(`${oldExt}$`), ext);
+}
+
+export function getNativeAssetOutputPath(sourcePath: string, options: Options) {
+  let output = slash(sourcePath)
+    .replace(slash(options.cwd) + '/', '')
+    .replace(slash(options.rootDir) + '/', '')
+    .replace(/@/g, '_')
+    .replace(/node_modules/g, 'npm');
+
+  if (path.isAbsolute(output)) {
+    // 通过config.resolve.modules设置非cwd的sourcePath, 会进入此分支
+    // 将这种路径改成相对路径
+    const dirname = path.dirname(output);
+    const basename = path.basename(output);
+
+    output = 'remix__external/' + hash(dirname) + basename;
   }
 
-  return '';
-}
-
-export function appConfigFile(options: Options) {
-  return searchJSFile(path.join(options.cwd, options.rootDir, 'app.config'), options.target!);
-}
-
-export function pageConfigFile(pageFile: string, options: Options) {
-  const ext = path.extname(pageFile);
-  return searchJSFile(pageFile.replace(new RegExp(`\\${ext}$`), '.config'), options.target!);
-}
-
-export function pageConfigFiles(options: Options, api: API) {
-  const entries = getEntries(options, api);
-  return entries.pages.map(p => pageConfigFile(p.filename, options));
+  return output;
 }

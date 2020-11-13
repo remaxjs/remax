@@ -5,7 +5,7 @@
 
 
 .a {
-  /* 避免添加 postcss 插件后删除了 remax 自身的插件，测试 px to rpx 功能 */
+  /* 避免添加 postcss 插件后删除了 remix 自身的插件，测试 px to rpx 功能 */
   height: 10rpx;
   background-image: url('https://example.com/cat.jpg');
 }

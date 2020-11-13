@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { usePageEvent } from 'remax/macro';
-import { View } from 'remax/ali';
+import { usePageEvent } from '@alipay/remix/macro';
+import { View } from '@alipay/remix';
 
 export default function () {
   usePageEvent('onShareAppMessage', () => {

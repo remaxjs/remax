@@ -2,14 +2,41 @@ import * as React from 'react';
 import { NodePath } from '@babel/traverse';
 import { createMacro } from 'babel-plugin-macros';
 import { slash } from '@remax/shared';
-import createHostComponentMacro, { hostComponents } from './createHostComponent';
-import requirePluginComponentMacro, {
-  nativeComponents,
-  register as registerNativeComponent,
-} from './requirePluginComponent';
+import createHostComponentMacro from './createHostComponent';
+import requirePluginComponentMacro from './requirePluginComponent';
 import requirePluginMacro from './requirePlugin';
 import usePageEventMacro, { pageEvents } from './usePageEvent';
 import useAppEventMacro, { appEvents } from './useAppEvent';
+
+type PageEventName =
+  | 'onLoad'
+  | 'onShow'
+  | 'onHide'
+  | 'onReady'
+  | 'onPullDownRefresh'
+  | 'onReachBottom'
+  | 'onPageScroll'
+  | 'onShareAppMessage'
+  | 'onTitleClick'
+  | 'onOptionMenuClick'
+  | 'onPopMenuClick'
+  | 'onPullIntercept'
+  | 'onBack'
+  | 'onKeyboardHeight'
+  | 'onTabItemTap'
+  | 'beforeTabItemTap'
+  | 'onResize'
+  | 'onUnload';
+
+type AppEventName =
+  | 'onLaunch'
+  | 'onShow'
+  | 'onHide'
+  | 'onError'
+  | 'onShareAppMessage'
+  | 'onPageNotFound'
+  | 'onUnhandledRejection'
+  | 'onThemeChange';
 
 function remax({ references, state }: { references: { [name: string]: NodePath[] }; state: any }) {
   references.createHostComponent?.forEach(path => createHostComponentMacro(path, state));
@@ -37,41 +64,10 @@ export declare function requirePluginComponent<P = any>(pluginName: string): Rea
 
 export declare function requirePlugin<P = any>(pluginName: string): P;
 
-type PageEventName =
-  | 'onLoad'
-  | 'onShow'
-  | 'onHide'
-  | 'onReady'
-  | 'onPullDownRefresh'
-  | 'onReachBottom'
-  | 'onPageScroll'
-  | 'onShareAppMessage'
-  | 'onShareTimeline'
-  | 'onTitleClick'
-  | 'onOptionMenuClick'
-  | 'onPopMenuClick'
-  | 'onPullIntercept'
-  | 'onBack'
-  | 'onKeyboardHeight'
-  | 'onTabItemTap'
-  | 'beforeTabItemTap'
-  | 'onResize'
-  | 'onUnload';
-
-type AppEventName =
-  | 'onLaunch'
-  | 'onShow'
-  | 'onHide'
-  | 'onError'
-  | 'onShareAppMessage'
-  | 'onPageNotFound'
-  | 'onUnhandledRejection'
-  | 'onThemeChange';
-
 export declare function usePageEvent(eventName: PageEventName, callback: (...params: any[]) => any): void;
 
 export declare function useAppEvent(eventName: AppEventName, callback: (...params: any[]) => any): void;
 
-export { hostComponents, nativeComponents, registerNativeComponent, pageEvents, appEvents };
+export { pageEvents, appEvents };
 
 export default createMacro(remax);

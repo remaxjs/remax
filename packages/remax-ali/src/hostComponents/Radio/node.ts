@@ -1,3 +1,5 @@
+import { unique } from '@remax/shared';
+
 export const alias = {
   id: 'id',
   name: 'name',
@@ -9,4 +11,4 @@ export const alias = {
   color: 'color',
 };
 
-export const props = Object.values(alias);
+export const props = unique(Object.values(alias));

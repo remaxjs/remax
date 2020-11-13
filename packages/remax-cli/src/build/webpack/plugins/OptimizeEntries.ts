@@ -4,7 +4,7 @@ import { ConcatSource } from 'webpack-sources';
 import { Meta } from '@remax/types';
 import { slash } from '@remax/shared';
 
-const PLUGIN_NAME = 'RemaxOptimizeEntriesPlugin';
+const PLUGIN_NAME = 'RemixOptimizeEntriesPlugin';
 
 export default class OptimizeEntriesPlugin {
   meta: Meta;
@@ -29,14 +29,12 @@ export default class OptimizeEntriesPlugin {
         // require 相关的 chunk
         if (chunk.name !== group.name) {
           const requires: string[] = [];
-
           chunk.files.forEach((file: string) => {
             if (file.endsWith('.js')) {
               const relativePath = slash(path.relative(path.dirname(group.name), file));
               requires.push(`require('./${relativePath}');\n`);
             }
           });
-
           const chunkPath = group.name + '.js';
           compilation.assets[chunkPath] = new ConcatSource(...requires, compilation.assets[chunkPath] ?? '');
         }

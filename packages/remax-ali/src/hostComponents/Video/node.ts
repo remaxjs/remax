@@ -1,3 +1,5 @@
+import { unique } from '@remax/shared';
+
 export const alias = {
   className: 'class',
   src: 'src',
@@ -29,7 +31,6 @@ export const alias = {
   onTap: 'onTap',
   onClick: 'onTap',
   onUserAction: 'onUserAction',
-  enableNative: 'enableNative',
 };
 
-export const props = Object.values(alias);
+export const props = unique(Object.values(alias));

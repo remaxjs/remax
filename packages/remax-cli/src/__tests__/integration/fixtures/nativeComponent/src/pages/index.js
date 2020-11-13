@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { requirePluginComponent } from 'remax/macro';
-import { View } from 'remax/ali';
+import { requirePluginComponent } from '@alipay/remix/macro';
+import { View } from '@alipay/remix';
 import A from '../components/a';
 import B from '@/components/b';
 import C from '../components/c/index';
@@ -11,7 +11,7 @@ import SlotComponent from '../components/slot';
 import ScopedComponent from '../components/@foo/a';
 import SrcComponent from '../components/src';
 import NotInJSXComponent from '../components/notInJSX';
-import CJSComponent from 'cjs';
+import CJSComponent from 'commonjs';
 
 const PluginComponent = requirePluginComponent('plugin://myPlugin/xx');
 const PluginComponent2 = requirePluginComponent('plugin://myPlugin/dddd');
@@ -27,7 +27,7 @@ export default () => {
       <D />
       <E />
       <Complex />
-      <PluginComponent />
+      <PluginComponent foo="bar" />
       <PluginComponent2 />
       <SlotComponent>
         {/* 测试 slot view 的 prop 收集 */}

@@ -1,4 +1,4 @@
 import * as React from 'react';
-import { View } from 'remax/ali';
+import { View } from '@alipay/remix';
 
 export default () => <View>foo</View>;

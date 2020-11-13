@@ -1,9 +1,12 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface SwiperItemProps {
   readonly dataset?: DOMStringMap;
+  id?: string;
+  className?: string;
+  style?: React.CSSProperties;
   key: string;
 }
 
-export const SwiperItem: React.ComponentType<SwiperItemProps> = createHostComponent<SwiperItemProps>('swiper-item');
+export const SwiperItem = createHostComponent<SwiperItemProps>('swiper-item') as React.ComponentType<SwiperItemProps>;

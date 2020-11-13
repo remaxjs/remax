@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from 'remax/ali';
+import { View } from '@alipay/remix';
 import F from '@components/f/index.js';
 import D from '@c/d/index.js';
 

@@ -1,10 +1,11 @@
 import * as t from '@babel/types';
-import { Plugin, Meta, HostComponent, Platform, Options } from '@remax/types';
-import { hostComponents } from '@remax/macro';
+import { Plugin, Meta, HostComponent, Platform } from '@remax/types';
 import { slash } from '@remax/shared';
 import { merge } from 'lodash';
 import Config from 'webpack-chain';
 import { RuleConfig } from './build/webpack/config/css';
+import yargs from 'yargs';
+import Store from '@remax/build-store';
 
 export default class API {
   public plugins: Plugin[] = [];
@@ -59,10 +60,6 @@ export default class API {
     return meta;
   }
 
-  public getHostComponents() {
-    return hostComponents;
-  }
-
   public processProps(componentName: string, props: string[], additional?: boolean, node?: t.JSXElement) {
     let nextProps = props;
     this.plugins.forEach(plugin => {
@@ -93,14 +90,6 @@ export default class API {
     }, true);
   }
 
-  onBuildStart(config: Options) {
-    this.plugins.forEach(plugin => {
-      if (typeof plugin.onBuildStart === 'function') {
-        plugin.onBuildStart({ config });
-      }
-    });
-  }
-
   onAppConfig(config: any) {
     return this.plugins.reduce((acc, plugin) => {
       if (typeof plugin.onAppConfig === 'function') {
@@ -108,6 +97,16 @@ export default class API {
       }
       return acc;
     }, config);
+  }
+
+  // 内部hook
+  _onEntries(entries: any) {
+    return this.plugins.reduce((acc, plugin) => {
+      if (typeof plugin.unstable_onEntries === 'function') {
+        acc = plugin.unstable_onEntries({ entries: acc });
+      }
+      return acc;
+    }, entries);
   }
 
   onPageConfig({ page, config }: { page: string; config: any }) {
@@ -135,6 +134,23 @@ export default class API {
     });
   }
 
+  extendCLI(cli: yargs.Argv) {
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.extendCLI === 'function') {
+        plugin.extendCLI({ cli });
+      }
+    });
+  }
+
+  onPageTemplate({ template, page }: { template: string; page: string }) {
+    return this.plugins.reduce((acc, plugin) => {
+      if (typeof plugin.onPageTemplate === 'function') {
+        acc = plugin.onPageTemplate({ template, page });
+      }
+      return acc;
+    }, template);
+  }
+
   getRuntimePluginFiles() {
     return this.plugins
       .map(plugin => {
@@ -145,20 +161,21 @@ export default class API {
       .filter(Boolean);
   }
 
-  public registerAdapterPlugins(targetName: Platform, one = false) {
+  public registerAdapterPlugins(targetName: Platform) {
     this.adapter.target = targetName;
-    this.adapter.packageName = '@remax/' + targetName;
+    this.adapter.packageName = '@alipay/remix-' + targetName;
 
     const packagePath = this.adapter.packageName + '/node';
 
     let plugin = require(packagePath).default || require(packagePath);
     plugin = typeof plugin === 'function' ? plugin() : plugin;
+    Store.skipHostComponents = plugin.skipHostComponents;
     this.registerHostComponents(plugin.hostComponents);
     this.plugins.push(plugin);
   }
 
-  public registerPlugins(plugins: Plugin[] = []) {
-    plugins.forEach(plugin => {
+  public registerPlugins(plugins: Plugin[]) {
+    plugins?.forEach(plugin => {
       if (plugin) {
         this.registerHostComponents(plugin.hostComponents);
         this.plugins.push(plugin);
@@ -172,7 +189,7 @@ export default class API {
     }
 
     for (const key of components.keys()) {
-      hostComponents.set(key, components.get(key)!);
+      Store.registeredHostComponents.set(key, components.get(key)!);
     }
   }
 }

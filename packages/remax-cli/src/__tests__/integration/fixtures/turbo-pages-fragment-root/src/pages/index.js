@@ -1,18 +1,10 @@
-import * as React from 'react';
-import { View } from 'remax/ali';
+import React from 'react';
+import { PickerView, PickerViewColumn, View } from '@alipay/remix';
 
-function ReactComp() {
-  return <View> ReactComp </View>;
-}
-
-export default function FragmentRoot() {
-  return (
-    <>
-      <View>view</View>
-      <ReactComp />
-      {[1, 2, 3].map(() => (
-        <ReactComp />
-      ))}
-    </>
-  );
-}
+export default () => (
+  <PickerView>
+    <PickerViewColumn>
+      <View></View>123
+    </PickerViewColumn>
+  </PickerView>
+);

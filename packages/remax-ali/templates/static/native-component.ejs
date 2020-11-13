@@ -11,7 +11,7 @@
         </view>
       </block>
       <block a:else>
-        <template a:if="{{node.props.<%=TEMPLATE_ID%> > 0}}" is="{{'TPL_' + node.props.<%=TEMPLATE_ID%>}}" data="{{ node: item }}" />
+        <template a:if="{{node.props.<%=TEMPLATE_ID%>}}" is="{{'TPL_' + node.props.<%=TEMPLATE_ID%>}}" data="{{ node: item }}" />
         <template a:else is="{{ 'TPL_' + item.type }}" data="{{ node: item }}" />
       </block>
     </block>

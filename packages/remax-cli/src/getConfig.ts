@@ -3,7 +3,8 @@ import path from 'path';
 import { getDefaultOptions } from './defaultOptions';
 import { Options } from '@remax/types';
 import validateOptions from 'schema-utils';
-import schema from './OptionsSchema.json';
+
+const schema = require('../OptionsSchema.json');
 
 export interface CliOptions {
   target: string;
@@ -16,7 +17,7 @@ function readJavascriptConfig(path: string) {
 }
 
 export default function getConfig(validate = true): Options {
-  const configPath: string = path.join(process.cwd(), './remax.config');
+  const configPath: string = path.join(process.cwd(), './remix.config');
 
   let options = {};
 
@@ -26,7 +27,7 @@ export default function getConfig(validate = true): Options {
 
   if (validate) {
     validateOptions(schema as any, options, {
-      name: 'remax',
+      name: 'remix',
     });
   }
 

@@ -1,0 +1,7 @@
+<import-sjs name="h" from="./index.sjs"/>
+<import src="./_msg.axml"/>
+
+<template name="msg" />
+<view class="mini">{{h.upperCase(mini page)}}<view>
+<image src="/assets/logo.png" />
+<include src="./_footer.axml" />

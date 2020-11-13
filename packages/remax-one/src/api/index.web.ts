@@ -1,4 +1,4 @@
-import { RuntimeOptions } from '@remax/runtime';
+import { RuntimeOptions } from '@remax/framework-shared';
 import { NavigateToParams, RedirectToParams, NavigateBackParams, ReLaunchParams, SwitchTabParams } from './types';
 
 export function navigateTo(params: NavigateToParams) {

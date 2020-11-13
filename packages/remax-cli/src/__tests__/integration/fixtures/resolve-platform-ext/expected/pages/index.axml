@@ -1,1975 +1,787 @@
-<template name="REMAX_TPL">
-  <block a:for="{{root.children}}" a:key="{{item.id}}">
-    <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-  </block>
+
+<import src="/isolated.axml"/>
+
+
+
+<template name="TPL_7efa201-1">
+  <view >{{'hello'}}</view>
+
 </template>
 
 
-  <template name="REMAX_TPL_1_button">
+
+  
+<template name="TPL_button">
   <button 
-    
-    app-parameter="{{item.props['app-parameter']}}"
-    
-    
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    disabled="{{item.props['disabled']}}"
-    
-    
-    
-    form-type="{{item.props['form-type']}}"
-    
-    
-    
-    hover-class="{{item.props['hover-class']}}"
-    
-    
-    
-    hover-start-time="{{item.props['hover-start-time']}}"
-    
-    
-    
-    hover-stay-time="{{item.props['hover-stay-time']}}"
-    
-    
-    
-    hover-stop-propagation="{{item.props['hover-stop-propagation']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    loading="{{item.props['loading']}}"
-    
-    
-    
-    onError="{{item.props['onError']}}"
-    
-    
-    
-    onGetAuthorize="{{item.props['onGetAuthorize']}}"
-    
-    
-    
-    onTap="{{item.props['onTap']}}"
-    
-    
-    
-    open-type="{{item.props['open-type']}}"
-    
-    
-    
-    plain="{{item.props['plain']}}"
-    
-    
-    
-    public-id="{{item.props['public-id']}}"
-    
-    
-    
-    scope="{{item.props['scope']}}"
-    
-    
-    
-    size="{{item.props['size']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    type="{{item.props['type']}}"
-    
-    
-    
+    app-parameter="{{node.props['app-parameter']}}" 
+    class="{{node.props['class']}}" 
+    disabled="{{node.props['disabled']}}" 
+    form-type="{{node.props['form-type']}}" 
+    hover-class="{{node.props['hover-class']}}" 
+    hover-start-time="{{node.props['hover-start-time']}}" 
+    hover-stay-time="{{node.props['hover-stay-time']}}" 
+    hover-stop-propagation="{{node.props['hover-stop-propagation']}}" 
+    id="{{node.props['id']}}" 
+    loading="{{node.props['loading']}}" 
+    onError="{{node.props['onError']}}" 
+    onGetAuthorize="{{node.props['onGetAuthorize']}}" 
+    onTap="{{node.props['onTap']}}" 
+    open-type="{{node.props['open-type']}}" 
+    plain="{{node.props['plain']}}" 
+    public-id="{{node.props['public-id']}}" 
+    scope="{{node.props['scope']}}" 
+    size="{{node.props['size']}}" 
+    type="{{node.props['type']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </button>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_canvas">
-  <canvas 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    disable-scroll="{{item.props['disable-scroll']}}"
-    
-    
-    
-    height="{{item.props['height']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    onLongTap="{{item.props['onLongTap']}}"
-    
-    
-    
-    onTap="{{item.props['onTap']}}"
-    
-    
-    
-    onTouchCancel="{{item.props['onTouchCancel']}}"
-    
-    
-    
-    onTouchEnd="{{item.props['onTouchEnd']}}"
-    
-    
-    
-    onTouchMove="{{item.props['onTouchMove']}}"
-    
-    
-    
-    onTouchStart="{{item.props['onTouchStart']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    width="{{item.props['width']}}"
-    
-    
-    
+<template name="TPL_camera">
+  <camera 
+    applyMicPermissionWhenInit="{{node.props['applyMicPermissionWhenInit']}}" 
+    class="{{node.props['class']}}" 
+    device-position="{{node.props['device-position']}}" 
+    flash="{{node.props['flash']}}" 
+    frame-format="{{node.props['frame-format']}}" 
+    frame-size="{{node.props['frame-size']}}" 
+    id="{{node.props['id']}}" 
+    max-duration="{{node.props['max-duration']}}" 
+    mode="{{node.props['mode']}}" 
+    onError="{{node.props['onError']}}" 
+    onScanCode="{{node.props['onScanCode']}}" 
+    onStop="{{node.props['onStop']}}" 
+    outputDimension="{{node.props['outputDimension']}}" 
+    style="{{node.props['style']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </camera>
+</template>
+
+  
+
+  
+<template name="TPL_canvas">
+  <canvas 
+    class="{{node.props['class']}}" 
+    disable-scroll="{{node.props['disable-scroll']}}" 
+    height="{{node.props['height']}}" 
+    id="{{node.props['id']}}" 
+    onLongTap="{{node.props['onLongTap']}}" 
+    onTap="{{node.props['onTap']}}" 
+    onTouchCancel="{{node.props['onTouchCancel']}}" 
+    onTouchEnd="{{node.props['onTouchEnd']}}" 
+    onTouchMove="{{node.props['onTouchMove']}}" 
+    onTouchStart="{{node.props['onTouchStart']}}" 
+    style="{{node.props['style']}}" 
+    width="{{node.props['width']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </canvas>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_checkbox">
+<template name="TPL_checkbox">
   <checkbox 
-    
-    checked="{{item.props['checked']}}"
-    
-    
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    color="{{item.props['color']}}"
-    
-    
-    
-    disabled="{{item.props['disabled']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    name="{{item.props['name']}}"
-    
-    
-    
-    onChange="{{item.props['onChange']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    value="{{item.props['value']}}"
-    
-    
-    
+    checked="{{node.props['checked']}}" 
+    class="{{node.props['class']}}" 
+    color="{{node.props['color']}}" 
+    disabled="{{node.props['disabled']}}" 
+    id="{{node.props['id']}}" 
+    name="{{node.props['name']}}" 
+    onChange="{{node.props['onChange']}}" 
+    style="{{node.props['style']}}" 
+    value="{{node.props['value']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </checkbox>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_checkbox-group">
+<template name="TPL_checkbox-group">
   <checkbox-group 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    name="{{item.props['name']}}"
-    
-    
-    
-    onChange="{{item.props['onChange']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    name="{{node.props['name']}}" 
+    onChange="{{node.props['onChange']}}" 
+    style="{{node.props['style']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </checkbox-group>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_contact-button">
+<template name="TPL_contact-button">
   <contact-button 
-    
-    alipay-card-no="{{item.props['alipay-card-no']}}"
-    
-    
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    color="{{item.props['color']}}"
-    
-    
-    
-    icon="{{item.props['icon']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    scene="{{item.props['scene']}}"
-    
-    
-    
-    size="{{item.props['size']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    tnt-inst-id="{{item.props['tnt-inst-id']}}"
-    
-    
-    
+    alipay-card-no="{{node.props['alipay-card-no']}}" 
+    class="{{node.props['class']}}" 
+    color="{{node.props['color']}}" 
+    icon="{{node.props['icon']}}" 
+    id="{{node.props['id']}}" 
+    scene="{{node.props['scene']}}" 
+    size="{{node.props['size']}}" 
+    style="{{node.props['style']}}" 
+    tnt-inst-id="{{node.props['tnt-inst-id']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </contact-button>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_cover-image">
+<template name="TPL_cover-image">
   <cover-image 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    onTap="{{item.props['onTap']}}"
-    
-    
-    
-    src="{{item.props['src']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    onTap="{{node.props['onTap']}}" 
+    src="{{node.props['src']}}" 
+    style="{{node.props['style']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </cover-image>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_cover-view">
+<template name="TPL_cover-view">
   <cover-view 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    onTap="{{item.props['onTap']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    onTap="{{node.props['onTap']}}" 
+    style="{{node.props['style']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </cover-view>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_form">
+<template name="TPL_form">
   <form 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    onReset="{{item.props['onReset']}}"
-    
-    
-    
-    onSubmit="{{item.props['onSubmit']}}"
-    
-    
-    
-    report-submit="{{item.props['report-submit']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    onReset="{{node.props['onReset']}}" 
+    onSubmit="{{node.props['onSubmit']}}" 
+    report-submit="{{node.props['report-submit']}}" 
+    style="{{node.props['style']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </form>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_icon">
+<template name="TPL_icon">
   <icon 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    color="{{item.props['color']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    size="{{item.props['size']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    type="{{item.props['type']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    color="{{node.props['color']}}" 
+    id="{{node.props['id']}}" 
+    size="{{node.props['size']}}" 
+    style="{{node.props['style']}}" 
+    type="{{node.props['type']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </icon>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_image">
+<template name="TPL_image">
   <image 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    lazy-load="{{item.props['lazy-load']}}"
-    
-    
-    
-    mode="{{item.props['mode']}}"
-    
-    
-    
-    onError="{{item.props['onError']}}"
-    
-    
-    
-    onLoad="{{item.props['onLoad']}}"
-    
-    
-    
-    onTap="{{item.props['onTap']}}"
-    
-    
-    
-    onTouchCancel="{{item.props['onTouchCancel']}}"
-    
-    
-    
-    onTouchEnd="{{item.props['onTouchEnd']}}"
-    
-    
-    
-    onTouchMove="{{item.props['onTouchMove']}}"
-    
-    
-    
-    onTouchStart="{{item.props['onTouchStart']}}"
-    
-    
-    
-    src="{{item.props['src']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    lazy-load="{{node.props['lazy-load']}}" 
+    mode="{{node.props['mode']}}" 
+    onError="{{node.props['onError']}}" 
+    onLoad="{{node.props['onLoad']}}" 
+    onTap="{{node.props['onTap']}}" 
+    onTouchCancel="{{node.props['onTouchCancel']}}" 
+    onTouchEnd="{{node.props['onTouchEnd']}}" 
+    onTouchMove="{{node.props['onTouchMove']}}" 
+    onTouchStart="{{node.props['onTouchStart']}}" 
+    src="{{node.props['src']}}" 
+    style="{{node.props['style']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </image>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_input">
+<template name="TPL_input">
   <input 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    confirm-hold="{{item.props['confirm-hold']}}"
-    
-    
-    
-    confirm-type="{{item.props['confirm-type']}}"
-    
-    
-    
-    controlled="{{item.props['controlled']}}"
-    
-    
-    
-    cursor="{{item.props['cursor']}}"
-    
-    
-    
-    disabled="{{item.props['disabled']}}"
-    
-    
-    
-    enableNative="{{item.props['enableNative']}}"
-    
-    
-    
-    focus="{{item.props['focus']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    maxlength="{{item.props['maxlength']}}"
-    
-    
-    
-    name="{{item.props['name']}}"
-    
-    
-    
-    onBlur="{{item.props['onBlur']}}"
-    
-    
-    
-    onConfirm="{{item.props['onConfirm']}}"
-    
-    
-    
-    onFocus="{{item.props['onFocus']}}"
-    
-    
-    
-    onInput="{{item.props['onInput']}}"
-    
-    
-    
-    password="{{item.props['password']}}"
-    
-    
-    
-    placeholder="{{item.props['placeholder']}}"
-    
-    
-    
-    placeholder-class="{{item.props['placeholder-class']}}"
-    
-    
-    
-    placeholder-style="{{item.props['placeholder-style']}}"
-    
-    
-    
-    randomNumber="{{item.props['randomNumber']}}"
-    
-    
-    
-    selection-end="{{item.props['selection-end']}}"
-    
-    
-    
-    selection-start="{{item.props['selection-start']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    type="{{item.props['type']}}"
-    
-    
-    
-    value="{{item.props['value']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    confirm-hold="{{node.props['confirm-hold']}}" 
+    confirm-type="{{node.props['confirm-type']}}" 
+    controlled="{{node.props['controlled']}}" 
+    cursor="{{node.props['cursor']}}" 
+    disabled="{{node.props['disabled']}}" 
+    enableNative="{{node.props['enableNative']}}" 
+    focus="{{node.props['focus']}}" 
+    id="{{node.props['id']}}" 
+    maxlength="{{node.props['maxlength']}}" 
+    name="{{node.props['name']}}" 
+    onBlur="{{node.props['onBlur']}}" 
+    onConfirm="{{node.props['onConfirm']}}" 
+    onFocus="{{node.props['onFocus']}}" 
+    onInput="{{node.props['onInput']}}" 
+    password="{{node.props['password']}}" 
+    placeholder="{{node.props['placeholder']}}" 
+    placeholder-class="{{node.props['placeholder-class']}}" 
+    placeholder-style="{{node.props['placeholder-style']}}" 
+    randomNumber="{{node.props['randomNumber']}}" 
+    selection-end="{{node.props['selection-end']}}" 
+    selection-start="{{node.props['selection-start']}}" 
+    style="{{node.props['style']}}" 
+    type="{{node.props['type']}}" 
+    value="{{node.props['value']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </input>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_label">
+<template name="TPL_label">
   <label 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    for="{{item.props['for']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    for="{{node.props['for']}}" 
+    id="{{node.props['id']}}" 
+    style="{{node.props['style']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </label>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_lifestyle">
+<template name="TPL_lifestyle">
   <lifestyle 
-    
-    onFollow="{{item.props['onFollow']}}"
-    
-    
-    
-    public-id="{{item.props['public-id']}}"
-    
-    
-    
+    onFollow="{{node.props['onFollow']}}" 
+    public-id="{{node.props['public-id']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </lifestyle>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_map">
-  <map 
-    
-    circles="{{item.props['circles']}}"
-    
-    
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    controls="{{item.props['controls']}}"
-    
-    
-    
-    ground-overlays="{{item.props['ground-overlays']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    include-padding="{{item.props['include-padding']}}"
-    
-    
-    
-    include-points="{{item.props['include-points']}}"
-    
-    
-    
-    latitude="{{item.props['latitude']}}"
-    
-    
-    
-    longitude="{{item.props['longitude']}}"
-    
-    
-    
-    markers="{{item.props['markers']}}"
-    
-    
-    
-    onCalloutTap="{{item.props['onCalloutTap']}}"
-    
-    
-    
-    onControlTap="{{item.props['onControlTap']}}"
-    
-    
-    
-    onMarkerTap="{{item.props['onMarkerTap']}}"
-    
-    
-    
-    onRegionChange="{{item.props['onRegionChange']}}"
-    
-    
-    
-    onTap="{{item.props['onTap']}}"
-    
-    
-    
-    polygon="{{item.props['polygon']}}"
-    
-    
-    
-    polyline="{{item.props['polyline']}}"
-    
-    
-    
-    scale="{{item.props['scale']}}"
-    
-    
-    
-    setting="{{item.props['setting']}}"
-    
-    
-    
-    show-location="{{item.props['show-location']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    tile-overlay="{{item.props['tile-overlay']}}"
-    
-    
-    
+<template name="TPL_lottie">
+  <lottie 
+    assetsPath="{{node.props['assetsPath']}}" 
+    autoReverse="{{node.props['autoReverse']}}" 
+    autoplay="{{node.props['autoplay']}}" 
+    class="{{node.props['class']}}" 
+    djangoId="{{node.props['djangoId']}}" 
+    id="{{node.props['id']}}" 
+    md5="{{node.props['md5']}}" 
+    onAnimationCancel="{{node.props['onAnimationCancel']}}" 
+    onAnimationEnd="{{node.props['onAnimationEnd']}}" 
+    onAnimationRepeat="{{node.props['onAnimationRepeat']}}" 
+    onAnimationStart="{{node.props['onAnimationStart']}}" 
+    onDataFailed="{{node.props['onDataFailed']}}" 
+    onDataLoadReady="{{node.props['onDataLoadReady']}}" 
+    onDataReady="{{node.props['onDataReady']}}" 
+    optimize="{{node.props['optimize']}}" 
+    path="{{node.props['path']}}" 
+    placeholder="{{node.props['placeholder']}}" 
+    repeatCount="{{node.props['repeatCount']}}" 
+    speed="{{node.props['speed']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </lottie>
+</template>
+
+  
+
+  
+<template name="TPL_map">
+  <map 
+    circles="{{node.props['circles']}}" 
+    class="{{node.props['class']}}" 
+    controls="{{node.props['controls']}}" 
+    ground-overlays="{{node.props['ground-overlays']}}" 
+    id="{{node.props['id']}}" 
+    include-padding="{{node.props['include-padding']}}" 
+    include-points="{{node.props['include-points']}}" 
+    latitude="{{node.props['latitude']}}" 
+    longitude="{{node.props['longitude']}}" 
+    markers="{{node.props['markers']}}" 
+    onCalloutTap="{{node.props['onCalloutTap']}}" 
+    onControlTap="{{node.props['onControlTap']}}" 
+    onMarkerTap="{{node.props['onMarkerTap']}}" 
+    onRegionChange="{{node.props['onRegionChange']}}" 
+    onTap="{{node.props['onTap']}}" 
+    polygon="{{node.props['polygon']}}" 
+    polyline="{{node.props['polyline']}}" 
+    scale="{{node.props['scale']}}" 
+    setting="{{node.props['setting']}}" 
+    show-location="{{node.props['show-location']}}" 
+    style="{{node.props['style']}}" 
+    tile-overlay="{{node.props['tile-overlay']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </map>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_movable-area">
+<template name="TPL_movable-area">
   <movable-area 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    height="{{item.props['height']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    width="{{item.props['width']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    height="{{node.props['height']}}" 
+    id="{{node.props['id']}}" 
+    style="{{node.props['style']}}" 
+    width="{{node.props['width']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </movable-area>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_movable-view">
+<template name="TPL_movable-view">
   <movable-view 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    damping="{{item.props['damping']}}"
-    
-    
-    
-    direction="{{item.props['direction']}}"
-    
-    
-    
-    disabled="{{item.props['disabled']}}"
-    
-    
-    
-    friction="{{item.props['friction']}}"
-    
-    
-    
-    height="{{item.props['height']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    onChange="{{item.props['onChange']}}"
-    
-    
-    
-    onChangeEnd="{{item.props['onChangeEnd']}}"
-    
-    
-    
-    onScale="{{item.props['onScale']}}"
-    
-    
-    
-    onTouchCancel="{{item.props['onTouchCancel']}}"
-    
-    
-    
-    onTouchEnd="{{item.props['onTouchEnd']}}"
-    
-    
-    
-    onTouchMove="{{item.props['onTouchMove']}}"
-    
-    
-    
-    onTouchStart="{{item.props['onTouchStart']}}"
-    
-    
-    
-    out-of-bounds="{{item.props['out-of-bounds']}}"
-    
-    
-    
-    scale="{{item.props['scale']}}"
-    
-    
-    
-    scale-max="{{item.props['scale-max']}}"
-    
-    
-    
-    scale-min="{{item.props['scale-min']}}"
-    
-    
-    
-    scale-value="{{item.props['scale-value']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    width="{{item.props['width']}}"
-    
-    
-    
-    x="{{item.props['x']}}"
-    
-    
-    
-    y="{{item.props['y']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    damping="{{node.props['damping']}}" 
+    direction="{{node.props['direction']}}" 
+    disabled="{{node.props['disabled']}}" 
+    friction="{{node.props['friction']}}" 
+    height="{{node.props['height']}}" 
+    id="{{node.props['id']}}" 
+    onChange="{{node.props['onChange']}}" 
+    onChangeEnd="{{node.props['onChangeEnd']}}" 
+    onScale="{{node.props['onScale']}}" 
+    onTouchCancel="{{node.props['onTouchCancel']}}" 
+    onTouchEnd="{{node.props['onTouchEnd']}}" 
+    onTouchMove="{{node.props['onTouchMove']}}" 
+    onTouchStart="{{node.props['onTouchStart']}}" 
+    out-of-bounds="{{node.props['out-of-bounds']}}" 
+    scale="{{node.props['scale']}}" 
+    scale-max="{{node.props['scale-max']}}" 
+    scale-min="{{node.props['scale-min']}}" 
+    scale-value="{{node.props['scale-value']}}" 
+    style="{{node.props['style']}}" 
+    width="{{node.props['width']}}" 
+    x="{{node.props['x']}}" 
+    y="{{node.props['y']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </movable-view>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_navigator">
+<template name="TPL_navigator">
   <navigator 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    hover-class="{{item.props['hover-class']}}"
-    
-    
-    
-    hover-start-time="{{item.props['hover-start-time']}}"
-    
-    
-    
-    hover-stay-time="{{item.props['hover-stay-time']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    open-type="{{item.props['open-type']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    url="{{item.props['url']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    hover-class="{{node.props['hover-class']}}" 
+    hover-start-time="{{node.props['hover-start-time']}}" 
+    hover-stay-time="{{node.props['hover-stay-time']}}" 
+    id="{{node.props['id']}}" 
+    open-type="{{node.props['open-type']}}" 
+    style="{{node.props['style']}}" 
+    url="{{node.props['url']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </navigator>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_picker">
+<template name="TPL_picker">
   <picker 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    disabled="{{item.props['disabled']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    name="{{item.props['name']}}"
-    
-    
-    
-    onChange="{{item.props['onChange']}}"
-    
-    
-    
-    range="{{item.props['range']}}"
-    
-    
-    
-    range-key="{{item.props['range-key']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    value="{{item.props['value']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    disabled="{{node.props['disabled']}}" 
+    id="{{node.props['id']}}" 
+    name="{{node.props['name']}}" 
+    onChange="{{node.props['onChange']}}" 
+    range="{{node.props['range']}}" 
+    range-key="{{node.props['range-key']}}" 
+    style="{{node.props['style']}}" 
+    value="{{node.props['value']}}" 
   >
-    
     <view>
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item.children[0]}}" />
+      <template is="TPL_DEFAULT" data="{{root: node.children[0]}}" />
     </view>
-    
   </picker>
 </template>
 
   
-  <template name="REMAX_TPL_1_picker-view">
+
+  
+<template name="TPL_picker-view">
   <picker-view 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    indicator-class="{{item.props['indicator-class']}}"
-    
-    
-    
-    indicator-style="{{item.props['indicator-style']}}"
-    
-    
-    
-    mask-class="{{item.props['mask-class']}}"
-    
-    
-    
-    mask-style="{{item.props['mask-style']}}"
-    
-    
-    
-    name="{{item.props['name']}}"
-    
-    
-    
-    onChange="{{item.props['onChange']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    value="{{item.props['value']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    indicator-class="{{node.props['indicator-class']}}" 
+    indicator-style="{{node.props['indicator-style']}}" 
+    mask-class="{{node.props['mask-class']}}" 
+    mask-style="{{node.props['mask-style']}}" 
+    name="{{node.props['name']}}" 
+    onChange="{{node.props['onChange']}}" 
+    style="{{node.props['style']}}" 
+    value="{{node.props['value']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
+    <block a:for="{{node.children}}" key="{{item.id}}">
       <picker-view-column>
         <view a:for="{{item.children}}">
-          <template is="REMAX_TPL_1_CONTAINER" data="{{item}}" />
+          <template is="TPL_TRAVERSAL" data="{{root: item}}" />
         </view>
       </picker-view-column>
     </block>
-    
   </picker-view>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_progress">
+  
+<template name="TPL_progress">
   <progress 
-    
-    active="{{item.props['active']}}"
-    
-    
-    
-    active-color="{{item.props['active-color']}}"
-    
-    
-    
-    background-color="{{item.props['background-color']}}"
-    
-    
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    percent="{{item.props['percent']}}"
-    
-    
-    
-    show-info="{{item.props['show-info']}}"
-    
-    
-    
-    stroke-width="{{item.props['stroke-width']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
+    active="{{node.props['active']}}" 
+    active-color="{{node.props['active-color']}}" 
+    background-color="{{node.props['background-color']}}" 
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    percent="{{node.props['percent']}}" 
+    show-info="{{node.props['show-info']}}" 
+    stroke-width="{{node.props['stroke-width']}}" 
+    style="{{node.props['style']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </progress>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_radio">
+<template name="TPL_radio">
   <radio 
-    
-    checked="{{item.props['checked']}}"
-    
-    
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    color="{{item.props['color']}}"
-    
-    
-    
-    disabled="{{item.props['disabled']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    name="{{item.props['name']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    value="{{item.props['value']}}"
-    
-    
-    
+    checked="{{node.props['checked']}}" 
+    class="{{node.props['class']}}" 
+    color="{{node.props['color']}}" 
+    disabled="{{node.props['disabled']}}" 
+    id="{{node.props['id']}}" 
+    name="{{node.props['name']}}" 
+    style="{{node.props['style']}}" 
+    value="{{node.props['value']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </radio>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_radio-group">
+<template name="TPL_radio-group">
   <radio-group 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    name="{{item.props['name']}}"
-    
-    
-    
-    onChange="{{item.props['onChange']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    name="{{node.props['name']}}" 
+    onChange="{{node.props['onChange']}}" 
+    style="{{node.props['style']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </radio-group>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_rich-text">
+<template name="TPL_rich-text">
   <rich-text 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    nodes="{{item.props['nodes']}}"
-    
-    
-    
-    onLongTap="{{item.props['onLongTap']}}"
-    
-    
-    
-    onTap="{{item.props['onTap']}}"
-    
-    
-    
-    onTouchCancel="{{item.props['onTouchCancel']}}"
-    
-    
-    
-    onTouchEnd="{{item.props['onTouchEnd']}}"
-    
-    
-    
-    onTouchMove="{{item.props['onTouchMove']}}"
-    
-    
-    
-    onTouchStart="{{item.props['onTouchStart']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    nodes="{{node.props['nodes']}}" 
+    onLongTap="{{node.props['onLongTap']}}" 
+    onTap="{{node.props['onTap']}}" 
+    onTouchCancel="{{node.props['onTouchCancel']}}" 
+    onTouchEnd="{{node.props['onTouchEnd']}}" 
+    onTouchMove="{{node.props['onTouchMove']}}" 
+    onTouchStart="{{node.props['onTouchStart']}}" 
+    style="{{node.props['style']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </rich-text>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_scroll-view">
+<template name="TPL_scroll-view">
   <scroll-view 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    enable-back-to-top="{{item.props['enable-back-to-top']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    lower-threshold="{{item.props['lower-threshold']}}"
-    
-    
-    
-    onScroll="{{item.props['onScroll']}}"
-    
-    
-    
-    onScrollToLower="{{item.props['onScrollToLower']}}"
-    
-    
-    
-    onScrollToUpper="{{item.props['onScrollToUpper']}}"
-    
-    
-    
-    onTouchCancel="{{item.props['onTouchCancel']}}"
-    
-    
-    
-    onTouchEnd="{{item.props['onTouchEnd']}}"
-    
-    
-    
-    onTouchMove="{{item.props['onTouchMove']}}"
-    
-    
-    
-    onTouchStart="{{item.props['onTouchStart']}}"
-    
-    
-    
-    scroll-animation-duration="{{item.props['scroll-animation-duration']}}"
-    
-    
-    
-    scroll-into-view="{{item.props['scroll-into-view']}}"
-    
-    
-    
-    scroll-left="{{item.props['scroll-left']}}"
-    
-    
-    
-    scroll-top="{{item.props['scroll-top']}}"
-    
-    
-    
-    scroll-with-animation="{{item.props['scroll-with-animation']}}"
-    
-    
-    
-    scroll-x="{{item.props['scroll-x']}}"
-    
-    
-    
-    scroll-y="{{item.props['scroll-y']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    trap-scroll="{{item.props['trap-scroll']}}"
-    
-    
-    
-    upper-threshold="{{item.props['upper-threshold']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    enable-back-to-top="{{node.props['enable-back-to-top']}}" 
+    id="{{node.props['id']}}" 
+    lower-threshold="{{node.props['lower-threshold']}}" 
+    onScroll="{{node.props['onScroll']}}" 
+    onScrollToLower="{{node.props['onScrollToLower']}}" 
+    onScrollToUpper="{{node.props['onScrollToUpper']}}" 
+    onTouchCancel="{{node.props['onTouchCancel']}}" 
+    onTouchEnd="{{node.props['onTouchEnd']}}" 
+    onTouchMove="{{node.props['onTouchMove']}}" 
+    onTouchStart="{{node.props['onTouchStart']}}" 
+    scroll-animation-duration="{{node.props['scroll-animation-duration']}}" 
+    scroll-into-view="{{node.props['scroll-into-view']}}" 
+    scroll-left="{{node.props['scroll-left']}}" 
+    scroll-top="{{node.props['scroll-top']}}" 
+    scroll-with-animation="{{node.props['scroll-with-animation']}}" 
+    scroll-x="{{node.props['scroll-x']}}" 
+    scroll-y="{{node.props['scroll-y']}}" 
+    style="{{node.props['style']}}" 
+    trap-scroll="{{node.props['trap-scroll']}}" 
+    upper-threshold="{{node.props['upper-threshold']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </scroll-view>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_slider">
+<template name="TPL_slider">
   <slider 
-    
-    active-color="{{item.props['active-color']}}"
-    
-    
-    
-    background-color="{{item.props['background-color']}}"
-    
-    
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    disabled="{{item.props['disabled']}}"
-    
-    
-    
-    handle-color="{{item.props['handle-color']}}"
-    
-    
-    
-    handle-size="{{item.props['handle-size']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    max="{{item.props['max']}}"
-    
-    
-    
-    min="{{item.props['min']}}"
-    
-    
-    
-    name="{{item.props['name']}}"
-    
-    
-    
-    onChange="{{item.props['onChange']}}"
-    
-    
-    
-    onChanging="{{item.props['onChanging']}}"
-    
-    
-    
-    show-value="{{item.props['show-value']}}"
-    
-    
-    
-    step="{{item.props['step']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    track-size="{{item.props['track-size']}}"
-    
-    
-    
-    value="{{item.props['value']}}"
-    
-    
-    
+    active-color="{{node.props['active-color']}}" 
+    background-color="{{node.props['background-color']}}" 
+    class="{{node.props['class']}}" 
+    disabled="{{node.props['disabled']}}" 
+    handle-color="{{node.props['handle-color']}}" 
+    handle-size="{{node.props['handle-size']}}" 
+    id="{{node.props['id']}}" 
+    max="{{node.props['max']}}" 
+    min="{{node.props['min']}}" 
+    name="{{node.props['name']}}" 
+    onChange="{{node.props['onChange']}}" 
+    onChanging="{{node.props['onChanging']}}" 
+    show-value="{{node.props['show-value']}}" 
+    step="{{node.props['step']}}" 
+    style="{{node.props['style']}}" 
+    track-size="{{node.props['track-size']}}" 
+    value="{{node.props['value']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </slider>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_swiper">
+<template name="TPL_swiper">
   <swiper 
-    
-    acceleration="{{item.props['acceleration']}}"
-    
-    
-    
-    active-class="{{item.props['active-class']}}"
-    
-    
-    
-    autoplay="{{item.props['autoplay']}}"
-    
-    
-    
-    changing-class="{{item.props['changing-class']}}"
-    
-    
-    
-    circular="{{item.props['circular']}}"
-    
-    
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    current="{{item.props['current']}}"
-    
-    
-    
-    disable-programmatic-animation="{{item.props['disable-programmatic-animation']}}"
-    
-    
-    
-    disable-touch="{{item.props['disable-touch']}}"
-    
-    
-    
-    duration="{{item.props['duration']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    indicator-active-color="{{item.props['indicator-active-color']}}"
-    
-    
-    
-    indicator-color="{{item.props['indicator-color']}}"
-    
-    
-    
-    indicator-dots="{{item.props['indicator-dots']}}"
-    
-    
-    
-    interval="{{item.props['interval']}}"
-    
-    
-    
-    next-margin="{{item.props['next-margin']}}"
-    
-    
-    
-    onAnimationEnd="{{item.props['onAnimationEnd']}}"
-    
-    
-    
-    onChange="{{item.props['onChange']}}"
-    
-    
-    
-    onTransition="{{item.props['onTransition']}}"
-    
-    
-    
-    previous-margin="{{item.props['previous-margin']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    vertical="{{item.props['vertical']}}"
-    
-    
-    
+    acceleration="{{node.props['acceleration']}}" 
+    active-class="{{node.props['active-class']}}" 
+    autoplay="{{node.props['autoplay']}}" 
+    changing-class="{{node.props['changing-class']}}" 
+    circular="{{node.props['circular']}}" 
+    class="{{node.props['class']}}" 
+    current="{{node.props['current']}}" 
+    disable-programmatic-animation="{{node.props['disable-programmatic-animation']}}" 
+    disable-touch="{{node.props['disable-touch']}}" 
+    duration="{{node.props['duration']}}" 
+    id="{{node.props['id']}}" 
+    indicator-active-color="{{node.props['indicator-active-color']}}" 
+    indicator-color="{{node.props['indicator-color']}}" 
+    indicator-dots="{{node.props['indicator-dots']}}" 
+    interval="{{node.props['interval']}}" 
+    next-margin="{{node.props['next-margin']}}" 
+    onAnimationEnd="{{node.props['onAnimationEnd']}}" 
+    onChange="{{node.props['onChange']}}" 
+    onTransition="{{node.props['onTransition']}}" 
+    previous-margin="{{node.props['previous-margin']}}" 
+    style="{{node.props['style']}}" 
+    vertical="{{node.props['vertical']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <swiper-item key="{{item.props.__key}}">
-        <block a:for="{{item.children}}" key="{{item.id}}">
-          <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-        </block>
+    <block a:for="{{node.children}}" key="{{item.id}}">
+      <swiper-item 
+         class="{{item.props['class']}}" 
+         id="{{item.props['id']}}" 
+         key="{{item.props['key']}}" 
+         style="{{item.props['style']}}" 
+      >
+        <template is="TPL_TRAVERSAL" data="{{root: item}}" />
       </swiper-item>
     </block>
-    
   </swiper>
 </template>
 
   
-  <template name="REMAX_TPL_1_switch">
+
+  
+  
+<template name="TPL_switch">
   <switch 
-    
-    checked="{{item.props['checked']}}"
-    
-    
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    color="{{item.props['color']}}"
-    
-    
-    
-    controlled="{{item.props['controlled']}}"
-    
-    
-    
-    disabled="{{item.props['disabled']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    name="{{item.props['name']}}"
-    
-    
-    
-    onChange="{{item.props['onChange']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
+    checked="{{node.props['checked']}}" 
+    class="{{node.props['class']}}" 
+    color="{{node.props['color']}}" 
+    controlled="{{node.props['controlled']}}" 
+    disabled="{{node.props['disabled']}}" 
+    id="{{node.props['id']}}" 
+    name="{{node.props['name']}}" 
+    onChange="{{node.props['onChange']}}" 
+    style="{{node.props['style']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </switch>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_text">
+<template name="TPL_text">
   <text 
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    decode="{{item.props['decode']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    number-of-lines="{{item.props['number-of-lines']}}"
-    
-    
-    
-    onTap="{{item.props['onTap']}}"
-    
-    
-    
-    selectable="{{item.props['selectable']}}"
-    
-    
-    
-    space="{{item.props['space']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
+    class="{{node.props['class']}}" 
+    decode="{{node.props['decode']}}" 
+    id="{{node.props['id']}}" 
+    number-of-lines="{{node.props['number-of-lines']}}" 
+    onTap="{{node.props['onTap']}}" 
+    selectable="{{node.props['selectable']}}" 
+    space="{{node.props['space']}}" 
+    style="{{node.props['style']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.type === 'plain-text'}}">{{item.text}}</block>
-      <template a:else is="REMAX_TPL_1_CONTAINER" data="{{item: item.children[0]}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </text>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_textarea">
+<template name="TPL_textarea">
   <textarea 
-    
-    auto-height="{{item.props['auto-height']}}"
-    
-    
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    controlled="{{item.props['controlled']}}"
-    
-    
-    
-    disabled="{{item.props['disabled']}}"
-    
-    
-    
-    enableNative="{{item.props['enableNative']}}"
-    
-    
-    
-    focus="{{item.props['focus']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    maxlength="{{item.props['maxlength']}}"
-    
-    
-    
-    name="{{item.props['name']}}"
-    
-    
-    
-    onBlur="{{item.props['onBlur']}}"
-    
-    
-    
-    onConfirm="{{item.props['onConfirm']}}"
-    
-    
-    
-    onFocus="{{item.props['onFocus']}}"
-    
-    
-    
-    onInput="{{item.props['onInput']}}"
-    
-    
-    
-    placeholder="{{item.props['placeholder']}}"
-    
-    
-    
-    placeholder-class="{{item.props['placeholder-class']}}"
-    
-    
-    
-    placeholder-style="{{item.props['placeholder-style']}}"
-    
-    
-    
-    show-count="{{item.props['show-count']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
-    value="{{item.props['value']}}"
-    
-    
-    
+    auto-height="{{ node.props['auto-height'] }}" 
+    class="{{ node.props['class'] }}" 
+    controlled="{{ node.props['controlled'] }}" 
+    disabled="{{ node.props['disabled'] }}" 
+    enableNative="{{ node.props['enableNative'] }}" 
+    focus="{{ node.props['focus'] }}" 
+    id="{{ node.props['id'] }}" 
+    maxlength="{{ node.props['maxlength'] }}" 
+    name="{{ node.props['name'] }}" 
+    onBlur="{{ node.props['onBlur'] }}" 
+    onConfirm="{{ node.props['onConfirm'] }}" 
+    onFocus="{{ node.props['onFocus'] }}" 
+    onInput="{{ node.props['onInput'] }}" 
+    placeholder="{{ node.props['placeholder'] }}" 
+    placeholder-class="{{ node.props['placeholder-class'] }}" 
+    placeholder-style="{{ node.props['placeholder-style'] }}" 
+    show-count="{{ node.props['show-count'] }}" 
+    style="{{ node.props['style'] }}" 
+    value="{{ node.props['value'] }}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </textarea>
 </template>
 
   
-  <template name="REMAX_TPL_1_video">
+
+  
+<template name="TPL_video">
   <video 
-    
-    autoplay="{{item.props['autoplay']}}"
-    
-    
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    controls="{{item.props['controls']}}"
-    
-    
-    
-    direction="{{item.props['direction']}}"
-    
-    
-    
-    duration="{{item.props['duration']}}"
-    
-    
-    
-    enableNative="{{item.props['enableNative']}}"
-    
-    
-    
-    enableProgressGesture="{{item.props['enableProgressGesture']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    initial-time="{{item.props['initial-time']}}"
-    
-    
-    
-    loop="{{item.props['loop']}}"
-    
-    
-    
-    mobilenetHintType="{{item.props['mobilenetHintType']}}"
-    
-    
-    
-    muted="{{item.props['muted']}}"
-    
-    
-    
-    objectFit="{{item.props['objectFit']}}"
-    
-    
-    
-    onEnded="{{item.props['onEnded']}}"
-    
-    
-    
-    onError="{{item.props['onError']}}"
-    
-    
-    
-    onFullScreenChange="{{item.props['onFullScreenChange']}}"
-    
-    
-    
-    onLoading="{{item.props['onLoading']}}"
-    
-    
-    
-    onPause="{{item.props['onPause']}}"
-    
-    
-    
-    onPlay="{{item.props['onPlay']}}"
-    
-    
-    
-    onTap="{{item.props['onTap']}}"
-    
-    
-    
-    onTimeUpdate="{{item.props['onTimeUpdate']}}"
-    
-    
-    
-    onUserAction="{{item.props['onUserAction']}}"
-    
-    
-    
-    poster="{{item.props['poster']}}"
-    
-    
-    
-    posterSize="{{item.props['posterSize']}}"
-    
-    
-    
-    show-center-play-btn="{{item.props['show-center-play-btn']}}"
-    
-    
-    
-    show-fullscreen-btn="{{item.props['show-fullscreen-btn']}}"
-    
-    
-    
-    show-mute-btn="{{item.props['show-mute-btn']}}"
-    
-    
-    
-    show-play-btn="{{item.props['show-play-btn']}}"
-    
-    
-    
-    src="{{item.props['src']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
+    autoplay="{{node.props['autoplay']}}" 
+    class="{{node.props['class']}}" 
+    controls="{{node.props['controls']}}" 
+    direction="{{node.props['direction']}}" 
+    duration="{{node.props['duration']}}" 
+    enableProgressGesture="{{node.props['enableProgressGesture']}}" 
+    id="{{node.props['id']}}" 
+    initial-time="{{node.props['initial-time']}}" 
+    loop="{{node.props['loop']}}" 
+    mobilenetHintType="{{node.props['mobilenetHintType']}}" 
+    muted="{{node.props['muted']}}" 
+    objectFit="{{node.props['objectFit']}}" 
+    onEnded="{{node.props['onEnded']}}" 
+    onError="{{node.props['onError']}}" 
+    onFullScreenChange="{{node.props['onFullScreenChange']}}" 
+    onLoading="{{node.props['onLoading']}}" 
+    onPause="{{node.props['onPause']}}" 
+    onPlay="{{node.props['onPlay']}}" 
+    onTap="{{node.props['onTap']}}" 
+    onTimeUpdate="{{node.props['onTimeUpdate']}}" 
+    onUserAction="{{node.props['onUserAction']}}" 
+    poster="{{node.props['poster']}}" 
+    posterSize="{{node.props['posterSize']}}" 
+    show-center-play-btn="{{node.props['show-center-play-btn']}}" 
+    show-fullscreen-btn="{{node.props['show-fullscreen-btn']}}" 
+    show-mute-btn="{{node.props['show-mute-btn']}}" 
+    show-play-btn="{{node.props['show-play-btn']}}" 
+    src="{{node.props['src']}}" 
+    style="{{node.props['style']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </video>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_view">
+<template name="TPL_view">
   <view 
-    
-    animation="{{item.props['animation']}}"
-    
-    
-    
-    class="{{item.props['class']}}"
-    
-    
-    
-    data-foo="{{item.props['data-foo']}}"
-    
-    
-    
-    disable-scroll="{{item.props['disable-scroll']}}"
-    
-    
-    
-    hidden="{{item.props['hidden']}}"
-    
-    
-    
-    hover-class="{{item.props['hover-class']}}"
-    
-    
-    
-    hover-start-time="{{item.props['hover-start-time']}}"
-    
-    
-    
-    hover-stay-time="{{item.props['hover-stay-time']}}"
-    
-    
-    
-    hover-stop-propagation="{{item.props['hover-stop-propagation']}}"
-    
-    
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    key="{{item.props.__key}}"
-    
-    
-    
-    onAnimationEnd="{{item.props['onAnimationEnd']}}"
-    
-    
-    
-    onAnimationIteration="{{item.props['onAnimationIteration']}}"
-    
-    
-    
-    onAnimationStart="{{item.props['onAnimationStart']}}"
-    
-    
-    
-    onAppear="{{item.props['onAppear']}}"
-    
-    
-    
-    onDisappear="{{item.props['onDisappear']}}"
-    
-    
-    
-    onFirstAppear="{{item.props['onFirstAppear']}}"
-    
-    
-    
-    onLongTap="{{item.props['onLongTap']}}"
-    
-    
-    
-    onTap="{{item.props['onTap']}}"
-    
-    
-    
-    onTouchCancel="{{item.props['onTouchCancel']}}"
-    
-    
-    
-    onTouchEnd="{{item.props['onTouchEnd']}}"
-    
-    
-    
-    onTouchMove="{{item.props['onTouchMove']}}"
-    
-    
-    
-    onTouchStart="{{item.props['onTouchStart']}}"
-    
-    
-    
-    onTransitionEnd="{{item.props['onTransitionEnd']}}"
-    
-    
-    
-    style="{{item.props['style']}}"
-    
-    
-    
+    _tid="{{node.props['_tid']}}" 
+    animation="{{node.props['animation']}}" 
+    class="{{node.props['class']}}" 
+    disable-scroll="{{node.props['disable-scroll']}}" 
+    hidden="{{node.props['hidden']}}" 
+    hover-class="{{node.props['hover-class']}}" 
+    hover-start-time="{{node.props['hover-start-time']}}" 
+    hover-stay-time="{{node.props['hover-stay-time']}}" 
+    hover-stop-propagation="{{node.props['hover-stop-propagation']}}" 
+    id="{{node.props['id']}}" 
+    onAnimationEnd="{{node.props['onAnimationEnd']}}" 
+    onAnimationIteration="{{node.props['onAnimationIteration']}}" 
+    onAnimationStart="{{node.props['onAnimationStart']}}" 
+    onAppear="{{node.props['onAppear']}}" 
+    onDisappear="{{node.props['onDisappear']}}" 
+    onFirstAppear="{{node.props['onFirstAppear']}}" 
+    onLongTap="{{node.props['onLongTap']}}" 
+    onTap="{{node.props['onTap']}}" 
+    onTouchCancel="{{node.props['onTouchCancel']}}" 
+    onTouchEnd="{{node.props['onTouchEnd']}}" 
+    onTouchMove="{{node.props['onTouchMove']}}" 
+    onTouchStart="{{node.props['onTouchStart']}}" 
+    onTransitionEnd="{{node.props['onTransitionEnd']}}" 
+    style="{{node.props['style']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </view>
 </template>
+  
 
   
-  <template name="REMAX_TPL_1_web-view">
+<template name="TPL_web-view">
   <web-view 
-    
-    id="{{item.props['id']}}"
-    
-    
-    
-    onMessage="{{item.props['onMessage']}}"
-    
-    
-    
-    src="{{item.props['src']}}"
-    
-    
-    
+    id="{{node.props['id']}}" 
+    onMessage="{{node.props['onMessage']}}" 
+    src="{{node.props['src']}}" 
   >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-    
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </web-view>
 </template>
-
   
 
-<template name="REMAX_TPL_1_plain-text">
-  <block>{{item.text}}</block>
+
+<template name="TPL_plain-text">
+  <block>{{ node.text }}</block>
 </template>
 
-<template name="REMAX_TPL_1_CONTAINER">
-  <template is="{{'REMAX_TPL_1_' + item.type}}" data="{{item: item}}" />
+<template name="TPL_block">
+  <block>
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </block>
 </template>
 
-<template is="REMAX_TPL" data="{{ root: root }}" />
-<template is="REMAX_TPL" data="{{ root: modalRoot }}" />
+
+  <template is="TPL_TRAVERSAL" data="{{ root: root }}" />
+
+
+<!-- for default render -->
+<template name="TPL_DEFAULT">
+  <template a:if="{{root.props._tid}}" is="{{'TPL_' + root.props._tid}}" data="{{ node: root }}" />
+  <template a:else is="{{ 'TPL_' + root.type }}" data="{{ node: root }}" />
+</template>
+
+<!-- for traversal -->
+<template name="TPL_TRAVERSAL">
+  <block a:if="{{root.children}}">
+    <block a:for="{{root.children}}" key="{{item.id}}">
+      <template a:if="{{item.props._tid}}" is="{{'TPL_' + item.props._tid}}" data="{{ node: item }}" />
+      <template a:else is="{{ 'TPL_' + item.type }}" data="{{ node: item }}" />
+    </block>
+  </block>
+  <template a:elif="{{root.props._tid}}" is="{{'TPL_' + root.props._tid}}" data="{{ node: root }}" />
+  <template a:else is="{{ 'TPL_' + root.type }}" data="{{ node: root }}" />
+</template>

@@ -1,9 +1,0 @@
-@import "./../../remax-styles.acss";
-.pageA-index {
-  background-color: aliceblue;
-}
-
-.a {
-  background-color: blue;
-}
-

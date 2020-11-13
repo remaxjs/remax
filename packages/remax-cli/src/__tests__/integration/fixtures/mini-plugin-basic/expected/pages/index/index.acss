@@ -1,0 +1,13 @@
+.cat-image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.dog-image {
+  background-image: url(/6e6a60f044924f71fec456293be371f9.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100rpx;
+  height: 100rpx;
+}
+

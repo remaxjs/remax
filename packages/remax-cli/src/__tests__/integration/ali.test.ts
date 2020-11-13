@@ -1,6 +1,6 @@
-import runTest from './helpers/runTest';
+import { testBuildApp } from './helpers/runTest';
 
 describe('build ali app', () => {
-  runTest('ali');
-  runTest('resolve-platform-ext');
+  testBuildApp('ali');
+  testBuildApp('resolve-platform-ext');
 });

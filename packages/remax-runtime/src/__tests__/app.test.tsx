@@ -3,7 +3,7 @@ import './helpers/setupGlobals';
 import App from './helpers/App';
 import { useAppEvent } from '../hooks';
 import createAppConfig from '../createAppConfig';
-import * as RuntimeOptions from '../RuntimeOptions';
+import { RuntimeOptions } from '@remax/framework-shared';
 
 describe('app', () => {
   beforeAll(() => {

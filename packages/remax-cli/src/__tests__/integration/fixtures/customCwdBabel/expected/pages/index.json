@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "index": "/remaxVendors/components/a/index"
+    "a-index-20116ca": "../components/a/index"
   }
 }
