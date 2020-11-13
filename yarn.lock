@@ -2413,6 +2413,103 @@
   dependencies:
     "@types/node" ">= 8"
 
+"@remax/ali@2.8.6":
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/@remax/ali/-/ali-2.8.6.tgz#9c4fc47d4046522e48eea74dbe75c860e93bb1b6"
+  integrity sha512-n2/UUF2VSt71ebHD9aiXd1joYQnqfXIKCZOCqfBEX+sQo4PYZmGjNotAj2KK0jx6l0PeAsRWc+Dg0GIVREfa1Q==
+  dependencies:
+    "@remax/shared" "2.8.6"
+    mini-types "^0.1.1"
+
+"@remax/cli@2.8.6":
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/@remax/cli/-/cli-2.8.6.tgz#d4b3a07b3cfbe7657c51aa6f8b2a3513b66ba8b5"
+  integrity sha512-5sFlvNMxeByQTR5dvN/3mZmt8wo9LVc0Eb5htz/1bh8IvM88L4PhWqzsSpQBrmtKhoBnrXMPfSjr5s6dpx3/Zw==
+  dependencies:
+    "@babel/core" "^7.7.4"
+    "@babel/helper-module-imports" "^7.7.4"
+    "@babel/preset-env" "^7.7.4"
+    "@babel/preset-typescript" "^7.7.4"
+    "@babel/register" "^7.7.0"
+    "@babel/types" "^7.7.4"
+    "@remax/macro" "2.8.6"
+    "@remax/plugin-devtools" "2.8.6"
+    "@remax/postcss-px2units" "^0.2.0"
+    "@remax/postcss-tag" "2.8.6"
+    "@remax/shared" "2.8.6"
+    "@remax/types" "2.8.6"
+    "@types/webpackbar" "^4.0.0"
+    address "^1.1.2"
+    babel-loader "^8.1.0"
+    babel-preset-remax "2.8.6"
+    chokidar "^3.4.0"
+    clean-webpack-plugin "^3.0.0"
+    copy-webpack-plugin "^5.1.1"
+    css-loader "^3.4.2"
+    detect-port "^1.3.0"
+    dotenv "^8.2.0"
+    dotenv-expand "^5.1.0"
+    ejs "^3.0.1"
+    enhanced-resolve "^4.1.1"
+    express "^4.17.1"
+    file-loader "^6.0.0"
+    html-webpack-plugin "^4.0.4"
+    htmlparser2 "^4.0.0"
+    loader-utils "^2.0.0"
+    lodash "^4.17.11"
+    magic-string "^0.25.7"
+    micromatch "^4.0.2"
+    mini-css-extract-plugin "^0.11.1"
+    node-notifier "^8.0.0"
+    postcss-loader "^3.0.0"
+    postcss-preset-env "^6.7.0"
+    regenerator-runtime "^0.13.3"
+    remax-stats "^0.1.1"
+    resolve "^1.12.0"
+    schema-utils "^2.6.1"
+    style-loader "^1.1.3"
+    webpack "^4.42.1"
+    webpack-bundle-analyzer "^3.8.0"
+    webpack-chain "^6.4.0"
+    webpack-dev-server "^3.10.3"
+    webpack-sources "^1.4.3"
+    webpack-virtual-modules "^0.3.1"
+    webpackbar "^4.0.0"
+    yargs "^16.0.3"
+
+"@remax/macro@2.8.6":
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/@remax/macro/-/macro-2.8.6.tgz#0b2b5434821a524be60ef3272da73c6929db4daf"
+  integrity sha512-QAJ8/4PtrUMDPu4fkcc/a4pHfL0s9enIBn9sCPyZHfq9ip1BOFyalEIVLTjgtN06QXIvZgwkUxBK5yOq+g6MJw==
+  dependencies:
+    "@remax/shared" "2.8.6"
+    "@remax/types" "2.8.6"
+    "@types/babel__traverse" "^7.0.8"
+
+"@remax/one@2.8.6":
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/@remax/one/-/one-2.8.6.tgz#d68ac8821fc95456d7d5cefc4e38d0a14319e140"
+  integrity sha512-DGXLlLPOJr9HJdxn9IXBdJERwYp3EikWbXXnoljlEzTBALlF/IYnHS3K7tk8r2J+U5JYAEfVA5QaSxsXG6s9EQ==
+  dependencies:
+    "@remax/ali" "2.8.6"
+    "@remax/router" "2.8.6"
+    "@remax/runtime" "2.8.6"
+    "@remax/toutiao" "2.8.6"
+    "@remax/wechat" "2.8.6"
+    clsx "^1.1.0"
+    memoize-one "^5.1.1"
+    react-autosize-textarea "^7.0.0"
+    rmc-feedback "^2.0.0"
+
+"@remax/plugin-devtools@2.8.6":
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/@remax/plugin-devtools/-/plugin-devtools-2.8.6.tgz#a53ca0be67e74c69e313ecaa668877b673902ef3"
+  integrity sha512-Q5TTBgG/ncs/+5M+xFs9lsxjmIAx9mNkcrWnFWCip6K5XinlpsaTx4lA/JrU2gOKgGS8bTUFbdvZvy7LG67j9A==
+  dependencies:
+    "@remax/react-devtools-core" "^4.7.1"
+    "@remax/shared" "2.8.6"
+    webpack-inject-plugin "^1.5.4"
+
 "@remax/postcss-px2units@^0.2.0":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@remax/postcss-px2units/-/postcss-px2units-0.2.0.tgz#b1fc4bbebca0b3682813e76d1dfcb619f91b548b"
@@ -2420,6 +2517,11 @@
   dependencies:
     object-assign "^4.1.1"
     postcss "^6.0.19"
+
+"@remax/postcss-tag@2.8.6":
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/@remax/postcss-tag/-/postcss-tag-2.8.6.tgz#b297a16e2b879309c6595b686bdfe45a66b5929c"
+  integrity sha512-mRaVbxL46b2pjPtG1WXrYgsFrTWjkg6ZAokJtWkDxToyLI2NXUiysEzy40kEmoWKFHQHLaVotXs0ugFySJBubA==
 
 "@remax/react-devtools-core@^4.7.1":
   version "4.7.1"
@@ -2452,6 +2554,58 @@
     "@remax/react-router-cache-route" "^1.8.4"
     history "^4.10.1"
     react-router-dom "^5.1.2"
+
+"@remax/runtime@2.8.6":
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/@remax/runtime/-/runtime-2.8.6.tgz#a69f32860f20c42d554bc037b27111239d178310"
+  integrity sha512-mxc8B/SF7vOwVOU7hNZ4qaIc9LR5V6RseegtYuiIwyvfllXJEw6UF5kw2sPBYIphfyRUBpFgBUJGvpr2HQt5tg==
+  dependencies:
+    "@remax/shared" "2.8.6"
+    "@remax/types" "2.8.6"
+    "@remax/web" "2.8.6"
+    qs "^6.9.3"
+    react-reconciler "0.25.1"
+    scheduler "0.19.1"
+
+"@remax/shared@2.8.6":
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/@remax/shared/-/shared-2.8.6.tgz#30ab84c10d4bf3070bd0fe4c1ca2edcc67b1c9ce"
+  integrity sha512-sVjjTqBFECFGn0Lyrs0py6KJ0U9K1Z59Jk40SX0hY+nW65V+EpIBGE4ANFlZrv4Z2f+h3z+puTPOb7ndhTLp8Q==
+
+"@remax/toutiao@2.8.6":
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/@remax/toutiao/-/toutiao-2.8.6.tgz#c9437e6cb79515bf9ff7593ede01cbbb2135b322"
+  integrity sha512-CtnxSaYS44FOqwCRs/no7Q5VppEWvXP3ard/8RRQOegowoAYmjF3LD0ojEs1Riw69XPYN+Z7VDGsEdET3S4RXw==
+  dependencies:
+    "@remax/shared" "2.8.6"
+
+"@remax/types@2.8.6":
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/@remax/types/-/types-2.8.6.tgz#b8bd14debd188c721bc41fd0e82b7dcc25f32932"
+  integrity sha512-y4ymc58k5iNNa5P2OZDF7hs3YqpCOhIEX6hIfPBrzytQE5h8Wb4ed6gnXrXiPLbnQjVXqVq+EmjPRk1WKZ+M0Q==
+  dependencies:
+    "@babel/types" "^7.8.0"
+    "@types/webpack" "^4.41.10"
+    "@types/yargs" "^15.0.0"
+    webpack-chain "^6.4.0"
+
+"@remax/web@2.8.6":
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/@remax/web/-/web-2.8.6.tgz#d08c1426a60debf02a2a7363061656f18a9ea2e1"
+  integrity sha512-a/QAvJNqX6iKi+zlmCTkFIENlTYgXTHPxAhyIaFxnBjno+Hzw3tYHh2v/1Xwb922Zvnm4fRqHGzaYQojXGuigQ==
+  dependencies:
+    "@loadable/component" "^5.12.0"
+    "@remax/router" "2.8.6"
+    rmc-pull-to-refresh "^1.0.12"
+    umi-hd "^5.0.1"
+
+"@remax/wechat@2.8.6":
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/@remax/wechat/-/wechat-2.8.6.tgz#86eca40dc5bfea12f3f5c6f20c88e07c2bfb6d93"
+  integrity sha512-K4N9GgRSyN+6vweHuSPd1P/l0ugSawjFEH2omo1UB4EANAHREsBJR3zmOkd94qM7Ttxyxn9ZdervfSAC1XDVug==
+  dependencies:
+    "@remax/shared" "2.8.6"
+    miniprogram-api-typings "^3.1.3"
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
@@ -3048,11 +3202,7 @@
   dependencies:
     "@types/node" "*"
 
-<<<<<<< HEAD
 "@types/node@*", "@types/node@>= 8":
-=======
-"@types/node@*", "@types/node@>= 8", "@types/node@^14.0.1":
->>>>>>> 25879d22... feat: 一大波更新
   version "14.14.7"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.7.tgz#8ea1e8f8eae2430cf440564b98c6dfce1ec5945d"
   integrity sha512-Zw1vhUSQZYw+7u5dAwNbIA9TuTotpzY/OF7sJM9FqPOF3SPjKnxrjoTktXDZgUjybf4cWVBP7O8wvKdSaGHweg==
@@ -4187,37 +4337,10 @@ ajv-keywords@^3.1.0, ajv-keywords@^3.4.1, ajv-keywords@^3.5.2:
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.5.2.tgz#31f29da5ab6e00d1c2d329acf7b5929614d5014d"
   integrity sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ==
 
-<<<<<<< HEAD
-ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.2, ajv@^6.9.1:
-  version "6.12.4"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.4.tgz#0614facc4522127fa713445c6bfd3ebd376e2234"
-  integrity sha512-eienB2c9qVQs2KWexhkrdMLVDoIQCz5KSeLxwg9Lzk4DOfBtIK9PQwwufcsn1jjGuf9WZmqPMbGxOzfcuphJCQ==
-  dependencies:
-    fast-deep-equal "^3.1.1"
-    fast-json-stable-stringify "^2.0.0"
-    json-schema-traverse "^0.4.1"
-    uri-js "^4.2.2"
-
-ajv@^6.12.3, ajv@^6.12.5:
-  version "6.12.6"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
-  integrity sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
-  dependencies:
-    fast-deep-equal "^3.1.1"
-    fast-json-stable-stringify "^2.0.0"
-    json-schema-traverse "^0.4.1"
-    uri-js "^4.2.2"
-
-ajv@^6.12.4:
-  version "6.12.5"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.5.tgz#19b0e8bae8f476e5ba666300387775fb1a00a4da"
-  integrity sha512-lRF8RORchjpKG50/WFf8xmg7sgCLFiYNNnqdKflk63whMQcWR5ngGjiSXkL9bjxy6B2npOK2HSMN49jEBMSkag==
-=======
 ajv@^6.1.0, ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.2, ajv@^6.12.3, ajv@^6.12.4, ajv@^6.12.5:
   version "6.12.6"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
   integrity sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
->>>>>>> 25879d22... feat: 一大波更新
   dependencies:
     fast-deep-equal "^3.1.1"
     fast-json-stable-stringify "^2.0.0"
@@ -4794,6 +4917,26 @@ babel-preset-jest@^26.6.2:
   dependencies:
     babel-plugin-jest-hoist "^26.6.2"
     babel-preset-current-node-syntax "^1.0.0"
+
+babel-preset-remax@2.8.6:
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/babel-preset-remax/-/babel-preset-remax-2.8.6.tgz#2486f5bfa71c68ae8321aceb776bcc682decdae4"
+  integrity sha512-IiMLjiASx1fWuq+TPPs1jIQrnrDDWj8Bb7wu8MdLc4myUNWqHcMHZE2XPgG6eqAQxXi57b55EMQF3wqy/ZOqmw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/plugin-proposal-class-properties" "^7.7.4"
+    "@babel/plugin-proposal-decorators" "^7.7.4"
+    "@babel/plugin-proposal-nullish-coalescing-operator" "^7.7.4"
+    "@babel/plugin-proposal-object-rest-spread" "^7.7.4"
+    "@babel/plugin-proposal-optional-chaining" "^7.7.4"
+    "@babel/plugin-syntax-jsx" "^7.7.4"
+    "@babel/preset-env" "^7.7.4"
+    "@babel/preset-react" "^7.7.4"
+    "@babel/preset-typescript" "^7.7.4"
+    "@umijs/babel-plugin-auto-css-modules" "^3.1.1"
+    babel-plugin-auto-import "^1.0.5"
+    babel-plugin-macros "^2.8.0"
+    lodash "^4.17.15"
 
 babel-runtime@6.x, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
   version "6.26.0"
@@ -6100,27 +6243,7 @@ conventional-commits-filter@^2.0.2, conventional-commits-filter@^2.0.7:
     lodash.ismatch "^4.4.0"
     modify-values "^1.0.0"
 
-<<<<<<< HEAD
-conventional-commits-parser@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/conventional-commits-parser/-/conventional-commits-parser-3.1.0.tgz#10140673d5e7ef5572633791456c5d03b69e8be4"
-  integrity sha512-RSo5S0WIwXZiRxUGTPuYFbqvrR4vpJ1BDdTlthFgvHt5kEdnd1+pdvwWphWn57/oIl4V72NMmOocFqqJ8mFFhA==
-=======
 conventional-commits-parser@^3.0.0, conventional-commits-parser@^3.0.3:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/conventional-commits-parser/-/conventional-commits-parser-3.2.0.tgz#9e261b139ca4b7b29bcebbc54460da36894004ca"
-  integrity sha512-XmJiXPxsF0JhAKyfA2Nn+rZwYKJ60nanlbSWwwkGwLQFbugsc0gv1rzc7VbbUWAzJfR1qR87/pNgv9NgmxtBMQ==
->>>>>>> 25879d22... feat: 一大波更新
-  dependencies:
-    JSONStream "^1.0.4"
-    is-text-path "^1.0.1"
-    lodash "^4.17.15"
-    meow "^8.0.0"
-    split2 "^2.0.0"
-    through2 "^4.0.0"
-    trim-off-newlines "^1.0.0"
-
-conventional-commits-parser@^3.0.3:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/conventional-commits-parser/-/conventional-commits-parser-3.2.0.tgz#9e261b139ca4b7b29bcebbc54460da36894004ca"
   integrity sha512-XmJiXPxsF0JhAKyfA2Nn+rZwYKJ60nanlbSWwwkGwLQFbugsc0gv1rzc7VbbUWAzJfR1qR87/pNgv9NgmxtBMQ==
@@ -7131,24 +7254,10 @@ dot-prop@^4.2.0:
   dependencies:
     is-obj "^1.0.0"
 
-<<<<<<< HEAD
-dot-prop@^5.1.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-5.3.0.tgz#90ccce708cd9cd82cc4dc8c3ddd9abdd55b20e88"
-  integrity sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==
-  dependencies:
-    is-obj "^2.0.0"
-
-dot-prop@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-5.2.0.tgz#c34ecc29556dc45f1f4c22697b6f4904e0cc4fcb"
-  integrity sha512-uEUyaDKoSQ1M4Oq8l45hSE26SnTxL6snNnqvK/VWx5wJhmff5z0FUVJDKDanor/6w3kzE3i7XZOk+7wC0EXr1A==
-=======
 dot-prop@^5.1.0, dot-prop@^5.2.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-5.3.0.tgz#90ccce708cd9cd82cc4dc8c3ddd9abdd55b20e88"
   integrity sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==
->>>>>>> 25879d22... feat: 一大波更新
   dependencies:
     is-obj "^2.0.0"
 
@@ -7376,17 +7485,10 @@ error-stack-parser@^2.0.0:
   dependencies:
     stackframe "^1.1.1"
 
-<<<<<<< HEAD
-es-abstract@^1.17.0, es-abstract@^1.17.2:
-  version "1.17.6"
-  resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.17.6.tgz#9142071707857b2cacc7b89ecb670316c3e2d52a"
-  integrity sha512-Fr89bON3WFyUi5EvAeI48QTWX0AyekGgLA8H+c+7fbfCkJwRWRMLd8CQedNEyJuoYYhmtEqY92pgte1FAhBlhw==
-=======
 es-abstract@^1.17.0, es-abstract@^1.17.0-next.1, es-abstract@^1.17.2, es-abstract@^1.17.5:
   version "1.17.7"
   resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.17.7.tgz#a4de61b2f66989fc7421676c1cb9787573ace54c"
   integrity sha512-VBl/gnfcJ7OercKA9MVaegWsBHFjV492syMudcnQZvt/Dw8ezpcOHYZXa/J96O8vx+g4x65YKhxOwDUh63aS5g==
->>>>>>> 25879d22... feat: 一大波更新
   dependencies:
     es-to-primitive "^1.2.1"
     function-bind "^1.1.1"
@@ -7401,41 +7503,6 @@ es-abstract@^1.17.0, es-abstract@^1.17.0-next.1, es-abstract@^1.17.2, es-abstrac
     string.prototype.trimstart "^1.0.1"
 
 es-abstract@^1.18.0-next.0, es-abstract@^1.18.0-next.1:
-  version "1.18.0-next.1"
-  resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.18.0-next.1.tgz#6e3a0a4bda717e5023ab3b8e90bec36108d22c68"
-  integrity sha512-I4UGspA0wpZXWENrdA0uHbnhte683t3qT/1VFH9aX2dA5PPSf6QW5HHXf5HImaqPmjXaVeVk4RGWnaylmV7uAA==
-  dependencies:
-    es-to-primitive "^1.2.1"
-    function-bind "^1.1.1"
-    has "^1.0.3"
-    has-symbols "^1.0.1"
-    is-callable "^1.2.2"
-    is-negative-zero "^2.0.0"
-    is-regex "^1.1.1"
-    object-inspect "^1.8.0"
-    object-keys "^1.1.1"
-    object.assign "^4.1.1"
-    string.prototype.trimend "^1.0.1"
-    string.prototype.trimstart "^1.0.1"
-
-es-abstract@^1.17.0-next.1, es-abstract@^1.17.5:
-  version "1.17.7"
-  resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.17.7.tgz#a4de61b2f66989fc7421676c1cb9787573ace54c"
-  integrity sha512-VBl/gnfcJ7OercKA9MVaegWsBHFjV492syMudcnQZvt/Dw8ezpcOHYZXa/J96O8vx+g4x65YKhxOwDUh63aS5g==
-  dependencies:
-    es-to-primitive "^1.2.1"
-    function-bind "^1.1.1"
-    has "^1.0.3"
-    has-symbols "^1.0.1"
-    is-callable "^1.2.2"
-    is-regex "^1.1.1"
-    object-inspect "^1.8.0"
-    object-keys "^1.1.1"
-    object.assign "^4.1.1"
-    string.prototype.trimend "^1.0.1"
-    string.prototype.trimstart "^1.0.1"
-
-es-abstract@^1.18.0-next.1:
   version "1.18.0-next.1"
   resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.18.0-next.1.tgz#6e3a0a4bda717e5023ab3b8e90bec36108d22c68"
   integrity sha512-I4UGspA0wpZXWENrdA0uHbnhte683t3qT/1VFH9aX2dA5PPSf6QW5HHXf5HImaqPmjXaVeVk4RGWnaylmV7uAA==
@@ -9432,13 +9499,6 @@ hosted-git-info@^3.0.2, hosted-git-info@^3.0.6:
   dependencies:
     lru-cache "^6.0.0"
 
-hosted-git-info@^3.0.6:
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-3.0.7.tgz#a30727385ea85acfcee94e0aad9e368c792e036c"
-  integrity sha512-fWqc0IcuXs+BmE9orLDyVykAG9GJtGLGuZAAqgcckPgv5xad4AcXGIv8galtQvlwutxSlaMcdw7BUtq2EIvqCQ==
-  dependencies:
-    lru-cache "^6.0.0"
-
 hpack.js@^2.1.6:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/hpack.js/-/hpack.js-2.1.6.tgz#87774c0949e513f42e84575b3c45681fade2a0b2"
@@ -10094,11 +10154,7 @@ is-buffer@^2.0.0:
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-2.0.5.tgz#ebc252e400d22ff8d77fa09888821a24a658c191"
   integrity sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==
 
-<<<<<<< HEAD
-is-callable@^1.1.4, is-callable@^1.2.0, is-callable@^1.2.2:
-=======
 is-callable@^1.1.4, is-callable@^1.2.2:
->>>>>>> 25879d22... feat: 一大波更新
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/is-callable/-/is-callable-1.2.2.tgz#c7c6715cd22d4ddb48d3e19970223aceabb080d9"
   integrity sha512-dnMqspv5nU3LoewK2N/y7KLtxtakvTuaCsU9FU50/QDmdbHNy/4/JuRtMHqRU22o3q+W89YQndQEeCVwK+3qrA==
@@ -10122,11 +10178,7 @@ is-color-stop@^1.0.0:
     rgb-regex "^1.0.1"
     rgba-regex "^1.0.0"
 
-<<<<<<< HEAD
-is-core-module@^2.0.0, is-core-module@^2.1.0:
-=======
 is-core-module@^2.1.0:
->>>>>>> 25879d22... feat: 一大波更新
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.1.0.tgz#a4cc031d9b1aca63eecbd18a650e13cb4eeab946"
   integrity sha512-YcV7BgVMRFRua2FqQzKtTDMz8iCuLEyGKjr70q8Zm1yy2qKcurbFEd79PAdHV77oL3NrAaOVQIbMmiHQCHB7ZA==
@@ -10339,11 +10391,7 @@ is-promise@^2.1:
   resolved "https://registry.yarnpkg.com/is-promise/-/is-promise-2.2.2.tgz#39ab959ccbf9a774cf079f7b40c7a26f763135f1"
   integrity sha512-+lP4/6lKUBfQjZ2pdxThZvLUAafmZb8OAxFb8XXtiQmS35INgr85hdOGoEs124ez1FCnZJt6jau/T+alh58QFQ==
 
-<<<<<<< HEAD
-is-regex@^1.0.4, is-regex@^1.1.0, is-regex@^1.1.1:
-=======
 is-regex@^1.0.4, is-regex@^1.1.1:
->>>>>>> 25879d22... feat: 一大波更新
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/is-regex/-/is-regex-1.1.1.tgz#c6f98aacc546f6cec5468a07b7b153ab564a57b9"
   integrity sha512-1+QkEcxiLlB7VEyFtyBg94e08OAsvq7FUBgApTq/w2ymCLyKJgDPsybBENVtA7XCQEgEXxKPonG+mvYRxh/LIg==
@@ -12015,11 +12063,7 @@ meow@^4.0.0:
     redent "^2.0.0"
     trim-newlines "^2.0.0"
 
-<<<<<<< HEAD
-meow@^7.0.0:
-=======
 meow@^7.1.1:
->>>>>>> 25879d22... feat: 一大波更新
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/meow/-/meow-7.1.1.tgz#7c01595e3d337fcb0ec4e8eed1666ea95903d306"
   integrity sha512-GWHvA5QOcS412WCo8vwKDlTelGLsCGBVevQB5Kva961rmNfun0PCbv5+xta2kUMFJyR8/oWnn7ddeKdosbAPbA==
@@ -12799,11 +12843,7 @@ object-copy@^0.1.0:
     define-property "^0.2.5"
     kind-of "^3.0.3"
 
-<<<<<<< HEAD
-object-inspect@^1.7.0, object-inspect@^1.8.0:
-=======
 object-inspect@^1.8.0:
->>>>>>> 25879d22... feat: 一大波更新
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/object-inspect/-/object-inspect-1.8.0.tgz#df807e5ecf53a609cc6bfe93eac3cc7be5b3a9d0"
   integrity sha512-jLdtEOB112fORuypAyl/50VRVIBIdVQOSUUGQHzJ4xBSbit81zRarz7GThkEFZy1RceYrWYcPcBFPQwHyAc1gA==
@@ -12841,11 +12881,7 @@ object-visit@^1.0.0:
   dependencies:
     isobject "^3.0.0"
 
-<<<<<<< HEAD
-object.assign@^4.1.0, object.assign@^4.1.1:
-=======
 object.assign@^4.1.0, object.assign@^4.1.1, object.assign@^4.1.2:
->>>>>>> 25879d22... feat: 一大波更新
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/object.assign/-/object.assign-4.1.2.tgz#0ed54a342eceb37b38ff76eb831a0e788cb63940"
   integrity sha512-ixT2L5THXsApyiUPYKmW+2EHpXXe5Ii3M+f4e+aJFAHao5amFRW6J0OO6c/LU8Be47utCx2GL89hxGB6XSmKuQ==
@@ -15343,6 +15379,22 @@ remax-stats@^0.1.1:
     git-url-parse "^11.1.2"
     is-git-repository "^1.1.1"
 
+remax@2.8.6:
+  version "2.8.6"
+  resolved "https://registry.yarnpkg.com/remax/-/remax-2.8.6.tgz#48aa1a340c1a777fec4b0393dca0b54f4a135c3d"
+  integrity sha512-S0zZ//W+ywxymfDeuWzoKwcfCVechQ2gZbLLm5EsDOO+VdC9boHQsEqJzsu38djSkE4B4cap1kYnXKd5CZ4RKg==
+  dependencies:
+    "@remax/ali" "2.8.6"
+    "@remax/cli" "2.8.6"
+    "@remax/macro" "2.8.6"
+    "@remax/one" "2.8.6"
+    "@remax/runtime" "2.8.6"
+    "@remax/toutiao" "2.8.6"
+    "@remax/web" "2.8.6"
+    "@remax/wechat" "2.8.6"
+    mini-types "^0.1.1"
+    miniprogram-api-typings "^3.1.3"
+
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/remove-trailing-separator/-/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"
@@ -15522,25 +15574,10 @@ resolve@1.17.0:
   dependencies:
     path-parse "^1.0.6"
 
-<<<<<<< HEAD
-resolve@^1.10.0:
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.19.0.tgz#1af5bf630409734a067cae29318aac7fa29a267c"
-  integrity sha512-rArEXAgsBG4UgRGcynxWIWKFvh/XZCcS8UJdHhwy91zwAvCZIbcs+vAbflgBnNjYMs/i/i+/Ux6IZhML1yPvxg==
-  dependencies:
-    is-core-module "^2.1.0"
-    path-parse "^1.0.6"
-
-resolve@^1.10.1, resolve@^1.12.0, resolve@^1.13.1, resolve@^1.17.0, resolve@^1.3.2, resolve@^1.8.1:
-  version "1.18.1"
-  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.18.1.tgz#018fcb2c5b207d2a6424aee361c5a266da8f4130"
-  integrity sha512-lDfCPaMKfOJXjy0dPayzPdF1phampNWr3qFCjAu+rw/qbQmr5jWH5xN2hwh9QKfw9E5v4hwV7A+jrCmL8yjjqA==
-=======
 resolve@^1.10.0, resolve@^1.12.0, resolve@^1.13.1, resolve@^1.17.0, resolve@^1.18.1, resolve@^1.3.2, resolve@^1.8.1:
   version "1.19.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.19.0.tgz#1af5bf630409734a067cae29318aac7fa29a267c"
   integrity sha512-rArEXAgsBG4UgRGcynxWIWKFvh/XZCcS8UJdHhwy91zwAvCZIbcs+vAbflgBnNjYMs/i/i+/Ux6IZhML1yPvxg==
->>>>>>> 25879d22... feat: 一大波更新
   dependencies:
     is-core-module "^2.1.0"
     path-parse "^1.0.6"
@@ -15670,24 +15707,10 @@ rx@^4.1.0:
   resolved "https://registry.yarnpkg.com/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
   integrity sha1-pfE/957zt0D+MKqAP7CfmIBdR4I=
 
-<<<<<<< HEAD
-rxjs@^6.4.0:
-  version "6.6.3"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.3.tgz#8ca84635c4daa900c0d3967a6ee7ac60271ee552"
-  integrity sha512-trsQc+xYYXZ3urjOiJOuCOa5N3jAZ3eiSpQB5hIT8zGlL2QfnHLJ2r7GMkBGuIausdJN1OneaI6gQlsqNHHmZQ==
-  dependencies:
-    tslib "^1.9.0"
-
-rxjs@^6.5.2, rxjs@^6.6.0, rxjs@^6.6.2:
-  version "6.6.2"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.2.tgz#8096a7ac03f2cc4fe5860ef6e572810d9e01c0d2"
-  integrity sha512-BHdBMVoWC2sL26w//BCu3YzKT4s2jip/WhwsGEDmeKYBhKDZeYezVUnHatYB7L85v5xs0BAQmg6BEYJEKxBabg==
-=======
 rxjs@^6.4.0, rxjs@^6.5.2, rxjs@^6.6.0, rxjs@^6.6.3:
   version "6.6.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.6.3.tgz#8ca84635c4daa900c0d3967a6ee7ac60271ee552"
   integrity sha512-trsQc+xYYXZ3urjOiJOuCOa5N3jAZ3eiSpQB5hIT8zGlL2QfnHLJ2r7GMkBGuIausdJN1OneaI6gQlsqNHHmZQ==
->>>>>>> 25879d22... feat: 一大波更新
   dependencies:
     tslib "^1.9.0"
 
@@ -17462,26 +17485,12 @@ tsconfig-paths@^3.9.0:
     minimist "^1.2.0"
     strip-bom "^3.0.0"
 
-<<<<<<< HEAD
-tslib@^1.10.0, tslib@^1.8.1:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
-  integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
-
-tslib@^1.9.0:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
-  integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
-
-tsutils@^3.17.1, tsutils@^3.7.0:
-=======
 tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
 tsutils@^3.17.1:
->>>>>>> 25879d22... feat: 一大波更新
   version "3.17.1"
   resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-3.17.1.tgz#ed719917f11ca0dee586272b2ac49e015a2dd759"
   integrity sha512-kzeQ5B8H3w60nFY2g8cJIuH7JDpsALXySGtwGJ0p2LSjLgay3NdIpqq5SoOBe46bKDW2iq25irHCr8wjomUS2g==
@@ -18778,21 +18787,7 @@ yargs-parser@^15.0.1:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
 
-<<<<<<< HEAD
-yargs-parser@^20.0.0:
-  version "20.0.0"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.0.0.tgz#c65a1daaa977ad63cebdd52159147b789a4e19a9"
-  integrity sha512-8eblPHTL7ZWRkyjIZJjnGf+TijiKJSwA24svzLRVvtgoi/RZiKa9fFQTrlx0OKLnyHSdt/enrdadji6WFfESVA==
-
-yargs-parser@^20.2.3:
-  version "20.2.4"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.4.tgz#b42890f14566796f85ae8e3a25290d205f154a54"
-  integrity sha512-WOkpgNhPTlE73h4VFAFsOnomJVaovO8VqLDzy5saChRBFQFBoMYirowyW+Q9HB4HFF4Z7VZTiG3iSzJJA29yRA==
-
-yargs@15.4.1, yargs@^15.3.1:
-=======
 yargs@15.4.1, yargs@^15.4.1:
->>>>>>> 25879d22... feat: 一大波更新
   version "15.4.1"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-15.4.1.tgz#0d87a16de01aee9d8bec2bfbf74f67851730f4f8"
   integrity sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A==
