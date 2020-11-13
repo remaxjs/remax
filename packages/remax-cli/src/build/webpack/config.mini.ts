@@ -84,7 +84,7 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
       },
     },
   });
-  config.optimization.minimize(false);
+  config.optimization.minimize(builder.options.minimize ?? false);
 
   if (builder.options.turboRenders) {
     const options = {

@@ -1,5 +1,5 @@
 import yargs from 'yargs';
-import { Options, Platform, Plugin } from '@remax/types';
+import { Options, Plugin } from '@remax/types';
 import { buildApp, buildMiniPlugin } from './build';
 import getConfig from './getConfig';
 import API from './API';
@@ -15,6 +15,7 @@ export default class RemaxCLI {
     process.env.REMAX_PLATFORM = argv.t || argv.target || 'ali';
 
     this.options = getConfig();
+    this.options.compressTemplate = this.options.compressTemplate ?? argv.minimize;
     this.api = new API();
     const cli = this.initCLI();
     this.registerBuiltinPlugins();
@@ -68,6 +69,12 @@ export default class RemaxCLI {
               alias: 'p',
               type: 'number',
             })
+            .option('minimize', {
+              describe: '最小化文件',
+              alias: 'm',
+              type: 'boolean',
+              default: false,
+            })
             .option('analyze', {
               describe: '编译分析',
               alias: 'a',
@@ -80,7 +87,6 @@ export default class RemaxCLI {
           buildApp({ ...this.options, ...argv }, this.api!);
           try {
             require('remax-stats').run({ type: 'remax' });
-            require('@alipay/remax-stats').run({ buildType: argv.target === Platform.web ? 'web-app' : 'mini-app' });
           } catch (e) {
             // ignore
           }
@@ -107,7 +113,6 @@ export default class RemaxCLI {
             buildMiniPlugin({ ...this.options, ...argv });
             try {
               require('remax-stats').run({ type: 'remax' });
-              require('@alipay/remax-stats').run({ buildType: 'mini-plugin' });
             } catch (e) {
               // ignore
             }

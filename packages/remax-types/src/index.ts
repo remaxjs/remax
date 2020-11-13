@@ -46,6 +46,7 @@ export interface BuildOptions {
   type?: BuildType;
   component?: any;
   web?: WebOptions;
+  minimize?: boolean;
 }
 
 export type Options = BuildOptions & PluginOptions;
