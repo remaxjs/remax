@@ -4,6 +4,7 @@ import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { Options } from '@remax/types';
 import { slash } from '@remax/shared';
+import Builder from '../../Builder';
 
 export interface RuleConfig {
   name: string;
@@ -20,7 +21,8 @@ function resolvePostcssConfig(options: Options) {
   return slash(path.resolve(__dirname, '../../../..'));
 }
 
-export function addCSSRule(webpackConfig: Config, options: Options, web: boolean, ruleConfig: RuleConfig) {
+export function addCSSRule(webpackConfig: Config, builder: Builder, web: boolean, ruleConfig: RuleConfig) {
+  const { options } = builder;
   const rule = webpackConfig.module.rule(ruleConfig.name).test(ruleConfig.test);
 
   function applyLoaders(rule: Config.Rule<Config.Rule<Config.Module>>, cssModules: boolean) {
@@ -76,16 +78,17 @@ export function addCSSRule(webpackConfig: Config, options: Options, web: boolean
   applyLoaders(rule.oneOf('normal'), false);
 }
 
-export function cssConfig(webpackConfig: Config, options: Options, web: boolean) {
-  addCSSRule(webpackConfig, options, web, {
+export function cssConfig(webpackConfig: Config, builder: Builder, web: boolean) {
+  addCSSRule(webpackConfig, builder, web, {
     name: 'css',
     test: /\.css(\?.*)?$/,
   });
 
   if (!web) {
+    const { style } = builder.api.getMeta();
     webpackConfig.module
-      .rule('acss')
-      .test(/\.acss$/)
+      .rule(style)
+      .test(file => file.endsWith(style))
       .use('mini-css-extract-loader')
       .loader(MiniCssExtractPlugin.loader)
       .end()

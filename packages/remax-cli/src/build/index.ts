@@ -7,6 +7,8 @@ import API from '../API';
 const version = require('remax/package.json').version;
 
 export function run(options: Options, api: API): webpack.Compiler {
+  api.onBuildStart(options);
+
   if (options.target === Platform.web) {
     // 兼容 herbox 所以用 require
     const WebBuilder = require('./WebBuilder').default;

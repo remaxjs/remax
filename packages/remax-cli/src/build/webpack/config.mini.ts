@@ -162,7 +162,7 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
       builder,
     });
 
-  cssConfig(config, builder.options, false);
+  cssConfig(config, builder, false);
 
   config.module
     .rule('image')
@@ -221,7 +221,7 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
     config,
     webpack,
     addCSSRule: (ruleConfig: RuleConfig) => {
-      addCSSRule(config, builder.options, false, ruleConfig);
+      addCSSRule(config, builder, false, ruleConfig);
     },
   };
 

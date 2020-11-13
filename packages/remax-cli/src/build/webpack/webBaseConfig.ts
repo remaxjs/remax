@@ -34,7 +34,7 @@ export default function webBaseConfig(config: Config, builder: Builder) {
     config.module.rule('js').exclude.add(/(node_modules)/);
   }
 
-  cssConfig(config, builder.options, true);
+  cssConfig(config, builder, true);
 
   config.module
     .rule('image')
@@ -79,7 +79,7 @@ export default function webBaseConfig(config: Config, builder: Builder) {
     config,
     webpack,
     addCSSRule: (ruleConfig: RuleConfig) => {
-      addCSSRule(config, builder.options, true, ruleConfig);
+      addCSSRule(config, builder, true, ruleConfig);
     },
   };
 

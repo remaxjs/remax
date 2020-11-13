@@ -1,5 +1,5 @@
 import * as t from '@babel/types';
-import { Plugin, Meta, HostComponent, Platform } from '@remax/types';
+import { Plugin, Meta, HostComponent, Platform, Options } from '@remax/types';
 import { slash } from '@remax/shared';
 import { merge } from 'lodash';
 import Config from 'webpack-chain';
@@ -88,6 +88,14 @@ export default class API {
 
       return result;
     }, true);
+  }
+
+  onBuildStart(config: Options) {
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.onBuildStart === 'function') {
+        plugin.onBuildStart({ config });
+      }
+    });
   }
 
   onAppConfig(config: any) {

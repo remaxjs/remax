@@ -173,6 +173,8 @@ export interface Plugin {
    */
   shouldHostComponentRegister?: (options: ShouldHostComponentRegister) => boolean;
 
+  onBuildStart?: (params: { config: Options }) => void;
+
   /**
    * 修改 webpack 配置
    */
