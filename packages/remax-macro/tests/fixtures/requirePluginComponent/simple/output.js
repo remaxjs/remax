@@ -1,2 +1,2 @@
 import { createNativeComponent } from '@remax/runtime';
-createNativeComponent('component');
+createNativeComponent('component-ce1ea8e');
