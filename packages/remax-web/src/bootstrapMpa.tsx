@@ -4,6 +4,7 @@ import hd from 'umi-hd';
 import createAppConfig from './createAppConfig';
 import { PluginDriver, RuntimeOptions } from '@remax/framework-shared';
 import createPageConfig from './createPageConfig';
+import '../assets/normalize.css';
 import '../assets/app.css';
 
 const noop = () => {
