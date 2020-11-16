@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  build:
+  e2e:
     runs-on: ${{ matrix.os }}
 
     strategy:
