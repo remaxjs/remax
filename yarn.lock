@@ -3248,13 +3248,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/puppeteer@^3.0.0":
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/@types/puppeteer/-/puppeteer-3.0.5.tgz#5ef5d023f45c0dfcc82e97548891b11b6ce868fb"
-  integrity sha512-NkphUMkpbr/us6hp1AqUh/UxX5Tf2UJU94MvaF8OOgIUPBipYodql+yRjcysJKqwnDkchp+cD/8jntI/C9StzA==
-  dependencies:
-    "@types/node" "*"
-
 "@types/q@^1.5.1":
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
@@ -18083,7 +18076,7 @@ ts-jest@^24.1.0:
     semver "^5.5"
     yargs-parser "10.x"
 
-ts-jest@^26.0.0, ts-jest@^26.1.0, ts-jest@^26.1.4, ts-jest@^26.2.0:
+ts-jest@^26.0.0, ts-jest@^26.1.0, ts-jest@^26.1.4:
   version "26.4.4"
   resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-26.4.4.tgz#61f13fb21ab400853c532270e52cc0ed7e502c49"
   integrity sha512-3lFWKbLxJm34QxyVNNCgXX1u4o/RV0myvA2y2Bxm46iGIjKlaY0own9gIckbjZJPn+WaJEnfPPJ20HHGpoq4yg==
