@@ -1,4 +1,4 @@
-.remix-button {
+.remax-button {
   /* prettier-ignore */
   font-size: 18PX;
   /* prettier-ignore */
@@ -25,7 +25,7 @@
   border: 1PX solid rgb(238, 238, 238);
 }
 
-.remix-input {
+.remax-input {
   /* prettier-ignore */
   font-size: 17PX;
   /* prettier-ignore */
@@ -38,7 +38,7 @@
   box-sizing: content-box;
 }
 
-.remix-textarea {
+.remax-textarea {
   position: relative;
   background-color: rgb(255, 255, 255);
   /* prettier-ignore */
@@ -51,7 +51,7 @@
   line-height: 1.4;
 }
 
-.remix-image {
+.remax-image {
   background-repeat: no-repeat;
   display: inline-block;
   overflow: hidden;
@@ -62,26 +62,26 @@
   height: 225PX;
 }
 
-.remix-text-selectable {
+.remax-text-selectable {
   user-select: text;
 }
 
-.remix-web-view {
+.remax-web-view {
   width: 100%;
   min-height: 100vh;
 }
 
-.remix-page.with-tab-bar {
+.remax-page.with-tab-bar {
   padding-bottom: 96px;
 }
 
-.remix-page {
+.remax-page {
   min-height: 100vh;
   box-sizing: border-box;
   font-size: 32px;
 }
 
-.remix-page.disable-scroll {
+.remax-page.disable-scroll {
   overflow: hidden;
 }
 
@@ -103,12 +103,12 @@
   margin-top: -100px;
 }
 
-.remix-pull-to-refresh-loading {
+.remax-pull-to-refresh-loading {
   width: 100px;
   height: 100px;
 }
 
-.remix-tab-bar {
+.remax-tab-bar {
   height: 96px;
   position: fixed;
   bottom: 0;
@@ -122,7 +122,7 @@
   z-index: 999999;
 }
 
-.remix-tab-bar .remix-tab-item {
+.remax-tab-bar .remax-tab-item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -130,7 +130,7 @@
   height: 100%;
 }
 
-.remix-tab-bar .remix-tab-item .remix-tab-item-image {
+.remax-tab-bar .remax-tab-item .remax-tab-item-image {
   height: 34px;
   width: 34px;
   background-size: contain;
@@ -138,9 +138,9 @@
   background-repeat: no-repeat;
 }
 
-.remix-tab-bar .remix-tab-item .remix-tab-item-title {
+.remax-tab-bar .remax-tab-item .remax-tab-item-title {
 }
 
-.remix-tab-bar .remix-tab-item .remix-tab-item-title.active {
+.remax-tab-bar .remax-tab-item .remax-tab-item-title.active {
   color: #108ee9;
 }
