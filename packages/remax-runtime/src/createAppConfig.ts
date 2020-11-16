@@ -1,12 +1,15 @@
 import './polyfills/Function';
 import * as React from 'react';
-import { RuntimeOptions } from '@remax/framework-shared';
+import { ForwardRef } from 'react-is';
 import render from './render';
 import AppContainer from './AppContainer';
-import isClassComponent from './utils/isClassComponent';
-import { AppLifecycle, callbackName, appEvents } from './lifecycle';
-import AppInstanceContext from './AppInstanceContext';
-import { ForwardRef } from './ReactIs';
+import {
+  AppInstanceContext,
+  RuntimeOptions,
+  AppLifecycle,
+  callbackName,
+  isClassComponent,
+} from '@remax/framework-shared';
 
 class DefaultAppComponent extends React.Component {
   render() {
@@ -116,7 +119,7 @@ export default function createAppConfig(this: any, App: any) {
       },
     };
 
-    appEvents().forEach(eventName => {
+    (RuntimeOptions.get('appEvents') || []).forEach(eventName => {
       if (lifecycleEvent[eventName]) {
         config[eventName] = lifecycleEvent[eventName];
       }

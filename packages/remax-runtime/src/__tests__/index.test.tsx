@@ -5,8 +5,7 @@ import Input from './helpers/Input';
 import render from '../render';
 import { reset as resetInstanceId } from '../instanceId';
 import Container from '../Container';
-import createPageWrapper from '../createPageWrapper';
-import { useNativeEffect, usePageInstance } from '../hooks';
+import { useNativeEffect } from '../hooks';
 import { RuntimeOptions } from '@remax/framework-shared';
 import { Platform } from '@remax/types';
 
@@ -557,22 +556,6 @@ it('useNativeEffect deps works', done => {
   };
   const container = new Container(p);
   render(<Page />, container);
-});
-
-it('usePageInstance works', done => {
-  const Page = createPageWrapper(() => {
-    const instance = usePageInstance();
-
-    React.useEffect(() => {
-      expect(instance.data).toBeDefined();
-      done();
-    }, []);
-
-    return <View />;
-  }, '');
-  const container = new Container(p);
-  const modalContainer = new Container({});
-  render(<Page page={{ data: {} }} query={{}} modalContainer={modalContainer} />, container);
 });
 
 describe('Remax Suspense placeholder', () => {

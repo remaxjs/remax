@@ -38,6 +38,7 @@
     "@remax/types": "2.8.10",
     "@remax/web": "2.8.10",
     "qs": "^6.9.3",
+    "react-is": "^17.0.1",
     "react-reconciler": "0.25.1",
     "scheduler": "0.19.1"
   },

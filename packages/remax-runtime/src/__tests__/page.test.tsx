@@ -2,8 +2,7 @@ import * as React from 'react';
 import './helpers/setupGlobals';
 import createPageConfig from '../createPageConfig';
 import { usePageEvent } from '../../src';
-import { PageProps } from '../createPageWrapper';
-import { RuntimeOptions } from '@remax/framework-shared';
+import { RuntimeOptions, PageProps } from '@remax/framework-shared';
 import View from './helpers/View';
 import Page from './helpers/Page';
 

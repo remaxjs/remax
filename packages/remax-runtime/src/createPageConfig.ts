@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { RuntimeOptions } from '@remax/framework-shared';
-import createPageWrapper from './createPageWrapper';
-import { Lifecycle, callbackName, pageEvents } from './lifecycle';
+import { createPageWrapper, RuntimeOptions, Lifecycle, callbackName } from '@remax/framework-shared';
 import stopPullDownRefresh from './stopPullDownRefresh';
 import Container from './Container';
 import { createPortal } from './ReactPortal';
@@ -200,7 +198,7 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
     },
   };
 
-  pageEvents(name).forEach(eventName => {
+  (RuntimeOptions.get('pageEvents')[name] ?? []).forEach(eventName => {
     if (lifecycleEvents[eventName]) {
       config[eventName] = lifecycleEvents[eventName];
     }
