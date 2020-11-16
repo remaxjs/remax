@@ -1,4 +1,0 @@
-<view id="slot">
-  slot
-  <slot name="inner" />
-</view>

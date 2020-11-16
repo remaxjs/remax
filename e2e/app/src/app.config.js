@@ -22,15 +22,10 @@ if (process.env.REMAX_PLATFORM === 'ali') {
   );
 }
 
-module.exports = {
+module.exports.ali = {
   pages,
-  spm: {
-    spmAPos: 'a103',
-    bizType: 'BAOXIAN',
-    debug: true,
-  },
   window: {
-    defaultTitle: 'Alipay App',
+    defaultTitle: 'Test App',
     titleBarColor: '#323239',
   },
   subPackages: [
@@ -55,6 +50,30 @@ module.exports = {
         name: '其他',
         icon: './assets/images/cat.jpg',
         activeIcon: './assets/images/dog.jpg',
+      },
+    ],
+  },
+};
+
+module.exports.web = {
+  pages,
+  title: 'Remax Web Template',
+  tabBar: {
+    backgroundColor: '#fff',
+    activeTitleColor: 'red',
+    titleColor: 'blue',
+    items: [
+      {
+        url: 'pages/index/index',
+        title: '首页',
+        image: './assets/images/cat.jpg',
+        activeImage: './assets/images/dog.jpg',
+      },
+      {
+        url: 'packageA/pages/index',
+        title: '其他',
+        image: './assets/images/cat.jpg',
+        activeImage: './assets/images/dog.jpg',
       },
     ],
   },
