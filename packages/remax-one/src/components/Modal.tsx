@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { usePageContext, createPortal } from '@remax/runtime';
+import { usePageInstance, createPortal } from '@remax/runtime';
 
 export default function Modal({ children }: React.PropsWithChildren<Record<string, any>>) {
-  // context 一定存在
-  const ctx = usePageContext()!;
+  const inst = usePageInstance();
 
-  return createPortal(children, ctx.modalContainer);
+  return createPortal(children, inst.modalContainer);
 }

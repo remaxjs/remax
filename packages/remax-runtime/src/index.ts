@@ -5,7 +5,6 @@ export { default as createComponentConfig } from './createComponentConfig';
 export { default as createNativeComponent } from './createNativeComponent';
 export { default as createHostComponent } from './createHostComponent';
 export { createPortal } from './ReactPortal';
-export { default as usePageContext } from './hooks/usePageContext';
 export { RuntimeOptions, PluginDriver } from '@remax/framework-shared';
 export * from './hooks';
 
