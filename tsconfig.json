@@ -41,10 +41,10 @@
       "path": "./packages/remax-toutiao"
     },
     {
-      "path": "./packages/remax-one"
+      "path": "./packages/remax-web"
     },
     {
-      "path": "./packages/remax-web"
+      "path": "./packages/remax-one"
     },
     {
       "path": "./packages/remax-macro"

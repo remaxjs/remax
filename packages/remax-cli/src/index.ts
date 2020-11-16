@@ -29,10 +29,7 @@ export default class RemaxCLI {
 
   registerBuiltinPlugins() {
     const plugins = builtinPlugins.reduce((acc: Plugin[], plugin) => {
-      const options = (this.options as any)[plugin.optionKey];
-      if (options) {
-        acc.push(plugin.init(options === true ? {} : options, this.options));
-      }
+      acc.push(plugin.init({}, this.options));
       return acc;
     }, []);
     this.api?.registerPlugins(plugins);

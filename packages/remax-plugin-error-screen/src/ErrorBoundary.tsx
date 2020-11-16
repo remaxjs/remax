@@ -23,6 +23,7 @@ export default class ErrorScreen extends React.Component<Props, State> {
     const { error } = this.state;
     const { errorScreen } = this.props;
     if (error) {
+      console.log(111);
       return React.createElement(errorScreen, { error });
     }
 

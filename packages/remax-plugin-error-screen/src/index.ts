@@ -23,7 +23,7 @@ export default (_: any, { cwd, rootDir }: { cwd: string; rootDir: string }) => {
   const errorBoundaryFile = path.resolve(__dirname, './ErrorBoundary.js');
 
   const virtualModules = new VirtualModulesPlugin({
-    'node_modules/@alipay/remax-plugin-error-screen/runtime.js': `
+    'node_modules/@remax/plugin-error-screen/runtime.js': `
         import React from 'react';
         import { View } from 'remax/one';
         import ErrorScreen from '${errorScreenFile}';
@@ -48,7 +48,7 @@ export default (_: any, { cwd, rootDir }: { cwd: string; rootDir: string }) => {
       config.plugin('remax-plugin-error-screen-virtual-modules').use(virtualModules);
     },
     registerRuntimePlugin() {
-      return '@alipay/remax-plugin-error-screen/runtime.js';
+      return '@remax/plugin-error-screen/runtime.js';
     },
   };
 };

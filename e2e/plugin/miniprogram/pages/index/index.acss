@@ -1,0 +1,19 @@
+.demo-page {
+  padding: 116rpx;
+}
+
+.logo {
+  width: 194rpx;
+  height: 206rpx;
+}
+
+.title {
+  margin: 40rpx 0;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.nav {
+  margin-bottom: 10rpx;
+  color: #1890FF;
+}
