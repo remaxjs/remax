@@ -1,3 +1,4 @@
+import * as path from 'path';
 import Builder from '../Builder';
 import { replaceExtension } from '../utils/paths';
 import readManifest from '../../readManifest';
@@ -10,7 +11,7 @@ export default class NormalEntry {
   constructor(builder: Builder, name: string, filename: string) {
     this.builder = builder;
     this.name = name;
-    this.filename = filename;
+    this.filename = path.resolve(filename);
   }
 
   getManifest() {

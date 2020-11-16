@@ -14,8 +14,8 @@ export default class VirtualEntry extends NormalEntry {
 
   constructor(builder: Builder, name: string, filename: string) {
     super(builder, name, filename);
-    this.originalSource = fs.existsSync(filename) ? fs.readFileSync(filename).toString() : '';
-    this.virtualPath = replaceExtension(filename, '.entry.js');
+    this.originalSource = fs.existsSync(this.filename) ? fs.readFileSync(this.filename).toString() : '';
+    this.virtualPath = replaceExtension(this.filename, '.entry.js');
     this.virtualModule = new VirtualModulesPlugin({
       [this.virtualPath]: this.outputSource(),
     });
