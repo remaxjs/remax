@@ -36,6 +36,7 @@ export interface BuildOptions {
   output: string;
   rootDir: string;
   compressTemplate?: boolean;
+  UNSAFE_wechatTemplateDepth: number | { [key: string]: number };
   configWebpack?: (params: { config: WebpackConfig; webpack: any }) => void;
   plugins: Plugin[];
   port?: number;

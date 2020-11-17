@@ -9,6 +9,7 @@ import { slash } from '@remax/shared';
 import API from '../../../../API';
 import NormalEntry from '../../../entries/NormalEntry';
 import PageEntry from '../../../entries/PageEntry';
+import { ensureDepth } from '../../../../defaultOptions/UNSAFE_wechatTemplateDepth';
 
 export function createRenderOptions(
   page: string,
@@ -110,6 +111,7 @@ export async function createBaseTemplate(
       components,
       slotView,
       sortBy,
+      depth: ensureDepth(options.UNSAFE_wechatTemplateDepth),
     },
     {
       rmWhitespace: options.compressTemplate,
