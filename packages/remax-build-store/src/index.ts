@@ -1,6 +1,7 @@
 import * as crypto from 'crypto';
 import { kebabCase } from 'lodash';
 import { ComponentManifest, HostComponent } from '@remax/types';
+import { slash } from '@remax/shared';
 
 export interface ExtractedTemplate {
   template: string;
@@ -92,7 +93,7 @@ const Store = {
 
   generateTemplateId(filename: string) {
     const id = this.templateId;
-    const hash = generatePathHash(filename);
+    const hash = generatePathHash(slash(filename));
     this.templateId += 1;
     return [hash, id.toString()].join('-');
   },

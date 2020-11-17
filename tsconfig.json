@@ -5,6 +5,12 @@
       "path": "./packages/remax-types"
     },
     {
+      "path": "./packages/remax-framework-shared"
+    },
+    {
+      "path": "./packages/remax-shared"
+    },
+    {
       "path": "./packages/remax-build-store"
     },
     {
@@ -21,12 +27,6 @@
     },
     {
       "path": "./packages/babel-plugin-remax-regenerator-runtime"
-    },
-    {
-      "path": "./packages/remax-framework-shared"
-    },
-    {
-      "path": "./packages/remax-shared"
     },
     {
       "path": "./packages/remax-runtime"
