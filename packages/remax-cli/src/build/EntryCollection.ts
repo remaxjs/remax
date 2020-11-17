@@ -64,7 +64,8 @@ export default class EntryCollection {
     );
 
     if ([BuildType.miniApp, BuildType.webApp].includes(this.builder.buildType)) {
-      const subPackages = (projectConfig as AppConfig).subPackages ?? [];
+      const subPackages = (projectConfig as AppConfig).subPackages ?? (projectConfig as any).subpackages ?? [];
+
       // 分包页面
       subPackages.forEach((pack: { pages: string[]; root: string }) => {
         pages.push(
