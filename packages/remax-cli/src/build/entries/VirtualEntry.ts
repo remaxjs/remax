@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import * as path from 'path';
 import { compilation } from 'webpack';
 import SingleEntryDependency from 'webpack/lib/dependencies/SingleEntryDependency';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
@@ -15,7 +16,7 @@ export default class VirtualEntry extends NormalEntry {
   constructor(builder: Builder, name: string, filename: string) {
     super(builder, name, filename);
     this.originalSource = fs.existsSync(this.filename) ? fs.readFileSync(this.filename).toString() : '';
-    this.virtualPath = replaceExtension(this.filename, '.entry.js');
+    this.virtualPath = path.resolve(replaceExtension(this.filename, '.entry.js'));
     this.virtualModule = new VirtualModulesPlugin({
       [this.virtualPath]: this.outputSource(),
     });

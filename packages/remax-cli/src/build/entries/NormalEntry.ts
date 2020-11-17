@@ -1,4 +1,4 @@
-import * as path from 'path';
+import { slash } from '@remax/shared';
 import Builder from '../Builder';
 import { replaceExtension } from '../utils/paths';
 import readManifest from '../../readManifest';
@@ -11,7 +11,7 @@ export default class NormalEntry {
   constructor(builder: Builder, name: string, filename: string) {
     this.builder = builder;
     this.name = name;
-    this.filename = path.resolve(filename);
+    this.filename = slash(filename);
   }
 
   getManifest() {
