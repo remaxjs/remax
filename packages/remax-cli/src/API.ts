@@ -76,20 +76,6 @@ export default class API {
     return nextProps;
   }
 
-  public shouldHostComponentRegister(componentName: string, phase: 'import' | 'jsx' | 'extra', additional?: boolean) {
-    return this.plugins.reduce((result, plugin) => {
-      if (typeof plugin.shouldHostComponentRegister === 'function') {
-        return plugin.shouldHostComponentRegister({
-          componentName,
-          additional,
-          phase,
-        });
-      }
-
-      return result;
-    }, true);
-  }
-
   onBuildStart(config: Options) {
     this.plugins.forEach(plugin => {
       if (typeof plugin.onBuildStart === 'function') {
