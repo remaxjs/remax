@@ -109,6 +109,7 @@ export async function createBaseTemplate(
     meta.ejs.base,
     {
       components,
+      skipComponents: Store.skipHostComponents,
       slotView,
       sortBy,
       depth: ensureDepth(options.UNSAFE_wechatTemplateDepth),

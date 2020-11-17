@@ -10,3 +10,4 @@ export { default as isClassComponent } from './utils/isClassComponent';
 export * from './lifecycle';
 export * from './hooks';
 export * from './formatDisplayName';
+export * from './promisify';

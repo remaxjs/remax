@@ -1,4 +1,4 @@
-import { promisify } from '@remax/shared';
+import { promisify } from '@remax/framework-shared';
 
 export const getAppStub = getApp;
 

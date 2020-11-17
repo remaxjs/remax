@@ -13,7 +13,7 @@
 		tid: function (type, ancestor) {
 			var items = ancestor.split(',');
 			var depth = 1;
-		
+
 			for (var i = 0; i < items.length; i++) {
 				if (type === items[i]) {
 					depth = depth + 1;
@@ -25,15 +25,23 @@
 		}
 	};
 </wxs>
-<% for (let component of components) { %><% var len = depth[component.id] || 10; %><% for (var i = 1; i <= len; i++) { %>
-		<%- include('./component.ejs', {
-			props: component.props,
-			id: component.id,
-			templateId: i,
-			type: component.type,
-			slotView: slotView
-			})
-		%><% } %><% } %>
+<% for (let component of sortBy(Array.from(components.values()), 'id')) { %>
+  <% var len = depth[component.id] || 10; %>
+  <% for (var i = 1; i <= len; i++) { %>
+    <% if (skipComponents.includes(component.id)) {
+      continue;
+    } else { %>
+      <%- include('./component.ejs', {
+        components: components,
+        type: component.type,
+        props: component.props,
+        id: component.id,
+        templateId: i,
+        slotView: slotView
+      }) %>
+    <% } %>
+  <% } %>
+<% } %>
 <template name="REMAX_TPL_1_plain-text" data="{{i: i}}">
 	<block>{{i.text}}</block>
 </template>
