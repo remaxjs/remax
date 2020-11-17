@@ -3,6 +3,7 @@ import { compilation } from 'webpack';
 import { Options } from '@remax/types';
 import Store from '@remax/build-store';
 import { getNativeAssetOutputPath } from '../../utils/paths';
+import { slash } from '@remax/shared';
 
 interface Module {
   dependencies: any[];
@@ -86,7 +87,7 @@ export function getUsingComponents(
         const nativeComponent = Store.nativeComponents.get(depModule.resource);
         if (nativeComponent) {
           const componentProps = compositionComponents(compilation).get(depModule.resource);
-          const componentPath = path.join(prefixPath, getNativeAssetOutputPath(depModule.resource, options));
+          const componentPath = slash(path.join(prefixPath, getNativeAssetOutputPath(depModule.resource, options)));
           components.set(nativeComponent.id, {
             id: nativeComponent.id,
             path: componentPath.replace(new RegExp(`\\${path.extname(componentPath)}$`), ''),
