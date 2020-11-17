@@ -11,7 +11,7 @@ interface Module {
 }
 
 function findModule(compilation: compilation.Compilation, file: string): Module | undefined {
-  return Array.from((compilation as any)._modules.values()).find((m: any) => m.resource === file) as Module;
+  return Array.from((compilation as any)._modules.values()).find((m: any) => slash(m.resource) === file) as Module;
 }
 
 function compositionComponents(compilation: compilation.Compilation) {
@@ -84,10 +84,11 @@ export function getUsingComponents(
         } else {
           return;
         }
-        const nativeComponent = Store.nativeComponents.get(depModule.resource);
+        const moduleResource = slash(depModule.resource);
+        const nativeComponent = Store.nativeComponents.get(moduleResource);
         if (nativeComponent) {
-          const componentProps = compositionComponents(compilation).get(depModule.resource);
-          const componentPath = slash(path.join(prefixPath, getNativeAssetOutputPath(depModule.resource, options)));
+          const componentProps = compositionComponents(compilation).get(moduleResource);
+          const componentPath = slash(path.join(prefixPath, getNativeAssetOutputPath(moduleResource, options)));
           components.set(nativeComponent.id, {
             id: nativeComponent.id,
             path: componentPath.replace(new RegExp(`\\${path.extname(componentPath)}$`), ''),
