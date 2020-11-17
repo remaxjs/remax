@@ -22,9 +22,10 @@ function compositionComponents(compilation: compilation.Compilation) {
     module?.dependencies.forEach((dep: any) => {
       const component = components.get(dep.request);
       if (component && dep.module) {
-        const compositionComponent = compositionComponents.get(dep.module.resource) || new Set();
+        const resource = slash(dep.module.resource);
+        const compositionComponent = compositionComponents.get(resource) || new Set();
         component.props.forEach(compositionComponent.add, compositionComponent);
-        compositionComponents.set(dep.module.resource, compositionComponent);
+        compositionComponents.set(resource, compositionComponent);
       }
     });
   });
@@ -59,14 +60,15 @@ export function getUsingComponents(
     if (!module) {
       return;
     }
+    const resource = slash(module.resource);
     // 防止循环依赖
-    if (module.resource) {
-      if (handledModules.has(module.resource)) {
+    if (resource) {
+      if (handledModules.has(resource)) {
         return;
       }
-      handledModules.add(module.resource);
+      handledModules.add(resource);
     }
-    const pluginComponents = Array.from(Store.pluginComponents.values()).filter(c => c.importers.has(module.resource));
+    const pluginComponents = Array.from(Store.pluginComponents.values()).filter(c => c.importers.has(resource));
     pluginComponents.forEach(pluginComponent => {
       components.set(pluginComponent.id, {
         id: pluginComponent.id,
@@ -84,11 +86,11 @@ export function getUsingComponents(
         } else {
           return;
         }
-        const moduleResource = slash(depModule.resource);
-        const nativeComponent = Store.nativeComponents.get(moduleResource);
+        const depResource = slash(depModule.resource);
+        const nativeComponent = Store.nativeComponents.get(depResource);
         if (nativeComponent) {
-          const componentProps = compositionComponents(compilation).get(moduleResource);
-          const componentPath = slash(path.join(prefixPath, getNativeAssetOutputPath(moduleResource, options)));
+          const componentProps = compositionComponents(compilation).get(depResource);
+          const componentPath = slash(path.join(prefixPath, getNativeAssetOutputPath(depResource, options)));
           components.set(nativeComponent.id, {
             id: nativeComponent.id,
             path: componentPath.replace(new RegExp(`\\${path.extname(componentPath)}$`), ''),
