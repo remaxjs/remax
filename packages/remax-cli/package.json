@@ -35,6 +35,7 @@
     "@remax/build-store": "0.0.1",
     "@remax/macro": "2.8.10",
     "@remax/plugin-devtools": "2.8.10",
+    "@remax/plugin-error-screen": "^0.0.1",
     "@remax/postcss-px2units": "^0.2.0",
     "@remax/postcss-tag": "2.8.10",
     "@remax/shared": "2.8.10",
