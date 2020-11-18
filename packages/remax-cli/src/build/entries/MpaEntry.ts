@@ -12,6 +12,8 @@ export default class MpaEntry extends VirtualEntry {
       import App from '@/app';
       import Page from './${path.basename(this.filename)}';
       import { bootstrapMpa } from '@remax/web';
+      import '@remax/web/assets/normalize.css';
+      import '@remax/web/assets/app.css';
 
       bootstrapMpa({
         appComponent: App,

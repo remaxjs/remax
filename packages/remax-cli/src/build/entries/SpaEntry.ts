@@ -5,6 +5,8 @@ export default class SpaEntry extends VirtualEntry {
     return `
       import App from '@/app';
       import { bootstrap } from '@remax/web';
+      import '@remax/web/assets/normalize.css';
+      import '@remax/web/assets/app.css';
 
       bootstrap({
         appComponent: App,

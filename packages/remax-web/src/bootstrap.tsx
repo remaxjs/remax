@@ -4,8 +4,6 @@ import { createHashHistory } from 'history';
 import { RuntimeOptions } from '@remax/framework-shared';
 import createApp from './createApp';
 import { BootstrapOptions } from './types';
-import '../assets/normalize.css';
-import '../assets/app.css';
 
 export default function bootstrap(options: BootstrapOptions) {
   hd();

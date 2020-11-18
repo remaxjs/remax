@@ -14,6 +14,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 /* harmony import */ var _remax_web__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 /* harmony import */ var _remax_web__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_remax_web__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6);
+/* harmony import */ var _remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
+/* harmony import */ var _remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_3__);
+
+
 
 
 Object(_remax_web__WEBPACK_IMPORTED_MODULE_1__["bootstrap"])({
@@ -32,7 +38,7 @@ Object(_remax_web__WEBPACK_IMPORTED_MODULE_1__["bootstrap"])({
     "route": "pages/index/index2",
     "config": {}
   }],
-  pageComponents: [Promise.all(/* import() | pages/index/index */[__webpack_require__.e(2), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, 6)), Promise.all(/* import() | pages/index/index2 */[__webpack_require__.e(2), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, 9))],
+  pageComponents: [Promise.all(/* import() | pages/index/index */[__webpack_require__.e(2), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, 8)), Promise.all(/* import() | pages/index/index2 */[__webpack_require__.e(2), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, 11))],
   plugins: []
 });
 
@@ -74,8 +80,20 @@ module.exports = require("react");
 module.exports = require("@remax/web");
 
 /***/ }),
-/* 6 */,
+/* 6 */
+/***/ (function(module, exports) {
+
+module.exports = require("@remax/web/assets/normalize.css");
+
+/***/ }),
 /* 7 */
+/***/ (function(module, exports) {
+
+module.exports = require("@remax/web/assets/app.css");
+
+/***/ }),
+/* 8 */,
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = require("remax");

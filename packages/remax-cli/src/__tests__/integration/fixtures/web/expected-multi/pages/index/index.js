@@ -15,6 +15,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 /* harmony import */ var _remax_web__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
 /* harmony import */ var _remax_web__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_remax_web__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
+/* harmony import */ var _remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
+/* harmony import */ var _remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_4__);
+
+
 
 
 
@@ -131,6 +137,18 @@ module.exports = {"app":"app___2lhPP","logo":"logo___Al4Xb","logo-spin":"logo-sp
 /***/ (function(module, exports) {
 
 module.exports = require("@remax/web");
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = require("@remax/web/assets/normalize.css");
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("@remax/web/assets/app.css");
 
 /***/ })
 ],[[0,0]]]);

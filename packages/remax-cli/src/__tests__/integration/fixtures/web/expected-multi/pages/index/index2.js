@@ -53,21 +53,39 @@ module.exports = require("@remax/web");
 
 /***/ }),
 /* 9 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-module.exports = __webpack_require__(10);
-
+module.exports = require("@remax/web/assets/normalize.css");
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("@remax/web/assets/app.css");
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(12);
+
+
+/***/ }),
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _index2_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
+/* harmony import */ var _index2_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
 /* harmony import */ var _remax_web__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
 /* harmony import */ var _remax_web__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_remax_web__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
+/* harmony import */ var _remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
+/* harmony import */ var _remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_4__);
+
+
 
 
 
@@ -89,7 +107,7 @@ Object(_remax_web__WEBPACK_IMPORTED_MODULE_2__["bootstrapMpa"])({
 });
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -122,4 +140,4 @@ __webpack_require__.r(__webpack_exports__);
 });
 
 /***/ })
-],[[9,0]]]);
+],[[11,0]]]);
