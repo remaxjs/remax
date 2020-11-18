@@ -242,6 +242,10 @@
     
     
     
+    type="{{item.props['type']}}"
+    
+    
+    
     width="{{item.props['width']}}"
     
     

@@ -9,6 +9,7 @@ export interface CanvasProps {
   width?: string | number;
   height?: string | number;
   disableScroll?: boolean;
+  type?: string;
   onTap?: (e: any) => void;
   onTouchStart?: (e: any) => void;
   onTouchMove?: (e: any) => void;

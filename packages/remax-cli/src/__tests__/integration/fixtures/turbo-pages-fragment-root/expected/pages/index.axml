@@ -71,6 +71,7 @@
     onTouchMove="{{node.props['onTouchMove']}}" 
     onTouchStart="{{node.props['onTouchStart']}}" 
     style="{{node.props['style']}}" 
+    type="{{node.props['type']}}" 
     width="{{node.props['width']}}" 
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />

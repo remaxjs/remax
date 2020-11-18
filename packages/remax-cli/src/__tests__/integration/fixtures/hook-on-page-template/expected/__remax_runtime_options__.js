@@ -33,6 +33,7 @@ module.exports = {
       "width": "width",
       "height": "height",
       "disableScroll": "disable-scroll",
+      "type": "type",
       "onClick": "onTap",
       "onTap": "onTap",
       "onTouchStart": "onTouchStart",
