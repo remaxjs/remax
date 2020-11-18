@@ -5,6 +5,7 @@ import * as t from '@babel/types';
 import { kebabCase } from 'lodash';
 import { HostComponent, Platform } from '@remax/types';
 import Store from '@remax/build-store';
+import { slash } from '@remax/shared';
 
 interface Options {
   target: Platform;
@@ -308,11 +309,11 @@ export default function hostComponent(options: Options) {
             return;
           }
 
-          collectCompositionComponents(path, state.file.opts.filename);
+          collectCompositionComponents(path, slash(state.file.opts.filename));
         },
         CallExpression: {
           enter: (path: NodePath<t.CallExpression>, state: any) => {
-            const importer = state.file.opts.filename;
+            const importer = slash(state.file.opts.filename);
 
             if (!t.isMemberExpression(path?.node?.callee)) return;
             const memberExpression: t.MemberExpression = path?.node?.callee;
