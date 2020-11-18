@@ -3,8 +3,12 @@ export interface Page {
   config: PageConfig;
 }
 
+export const enum RouterType {
+  hash = 'hash',
+  browser = 'browser',
+}
+
 export interface BootstrapOptions {
-  // 测试用
   async?: boolean;
   appComponent: React.ComponentType;
   appConfig: AppConfig;
@@ -79,6 +83,9 @@ export interface AppConfig {
    * 设置底部 tab bar 的表现
    */
   tabBar?: TabBarConfig;
+  router?: {
+    type: RouterType;
+  };
 }
 
 /** 页面配置文件 */
