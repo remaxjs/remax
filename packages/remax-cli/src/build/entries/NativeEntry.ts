@@ -25,7 +25,7 @@ export default class NativeEntry extends VirtualEntry {
   getManifest() {
     const dependentEntries = this.getDependentEntries();
     const rawManifest = this.readRawManifest();
-    const usingComponents: Manifest['usingComponents'] = {};
+    const usingComponents: Manifest['usingComponents'] = rawManifest.usingComponents ?? {};
     dependentEntries.forEach((entry, name) => {
       usingComponents[name] = '/' + entry.name;
     });
@@ -40,7 +40,7 @@ export default class NativeEntry extends VirtualEntry {
     return Object.keys(usingComponents).reduce((acc: Map<string, NativeEntry>, name: string) => {
       const request: string = usingComponents[name];
       const filename = this.builder.projectPath.resolveAsset(request + '.js', this.filename);
-      if (filename) {
+      if (filename && fs.existsSync(filename)) {
         let entry = this.builder.entryCollection.nativeComponentEntries.get(filename);
         if (entry) {
           entry.updateSource();
