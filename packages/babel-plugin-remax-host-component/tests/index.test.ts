@@ -2,7 +2,10 @@ import * as babel from '@babel/core';
 import hostComponents from '@remax/ali/cjs/hostComponents/node';
 import Store from '@remax/build-store';
 import { Platform } from '@remax/types';
+import { slash } from '@remax/shared';
 import component from '../src';
+
+const currentFilename = slash(__filename);
 
 function transform(code: string, filename?: string) {
   return new Promise((resolve, reject) => {
@@ -19,7 +22,7 @@ function transform(code: string, filename?: string) {
             includeProps: ['tid'],
           }),
         ],
-        filename: filename || __filename,
+        filename: filename || currentFilename,
       },
       function (err, result) {
         if (result) {
@@ -67,7 +70,7 @@ describe('babel-plugin-remax-component', () => {
       React.createElement(View)
     `
       );
-      const modules = Store.compositionComponents.get(__filename);
+      const modules = Store.compositionComponents.get(currentFilename);
       expect(modules?.get('mini-ali-ui/es/modal')).toEqual({
         import: 'mini-ali-ui/es/modal',
         props: new Set(['buttons', 'onButtonClick']),
@@ -88,7 +91,7 @@ describe('babel-plugin-remax-component', () => {
       React.createElement(ModalMini, { ref: 1 })
     `
       );
-      const modules = Store.compositionComponents.get(__filename);
+      const modules = Store.compositionComponents.get(currentFilename);
       expect(modules?.get('mini-ali-ui/es/modal')).toEqual({
         import: 'mini-ali-ui/es/modal',
         props: new Set([]),
@@ -104,7 +107,7 @@ describe('babel-plugin-remax-component', () => {
       React.createElement(Bar, { "ns:attr": 3 })
     `
       );
-      const modules = Store.compositionComponents.get(__filename);
+      const modules = Store.compositionComponents.get(currentFilename);
       expect(modules?.get('mini-ali-ui/es/bar')).toEqual({
         import: 'mini-ali-ui/es/bar',
         props: new Set(['ns:attr']),
@@ -299,7 +302,7 @@ describe('babel-plugin-remax-component', () => {
       `);
 
       expect(Store.compositionComponents.size).toBe(1);
-      expect(Store.compositionComponents.get(__filename)?.get('mini-ali-ui/es/badge/index')).toEqual({
+      expect(Store.compositionComponents.get(currentFilename)?.get('mini-ali-ui/es/badge/index')).toEqual({
         import: 'mini-ali-ui/es/badge/index',
         props: new Set(['dot']),
       });
@@ -323,7 +326,7 @@ describe('babel-plugin-remax-component', () => {
     `);
 
       expect(Store.compositionComponents.size).toBe(1);
-      expect(Store.compositionComponents.get(__filename)?.get('mini-ali-ui/es/badge/index')).toEqual({
+      expect(Store.compositionComponents.get(currentFilename)?.get('mini-ali-ui/es/badge/index')).toEqual({
         import: 'mini-ali-ui/es/badge/index',
         props: new Set(['dot', 'ns:id']),
       });
