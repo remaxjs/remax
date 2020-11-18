@@ -3,6 +3,7 @@ import { createPageWrapper, RuntimeOptions, Lifecycle, callbackName } from '@rem
 import stopPullDownRefresh from './stopPullDownRefresh';
 import Container from './Container';
 import { createPortal } from './ReactPortal';
+import render from './render';
 
 let idCounter = 0;
 
@@ -52,18 +53,19 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
       this.query = query;
       this.container = new Container(this, 'root');
       this.modalContainer = new Container(this, 'modalRoot');
-      this.element = createPortal(
-        React.createElement(PageWrapper, {
-          page: this,
-          query,
-          modalContainer: this.modalContainer,
-          ref: this.wrapperRef,
-        }),
-        this.container,
-        this.pageId
-      );
+      const pageElement = React.createElement(PageWrapper, {
+        page: this,
+        query,
+        modalContainer: this.modalContainer,
+        ref: this.wrapperRef,
+      });
 
-      app._mount(this);
+      if (app && app._mount) {
+        this.element = createPortal(pageElement, this.container, this.pageId);
+        app._mount(this);
+      } else {
+        this.element = render(pageElement, this.container);
+      }
 
       return this.callLifecycle(Lifecycle.load, query);
     },
