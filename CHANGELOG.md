@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.9](https://github.com/remaxjs/remax/compare/v2.8.8...v2.8.9) (2020-11-19)
+
+### Bug Fixes
+
+- **wechat:** 修复 SwiperItem[className]不生效的问题 ([#1371](https://github.com/remaxjs/remax/issues/1371)) ([977704c](https://github.com/remaxjs/remax/commit/977704cd183d084931568b81b156e320e72cc2b0))
+
+### Reverts
+
+- Revert "docs: 暂时去掉 web 示例" ([6d71827](https://github.com/remaxjs/remax/commit/6d718275f33acbe7e9bfa39dbeaed6ce1e5a9603))
+
 ## [2.8.8](https://github.com/remaxjs/remax/compare/v2.8.7...v2.8.8) (2020-11-13)
 
 ### Bug Fixes
