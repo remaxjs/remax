@@ -1936,7 +1936,7 @@ skip-hidden-item-layout="{{_h.v(i.props['skip-hidden-item-layout'])}}"
 style="{{_h.v(i.props['style'])}}"
 vertical="{{_h.v(i.props['vertical'])}}">
     <block wx:for="{{i.children}}" wx:key="*this">
-  <swiper-item item-id="{{i.nodes[item].props.itemId}}" key="{{i.nodes[item].props.key}}">
+  <swiper-item class="{{i.nodes[item].props.class}}" item-id="{{i.nodes[item].props.itemId}}" key="{{i.nodes[item].props.key}}">
     <block wx:for="{{i.nodes[item].children}}" wx:key="*this" wx:for-item="sItem">
       <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}" />
     </block>
