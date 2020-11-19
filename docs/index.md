@@ -22,6 +22,18 @@ footer: Open-source MIT Licensed | Copyright © 2020<br />Powered by [dumi](http
   <iframe width="100%" height="641" style="border:none;" src="https://herbox-embed.alipay.com/p/Remax/remax-examples-todo?defaultOpenedFiles=src/pages/index/index.tsx" ></iframe>
 </p>
 
+### Web 应用支持
+
+<p align="center">
+<iframe
+     src="https://codesandbox.io/embed/github/remaxjs/examples/tree/master/one?fontsize=14&hidenavigation=1&module=%2Fsrc%2Fpages%2Findex%2Findex.tsx&theme=dark"
+     style="width:100%; height:750px; border:0; overflow:hidden;"
+     title="remax one web"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+</p>
+
 ## 案例
 
 <div style="display:flex;flex-direction:row;align-items:center;justify-content:space-around;width: 100%;">
