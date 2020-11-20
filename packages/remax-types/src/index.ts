@@ -207,10 +207,6 @@ export interface Plugin {
   onPageTemplate?: (params: { template: string; page: string }) => string;
 
   /**
-   * 内部hook, 修改remix最终的entry
-   */
-  unstable_onEntries?: (params: { entries: any }) => any;
-  /**
    * 扩展命令行
    */
   extendCLI?: (params: { cli: yargs.Argv }) => any;

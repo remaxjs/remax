@@ -6,5 +6,4 @@ describe('plugin hooks', () => {
   testBuildApp('hook-on-app-config');
   testBuildApp('hook-on-page-config');
   testBuildApp('hook-on-page-template');
-  testBuildApp('hook-on-entries');
 });

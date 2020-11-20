@@ -93,16 +93,6 @@ export default class API {
     }, config);
   }
 
-  // 内部hook
-  _onEntries(entries: any) {
-    return this.plugins.reduce((acc, plugin) => {
-      if (typeof plugin.unstable_onEntries === 'function') {
-        acc = plugin.unstable_onEntries({ entries: acc });
-      }
-      return acc;
-    }, entries);
-  }
-
   onPageConfig({ page, config }: { page: string; config: any }) {
     return this.plugins.reduce((acc, plugin) => {
       if (typeof plugin.onPageConfig === 'function') {

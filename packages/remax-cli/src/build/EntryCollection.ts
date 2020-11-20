@@ -50,7 +50,7 @@ export default class EntryCollection {
   }
 
   private initEntries() {
-    const { api, projectConfig, projectPath } = this.builder;
+    const { projectConfig, projectPath } = this.builder;
     // 页面
     const pages = projectConfig.pages.reduce(
       (ret: EntryInfo[], page: string) => [
@@ -83,15 +83,9 @@ export default class EntryCollection {
       });
     }
 
-    // 兼容 hook
-    const compactEntries = {
-      pages,
-    };
-    api._onEntries(compactEntries);
-
     const entries: Entries = new Map();
 
-    compactEntries.pages.forEach(p => {
+    pages.forEach(p => {
       if (!p.filename) {
         return;
       }
