@@ -24,7 +24,7 @@ const Textarea: React.ForwardRefRenderFunction<any, TextareaWebProps> = (props, 
   const textareaClassName = clsx('remax-textarea', className, placeholderStyleClassName);
 
   if (autoHeight) {
-    return <TextareaAutoSize {...restProps} className={textareaClassName} onKeyPress={handleKeyPress} />;
+    return <TextareaAutoSize {...restProps} className={textareaClassName} ref={ref} onKeyPress={handleKeyPress} />;
   }
 
   return <textarea {...restProps} className={textareaClassName} ref={ref} onKeyPress={handleKeyPress} />;
