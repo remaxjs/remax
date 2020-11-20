@@ -2,7 +2,7 @@ name: Create Release
 
 on:
   push:
-    tags: 
+    tags:
       - '*'
 
 jobs:
@@ -13,5 +13,6 @@ jobs:
         uses: Roang-zero1/github-create-release-action@master
         with:
           version_regex: ^v[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+
+          changelog_file: CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
