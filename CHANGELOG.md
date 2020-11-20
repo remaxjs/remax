@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.10](https://github.com/remaxjs/remax/compare/v2.8.9...v2.8.10) (2020-11-20)
+
+### Bug Fixes
+
+- **one:** 修复 Textarea 使用 autoHeight 后发获取 ref 的问题 ([f64fe77](https://github.com/remaxjs/remax/commit/f64fe7725f68ae2458f3860aa249b580ec1712ce))
+
 ## [2.8.9](https://github.com/remaxjs/remax/compare/v2.8.8...v2.8.9) (2020-11-19)
 
 ### Bug Fixes
