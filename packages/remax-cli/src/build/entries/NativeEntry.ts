@@ -4,6 +4,7 @@ import { getNativeAssetOutputPath, replaceExtension } from '../utils/paths';
 import VirtualEntry from './VirtualEntry';
 import Builder from '../Builder';
 import NativeAssets from '../NativeAssets';
+import output from '../utils/output';
 
 interface Manifest {
   usingComponents?: Record<string, string>;
@@ -49,6 +50,8 @@ export default class NativeEntry extends VirtualEntry {
           entry = new NativeEntry(this.builder, output, filename);
         }
         acc.set(name, entry);
+      } else {
+        output.warn(`${request} can not be resolved in ${this.name}'s \`usingComponents\`.`);
       }
       return acc;
     }, new Map());
