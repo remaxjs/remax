@@ -15,7 +15,7 @@
     "mini": "mini build . --pluginId=2021001126652765 -w"
   },
   "dependencies": {
-    "remax": "2.8.8",
+    "remax": "2.8.9",
     "clsx": "^1.0.4",
     "mini-antui": "^0.4.34",
     "react": "^16.8.6"

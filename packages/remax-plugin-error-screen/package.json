@@ -27,7 +27,7 @@
     "webpack-virtual-modules": "^0.3.1"
   },
   "devDependencies": {
-    "remax": "2.8.8",
+    "remax": "2.8.9",
     "@types/react": "^16.9.49"
   },
   "gitHead": "df52bc6f39ef4b222b7da44c4e3c5744e4196a43"
