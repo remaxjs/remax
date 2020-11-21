@@ -27,6 +27,7 @@ export interface Options {
   target?: Platform;
   analyze?: boolean;
   minimize?: boolean;
+  pages?: EntryInfo[];
 }
 
 export type Config = Partial<Options>;
@@ -34,6 +35,8 @@ export type Config = Partial<Options>;
 export interface EntryInfo {
   name: string;
   filename: string;
+  isComponent?: boolean;
+  originFilename?: string;
 }
 
 export interface Entries {
