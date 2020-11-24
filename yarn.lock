@@ -14056,6 +14056,13 @@ postcss-nesting@^7.0.0:
   dependencies:
     postcss "^7.0.2"
 
+postcss-noop@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-noop/-/postcss-noop-1.0.1.tgz#a64b11b168cd3dee7e46660f41188327467018db"
+  integrity sha512-IjFv0tHCExzPMMKzFbJvBqkiJJ7nTJ7QVLWuk+rak3YxUMmlxFi33RX8V7+9ujrrqJmqUEgP1TD6GDJ18c9oHg==
+  dependencies:
+    postcss "^7.0.14"
+
 postcss-normalize-charset@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/postcss-normalize-charset/-/postcss-normalize-charset-4.0.1.tgz#8b35add3aee83a136b0471e0d59be58a50285dd4"

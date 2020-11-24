@@ -52,6 +52,7 @@ export function addCSSRule(webpackConfig: Config, builder: Builder, web: boolean
           path: resolvePostcssConfig(options),
           ctx: {
             plugins: {
+              [require.resolve('postcss-noop')]: {},
               [require.resolve('postcss-preset-env')]: web && {
                 browsers: ['chrome >= 49', 'edge >= 13', 'ios >= 8', 'Android >= 4.4'],
               },
