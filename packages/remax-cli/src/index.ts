@@ -96,7 +96,6 @@ export default class RemaxCLI {
               describe: '目标平台',
               alias: 't',
               type: 'string',
-              default: 'ali',
             });
           },
           (argv: any) => {

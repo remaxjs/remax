@@ -3,6 +3,7 @@ export {
   createAppConfig,
   createPageConfig,
   usePageInstance,
+  useComponentInstance,
   useQuery,
   useNativeEffect,
   unstable_batchedUpdates,
