@@ -82,4 +82,4 @@ export default () => <View>Awesome Remax!</View>;
 ## 注意事项
 
 1. 混合模式下 app.js 文件既可以按照小程序原生的方式定义，也可以使用 Remax 的方式定义，如果使用前者，页面之间将无法通过 Context 共享状态。
-2. Remax 在编译小程序时会自动处理原生小程序中引用的图片资源，但是部分动态设置的图片路径无法自动识别，可以通过把图片资源放到 [public 目录](http://localhost:8000/docs/guide/public)下解决。
+2. Remax 在编译小程序时会自动处理原生小程序中引用的图片资源，但是部分动态设置的图片路径无法自动识别，可以通过把图片资源放到 [public 目录](/guide/basic/public)下解决。
