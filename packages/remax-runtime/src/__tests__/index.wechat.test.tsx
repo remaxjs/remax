@@ -7,7 +7,7 @@ import { reset as resetInstanceId } from '../instanceId';
 import Container from '../Container';
 import { useNativeEffect } from '../hooks';
 
-function delay(ms: number) {
+function delay(ms: number): Promise<void> {
   if (typeof ms !== 'number') {
     throw new Error('Must specify ms');
   }

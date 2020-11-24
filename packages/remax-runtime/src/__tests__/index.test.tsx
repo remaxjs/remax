@@ -9,7 +9,7 @@ import { useNativeEffect } from '../hooks';
 import { RuntimeOptions } from '@remax/framework-shared';
 import { Platform } from '@remax/types';
 
-function delay(ms: number) {
+function delay(ms: number): Promise<void> {
   if (typeof ms !== 'number') {
     throw new Error('Must specify ms');
   }

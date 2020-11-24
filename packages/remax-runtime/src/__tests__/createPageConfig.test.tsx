@@ -57,12 +57,15 @@ describe('page query hook', () => {
 
   it('onPullDownRefresh can handle promise returned by callback', done => {
     const TestPage = () => {
-      usePageEvent('onPullDownRefresh', () => {
-        return new Promise(resolve => {
-          resolve();
-          done();
-        });
-      });
+      usePageEvent(
+        'onPullDownRefresh',
+        (): Promise<void> => {
+          return new Promise(resolve => {
+            resolve();
+            done();
+          });
+        }
+      );
       return <div />;
     };
 
