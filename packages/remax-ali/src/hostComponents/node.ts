@@ -32,6 +32,8 @@ import * as textarea from './Textarea/node';
 import * as view from './View/node';
 import * as webView from './WebView/node';
 import * as video from './Video/node';
+import * as lottie from './Lottie/node';
+import * as camera from './Camera/node';
 
 const hostComponents = new Map();
 
@@ -69,5 +71,7 @@ hostComponents.set('textarea', textarea);
 hostComponents.set('view', view);
 hostComponents.set('web-view', webView);
 hostComponents.set('video', video);
+hostComponents.set('lottie', lottie);
+hostComponents.set('camera', camera);
 
 export default hostComponents;

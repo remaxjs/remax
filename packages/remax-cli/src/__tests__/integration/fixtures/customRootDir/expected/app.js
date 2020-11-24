@@ -14,17 +14,16 @@ module.exports = __webpack_require__(4);
 "use strict";
 /* istanbul ignore next */
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _remax_runtime_options___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 /* harmony import */ var _remax_runtime_options___WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_remax_runtime_options___WEBPACK_IMPORTED_MODULE_1__);
 
 
-
-var pluginDriver = new _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver"]([].map(function (p) {
+var pluginDriver = new remax_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver"]([].map(function (p) {
   return p.default || p;
 }));
-_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["RuntimeOptions"].apply({
+remax_runtime__WEBPACK_IMPORTED_MODULE_0__["RuntimeOptions"].apply({
   platform: "ali",
   debug: false,
   pxToRpx: true,
@@ -38,7 +37,7 @@ _remax_runtime__WEBPACK_IMPORTED_MODULE_0__["RuntimeOptions"].apply({
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = require("@remax/runtime");
+module.exports = require("remax/runtime");
 
 /***/ }),
 /* 3 */

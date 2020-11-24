@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2017",
+    "declaration": true,
+    "rootDir": "src",
+    "outDir": "lib",
+    "jsx": "react",
+    "skipLibCheck": true
+  }
+}

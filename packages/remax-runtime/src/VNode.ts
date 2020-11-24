@@ -1,7 +1,7 @@
 import propsAlias, { propAlias } from './propsAlias';
 import { TYPE_TEXT } from './constants';
 import Container from './Container';
-import * as RuntimeOptions from './RuntimeOptions';
+import { RuntimeOptions } from '@remax/framework-shared';
 
 export interface RawNode {
   id: number;

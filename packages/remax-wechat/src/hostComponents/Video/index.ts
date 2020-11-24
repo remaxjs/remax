@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { BaseProps, GenericEvent } from '../../types/component';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 const hostComponentName = 'video';
 

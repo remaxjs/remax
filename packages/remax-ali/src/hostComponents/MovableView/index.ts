@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface MovableViewProps {
   readonly dataset?: DOMStringMap;
@@ -30,4 +30,6 @@ export interface MovableViewProps {
   onScale?: (e: any) => void;
 }
 
-export const MovableView: React.ComponentType<MovableViewProps> = createHostComponent<MovableViewProps>('movable-view');
+export const MovableView = createHostComponent<MovableViewProps>('movable-view') as React.ComponentType<
+  MovableViewProps
+>;

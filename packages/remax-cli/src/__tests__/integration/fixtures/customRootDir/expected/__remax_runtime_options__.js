@@ -1,10 +1,9 @@
 module.exports = {
-          hostComponents: {
+      hostComponents: {
   "button": {
     "alias": {
       "id": "id",
       "className": "class",
-      "style": "style",
       "size": "size",
       "type": "type",
       "plain": "plain",
@@ -34,6 +33,7 @@ module.exports = {
       "width": "width",
       "height": "height",
       "disableScroll": "disable-scroll",
+      "type": "type",
       "onClick": "onTap",
       "onTap": "onTap",
       "onTouchStart": "onTouchStart",
@@ -389,6 +389,9 @@ module.exports = {
   },
   "swiper-item": {
     "alias": {
+      "id": "id",
+      "className": "class",
+      "style": "style",
       "key": "key"
     }
   },
@@ -538,13 +541,53 @@ module.exports = {
       "onFullScreenChange": "onFullScreenChange",
       "onTap": "onTap",
       "onClick": "onTap",
-      "onUserAction": "onUserAction",
-      "enableNative": "enableNative"
+      "onUserAction": "onUserAction"
+    }
+  },
+  "lottie": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "autoplay": "autoplay",
+      "path": "path",
+      "djangoId": "djangoId",
+      "md5": "md5",
+      "speed": "speed",
+      "repeatCount": "repeatCount",
+      "autoReverse": "autoReverse",
+      "assetsPath": "assetsPath",
+      "placeholder": "placeholder",
+      "optimize": "optimize",
+      "onDataReady": "onDataReady",
+      "onDataFailed": "onDataFailed",
+      "onDataLoadReady": "onDataLoadReady",
+      "onAnimationStart": "onAnimationStart",
+      "onAnimationEnd": "onAnimationEnd",
+      "onAnimationRepeat": "onAnimationRepeat",
+      "onAnimationCancel": "onAnimationCancel"
+    }
+  },
+  "camera": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "style": "style",
+      "mode": "mode",
+      "devicePosition": "device-position",
+      "flash": "flash",
+      "outputDimension": "outputDimension",
+      "applyMicPermissionWhenInit": "applyMicPermissionWhenInit",
+      "frameSize": "frame-size",
+      "frameFormat": "frame-format",
+      "maxDuration": "max-duration",
+      "onStop": "onStop",
+      "onError": "onError",
+      "onScanCode": "onScanCode"
     }
   }
 },
-          pageEvents: {
+      pageEvents: {
   "pages/index": []
 },
-          appEvents: []
-        }
+      appEvents: []
+    }

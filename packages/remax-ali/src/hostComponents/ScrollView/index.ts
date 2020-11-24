@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface ScrollViewProps {
   readonly dataset?: DOMStringMap;
@@ -26,4 +26,4 @@ export interface ScrollViewProps {
   onTouchCancel?: (e: any) => void;
 }
 
-export const ScrollView: React.ComponentType<ScrollViewProps> = createHostComponent<ScrollViewProps>('scroll-view');
+export const ScrollView = createHostComponent<ScrollViewProps>('scroll-view') as React.ComponentType<ScrollViewProps>;

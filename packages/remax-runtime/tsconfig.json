@@ -22,10 +22,5 @@
     "src/__mocks__",
     "cjs",
     "esm"
-  ],
-  "references": [
-    {
-      "path": "../remax-web"
-    }
   ]
 }

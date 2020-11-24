@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 import { isUnitlessNumber } from './CSSProperty';
-import { RuntimeOptions } from '@remax/runtime';
+import { RuntimeOptions } from '@remax/framework-shared';
 
 const vendorPrefixes = ['webkit', 'moz', 'ms', 'o'];
 

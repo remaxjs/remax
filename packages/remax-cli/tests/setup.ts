@@ -2,6 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import chalk from 'chalk';
 import * as sander from 'sander';
+import * as crypto from 'crypto';
 import readdir from 'fs-readdir-recursive';
 import diff from 'jest-diff';
 import { sortBy } from 'lodash';
@@ -10,8 +11,14 @@ import { slash } from '@remax/shared';
 
 type Received = Array<{
   fileName: string;
-  code: string;
+  code: Buffer;
 }>;
+
+function createHash(content: Buffer) {
+  const hash = crypto.createHash('sha256');
+  hash.update(content);
+  return hash.digest('hex');
+}
 
 function buildText(files: Received) {
   return sortBy(
@@ -22,12 +29,10 @@ function buildText(files: Received) {
     ['fileName']
   )
     .reduce((acc: string[], f) => {
-      acc.push(
-        `file: ${f.fileName}`,
-        Array(80).join('-'),
-        ...eol.split(f.code).map(l => `${f.fileName}: ${l}`),
-        Array(80).join('-')
-      );
+      const text = /\.(png|jpg)$/.test(f.fileName)
+        ? [createHash(f.code)]
+        : eol.split(f.code.toString()).map(l => `${f.fileName}: ${l}`);
+      acc.push(`file: ${f.fileName}`, Array(80).join('-'), ...text, Array(80).join('-'));
       return acc;
     }, [])
     .join(eol.auto.toString());
@@ -52,7 +57,7 @@ expect.extend({
       const expected = buildText(
         readdir(output).map(fileName => ({
           fileName: fileName,
-          code: eol.lf(sander.readFileSync(path.join(output, fileName)).toString()),
+          code: sander.readFileSync(path.join(output, fileName)),
         }))
       );
 

@@ -2,7 +2,7 @@ import VNode, { RawNode } from './VNode';
 import { generate } from './instanceId';
 import { FiberRoot } from 'react-reconciler';
 import nativeEffector from './nativeEffect';
-import * as RuntimeOptions from './RuntimeOptions';
+import { RuntimeOptions } from '@remax/framework-shared';
 
 interface SpliceUpdate {
   path: string[];

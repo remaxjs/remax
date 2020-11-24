@@ -1,3 +1,5 @@
+import { unique } from '@remax/shared';
+
 export const alias = {
   id: 'id',
   style: 'style',
@@ -5,6 +7,7 @@ export const alias = {
   width: 'width',
   height: 'height',
   disableScroll: 'disable-scroll',
+  type: 'type',
   onClick: 'onTap',
   onTap: 'onTap',
   onTouchStart: 'onTouchStart',
@@ -15,4 +18,4 @@ export const alias = {
   onLongClick: 'onLongTap',
 };
 
-export const props = Object.values(alias);
+export const props = unique(Object.values(alias));

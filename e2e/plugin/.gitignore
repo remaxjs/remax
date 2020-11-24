@@ -1,0 +1,8 @@
+dist/
+yarn-error.log
+yarn.lock
+.tea
+.vscode
+.DS_Store
+!src/node_modules
+miniapptools_dist/

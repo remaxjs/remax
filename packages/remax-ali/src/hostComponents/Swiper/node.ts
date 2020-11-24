@@ -1,3 +1,5 @@
+import { unique } from '@remax/shared';
+
 export const alias = {
   id: 'id',
   className: 'class',
@@ -25,4 +27,4 @@ export const alias = {
   disableTouch: 'disable-touch',
 };
 
-export const props = Object.values(alias);
+export const props = unique(Object.values(alias));

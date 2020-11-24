@@ -1,1 +1,2 @@
-export { build as buildApp } from '@remax/cli/lib/build';
+export { buildApp } from '@remax/cli/lib/build';
+export { buildMiniPlugin } from '@remax/cli/lib/build';

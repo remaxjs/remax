@@ -9,13 +9,5 @@
     "types": ["@types/jest", "@types/node"],
     "downlevelIteration": true
   },
-  "include": ["src/**/*", "typings/**/*", "../../node_modules/miniprogram-api-typings/types/wx/lib.wx.api.d.ts"],
-  "references": [
-    {
-      "path": "../remax-types"
-    },
-    {
-      "path": "../remax-shared"
-    }
-  ]
+  "include": ["src/**/*", "typings/**/*", "../../node_modules/miniprogram-api-typings/types/wx/lib.wx.api.d.ts"]
 }

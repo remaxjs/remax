@@ -27,11 +27,11 @@ const plugin: PluginConstructor = () => {
       staticEjs: {
         base: '',
         page: path.join(TPL_STATIC_ROOT, 'page.ejs'),
+        isolatedTemplates: path.join(TPL_STATIC_ROOT, 'isolated-templates.ejs'),
       },
     },
     hostComponents,
-    shouldHostComponentRegister: ({ componentName }) =>
-      componentName !== 'swiper-item' && componentName !== 'picker-view-column',
+    skipHostComponents: ['swiper-item', 'picker-view-column'],
   };
 };
 

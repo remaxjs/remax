@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface ViewProps {
   readonly dataset?: DOMStringMap;
@@ -32,4 +32,4 @@ export interface ViewProps {
   onFirstAppear?: (e: any) => void;
 }
 
-export const View: React.ComponentType<ViewProps> = createHostComponent<ViewProps>('view');
+export const View = createHostComponent<ViewProps>('view') as React.ComponentType<ViewProps>;

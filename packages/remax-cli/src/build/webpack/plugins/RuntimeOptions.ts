@@ -1,11 +1,12 @@
 import { Compiler, compilation } from 'webpack';
-import { Options } from '@remax/types';
-import { appEvents, pageEvents, hostComponents } from '@remax/macro';
+import * as path from 'path';
+import { appEvents, pageEvents } from '@remax/macro';
 import { slash } from '@remax/shared';
+import Store from '@remax/build-store';
 import getModules from '../../utils/modules';
-import { getPages } from '../../../getEntries';
-import API from '../../../API';
 import { OriginalSource } from 'webpack-sources';
+import Builder from '../../Builder';
+import PageEntry from '../../entries/PageEntry';
 
 const PLUGIN_NAME = 'RemaxRuntimeOptionsPlugin';
 
@@ -15,33 +16,49 @@ export const pageClassEvents = new Map<string, Events>();
 export const appClassEvents = new Map<string, Events>();
 
 export default class RuntimeOptionsPlugin {
-  remaxOptions: Options;
-  api: API;
+  builder: Builder;
 
-  constructor(options: Options, api: API) {
-    this.remaxOptions = options;
-    this.api = api;
+  constructor(builder: Builder) {
+    this.builder = builder;
   }
 
   apply(compiler: Compiler) {
     compiler.hooks.thisCompilation.tap(PLUGIN_NAME, (compilation: compilation.Compilation) => {
       compilation.hooks.optimizeChunks.tap(PLUGIN_NAME, chunks => {
-        compilation.assets['__remax_runtime_options__.js'] = new OriginalSource(
-          `module.exports = {
-          hostComponents: ${this.stringifyHostComponents()},
-          pageEvents: ${this.stringifyPageEvents(chunks)},
-          appEvents: ${this.stringifyAppEvents()}
-        }`,
-          '__remax_runtime_options__.js'
-        );
+        const hostComponents = this.getHostComponents();
+        const pageEvents = this.getPageEvents(chunks);
+        const appEvents = this.getAppEvents();
+        this.createRuntimeOptions(compilation, hostComponents, pageEvents, appEvents, '');
       });
     });
   }
 
-  stringifyPageEvents(chunks: compilation.Chunk[]) {
+  createRuntimeOptions(
+    compilation: compilation.Compilation,
+    hostComponents: any,
+    pageEvents: any,
+    appEvents: any,
+    assetsPath: string
+  ) {
+    compilation.assets[path.join(assetsPath, '__remax_runtime_options__.js')] = new OriginalSource(
+      `module.exports = {
+      hostComponents: ${JSON.stringify(hostComponents, null, 2)},
+      pageEvents: ${JSON.stringify(pageEvents, null, 2)},
+      appEvents: ${JSON.stringify(appEvents, null, 2)}
+    }`,
+      '__remax_runtime_options__.js'
+    );
+  }
+
+  getPageEvents(chunks: compilation.Chunk[]) {
     const events: any = {};
 
-    getPages(this.remaxOptions, this.api).forEach(page => {
+    const { entries } = this.builder.entryCollection;
+
+    entries.forEach(page => {
+      if (!(page instanceof PageEntry)) {
+        return;
+      }
       const chunk = chunks.find(c => {
         return c.name === page.name;
       });
@@ -60,10 +77,10 @@ export default class RuntimeOptionsPlugin {
       );
     });
 
-    return JSON.stringify(events, null, 2);
+    return events;
   }
 
-  stringifyAppEvents() {
+  getAppEvents() {
     let events: string[] = [];
     for (const key of appEvents.keys()) {
       // 这里 get 不可能为空
@@ -75,20 +92,16 @@ export default class RuntimeOptionsPlugin {
       events = events.concat(Array.from(appClassEvents.get(key)!));
     }
 
-    return JSON.stringify(Array.from(new Set(events.sort())), null, 2);
+    return Array.from(new Set(events.sort()));
   }
 
-  stringifyHostComponents() {
-    return JSON.stringify(
-      [...hostComponents.keys()].reduce((obj, key) => {
-        obj[key] = {
-          alias: hostComponents.get(key)?.alias || {},
-        };
+  getHostComponents() {
+    return [...Store.registeredHostComponents.keys()].reduce((obj, key) => {
+      obj[key] = {
+        alias: Store.registeredHostComponents.get(key)?.alias || {},
+      };
 
-        return obj;
-      }, {} as any),
-      null,
-      2
-    );
+      return obj;
+    }, {} as any);
   }
 }

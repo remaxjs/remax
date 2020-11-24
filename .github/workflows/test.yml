@@ -30,10 +30,6 @@ jobs:
         run: yarn test:cov
         env:
           CI: true
-      - name: e2e
-        run: yarn test:e2e
-        env:
-          CI: true
       - name: Upload coverage to Codecov
         if: success() && runner.os == 'Linux'
         run: curl -s https://codecov.io/bash | bash -s -- -t $CODECOV_TOKEN

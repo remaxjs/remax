@@ -7,13 +7,5 @@
     "outDir": "lib",
     "types": ["node", "jest"]
   },
-  "exclude": ["tests/**/*", "node_modules", "lib"],
-  "references": [
-    {
-      "path": "../remax-types"
-    },
-    {
-      "path": "../remax-shared"
-    }
-  ]
+  "exclude": ["tests/**/*", "node_modules", "lib"]
 }

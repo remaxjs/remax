@@ -1,4 +1,4 @@
 import * as React from 'react';
-import { View } from 'remax/one';
+import { View } from 'remax';
 
-export default () => <View>ali</View>;
+export default () => <View>hello</View>;

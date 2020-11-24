@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNEXT",
+    "target": "ES2017",
+    "declaration": true,
+    "rootDir": "modules",
+    "outDir": "esm",
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "exclude": ["cjs", "esm"]
+}

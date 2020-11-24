@@ -11,17 +11,5 @@
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "include": ["src", "src/OptionsSchema.json", "typings"],
-  "exclude": ["tests", "lib"],
-  "references": [
-    {
-      "path": "../remax-types"
-    },
-    {
-      "path": "../remax-macro"
-    },
-    {
-      "path": "../remax-shared"
-    }
-  ]
+  "exclude": ["tests", "lib"]
 }

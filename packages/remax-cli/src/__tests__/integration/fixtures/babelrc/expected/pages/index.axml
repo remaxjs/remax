@@ -1,3 +1,5 @@
+<template is="REMAX_TPL" data="{{ root: root }}" />
+
 <template name="REMAX_TPL">
   <block a:for="{{root.children}}" a:key="{{item.id}}">
     <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
@@ -5,6 +7,55 @@
 </template>
 
 
+  
+  <template name="REMAX_TPL_1_a-index-20116ca">
+  <a-index-20116ca 
+    ref="{{item.props['__ref']}}"
+  >
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view slot="{{item.props['slot']}}" 
+          animation="{{item.props['animation']}}" 
+          class="{{item.props['class']}}" 
+          disable-scroll="{{item.props['disable-scroll']}}" 
+          hidden="{{item.props['hidden']}}" 
+          hover-class="{{item.props['hover-class']}}" 
+          hover-start-time="{{item.props['hover-start-time']}}" 
+          hover-stay-time="{{item.props['hover-stay-time']}}" 
+          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
+          id="{{item.props['id']}}" 
+          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
+          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
+          onAnimationStart="{{item.props['onAnimationStart']}}" 
+          onAppear="{{item.props['onAppear']}}" 
+          onDisappear="{{item.props['onDisappear']}}" 
+          onFirstAppear="{{item.props['onFirstAppear']}}" 
+          onLongTap="{{item.props['onLongTap']}}" 
+          onTap="{{item.props['onTap']}}" 
+          onTouchCancel="{{item.props['onTouchCancel']}}" 
+          onTouchEnd="{{item.props['onTouchEnd']}}" 
+          onTouchMove="{{item.props['onTouchMove']}}" 
+          onTouchStart="{{item.props['onTouchStart']}}" 
+          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
+          style="{{item.props['style']}}" 
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+    
+  </a-index-20116ca>
+</template>
+
+  
+  
+  
   <template name="REMAX_TPL_1_button">
   <button 
     
@@ -80,10 +131,6 @@
     
     
     
-    style="{{item.props['style']}}"
-    
-    
-    
     type="{{item.props['type']}}"
     
     
@@ -97,6 +144,79 @@
   </button>
 </template>
 
+  
+  
+  
+  <template name="REMAX_TPL_1_camera">
+  <camera 
+    
+    applyMicPermissionWhenInit="{{item.props['applyMicPermissionWhenInit']}}"
+    
+    
+    
+    class="{{item.props['class']}}"
+    
+    
+    
+    device-position="{{item.props['device-position']}}"
+    
+    
+    
+    flash="{{item.props['flash']}}"
+    
+    
+    
+    frame-format="{{item.props['frame-format']}}"
+    
+    
+    
+    frame-size="{{item.props['frame-size']}}"
+    
+    
+    
+    id="{{item.props['id']}}"
+    
+    
+    
+    max-duration="{{item.props['max-duration']}}"
+    
+    
+    
+    mode="{{item.props['mode']}}"
+    
+    
+    
+    onError="{{item.props['onError']}}"
+    
+    
+    
+    onScanCode="{{item.props['onScanCode']}}"
+    
+    
+    
+    onStop="{{item.props['onStop']}}"
+    
+    
+    
+    outputDimension="{{item.props['outputDimension']}}"
+    
+    
+    
+    style="{{item.props['style']}}"
+    
+    
+    
+  >
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+    </block>
+    
+  </camera>
+</template>
+
+  
+  
   
   <template name="REMAX_TPL_1_canvas">
   <canvas 
@@ -145,6 +265,10 @@
     
     
     
+    type="{{item.props['type']}}"
+    
+    
+    
     width="{{item.props['width']}}"
     
     
@@ -158,6 +282,8 @@
   </canvas>
 </template>
 
+  
+  
   
   <template name="REMAX_TPL_1_checkbox">
   <checkbox 
@@ -208,6 +334,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_checkbox-group">
   <checkbox-group 
     
@@ -240,6 +368,8 @@
   </checkbox-group>
 </template>
 
+  
+  
   
   <template name="REMAX_TPL_1_contact-button">
   <contact-button 
@@ -290,6 +420,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_cover-image">
   <cover-image 
     
@@ -323,6 +455,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_cover-view">
   <cover-view 
     
@@ -351,6 +485,8 @@
   </cover-view>
 </template>
 
+  
+  
   
   <template name="REMAX_TPL_1_form">
   <form 
@@ -389,6 +525,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_icon">
   <icon 
     
@@ -425,6 +563,8 @@
   </icon>
 </template>
 
+  
+  
   
   <template name="REMAX_TPL_1_image">
   <image 
@@ -491,51 +631,7 @@
 </template>
 
   
-  <template name="REMAX_TPL_1_index">
-  <index 
-    ref="{{item.props['__ref']}}"
-  >
-    
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" 
-          animation="{{item.props['animation']}}" 
-          class="{{item.props['class']}}" 
-          disable-scroll="{{item.props['disable-scroll']}}" 
-          hidden="{{item.props['hidden']}}" 
-          hover-class="{{item.props['hover-class']}}" 
-          hover-start-time="{{item.props['hover-start-time']}}" 
-          hover-stay-time="{{item.props['hover-stay-time']}}" 
-          hover-stop-propagation="{{item.props['hover-stop-propagation']}}" 
-          id="{{item.props['id']}}" 
-          onAnimationEnd="{{item.props['onAnimationEnd']}}" 
-          onAnimationIteration="{{item.props['onAnimationIteration']}}" 
-          onAnimationStart="{{item.props['onAnimationStart']}}" 
-          onAppear="{{item.props['onAppear']}}" 
-          onDisappear="{{item.props['onDisappear']}}" 
-          onFirstAppear="{{item.props['onFirstAppear']}}" 
-          onLongTap="{{item.props['onLongTap']}}" 
-          onTap="{{item.props['onTap']}}" 
-          onTouchCancel="{{item.props['onTouchCancel']}}" 
-          onTouchEnd="{{item.props['onTouchEnd']}}" 
-          onTouchMove="{{item.props['onTouchMove']}}" 
-          onTouchStart="{{item.props['onTouchStart']}}" 
-          onTransitionEnd="{{item.props['onTransitionEnd']}}" 
-          style="{{item.props['style']}}" 
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-    
-  </index>
-</template>
-
+  
   
   <template name="REMAX_TPL_1_input">
   <input 
@@ -650,6 +746,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_label">
   <label 
     
@@ -679,6 +777,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_lifestyle">
   <lifestyle 
     
@@ -699,6 +799,99 @@
   </lifestyle>
 </template>
 
+  
+  
+  
+  <template name="REMAX_TPL_1_lottie">
+  <lottie 
+    
+    assetsPath="{{item.props['assetsPath']}}"
+    
+    
+    
+    autoReverse="{{item.props['autoReverse']}}"
+    
+    
+    
+    autoplay="{{item.props['autoplay']}}"
+    
+    
+    
+    class="{{item.props['class']}}"
+    
+    
+    
+    djangoId="{{item.props['djangoId']}}"
+    
+    
+    
+    id="{{item.props['id']}}"
+    
+    
+    
+    md5="{{item.props['md5']}}"
+    
+    
+    
+    onAnimationCancel="{{item.props['onAnimationCancel']}}"
+    
+    
+    
+    onAnimationEnd="{{item.props['onAnimationEnd']}}"
+    
+    
+    
+    onAnimationRepeat="{{item.props['onAnimationRepeat']}}"
+    
+    
+    
+    onAnimationStart="{{item.props['onAnimationStart']}}"
+    
+    
+    
+    onDataFailed="{{item.props['onDataFailed']}}"
+    
+    
+    
+    onDataLoadReady="{{item.props['onDataLoadReady']}}"
+    
+    
+    
+    onDataReady="{{item.props['onDataReady']}}"
+    
+    
+    
+    optimize="{{item.props['optimize']}}"
+    
+    
+    
+    path="{{item.props['path']}}"
+    
+    
+    
+    placeholder="{{item.props['placeholder']}}"
+    
+    
+    
+    repeatCount="{{item.props['repeatCount']}}"
+    
+    
+    
+    speed="{{item.props['speed']}}"
+    
+    
+    
+  >
+    
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+    </block>
+    
+  </lottie>
+</template>
+
+  
+  
   
   <template name="REMAX_TPL_1_map">
   <map 
@@ -801,6 +994,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_movable-area">
   <movable-area 
     
@@ -833,6 +1028,8 @@
   </movable-area>
 </template>
 
+  
+  
   
   <template name="REMAX_TPL_1_movable-view">
   <movable-view 
@@ -939,6 +1136,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_navigator">
   <navigator 
     
@@ -983,6 +1182,8 @@
   </navigator>
 </template>
 
+  
+  
   
   <template name="REMAX_TPL_1_picker">
   <picker 
@@ -1032,6 +1233,8 @@
   </picker>
 </template>
 
+  
+  
   
   <template name="REMAX_TPL_1_picker-view">
   <picker-view 
@@ -1090,6 +1293,9 @@
 </template>
 
   
+  
+  
+  
   <template name="REMAX_TPL_1_progress">
   <progress 
     
@@ -1139,6 +1345,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_radio">
   <radio 
     
@@ -1184,6 +1392,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_radio-group">
   <radio-group 
     
@@ -1216,6 +1426,8 @@
   </radio-group>
 </template>
 
+  
+  
   
   <template name="REMAX_TPL_1_rich-text">
   <rich-text 
@@ -1269,6 +1481,8 @@
   </rich-text>
 </template>
 
+  
+  
   
   <template name="REMAX_TPL_1_scroll-view">
   <scroll-view 
@@ -1367,6 +1581,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_slider">
   <slider 
     
@@ -1447,6 +1663,8 @@
   </slider>
 </template>
 
+  
+  
   
   <template name="REMAX_TPL_1_swiper">
   <swiper 
@@ -1542,7 +1760,12 @@
   >
     
     <block a:for="{{item.children}}" key="{{item.id}}">
-      <swiper-item key="{{item.props.__key}}">
+      <swiper-item 
+         class="{{item.props['class']}}" 
+         id="{{item.props['id']}}" 
+         key="{{item.props['key']}}" 
+         style="{{item.props['style']}}" 
+      >
         <block a:for="{{item.children}}" key="{{item.id}}">
           <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
         </block>
@@ -1552,6 +1775,9 @@
   </swiper>
 </template>
 
+  
+  
+  
   
   <template name="REMAX_TPL_1_switch">
   <switch 
@@ -1602,6 +1828,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_text">
   <text 
     
@@ -1647,6 +1875,8 @@
   </text>
 </template>
 
+  
+  
   
   <template name="REMAX_TPL_1_textarea">
   <textarea 
@@ -1737,6 +1967,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_video">
   <video 
     
@@ -1757,10 +1989,6 @@
     
     
     duration="{{item.props['duration']}}"
-    
-    
-    
-    enableNative="{{item.props['enableNative']}}"
     
     
     
@@ -1870,6 +2098,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_view">
   <view 
     
@@ -1975,6 +2205,8 @@
 </template>
 
   
+  
+  
   <template name="REMAX_TPL_1_web-view">
   <web-view 
     
@@ -2000,6 +2232,7 @@
 </template>
 
   
+  
 
 <template name="REMAX_TPL_1_plain-text">
   <block>{{item.text}}</block>
@@ -2009,5 +2242,4 @@
   <template is="{{'REMAX_TPL_1_' + item.type}}" data="{{item: item}}" />
 </template>
 
-<template is="REMAX_TPL" data="{{ root: root }}" />
 <template is="REMAX_TPL" data="{{ root: modalRoot }}" />

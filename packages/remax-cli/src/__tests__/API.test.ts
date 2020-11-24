@@ -26,7 +26,7 @@ describe('api', () => {
 
   beforeAll(() => {
     api.registerPlugins([entries(), props1(), props2()]);
-    api.registerAdapterPlugins(Platform.ali, false);
+    api.registerAdapterPlugins(Platform.ali);
   });
 
   it('install plugins in a variety of ways', () => {
@@ -42,15 +42,6 @@ describe('api', () => {
     const props = api.processProps('text', []);
 
     expect(props).toEqual(['p1', 'p2']);
-  });
-
-  it('shouldHostComponentRegister', () => {
-    expect(api.shouldHostComponentRegister('view', 'import', false)).toBeTruthy();
-    expect(api.shouldHostComponentRegister('swiper-item', 'import', false)).toBeFalsy();
-  });
-
-  it('getHostComponents', () => {
-    expect(api.getHostComponents()).toBeDefined();
   });
 
   it('getMeta', () => {

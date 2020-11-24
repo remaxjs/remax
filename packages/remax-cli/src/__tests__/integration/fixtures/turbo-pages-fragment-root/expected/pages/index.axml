@@ -1,13 +1,7 @@
 
-<template name="TPL_8">
-  <view >{{' ReactComp '}}</view>
+<import src="/isolated.axml"/>
 
-</template>
 
-<template name="TPL_9">
-  <view >{{'view'}}</view>
-
-</template>
 
 
 
@@ -32,12 +26,35 @@
     public-id="{{node.props['public-id']}}" 
     scope="{{node.props['scope']}}" 
     size="{{node.props['size']}}" 
-    style="{{node.props['style']}}" 
     type="{{node.props['type']}}" 
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </button>
 </template>
+  
+
+  
+<template name="TPL_camera">
+  <camera 
+    applyMicPermissionWhenInit="{{node.props['applyMicPermissionWhenInit']}}" 
+    class="{{node.props['class']}}" 
+    device-position="{{node.props['device-position']}}" 
+    flash="{{node.props['flash']}}" 
+    frame-format="{{node.props['frame-format']}}" 
+    frame-size="{{node.props['frame-size']}}" 
+    id="{{node.props['id']}}" 
+    max-duration="{{node.props['max-duration']}}" 
+    mode="{{node.props['mode']}}" 
+    onError="{{node.props['onError']}}" 
+    onScanCode="{{node.props['onScanCode']}}" 
+    onStop="{{node.props['onStop']}}" 
+    outputDimension="{{node.props['outputDimension']}}" 
+    style="{{node.props['style']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </camera>
+</template>
+
   
 
   
@@ -54,6 +71,7 @@
     onTouchMove="{{node.props['onTouchMove']}}" 
     onTouchStart="{{node.props['onTouchStart']}}" 
     style="{{node.props['style']}}" 
+    type="{{node.props['type']}}" 
     width="{{node.props['width']}}" 
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
@@ -135,15 +153,6 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </cover-view>
-</template>
-  
-
-  
-<template name="TPL_ddd">
-  <ddd 
-  >
-    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
-  </ddd>
 </template>
   
 
@@ -258,6 +267,35 @@
   
 
   
+<template name="TPL_lottie">
+  <lottie 
+    assetsPath="{{node.props['assetsPath']}}" 
+    autoReverse="{{node.props['autoReverse']}}" 
+    autoplay="{{node.props['autoplay']}}" 
+    class="{{node.props['class']}}" 
+    djangoId="{{node.props['djangoId']}}" 
+    id="{{node.props['id']}}" 
+    md5="{{node.props['md5']}}" 
+    onAnimationCancel="{{node.props['onAnimationCancel']}}" 
+    onAnimationEnd="{{node.props['onAnimationEnd']}}" 
+    onAnimationRepeat="{{node.props['onAnimationRepeat']}}" 
+    onAnimationStart="{{node.props['onAnimationStart']}}" 
+    onDataFailed="{{node.props['onDataFailed']}}" 
+    onDataLoadReady="{{node.props['onDataLoadReady']}}" 
+    onDataReady="{{node.props['onDataReady']}}" 
+    optimize="{{node.props['optimize']}}" 
+    path="{{node.props['path']}}" 
+    placeholder="{{node.props['placeholder']}}" 
+    repeatCount="{{node.props['repeatCount']}}" 
+    speed="{{node.props['speed']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </lottie>
+</template>
+
+  
+
+  
 <template name="TPL_map">
   <map 
     circles="{{node.props['circles']}}" 
@@ -365,10 +403,11 @@
     value="{{node.props['value']}}" 
   >
     <view>
-      <template is="TPL_DEFAULT" data="{{node: item.children[0]}}" />
+      <template is="TPL_DEFAULT" data="{{root: node.children[0]}}" />
     </view>
   </picker>
 </template>
+
   
 
   
@@ -396,6 +435,7 @@
 </template>
   
 
+  
   
 <template name="TPL_progress">
   <progress 
@@ -547,14 +587,21 @@
     vertical="{{node.props['vertical']}}" 
   >
     <block a:for="{{node.children}}" key="{{item.id}}">
-      <swiper-item key="{{item.props.key}}">
+      <swiper-item 
+         class="{{item.props['class']}}" 
+         id="{{item.props['id']}}" 
+         key="{{item.props['key']}}" 
+         style="{{item.props['style']}}" 
+      >
         <template is="TPL_TRAVERSAL" data="{{root: item}}" />
       </swiper-item>
     </block>
   </swiper>
 </template>
+
   
 
+  
   
 <template name="TPL_switch">
   <switch 
@@ -627,7 +674,6 @@
     controls="{{node.props['controls']}}" 
     direction="{{node.props['direction']}}" 
     duration="{{node.props['duration']}}" 
-    enableNative="{{node.props['enableNative']}}" 
     enableProgressGesture="{{node.props['enableProgressGesture']}}" 
     id="{{node.props['id']}}" 
     initial-time="{{node.props['initial-time']}}" 
@@ -661,7 +707,6 @@
   
 <template name="TPL_view">
   <view 
-    _tid="{{node.props['_tid']}}" 
     animation="{{node.props['animation']}}" 
     class="{{node.props['class']}}" 
     disable-scroll="{{node.props['disable-scroll']}}" 
@@ -671,7 +716,6 @@
     hover-stay-time="{{node.props['hover-stay-time']}}" 
     hover-stop-propagation="{{node.props['hover-stop-propagation']}}" 
     id="{{node.props['id']}}" 
-    key="{{node.props['key']}}" 
     onAnimationEnd="{{node.props['onAnimationEnd']}}" 
     onAnimationIteration="{{node.props['onAnimationIteration']}}" 
     onAnimationStart="{{node.props['onAnimationStart']}}" 
@@ -721,7 +765,7 @@
 
 <!-- for default render -->
 <template name="TPL_DEFAULT">
-  <template a:if="{{root.props._tid > 0}}" is="{{'TPL_' + root.props._tid}}" data="{{ node: root }}" />
+  <template a:if="{{root.props._tid}}" is="{{'TPL_' + root.props._tid}}" data="{{ node: root }}" />
   <template a:else is="{{ 'TPL_' + root.type }}" data="{{ node: root }}" />
 </template>
 
@@ -729,10 +773,10 @@
 <template name="TPL_TRAVERSAL">
   <block a:if="{{root.children}}">
     <block a:for="{{root.children}}" key="{{item.id}}">
-      <template a:if="{{item.props._tid > 0}}" is="{{'TPL_' + item.props._tid}}" data="{{ node: item }}" />
+      <template a:if="{{item.props._tid}}" is="{{'TPL_' + item.props._tid}}" data="{{ node: item }}" />
       <template a:else is="{{ 'TPL_' + item.type }}" data="{{ node: item }}" />
     </block>
   </block>
-  <template a:elif="{{root.props._tid > 0}}" is="{{'TPL_' + root.props._tid}}" data="{{ node: root }}" />
+  <template a:elif="{{root.props._tid}}" is="{{'TPL_' + root.props._tid}}" data="{{ node: root }}" />
   <template a:else is="{{ 'TPL_' + root.type }}" data="{{ node: root }}" />
 </template>

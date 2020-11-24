@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface NavigatorProps {
   readonly dataset?: DOMStringMap;
@@ -12,4 +12,4 @@ export interface NavigatorProps {
   url: string;
 }
 
-export const Navigator: React.ComponentType<NavigatorProps> = createHostComponent<NavigatorProps>('navigator');
+export const Navigator = createHostComponent<NavigatorProps>('navigator') as React.ComponentType<NavigatorProps>;

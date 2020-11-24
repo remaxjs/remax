@@ -1,6 +1,6 @@
-import runTest from './helpers/runTest';
+import { testBuildApp } from './helpers/runTest';
 
 describe('customize babel config', () => {
-  runTest('babelrc');
-  runTest('babel-plugin-import');
+  testBuildApp('babelrc');
+  testBuildApp('babel-plugin-import');
 });

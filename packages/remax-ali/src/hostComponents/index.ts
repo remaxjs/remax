@@ -32,3 +32,5 @@ export * from './WebView';
 export * from './Lifestyle';
 export * from './ContactButton';
 export * from './Video';
+export * from './Lottie';
+export * from './Camera';

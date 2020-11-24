@@ -1,0 +1,3 @@
+<template name="msg">
+  <view>hello</view>
+</template>

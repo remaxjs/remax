@@ -5,11 +5,9 @@ import Input from './helpers/Input';
 import render from '../render';
 import { reset as resetInstanceId } from '../instanceId';
 import Container from '../Container';
-import createPageWrapper from '../createPageWrapper';
-import { useNativeEffect, usePageInstance } from '../hooks';
-import { RuntimeOptions } from '..';
+import { useNativeEffect } from '../hooks';
+import { RuntimeOptions } from '@remax/framework-shared';
 import { Platform } from '@remax/types';
-import usePageContext from '../hooks/usePageContext';
 
 function delay(ms: number) {
   if (typeof ms !== 'number') {
@@ -558,39 +556,6 @@ it('useNativeEffect deps works', done => {
   };
   const container = new Container(p);
   render(<Page />, container);
-});
-
-it('usePageContext works', done => {
-  const container = new Container(p);
-  const modalContainer = new Container({});
-  const Page = createPageWrapper(() => {
-    const ctx = usePageContext();
-
-    React.useEffect(() => {
-      expect(ctx?.page).toBeDefined();
-      expect(ctx?.modalContainer).toBe(modalContainer);
-      done();
-    }, []);
-
-    return <View />;
-  }, '');
-  render(<Page page={{ data: {} }} query={{}} modalContainer={modalContainer} />, container);
-});
-
-it('usePageInstance works', done => {
-  const Page = createPageWrapper(() => {
-    const instance = usePageInstance();
-
-    React.useEffect(() => {
-      expect(instance.data).toBeDefined();
-      done();
-    }, []);
-
-    return <View />;
-  }, '');
-  const container = new Container(p);
-  const modalContainer = new Container({});
-  render(<Page page={{ data: {} }} query={{}} modalContainer={modalContainer} />, container);
 });
 
 describe('Remax Suspense placeholder', () => {

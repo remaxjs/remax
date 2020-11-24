@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface ProgressProps {
   readonly dataset?: DOMStringMap;
@@ -13,4 +13,4 @@ export interface ProgressProps {
   active?: boolean;
 }
 
-export const Progress: React.ComponentType<ProgressProps> = createHostComponent<ProgressProps>('progress');
+export const Progress = createHostComponent<ProgressProps>('progress') as React.ComponentType<ProgressProps>;

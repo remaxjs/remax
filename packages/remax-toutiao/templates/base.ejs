@@ -4,14 +4,18 @@
   </block>
 </template>
 
-<% for (let component of components) { %>
-  <%- include('./component.ejs', {
-    type: component.type,
-    props: component.props,
-    id: component.id,
-    type: component.type,
-    slotView: slotView
-  }) %>
+<% for (let component of sortBy(Array.from(components.values()), 'id')) { %>
+  <% if (skipComponents.includes(component.id)) {
+    continue;
+  } else { %>
+    <%- include('./component.ejs', {
+      type: component.type,
+      props: component.props,
+      id: component.id,
+      type: component.type,
+      slotView: slotView
+    }) %>
+  <% } %>
 <% } %>
 <template name="REMAX_TPL_plain-text" data="{{i: i}}">
   <block>{{i.text}}</block>

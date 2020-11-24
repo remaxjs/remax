@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "mini-greet": "/components/mini-greet/index",
+    "react-greet": "/components/react-greet/index"
+  }
+}

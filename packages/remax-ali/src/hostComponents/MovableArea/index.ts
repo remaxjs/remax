@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface MovableAreaProps {
   readonly dataset?: DOMStringMap;
@@ -10,4 +10,6 @@ export interface MovableAreaProps {
   height?: number;
 }
 
-export const MovableArea: React.ComponentType<MovableAreaProps> = createHostComponent<MovableAreaProps>('movable-area');
+export const MovableArea = createHostComponent<MovableAreaProps>('movable-area') as React.ComponentType<
+  MovableAreaProps
+>;

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import yargs from 'yargs';
 import WebpackConfig from 'webpack-chain';
 import * as t from '@babel/types';
@@ -9,11 +10,29 @@ export enum Platform {
   'toutiao' = 'toutiao',
 }
 
-export interface Options {
-  turboPages?: string[];
+export enum BuildType {
+  miniApp = 'miniapp',
+  component = 'component',
+  miniPlugin = 'miniPlugin',
+  webApp = 'web',
+}
+
+export type WebOptions = {
+  mpa: boolean;
+  excludeNodeModulesTransform: boolean;
+};
+
+export interface PluginOptions {
+  errorScreen: boolean;
+  spm: boolean;
+}
+
+export interface BuildOptions {
+  turboRenders?: boolean;
   pxToRpx: boolean;
   cwd: string;
   progress: boolean;
+  input?: string[] | string | { [key: string]: string };
   output: string;
   rootDir: string;
   compressTemplate?: boolean;
@@ -21,19 +40,24 @@ export interface Options {
   configWebpack?: (params: { config: WebpackConfig; webpack: any }) => void;
   plugins: Plugin[];
   port?: number;
-  one?: boolean;
   notify?: boolean;
   watch?: boolean;
   target?: Platform;
   analyze?: boolean;
+  type?: BuildType;
+  component?: any;
+  web?: WebOptions;
   minimize?: boolean;
 }
+
+export type Options = BuildOptions & PluginOptions;
 
 export type Config = Partial<Options>;
 
 export interface EntryInfo {
   name: string;
   filename: string;
+  component?: boolean;
 }
 
 export interface Entries {
@@ -67,8 +91,13 @@ export interface AppConfig {
   plugins?: AppConfigPlugins;
 }
 
-export type CLI = yargs.Argv;
-export type ExtendsCLIOptions = { cli: CLI };
+export interface MiniPluginConfig {
+  pages: string[];
+  publicComponents: { [key: string]: string };
+  publicPages: { [key: string]: string };
+  main: string;
+}
+
 export type Meta = {
   global: string;
   template: {
@@ -91,6 +120,7 @@ export type Meta = {
     base?: string;
     page: string;
     jsHelper?: string;
+    isolatedTemplates?: string;
   };
 };
 
@@ -117,11 +147,11 @@ export interface HostComponent {
   alias?: { [key: string]: string };
 }
 
-export interface NativeComponent {
+export interface ComponentManifest {
   id: string;
-  sourcePath: string;
-  importers: string[];
-  assets: string[];
+  props: string[];
+  additional?: boolean;
+  type?: string;
 }
 
 export interface Plugin {
@@ -170,6 +200,42 @@ export interface Plugin {
    * 修改页面配置
    */
   onPageConfig?: (params: { config: any; page: string }) => any;
+
+  /**
+   * 修改页面输出的 template
+   */
+  onPageTemplate?: (params: { template: string; page: string }) => string;
+
+  /**
+   * 扩展命令行
+   */
+  extendCLI?: (params: { cli: yargs.Argv }) => any;
 }
 
 export type PluginConstructor = (options?: any) => Plugin;
+
+export interface RuntimePlugin {
+  onAppConfig?: ({ config }: { config: any }) => any;
+  onPageConfig?: ({ config, page }: { config: any; page: string }) => any;
+  onAppComponent?: ({ component }: { component: React.ComponentType<any> }) => React.ComponentType<any>;
+  onPageComponent?: ({
+    component,
+    page,
+  }: {
+    component: React.ComponentType<any>;
+    page: string;
+  }) => React.ComponentType<any>;
+  onMiniComponent?: ({
+    component,
+    context,
+  }: {
+    component: React.ComponentType<any>;
+    context: any;
+  }) => React.ComponentType<any>;
+  onCreateHostComponent?: ({
+    component,
+  }: {
+    component: React.ForwardRefExoticComponent<any> | React.ComponentType<any>;
+  }) => React.ForwardRefExoticComponent<any> | React.ComponentType<any>;
+  onCreateHostComponentElement?: ({ element }: { element: React.ReactElement<any> }) => React.ReactElement<any>;
+}

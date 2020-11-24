@@ -1,5 +1,5 @@
 import plainStyle from './utils/plainStyle';
-import * as RuntimeOptions from './RuntimeOptions';
+import { RuntimeOptions } from '@remax/framework-shared';
 
 export function getAlias(prop: string, type: string) {
   prop = prop.replace('className', 'class');

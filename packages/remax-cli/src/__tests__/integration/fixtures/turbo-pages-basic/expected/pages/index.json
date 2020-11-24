@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "index": "/remaxVendors/components/nativeComponent/index"
+    "native-component-index-f24c316": "../components/nativeComponent/index"
   }
 }

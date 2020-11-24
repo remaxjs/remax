@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface ImageProps {
   readonly dataset?: DOMStringMap;
@@ -20,4 +20,4 @@ export interface ImageProps {
   onTouchCancel?: (e: any) => void;
 }
 
-export const Image: React.ComponentType<ImageProps> = createHostComponent<ImageProps>('image');
+export const Image = createHostComponent<ImageProps>('image') as React.ComponentType<ImageProps>;

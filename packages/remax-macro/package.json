@@ -23,6 +23,7 @@
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/plugin-transform-modules-commonjs": "^7.4.4",
+    "@remax/build-store": "0.0.1",
     "@types/babel-plugin-macros": "^2.6.0",
     "@types/jest": "^26.0.0",
     "@types/lodash": "^4.14.149",

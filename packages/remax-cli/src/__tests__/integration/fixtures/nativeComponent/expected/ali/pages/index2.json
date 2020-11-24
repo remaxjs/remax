@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "index2": "/remaxVendors/components/d/index",
-    "index9": "/remaxVendors/components/f/index"
+    "f-index-ec688e6": "../components/f/index",
+    "d-index-6a5e7c1": "../components/d/index"
   }
 }

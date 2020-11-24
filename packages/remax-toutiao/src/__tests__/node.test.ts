@@ -15,20 +15,4 @@ describe('node', () => {
     expect(meta.style).toMatchInlineSnapshot(`".ttss"`);
     expect(meta.jsHelper).toMatchInlineSnapshot(`undefined`);
   });
-
-  it('shouldHostComponentRegister', () => {
-    expect(
-      node().shouldHostComponentRegister!({
-        componentName: 'swiper-item',
-        phase: 'import',
-      })
-    ).toBeFalsy();
-
-    expect(
-      node().shouldHostComponentRegister!({
-        componentName: 'view',
-        phase: 'import',
-      })
-    ).toBeTruthy();
-  });
 });

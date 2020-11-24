@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface SwiperProps {
   readonly dataset?: DOMStringMap;
@@ -27,4 +27,4 @@ export interface SwiperProps {
   onAnimationEnd?: (e: any) => void;
 }
 
-export const Swiper: React.ComponentType<SwiperProps> = createHostComponent<SwiperProps>('swiper');
+export const Swiper = createHostComponent<SwiperProps>('swiper') as React.ComponentType<SwiperProps>;

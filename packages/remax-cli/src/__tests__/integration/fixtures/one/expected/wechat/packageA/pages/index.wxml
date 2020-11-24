@@ -1,3 +1,0 @@
-<import src="/base.wxml"/>
-<template is="REMAX_TPL" data="{{root: root}}" />
-<template is="REMAX_TPL" data="{{ root: modalRoot }}" />

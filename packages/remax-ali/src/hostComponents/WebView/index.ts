@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface WebViewProps {
   readonly dataset?: DOMStringMap;
@@ -8,4 +8,4 @@ export interface WebViewProps {
   onMessage?: (e: any) => void;
 }
 
-export const WebView: React.ComponentType<WebViewProps> = createHostComponent<WebViewProps>('web-view');
+export const WebView = createHostComponent<WebViewProps>('web-view') as React.ComponentType<WebViewProps>;

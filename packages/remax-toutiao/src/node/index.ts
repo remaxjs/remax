@@ -20,7 +20,7 @@ const plugin: PluginConstructor = () => {
       },
     },
     hostComponents,
-    shouldHostComponentRegister: ({ componentName }) => componentName !== 'swiper-item',
+    skipHostComponents: ['swiper-item'],
   };
 };
 

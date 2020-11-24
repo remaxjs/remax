@@ -1,0 +1,723 @@
+
+
+
+  
+<template name="TPL_button">
+  <button 
+    app-parameter="{{node.props['app-parameter']}}" 
+    class="{{node.props['class']}}" 
+    disabled="{{node.props['disabled']}}" 
+    form-type="{{node.props['form-type']}}" 
+    hover-class="{{node.props['hover-class']}}" 
+    hover-start-time="{{node.props['hover-start-time']}}" 
+    hover-stay-time="{{node.props['hover-stay-time']}}" 
+    hover-stop-propagation="{{node.props['hover-stop-propagation']}}" 
+    id="{{node.props['id']}}" 
+    loading="{{node.props['loading']}}" 
+    onGetAuthorize="{{node.props['onGetAuthorize']}}" 
+    onTap="{{node.props['onTap']}}" 
+    open-type="{{node.props['open-type']}}" 
+    plain="{{node.props['plain']}}" 
+    public-id="{{node.props['public-id']}}" 
+    scope="{{node.props['scope']}}" 
+    size="{{node.props['size']}}" 
+    type="{{node.props['type']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </button>
+</template>
+  
+
+  
+<template name="TPL_canvas">
+  <canvas 
+    class="{{node.props['class']}}" 
+    disable-scroll="{{node.props['disable-scroll']}}" 
+    height="{{node.props['height']}}" 
+    id="{{node.props['id']}}" 
+    onLongTap="{{node.props['onLongTap']}}" 
+    onTap="{{node.props['onTap']}}" 
+    onTouchCancel="{{node.props['onTouchCancel']}}" 
+    onTouchEnd="{{node.props['onTouchEnd']}}" 
+    onTouchMove="{{node.props['onTouchMove']}}" 
+    onTouchStart="{{node.props['onTouchStart']}}" 
+    style="{{node.props['style']}}" 
+    width="{{node.props['width']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </canvas>
+</template>
+  
+
+  
+<template name="TPL_checkbox">
+  <checkbox 
+    checked="{{node.props['checked']}}" 
+    class="{{node.props['class']}}" 
+    color="{{node.props['color']}}" 
+    disabled="{{node.props['disabled']}}" 
+    id="{{node.props['id']}}" 
+    name="{{node.props['name']}}" 
+    onChange="{{node.props['onChange']}}" 
+    style="{{node.props['style']}}" 
+    value="{{node.props['value']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </checkbox>
+</template>
+  
+
+  
+<template name="TPL_checkbox-group">
+  <checkbox-group 
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    name="{{node.props['name']}}" 
+    onChange="{{node.props['onChange']}}" 
+    style="{{node.props['style']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </checkbox-group>
+</template>
+  
+
+  
+<template name="TPL_contact-button">
+  <contact-button 
+    alipay-card-no="{{node.props['alipay-card-no']}}" 
+    class="{{node.props['class']}}" 
+    color="{{node.props['color']}}" 
+    icon="{{node.props['icon']}}" 
+    id="{{node.props['id']}}" 
+    scene="{{node.props['scene']}}" 
+    size="{{node.props['size']}}" 
+    style="{{node.props['style']}}" 
+    tnt-inst-id="{{node.props['tnt-inst-id']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </contact-button>
+</template>
+  
+
+  
+<template name="TPL_cover-image">
+  <cover-image 
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    onTap="{{node.props['onTap']}}" 
+    src="{{node.props['src']}}" 
+    style="{{node.props['style']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </cover-image>
+</template>
+  
+
+  
+<template name="TPL_cover-view">
+  <cover-view 
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    onTap="{{node.props['onTap']}}" 
+    style="{{node.props['style']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </cover-view>
+</template>
+  
+
+  
+<template name="TPL_ddd">
+  <ddd 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </ddd>
+</template>
+  
+
+  
+<template name="TPL_form">
+  <form 
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    onReset="{{node.props['onReset']}}" 
+    onSubmit="{{node.props['onSubmit']}}" 
+    report-submit="{{node.props['report-submit']}}" 
+    style="{{node.props['style']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </form>
+</template>
+  
+
+  
+<template name="TPL_icon">
+  <icon 
+    class="{{node.props['class']}}" 
+    color="{{node.props['color']}}" 
+    id="{{node.props['id']}}" 
+    size="{{node.props['size']}}" 
+    style="{{node.props['style']}}" 
+    type="{{node.props['type']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </icon>
+</template>
+  
+
+  
+<template name="TPL_image">
+  <image 
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    lazy-load="{{node.props['lazy-load']}}" 
+    mode="{{node.props['mode']}}" 
+    onError="{{node.props['onError']}}" 
+    onLoad="{{node.props['onLoad']}}" 
+    onTap="{{node.props['onTap']}}" 
+    onTouchCancel="{{node.props['onTouchCancel']}}" 
+    onTouchEnd="{{node.props['onTouchEnd']}}" 
+    onTouchMove="{{node.props['onTouchMove']}}" 
+    onTouchStart="{{node.props['onTouchStart']}}" 
+    src="{{node.props['src']}}" 
+    style="{{node.props['style']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </image>
+</template>
+  
+
+  
+<template name="TPL_input">
+  <input 
+    class="{{node.props['class']}}" 
+    confirm-hold="{{node.props['confirm-hold']}}" 
+    confirm-type="{{node.props['confirm-type']}}" 
+    controlled="{{node.props['controlled']}}" 
+    cursor="{{node.props['cursor']}}" 
+    disabled="{{node.props['disabled']}}" 
+    enableNative="{{node.props['enableNative']}}" 
+    focus="{{node.props['focus']}}" 
+    id="{{node.props['id']}}" 
+    maxlength="{{node.props['maxlength']}}" 
+    name="{{node.props['name']}}" 
+    onBlur="{{node.props['onBlur']}}" 
+    onConfirm="{{node.props['onConfirm']}}" 
+    onFocus="{{node.props['onFocus']}}" 
+    onInput="{{node.props['onInput']}}" 
+    password="{{node.props['password']}}" 
+    placeholder="{{node.props['placeholder']}}" 
+    placeholder-class="{{node.props['placeholder-class']}}" 
+    placeholder-style="{{node.props['placeholder-style']}}" 
+    randomNumber="{{node.props['randomNumber']}}" 
+    selection-end="{{node.props['selection-end']}}" 
+    selection-start="{{node.props['selection-start']}}" 
+    style="{{node.props['style']}}" 
+    type="{{node.props['type']}}" 
+    value="{{node.props['value']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </input>
+</template>
+  
+
+  
+<template name="TPL_label">
+  <label 
+    class="{{node.props['class']}}" 
+    for="{{node.props['for']}}" 
+    id="{{node.props['id']}}" 
+    style="{{node.props['style']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </label>
+</template>
+  
+
+  
+<template name="TPL_lifestyle">
+  <lifestyle 
+    onFollow="{{node.props['onFollow']}}" 
+    public-id="{{node.props['public-id']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </lifestyle>
+</template>
+  
+
+  
+<template name="TPL_map">
+  <map 
+    circles="{{node.props['circles']}}" 
+    class="{{node.props['class']}}" 
+    controls="{{node.props['controls']}}" 
+    ground-overlays="{{node.props['ground-overlays']}}" 
+    id="{{node.props['id']}}" 
+    include-padding="{{node.props['include-padding']}}" 
+    include-points="{{node.props['include-points']}}" 
+    latitude="{{node.props['latitude']}}" 
+    longitude="{{node.props['longitude']}}" 
+    markers="{{node.props['markers']}}" 
+    onCalloutTap="{{node.props['onCalloutTap']}}" 
+    onControlTap="{{node.props['onControlTap']}}" 
+    onMarkerTap="{{node.props['onMarkerTap']}}" 
+    onRegionChange="{{node.props['onRegionChange']}}" 
+    onTap="{{node.props['onTap']}}" 
+    polygon="{{node.props['polygon']}}" 
+    polyline="{{node.props['polyline']}}" 
+    scale="{{node.props['scale']}}" 
+    setting="{{node.props['setting']}}" 
+    show-location="{{node.props['show-location']}}" 
+    style="{{node.props['style']}}" 
+    tile-overlay="{{node.props['tile-overlay']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </map>
+</template>
+  
+
+  
+<template name="TPL_movable-area">
+  <movable-area 
+    class="{{node.props['class']}}" 
+    height="{{node.props['height']}}" 
+    id="{{node.props['id']}}" 
+    style="{{node.props['style']}}" 
+    width="{{node.props['width']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </movable-area>
+</template>
+  
+
+  
+<template name="TPL_movable-view">
+  <movable-view 
+    class="{{node.props['class']}}" 
+    damping="{{node.props['damping']}}" 
+    direction="{{node.props['direction']}}" 
+    disabled="{{node.props['disabled']}}" 
+    friction="{{node.props['friction']}}" 
+    height="{{node.props['height']}}" 
+    id="{{node.props['id']}}" 
+    onChange="{{node.props['onChange']}}" 
+    onChangeEnd="{{node.props['onChangeEnd']}}" 
+    onScale="{{node.props['onScale']}}" 
+    onTouchCancel="{{node.props['onTouchCancel']}}" 
+    onTouchEnd="{{node.props['onTouchEnd']}}" 
+    onTouchMove="{{node.props['onTouchMove']}}" 
+    onTouchStart="{{node.props['onTouchStart']}}" 
+    out-of-bounds="{{node.props['out-of-bounds']}}" 
+    scale="{{node.props['scale']}}" 
+    scale-max="{{node.props['scale-max']}}" 
+    scale-min="{{node.props['scale-min']}}" 
+    scale-value="{{node.props['scale-value']}}" 
+    style="{{node.props['style']}}" 
+    width="{{node.props['width']}}" 
+    x="{{node.props['x']}}" 
+    y="{{node.props['y']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </movable-view>
+</template>
+  
+
+  
+<template name="TPL_navigator">
+  <navigator 
+    class="{{node.props['class']}}" 
+    hover-class="{{node.props['hover-class']}}" 
+    hover-start-time="{{node.props['hover-start-time']}}" 
+    hover-stay-time="{{node.props['hover-stay-time']}}" 
+    id="{{node.props['id']}}" 
+    open-type="{{node.props['open-type']}}" 
+    style="{{node.props['style']}}" 
+    url="{{node.props['url']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </navigator>
+</template>
+  
+
+  
+<template name="TPL_picker">
+  <picker 
+    class="{{node.props['class']}}" 
+    disabled="{{node.props['disabled']}}" 
+    id="{{node.props['id']}}" 
+    name="{{node.props['name']}}" 
+    onChange="{{node.props['onChange']}}" 
+    range="{{node.props['range']}}" 
+    range-key="{{node.props['range-key']}}" 
+    style="{{node.props['style']}}" 
+    value="{{node.props['value']}}" 
+  >
+    <view>
+      <template is="TPL_DEFAULT" data="{{node: item.children[0]}}" />
+    </view>
+  </picker>
+</template>
+  
+
+  
+<template name="TPL_picker-view">
+  <picker-view 
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    indicator-class="{{node.props['indicator-class']}}" 
+    indicator-style="{{node.props['indicator-style']}}" 
+    mask-class="{{node.props['mask-class']}}" 
+    mask-style="{{node.props['mask-style']}}" 
+    name="{{node.props['name']}}" 
+    onChange="{{node.props['onChange']}}" 
+    style="{{node.props['style']}}" 
+    value="{{node.props['value']}}" 
+  >
+    <block a:for="{{node.children}}" key="{{item.id}}">
+      <picker-view-column>
+        <view a:for="{{item.children}}">
+          <template is="TPL_TRAVERSAL" data="{{root: item}}" />
+        </view>
+      </picker-view-column>
+    </block>
+  </picker-view>
+</template>
+  
+
+  
+<template name="TPL_progress">
+  <progress 
+    active="{{node.props['active']}}" 
+    active-color="{{node.props['active-color']}}" 
+    background-color="{{node.props['background-color']}}" 
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    percent="{{node.props['percent']}}" 
+    show-info="{{node.props['show-info']}}" 
+    stroke-width="{{node.props['stroke-width']}}" 
+    style="{{node.props['style']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </progress>
+</template>
+  
+
+  
+<template name="TPL_radio">
+  <radio 
+    checked="{{node.props['checked']}}" 
+    class="{{node.props['class']}}" 
+    color="{{node.props['color']}}" 
+    disabled="{{node.props['disabled']}}" 
+    id="{{node.props['id']}}" 
+    name="{{node.props['name']}}" 
+    style="{{node.props['style']}}" 
+    value="{{node.props['value']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </radio>
+</template>
+  
+
+  
+<template name="TPL_radio-group">
+  <radio-group 
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    name="{{node.props['name']}}" 
+    onChange="{{node.props['onChange']}}" 
+    style="{{node.props['style']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </radio-group>
+</template>
+  
+
+  
+<template name="TPL_rich-text">
+  <rich-text 
+    class="{{node.props['class']}}" 
+    id="{{node.props['id']}}" 
+    nodes="{{node.props['nodes']}}" 
+    onLongTap="{{node.props['onLongTap']}}" 
+    onTap="{{node.props['onTap']}}" 
+    onTouchCancel="{{node.props['onTouchCancel']}}" 
+    onTouchEnd="{{node.props['onTouchEnd']}}" 
+    onTouchMove="{{node.props['onTouchMove']}}" 
+    onTouchStart="{{node.props['onTouchStart']}}" 
+    style="{{node.props['style']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </rich-text>
+</template>
+  
+
+  
+<template name="TPL_scroll-view">
+  <scroll-view 
+    class="{{node.props['class']}}" 
+    enable-back-to-top="{{node.props['enable-back-to-top']}}" 
+    id="{{node.props['id']}}" 
+    lower-threshold="{{node.props['lower-threshold']}}" 
+    onScroll="{{node.props['onScroll']}}" 
+    onScrollToLower="{{node.props['onScrollToLower']}}" 
+    onScrollToUpper="{{node.props['onScrollToUpper']}}" 
+    onTouchCancel="{{node.props['onTouchCancel']}}" 
+    onTouchEnd="{{node.props['onTouchEnd']}}" 
+    onTouchMove="{{node.props['onTouchMove']}}" 
+    onTouchStart="{{node.props['onTouchStart']}}" 
+    scroll-animation-duration="{{node.props['scroll-animation-duration']}}" 
+    scroll-into-view="{{node.props['scroll-into-view']}}" 
+    scroll-left="{{node.props['scroll-left']}}" 
+    scroll-top="{{node.props['scroll-top']}}" 
+    scroll-with-animation="{{node.props['scroll-with-animation']}}" 
+    scroll-x="{{node.props['scroll-x']}}" 
+    scroll-y="{{node.props['scroll-y']}}" 
+    style="{{node.props['style']}}" 
+    trap-scroll="{{node.props['trap-scroll']}}" 
+    upper-threshold="{{node.props['upper-threshold']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </scroll-view>
+</template>
+  
+
+  
+<template name="TPL_slider">
+  <slider 
+    active-color="{{node.props['active-color']}}" 
+    background-color="{{node.props['background-color']}}" 
+    class="{{node.props['class']}}" 
+    disabled="{{node.props['disabled']}}" 
+    handle-color="{{node.props['handle-color']}}" 
+    handle-size="{{node.props['handle-size']}}" 
+    id="{{node.props['id']}}" 
+    max="{{node.props['max']}}" 
+    min="{{node.props['min']}}" 
+    name="{{node.props['name']}}" 
+    onChange="{{node.props['onChange']}}" 
+    onChanging="{{node.props['onChanging']}}" 
+    show-value="{{node.props['show-value']}}" 
+    step="{{node.props['step']}}" 
+    style="{{node.props['style']}}" 
+    track-size="{{node.props['track-size']}}" 
+    value="{{node.props['value']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </slider>
+</template>
+  
+
+  
+<template name="TPL_swiper">
+  <swiper 
+    acceleration="{{node.props['acceleration']}}" 
+    active-class="{{node.props['active-class']}}" 
+    autoplay="{{node.props['autoplay']}}" 
+    changing-class="{{node.props['changing-class']}}" 
+    circular="{{node.props['circular']}}" 
+    class="{{node.props['class']}}" 
+    current="{{node.props['current']}}" 
+    disable-programmatic-animation="{{node.props['disable-programmatic-animation']}}" 
+    disable-touch="{{node.props['disable-touch']}}" 
+    duration="{{node.props['duration']}}" 
+    id="{{node.props['id']}}" 
+    indicator-active-color="{{node.props['indicator-active-color']}}" 
+    indicator-color="{{node.props['indicator-color']}}" 
+    indicator-dots="{{node.props['indicator-dots']}}" 
+    interval="{{node.props['interval']}}" 
+    next-margin="{{node.props['next-margin']}}" 
+    onAnimationEnd="{{node.props['onAnimationEnd']}}" 
+    onChange="{{node.props['onChange']}}" 
+    onTransition="{{node.props['onTransition']}}" 
+    previous-margin="{{node.props['previous-margin']}}" 
+    style="{{node.props['style']}}" 
+    vertical="{{node.props['vertical']}}" 
+  >
+    <block a:for="{{node.children}}" key="{{item.id}}">
+      <swiper-item key="{{item.props.key}}">
+        <template is="TPL_TRAVERSAL" data="{{root: item}}" />
+      </swiper-item>
+    </block>
+  </swiper>
+</template>
+  
+
+  
+<template name="TPL_switch">
+  <switch 
+    checked="{{node.props['checked']}}" 
+    class="{{node.props['class']}}" 
+    color="{{node.props['color']}}" 
+    controlled="{{node.props['controlled']}}" 
+    disabled="{{node.props['disabled']}}" 
+    id="{{node.props['id']}}" 
+    name="{{node.props['name']}}" 
+    onChange="{{node.props['onChange']}}" 
+    style="{{node.props['style']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </switch>
+</template>
+  
+
+  
+<template name="TPL_text">
+  <text 
+    class="{{node.props['class']}}" 
+    decode="{{node.props['decode']}}" 
+    id="{{node.props['id']}}" 
+    number-of-lines="{{node.props['number-of-lines']}}" 
+    onTap="{{node.props['onTap']}}" 
+    selectable="{{node.props['selectable']}}" 
+    space="{{node.props['space']}}" 
+    style="{{node.props['style']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </text>
+</template>
+  
+
+  
+<template name="TPL_textarea">
+  <textarea 
+    auto-height="{{ node.props['auto-height'] }}" 
+    class="{{ node.props['class'] }}" 
+    controlled="{{ node.props['controlled'] }}" 
+    disabled="{{ node.props['disabled'] }}" 
+    enableNative="{{ node.props['enableNative'] }}" 
+    focus="{{ node.props['focus'] }}" 
+    id="{{ node.props['id'] }}" 
+    maxlength="{{ node.props['maxlength'] }}" 
+    name="{{ node.props['name'] }}" 
+    onBlur="{{ node.props['onBlur'] }}" 
+    onConfirm="{{ node.props['onConfirm'] }}" 
+    onFocus="{{ node.props['onFocus'] }}" 
+    onInput="{{ node.props['onInput'] }}" 
+    placeholder="{{ node.props['placeholder'] }}" 
+    placeholder-class="{{ node.props['placeholder-class'] }}" 
+    placeholder-style="{{ node.props['placeholder-style'] }}" 
+    show-count="{{ node.props['show-count'] }}" 
+    style="{{ node.props['style'] }}" 
+    value="{{ node.props['value'] }}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </textarea>
+</template>
+
+  
+
+  
+<template name="TPL_video">
+  <video 
+    autoplay="{{node.props['autoplay']}}" 
+    class="{{node.props['class']}}" 
+    controls="{{node.props['controls']}}" 
+    direction="{{node.props['direction']}}" 
+    duration="{{node.props['duration']}}" 
+    enableProgressGesture="{{node.props['enableProgressGesture']}}" 
+    id="{{node.props['id']}}" 
+    initial-time="{{node.props['initial-time']}}" 
+    loop="{{node.props['loop']}}" 
+    mobilenetHintType="{{node.props['mobilenetHintType']}}" 
+    muted="{{node.props['muted']}}" 
+    objectFit="{{node.props['objectFit']}}" 
+    onEnded="{{node.props['onEnded']}}" 
+    onError="{{node.props['onError']}}" 
+    onFullScreenChange="{{node.props['onFullScreenChange']}}" 
+    onLoading="{{node.props['onLoading']}}" 
+    onPause="{{node.props['onPause']}}" 
+    onPlay="{{node.props['onPlay']}}" 
+    onTap="{{node.props['onTap']}}" 
+    onTimeUpdate="{{node.props['onTimeUpdate']}}" 
+    onUserAction="{{node.props['onUserAction']}}" 
+    poster="{{node.props['poster']}}" 
+    show-center-play-btn="{{node.props['show-center-play-btn']}}" 
+    show-fullscreen-btn="{{node.props['show-fullscreen-btn']}}" 
+    show-mute-btn="{{node.props['show-mute-btn']}}" 
+    show-play-btn="{{node.props['show-play-btn']}}" 
+    src="{{node.props['src']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </video>
+</template>
+  
+
+  
+<template name="TPL_view">
+  <view 
+    _tid="{{node.props['_tid']}}" 
+    animation="{{node.props['animation']}}" 
+    class="{{node.props['class']}}" 
+    disable-scroll="{{node.props['disable-scroll']}}" 
+    hidden="{{node.props['hidden']}}" 
+    hover-class="{{node.props['hover-class']}}" 
+    hover-start-time="{{node.props['hover-start-time']}}" 
+    hover-stay-time="{{node.props['hover-stay-time']}}" 
+    hover-stop-propagation="{{node.props['hover-stop-propagation']}}" 
+    id="{{node.props['id']}}" 
+    key="{{node.props['key']}}" 
+    onAnimationEnd="{{node.props['onAnimationEnd']}}" 
+    onAnimationIteration="{{node.props['onAnimationIteration']}}" 
+    onAnimationStart="{{node.props['onAnimationStart']}}" 
+    onAppear="{{node.props['onAppear']}}" 
+    onDisappear="{{node.props['onDisappear']}}" 
+    onFirstAppear="{{node.props['onFirstAppear']}}" 
+    onLongTap="{{node.props['onLongTap']}}" 
+    onTap="{{node.props['onTap']}}" 
+    onTouchCancel="{{node.props['onTouchCancel']}}" 
+    onTouchEnd="{{node.props['onTouchEnd']}}" 
+    onTouchMove="{{node.props['onTouchMove']}}" 
+    onTouchStart="{{node.props['onTouchStart']}}" 
+    onTransitionEnd="{{node.props['onTransitionEnd']}}" 
+    style="{{node.props['style']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </view>
+</template>
+  
+
+  
+<template name="TPL_web-view">
+  <web-view 
+    id="{{node.props['id']}}" 
+    onMessage="{{node.props['onMessage']}}" 
+    src="{{node.props['src']}}" 
+  >
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </web-view>
+</template>
+  
+
+
+<template name="TPL_plain-text">
+  <block>{{ node.text }}</block>
+</template>
+
+<template name="TPL_block">
+  <block>
+    <template is="TPL_TRAVERSAL" data="{{root: node}}" />
+  </block>
+</template>
+
+
+  <template is="TPL_TRAVERSAL" data="{{ root: root }}" />
+
+
+<!-- for default render -->
+<template name="TPL_DEFAULT">
+  <template a:if="{{root.props._tid > 0}}" is="{{'TPL_' + root.props._tid}}" data="{{ node: root }}" />
+  <template a:else is="{{ 'TPL_' + root.type }}" data="{{ node: root }}" />
+</template>
+
+<!-- for traversal -->
+<template name="TPL_TRAVERSAL">
+  <block a:if="{{root.children}}">
+    <block a:for="{{root.children}}" key="{{item.id}}">
+      <template a:if="{{item.props._tid > 0}}" is="{{'TPL_' + item.props._tid}}" data="{{ node: item }}" />
+      <template a:else is="{{ 'TPL_' + item.type }}" data="{{ node: item }}" />
+    </block>
+  </block>
+  <template a:elif="{{root.props._tid > 0}}" is="{{'TPL_' + root.props._tid}}" data="{{ node: root }}" />
+  <template a:else is="{{ 'TPL_' + root.type }}" data="{{ node: root }}" />
+</template>

@@ -2,8 +2,8 @@ import './app.css';
 import * as React from 'react';
 
 export default class App extends React.Component {
-  onShareAppMessage() {
-    console.log('on share app message');
+  onShow() {
+    console.log('on show');
   }
 
   onHide() {

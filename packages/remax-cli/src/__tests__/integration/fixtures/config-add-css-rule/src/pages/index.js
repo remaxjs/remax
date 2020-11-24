@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from 'remax/ali';
-import './index.acss';
+import { View } from 'remax';
+import './index.scss';
 
 export default () => <View>hello</View>;

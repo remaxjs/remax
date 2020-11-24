@@ -1,6 +1,6 @@
 import { Platform } from '@remax/types';
 import propsAlias, { getAlias } from '../propsAlias';
-import * as RuntimeOptions from '../RuntimeOptions';
+import { RuntimeOptions } from '@remax/framework-shared';
 
 describe('props alias', () => {
   beforeAll(() => {

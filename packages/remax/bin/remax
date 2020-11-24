@@ -1,2 +1,4 @@
 #!/usr/bin/env node
-require('@remax/cli').run(process.argv.slice(2, process.argv.length));
+const RemaxCLI = require('@remax/cli').default;
+
+new RemaxCLI().run(process.argv.slice(2, process.argv.length));

@@ -1,0 +1,15 @@
+{
+  "publicComponents": {
+    "mini-greet": "components/mini-greet/index",
+    "react-greet": "components/react-greet/index"
+  },
+  "publicPages": {
+    "mini-page": "pages/mini/index",
+    "react-page": "pages/react/index"
+  },
+  "pages": [
+    "pages/mini/index",
+    "pages/react/index"
+  ],
+  "main": "main"
+}

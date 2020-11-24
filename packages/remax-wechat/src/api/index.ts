@@ -1,6 +1,8 @@
-import { promisify } from '@remax/shared';
+import { promisify } from '@remax/framework-shared';
 
 export const getAppStub = getApp;
+
+declare const wx: any;
 
 export const canIUse = wx.canIUse;
 export const base64ToArrayBuffer = wx.base64ToArrayBuffer;

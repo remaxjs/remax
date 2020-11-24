@@ -10,7 +10,9 @@
   >
     <% if (id === 'swiper') { %>
     <block a:for="{{item.children}}" key="{{item.id}}">
-      <swiper-item key="{{item.props.__key}}">
+      <swiper-item <% for(let i=0;i < components.get('swiper-item').props.length; i++) { %>
+         <%=components.get('swiper-item').props[i]%>="{{item.props['<%=components.get('swiper-item').props[i]%>']}}" <% } %>
+      >
         <block a:for="{{item.children}}" key="{{item.id}}">
           <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
         </block>
