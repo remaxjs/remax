@@ -2,8 +2,6 @@ import plainStyle from './utils/plainStyle';
 import { RuntimeOptions } from '@remax/framework-shared';
 
 export function getAlias(prop: string, type: string) {
-  prop = prop.replace('className', 'class');
-
   const hostComponent = RuntimeOptions.get('hostComponents')[type];
 
   const prefix = `${RuntimeOptions.get('platform')}-`;

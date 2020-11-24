@@ -631,7 +631,7 @@ Object {
       ],
       "id": 2,
       "props": Object {
-        "class": "foo",
+        "className": "foo",
       },
       "text": undefined,
       "type": "view",
@@ -654,7 +654,7 @@ Array [
         "children": Array [],
         "id": 1,
         "props": Object {
-          "class": "class",
+          "className": "class",
           "fooBar": "fooBar",
           "onClick": "$$REMAX_METHOD_1_onClick",
         },
@@ -890,7 +890,7 @@ Object {
           "children": Array [],
           "id": 1,
           "props": Object {
-            "class": "className",
+            "className": "className",
             "disabled": false,
             "style": "display:flex;flex:1;",
           },
@@ -920,7 +920,7 @@ Object {
           "children": Array [],
           "id": 1,
           "props": Object {
-            "class": "updateClassName",
+            "className": "updateClassName",
             "disabled": true,
             "style": "display:flex;flex:2;",
           },

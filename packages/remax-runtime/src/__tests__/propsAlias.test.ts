@@ -21,21 +21,6 @@ describe('props alias', () => {
     RuntimeOptions.reset();
   });
 
-  it('transform className prop correctly', () => {
-    expect(getAlias('className', 'any')).toBe('class');
-
-    expect(
-      propsAlias(
-        {
-          className: 'class-name',
-        },
-        'any'
-      )
-    ).toEqual({
-      class: 'class-name',
-    });
-  });
-
   it('transform style prop correctly', () => {
     expect(
       propsAlias(

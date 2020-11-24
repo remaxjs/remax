@@ -378,7 +378,7 @@ Object {
         },
       },
       "props": Object {
-        "class": "foo",
+        "className": "foo",
       },
       "text": undefined,
       "type": "view",
@@ -400,7 +400,7 @@ Array [
       "children": Array [],
       "id": 1,
       "props": Object {
-        "class": "class",
+        "className": "class",
         "fooBar": "fooBar",
         "onClick": "$$REMAX_METHOD_1_onClick",
       },
