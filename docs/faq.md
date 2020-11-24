@@ -107,3 +107,10 @@ Remax 默认为微信的每个 host 组件定义了嵌套层数。其中 `View` 
 > 在 wechat 平台上使用 `--minimize` 参数预览时，需要在开发工具 IDE 本地设置中关闭"上传代码压缩混淆（如下图)"选项，否则 Webpack 和 IDE 的双重压缩会导致编译器无法解析语法而报错。
 
 <img width="400" src="https://gw.alipayobjects.com/mdn/rms_a6d2d8/afts/img/A*mx6OQKvo_FEAAAAAAAAAAABkARQnAQ" />
+
+## 与 Taro 的区别？
+
+Taro 3.0 版本的实现原理与 Remax 大同小异，没有太大的区别。主要区别在于以下两个方面：
+
+- **跨平台实现**，我们深知要打造一个支持多平台的框架会有非常多的坑，与其挖一个大坑填不上，我们选择把有限的精力放在框架的核心功能上，并提供跨平台同构机制以及一个精简的跨平台实现（Remax One），让开发者可以根据自己的业务需求去做跨平台实现。
+- **专注 React**，因为 React 是我们自己大量使用和熟悉的前端框架，Remax 会持续专注在 React 技术栈。
