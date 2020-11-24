@@ -58,7 +58,7 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
   config.optimization.runtimeChunk({ name: 'runtime' });
   config.optimization.splitChunks({
     cacheGroups: {
-      remixVendors: {
+      remaxVendors: {
         name: 'remax-vendors',
         test: moduleMatcher,
         chunks: 'initial',
@@ -159,7 +159,7 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
 
   const runtimeOptions = {
     pxToRpx: builder.options.pxToRpx,
-    debug: !!process.env.remix_DEBUG,
+    debug: !!process.env.REMAX_DEBUG,
     platform: builder.target,
     pluginFiles: builder.api.getRuntimePluginFiles(),
     hostComponents: '[]',

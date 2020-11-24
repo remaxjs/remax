@@ -67,14 +67,14 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
   config.optimization.runtimeChunk({ name: 'runtime' });
   config.optimization.splitChunks({
     cacheGroups: {
-      remixStyles: {
+      remaxStyles: {
         name: 'remax-styles',
         test: new RegExp(`(.css|.less|.sass|.scss|.stylus|.styl|${builder.api.meta.style})$`),
         chunks: 'initial',
         minChunks: 2,
         minSize: 0,
       },
-      remixVendors: {
+      remaxVendors: {
         name: 'remax-vendors',
         test: moduleMatcher,
         chunks: 'initial',
@@ -185,7 +185,7 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
 
   const runtimeOptions = {
     pxToRpx: builder.options.pxToRpx,
-    debug: !!process.env.remix_DEBUG,
+    debug: !!process.env.REMAX_DEBUG,
     platform: builder.options.target,
     pluginFiles: builder.api.getRuntimePluginFiles(),
     hostComponents: '[]',

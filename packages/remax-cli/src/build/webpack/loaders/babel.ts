@@ -11,7 +11,7 @@ interface CustomOptions {
 }
 
 function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
-  const remixPresetIndex = presets.findIndex(
+  const remaxPresetIndex = presets.findIndex(
     preset => preset.file && preset.file.resolved.includes(`${path.sep}babel-preset-remax${path.sep}`)
   );
 
@@ -20,19 +20,19 @@ function processPresets(presets: ConfigItem[], babel: any, react: boolean) {
     targets: {},
   };
 
-  const existOptions = remixPresetIndex !== -1 ? presets[remixPresetIndex].options : {};
+  const existOptions = remaxPresetIndex !== -1 ? presets[remaxPresetIndex].options : {};
 
-  const remixPreset = babel.createConfigItem(
+  const remaxPreset = babel.createConfigItem(
     [require.resolve('babel-preset-remax'), merge({}, defaultOptions, existOptions)],
     {
       type: `preset`,
     }
   );
 
-  if (remixPresetIndex === -1) {
-    presets.unshift(remixPreset);
+  if (remaxPresetIndex === -1) {
+    presets.unshift(remaxPreset);
   } else {
-    presets[remixPresetIndex] = remixPreset;
+    presets[remaxPresetIndex] = remaxPreset;
   }
 
   return presets;

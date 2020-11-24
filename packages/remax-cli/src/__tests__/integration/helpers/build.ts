@@ -66,7 +66,7 @@ export async function buildApp(app: string, target: Platform, options: Partial<O
     }),
   ];
 
-  const remixOptions = {
+  const remaxOptions = {
     ...config,
     target,
     configWebpack(context: any) {
@@ -89,7 +89,7 @@ export async function buildApp(app: string, target: Platform, options: Partial<O
     ...extraRemaxOptions,
   };
 
-  const builder = target === Platform.web ? new WebBuilder(api, remixOptions) : new MiniBuilder(api, remixOptions);
+  const builder = target === Platform.web ? new WebBuilder(api, remaxOptions) : new MiniBuilder(api, remaxOptions);
   const fs = createFsFromVolume(new Volume());
   const webpackFs = ensureWebpackMemoryFs(fs);
   const compiler = builder.run();
@@ -114,7 +114,7 @@ export async function buildApp(app: string, target: Platform, options: Partial<O
       const include = options.include || [];
       const includeRegExp = new RegExp(`(${include.join('|')})`);
       const excludeRegExp = new RegExp(`(${exclude.join('|')})`);
-      const outputDir = path.join(remixOptions.cwd, remixOptions.output);
+      const outputDir = path.join(remaxOptions.cwd, remaxOptions.output);
 
       const output = getFilesInDir(fs, outputDir + '/', outputDir).filter(
         c =>
@@ -150,7 +150,7 @@ export async function buildMiniPlugin(app: string, target: Platform, options: Pa
     }),
   ];
 
-  const remixOptions = {
+  const remaxOptions = {
     ...config,
     target,
     configWebpack(context: { config: Config; webpack: any }) {
@@ -166,7 +166,7 @@ export async function buildMiniPlugin(app: string, target: Platform, options: Pa
     },
   };
 
-  const builder = new MiniPluginBuilder(api, remixOptions);
+  const builder = new MiniPluginBuilder(api, remaxOptions);
 
   const fs = createFsFromVolume(new Volume());
   const webpackFs = ensureWebpackMemoryFs(fs);
@@ -192,7 +192,7 @@ export async function buildMiniPlugin(app: string, target: Platform, options: Pa
       const include = options.include || [];
       const includeRegExp = new RegExp(`(${include.join('|')})`);
       const excludeRegExp = new RegExp(`(${exclude.join('|')})`);
-      const outputDir = path.join(remixOptions.cwd, remixOptions.output);
+      const outputDir = path.join(remaxOptions.cwd, remaxOptions.output);
 
       const output = getFilesInDir(fs, outputDir + '/', outputDir).filter(
         c =>

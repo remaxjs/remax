@@ -42,7 +42,7 @@ export default () => {
       <Greet name="xbGreet" />
 
       <Badge>
-        <View slot="inner">Remix</View>
+        <View slot="inner">Remax</View>
       </Badge>
     </View>
   );

@@ -18,12 +18,12 @@ export function getNativeAssetOutputPath(sourcePath: string, options: Options) {
     .replace(/node_modules/g, 'npm');
 
   if (path.isAbsolute(output)) {
-    // 通过config.resolve.modules设置非cwd的sourcePath, 会进入此分支
+    // 通过 config.resolve.modules 设置非 cwd 的 sourcePath, 会进入此分支
     // 将这种路径改成相对路径
     const dirname = path.dirname(output);
     const basename = path.basename(output);
 
-    output = 'remix__external/' + hash(dirname) + basename;
+    output = '_external/' + hash(dirname) + basename;
   }
 
   return output;

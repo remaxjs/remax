@@ -125,7 +125,7 @@ export type Meta = {
 };
 
 export type MetaOptions = {
-  remixOptions: Options;
+  remaxOptions: Options;
 };
 
 export type ProcessPropsOptions = {

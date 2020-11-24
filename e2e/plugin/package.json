@@ -2,7 +2,7 @@
   "name": "e2e-plugin",
   "private": true,
   "version": "1.1.0",
-  "description": "intergration tests for Remix",
+  "description": "intergration tests for Remax",
   "main": "index.js",
   "keywords": [],
   "license": "MIT",
