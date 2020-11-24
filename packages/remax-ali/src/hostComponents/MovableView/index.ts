@@ -30,6 +30,6 @@ export interface MovableViewProps {
   onScale?: (e: any) => void;
 }
 
-export const MovableView = createHostComponent<MovableViewProps>('movable-view') as React.ComponentType<
-  MovableViewProps
->;
+export const MovableView = createHostComponent<MovableViewProps>(
+  'movable-view'
+) as React.ComponentType<MovableViewProps>;

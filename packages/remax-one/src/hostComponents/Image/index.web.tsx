@@ -7,9 +7,16 @@ import clsx from 'clsx';
 export type ImageProps = ImageWebProps;
 
 const Image: React.ForwardRefRenderFunction<any, ImageWebProps> = (props, ref) => {
-  const { className, src, style, mode = 'scaleToFill', onTap, onLoad, onError, ...restProps } = filterProps<
-    ImageWebProps
-  >(props);
+  const {
+    className,
+    src,
+    style,
+    mode = 'scaleToFill',
+    onTap,
+    onLoad,
+    onError,
+    ...restProps
+  } = filterProps<ImageWebProps>(props);
   const isWidthFixMode = mode === 'widthFix';
 
   return (

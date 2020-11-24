@@ -11,6 +11,6 @@ export interface ContactButtonProps {
   alipayCardNo?: string;
 }
 
-export const ContactButton = createHostComponent<ContactButtonProps>('contact-button') as React.ComponentType<
-  ContactButtonProps
->;
+export const ContactButton = createHostComponent<ContactButtonProps>(
+  'contact-button'
+) as React.ComponentType<ContactButtonProps>;

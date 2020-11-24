@@ -9,6 +9,6 @@ export interface CheckboxGroupProps {
   onChange?: (e: any) => void;
 }
 
-export const CheckboxGroup = createHostComponent<CheckboxGroupProps>('checkbox-group') as React.ComponentType<
-  CheckboxGroupProps
->;
+export const CheckboxGroup = createHostComponent<CheckboxGroupProps>(
+  'checkbox-group'
+) as React.ComponentType<CheckboxGroupProps>;

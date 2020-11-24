@@ -10,6 +10,6 @@ export interface MovableAreaProps {
   height?: number;
 }
 
-export const MovableArea = createHostComponent<MovableAreaProps>('movable-area') as React.ComponentType<
-  MovableAreaProps
->;
+export const MovableArea = createHostComponent<MovableAreaProps>(
+  'movable-area'
+) as React.ComponentType<MovableAreaProps>;
