@@ -1,10 +1,11 @@
 import yargs from 'yargs';
-import { Options, Plugin } from '@remax/types';
-import { buildApp, buildMiniPlugin } from './build';
+import { Options } from '@remax/types';
+import { internalBuildApp, buildMiniPlugin } from './build';
 import getConfig from './getConfig';
 import API from './API';
-import { builtinPlugins } from './builtinPlugins';
 import output from './build/utils/output';
+
+export * from './legacyExport';
 
 export default class RemaxCLI {
   options?: Options;
@@ -18,21 +19,13 @@ export default class RemaxCLI {
     this.options.compressTemplate = this.options.compressTemplate ?? argv.minimize;
     this.api = new API();
     const cli = this.initCLI();
-    this.registerBuiltinPlugins();
+    this.api.loadBuiltinPlugins(this.options);
     this.api.registerPlugins(this.options.plugins);
     this.api.extendCLI(cli);
     if (args.length === 0) {
       cli.showHelp();
     }
     return cli.parse(args, callback);
-  }
-
-  registerBuiltinPlugins() {
-    const plugins = builtinPlugins.reduce((acc: Plugin[], plugin) => {
-      acc.push(plugin.init({}, this.options));
-      return acc;
-    }, []);
-    this.api?.registerPlugins(plugins);
   }
 
   initCLI() {
@@ -81,7 +74,7 @@ export default class RemaxCLI {
         },
         (argv: any) => {
           output.message('🚀 开始构建\n', 'blue');
-          buildApp({ ...this.options, ...argv }, this.api!);
+          internalBuildApp({ ...this.options, ...argv }, this.api!);
           try {
             require('remax-stats').run({ type: 'remax' });
           } catch (e) {

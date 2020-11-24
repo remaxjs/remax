@@ -6,6 +6,7 @@ import Config from 'webpack-chain';
 import { RuleConfig } from './build/webpack/config/css';
 import yargs from 'yargs';
 import Store from '@remax/build-store';
+import { builtinPlugins } from './builtinPlugins';
 
 export default class API {
   public plugins: Plugin[] = [];
@@ -143,6 +144,14 @@ export default class API {
         }
       })
       .filter(Boolean);
+  }
+
+  loadBuiltinPlugins(options: Options) {
+    const plugins = builtinPlugins.reduce((acc: Plugin[], plugin) => {
+      acc.push(plugin.init({}, options));
+      return acc;
+    }, []);
+    this.registerPlugins(plugins);
   }
 
   public registerAdapterPlugins(targetName: Platform) {

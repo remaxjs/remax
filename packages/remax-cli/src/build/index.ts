@@ -19,7 +19,13 @@ export function run(options: Options, api: API): webpack.Compiler {
   }
 }
 
-export function buildApp(options: Options, api: API) {
+export function buildApp(options: Options) {
+  const api = new API();
+  api.registerPlugins(options.plugins);
+  return internalBuildApp(options, api);
+}
+
+export function internalBuildApp(options: Options, api: API) {
   const { target } = options;
 
   process.env.REMAX_PLATFORM = target;
