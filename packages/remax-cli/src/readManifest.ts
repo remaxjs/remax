@@ -27,9 +27,7 @@ function readJavascriptManifest(path: string, target: Platform) {
 export default function readManifest(filename: string, target: Platform, strict = false) {
   if (!fs.existsSync(filename)) {
     if (strict) {
-      throw new Error(
-        `${path}.ts|js 文件不存在，请先创建配置文件，参考 https://remax.antfin-inc.com/docs/config/remax`
-      );
+      throw new Error(`${path}.ts|js 文件不存在，请先创建配置文件，参考 https://remaxjs.org/guide/config/remax`);
     }
     return {};
   }
