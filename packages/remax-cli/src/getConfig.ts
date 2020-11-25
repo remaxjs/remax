@@ -17,6 +17,15 @@ function readJavascriptConfig(path: string) {
   return config || {};
 }
 
+function normalizeConfigPath(options: Options): Options {
+  const pathKeys: Array<keyof Options> = ['cwd', 'rootDir', 'output'];
+  pathKeys.forEach(key => {
+    // @ts-ignore string-type
+    options[key] = slash(path.normalize(options.cwd)).replace(/\/$/, '');
+  });
+  return options;
+}
+
 export default function getConfig(validate = true): Options {
   const configPath: string = path.join(process.cwd(), './remax.config');
 
@@ -32,11 +41,10 @@ export default function getConfig(validate = true): Options {
     });
   }
 
-  options.cwd = slash(path.normalize(options.cwd)).replace(/\/$/, '');
-  options.rootDir = slash(path.normalize(options.rootDir)).replace(/\/$/, '');
-
-  return {
+  const remaxConfig = {
     ...getDefaultOptions(),
     ...options,
   };
+
+  return normalizeConfigPath(remaxConfig);
 }
