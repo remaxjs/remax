@@ -20,8 +20,9 @@ function readJavascriptConfig(path: string) {
 function normalizeConfigPath(options: Options): Options {
   const pathKeys: Array<keyof Options> = ['cwd', 'rootDir', 'output'];
   pathKeys.forEach(key => {
+    const value = options[key];
     // @ts-ignore string-type
-    options[key] = slash(path.normalize(options.cwd)).replace(/\/$/, '');
+    options[key] = slash(path.normalize(value)).replace(/\/$/, '');
   });
   return options;
 }
