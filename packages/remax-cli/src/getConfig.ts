@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import { getDefaultOptions } from './defaultOptions';
 import { Options } from '@remax/types';
-import { slash } from '@remax/shared';
 import validateOptions from 'schema-utils';
 
 const schema = require('../OptionsSchema.json');
@@ -22,7 +21,7 @@ function normalizeConfigPath(options: Options): Options {
   pathKeys.forEach(key => {
     const value = options[key];
     // @ts-ignore string-type
-    options[key] = slash(path.normalize(value)).replace(/\/$/, '');
+    options[key] = path.normalize(value).replace(/(\\|\/)$/, '');
   });
   return options;
 }
