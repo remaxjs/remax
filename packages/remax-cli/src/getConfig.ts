@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { getDefaultOptions } from './defaultOptions';
 import { Options } from '@remax/types';
+import { slash } from '@remax/shared';
 import validateOptions from 'schema-utils';
 
 const schema = require('../OptionsSchema.json');
@@ -19,7 +20,7 @@ function readJavascriptConfig(path: string) {
 export default function getConfig(validate = true): Options {
   const configPath: string = path.join(process.cwd(), './remax.config');
 
-  let options = {};
+  let options = {} as Options;
 
   if (fs.existsSync(configPath + '.js')) {
     options = readJavascriptConfig(configPath + '.js');
@@ -30,6 +31,9 @@ export default function getConfig(validate = true): Options {
       name: 'remax',
     });
   }
+
+  options.cwd = slash(path.normalize(options.cwd)).replace(/\/$/, '');
+  options.rootDir = slash(path.normalize(options.rootDir)).replace(/\/$/, '');
 
   return {
     ...getDefaultOptions(),
