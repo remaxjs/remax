@@ -12,6 +12,7 @@ declare module 'webpack-virtual-modules';
 declare module 'copy-webpack-plugin';
 declare module 'webpack-node-externals';
 declare module 'babel-plugin-module-resolver';
+declare module 'pnp-webpack-plugin';
 
 declare namespace jest {
   interface Matchers<R, T> {
