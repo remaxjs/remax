@@ -1,6 +1,9 @@
 {
   "type": "object",
   "properties": {
+    "one": {
+      "type": "boolean"
+    },
     "turboRenders": {
       "type": "boolean"
     },
