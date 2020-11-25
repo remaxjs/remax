@@ -31,8 +31,8 @@ export function getNativeEntryAssetOutputPath(sourcePath: string, options: { cwd
     NATIVE_COMPONENT_OUTPUT_DIR +
     '/' +
     slash(sourcePath)
-      .replace(options.cwd + '/', '')
-      .replace(options.rootDir + '/', '')
+      .replace(slash(options.cwd) + '/', '')
+      .replace(slash(options.rootDir) + '/', '')
       .replace(/@/g, '_')
       .replace(/node_modules/g, 'npm')
   );

@@ -12,8 +12,8 @@ export function replaceExtension(file: string, ext: string) {
 
 export function getNativeAssetOutputPath(sourcePath: string, options: Options) {
   let output = slash(sourcePath)
-    .replace(options.cwd + '/', '')
-    .replace(options.rootDir + '/', '')
+    .replace(slash(options.cwd) + '/', '')
+    .replace(slash(options.rootDir) + '/', '')
     .replace(/@/g, '_')
     .replace(/node_modules/g, 'npm');
 
