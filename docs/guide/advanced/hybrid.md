@@ -11,7 +11,7 @@ order: 46
 
 混合开发模式可以让你渐进式地把小程序原生项目迁移到 Remax，也可以在 Remax 项目使用小程序原生语法编写对性能要求较高的页面。
 
-## 在 Remax 项目中使用小程序 DSL
+## 在 Remax 项目中使用小程序原生页面
 
 无需任何配置，可以直接在 `src/app.config.js` 中添加使用小程序原生语法编写的页面：
 
@@ -61,14 +61,14 @@ npm install remax --save
 ```json
 {
   "pages": [
-    "pages/awesome-remix/index", // 使用 Remax 写的页面
+    "pages/awesome-remax/index", // 使用 Remax 写的页面
     "pages/index/index" // 原生小程序页面
   ]
 }
 ```
 
 ```js
-// src/pages/awesome-remix/index.js
+// src/pages/awesome-remax/index.js
 import * as React from 'react';
 import { View } from 'remax';
 
