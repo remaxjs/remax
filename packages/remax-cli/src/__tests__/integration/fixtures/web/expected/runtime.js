@@ -4,7 +4,7 @@
 /******/ 		var chunkIds = data[0];
 /******/ 		var moreModules = data[1];
 /******/ 		var executeModules = data[2];
-/******/
+/******/ 		var prefetchChunks = data[3] || [];
 /******/ 		// add "moreModules" to the modules object,
 /******/ 		// then flag all "chunkIds" as loaded and fire callback
 /******/ 		var moduleId, chunkId, i = 0, resolves = [];
@@ -21,7 +21,7 @@
 /******/ 			}
 /******/ 		}
 /******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
-/******/
+/******/ 		deferredPrefetch.push.apply(deferredPrefetch, prefetchChunks);
 /******/ 		while(resolves.length) {
 /******/ 			resolves.shift()();
 /******/ 		}
@@ -46,7 +46,24 @@
 /******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
 /******/ 			}
 /******/ 		}
+/******/ 		if(deferredModules.length === 0) {
+/******/ 			// chunk prefetching for javascript
+/******/ 			deferredPrefetch.forEach(function(chunkId) {
+/******/ 				if(installedChunks[chunkId] === undefined) {
+/******/ 					installedChunks[chunkId] = null;
+/******/ 					var link = document.createElement('link');
 /******/
+/******/ 					if (__webpack_require__.nc) {
+/******/ 						link.setAttribute("nonce", __webpack_require__.nc);
+/******/ 					}
+/******/ 					link.rel = "prefetch";
+/******/ 					link.as = "script";
+/******/ 					link.href = jsonpScriptSrc(chunkId);
+/******/ 					document.head.appendChild(link);
+/******/ 				}
+/******/ 			});
+/******/ 			deferredPrefetch.length = 0;
+/******/ 		}
 /******/ 		return result;
 /******/ 	}
 /******/
@@ -65,7 +82,7 @@
 /******/ 		0: 0
 /******/ 	};
 /******/
-/******/ 	var deferredModules = [];
+/******/ 	var deferredModules = [], deferredPrefetch = [];
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
