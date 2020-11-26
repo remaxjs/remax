@@ -248,3 +248,24 @@ export default function PageIndex() {
 属性
 
 无。
+
+## Navigator
+
+导航链接组件
+
+```jsx
+import { Navigator } from 'remax/one';
+```
+
+属性
+
+| 名称           | 类型                                                  | 描述                           |
+| -------------- | ----------------------------------------------------- | ------------------------------ |
+| id             | string                                                | 节点 id                        |
+| className      | string                                                | 节点样式类                     |
+| style          | React.CssProperties                                   | 节点 inline style              |
+| url            | string                                                | 跳转路径                       |
+| action         | 'navigate' \| 'redirect' \| 'switchTab' \| 'reLaunch' | 跳转方式                       |
+| hoverClassName | string                                                | 按住后对应的样式类             |
+| hoverStartTime | number                                                | 按住后多久出现点击态，单位毫秒 |
+| hoverStayTime  | boolean                                               | 手指松开后点击态保留时间       |
