@@ -19,6 +19,8 @@ export function getNativeAssetOutputPath(sourcePath: string, options: Options) {
 
   // native组件支持yarn pnp模式
   // 常见的文件路径是 ${cwd}/.yarn/cache/xxx.zip/ or ${home}/.yarn/berry/xxx.zip
+  /** @todo 测试用例依赖pnp环境下的pnp-api，得让测试项目使用pnp安装依赖 */
+  /* istanbul ignore next */
   if (process.versions.pnp) {
     output = output.replace(/.+\.zip\//, '');
   }
