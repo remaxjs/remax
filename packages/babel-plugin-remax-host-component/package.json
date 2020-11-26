@@ -28,13 +28,13 @@
     "@babel/helper-plugin-utils": "^7.10.4",
     "@babel/traverse": "^7.11.0",
     "@babel/types": "^7.11.0",
+    "@remax/build-store": "2.9.0",
     "@remax/macro": "2.9.0",
     "@remax/shared": "2.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.0",
     "@babel/plugin-syntax-jsx": "^7.10.4",
-    "@remax/build-store": "2.9.0",
     "@types/jest": "^26.0.8",
     "jest": "^26.2.2",
     "ts-jest": "^26.1.4",

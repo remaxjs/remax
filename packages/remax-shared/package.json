@@ -38,6 +38,8 @@
     "@babel/parser": "^7.11.4",
     "@babel/traverse": "^7.11.0",
     "@types/react": "^16.9.35",
-    "htmlparser2": "^4.1.0"
+    "htmlparser2": "^4.1.0",
+    "postcss": "^7.0.27",
+    "resolve": "^1.12.0"
   }
 }
