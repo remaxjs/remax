@@ -34,7 +34,7 @@ export default class SpaEntry extends VirtualEntry {
     /* webpackChunkName: "${entry.name}" */
     '${entry.filename}'
   )
-`
+}`
             )
             .join(',')}
         ],
