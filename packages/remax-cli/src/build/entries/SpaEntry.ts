@@ -27,7 +27,15 @@ export default class SpaEntry extends VirtualEntry {
         )},
         pageComponents: [
           ${Array.from(this.builder.entryCollection.entries.values())
-            .map(entry => `import(/* webpackChunkName: "${entry.name}" */'${entry.filename}')`)
+            .map(
+              entry => `function() {
+  return import(
+    /* webpackPrefetch: true */
+    /* webpackChunkName: "${entry.name}" */
+    '${entry.filename}'
+  )
+`
+            )
             .join(',')}
         ],
         plugins: [
