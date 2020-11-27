@@ -13,7 +13,7 @@ export interface BootstrapOptions {
   appComponent: React.ComponentType;
   appConfig: AppConfig;
   plugins?: any[];
-  pageComponents: Array<Promise<{ default: React.ComponentType }> | React.ComponentType>;
+  pageComponents: Array<() => Promise<{ default: React.ComponentType }> | React.ComponentType>;
   pages: Page[];
 }
 

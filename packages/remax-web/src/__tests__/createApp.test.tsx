@@ -20,7 +20,7 @@ describe('createApp', () => {
           appConfig: {
             pages: ['pages/foo'],
           },
-          pageComponents: [createPage('foo'), createPage('bar')],
+          pageComponents: [() => createPage('foo'), () => createPage('bar')],
           pages: [
             {
               route: 'pages/foo',
@@ -51,7 +51,7 @@ describe('createApp', () => {
                 defaultTitle: 'remax',
               },
             },
-            pageComponents: [createPage('index')],
+            pageComponents: [() => createPage('index')],
             pages: [
               {
                 route: 'pages/index',
@@ -77,7 +77,7 @@ describe('createApp', () => {
                 defaultTitle: 'remax',
               },
             },
-            pageComponents: [createPage('index')],
+            pageComponents: [() => createPage('index')],
             pages: [
               {
                 route: 'pages/index',
@@ -120,7 +120,7 @@ describe('createApp', () => {
                   ],
                 },
               },
-              pageComponents: [createPage('foo'), createPage('bar')],
+              pageComponents: [() => createPage('foo'), () => createPage('bar')],
               pages: [
                 {
                   route: 'pages/foo',
@@ -149,7 +149,7 @@ describe('createApp', () => {
               appConfig: {
                 pages: ['pages/index'],
               },
-              pageComponents: [createPage('index')],
+              pageComponents: [() => createPage('index')],
               pages: [
                 {
                   route: 'pages/index',

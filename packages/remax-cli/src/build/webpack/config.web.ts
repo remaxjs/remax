@@ -1,4 +1,5 @@
 import * as path from 'path';
+import * as fs from 'fs';
 import * as webpack from 'webpack';
 import Config from 'webpack-chain';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -32,7 +33,9 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
 
   config.plugin('html-webpack-plugin').use(HtmlWebpackPlugin, [
     {
-      template: path.resolve(__dirname, '../../../template/index.html.ejs'),
+      template: fs.existsSync(path.join(builder.projectPath.publicDir(), '/index.html'))
+        ? path.join(builder.projectPath.publicDir(), '/index.html')
+        : path.resolve(__dirname, '../../../template/index.html.ejs'),
       env: process.env.NODE_ENV,
     },
   ]);
