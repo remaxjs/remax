@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.1](https://github.com/remaxjs/remax/compare/v2.9.0...v2.9.1) (2020-11-27)
+
+### Bug Fixes
+
+- **web:** 修正 tabbar 样式 ([ba49098](https://github.com/remaxjs/remax/commit/ba4909820ffcfa09ce5dd0ed220839d43abdf40d))
+- 修复单页应用进首页会加载全部资源文件 ([bb4a0f5](https://github.com/remaxjs/remax/commit/bb4a0f5e4b44b9dd1068dddc5887213174e35de9))
+
 # [2.9.0](https://github.com/remaxjs/remax/compare/v2.8.10...v2.9.0) (2020-11-24)
 
 ### Features

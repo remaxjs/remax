@@ -28,11 +28,11 @@ export default function createApp(options: BootstrapOptions, history: History) {
                 {(props: any) => {
                   const pageComponent = async
                     ? loadable<any>(() =>
-                        (pageComponents[i] as Promise<{ default: React.ComponentType }>).then(({ default: c }) =>
+                        (pageComponents[i]() as Promise<{ default: React.ComponentType }>).then(({ default: c }) =>
                           createPageConfig(c, page.route)
                         )
                       )
-                    : createPageConfig(pageComponents[i] as React.ComponentType, page.route);
+                    : createPageConfig(pageComponents[i]() as React.ComponentType, page.route);
                   return React.createElement(pageComponent, {
                     ...props,
                     pageConfig: {

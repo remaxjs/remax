@@ -38,7 +38,11 @@ Object(_remax_web__WEBPACK_IMPORTED_MODULE_1__["bootstrap"])({
     "route": "pages/index/index2",
     "config": {}
   }],
-  pageComponents: [Promise.all(/* import() | pages/index/index */[__webpack_require__.e(2), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, 8)), Promise.all(/* import() | pages/index/index2 */[__webpack_require__.e(2), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, 11))],
+  pageComponents: [function () {
+    return Promise.all(/* import() | pages/index/index */[__webpack_require__.e(2), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, 8));
+  }, function () {
+    return Promise.all(/* import() | pages/index/index2 */[__webpack_require__.e(2), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, 11));
+  }],
   plugins: []
 });
 
@@ -99,4 +103,4 @@ module.exports = require("@remax/web/assets/app.css");
 module.exports = require("remax");
 
 /***/ })
-],[[0,0]]]);
+],[[0,0]],[2,3,4]]);

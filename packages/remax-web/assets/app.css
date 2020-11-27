@@ -139,6 +139,9 @@
 }
 
 .remax-tab-bar .remax-tab-item .remax-tab-item-title {
+  font-size: 12px;
+  color: #333;
+  transform: scale(0.7);
 }
 
 .remax-tab-bar .remax-tab-item .remax-tab-item-title.active {

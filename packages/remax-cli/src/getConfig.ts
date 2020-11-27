@@ -16,10 +16,20 @@ function readJavascriptConfig(path: string) {
   return config || {};
 }
 
+function normalizeConfigPath(options: Options): Options {
+  const pathKeys: Array<keyof Options> = ['cwd', 'rootDir', 'output'];
+  pathKeys.forEach(key => {
+    const value = options[key];
+    // @ts-ignore string-type
+    options[key] = path.normalize(value).replace(/(\\|\/)$/, '');
+  });
+  return options;
+}
+
 export default function getConfig(validate = true): Options {
   const configPath: string = path.join(process.cwd(), './remax.config');
 
-  let options = {};
+  let options = {} as Options;
 
   if (fs.existsSync(configPath + '.js')) {
     options = readJavascriptConfig(configPath + '.js');
@@ -31,8 +41,10 @@ export default function getConfig(validate = true): Options {
     });
   }
 
-  return {
+  const remaxConfig = {
     ...getDefaultOptions(),
     ...options,
   };
+
+  return normalizeConfigPath(remaxConfig);
 }
