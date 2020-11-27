@@ -60,13 +60,6 @@ export default function webBaseConfig(config: Config, builder: Builder) {
     config.plugin('webpack-bundle-analyzer').use(BundleAnalyzerPlugin);
   }
 
-  if (process.env.NODE_ENV === 'production') {
-    config.externals({
-      react: 'React',
-      'react-dom': 'ReactDOM',
-    });
-  }
-
   if (!builder.options.watch) {
     config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [
       {
