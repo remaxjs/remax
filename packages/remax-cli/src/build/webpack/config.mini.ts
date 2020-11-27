@@ -227,6 +227,7 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
   };
 
   // pnp模式下
+  /* istanbul ignore next */
   if (process.versions.pnp) {
     config.resolve.plugin('pnp').use(PnpWebpackPlugin);
     config.resolveLoader.plugin('pnp').use(PnpWebpackPlugin.moduleLoader(module));
