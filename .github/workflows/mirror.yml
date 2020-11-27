@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   to_gitee:
+    if: github.repository == 'remaxjs/remax'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -11,7 +12,9 @@ jobs:
         with:
           target_repo_url: git@gitee.com:remaxjs/remax.git
           ssh_private_key: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
+
   to_gitee_gh:
+    if: github.repository == 'remaxjs/remax'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
