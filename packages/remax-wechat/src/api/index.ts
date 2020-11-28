@@ -1,8 +1,6 @@
 import { promisify } from '@remax/framework-shared';
 
-export const getAppStub = getApp;
-
-declare const wx: any;
+declare const wx: WechatMiniprogram.Wx;
 
 export const canIUse = wx.canIUse;
 export const base64ToArrayBuffer = wx.base64ToArrayBuffer;
