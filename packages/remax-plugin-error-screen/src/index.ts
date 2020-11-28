@@ -32,13 +32,15 @@ export default (_: any, { cwd, rootDir }: { cwd: string; rootDir: string }) => {
 
         export default {
           onPageComponent({ component }) {
-            return React.forwardRef((props, ref) => {
+            function ErrorBoundaryWrap(props, ref) {
               return React.createElement(
                 ErrorBoundary,
                 { errorScreen: ErrorScreen },
                 React.createElement(component, { ...props, ref })
               );
-            });
+            }
+            ErrorBoundaryWrap.displayName = 'ErrorBoundary'
+            return React.forwardRef(ErrorBoundaryWrap);
           },
         };
       `,

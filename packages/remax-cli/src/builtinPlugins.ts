@@ -1,4 +1,5 @@
 import errorScreen from '@remax/plugin-error-screen';
+import devtools from '@remax/plugin-devtools';
 import { Plugin } from '@remax/types';
 
 export const builtinPlugins: Array<{
@@ -8,5 +9,9 @@ export const builtinPlugins: Array<{
   {
     optionKey: 'errorScreen',
     init: errorScreen,
+  },
+  {
+    optionKey: 'devtools',
+    init: devtools,
   },
 ];
