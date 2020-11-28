@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.2](https://github.com/remaxjs/remax/compare/v2.9.1...v2.9.2) (2020-11-28)
+
+### Bug Fixes
+
+- 修复 React Devtools 失效的问题 ([86360e2](https://github.com/remaxjs/remax/commit/86360e2299172431ea88b51c7b25d2cb811d0b6a)), closes [#1392](https://github.com/remaxjs/remax/issues/1392)
+- 修复 windows 下 @remax/plugin-error-screen 加载失败的问题 ([80d5e41](https://github.com/remaxjs/remax/commit/80d5e418a92cb23049aa7aefd5cc5aaf2aeb8af1)), closes [#1388](https://github.com/remaxjs/remax/issues/1388) [#1390](https://github.com/remaxjs/remax/issues/1390)
+
 ## [2.9.1](https://github.com/remaxjs/remax/compare/v2.9.0...v2.9.1) (2020-11-27)
 
 **Note:** Version bump only for package @remax/plugin-error-screen

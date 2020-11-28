@@ -1,6 +1,6 @@
 {
   "name": "@remax/macro",
-  "version": "2.9.1",
+  "version": "2.9.2",
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -23,7 +23,7 @@
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/plugin-transform-modules-commonjs": "^7.4.4",
-    "@remax/build-store": "2.9.1",
+    "@remax/build-store": "2.9.2",
     "@types/babel-plugin-macros": "^2.6.0",
     "@types/jest": "^26.0.0",
     "@types/lodash": "^4.14.149",
@@ -37,8 +37,8 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "@remax/shared": "2.9.1",
-    "@remax/types": "2.9.1",
+    "@remax/shared": "2.9.2",
+    "@remax/types": "2.9.2",
     "@types/babel__traverse": "^7.0.8"
   },
   "publishConfig": {
