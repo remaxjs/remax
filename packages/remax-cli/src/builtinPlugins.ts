@@ -1,17 +1,24 @@
 import errorScreen from '@remax/plugin-error-screen';
 import devtools from '@remax/plugin-devtools';
-import { Plugin } from '@remax/types';
+import { Options, Platform, Plugin } from '@remax/types';
 
-export const builtinPlugins: Array<{
+export const builtinPlugins = (
+  options: Options
+): Array<{
   optionKey: string;
   init: (...args: any[]) => Plugin;
-}> = [
-  {
-    optionKey: 'errorScreen',
-    init: errorScreen,
-  },
-  {
-    optionKey: 'devtools',
-    init: devtools,
-  },
-];
+}> => {
+  const plugins = [
+    {
+      optionKey: 'errorScreen',
+      init: errorScreen,
+    },
+  ];
+  if (options.target !== Platform.web) {
+    plugins.push({
+      optionKey: 'devtools',
+      init: devtools,
+    });
+  }
+  return plugins;
+};

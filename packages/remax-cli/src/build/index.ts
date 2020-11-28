@@ -9,6 +9,7 @@ const version = require('remax/package.json').version;
 export function run(options: Options, api: API): webpack.Compiler {
   process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
+  api.loadBuiltinPlugins(options);
   api.onBuildStart(options);
 
   if (options.target === Platform.web) {
