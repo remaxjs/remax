@@ -1,6 +1,7 @@
 import * as path from 'path';
 import * as fs from 'fs';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
+import { slash } from '@remax/shared';
 
 export default (_: any, { cwd, rootDir }: { cwd: string; rootDir: string }) => {
   const searchCustomErrorFile = () => {
@@ -26,8 +27,8 @@ export default (_: any, { cwd, rootDir }: { cwd: string; rootDir: string }) => {
     'node_modules/@remax/plugin-error-screen/runtime.js': `
         import React from 'react';
         import { View } from 'remax/one';
-        import ErrorScreen from '${errorScreenFile}';
-        import ErrorBoundary from '${errorBoundaryFile}';
+        import ErrorScreen from '${slash(errorScreenFile)}';
+        import ErrorBoundary from '${slash(errorBoundaryFile)}';
 
         export default {
           onPageComponent({ component }) {
