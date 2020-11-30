@@ -1,6 +1,5 @@
 declare module 'webpack/lib/*';
 declare module 'babel-loader';
-declare module 'enhanced-resolve';
 declare module 'memory-fs/lib/join';
 declare module '@remax/postcss-px2units';
 declare module 'postcss-url';

@@ -50,6 +50,9 @@
       "path": "./packages/remax-macro"
     },
     {
+      "path": "./packages/remax-plugin-devtools"
+    },
+    {
       "path": "./packages/remax-plugin-error-screen"
     },
     {

@@ -19,7 +19,6 @@ export default class RemaxCLI {
     this.options.compressTemplate = this.options.compressTemplate ?? argv.minimize;
     this.api = new API();
     const cli = this.initCLI();
-    this.api.loadBuiltinPlugins(this.options);
     this.api.registerPlugins(this.options.plugins);
     this.api.extendCLI(cli);
     if (args.length === 0) {
