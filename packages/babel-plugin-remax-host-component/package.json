@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-remax-host-component",
-  "version": "2.9.2",
+  "version": "2.9.3",
   "description": "使用真正的 React 构建跨平台小程序",
   "author": "Wei Zhu <yesmeck@gmail.com>",
   "homepage": "https://remaxjs.org",
@@ -28,13 +28,13 @@
     "@babel/helper-plugin-utils": "^7.10.4",
     "@babel/traverse": "^7.11.0",
     "@babel/types": "^7.11.0",
-    "@remax/macro": "2.9.2",
-    "@remax/shared": "2.9.2"
+    "@remax/macro": "2.9.3",
+    "@remax/shared": "2.9.3"
   },
   "devDependencies": {
     "@babel/core": "^7.11.0",
     "@babel/plugin-syntax-jsx": "^7.10.4",
-    "@remax/build-store": "2.9.2",
+    "@remax/build-store": "2.9.3",
     "@types/jest": "^26.0.8",
     "jest": "^26.2.2",
     "ts-jest": "^26.1.4",

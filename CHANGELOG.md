@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.3](https://github.com/remaxjs/remax/compare/v2.9.2...v2.9.3) (2020-11-30)
+
+### Bug Fixes
+
+- **wechat:** 修复微信端会包含支付宝 API 的问题 ([9d1f333](https://github.com/remaxjs/remax/commit/9d1f33342b43df734ebed83cb12e30607372a1df)), closes [#1394](https://github.com/remaxjs/remax/issues/1394)
+
 ## [2.9.2](https://github.com/remaxjs/remax/compare/v2.9.1...v2.9.2) (2020-11-28)
 
 ### Bug Fixes
