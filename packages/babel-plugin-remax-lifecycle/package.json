@@ -31,11 +31,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.11.0",
-    "@remax/build-store": "2.9.5",
-    "@types/jest": "^26.0.8",
-    "jest": "^26.2.2",
-    "ts-jest": "^26.1.4",
-    "typescript": "^3.9.7"
+    "@remax/build-store": "2.9.5"
   },
   "gitHead": "df52bc6f39ef4b222b7da44c4e3c5744e4196a43"
 }

@@ -43,18 +43,14 @@
     "scheduler": "0.19.1"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.0",
     "@types/lodash.merge": "^4.6.6",
     "@types/node": "^14.0.1",
     "@types/react": "^16.9.33",
     "@types/react-reconciler": "^0.18.0",
     "@types/react-test-renderer": "^16.9.2",
-    "jest": "^26.0.1",
     "object-path-immutable": "^4.0.2",
     "react": "^16.8.6",
-    "react-test-renderer": "^16.9.0",
-    "ts-jest": "^26.0.0",
-    "typescript": "^4.0.2"
+    "react-test-renderer": "^16.9.0"
   },
   "gitHead": "06dcaa3df31f6bde22b6d07a979c361dc137351f"
 }
