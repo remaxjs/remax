@@ -1,3 +1,3 @@
-export default function usePageInstance() {
+export default function usePageInstance(): any {
   return null;
 }
