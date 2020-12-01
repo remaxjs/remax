@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.5](https://github.com/remaxjs/remax/compare/v2.9.4...v2.9.5) (2020-12-01)
+
+### Bug Fixes
+
+- 修复 usePageInstance 的返回类型 ([cf5afa3](https://github.com/remaxjs/remax/commit/cf5afa30d541f5f5a8a5647566924e652057d211))
+
 ## [2.9.4](https://github.com/remaxjs/remax/compare/v2.9.3...v2.9.4) (2020-11-30)
 
 ### Bug Fixes
