@@ -38,15 +38,19 @@ export default function propsAlias(props: GenericProps, type: string) {
   const prefix = `${RuntimeOptions.get('platform')}-`;
 
   const aliasProps: GenericProps = {};
-  const propNames = Object.keys(props);
-  propNames
-    .sort(propName => {
-      // 平台前缀属性放到末尾，优先级提升
-      // @see https://github.com/remaxjs/remax/issues/1409
-      return propName.startsWith(prefix) ? 1 : -1;
-    })
-    .forEach(propName => {
-      aliasProps[getAlias(propName, type)] = getValue(propName, props[propName]);
-    });
+
+  for (const prop in props) {
+    // 平台前缀属性优先级提升
+    // @see https://github.com/remaxjs/remax/issues/1409
+    const hasPrefix = prop.startsWith(prefix);
+    const key = getAlias(prop, type);
+    const value = getValue(prop, props[prop]);
+    if (hasPrefix) {
+      aliasProps[key] = value;
+    } else {
+      aliasProps[key] = aliasProps[key] || value;
+    }
+  }
+
   return aliasProps;
 }
