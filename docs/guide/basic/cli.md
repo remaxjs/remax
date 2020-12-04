@@ -1,10 +1,11 @@
 ---
-title: remax/cli
+title: CLI 命令行
+order: 32
 ---
 
-# CLI 命令行
+## $ remax build
 
-## $ remax build 构建应用
+编译项目，生成构建产物，存放在 `dist/${target}` 目录下。
 
 ```bash
 remax build
@@ -42,13 +43,13 @@ remax build
 
 ### --port
 
-指定端口号, `--target=web` 模式下有效
+指定端口号, `--target=web` 模式下有效。
 
 ## --minimize
 
 最小化构建产物，`--watch` 模式下默认不压缩文件以保证快速的响应文件变更，如需在开发模式进行真机调试（压缩文件），可以使用　`--minimize` 或 `-m` 参数开启，会增加整体构建时间，请酌情使用。
 
-> minimize 压缩不等同于生产模式！ 在 wechat 平台上使用 --minimize 参数预览时，需要在开发工具 IDE 本地设置中关闭"上传代码压缩混淆（如下图)"选项，否则 Webpack 和 IDE 的双重压缩会导致编译器无法解析语法而报错。
+> minimize 压缩不等同于生产模式！ 在 wechat 平台上使用 --minimize 参数预览时，需要在开发工具 IDE 本地设置中关闭"上传代码压缩混淆"选项，否则 Webpack 和 IDE 的双重压缩会导致编译器无法解析语法而报错。
 
 ## --analyze
 
