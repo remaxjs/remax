@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-remax-turbo-render",
-  "version": "2.9.0",
+  "version": "2.9.5",
   "description": "使用真正的 React 构建跨平台小程序",
   "author": "Wei Zhu <yesmeck@gmail.com>",
   "homepage": "https://remaxjs.org",
@@ -31,12 +31,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.11.0",
-    "@remax/build-store": "2.9.0",
+    "@remax/build-store": "2.9.5",
     "@types/jest": "^26.0.8",
-    "babel-plugin-tester": "^9.2.0",
-    "jest": "^26.2.2",
-    "ts-jest": "^26.1.4",
-    "typescript": "^3.9.7"
+    "babel-plugin-tester": "^9.2.0"
   },
   "gitHead": "df52bc6f39ef4b222b7da44c4e3c5744e4196a43"
 }

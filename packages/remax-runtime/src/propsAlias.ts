@@ -35,10 +35,21 @@ export default function propsAlias(props: GenericProps, type: string) {
     return props;
   }
 
+  const prefix = `${RuntimeOptions.get('platform')}-`;
+
   const aliasProps: GenericProps = {};
 
   for (const prop in props) {
-    aliasProps[getAlias(prop, type)] = getValue(prop, props[prop]);
+    // 平台前缀属性优先级提升
+    // @see https://github.com/remaxjs/remax/issues/1409
+    const hasPrefix = prop.startsWith(prefix);
+    const key = getAlias(prop, type);
+    const value = getValue(prop, props[prop]);
+    if (hasPrefix) {
+      aliasProps[key] = value;
+    } else {
+      aliasProps[key] = aliasProps[key] || value;
+    }
   }
 
   return aliasProps;

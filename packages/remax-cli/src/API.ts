@@ -147,7 +147,7 @@ export default class API {
   }
 
   loadBuiltinPlugins(options: Options) {
-    const plugins = builtinPlugins.reduce((acc: Plugin[], plugin) => {
+    const plugins = builtinPlugins(options).reduce((acc: Plugin[], plugin) => {
       acc.push(plugin.init({}, options));
       return acc;
     }, []);

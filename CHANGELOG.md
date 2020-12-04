@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.5](https://github.com/remaxjs/remax/compare/v2.9.4...v2.9.5) (2020-12-01)
+
+### Bug Fixes
+
+- 修复 usePageInstance 的返回类型 ([cf5afa3](https://github.com/remaxjs/remax/commit/cf5afa30d541f5f5a8a5647566924e652057d211))
+
+## [2.9.4](https://github.com/remaxjs/remax/compare/v2.9.3...v2.9.4) (2020-11-30)
+
+### Bug Fixes
+
+- 修复 usePageInstance 类型丢失的问题 ([473da00](https://github.com/remaxjs/remax/commit/473da00506b58f03abc0f33c6f3ea6b9b4e7d06b))
+
+## [2.9.3](https://github.com/remaxjs/remax/compare/v2.9.2...v2.9.3) (2020-11-30)
+
+### Bug Fixes
+
+- **wechat:** 修复微信端会包含支付宝 API 的问题 ([9d1f333](https://github.com/remaxjs/remax/commit/9d1f33342b43df734ebed83cb12e30607372a1df)), closes [#1394](https://github.com/remaxjs/remax/issues/1394)
+
+## [2.9.2](https://github.com/remaxjs/remax/compare/v2.9.1...v2.9.2) (2020-11-28)
+
+### Bug Fixes
+
+- **wechat:** 修复 API 类型 ([087a581](https://github.com/remaxjs/remax/commit/087a5818a34558d8aeccc6b67eef7d486bfc7d96)), closes [#1389](https://github.com/remaxjs/remax/issues/1389)
+- 修复 React Devtools 失效的问题 ([86360e2](https://github.com/remaxjs/remax/commit/86360e2299172431ea88b51c7b25d2cb811d0b6a)), closes [#1392](https://github.com/remaxjs/remax/issues/1392)
+- 修复 windows 下 @remax/plugin-error-screen 加载失败的问题 ([80d5e41](https://github.com/remaxjs/remax/commit/80d5e418a92cb23049aa7aefd5cc5aaf2aeb8af1)), closes [#1388](https://github.com/remaxjs/remax/issues/1388) [#1390](https://github.com/remaxjs/remax/issues/1390)
+
+## [2.9.1](https://github.com/remaxjs/remax/compare/v2.9.0...v2.9.1) (2020-11-27)
+
+### Bug Fixes
+
+- **web:** 修复生成环境找不到 React 的问题 ([da2a136](https://github.com/remaxjs/remax/commit/da2a13634d04e591b014a0ac14aaf935e24cc1de)), closes [#1383](https://github.com/remaxjs/remax/issues/1383)
+- **web:** 修正 tabbar 样式 ([ba49098](https://github.com/remaxjs/remax/commit/ba4909820ffcfa09ce5dd0ed220839d43abdf40d))
+- 修复单页应用进首页会加载全部资源文件 ([bb4a0f5](https://github.com/remaxjs/remax/commit/bb4a0f5e4b44b9dd1068dddc5887213174e35de9))
+- 修复构建配置路径不一致的问题 ([#1379](https://github.com/remaxjs/remax/issues/1379)) ([6c92ff7](https://github.com/remaxjs/remax/commit/6c92ff7163cd166ee46cb179ebf2b8909da068bb))
+- 兼容遗留的 one 配置 ([#1381](https://github.com/remaxjs/remax/issues/1381)) ([b260253](https://github.com/remaxjs/remax/commit/b26025352572f21e75091f22b15f085f007becab)), closes [#1380](https://github.com/remaxjs/remax/issues/1380)
+- 去掉关闭 pxToRpx 时出现的 postcss 警告 ([7f271ff](https://github.com/remaxjs/remax/commit/7f271ff14c66b71d1e82fd02ba7a262a2cece53d)), closes [#1377](https://github.com/remaxjs/remax/issues/1377)
+
 # [2.9.0](https://github.com/remaxjs/remax/compare/v2.8.10...v2.9.0) (2020-11-24)
 
 ### Bug Fixes

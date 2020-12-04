@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.5](https://github.com/remaxjs/remax/compare/v2.9.4...v2.9.5) (2020-12-01)
+
+**Note:** Version bump only for package @remax/cli
+
+## [2.9.4](https://github.com/remaxjs/remax/compare/v2.9.3...v2.9.4) (2020-11-30)
+
+**Note:** Version bump only for package @remax/cli
+
+## [2.9.3](https://github.com/remaxjs/remax/compare/v2.9.2...v2.9.3) (2020-11-30)
+
+**Note:** Version bump only for package @remax/cli
+
+## [2.9.2](https://github.com/remaxjs/remax/compare/v2.9.1...v2.9.2) (2020-11-28)
+
+### Bug Fixes
+
+- 修复 React Devtools 失效的问题 ([86360e2](https://github.com/remaxjs/remax/commit/86360e2299172431ea88b51c7b25d2cb811d0b6a)), closes [#1392](https://github.com/remaxjs/remax/issues/1392)
+
+## [2.9.1](https://github.com/remaxjs/remax/compare/v2.9.0...v2.9.1) (2020-11-27)
+
+### Bug Fixes
+
+- **web:** 修复生成环境找不到 React 的问题 ([da2a136](https://github.com/remaxjs/remax/commit/da2a13634d04e591b014a0ac14aaf935e24cc1de)), closes [#1383](https://github.com/remaxjs/remax/issues/1383)
+- 修复单页应用进首页会加载全部资源文件 ([bb4a0f5](https://github.com/remaxjs/remax/commit/bb4a0f5e4b44b9dd1068dddc5887213174e35de9))
+- 修复构建配置路径不一致的问题 ([#1379](https://github.com/remaxjs/remax/issues/1379)) ([6c92ff7](https://github.com/remaxjs/remax/commit/6c92ff7163cd166ee46cb179ebf2b8909da068bb))
+- 兼容遗留的 one 配置 ([#1381](https://github.com/remaxjs/remax/issues/1381)) ([b260253](https://github.com/remaxjs/remax/commit/b26025352572f21e75091f22b15f085f007becab)), closes [#1380](https://github.com/remaxjs/remax/issues/1380)
+- 去掉关闭 pxToRpx 时出现的 postcss 警告 ([7f271ff](https://github.com/remaxjs/remax/commit/7f271ff14c66b71d1e82fd02ba7a262a2cece53d)), closes [#1377](https://github.com/remaxjs/remax/issues/1377)
+
 # [2.9.0](https://github.com/remaxjs/remax/compare/v2.8.10...v2.9.0) (2020-11-24)
 
 ### Features

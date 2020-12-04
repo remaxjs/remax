@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.5](https://github.com/remaxjs/remax/compare/v2.9.4...v2.9.5) (2020-12-01)
+
+**Note:** Version bump only for package remax
+
+## [2.9.4](https://github.com/remaxjs/remax/compare/v2.9.3...v2.9.4) (2020-11-30)
+
+### Bug Fixes
+
+- 修复 usePageInstance 类型丢失的问题 ([473da00](https://github.com/remaxjs/remax/commit/473da00506b58f03abc0f33c6f3ea6b9b4e7d06b))
+
+## [2.9.3](https://github.com/remaxjs/remax/compare/v2.9.2...v2.9.3) (2020-11-30)
+
+### Bug Fixes
+
+- **wechat:** 修复微信端会包含支付宝 API 的问题 ([9d1f333](https://github.com/remaxjs/remax/commit/9d1f33342b43df734ebed83cb12e30607372a1df)), closes [#1394](https://github.com/remaxjs/remax/issues/1394)
+
+## [2.9.2](https://github.com/remaxjs/remax/compare/v2.9.1...v2.9.2) (2020-11-28)
+
+**Note:** Version bump only for package remax
+
+## [2.9.1](https://github.com/remaxjs/remax/compare/v2.9.0...v2.9.1) (2020-11-27)
+
+**Note:** Version bump only for package remax
+
 # [2.9.0](https://github.com/remaxjs/remax/compare/v2.8.10...v2.9.0) (2020-11-24)
 
 ### Features
