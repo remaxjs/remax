@@ -21,16 +21,12 @@
   },
   "devDependencies": {
     "@remax/types": "2.9.5",
-    "@types/jest": "^26.0.0",
     "@types/react": "^16.9.33",
     "@types/react-dom": "^16.9.6",
     "@types/react-test-renderer": "^16.9.1",
-    "jest": "^26.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.13.1",
-    "react-test-renderer": "^16.12.0",
-    "ts-jest": "^26.0.0",
-    "typescript": "^4.0.2"
+    "react-test-renderer": "^16.12.0"
   },
   "dependencies": {
     "@remax/ali": "2.9.5",
