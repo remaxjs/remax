@@ -68,4 +68,16 @@ describe('props alias', () => {
   it('transform platform props', () => {
     expect(getAlias('ali-prop', 'any')).toBe('prop');
   });
+
+  it('transform platform props priority boost', () => {
+    expect(
+      propsAlias(
+        {
+          'ali-type': 'foo',
+          type: 'bar',
+        },
+        'any'
+      )
+    ).toEqual({ type: 'foo' });
+  });
 });
