@@ -32,6 +32,7 @@
     public-id="{{node.props['public-id']}}" 
     scope="{{node.props['scope']}}" 
     size="{{node.props['size']}}" 
+    style="{{node.props['style']}}" 
     type="{{node.props['type']}}" 
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />

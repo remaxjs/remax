@@ -131,6 +131,10 @@
     
     
     
+    style="{{item.props['style']}}"
+    
+    
+    
     type="{{item.props['type']}}"
     
     

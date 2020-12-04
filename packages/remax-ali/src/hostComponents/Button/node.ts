@@ -3,6 +3,7 @@ import { unique } from '@remax/shared';
 export const alias = {
   id: 'id',
   className: 'class',
+  style: 'style',
   size: 'size',
   type: 'type',
   plain: 'plain',
