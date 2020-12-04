@@ -69,6 +69,12 @@ export default class RemaxCLI {
               alias: 'a',
               type: 'boolean',
               default: false,
+            })
+            .option('devtools', {
+              describe: '启动 react-devtools 调试',
+              alias: 'd',
+              type: 'boolean',
+              default: true,
             });
         },
         (argv: any) => {
