@@ -3109,10 +3109,10 @@
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-2.0.3.tgz#c893b73721db73699943bfc3653b1deb7faa4a3a"
   integrity sha512-Jus9s4CDbqwocc5pOAnh8ShfrnMcPHuJYzVcSUU7lrh8Ni5HuIqX3oilL86p3dlTrk0LzHRCgA/GQ7uNCw6l2Q==
 
-"@types/mini-css-extract-plugin@^0.9.1":
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/@types/mini-css-extract-plugin/-/mini-css-extract-plugin-0.9.1.tgz#d4bdde5197326fca039d418f4bdda03dc74dc451"
-  integrity sha512-+mN04Oszdz9tGjUP/c1ReVwJXxSniLd7lF++sv+8dkABxVNthg6uccei+4ssKxRHGoMmPxdn7uBdJWONSJGTGQ==
+"@types/mini-css-extract-plugin@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@types/mini-css-extract-plugin/-/mini-css-extract-plugin-1.2.1.tgz#f43fb28a411e89fc3c258b25d66bd9345dc71395"
+  integrity sha512-4/cdB1GdB9va4v/K7ivBVqNrcELjVbkgivEtqBjp/z54pqn1AYRHvQ0v97WOZgz/ilMXzG1aGM+3C1DRxp3XZw==
   dependencies:
     "@types/webpack" "*"
 
