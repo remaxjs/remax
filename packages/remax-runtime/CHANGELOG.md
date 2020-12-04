@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/remaxjs/remax/compare/v2.9.5...v2.10.0) (2020-12-04)
+
+### Features
+
+- 支持在  所有  平台基础组件上使用平台前缀属性 ([#1412](https://github.com/remaxjs/remax/issues/1412)) ([d6e9072](https://github.com/remaxjs/remax/commit/d6e9072ef9714d62a21905c8a40061845a465b28))
+
 ## [2.9.5](https://github.com/remaxjs/remax/compare/v2.9.4...v2.9.5) (2020-12-01)
 
 **Note:** Version bump only for package @remax/runtime

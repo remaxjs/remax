@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/remaxjs/remax/compare/v2.9.5...v2.10.0) (2020-12-04)
+
+### Bug Fixes
+
+- **ali:** 修复 Button[style] 不生效的问题 ([2460961](https://github.com/remaxjs/remax/commit/24609614520c55077fa03ce7989e7135f1d9403d))
+- 修复生产环境下未禁用 react-devtools 的问题 ([#1411](https://github.com/remaxjs/remax/issues/1411)) ([a01ccde](https://github.com/remaxjs/remax/commit/a01ccdebfc3d2ecb104f3ecc532e4b60ff2eb0c0)), closes [#1408](https://github.com/remaxjs/remax/issues/1408)
+
 ## [2.9.5](https://github.com/remaxjs/remax/compare/v2.9.4...v2.9.5) (2020-12-01)
 
 **Note:** Version bump only for package @remax/cli
