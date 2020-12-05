@@ -112,7 +112,7 @@
     "less-loader": "^6.0.0",
     "memfs": "^3.1.2",
     "memory-fs": "^0.5.0",
-    "parsec-hooks": "^0.0.112",
+    "parsec-hooks": "^0.0.123",
     "postcss-url": "^8.0.0",
     "react": "^16.8.6",
     "react-reconciler": "^0.25.1",
