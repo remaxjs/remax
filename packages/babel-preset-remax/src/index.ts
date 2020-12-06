@@ -45,12 +45,6 @@ function preset(api: any, presetOption: PresetOption) {
       [require.resolve('@babel/plugin-syntax-jsx'), { throwIfNamespace }],
       [require.resolve('@babel/plugin-proposal-decorators'), decorators],
       [require.resolve('@babel/plugin-proposal-class-properties'), classProperties],
-      [
-        require.resolve('babel-plugin-auto-import'),
-        {
-          declarations: [{ default: 'regeneratorRuntime', path: 'regenerator-runtime' }],
-        },
-      ],
       require.resolve('@umijs/babel-plugin-auto-css-modules'),
     ],
   };
