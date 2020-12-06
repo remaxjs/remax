@@ -2,11 +2,12 @@ import * as React from 'react';
 import { NodePath } from '@babel/traverse';
 import { createMacro } from 'babel-plugin-macros';
 import { slash } from '@remax/shared';
+import Store from '@remax/build-store';
 import createHostComponentMacro from './createHostComponent';
 import requirePluginComponentMacro from './requirePluginComponent';
 import requirePluginMacro from './requirePlugin';
-import usePageEventMacro, { pageEvents } from './usePageEvent';
-import useAppEventMacro, { appEvents } from './useAppEvent';
+import usePageEventMacro from './usePageEvent';
+import useAppEventMacro from './useAppEvent';
 
 type PageEventName =
   | 'onLoad'
@@ -47,8 +48,8 @@ function remax({ references, state }: { references: { [name: string]: NodePath[]
 
   const importer = slash(state.file.opts.filename);
 
-  appEvents.delete(importer);
-  pageEvents.delete(importer);
+  Store.appEvents.delete(importer);
+  Store.pageEvents.delete(importer);
 
   references.useAppEvent?.forEach(path => useAppEventMacro(path, state));
 
@@ -67,7 +68,5 @@ export declare function requirePlugin<P = any>(pluginName: string): P;
 export declare function usePageEvent(eventName: PageEventName, callback: (...params: any[]) => any): void;
 
 export declare function useAppEvent(eventName: AppEventName, callback: (...params: any[]) => any): void;
-
-export { pageEvents, appEvents };
 
 export default createMacro(remax);

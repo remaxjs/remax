@@ -592,7 +592,10 @@ module.exports = {
     "onShareAppMessage",
     "onShow"
   ],
-  "pages/classPage": []
+  "pages/classPage": [
+    "onPageScroll",
+    "onShareAppMessage"
+  ]
 },
       appEvents: []
     }

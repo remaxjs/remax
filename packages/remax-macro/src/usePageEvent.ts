@@ -1,21 +1,18 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import { slash } from '@remax/shared';
+import Store from '@remax/build-store';
 import insertImportDeclaration from './utils/insertImportDeclaration';
 
 const PACKAGE_NAME = '@remax/runtime';
 const FUNCTION_NAME = 'usePageEvent';
-
-type Events = Set<string>;
-
-export const pageEvents = new Map<string, Events>();
 
 function getArguments(callExpression: NodePath<t.CallExpression>, importer: string) {
   const args = callExpression.node.arguments;
   const eventName = args[0] as t.StringLiteral;
   const callback = args[1];
 
-  pageEvents.set(importer, pageEvents.get(importer)?.add(eventName.value) ?? new Set([eventName.value]));
+  Store.pageEvents.set(importer, Store.pageEvents.get(importer)?.add(eventName.value) ?? new Set([eventName.value]));
 
   return [eventName, callback];
 }
