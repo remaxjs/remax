@@ -28,7 +28,7 @@
     "authors": "./scripts/authors"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.1.0",
+    "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^8.1.0",
     "@types/express": "^4.17.4",
     "@types/jest": "^26.0.15",
