@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.1](https://github.com/remaxjs/remax/compare/v2.10.0...v2.10.1) (2020-12-06)
+
+### Bug Fixes
+
+- 修复 cache router 无效问题 ([#1416](https://github.com/remaxjs/remax/issues/1416)) ([7d92597](https://github.com/remaxjs/remax/commit/7d925972c5ca096af1190ea0742e663a1fdebb46)), closes [#1415](https://github.com/remaxjs/remax/issues/1415)
+
 # [2.10.0](https://github.com/remaxjs/remax/compare/v2.9.5...v2.10.0) (2020-12-04)
 
 **Note:** Version bump only for package @remax/web
