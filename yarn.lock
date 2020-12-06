@@ -36,7 +36,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@^7.1.0", "@babel/core@^7.11.0", "@babel/core@^7.11.1", "@babel/core@^7.4.3", "@babel/core@^7.4.5", "@babel/core@^7.7.2", "@babel/core@^7.7.4":
+"@babel/core@^7.1.0", "@babel/core@^7.11.0", "@babel/core@^7.4.3", "@babel/core@^7.4.5", "@babel/core@^7.7.2", "@babel/core@^7.7.4":
   version "7.12.8"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.12.8.tgz#8ad76c1a7d2a6a3beecc4395fa4f7b4cb88390e6"
   integrity sha512-ra28JXL+5z73r1IC/t+FT1ApXU5LsulFDnTDntNfLQaScJUJmcHL5Qxm/IWanCToQk3bPWQo5bflbplU5r15pg==
@@ -4595,14 +4595,6 @@ babel-loader@^8.1.0:
     make-dir "^2.1.0"
     pify "^4.0.1"
     schema-utils "^2.6.5"
-
-babel-plugin-auto-import@^1.0.5:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-auto-import/-/babel-plugin-auto-import-1.1.0.tgz#996a78ded5fed475657bed17f2a223bafdd87822"
-  integrity sha512-mHtA3i1BYyWLHKc4v+NLS07VSlXGLcKIGcUmV2Xrasbox0bRV/xhe5W36Ki21GJfOZHG/eeAiwxe4tbBNbDXlA==
-  dependencies:
-    "@babel/core" "^7.11.1"
-    logical-not "^1.0.1"
 
 babel-plugin-dynamic-import-node@2.3.3, babel-plugin-dynamic-import-node@^2.3.3:
   version "2.3.3"
@@ -10973,11 +10965,6 @@ log-update@^4.0.0:
     cli-cursor "^3.1.0"
     slice-ansi "^4.0.0"
     wrap-ansi "^6.2.0"
-
-logical-not@^1.0.1:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/logical-not/-/logical-not-1.0.7.tgz#ca692446f85facaaa10aad543e50b483db436b60"
-  integrity sha512-0UNPmWU7Kgon/TCcWBTc9p6rwfp4c4Qi5xruxuXULNYe9OJNswE8xfJFyHq459O1iREvZ8ICakwU6DfY3S9cYQ==
 
 loglevel@^1.6.2, loglevel@^1.6.8:
   version "1.7.0"

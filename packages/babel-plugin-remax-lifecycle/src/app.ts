@@ -2,6 +2,7 @@ import { declare } from '@babel/helper-plugin-utils';
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import Store from '@remax/build-store';
+import { slash } from '@remax/shared';
 
 const lifecycleEvents = ['onShareAppMessage'];
 
@@ -14,7 +15,7 @@ export default (options: Options) => {
   return declare(() => {
     return {
       pre(state: any) {
-        const importer = state.opts.filename;
+        const importer = slash(state.opts.filename);
 
         // TODO: app 的依赖也要收集
         skip = !options.test(importer);
@@ -32,7 +33,7 @@ export default (options: Options) => {
             return;
           }
 
-          const importer = state.file.opts.filename;
+          const importer = slash(state.file.opts.filename);
           const { node } = path;
 
           // 只要生命周期 Literal 存在就标记为用到了生命周期
@@ -47,7 +48,7 @@ export default (options: Options) => {
             return;
           }
 
-          const importer = state.file.opts.filename;
+          const importer = slash(state.file.opts.filename);
           const { node } = path;
 
           // 只要生命周期 Identifer 存在就标记为用到了生命周期
