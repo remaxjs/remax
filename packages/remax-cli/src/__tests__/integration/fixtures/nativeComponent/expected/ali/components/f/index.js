@@ -1,11 +1,11 @@
 require('./../../runtime.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[19],{
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[20],{
 
-/***/ 55:
+/***/ 58:
 /***/ (function(module, exports) {
 
 Component({});
 
 /***/ })
 
-},[[55,0]]]);
+},[[58,0]]]);

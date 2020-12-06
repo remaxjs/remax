@@ -1,5 +1,8 @@
-@import "./button.acss";
+.sm-button {
+  padding: 5px;
+}
 
 .foo {
   color: red;
 }
+

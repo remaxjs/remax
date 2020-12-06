@@ -113,6 +113,10 @@
     
     
     
+    onError="{{item.props['onError']}}"
+    
+    
+    
     onGetAuthorize="{{item.props['onGetAuthorize']}}"
     
     
@@ -138,6 +142,10 @@
     
     
     size="{{item.props['size']}}"
+    
+    
+    
+    style="{{item.props['style']}}"
     
     
     
@@ -299,6 +307,10 @@
     
     
     style="{{item.props['style']}}"
+    
+    
+    
+    type="{{item.props['type']}}"
     
     
     
@@ -1928,7 +1940,8 @@
   >
     
     <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      <block a:if="{{item.type === 'plain-text'}}">{{item.text}}</block>
+      <template a:else is="REMAX_TPL_1_CONTAINER" data="{{item: item.children[0]}}" />
     </block>
     
   </text>
@@ -2119,6 +2132,10 @@
     
     
     
+    posterSize="{{item.props['posterSize']}}"
+    
+    
+    
     show-center-play-btn="{{item.props['show-center-play-btn']}}"
     
     
@@ -2136,6 +2153,10 @@
     
     
     src="{{item.props['src']}}"
+    
+    
+    
+    style="{{item.props['style']}}"
     
     
     
@@ -2292,3 +2313,5 @@
 <template name="REMAX_TPL_1_CONTAINER">
   <template is="{{'REMAX_TPL_1_' + item.type}}" data="{{item: item}}" />
 </template>
+
+<template is="REMAX_TPL" data="{{ root: modalRoot }}" />
