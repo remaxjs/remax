@@ -1,5 +1,6 @@
 import * as babel from '@babel/core';
 import Store from '@remax/build-store';
+import { slash } from '@remax/shared';
 import app from '../src/app';
 
 function transform(code: string) {
@@ -45,7 +46,7 @@ describe('app', () => {
       }
     `);
 
-    expect(Store.appEvents.get(__filename)).toEqual(new Set(['onShareAppMessage']));
+    expect(Store.appEvents.get(slash(__filename))).toEqual(new Set(['onShareAppMessage']));
   });
 
   it('collects lifecycle in functional component', async () => {
@@ -58,6 +59,6 @@ describe('app', () => {
       }
     `);
 
-    expect(Store.appEvents.get(__filename)).toEqual(new Set(['onShareAppMessage']));
+    expect(Store.appEvents.get(slash(__filename))).toEqual(new Set(['onShareAppMessage']));
   });
 });
