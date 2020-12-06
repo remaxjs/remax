@@ -43,12 +43,16 @@ Page(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createPageConfig"])(_in
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(regeneratorRuntime) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
-/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(remax__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var foo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
-/* harmony import */ var foo_index2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(14);
+/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
+/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
+/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(remax__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var foo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(13);
+/* harmony import */ var foo_index2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(14);
+
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -63,20 +67,20 @@ function run() {
 }
 
 function _run() {
-  _run = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    return regeneratorRuntime.wrap(function _callee$(_context) {
+  _run = _asyncToGenerator( /*#__PURE__*/regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    return regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return Object(foo__WEBPACK_IMPORTED_MODULE_2__["index"])();
+            return Object(foo__WEBPACK_IMPORTED_MODULE_3__["index"])();
 
           case 2:
             _context.next = 4;
-            return Object(foo_index2__WEBPACK_IMPORTED_MODULE_3__["index2"])();
+            return Object(foo_index2__WEBPACK_IMPORTED_MODULE_4__["index2"])();
 
           case 4:
-            return _context.abrupt("return", foo_index2__WEBPACK_IMPORTED_MODULE_3__["foo"]);
+            return _context.abrupt("return", foo_index2__WEBPACK_IMPORTED_MODULE_4__["foo"]);
 
           case 5:
           case "end":
@@ -89,16 +93,15 @@ function _run() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  react__WEBPACK_IMPORTED_MODULE_0___default.a.useState(function () {
+  react__WEBPACK_IMPORTED_MODULE_1___default.a.useState(function () {
     run().catch(function () {});
   }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(remax__WEBPACK_IMPORTED_MODULE_1__["View"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(remax__WEBPACK_IMPORTED_MODULE_1__["Text"], null, "hello"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(remax__WEBPACK_IMPORTED_MODULE_1__["View"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(remax__WEBPACK_IMPORTED_MODULE_2__["View"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(remax__WEBPACK_IMPORTED_MODULE_2__["Text"], null, "hello"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(remax__WEBPACK_IMPORTED_MODULE_2__["View"], {
     "data-aspm-expo": "d1234"
-  }, "foo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(remax__WEBPACK_IMPORTED_MODULE_1__["View"], {
+  }, "foo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(remax__WEBPACK_IMPORTED_MODULE_2__["View"], {
     "data-aspm-click": "d5678"
   }, "bar"));
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 11 */
@@ -119,7 +122,11 @@ module.exports = require("remax");
 "use strict";
 /* istanbul ignore next */
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(regeneratorRuntime) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "index", function() { return index; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "index", function() { return index; });
+/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
+/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -129,8 +136,8 @@ function index() {
 }
 
 function _index() {
-  _index = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    return regeneratorRuntime.wrap(function _callee$(_context) {
+  _index = _asyncToGenerator( /*#__PURE__*/regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+    return regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
@@ -149,7 +156,6 @@ function _index() {
   }));
   return _index.apply(this, arguments);
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ }),
 /* 14 */
@@ -158,8 +164,12 @@ function _index() {
 "use strict";
 /* istanbul ignore next */
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(regeneratorRuntime) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "index2", function() { return index2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "index2", function() { return index2; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "foo", function() { return foo; });
+/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
+/* harmony import */ var regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
   try {
     var info = gen[key](arg);
@@ -201,8 +211,8 @@ function test() {
 }
 
 function _test() {
-  _test = _asyncToGenerator(regeneratorRuntime.mark(function _callee2() {
-    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+  _test = _asyncToGenerator(regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+    return regenerator_runtime__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
@@ -221,7 +231,6 @@ function _test() {
 
 var index2 = test;
 var foo = 2;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(11)))
 
 /***/ })
 ],[[8,0]]]);

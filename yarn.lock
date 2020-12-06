@@ -58,7 +58,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@^7.7.5":
+"@babel/core@^7.11.1", "@babel/core@^7.7.5":
   version "7.12.9"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.12.9.tgz#fd450c4ec10cdbb980e2928b7aa7a28484593fc8"
   integrity sha512-gTXYh3M5wb7FRXQy+FErKFAv90BnlOuNn1QkCK2lREoPAjrQCO49+HVSrFoe5uakFAF5eenS75KbO2vQiLrTMQ==
@@ -4595,6 +4595,14 @@ babel-loader@^8.1.0:
     make-dir "^2.1.0"
     pify "^4.0.1"
     schema-utils "^2.6.5"
+
+babel-plugin-auto-import@^1.0.5:
+  version "1.1.0"
+  resolved "https://registry.npm.alibaba-inc.com/babel-plugin-auto-import/download/babel-plugin-auto-import-1.1.0.tgz#996a78ded5fed475657bed17f2a223bafdd87822"
+  integrity sha1-mWp43tX+1HVle+0X8qIjuv3YeCI=
+  dependencies:
+    "@babel/core" "^7.11.1"
+    logical-not "^1.0.1"
 
 babel-plugin-dynamic-import-node@2.3.3, babel-plugin-dynamic-import-node@^2.3.3:
   version "2.3.3"
@@ -10965,6 +10973,11 @@ log-update@^4.0.0:
     cli-cursor "^3.1.0"
     slice-ansi "^4.0.0"
     wrap-ansi "^6.2.0"
+
+logical-not@^1.0.1:
+  version "1.0.7"
+  resolved "https://registry.npm.alibaba-inc.com/logical-not/download/logical-not-1.0.7.tgz#ca692446f85facaaa10aad543e50b483db436b60"
+  integrity sha1-ymkkRvhfrKqhCq1UPlC0g9tDa2A=
 
 loglevel@^1.6.2, loglevel@^1.6.8:
   version "1.7.0"
