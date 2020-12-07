@@ -1,33 +1,38 @@
 <template name="REMAX_TPL_1_<%=id%>">
-  <<%=id%> <% for(let i=0;i < props.length; i++) { %>
-    <% if (props[i] === 'key') { %>
+  <<%=id%>
+<% for(let i=0;i < props.length; i++) { -%>
+  <%_ if (props[i] === 'key') { -%>
     key="{{item.props.__key}}"
-    <% } else { %>
+  <%_ } else { -%>
     <%=props[i]%>="{{item.props['<%=props[i]%>']}}"
-    <% } %>
-    <% } %>
-    <% if (type === 'native') { %>ref="{{item.props['__ref']}}"<% } %>
+  <%_ } -%>
+<% } -%>
+    <%_ if (type === 'native') { -%>
+    ref="{{item.props['__ref']}}"
+    <%_ } -%>
   >
-    <% if (id === 'swiper') { %>
+    <%_ if (id === 'swiper') { -%>
     <block a:for="{{item.children}}" key="{{item.id}}">
-      <swiper-item <% for(let i=0;i < components.get('swiper-item').props.length; i++) { %>
-         <%=components.get('swiper-item').props[i]%>="{{item.props['<%=components.get('swiper-item').props[i]%>']}}" <% } %>
+      <swiper-item
+      <%_ for(let i=0;i < components.get('swiper-item').props.length; i++) { -%>
+        <%=components.get('swiper-item').props[i]%>="{{item.props['<%=components.get('swiper-item').props[i]%>']}}"
+      <%_ } -%>
       >
         <block a:for="{{item.children}}" key="{{item.id}}">
           <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
         </block>
       </swiper-item>
     </block>
-    <% } else if (id === 'text') { %>
+    <%_ } else if (id === 'text') { %>
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.type === 'plain-text'}}">{{item.text}}</block>
       <template a:else is="REMAX_TPL_1_CONTAINER" data="{{item: item.children[0]}}" />
     </block>
-    <% } else if (id === 'picker') { %>
+    <%_ } else if (id === 'picker') { -%>
     <view>
       <template is="REMAX_TPL_1_CONTAINER" data="{{item: item.children[0]}}" />
     </view>
-    <% } else if (id === 'picker-view') { %>
+    <%_ } else if (id === 'picker-view') { -%>
     <block a:for="{{item.children}}" key="{{item.id}}">
       <picker-view-column>
         <view a:for="{{item.children}}">
@@ -35,11 +40,14 @@
         </view>
       </picker-view-column>
     </block>
-    <% } else if (type === 'native') { %>
+    <%_ } else if (type === 'native') { -%>
     <block a:for="{{item.children}}" key="{{item.id}}">
       <block a:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" <% for(let i=0;i < slotView.props.length; i++) { %>
-          <%=slotView.props[i]%>="{{item.props['<%=slotView.props[i]%>']}}" <% } %>
+        <view
+          slot="{{item.props['slot']}}"
+          <%_ for(let i=0;i < slotView.props.length; i++) { -%>
+          <%=slotView.props[i]%>="{{item.props['<%=slotView.props[i]%>']}}"
+          <%_ } -%>
         >
           <block a:for="{{item.children}}" key="{{item.id}}">
             <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
@@ -50,10 +58,10 @@
         <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
       </block>
     </block>
-    <% } else { %>
+    <%_ } else { -%>
     <block a:for="{{item.children}}" key="{{item.id}}">
       <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
     </block>
-    <% } %>
+    <%_ } -%>
   </<%=id%>>
 </template>

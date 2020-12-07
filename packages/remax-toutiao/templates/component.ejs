@@ -1,8 +1,10 @@
 <template name="REMAX_TPL_<%=id%>">
-  <<%=id%> <% for(let i=0;i < props.length; i++) { %>
-    <%=props[i]%>="{{i.props['<%=props[i]%>']}}" <%} %>
+  <<%=id%>
+  <%_ for(let i=0;i < props.length; i++) { -%>
+    <%=props[i]%>="{{i.props['<%=props[i]%>']}}"
+  <%_ } -%>
   >
-    <% if (id === 'swiper') { %>
+    <%_ if (id === 'swiper') { -%>
     <block tt:for="{{i.children}}" tt:key="*this">
       <swiper-item key="{{i.nodes[item].props.key}}">
         <block tt:for="{{i.nodes[item].children}}" tt:key="*this" tt:for-item="sItem">
@@ -10,7 +12,7 @@
         </block>
       </swiper-item>
     </block>
-    <% } else if (id === 'picker-view') { %>
+    <%_ } else if (id === 'picker-view') { -%>
     <block tt:for="{{i.children}}" tt:key="*this">
       <picker-view-column>
         <view tt:for="{{i.nodes[item].children}}" tt:for-item="sItem">
@@ -18,11 +20,14 @@
         </view>
       </picker-view-column>
     </block>
-    <% } else if (type === 'native') { %>
+    <%_ } else if (type === 'native') { -%>
     <block tt:for="{{i.children}}" tt:key="*this">
       <block tt:if="{{i.nodes[item].props['slot']}}">
-        <view slot="{{i.nodes[item].props['slot']}}" <% for(let i=0;i < slotView.props.length; i++) { %>
-          <%=slotView.props[i]%>="{{i.nodes[item].props['<%=slotView.props[i]%>']}}" <%}%>
+        <view
+          slot="{{i.nodes[item].props['slot']}}"
+        <%_ for(let i=0;i < slotView.props.length; i++) { -%>
+          <%=slotView.props[i]%>="{{i.nodes[item].props['<%=slotView.props[i]%>']}}"
+        <%_ } -%>
         >
           <block tt:for="{{i.nodes[item].children}}" tt:key="*this" tt:for-item="sItem">
             <template is="{{'REMAX_TPL_' + i.nodes[item].nodes[sItem].type}}" data="{{i: i.nodes[item].nodes[sItem]}}" />
@@ -33,10 +38,10 @@
         <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
       </block>
     </block>
-    <% } else { %>
+    <%_ } else { -%>
     <block tt:for="{{i.children}}" tt:key="{{id}}">
       <template is="{{'REMAX_TPL_' + i.nodes[item].type}}" data="{{i: i.nodes[item]}}" />
     </block>
-    <% } %>
+    <%_ } -%>
   </<%=id%>>
 </template>
