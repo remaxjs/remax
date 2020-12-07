@@ -18,6 +18,7 @@ type PageEventName =
   | 'onReachBottom'
   | 'onPageScroll'
   | 'onShareAppMessage'
+  | 'onShareTimeline'
   | 'onTitleClick'
   | 'onOptionMenuClick'
   | 'onPopMenuClick'
@@ -35,6 +36,7 @@ type AppEventName =
   | 'onHide'
   | 'onError'
   | 'onShareAppMessage'
+  | 'onShareTimeline'
   | 'onPageNotFound'
   | 'onUnhandledRejection'
   | 'onThemeChange';
