@@ -12721,10 +12721,10 @@ parse5@^6.0.0:
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
   integrity sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==
 
-parsec-hooks@^0.0.123:
-  version "0.0.123"
-  resolved "https://registry.yarnpkg.com/parsec-hooks/-/parsec-hooks-0.0.123.tgz#e55d64103eb2ca663f0bd59f3d6c102837ffe4f7"
-  integrity sha512-6Xr43RhAc9FiTopNi+qQG34gDPXkMYZ6O4lnqRNdsmLg2hL5a5rZev+nai08DZtl3n3krkvcUK18EQcdfaDd5g==
+parsec-hooks@^0.0.124:
+  version "0.0.124"
+  resolved "https://registry.yarnpkg.com/parsec-hooks/-/parsec-hooks-0.0.124.tgz#1c088936c9787fee323c77e111049b076c848d17"
+  integrity sha512-KJxV0h1ni3RZ2ljojfACoHlqf3ZJ8lKnW7jRysBN3LcNdPqureRBWAH2Js528he+b6NjB1J26s0Q/l2xGdY2vg==
   dependencies:
     "@babel/runtime" "^7.10.3"
     classnames "^2.2.6"
