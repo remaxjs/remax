@@ -3566,13 +3566,18 @@
   dependencies:
     "@umijs/utils" "3.3.0"
 
-"@umijs/babel-plugin-auto-css-modules@3.3.0", "@umijs/babel-plugin-auto-css-modules@^3.1.1":
+"@umijs/babel-plugin-auto-css-modules@3.3.0":
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/@umijs/babel-plugin-auto-css-modules/-/babel-plugin-auto-css-modules-3.3.0.tgz#c43e68197d840a1504f96b212a8ff2c67cf7f8b7"
   integrity sha512-G9FwCL8cbis+fDFErgD/yiFH4umaUr+Jsl35ZL+HDClcpLRvKeKYEEzG/9OuYUeSzOqNN4WlIVlI6+CMykOIkw==
   dependencies:
     "@babel/traverse" "7.12.5"
     "@umijs/utils" "3.3.0"
+
+"@umijs/babel-plugin-auto-css-modules@^3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@umijs/babel-plugin-auto-css-modules/-/babel-plugin-auto-css-modules-3.3.1.tgz#62230c97fcf0befbf3034960e6a4ac657886fce1"
+  integrity sha512-xEoHmroDHcRKpCbB/fjeZvkS+/CZzbR085HFlWhc+U9gdcUFw0IzYnxVsMw+FicGS9tbwxmO6moe8EbImrtYIw==
 
 "@umijs/babel-plugin-import-to-await-require@3.3.0":
   version "3.3.0"
@@ -14830,14 +14835,6 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
-
-rmc-feedback@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/rmc-feedback/-/rmc-feedback-2.0.0.tgz#cbc6cb3ae63c7a635eef0e25e4fbaf5ac366eeaa"
-  integrity sha512-5PWOGOW7VXks/l3JzlOU9NIxRpuaSS8d9zA3UULUCuTKnpwBHNvv1jSJzxgbbCQeYzROWUpgKI4za3X4C/mKmQ==
-  dependencies:
-    babel-runtime "6.x"
-    classnames "^2.2.5"
 
 rmc-pull-to-refresh@^1.0.12:
   version "1.0.13"

@@ -34,8 +34,7 @@
   },
   "dependencies": {
     "@remax/shared": "2.10.1",
-    "@remax/types": "2.10.1",
-    "@types/babel__traverse": "^7.0.8"
+    "@remax/types": "2.10.1"
   },
   "publishConfig": {
     "access": "public"

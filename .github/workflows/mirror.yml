@@ -6,6 +6,7 @@ jobs:
   to_gitee:
     if: github.repository == 'remaxjs/remax'
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v1
       - uses: pixta-dev/repository-mirroring-action@v1
@@ -16,6 +17,7 @@ jobs:
   to_gitee_gh:
     if: github.repository == 'remaxjs/remax'
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v1
       - uses: pixta-dev/repository-mirroring-action@v1
