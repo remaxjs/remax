@@ -3,8 +3,12 @@ name: E2E web mpa
 on:
   push:
     branches: [master]
+    paths-ignore:
+      - 'docs/**'
   pull_request:
     types: [opened, synchronize]
+    paths-ignore:
+      - 'docs/**'
 
 jobs:
   test:
