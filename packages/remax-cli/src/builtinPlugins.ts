@@ -9,22 +9,17 @@ export const builtinPlugins = (
   init: (...args: any[]) => Plugin;
 }> => {
   const isDev = process.env.NODE_ENV !== 'production';
-  if (!isDev) {
-    return [];
-  }
-
   const plugins = [
     {
       optionKey: 'errorScreen',
       init: errorScreen,
     },
   ];
-  if (options.target !== Platform.web && options.devtools) {
+  if (options.target !== Platform.web && isDev && options.devtools) {
     plugins.push({
       optionKey: 'devtools',
       init: devtools,
     });
   }
-
   return plugins;
 };
