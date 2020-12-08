@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "scripts": {
     "watch": "concurrently \"lerna run build:cjs --parallel -- -w\" \"tsc -b -w\"",
-    "prebuild": "npm run clean:packages",
     "build": "tsc -b && lerna run build:cjs",
     "test": "lerna run --ignore babel-preset-remax --ignore website --ignore e2e-* --stream test",
     "test:e2e-web": "lerna run --stream --scope e2e-app test:web",
