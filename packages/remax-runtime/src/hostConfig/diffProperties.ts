@@ -1,4 +1,4 @@
-const STYLE = 'style';
+const STYLE = ['style', 'placeholderStyle'];
 const CHILDREN = 'children';
 const CLASS_NAME = 'className';
 
@@ -23,7 +23,7 @@ export default function diffProperties(
     ) {
       continue;
     }
-    if (propKey === STYLE) {
+    if (STYLE.includes(propKey)) {
       const lastStyle = lastProps[propKey];
       for (styleName in lastStyle) {
         if (Object.prototype.hasOwnProperty.call(lastStyle, styleName)) {
@@ -50,7 +50,7 @@ export default function diffProperties(
     ) {
       continue;
     }
-    if (propKey === STYLE) {
+    if (STYLE.includes(propKey)) {
       if (process.env.NODE_ENV === 'development') {
         if (nextProp) {
           // Freeze the next style object so that we can assume it won't be
