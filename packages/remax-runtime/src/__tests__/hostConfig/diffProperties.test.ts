@@ -48,6 +48,7 @@ describe('diffProperties', () => {
     expect(
       !!diffProperties({ style: { width: 5 }, a: '1', b: null }, { style: { width: 5 }, a: '1', b: undefined })
     ).toBeFalsy();
+
     expect(
       !!diffProperties(
         { placeholderStyle: { width: 5 }, a: '1', b: null },
@@ -73,6 +74,29 @@ describe('diffProperties', () => {
       null,
       'placeholderStyle',
       { width: 5 },
+    ]);
+    expect(diffProperties({ style: { width: 5 } }, {})).toEqual(['style', { width: '' }]);
+    expect(diffProperties({ style: { width: 5 } }, { className: 'foo' })).toEqual([
+      'className',
+      'foo',
+      'style',
+      { width: '' },
+    ]);
+    expect(diffProperties({ style: { width: 5 } }, { placeholderStyle: { width: 5 } })).toEqual([
+      'placeholderStyle',
+      null,
+      'style',
+      { width: '' },
+      'placeholderStyle',
+      { width: 5 },
+    ]);
+    expect(diffProperties({ placeholderStyle: { width: 5 } }, { style: { width: 5 } })).toEqual([
+      'style',
+      null,
+      'style',
+      { width: 5 },
+      'placeholderStyle',
+      { width: '' },
     ]);
   });
 });

@@ -13,7 +13,13 @@ export default function diffProperties(
 
   let propKey: string;
   let styleName: string;
-  let styleUpdates: Record<string, any> | null = null;
+
+  const styleUpdates: Record<string, Record<string, any>> = {
+    // @ts-expect-error
+    style: null,
+    // @ts-expect-error
+    placeholderStyle: null,
+  };
 
   for (propKey in lastProps) {
     if (
@@ -27,10 +33,10 @@ export default function diffProperties(
       const lastStyle = lastProps[propKey];
       for (styleName in lastStyle) {
         if (Object.prototype.hasOwnProperty.call(lastStyle, styleName)) {
-          if (!styleUpdates) {
-            styleUpdates = {};
+          if (!styleUpdates[propKey]) {
+            styleUpdates[propKey] = {};
           }
-          styleUpdates[styleName] = '';
+          styleUpdates[propKey][styleName] = '';
         }
       }
     } else {
@@ -65,10 +71,10 @@ export default function diffProperties(
             Object.prototype.hasOwnProperty.call(lastProp, styleName) &&
             (!nextProp || !Object.prototype.hasOwnProperty.call(nextProp, styleName))
           ) {
-            if (!styleUpdates) {
-              styleUpdates = {};
+            if (!styleUpdates[propKey]) {
+              styleUpdates[propKey] = {};
             }
-            styleUpdates[styleName] = '';
+            styleUpdates[propKey][styleName] = '';
           }
         }
         // Update styles that changed since `lastProp`.
@@ -77,21 +83,21 @@ export default function diffProperties(
             Object.prototype.hasOwnProperty.call(nextProp, styleName) &&
             lastProp[styleName] !== nextProp[styleName]
           ) {
-            if (!styleUpdates) {
-              styleUpdates = {};
+            if (!styleUpdates[propKey]) {
+              styleUpdates[propKey] = {};
             }
-            styleUpdates[styleName] = nextProp[styleName];
+            styleUpdates[propKey][styleName] = nextProp[styleName];
           }
         }
       } else {
         // Relies on `updateStylesByID` not mutating `styleUpdates`.
-        if (!styleUpdates) {
+        if (!styleUpdates[propKey]) {
           if (!updatePayload) {
             updatePayload = [];
           }
-          updatePayload.push(propKey, styleUpdates);
+          updatePayload.push(propKey, styleUpdates[propKey]);
         }
-        styleUpdates = nextProp;
+        styleUpdates[propKey] = nextProp;
       }
     } else if (propKey === CHILDREN) {
       if (lastProp !== nextProp && (typeof nextProp === 'string' || typeof nextProp === 'number')) {
@@ -103,12 +109,15 @@ export default function diffProperties(
       (updatePayload = updatePayload || []).push(propKey, nextProp);
     }
   }
-  if (styleUpdates) {
-    // 由于 style 要转换成 string， 所以必须整个 style 对象都更新
-    (updatePayload = updatePayload || []).push(STYLE, {
-      ...lastProps[STYLE],
-      ...styleUpdates,
-    });
+
+  // 由于 style 要转换成 string， 所以必须整个 style 对象都更新
+  for (const styleKey in styleUpdates) {
+    if (styleUpdates[styleKey]) {
+      (updatePayload = updatePayload || []).push(styleKey, {
+        ...lastProps[styleKey],
+        ...styleUpdates[styleKey],
+      });
+    }
   }
 
   return updatePayload;
