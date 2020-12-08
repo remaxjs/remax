@@ -1,52 +1,55 @@
 <template name="REMAX_TPL">
-	<block wx:for="{{root.children}}" wx:key="*this">
-		<template is="REMAX_TPL_1_CONTAINER" data="{{i: root.nodes[item], a: ''}}" />
-	</block>
+  <block wx:for="{{root.children}}" wx:key="*this">
+    <template is="REMAX_TPL_1_CONTAINER" data="{{i: root.nodes[item], a: ''}}" />
+  </block>
 </template>
 
 <wxs module="_h">
-	var elements = {};
-	module.exports = {
-		v: function(value) {
-			return value !== undefined ? value : '';
-		},
-		tid: function (type, ancestor) {
-			var items = ancestor.split(',');
-			var depth = 1;
+  var elements = {};
+  module.exports = {
+    v: function(value) {
+      return value !== undefined ? value : '';
+    },
+    tid: function (type, ancestor) {
+      var items = ancestor.split(',');
+      var depth = 1;
 
-			for (var i = 0; i < items.length; i++) {
-				if (type === items[i]) {
-					depth = depth + 1;
-				}
-			}
+      for (var i = 0; i < items.length; i++) {
+        if (type === items[i]) {
+          depth = depth + 1;
+        }
+      }
 
-			var id = 'REMAX_TPL_' + depth + '_' + type;
-			return id;
-		}
-	};
+      var id = 'REMAX_TPL_' + depth + '_' + type;
+      return id;
+    }
+  };
 </wxs>
-<% for (let component of sortBy(Array.from(components.values()), 'id')) { %>
-  <% var len = depth[component.id] || 10; %>
-  <% for (var i = 1; i <= len; i++) { %>
-    <% if (skipComponents.includes(component.id)) {
+
+<% for (let component of sortBy(Array.from(components.values()), 'id')) { -%>
+  <%_ var len = depth[component.id] || 10; -%>
+  <%_ for (var i = 1; i <= len; i++) { -%>
+    <%_ if (skipComponents.includes(component.id)) {
       continue;
-    } else { %>
-      <%- include('./component.ejs', {
-        components: components,
-        type: component.type,
-        props: component.props,
-        id: component.id,
-        templateId: i,
-        slotView: slotView
-      }) %>
-    <% } %>
-  <% } %>
-<% } %>
+    } else { -%>
+<%- include('./component.ejs', {
+  components: components,
+  type: component.type,
+  props: component.props,
+  id: component.id,
+  templateId: i,
+  slotView: slotView
+}) -%>
+
+    <%_ } -%>
+  <%_ } -%>
+<% } -%>
 <template name="REMAX_TPL_1_plain-text" data="{{i: i}}">
-	<block>{{i.text}}</block>
+  <block>{{i.text}}</block>
 </template>
-<% for (var i = 1; i <= depth['view']; i++) { %>
+
+<% for (var i = 1; i <= depth['view']; i++) { -%>
 <template name="REMAX_TPL_<%=i%>_CONTAINER" data="{{i: i}}">
-	<template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: <%=i%>}}" />
+  <template is="{{_h.tid(i.type, a)}}" data="{{i: i, a: a + ',' + i.type, tid: <%=i%>}}" />
 </template>
-<% } %>
+<% } -%>

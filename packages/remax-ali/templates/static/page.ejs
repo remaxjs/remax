@@ -1,49 +1,49 @@
-<% if (renderIsolatedTemplates) { %>
+<% if (renderIsolatedTemplates) { -%>
 <import src="/isolated.axml"/>
-<% } %>
+<% } -%>
 
-<% for (let tpl of templates) { %>
+<% for (let tpl of templates) { -%>
 <template name="TPL_<%=tpl.id%>">
   <%-tpl.template%>
 </template>
-<% } %>
 
-<% for (let component of sortBy(Array.from(components.values()), 'id')) { %>
-  <% if (skipComponents.includes(component.id)) {
+<% } -%>
+<% for (let component of sortBy(Array.from(components.values()), 'id')) { -%>
+  <%_ if (skipComponents.includes(component.id)) {
     continue;
-  } else if (component.additional) { %>
+  } else if (component.additional) { -%>
 <%- include('./additional-host-component.ejs', {
   props: component.props,
   id: component.id,
   slotView: slotView
   })
-%>
-  <% } else if (component.type === 'native') { %>
+-%>
+  <%_ } else if (component.type === 'native') { -%>
 <%- include('./native-component.ejs', {
   props: component.props,
   id: component.id,
   slotView: slotView,
   TEMPLATE_ID: TEMPLATE_ID
   })
-%>
-  <% } else { %>
+-%>
+  <%_ } else { -%>
 <%- include('./host-components/' + component.id + '.ejs', {
   components: components,
   props: component.props,
   id: component.id,
   })
-%>
-  <% } %>
-<% } %>
+-%>
+  <%_ } -%>
+<%_ } -%>
 
-<%- include('./host-components/plain-text.ejs') %>
-<%- include('./host-components/block.ejs') %>
+<%- include('./host-components/plain-text.ejs') -%>
+<%- include('./host-components/block.ejs') -%>
 
-<% if (entries.length > 0) { %>
-  <template is="TPL_<%=entries[0].id%>" data="{{ node: root.children[0] }}" />
-<% } else { %>
-  <template is="TPL_TRAVERSAL" data="{{ root: root }}" />
-<% } %>
+<% if (entries.length > 0) { -%>
+<template is="TPL_<%=entries[0].id%>" data="{{ node: root.children[0] }}" />
+<% } else { -%>
+<template is="TPL_TRAVERSAL" data="{{ root: root }}" />
+<% } -%>
 
 <!-- for default render -->
 <template name="TPL_DEFAULT">
