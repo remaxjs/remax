@@ -93,10 +93,10 @@ describe('diffProperties', () => {
     expect(diffProperties({ placeholderStyle: { width: 5 } }, { style: { width: 5 } })).toEqual([
       'style',
       null,
-      'style',
-      { width: 5 },
       'placeholderStyle',
       { width: '' },
+      'style',
+      { width: 5 },
     ]);
   });
 });
