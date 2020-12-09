@@ -6,7 +6,7 @@ export default function diffProperties(
   lastRawProps: Record<string, any> | null | undefined,
   nextRawProps: Record<string, any> | null | undefined
 ): null | any[] {
-  let updatePayload: any[] = [];
+  const updatePayload: any[] = [];
 
   const lastProps: any = lastRawProps;
   const nextProps: any = nextRawProps;
@@ -79,9 +79,6 @@ export default function diffProperties(
       } else {
         // Relies on `updateStylesByID` not mutating `styleUpdates`.
         if (!styleUpdates[propKey]) {
-          if (!updatePayload) {
-            updatePayload = [];
-          }
           updatePayload.push(propKey, null);
         }
         styleUpdates[propKey] = nextProp;
