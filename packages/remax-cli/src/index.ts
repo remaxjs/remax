@@ -3,7 +3,6 @@ import { Options } from '@remax/types';
 import { internalBuildApp, buildMiniPlugin } from './build';
 import getConfig from './getConfig';
 import API from './API';
-import output from './build/utils/output';
 
 export * from './legacyExport';
 
@@ -83,8 +82,6 @@ export default class RemaxCLI {
             });
         },
         (argv: any) => {
-          output.level = argv.logLevel;
-          output.message('🚀 开始构建\n', 'blue');
           internalBuildApp({ ...this.options, ...argv }, this.api!);
           try {
             require('remax-stats').run({ type: 'remax' });
