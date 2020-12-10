@@ -20,8 +20,32 @@ export const output = (content: string | string[], color: 'red' | 'green' | 'blu
   }
 };
 
+type Level = 'debug' | 'verbose' | 'info' | 'warn' | 'error' | 'silent';
+let logLevel = 1;
+let logLevelText: Level = 'verbose';
+const levelMap = { debug: 0, verbose: 1, info: 2, warn: 3, error: 4, silent: 5 };
+
 export default {
-  message: output,
-  error: (message: string, notify?: boolean) => output(`\n🚨 ${message}`, 'red', notify),
-  warn: (message: string, notify?: boolean) => output(`\n⚠️ ${message}`, 'yellow', notify),
+  get level() {
+    return logLevelText;
+  },
+  set level(value: Level) {
+    logLevelText = value;
+    logLevel = levelMap[value] ?? 1;
+  },
+  message: (...args: Parameters<typeof output>) => {
+    if (logLevel <= 2) {
+      output(...args);
+    }
+  },
+  error: (message: string, notify?: boolean) => {
+    if (logLevel <= 4) {
+      output(`\n🚨 ${message}`, 'red', notify);
+    }
+  },
+  warn: (message: string, notify?: boolean) => {
+    if (logLevel <= 3) {
+      output(`\n⚠️ ${message}`, 'yellow', notify);
+    }
+  },
 };

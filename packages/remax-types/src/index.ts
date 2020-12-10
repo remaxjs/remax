@@ -49,6 +49,7 @@ export interface BuildOptions {
   component?: any;
   web?: WebOptions;
   minimize?: boolean;
+  logLevel?: 'debug' | 'verbose' | 'info' | 'warn' | 'error' | 'silent';
 }
 
 export type Options = BuildOptions & PluginOptions;

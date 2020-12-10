@@ -75,9 +75,15 @@ export default class RemaxCLI {
               alias: 'd',
               type: 'boolean',
               default: true,
+            })
+            .option('log-level', {
+              describe: '展示日志级别',
+              type: 'string',
+              default: 'verbose',
             });
         },
         (argv: any) => {
+          output.level = argv.logLevel;
           output.message('🚀 开始构建\n', 'blue');
           internalBuildApp({ ...this.options, ...argv }, this.api!);
           try {

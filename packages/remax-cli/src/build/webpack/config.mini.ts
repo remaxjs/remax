@@ -22,6 +22,7 @@ import API from '../../API';
 import { cssConfig, addCSSRule, RuleConfig } from './config/css';
 import baseConfig from './baseConfig';
 import Builder from '../Builder';
+import output from '../utils/output';
 
 function prepare(api: API) {
   const meta = api.getMeta();
@@ -185,7 +186,7 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
 
   const runtimeOptions = {
     pxToRpx: builder.options.pxToRpx,
-    debug: !!process.env.REMAX_DEBUG,
+    debug: !!process.env.REMAX_DEBUG || output.level === 'debug',
     platform: builder.options.target,
     pluginFiles: builder.api.getRuntimePluginFiles(),
     hostComponents: '[]',
