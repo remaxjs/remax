@@ -15,6 +15,17 @@ export default function createApp(options: BootstrapOptions, history: History) {
 
   const pluginDriver = new PluginDriver(plugins.map(plugin => plugin.default || plugin));
   RuntimeOptions.apply({ pluginDriver });
+
+  const pageComponentsHoc = pages.map((page, i) => {
+    const pageComponent = async
+      ? loadable<any>(() =>
+          (pageComponents[i]() as Promise<{ default: React.ComponentType }>).then(({ default: c }) =>
+            createPageConfig(c, page.route)
+          )
+        )
+      : createPageConfig(pageComponents[i]() as React.ComponentType, page.route);
+    return pageComponent;
+  });
   return (
     <Router history={history as any}>
       <AppConfig>
@@ -26,13 +37,7 @@ export default function createApp(options: BootstrapOptions, history: History) {
             return (
               <CacheRoute key={page.route} className="remax-cached-router-wrapper" path={`/${page.route}`} exact={true}>
                 {(props: any) => {
-                  const pageComponent = async
-                    ? loadable<any>(() =>
-                        (pageComponents[i]() as Promise<{ default: React.ComponentType }>).then(({ default: c }) =>
-                          createPageConfig(c, page.route)
-                        )
-                      )
-                    : createPageConfig(pageComponents[i]() as React.ComponentType, page.route);
+                  const pageComponent = pageComponentsHoc[i];
                   return React.createElement(pageComponent, {
                     ...props,
                     pageConfig: {

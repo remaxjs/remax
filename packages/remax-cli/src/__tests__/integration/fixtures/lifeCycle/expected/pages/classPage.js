@@ -112,6 +112,12 @@ var ClassPage = /*#__PURE__*/function (_React$Component) {
     key: "onShow",
     value: function onShow() {}
   }, {
+    key: "onShareAppMessage",
+    value: function onShareAppMessage() {}
+  }, {
+    key: "onPageScroll",
+    value: function onPageScroll() {}
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax__WEBPACK_IMPORTED_MODULE_1__["View"], null, "class page");

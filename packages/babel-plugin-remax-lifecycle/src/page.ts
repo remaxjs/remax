@@ -1,6 +1,7 @@
 import * as t from '@babel/types';
 import { NodePath } from '@babel/traverse';
 import Store from '@remax/build-store';
+import { slash } from '@remax/shared';
 
 const lifecycleEvents = ['onPageScroll', 'onShareAppMessage'];
 
@@ -12,7 +13,7 @@ export default (options: Options) => {
   let skip = false;
   return {
     pre(state: any) {
-      const importer = state.opts.filename;
+      const importer = slash(state.opts.filename);
       skip = !options.test(importer);
       if (skip) {
         return;
@@ -27,7 +28,7 @@ export default (options: Options) => {
         }
 
         const { node } = path;
-        const importer = state.file.opts.filename;
+        const importer = slash(state.file.opts.filename);
 
         // 只要生命周期 Literal 存在就标记为用到了生命周期
         if (!lifecycleEvents.includes(node.value)) {
@@ -42,7 +43,7 @@ export default (options: Options) => {
         }
 
         const { node } = path;
-        const importer = state.file.opts.filename;
+        const importer = slash(state.file.opts.filename);
 
         // 只要生命周期 Identifer 存在就标记为用到了生命周期
         if (!lifecycleEvents.includes(node.name)) {

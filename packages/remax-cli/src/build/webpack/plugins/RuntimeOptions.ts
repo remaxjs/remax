@@ -1,6 +1,5 @@
 import { Compiler, compilation } from 'webpack';
 import * as path from 'path';
-import { appEvents, pageEvents } from '@remax/macro';
 import { slash } from '@remax/shared';
 import Store from '@remax/build-store';
 import getModules from '../../utils/modules';
@@ -70,7 +69,7 @@ export default class RuntimeOptionsPlugin {
         new Set(
           modules
             .reduce<string[]>((acc, cur) => {
-              return [...acc, ...(pageEvents.get(slash(cur)) || []), ...(pageClassEvents.get(slash(cur)) || [])];
+              return [...acc, ...(Store.pageEvents.get(slash(cur)) || []), ...(pageClassEvents.get(slash(cur)) || [])];
             }, [])
             .sort()
         )
@@ -82,9 +81,9 @@ export default class RuntimeOptionsPlugin {
 
   getAppEvents() {
     let events: string[] = [];
-    for (const key of appEvents.keys()) {
+    for (const key of Store.appEvents.keys()) {
       // 这里 get 不可能为空
-      events = events.concat(Array.from(appEvents.get(key)!));
+      events = events.concat(Array.from(Store.appEvents.get(key)!));
     }
 
     for (const key of appClassEvents.keys()) {

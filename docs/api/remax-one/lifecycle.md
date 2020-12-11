@@ -2,6 +2,7 @@
 title: 生命周期
 group:
   title: remax/one
+  order: 2
 ---
 
 在这里列出的生命周期，表示在 `remax/one` 支持的平台中都可以使用，并尽量保证了行为一致。

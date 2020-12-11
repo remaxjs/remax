@@ -7,6 +7,10 @@ class ClassPage extends React.Component {
 
   onHide = () => {};
 
+  onShareAppMessage() {}
+
+  onPageScroll() {}
+
   render() {
     return <View>class page</View>;
   }

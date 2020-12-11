@@ -9,7 +9,7 @@
       "conventionalCommits": true
     }
   },
-  "version": "2.9.2",
+  "version": "2.10.1",
   "npmClient": "yarn",
   "useWorkspaces": true
 }

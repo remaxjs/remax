@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.1](https://github.com/remaxjs/remax/compare/v2.10.0...v2.10.1) (2020-12-06)
+
+### Bug Fixes
+
+- 修复 cache router 无效问题 ([#1416](https://github.com/remaxjs/remax/issues/1416)) ([7d92597](https://github.com/remaxjs/remax/commit/7d925972c5ca096af1190ea0742e663a1fdebb46)), closes [#1415](https://github.com/remaxjs/remax/issues/1415)
+
+# [2.10.0](https://github.com/remaxjs/remax/compare/v2.9.5...v2.10.0) (2020-12-04)
+
+**Note:** Version bump only for package @remax/web
+
+## [2.9.5](https://github.com/remaxjs/remax/compare/v2.9.4...v2.9.5) (2020-12-01)
+
+### Bug Fixes
+
+- 修复 usePageInstance 的返回类型 ([cf5afa3](https://github.com/remaxjs/remax/commit/cf5afa30d541f5f5a8a5647566924e652057d211))
+
+## [2.9.4](https://github.com/remaxjs/remax/compare/v2.9.3...v2.9.4) (2020-11-30)
+
+### Bug Fixes
+
+- 修复 usePageInstance 类型丢失的问题 ([473da00](https://github.com/remaxjs/remax/commit/473da00506b58f03abc0f33c6f3ea6b9b4e7d06b))
+
+## [2.9.3](https://github.com/remaxjs/remax/compare/v2.9.2...v2.9.3) (2020-11-30)
+
+**Note:** Version bump only for package @remax/web
+
 ## [2.9.2](https://github.com/remaxjs/remax/compare/v2.9.1...v2.9.2) (2020-11-28)
 
 **Note:** Version bump only for package @remax/web

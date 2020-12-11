@@ -1,5 +1,6 @@
 import * as babel from '@babel/core';
 import Store from '@remax/build-store';
+import { slash } from '@remax/shared';
 import page from '../src/page';
 
 function transform(code: string) {
@@ -48,7 +49,7 @@ describe('page', () => {
       }
     `);
 
-    expect(Store.pageEvents.get(__filename)).toEqual(new Set(['onPageScroll', 'onShareAppMessage']));
+    expect(Store.pageEvents.get(slash(__filename))).toEqual(new Set(['onPageScroll', 'onShareAppMessage']));
   });
 
   it('collects lifecycle in functional component', async () => {
@@ -66,6 +67,6 @@ describe('page', () => {
       }
     `);
 
-    expect(Store.pageEvents.get(__filename)).toEqual(new Set(['onPageScroll', 'onShareAppMessage']));
+    expect(Store.pageEvents.get(slash(__filename))).toEqual(new Set(['onPageScroll', 'onShareAppMessage']));
   });
 });

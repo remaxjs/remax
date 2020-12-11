@@ -4,6 +4,7 @@ module.exports = {
     "alias": {
       "id": "id",
       "className": "class",
+      "style": "style",
       "size": "size",
       "type": "type",
       "plain": "plain",
@@ -591,7 +592,10 @@ module.exports = {
     "onShareAppMessage",
     "onShow"
   ],
-  "pages/classPage": []
+  "pages/classPage": [
+    "onPageScroll",
+    "onShareAppMessage"
+  ]
 },
       appEvents: []
     }

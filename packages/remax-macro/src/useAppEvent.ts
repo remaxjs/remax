@@ -1,21 +1,18 @@
 import * as t from '@babel/types';
 import { slash } from '@remax/shared';
 import { NodePath } from '@babel/traverse';
+import Store from '@remax/build-store';
 import insertImportDeclaration from './utils/insertImportDeclaration';
 
 const PACKAGE_NAME = '@remax/runtime';
 const FUNCTION_NAME = 'useAppEvent';
-
-type Events = Set<string>;
-
-export const appEvents = new Map<string, Events>();
 
 function getArguments(callExpression: NodePath<t.CallExpression>, importer: string) {
   const args = callExpression.node.arguments;
   const eventName = args[0] as t.StringLiteral;
   const callback = args[1];
 
-  appEvents.set(importer, appEvents.get(importer)?.add(eventName.value) ?? new Set([eventName.value]));
+  Store.appEvents.set(importer, Store.appEvents.get(importer)?.add(eventName.value) ?? new Set([eventName.value]));
 
   return [eventName, callback];
 }

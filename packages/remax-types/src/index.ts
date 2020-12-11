@@ -44,6 +44,7 @@ export interface BuildOptions {
   watch?: boolean;
   target?: Platform;
   analyze?: boolean;
+  devtools?: boolean;
   type?: BuildType;
   component?: any;
   web?: WebOptions;

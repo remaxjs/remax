@@ -6,20 +6,21 @@
   </block>
 </template>
 
-<% for (let component of sortBy(Array.from(components.values()), 'id')) { %>
-  <% if (skipComponents.includes(component.id)) {
+<% for (let component of sortBy(Array.from(components.values()), 'id')) { -%>
+  <%_ if (skipComponents.includes(component.id)) {
     continue;
-   } else { %>
-  <%- include('./component.ejs', {
-          components: components,
-          type: component.type,
-          props: component.props,
-          id: component.id,
-          slotView: slotView
-        }) %>
-  <% } %>
-  <% } %>
+   } else { -%>
+<%- include('./component.ejs', {
+      components: components,
+      type: component.type,
+      props: component.props,
+      id: component.id,
+      slotView: slotView
+    })
+-%>
 
+ <%_ } -%>
+<% } -%>
 <template name="REMAX_TPL_1_plain-text">
   <block>{{item.text}}</block>
 </template>

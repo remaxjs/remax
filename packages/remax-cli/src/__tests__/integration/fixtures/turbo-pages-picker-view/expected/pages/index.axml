@@ -1,7 +1,4 @@
-
 <import src="/isolated.axml"/>
-
-
 
 <template name="TPL_5da6971-1">
   <view ><template is="TPL_DEFAULT" data="{{root: node.children[0]}}" />
@@ -23,9 +20,6 @@
 
 </template>
 
-
-
-  
 <template name="TPL_button">
   <button 
     app-parameter="{{node.props['app-parameter']}}" 
@@ -46,15 +40,12 @@
     public-id="{{node.props['public-id']}}" 
     scope="{{node.props['scope']}}" 
     size="{{node.props['size']}}" 
+    style="{{node.props['style']}}" 
     type="{{node.props['type']}}" 
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </button>
-</template>
-  
-
-  
-<template name="TPL_camera">
+</template><template name="TPL_camera">
   <camera 
     applyMicPermissionWhenInit="{{node.props['applyMicPermissionWhenInit']}}" 
     class="{{node.props['class']}}" 
@@ -74,10 +65,6 @@
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </camera>
 </template>
-
-  
-
-  
 <template name="TPL_canvas">
   <canvas 
     class="{{node.props['class']}}" 
@@ -96,11 +83,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </canvas>
-</template>
-  
-
-  
-<template name="TPL_checkbox">
+</template><template name="TPL_checkbox">
   <checkbox 
     checked="{{node.props['checked']}}" 
     class="{{node.props['class']}}" 
@@ -114,11 +97,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </checkbox>
-</template>
-  
-
-  
-<template name="TPL_checkbox-group">
+</template><template name="TPL_checkbox-group">
   <checkbox-group 
     class="{{node.props['class']}}" 
     id="{{node.props['id']}}" 
@@ -128,11 +107,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </checkbox-group>
-</template>
-  
-
-  
-<template name="TPL_contact-button">
+</template><template name="TPL_contact-button">
   <contact-button 
     alipay-card-no="{{node.props['alipay-card-no']}}" 
     class="{{node.props['class']}}" 
@@ -146,11 +121,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </contact-button>
-</template>
-  
-
-  
-<template name="TPL_cover-image">
+</template><template name="TPL_cover-image">
   <cover-image 
     class="{{node.props['class']}}" 
     id="{{node.props['id']}}" 
@@ -160,11 +131,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </cover-image>
-</template>
-  
-
-  
-<template name="TPL_cover-view">
+</template><template name="TPL_cover-view">
   <cover-view 
     class="{{node.props['class']}}" 
     id="{{node.props['id']}}" 
@@ -173,11 +140,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </cover-view>
-</template>
-  
-
-  
-<template name="TPL_form">
+</template><template name="TPL_form">
   <form 
     class="{{node.props['class']}}" 
     id="{{node.props['id']}}" 
@@ -188,11 +151,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </form>
-</template>
-  
-
-  
-<template name="TPL_icon">
+</template><template name="TPL_icon">
   <icon 
     class="{{node.props['class']}}" 
     color="{{node.props['color']}}" 
@@ -203,11 +162,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </icon>
-</template>
-  
-
-  
-<template name="TPL_image">
+</template><template name="TPL_image">
   <image 
     class="{{node.props['class']}}" 
     id="{{node.props['id']}}" 
@@ -225,11 +180,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </image>
-</template>
-  
-
-  
-<template name="TPL_input">
+</template><template name="TPL_input">
   <input 
     class="{{node.props['class']}}" 
     confirm-hold="{{node.props['confirm-hold']}}" 
@@ -259,11 +210,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </input>
-</template>
-  
-
-  
-<template name="TPL_label">
+</template><template name="TPL_label">
   <label 
     class="{{node.props['class']}}" 
     for="{{node.props['for']}}" 
@@ -272,22 +219,14 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </label>
-</template>
-  
-
-  
-<template name="TPL_lifestyle">
+</template><template name="TPL_lifestyle">
   <lifestyle 
     onFollow="{{node.props['onFollow']}}" 
     public-id="{{node.props['public-id']}}" 
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </lifestyle>
-</template>
-  
-
-  
-<template name="TPL_lottie">
+</template><template name="TPL_lottie">
   <lottie 
     assetsPath="{{node.props['assetsPath']}}" 
     autoReverse="{{node.props['autoReverse']}}" 
@@ -312,10 +251,6 @@
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </lottie>
 </template>
-
-  
-
-  
 <template name="TPL_map">
   <map 
     circles="{{node.props['circles']}}" 
@@ -343,11 +278,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </map>
-</template>
-  
-
-  
-<template name="TPL_movable-area">
+</template><template name="TPL_movable-area">
   <movable-area 
     class="{{node.props['class']}}" 
     height="{{node.props['height']}}" 
@@ -357,11 +288,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </movable-area>
-</template>
-  
-
-  
-<template name="TPL_movable-view">
+</template><template name="TPL_movable-view">
   <movable-view 
     class="{{node.props['class']}}" 
     damping="{{node.props['damping']}}" 
@@ -389,11 +316,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </movable-view>
-</template>
-  
-
-  
-<template name="TPL_navigator">
+</template><template name="TPL_navigator">
   <navigator 
     class="{{node.props['class']}}" 
     hover-class="{{node.props['hover-class']}}" 
@@ -406,11 +329,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </navigator>
-</template>
-  
-
-  
-<template name="TPL_picker">
+</template><template name="TPL_picker">
   <picker 
     class="{{node.props['class']}}" 
     disabled="{{node.props['disabled']}}" 
@@ -427,10 +346,6 @@
     </view>
   </picker>
 </template>
-
-  
-
-  
 <template name="TPL_picker-view">
   <picker-view 
     class="{{node.props['class']}}" 
@@ -452,12 +367,7 @@
       </picker-view-column>
     </block>
   </picker-view>
-</template>
-  
-
-  
-  
-<template name="TPL_progress">
+</template><template name="TPL_progress">
   <progress 
     active="{{node.props['active']}}" 
     active-color="{{node.props['active-color']}}" 
@@ -471,11 +381,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </progress>
-</template>
-  
-
-  
-<template name="TPL_radio">
+</template><template name="TPL_radio">
   <radio 
     checked="{{node.props['checked']}}" 
     class="{{node.props['class']}}" 
@@ -488,11 +394,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </radio>
-</template>
-  
-
-  
-<template name="TPL_radio-group">
+</template><template name="TPL_radio-group">
   <radio-group 
     class="{{node.props['class']}}" 
     id="{{node.props['id']}}" 
@@ -502,11 +404,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </radio-group>
-</template>
-  
-
-  
-<template name="TPL_rich-text">
+</template><template name="TPL_rich-text">
   <rich-text 
     class="{{node.props['class']}}" 
     id="{{node.props['id']}}" 
@@ -521,11 +419,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </rich-text>
-</template>
-  
-
-  
-<template name="TPL_scroll-view">
+</template><template name="TPL_scroll-view">
   <scroll-view 
     class="{{node.props['class']}}" 
     enable-back-to-top="{{node.props['enable-back-to-top']}}" 
@@ -551,11 +445,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </scroll-view>
-</template>
-  
-
-  
-<template name="TPL_slider">
+</template><template name="TPL_slider">
   <slider 
     active-color="{{node.props['active-color']}}" 
     background-color="{{node.props['background-color']}}" 
@@ -577,11 +467,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </slider>
-</template>
-  
-
-  
-<template name="TPL_swiper">
+</template><template name="TPL_swiper">
   <swiper 
     acceleration="{{node.props['acceleration']}}" 
     active-class="{{node.props['active-class']}}" 
@@ -618,11 +504,6 @@
     </block>
   </swiper>
 </template>
-
-  
-
-  
-  
 <template name="TPL_switch">
   <switch 
     checked="{{node.props['checked']}}" 
@@ -637,11 +518,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </switch>
-</template>
-  
-
-  
-<template name="TPL_text">
+</template><template name="TPL_text">
   <text 
     class="{{node.props['class']}}" 
     decode="{{node.props['decode']}}" 
@@ -654,11 +531,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </text>
-</template>
-  
-
-  
-<template name="TPL_textarea">
+</template><template name="TPL_textarea">
   <textarea 
     auto-height="{{ node.props['auto-height'] }}" 
     class="{{ node.props['class'] }}" 
@@ -683,10 +556,6 @@
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </textarea>
 </template>
-
-  
-
-  
 <template name="TPL_video">
   <video 
     autoplay="{{node.props['autoplay']}}" 
@@ -721,11 +590,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </video>
-</template>
-  
-
-  
-<template name="TPL_view">
+</template><template name="TPL_view">
   <view 
     _tid="{{node.props['_tid']}}" 
     animation="{{node.props['animation']}}" 
@@ -755,11 +620,7 @@
   >
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </view>
-</template>
-  
-
-  
-<template name="TPL_web-view">
+</template><template name="TPL_web-view">
   <web-view 
     id="{{node.props['id']}}" 
     onMessage="{{node.props['onMessage']}}" 
@@ -768,22 +629,15 @@
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </web-view>
 </template>
-  
-
-
 <template name="TPL_plain-text">
   <block>{{ node.text }}</block>
 </template>
-
 <template name="TPL_block">
   <block>
     <template is="TPL_TRAVERSAL" data="{{root: node}}" />
   </block>
 </template>
-
-
-  <template is="TPL_TRAVERSAL" data="{{ root: root }}" />
-
+<template is="TPL_TRAVERSAL" data="{{ root: root }}" />
 
 <!-- for default render -->
 <template name="TPL_DEFAULT">

@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.1](https://github.com/remaxjs/remax/compare/v2.10.0...v2.10.1) (2020-12-06)
+
+**Note:** Version bump only for package @remax/shared
+
+# [2.10.0](https://github.com/remaxjs/remax/compare/v2.9.5...v2.10.0) (2020-12-04)
+
+**Note:** Version bump only for package @remax/shared
+
+## [2.9.5](https://github.com/remaxjs/remax/compare/v2.9.4...v2.9.5) (2020-12-01)
+
+**Note:** Version bump only for package @remax/shared
+
+## [2.9.4](https://github.com/remaxjs/remax/compare/v2.9.3...v2.9.4) (2020-11-30)
+
+**Note:** Version bump only for package @remax/shared
+
+## [2.9.3](https://github.com/remaxjs/remax/compare/v2.9.2...v2.9.3) (2020-11-30)
+
+**Note:** Version bump only for package @remax/shared
+
 ## [2.9.2](https://github.com/remaxjs/remax/compare/v2.9.1...v2.9.2) (2020-11-28)
 
 **Note:** Version bump only for package @remax/shared

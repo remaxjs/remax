@@ -96,6 +96,7 @@ export async function createBaseTemplate(
         components.set(component.id, {
           id: component.id,
           props: component.props,
+          type: 'native',
         });
       });
     }

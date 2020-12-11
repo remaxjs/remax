@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.1](https://github.com/remaxjs/remax/compare/v2.10.0...v2.10.1) (2020-12-06)
+
+### Bug Fixes
+
+- **wechat:** 修复具名 slot 不生效的问题 ([6da0267](https://github.com/remaxjs/remax/commit/6da02673cf71d23d286037ab84ac4f898059f4ce)), closes [#1406](https://github.com/remaxjs/remax/issues/1406)
+- 修复 onShareAppMessage 和 onPageScroll 无效的问题 ([6376d04](https://github.com/remaxjs/remax/commit/6376d04014e4872dfdc8e7c56ae024d450b6b645)), closes [#1413](https://github.com/remaxjs/remax/issues/1413)
+- **wechat:** 修复 onLongPress 不生效的问题 ([987dd6b](https://github.com/remaxjs/remax/commit/987dd6bc24ae0102ee35fd95c53085d3f1880a64)), closes [#1369](https://github.com/remaxjs/remax/issues/1369)
+- 修复 cache router 无效问题 ([#1416](https://github.com/remaxjs/remax/issues/1416)) ([7d92597](https://github.com/remaxjs/remax/commit/7d925972c5ca096af1190ea0742e663a1fdebb46)), closes [#1415](https://github.com/remaxjs/remax/issues/1415)
+- **wechat:** Image 组件 mode 属性添加 heightFix ([#1402](https://github.com/remaxjs/remax/issues/1402)) ([a6d9d3a](https://github.com/remaxjs/remax/commit/a6d9d3a1afaa02483921697f62c0eb4be1e3ff09))
+
+# [2.10.0](https://github.com/remaxjs/remax/compare/v2.9.5...v2.10.0) (2020-12-04)
+
+### Bug Fixes
+
+- **ali:** 修复 Button[style] 不生效的问题 ([2460961](https://github.com/remaxjs/remax/commit/24609614520c55077fa03ce7989e7135f1d9403d))
+- 修复生产环境下未禁用 react-devtools 的问题 ([#1411](https://github.com/remaxjs/remax/issues/1411)) ([a01ccde](https://github.com/remaxjs/remax/commit/a01ccdebfc3d2ecb104f3ecc532e4b60ff2eb0c0)), closes [#1408](https://github.com/remaxjs/remax/issues/1408)
+- **wechat:** 修复未导出 API ([#1403](https://github.com/remaxjs/remax/issues/1403)) ([4b5247f](https://github.com/remaxjs/remax/commit/4b5247f5153527b54c57e8b07f6b5524f3009ab2))
+
+### Features
+
+- 支持在  所有  平台基础组件上使用平台前缀属性 ([#1412](https://github.com/remaxjs/remax/issues/1412)) ([d6e9072](https://github.com/remaxjs/remax/commit/d6e9072ef9714d62a21905c8a40061845a465b28))
+
+## [2.9.5](https://github.com/remaxjs/remax/compare/v2.9.4...v2.9.5) (2020-12-01)
+
+### Bug Fixes
+
+- 修复 usePageInstance 的返回类型 ([cf5afa3](https://github.com/remaxjs/remax/commit/cf5afa30d541f5f5a8a5647566924e652057d211))
+
+## [2.9.4](https://github.com/remaxjs/remax/compare/v2.9.3...v2.9.4) (2020-11-30)
+
+### Bug Fixes
+
+- 修复 usePageInstance 类型丢失的问题 ([473da00](https://github.com/remaxjs/remax/commit/473da00506b58f03abc0f33c6f3ea6b9b4e7d06b))
+
+## [2.9.3](https://github.com/remaxjs/remax/compare/v2.9.2...v2.9.3) (2020-11-30)
+
+### Bug Fixes
+
+- **wechat:** 修复微信端会包含支付宝 API 的问题 ([9d1f333](https://github.com/remaxjs/remax/commit/9d1f33342b43df734ebed83cb12e30607372a1df)), closes [#1394](https://github.com/remaxjs/remax/issues/1394)
+
 ## [2.9.2](https://github.com/remaxjs/remax/compare/v2.9.1...v2.9.2) (2020-11-28)
 
 ### Bug Fixes
