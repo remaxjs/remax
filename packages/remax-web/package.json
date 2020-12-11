@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@loadable/component": "^5.12.0",
-    "@remax/framework-shared": "2.9.0",
+    "@remax/framework-shared": "2.10.1",
     "@remax/react-router-cache-route": "^1.8.4",
     "react-is": "^16.3.1",
     "rmc-pull-to-refresh": "^1.0.12",
