@@ -31,15 +31,29 @@ describe('diffProperties', () => {
     expect(!!diffProperties({ a: sameFn }, { a: sameFn })).toBeFalsy();
     expect(!!diffProperties({ a: () => void 0 }, { a: () => void 0 })).toBeTruthy();
 
-    expect(!!diffProperties({ style: { width: 5 } }, { style: { width: 5 } })).toBeFalsy();
     expect(!!diffProperties({ style: null }, { style: { width: 5 } })).toBeTruthy();
     expect(!!diffProperties({}, { style: { width: 5 } })).toBeTruthy();
     expect(!!diffProperties({ style: { width: 5 } }, {})).toBeTruthy();
     expect(!!diffProperties({ style: { width: 5 } }, { style: { width: 5 } })).toBeFalsy();
     expect(!!diffProperties({ style: { width: 5 } }, { style: { width: 6 } })).toBeTruthy();
     expect(!!diffProperties({ style: { width: 5 } }, { style: { height: 6 } })).toBeTruthy();
+
+    expect(!!diffProperties({ placeholderStyle: null }, { placeholderStyle: { width: 5 } })).toBeTruthy();
+    expect(!!diffProperties({}, { placeholderStyle: { width: 5 } })).toBeTruthy();
+    expect(!!diffProperties({ placeholderStyle: { width: 5 } }, {})).toBeTruthy();
+    expect(!!diffProperties({ placeholderStyle: { width: 5 } }, { placeholderStyle: { width: 5 } })).toBeFalsy();
+    expect(!!diffProperties({ placeholderStyle: { width: 5 } }, { placeholderStyle: { width: 6 } })).toBeTruthy();
+    expect(!!diffProperties({ placeholderStyle: { width: 5 } }, { placeholderStyle: { height: 6 } })).toBeTruthy();
+
     expect(
       !!diffProperties({ style: { width: 5 }, a: '1', b: null }, { style: { width: 5 }, a: '1', b: undefined })
+    ).toBeFalsy();
+
+    expect(
+      !!diffProperties(
+        { placeholderStyle: { width: 5 }, a: '1', b: null },
+        { placeholderStyle: { width: 5 }, a: '1', b: undefined }
+      )
     ).toBeFalsy();
 
     expect(!!diffProperties({ children: '1' }, { children: 1 })).toBeTruthy();
@@ -49,6 +63,38 @@ describe('diffProperties', () => {
       '',
       'style',
       null,
+      'style',
+      { width: 5 },
+    ]);
+
+    expect(diffProperties({ className: 'foo' }, { placeholderStyle: { width: 5 } })).toEqual([
+      'className',
+      '',
+      'placeholderStyle',
+      null,
+      'placeholderStyle',
+      { width: 5 },
+    ]);
+    expect(diffProperties({ style: { width: 5 } }, {})).toEqual(['style', { width: '' }]);
+    expect(diffProperties({ style: { width: 5 } }, { className: 'foo' })).toEqual([
+      'className',
+      'foo',
+      'style',
+      { width: '' },
+    ]);
+    expect(diffProperties({ style: { width: 5 } }, { placeholderStyle: { width: 5 } })).toEqual([
+      'placeholderStyle',
+      null,
+      'style',
+      { width: '' },
+      'placeholderStyle',
+      { width: 5 },
+    ]);
+    expect(diffProperties({ placeholderStyle: { width: 5 } }, { style: { width: 5 } })).toEqual([
+      'style',
+      null,
+      'placeholderStyle',
+      { width: '' },
       'style',
       { width: 5 },
     ]);
