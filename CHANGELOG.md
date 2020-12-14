@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/remaxjs/remax/compare/v2.10.1...v2.11.0) (2020-12-14)
+
+### Bug Fixes
+
+- pageEvent 新增 onShareTimeline 类型 ([#1425](https://github.com/remaxjs/remax/issues/1425)) ([02558e2](https://github.com/remaxjs/remax/commit/02558e2c1a2b4f8c8b555f4063ce471ea0623222))
+- 修复 placeholderStyle 属性 diff 错误的问题 ([#1429](https://github.com/remaxjs/remax/issues/1429)) ([b7622a4](https://github.com/remaxjs/remax/commit/b7622a4ff381f0a3eab113fab99f983dc0247122))
+
+### Features
+
+- build cli 增加 --loglevel 参数 ([#1435](https://github.com/remaxjs/remax/issues/1435)) ([a207091](https://github.com/remaxjs/remax/commit/a20709168f4a30dec5e4b759421503baddc6b18f))
+
 ## [2.10.1](https://github.com/remaxjs/remax/compare/v2.10.0...v2.10.1) (2020-12-06)
 
 ### Bug Fixes
