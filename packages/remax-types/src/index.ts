@@ -3,6 +3,8 @@ import yargs from 'yargs';
 import WebpackConfig from 'webpack-chain';
 import * as t from '@babel/types';
 
+export type LogLevel = 'debug' | 'verbose' | 'info' | 'warn' | 'error' | 'silent';
+
 export enum Platform {
   'web' = 'web',
   'wechat' = 'wechat',
@@ -49,7 +51,7 @@ export interface BuildOptions {
   component?: any;
   web?: WebOptions;
   minimize?: boolean;
-  logLevel?: 'debug' | 'verbose' | 'info' | 'warn' | 'error' | 'silent';
+  loglevel?: LogLevel;
 }
 
 export type Options = BuildOptions & PluginOptions;
