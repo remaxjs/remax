@@ -29,8 +29,8 @@ export function buildApp(options: Options) {
 }
 
 export function internalBuildApp(options: Options, api: API) {
-  const { target, logLevel = 'verbose' } = options;
-  output.level = logLevel;
+  const { target, loglevel = 'verbose' } = options;
+  output.level = loglevel;
 
   process.env.REMAX_PLATFORM = target;
 
@@ -45,8 +45,8 @@ export function internalBuildApp(options: Options, api: API) {
 export function buildMiniPlugin(options: Options) {
   process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-  const { target, logLevel = 'verbose' } = options;
-  output.level = logLevel;
+  const { target, loglevel = 'verbose' } = options;
+  output.level = loglevel;
 
   process.env.REMAX_PLATFORM = target;
 

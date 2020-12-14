@@ -22,7 +22,7 @@ remax build
   -m, --minimize   最小化文件                             [布尔] [默认值: false]
   -a, --analyze    编译分析                               [布尔] [默认值: false]
   -d, --devtools   启动 react-devtools 调试                [布尔] [默认值: true]
-      --log-level  展示日志级别                      [字符串] [默认值: "verbose"]
+      --loglevel   展示日志级别                      [字符串] [默认值: "verbose"]
 ```
 
 ### --target
@@ -60,7 +60,7 @@ remax build
 
 启动 react-devtools 调试模式，详见[调试工具](/guide/basic/devtools)介绍，开发环境下默认开启，如需关闭，可使用参数 `--no-devtools` 强制关闭。
 
-## --log-level
+## --loglevel
 
 设置展示日志级别，可选值 'debug' | 'verbose' | 'info' | 'warn' | 'error' | 'silent'
 

@@ -1,4 +1,5 @@
 import notifier from 'node-notifier';
+import { LogLevel } from '@remax/types';
 
 const COLORS = {
   red: '\x1b[31m',
@@ -20,31 +21,30 @@ export const output = (content: string | string[], color: 'red' | 'green' | 'blu
   }
 };
 
-type Level = 'debug' | 'verbose' | 'info' | 'warn' | 'error' | 'silent';
-let logLevel = 1;
-let logLevelText: Level = 'verbose';
 const levelMap = { debug: 0, verbose: 1, info: 2, warn: 3, error: 4, silent: 5 };
+let levelText: LogLevel = 'verbose';
+let levelWidth = levelMap[levelText];
 
 export default {
   get level() {
-    return logLevelText;
+    return levelText;
   },
-  set level(value: Level) {
-    logLevelText = value;
-    logLevel = levelMap[value] ?? 1;
+  set level(value: LogLevel) {
+    levelText = value;
+    levelWidth = levelMap[value] ?? 1;
   },
-  message: (...args: Parameters<typeof output>) => {
-    if (logLevel <= 2) {
+  message(...args: Parameters<typeof output>) {
+    if (levelWidth <= 2) {
       output(...args);
     }
   },
-  error: (message: string, notify?: boolean) => {
-    if (logLevel <= 4) {
+  error(message: string, notify?: boolean) {
+    if (levelWidth <= 4) {
       output(`\n🚨 ${message}`, 'red', notify);
     }
   },
-  warn: (message: string, notify?: boolean) => {
-    if (logLevel <= 3) {
+  warn(message: string, notify?: boolean) {
+    if (levelWidth <= 3) {
       output(`\n⚠️ ${message}`, 'yellow', notify);
     }
   },

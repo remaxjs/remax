@@ -75,7 +75,7 @@ export default class RemaxCLI {
               type: 'boolean',
               default: true,
             })
-            .option('log-level', {
+            .option('loglevel', {
               describe: '展示日志级别',
               type: 'string',
               default: 'verbose',
