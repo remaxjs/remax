@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.1](https://github.com/remaxjs/remax/compare/v2.11.0...v2.11.1) (2020-12-17)
+
+### Bug Fixes
+
+- 修复 style props 变更的错误异常 ([#1446](https://github.com/remaxjs/remax/issues/1446)) ([44d43a7](https://github.com/remaxjs/remax/commit/44d43a75cba47fcae7b64085c52ea858fe017a83))
+
 # [2.11.0](https://github.com/remaxjs/remax/compare/v2.10.1...v2.11.0) (2020-12-14)
 
 ### Bug Fixes
