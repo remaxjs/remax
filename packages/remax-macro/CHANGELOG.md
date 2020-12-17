@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.2](https://github.com/remaxjs/remax/compare/v2.11.1...v2.11.2) (2020-12-17)
+
+### Bug Fixes
+
+- 修复 createHostComponent 无法正确注册组件的问题 ([7ca4938](https://github.com/remaxjs/remax/commit/7ca4938998450ba1a1d5d61955ff37628fd2cd28))
+
 ## [2.11.1](https://github.com/remaxjs/remax/compare/v2.11.0...v2.11.1) (2020-12-17)
 
 **Note:** Version bump only for package @remax/macro
