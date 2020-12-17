@@ -27,6 +27,18 @@ describe('diffProperties', () => {
     expect(!!diffProperties({ autoFocus: true }, {})).toBeTruthy();
     expect(!!diffProperties({ children: '1' }, {})).toBeTruthy();
 
+    const lastProps = { style: { width: 1 } };
+    const nextProps = { style: { width: 2, height: 1 } };
+    diffProperties(lastProps, nextProps);
+    diffProperties(nextProps, { style: { width: 3, height: 1 } });
+    expect(nextProps).toMatchObject({ style: { width: 2, height: 1 } });
+    expect(lastProps).toMatchObject({ style: { width: 1 } });
+    const update = () => {
+      nextProps.style = { width: 3, height: 1 };
+    };
+    expect(update()).toBeUndefined();
+    expect(nextProps).toMatchObject({ style: { width: 3, height: 1 } });
+
     const sameFn = () => void 0;
     expect(!!diffProperties({ a: sameFn }, { a: sameFn })).toBeFalsy();
     expect(!!diffProperties({ a: () => void 0 }, { a: () => void 0 })).toBeTruthy();

@@ -98,7 +98,7 @@ export default function diffProperties(
   for (const styleKey in styleUpdates) {
     const styleValue = styleUpdates[styleKey];
     if (styleValue) {
-      updatePayload.push(styleKey, Object.assign(lastProps[styleKey] || {}, styleValue));
+      updatePayload.push(styleKey, Object.assign({}, lastProps[styleKey], styleValue));
     }
   }
 
