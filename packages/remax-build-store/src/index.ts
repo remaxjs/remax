@@ -1,6 +1,6 @@
 import * as crypto from 'crypto';
 import { kebabCase } from 'lodash';
-import { ComponentManifest, HostComponent } from '@remax/types';
+import type { ComponentManifest, HostComponent } from '@remax/types';
 import { slash } from '@remax/shared';
 
 export interface ExtractedTemplate {

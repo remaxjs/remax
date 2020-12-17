@@ -1,4 +1,4 @@
-import { RuntimePlugin } from '@remax/types';
+import type { RuntimePlugin } from '@remax/types';
 
 export default class PluginDriver {
   plugins: RuntimePlugin[];

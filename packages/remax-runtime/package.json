@@ -35,7 +35,6 @@
   "dependencies": {
     "@remax/framework-shared": "2.11.1",
     "@remax/shared": "2.11.1",
-    "@remax/types": "2.11.1",
     "@remax/web": "2.11.1",
     "qs": "^6.9.3",
     "react-is": "^16.3.1",
@@ -43,6 +42,7 @@
     "scheduler": "0.19.1"
   },
   "devDependencies": {
+    "@remax/types": "2.11.1",
     "@types/lodash.merge": "^4.6.6",
     "@types/node": "^14.0.1",
     "@types/react": "^16.9.33",

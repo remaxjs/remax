@@ -1,5 +1,5 @@
 import yargs from 'yargs';
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import { internalBuildApp, buildMiniPlugin } from './build';
 import getConfig from './getConfig';
 import API from './API';

@@ -2,7 +2,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import { slash } from '@remax/shared';
 import Builder from '../../Builder';
 

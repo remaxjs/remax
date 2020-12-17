@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { Options, Platform } from '@remax/types';
+import type { Options, Platform } from '@remax/types';
 
 interface Alias {
   [key: string]: string;
@@ -12,7 +12,7 @@ export default (options: Options, target: Platform) => {
     react: path.resolve(options.cwd, 'node_modules', 'react'),
   };
 
-  if (target !== Platform.web) {
+  if (target !== 'web') {
     config['react-dom'] = '@remax/runtime';
   }
 

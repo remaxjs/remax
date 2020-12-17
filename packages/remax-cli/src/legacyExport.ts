@@ -3,7 +3,7 @@
  *
  * 3.0 可以干掉
  */
-import { Options, Platform } from '@remax/types';
+import type { Options } from '@remax/types';
 import API from './API';
 import { internalBuildApp } from './build';
 
@@ -12,7 +12,7 @@ export function buildMini(api: API, options: Options) {
 }
 
 export function buildWeb(api: API, options: Options) {
-  return internalBuildApp({ ...options, target: Platform.web }, api);
+  return internalBuildApp({ ...options, target: 'web' }, api);
 }
 
 export { getDefaultOptions } from './defaultOptions';

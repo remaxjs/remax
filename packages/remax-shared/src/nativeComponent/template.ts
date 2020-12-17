@@ -1,6 +1,6 @@
 import * as htmlparser2 from 'htmlparser2';
 import fs from 'fs';
-import { Options, Meta } from '@remax/types';
+import type { Options, Meta } from '@remax/types';
 import { getPath } from './helpers';
 
 export function walk(platformConfig: Meta, filePath: string, templatePaths: Set<string>, options: Options) {

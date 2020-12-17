@@ -1,5 +1,5 @@
 import API from '../API';
-import { Platform, Plugin } from '@remax/types';
+import type { Plugin } from '@remax/types';
 
 function entries(): Plugin {
   return {};
@@ -26,7 +26,7 @@ describe('api', () => {
 
   beforeAll(() => {
     api.registerPlugins([entries(), props1(), props2()]);
-    api.registerAdapterPlugins(Platform.ali);
+    api.registerAdapterPlugins('ali');
   });
 
   it('install plugins in a variety of ways', () => {

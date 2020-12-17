@@ -7,7 +7,6 @@ import { reset as resetInstanceId } from '../instanceId';
 import Container from '../Container';
 import { useNativeEffect } from '../hooks';
 import { RuntimeOptions } from '@remax/framework-shared';
-import { Platform } from '@remax/types';
 
 function delay(ms: number): Promise<void> {
   if (typeof ms !== 'number') {
@@ -42,9 +41,7 @@ const p = {
 
 describe('ali remax render', () => {
   beforeEach(() => {
-    RuntimeOptions.apply({
-      platform: Platform.ali,
-    });
+    RuntimeOptions.apply({ platform: 'ali' });
     resetInstanceId();
   });
   afterEach(() => {
@@ -407,9 +404,7 @@ it('useEffect works', done => {
 
 describe('flatten update', () => {
   beforeAll(() => {
-    RuntimeOptions.apply({
-      platform: Platform.wechat,
-    });
+    RuntimeOptions.apply({ platform: 'web' });
   });
 
   afterAll(() => {

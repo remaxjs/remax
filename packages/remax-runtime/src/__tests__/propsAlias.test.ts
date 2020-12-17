@@ -1,11 +1,10 @@
-import { Platform } from '@remax/types';
 import propsAlias, { getAlias } from '../propsAlias';
 import { RuntimeOptions } from '@remax/framework-shared';
 
 describe('props alias', () => {
   beforeAll(() => {
     RuntimeOptions.apply({
-      platform: Platform.ali,
+      platform: 'ali',
       hostComponents: {
         foo: {
           alias: {

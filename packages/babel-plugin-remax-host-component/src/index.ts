@@ -3,7 +3,7 @@ import { NodePath } from '@babel/traverse';
 import { ConfigAPI } from '@babel/core';
 import * as t from '@babel/types';
 import { kebabCase } from 'lodash';
-import { HostComponent, Platform } from '@remax/types';
+import type { HostComponent, Platform } from '@remax/types';
 import Store from '@remax/build-store';
 import { slash } from '@remax/shared';
 

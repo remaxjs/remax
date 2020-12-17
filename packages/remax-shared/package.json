@@ -25,6 +25,7 @@
     "react": "^16.0.0"
   },
   "devDependencies": {
+    "@remax/types": "2.11.1",
     "@types/htmlparser2": "^3.10.1",
     "@types/react": "^16.9.35",
     "@types/react-test-renderer": "^16.9.2",
@@ -34,7 +35,6 @@
   "dependencies": {
     "@babel/parser": "^7.11.4",
     "@babel/traverse": "^7.11.0",
-    "@types/react": "^16.9.35",
     "htmlparser2": "^4.1.0"
   }
 }

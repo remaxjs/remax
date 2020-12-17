@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { EntryInfo, BuildType, AppConfig, MiniPluginConfig, Platform } from '@remax/types';
+import type { EntryInfo, AppConfig, MiniPluginConfig } from '@remax/types';
 import { slash } from '@remax/shared';
 import { replaceExtension } from './utils/paths';
 import Builder from './Builder';
@@ -63,7 +63,7 @@ export default class EntryCollection {
       []
     );
 
-    if ([BuildType.miniApp, BuildType.webApp].includes(this.builder.buildType)) {
+    if (['miniapp', 'webapp'].includes(this.builder.buildType)) {
       const subPackages = (projectConfig as AppConfig).subPackages ?? (projectConfig as any).subpackages ?? [];
 
       // 分包页面
@@ -90,7 +90,7 @@ export default class EntryCollection {
         return;
       }
       let entry;
-      if (this.builder.target === Platform.web && this.builder.options.web?.mpa) {
+      if (this.builder.target === 'web' && this.builder.options.web?.mpa) {
         entry = new MpaEntry(this.builder, p.name, p.filename);
       } else {
         entry = this.isNativeEntry(p.filename)

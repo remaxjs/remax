@@ -1,6 +1,6 @@
 import ejs from 'ejs';
 import { compilation } from 'webpack';
-import { Meta } from '@remax/types';
+import type { Meta } from '@remax/types';
 import Store, { ExtractedTemplate } from '@remax/build-store';
 
 export default async function createIsolatedTemplate(meta: Meta, compilation: compilation.Compilation) {

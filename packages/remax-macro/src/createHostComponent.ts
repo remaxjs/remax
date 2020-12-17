@@ -1,6 +1,6 @@
 import * as t from '@babel/types';
-import { NodePath } from '@babel/traverse';
-import { HostComponent } from '@remax/types';
+import type { NodePath } from '@babel/traverse';
+import type { HostComponent } from '@remax/types';
 import insertImportDeclaration from './utils/insertImportDeclaration';
 
 const PACKAGE_NAME = '@remax/runtime';

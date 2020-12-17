@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { getDefaultOptions } from './defaultOptions';
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import validateOptions from 'schema-utils';
 
 const schema = require('../OptionsSchema.json');

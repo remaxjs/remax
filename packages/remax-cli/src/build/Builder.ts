@@ -1,5 +1,5 @@
 import webpack from 'webpack';
-import { Options, Platform, AppConfig, BuildType, MiniPluginConfig } from '@remax/types';
+import type { Options, Platform, AppConfig, BuildType, MiniPluginConfig } from '@remax/types';
 import API from '../API';
 import EntryCollection from './EntryCollection';
 import ProjectPath from './ProjectPath';
@@ -22,7 +22,7 @@ export default abstract class Builder {
     this.target = options.target!;
     this.buildType = buildType;
 
-    if (this.target !== Platform.web) {
+    if (this.target !== 'web') {
       api.registerAdapterPlugins(this.target);
     }
 
@@ -41,12 +41,10 @@ export default abstract class Builder {
 
   fetchProjectConfig() {
     const configFile =
-      this.buildType === BuildType.miniPlugin ? this.projectPath.pluginConfigFile() : this.projectPath.appConfigFile();
+      this.buildType === 'miniplugin' ? this.projectPath.pluginConfigFile() : this.projectPath.appConfigFile();
     const config = readManifest(configFile, this.target, false) as AppConfig;
-    const finalConfig = [BuildType.miniApp, BuildType.webApp].includes(this.buildType)
-      ? this.api.onAppConfig(config)
-      : config;
-    if (this.buildType === BuildType.miniApp) {
+    const finalConfig = ['miniapp', 'webapp'].includes(this.buildType) ? this.api.onAppConfig(config) : config;
+    if (this.buildType === 'miniapp') {
       if (!finalConfig.pages || finalConfig.pages.length === 0) {
         throw new Error('app.config.js|ts 并未配置页面参数');
       }

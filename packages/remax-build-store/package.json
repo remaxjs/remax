@@ -24,7 +24,9 @@
     "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },
   "dependencies": {
-    "@remax/shared": "2.11.1",
+    "@remax/shared": "2.11.1"
+  },
+  "devDependencies": {
     "@remax/types": "2.11.1"
   },
   "publishConfig": {

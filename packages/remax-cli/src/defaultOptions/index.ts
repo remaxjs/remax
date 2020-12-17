@@ -1,4 +1,4 @@
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import UNSAFE_wechatTemplateDepth from './UNSAFE_wechatTemplateDepth';
 
 export function getDefaultOptions(): Options {
