@@ -1,6 +1,6 @@
 name: gitleaks
 
-on: [push,pull_request]
+on: [push, pull_request]
 
 jobs:
   gitleaks:
@@ -8,10 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        fetch-depth: '1'
-    - name: wget
-      uses: wei/wget@v1
-      with:
-        args: -O .gitleaks.toml https://raw.githubusercontent.com/ycjcl868/gitleaks/master/.gitleaks.toml
+        fetch-depth: 0
+    - run: cp .github/.gitleaks.toml .
     - name: gitleaks-action
       uses: zricethezav/gitleaks-action@master
