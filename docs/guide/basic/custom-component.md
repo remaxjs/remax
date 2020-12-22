@@ -41,6 +41,33 @@ export default () => (
 );
 ```
 
+以微信小程序的扩展组件库 weui 的 [Cells\Cell](https://developers.weixin.qq.com/miniprogram/dev/extended/weui/cell.html) 组件为例：
+### 先在项目里面安装 weui 组件
+```
+npm i weui-miniprogram
+```
+### 然后直接使用微信小程序的自定义组件weui 组件
+```
+import * as React from 'react';
+import { View} from 'remax/wechat';
+// 引入 Cells、Cell 组件 （React要求组件名首字母大写）
+import Cells from "weui-miniprogram/miniprogram_dist/cells/cells";
+import Cell from 'weui-miniprogram/miniprogram_dist/cell/cell';
+// 引入 weui 样式文件
+import 'weui-miniprogram/miniprogram_dist/weui-wxss/dist/style/weui.wxss';
+export default () => (
+  <View>
+    <Cells title="带说明的列表项">
+      <Cell value="标题文字" footer="说明文字"></Cell>
+          <Cell>
+            <view>标题文字（使用slot）</view>
+            <view slot="footer">说明文字</view>
+          </Cell>
+     </Cells>
+  </View>
+);
+```
+
 ## 组件类型
 
 如果你使用的是 TypeScript，使用第三方小程序自定义组件时需要自己写组件类型，还是以 `mini-ali-ui/es/badge` 为例。
