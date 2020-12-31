@@ -1,6 +1,6 @@
 import { compilation } from 'webpack';
 import ejs from 'ejs';
-import { Options, Meta, EntryInfo } from '@remax/types';
+import type { Options, Meta, EntryInfo } from '@remax/types';
 import { slash } from '@remax/shared';
 import Store, { ExtractedTemplate } from '@remax/build-store';
 import * as TurboRender from 'babel-plugin-remax-turbo-render';

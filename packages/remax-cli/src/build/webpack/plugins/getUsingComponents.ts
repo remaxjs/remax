@@ -1,6 +1,6 @@
 import * as path from 'path';
 import { compilation } from 'webpack';
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import Store from '@remax/build-store';
 import { getNativeAssetOutputPath } from '../../utils/paths';
 import { slash } from '@remax/shared';

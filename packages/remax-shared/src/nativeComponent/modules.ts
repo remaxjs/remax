@@ -3,7 +3,7 @@ import * as babelParser from '@babel/parser';
 import traverse from '@babel/traverse';
 import { get } from 'lodash';
 import resolve from 'resolve';
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import { getPath } from './helpers';
 
 const walk = (jsPath: string, modules: Set<string>, options: Options) => {

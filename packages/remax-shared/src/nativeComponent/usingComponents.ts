@@ -1,6 +1,6 @@
 import { existsSync } from 'fs';
 import resolve from 'resolve';
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import { getPath } from './helpers';
 
 const runWalk = (filePath: string, components: Set<string>, options: Options) => {

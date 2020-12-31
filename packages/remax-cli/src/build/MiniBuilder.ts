@@ -1,14 +1,14 @@
 import BaseBuilder from './Builder';
 import output from './utils/output';
 import watch from './watch';
-import { BuildType, Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import API from '../API';
 import webpackConfig from './webpack/config.mini';
 import webpack from 'webpack';
 
 export default class MiniBuilder extends BaseBuilder {
   constructor(api: API, options: Options) {
-    super(api, options, BuildType.miniApp);
+    super(api, options, 'miniapp');
   }
 
   createWebpackConfig(): webpack.Configuration {

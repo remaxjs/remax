@@ -1,5 +1,5 @@
 import * as t from '@babel/types';
-import { NodePath } from '@babel/traverse';
+import type { NodePath } from '@babel/traverse';
 import Store from '@remax/build-store';
 import insertImportDeclaration from './utils/insertImportDeclaration';
 

@@ -7,7 +7,7 @@ import CopyPlugin from 'copy-webpack-plugin';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import WebpackBar from 'webpackbar';
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import { slash } from '@remax/shared';
 import ejs from 'ejs';
 import { moduleMatcher, targetExtensions } from '../../extensions';

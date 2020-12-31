@@ -1,4 +1,4 @@
-import { HostComponent, Platform } from '@remax/types';
+import type { HostComponent, Platform } from '@remax/types';
 import PluginDriver from './PluginDriver';
 
 interface RuntimeOptions {

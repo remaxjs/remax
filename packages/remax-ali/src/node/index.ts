@@ -1,6 +1,6 @@
 import * as path from 'path';
 import hostComponents from '../hostComponents/node';
-import { PluginConstructor } from '@remax/types';
+import type { PluginConstructor } from '@remax/types';
 
 const TPL_DEFAULT_ROOT = path.join(__dirname, '../../templates', 'default');
 const TPL_STATIC_ROOT = path.join(__dirname, '../../templates', 'static');

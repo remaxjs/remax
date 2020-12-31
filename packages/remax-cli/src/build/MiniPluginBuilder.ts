@@ -1,4 +1,4 @@
-import { BuildType, Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import API from '../API';
 import output from './utils/output';
 import Builder from './Builder';
@@ -7,7 +7,7 @@ import webpack from 'webpack';
 
 export default class MiniPluginBuilder extends Builder {
   constructor(api: API, options: Options) {
-    super(api, options, BuildType.miniPlugin);
+    super(api, options, 'miniplugin');
   }
 
   createWebpackConfig(): webpack.Configuration {

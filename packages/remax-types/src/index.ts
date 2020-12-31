@@ -5,19 +5,9 @@ import * as t from '@babel/types';
 
 export type LogLevel = 'debug' | 'verbose' | 'info' | 'warn' | 'error' | 'silent';
 
-export enum Platform {
-  'web' = 'web',
-  'wechat' = 'wechat',
-  'ali' = 'ali',
-  'toutiao' = 'toutiao',
-}
+export type Platform = 'web' | 'wechat' | 'ali' | 'toutiao';
 
-export enum BuildType {
-  miniApp = 'miniapp',
-  component = 'component',
-  miniPlugin = 'miniPlugin',
-  webApp = 'web',
-}
+export type BuildType = 'miniapp' | 'miniplugin' | 'minicomponent' | 'webapp';
 
 export type WebOptions = {
   mpa: boolean;

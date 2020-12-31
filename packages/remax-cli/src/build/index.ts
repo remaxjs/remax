@@ -1,6 +1,5 @@
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import output from './utils/output';
-import { Platform } from '@remax/types';
 import * as webpack from 'webpack';
 import API from '../API';
 
@@ -12,7 +11,7 @@ export function run(options: Options, api: API): webpack.Compiler {
   api.loadBuiltinPlugins(options);
   api.onBuildStart(options);
 
-  if (options.target === Platform.web) {
+  if (options.target === 'web') {
     // 兼容 herbox 所以用 require
     const WebBuilder = require('./WebBuilder').default;
     return new WebBuilder(api, options).run();

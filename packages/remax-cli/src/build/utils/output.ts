@@ -1,5 +1,5 @@
 import notifier from 'node-notifier';
-import { LogLevel } from '@remax/types';
+import type { LogLevel } from '@remax/types';
 
 const COLORS = {
   red: '\x1b[31m',

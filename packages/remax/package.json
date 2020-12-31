@@ -36,6 +36,7 @@
     "@remax/one": "2.11.3",
     "@remax/runtime": "2.11.3",
     "@remax/toutiao": "2.11.3",
+    "@remax/types": "2.11.3",
     "@remax/web": "2.11.3",
     "@remax/wechat": "2.11.3",
     "mini-types": "^0.1.1",

@@ -3,7 +3,7 @@ import * as webpack from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import WebpackBar from 'webpackbar';
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 import { slash } from '@remax/shared';
 import ejs from 'ejs';

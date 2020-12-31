@@ -1,7 +1,7 @@
 import { sortBy } from 'lodash';
 import { compilation } from 'webpack';
 import ejs from 'ejs';
-import { Options, Meta, EntryInfo } from '@remax/types';
+import type { Options, Meta, EntryInfo } from '@remax/types';
 import Store from '@remax/build-store';
 import SourceCache from '../../../../SourceCache';
 import { slash } from '@remax/shared';
