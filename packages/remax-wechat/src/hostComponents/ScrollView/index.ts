@@ -49,6 +49,22 @@ export interface ScrollViewProps extends BaseProps {
   onRefresherRestore?: (event: GenericEvent) => void;
   /** 自定义下拉刷新被中止 2.10.1 */
   onRefresherAbort?: (event: GenericEvent) => void;
+  /** (default: false) 启用 scroll-view 增强特性 2.12.0 */
+  enhanced?: boolean;
+  /** (default: true) iOS 下 scroll-view 边界弹性控制 (同时开启 enhanced 属性后生效) 2.12.0 */
+  bounces?: boolean;
+  /** (default: true) 滚动条显隐控制 (同时开启 enhanced 属性后生效) 2.12.0 */
+  showScrollbar?: boolean;
+  /** (default: false) 分页滑动效果 (同时开启 enhanced 属性后生效) 2.12.0 */
+  pagingEnabled?: boolean;
+  /** (default: false) 滑动减速速率控制 (同时开启 enhanced 属性后生效) 2.12.0 */
+  fastDeceleration?: boolean;
+  /** 滑动开始事件 (同时开启 enhanced 属性后生效) detail { scrollTop, scrollLeft } 2.12.0 */
+  onDragStart?: (event: GenericEvent) => void;
+  /** 滑动事件 (同时开启 enhanced 属性后生效) detail { scrollTop, scrollLeft } 2.12.0 */
+  onDragging?: (event: GenericEvent) => void;
+  /** 滑动结束事件 (同时开启 enhanced 属性后生效) detail { scrollTop, scrollLeft, velocity } 2.12.0 */
+  onDragEnd?: (event: GenericEvent) => void;
 }
 
 export const ScrollView: React.ComponentType<ScrollViewProps> = createHostComponent<ScrollViewProps>('scroll-view');
@@ -67,4 +83,9 @@ ScrollView.defaultProps = {
   refresherDefaultStyle: 'black',
   refresherBackground: '#fff',
   refresherTriggered: false,
+  enhanced: false,
+  bounces: true,
+  showScrollbar: true,
+  pagingEnabled: false,
+  fastDeceleration: false,
 };
