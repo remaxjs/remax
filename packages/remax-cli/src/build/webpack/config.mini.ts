@@ -6,6 +6,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import PnpWebpackPlugin from 'pnp-webpack-plugin';
 import WebpackBar from 'webpackbar';
 import type { Options } from '@remax/types';
 import { slash } from '@remax/shared';
@@ -225,6 +226,13 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
       addCSSRule(config, builder, false, ruleConfig);
     },
   };
+
+  // pnp模式下
+  /* istanbul ignore next */
+  if (process.versions.pnp) {
+    config.resolve.plugin('pnp').use(PnpWebpackPlugin);
+    config.resolveLoader.plugin('pnp').use(PnpWebpackPlugin.moduleLoader(module));
+  }
 
   if (typeof builder.options.configWebpack === 'function') {
     builder.options.configWebpack(context);

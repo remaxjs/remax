@@ -27,11 +27,11 @@
   "dependencies": {
     "@babel/helper-plugin-utils": "^7.10.4",
     "@babel/traverse": "^7.11.0",
-    "@babel/types": "^7.11.0"
+    "@babel/types": "^7.11.0",
+    "@remax/build-store": "2.11.3"
   },
   "devDependencies": {
     "@babel/core": "^7.11.0",
-    "@remax/build-store": "2.11.3",
     "@types/jest": "^26.0.8",
     "babel-plugin-tester": "^9.2.0"
   },

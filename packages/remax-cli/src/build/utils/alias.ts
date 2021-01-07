@@ -9,7 +9,7 @@ export default (options: Options, target: Platform) => {
   const config: Alias = {
     '@': path.resolve(options.cwd, options.rootDir),
     // 防止 link 开发时加载多个 React
-    react: path.resolve(options.cwd, 'node_modules', 'react'),
+    react: path.dirname(require.resolve('react/package.json')),
   };
 
   if (target !== 'web') {
