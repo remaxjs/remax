@@ -1,5 +1,5 @@
 import node from '../node';
-import { Meta } from '@remax/types';
+import type { Meta } from '@remax/types';
 
 describe('node', () => {
   it('meta', () => {

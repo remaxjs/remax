@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.3](https://github.com/remaxjs/remax/compare/v2.11.2...v2.11.3) (2020-12-31)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.11.2](https://github.com/remaxjs/remax/compare/v2.11.1...v2.11.2) (2020-12-17)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.11.1](https://github.com/remaxjs/remax/compare/v2.11.0...v2.11.1) (2020-12-17)
+
+### Bug Fixes
+
+- 修复 style props 变更的错误异常 ([#1446](https://github.com/remaxjs/remax/issues/1446)) ([44d43a7](https://github.com/remaxjs/remax/commit/44d43a75cba47fcae7b64085c52ea858fe017a83))
+
+# [2.11.0](https://github.com/remaxjs/remax/compare/v2.10.1...v2.11.0) (2020-12-14)
+
+### Bug Fixes
+
+- 修复 placeholderStyle 属性 diff 错误的问题 ([#1429](https://github.com/remaxjs/remax/issues/1429)) ([b7622a4](https://github.com/remaxjs/remax/commit/b7622a4ff381f0a3eab113fab99f983dc0247122))
+
 ## [2.10.1](https://github.com/remaxjs/remax/compare/v2.10.0...v2.10.1) (2020-12-06)
 
 **Note:** Version bump only for package @remax/runtime

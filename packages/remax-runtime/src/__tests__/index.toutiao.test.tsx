@@ -5,7 +5,6 @@ import render from '../render';
 import { reset as resetInstanceId } from '../instanceId';
 import Container from '../Container';
 import { useNativeEffect } from '../hooks';
-import { Platform } from '@remax/types';
 import { RuntimeOptions } from '@remax/framework-shared';
 
 const p = {
@@ -20,9 +19,7 @@ const p = {
 
 describe('remax render', () => {
   beforeAll(() => {
-    RuntimeOptions.apply({
-      platform: Platform.toutiao,
-    });
+    RuntimeOptions.apply({ platform: 'toutiao' });
   });
 
   afterEach(() => {

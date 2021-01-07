@@ -1,7 +1,6 @@
 import * as babel from '@babel/core';
 import hostComponents from '@remax/ali/cjs/hostComponents/node';
 import Store from '@remax/build-store';
-import { Platform } from '@remax/types';
 import { slash } from '@remax/shared';
 import component from '../src';
 
@@ -15,7 +14,7 @@ function transform(code: string, filename?: string) {
         plugins: [
           '@babel/plugin-syntax-jsx',
           component({
-            target: Platform.ali,
+            target: 'ali',
             hostComponents,
             skipHostComponents: ['picker-view'],
             skipProps: ['entry'],

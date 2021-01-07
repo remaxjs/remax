@@ -3,19 +3,11 @@ import yargs from 'yargs';
 import WebpackConfig from 'webpack-chain';
 import * as t from '@babel/types';
 
-export enum Platform {
-  'web' = 'web',
-  'wechat' = 'wechat',
-  'ali' = 'ali',
-  'toutiao' = 'toutiao',
-}
+export type LogLevel = 'debug' | 'verbose' | 'info' | 'warn' | 'error' | 'silent';
 
-export enum BuildType {
-  miniApp = 'miniapp',
-  component = 'component',
-  miniPlugin = 'miniPlugin',
-  webApp = 'web',
-}
+export type Platform = 'web' | 'wechat' | 'ali' | 'toutiao';
+
+export type BuildType = 'miniapp' | 'miniplugin' | 'minicomponent' | 'webapp';
 
 export type WebOptions = {
   mpa: boolean;
@@ -49,6 +41,7 @@ export interface BuildOptions {
   component?: any;
   web?: WebOptions;
   minimize?: boolean;
+  loglevel?: LogLevel;
 }
 
 export type Options = BuildOptions & PluginOptions;

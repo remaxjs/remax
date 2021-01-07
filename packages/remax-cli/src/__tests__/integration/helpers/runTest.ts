@@ -1,11 +1,11 @@
 import * as path from 'path';
 import { buildApp, JEST_BUILD_TIMEOUT, buildMiniPlugin } from './build';
-import { Platform } from '@remax/types';
+import type { Platform } from '@remax/types';
 import Store from '@remax/build-store';
 
 export function testBuildApp(
   app: string,
-  target: Platform = Platform.ali,
+  target: Platform = 'ali',
   outputPath?: string,
   options?: any,
   extraRemaxOptions?: any
@@ -22,7 +22,7 @@ export function testBuildApp(
   );
 }
 
-export function testBuildMiniPlugin(app: string, target: Platform = Platform.ali, outputPath?: string, options?: any) {
+export function testBuildMiniPlugin(app: string, target: Platform = 'ali', outputPath?: string, options?: any) {
   it(
     `build ${app} on target ${target}`,
     async () => {

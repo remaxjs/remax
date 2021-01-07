@@ -1,6 +1,5 @@
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import output from './utils/output';
-import { Platform } from '@remax/types';
 import * as webpack from 'webpack';
 import API from '../API';
 
@@ -12,7 +11,7 @@ export function run(options: Options, api: API): webpack.Compiler {
   api.loadBuiltinPlugins(options);
   api.onBuildStart(options);
 
-  if (options.target === Platform.web) {
+  if (options.target === 'web') {
     // 兼容 herbox 所以用 require
     const WebBuilder = require('./WebBuilder').default;
     return new WebBuilder(api, options).run();
@@ -29,10 +28,12 @@ export function buildApp(options: Options) {
 }
 
 export function internalBuildApp(options: Options, api: API) {
-  const { target } = options;
+  const { target, loglevel = 'verbose' } = options;
+  output.level = loglevel;
 
   process.env.REMAX_PLATFORM = target;
 
+  output.message('🚀 构建应用', 'blue');
   output.message(`\n⌨️  remax v${version}\n`, 'green');
 
   const result = run(options, api);
@@ -43,12 +44,13 @@ export function internalBuildApp(options: Options, api: API) {
 export function buildMiniPlugin(options: Options) {
   process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-  const { target } = options;
+  const { target, loglevel = 'verbose' } = options;
+  output.level = loglevel;
 
   process.env.REMAX_PLATFORM = target;
 
-  output.message(`\n⌨️  remax v${version}\n`, 'green');
   output.message(`🔨 构建插件`, 'blue');
+  output.message(`\n⌨️  remax v${version}\n`, 'green');
 
   const api = new API();
   api.registerPlugins([]);

@@ -1,5 +1,5 @@
 import * as t from '@babel/types';
-import { Plugin, Meta, HostComponent, Platform, Options } from '@remax/types';
+import type { Plugin, Meta, HostComponent, Platform, Options } from '@remax/types';
 import { slash } from '@remax/shared';
 import { merge } from 'lodash';
 import Config from 'webpack-chain';

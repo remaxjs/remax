@@ -2,9 +2,13 @@
 
 exports[`ScrollView render correctly 1`] = `
 <scroll-view
+  bounces={true}
   enableBackToTop={false}
   enableFlex={false}
+  enhanced={false}
+  fastDeceleration={false}
   lowerThreshold={50}
+  pagingEnabled={false}
   refresherBackground="#fff"
   refresherDefaultStyle="black"
   refresherEnabled={false}
@@ -14,6 +18,7 @@ exports[`ScrollView render correctly 1`] = `
   scrollWithAnimation={false}
   scrollX={false}
   scrollY={false}
+  showScrollbar={true}
   upperThreshold={50}
 />
 `;

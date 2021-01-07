@@ -8,7 +8,7 @@ import VirtualModulesPlugin from 'webpack-virtual-modules';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import PnpWebpackPlugin from 'pnp-webpack-plugin';
 import WebpackBar from 'webpackbar';
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import { slash } from '@remax/shared';
 import ejs from 'ejs';
 import { moduleMatcher, targetExtensions } from '../../extensions';
@@ -23,6 +23,7 @@ import API from '../../API';
 import { cssConfig, addCSSRule, RuleConfig } from './config/css';
 import baseConfig from './baseConfig';
 import Builder from '../Builder';
+import output from '../utils/output';
 
 function prepare(api: API) {
   const meta = api.getMeta();
@@ -186,7 +187,7 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
 
   const runtimeOptions = {
     pxToRpx: builder.options.pxToRpx,
-    debug: !!process.env.REMAX_DEBUG,
+    debug: !!process.env.REMAX_DEBUG || output.level === 'debug',
     platform: builder.options.target,
     pluginFiles: builder.api.getRuntimePluginFiles(),
     hostComponents: '[]',

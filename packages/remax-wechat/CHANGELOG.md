@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.3](https://github.com/remaxjs/remax/compare/v2.11.2...v2.11.3) (2020-12-31)
+
+### Bug Fixes
+
+- **wechat:** 修复 ScrollView 组件缺失的属性 ([#1460](https://github.com/remaxjs/remax/issues/1460)) ([be3c45d](https://github.com/remaxjs/remax/commit/be3c45dbcf7980c7ff7bc69f3922500abb085e67))
+
+## [2.11.2](https://github.com/remaxjs/remax/compare/v2.11.1...v2.11.2) (2020-12-17)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.11.1](https://github.com/remaxjs/remax/compare/v2.11.0...v2.11.1) (2020-12-17)
+
+**Note:** Version bump only for package @remax/wechat
+
+# [2.11.0](https://github.com/remaxjs/remax/compare/v2.10.1...v2.11.0) (2020-12-14)
+
+**Note:** Version bump only for package @remax/wechat
+
 ## [2.10.1](https://github.com/remaxjs/remax/compare/v2.10.0...v2.10.1) (2020-12-06)
 
 ### Bug Fixes

@@ -157,6 +157,15 @@
   </cover-view>
 </template>
 
+<template name="REMAX_TPL_1_ddd">
+  <ddd
+  >
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+    </block>
+  </ddd>
+</template>
+
 <template name="REMAX_TPL_1_form">
   <form
     class="{{item.props['class']}}"

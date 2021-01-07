@@ -1,6 +1,6 @@
 import * as path from 'path';
 import { slash } from '@remax/shared';
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import crypto from 'crypto';
 
 const hash = (name: string) => crypto.createHash('md5').update(name).digest('hex');

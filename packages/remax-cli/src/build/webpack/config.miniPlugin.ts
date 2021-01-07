@@ -3,7 +3,7 @@ import * as webpack from 'webpack';
 import Config from 'webpack-chain';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import WebpackBar from 'webpackbar';
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import VirtualModulesPlugin from 'webpack-virtual-modules';
 import { slash } from '@remax/shared';
 import ejs from 'ejs';
@@ -21,6 +21,7 @@ import * as RemaxPlugins from './plugins';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import Builder from '../Builder';
 import NativeEntry from '../entries/NativeEntry';
+import output from '../utils/output';
 
 function resolveBabelConfig(options: Options) {
   if (fs.existsSync(path.join(options.cwd, 'babel.config.js'))) {
@@ -159,7 +160,7 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
 
   const runtimeOptions = {
     pxToRpx: builder.options.pxToRpx,
-    debug: !!process.env.REMAX_DEBUG,
+    debug: !!process.env.REMAX_DEBUG || output.level === 'debug',
     platform: builder.target,
     pluginFiles: builder.api.getRuntimePluginFiles(),
     hostComponents: '[]',

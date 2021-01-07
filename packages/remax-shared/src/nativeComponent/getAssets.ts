@@ -1,4 +1,4 @@
-import { Options, Meta } from '@remax/types';
+import type { Options, Meta } from '@remax/types';
 import jsHelper from './jsHelper';
 import jsModule from './modules';
 import style from './style';

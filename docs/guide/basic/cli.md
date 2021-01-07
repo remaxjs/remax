@@ -13,15 +13,16 @@ remax build
 编译项目
 
 选项：
-      --version   显示版本号                                              [布尔]
-      --help      显示帮助信息                                            [布尔]
-  -w, --watch     监听文件变化                            [布尔] [默认值: false]
-  -t, --target    目标平台                              [字符串] [默认值: "ali"]
-  -n, --notify    编译错误提醒                            [布尔] [默认值: false]
-  -p, --port      指定端口号                                              [数字]
-  -m, --minimize  最小化文件                              [布尔] [默认值: false]
-  -a, --analyze   编译分析                                [布尔] [默认值: false]
-  -d, --devtools  启动 react-devtools 调试                 [布尔] [默认值: true]
+      --version    显示版本号                                             [布尔]
+      --help       显示帮助信息                                           [布尔]
+  -w, --watch      监听文件变化                           [布尔] [默认值: false]
+  -t, --target     目标平台                             [字符串] [默认值: "ali"]
+  -n, --notify     编译错误提醒                           [布尔] [默认值: false]
+  -p, --port       指定端口号                                             [数字]
+  -m, --minimize   最小化文件                             [布尔] [默认值: false]
+  -a, --analyze    编译分析                               [布尔] [默认值: false]
+  -d, --devtools   启动 react-devtools 调试                [布尔] [默认值: true]
+      --loglevel   展示日志级别                      [字符串] [默认值: "verbose"]
 ```
 
 ### --target
@@ -58,3 +59,13 @@ remax build
 ## --devtools
 
 启动 react-devtools 调试模式，详见[调试工具](/guide/basic/devtools)介绍，开发环境下默认开启，如需关闭，可使用参数 `--no-devtools` 强制关闭。
+
+## --loglevel
+
+设置展示日志级别，可选值 'debug' | 'verbose' | 'info' | 'warn' | 'error' | 'silent'
+
+- `debug` 包含详细的 remax 运行时信息
+- `verbose` `info` 详细信息
+- `warn` 编译警告提示信息
+- `error` 编译错误提示信息
+- `silent` 不展示任何信息（webpack 构建日志除外）

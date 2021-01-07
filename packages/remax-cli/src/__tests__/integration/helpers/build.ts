@@ -5,7 +5,7 @@ import nodeExternals from 'webpack-node-externals';
 import { slash } from '@remax/shared';
 import API from '../../../API';
 import getConfig from '../../../getConfig';
-import { Platform } from '@remax/types';
+import type { Platform } from '@remax/types';
 import Config from 'webpack-chain';
 import MiniBuilder from '../../../build/MiniBuilder';
 import MiniPluginBuilder from '../../../build/MiniPluginBuilder';
@@ -89,7 +89,7 @@ export async function buildApp(app: string, target: Platform, options: Partial<O
     ...extraRemaxOptions,
   };
 
-  const builder = target === Platform.web ? new WebBuilder(api, remaxOptions) : new MiniBuilder(api, remaxOptions);
+  const builder = target === 'web' ? new WebBuilder(api, remaxOptions) : new MiniBuilder(api, remaxOptions);
   const fs = createFsFromVolume(new Volume());
   const webpackFs = ensureWebpackMemoryFs(fs);
   const compiler = builder.run();

@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "website",
-  "version": "2.10.1",
+  "version": "2.11.3",
   "scripts": {
     "clean": "rimraf dist",
     "start": "dumi dev",
@@ -14,7 +14,7 @@
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
   "dependencies": {
-    "dumi": "^1.1.0-rc.2",
+    "dumi": "^1.1.0",
     "gh-pages": "^3.1.0"
   }
 }
