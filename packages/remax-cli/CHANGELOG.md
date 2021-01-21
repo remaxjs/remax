@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.4](https://github.com/remaxjs/remax/compare/v2.11.3...v2.11.4) (2021-01-21)
+
+### Bug Fixes
+
+- 修复使用 UNSAFE_wechatTemplateDepth 配置报错的问题 ([#1474](https://github.com/remaxjs/remax/issues/1474)) ([7b1f084](https://github.com/remaxjs/remax/commit/7b1f08490eb3926db88ae1000454ca46fd69f55f))
+
 ## [2.11.3](https://github.com/remaxjs/remax/compare/v2.11.2...v2.11.3) (2020-12-31)
 
 **Note:** Version bump only for package @remax/cli
