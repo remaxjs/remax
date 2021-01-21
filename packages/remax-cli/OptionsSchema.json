@@ -45,6 +45,9 @@
     },
     "tracert": {
       "type": ["boolean", "object"]
+    },
+    "UNSAFE_wechatTemplateDepth": {
+      "type": ["number", "object"]
     }
   },
   "additionalProperties": false
