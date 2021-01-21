@@ -28,7 +28,7 @@
     "webpack-virtual-modules": "^0.3.1"
   },
   "devDependencies": {
-    "@types/react": "^16.9.49",
+    "@types/react": "^17.0.0",
     "remax": "2.11.4"
   },
   "publishConfig": {
