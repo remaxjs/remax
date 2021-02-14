@@ -12,7 +12,7 @@ interface CommonProps {
   value?: string;
   name?: string;
   /** input 的类型 */
-  type?: 'text' | 'number';
+  type?: 'text' | 'number' | 'digit' | 'idcard';
   /** 是否是密码类型 */
   password?: boolean;
   /** 输入框为空时占位符 */
