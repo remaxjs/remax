@@ -6,6 +6,8 @@ export const alias = {
   latitude: 'latitude',
   longitude: 'longitude',
   scale: 'scale',
+  minScale: 'min-scale',
+  maxScale: 'max-scale',
   markers: 'markers',
   polyline: 'polyline',
   circles: 'circles',
@@ -31,6 +33,8 @@ export const alias = {
   enableRotate: 'enable-rotate',
   enableSatellite: 'enable-satellite',
   enableTraffic: 'enable-traffic',
+  enablePoi: 'enable-poi',
+  enableBuilding: 'enable-building',
   onTap: 'bindtap',
   onClick: 'bindtap',
   onMarkerTap: 'bindmarkertap',
@@ -43,6 +47,7 @@ export const alias = {
   onRegionChange: 'bindregionchange',
   onPoiTap: 'bindpoitap',
   onPoiClick: 'bindpoitap',
+  onAnchorPointTap: 'bindanchorpointtap',
 };
 
 export const props = Object.values(alias);
