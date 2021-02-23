@@ -83,6 +83,8 @@ export const Map: React.ComponentType<MapProps> = createHostComponent<MapProps>(
 
 Map.defaultProps = {
   scale: 16,
+  minScale: 3,
+  maxScale: 20,
   showLocation: false,
   layerStyle: 1,
   rotate: 0,
