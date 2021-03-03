@@ -141,11 +141,11 @@ export interface AppConfig {
     /**
      * 分包根目录
      */
-    root: 'string';
+    root: string;
     /**
      * 分包页面路径
      */
-    pages: [];
+    pages: string[];
   }>;
 
   plugins?: {
