@@ -72,7 +72,7 @@ my-app/
 
 `app.js` 入口文件，具体可参考 [指南 - 框架](/guide/framework)。
 
-`app.css` 全局样式文件。
+`app.css` 样式。
 
 `app.config.js` 为小程序全局配置文件，对应 `app.json`，具体可参考 [指南 - 配置](/guide/config)。
 
