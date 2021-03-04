@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.5](https://github.com/remaxjs/remax/compare/v2.11.4...v2.11.5) (2021-03-04)
+
+### Bug Fixes
+
+- **wechat:** 修复 Map 组件缺失的属性 ([#1489](https://github.com/remaxjs/remax/issues/1489)) ([b319d9b](https://github.com/remaxjs/remax/commit/b319d9b2a568ba3d090a6fe8e52f761adcdb4506))
+
 ## [2.11.4](https://github.com/remaxjs/remax/compare/v2.11.3...v2.11.4) (2021-01-21)
 
 **Note:** Version bump only for package @remax/wechat
