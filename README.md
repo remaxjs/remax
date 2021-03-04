@@ -25,7 +25,9 @@
 	</a>
 </p>
 
-**🔥🔥🔥 [蚂蚁集团体验技术部招聘](https://www.yuque.com/docs/share/076d56d7-6212-4ed5-b986-cf4325c417e6)**
+<p align="center">
+  <strong><a href="https://www.yuque.com/docs/share/076d56d7-6212-4ed5-b986-cf4325c417e6">🔥🔥🔥 蚂蚁集团体验技术部招聘</a></strong>
+</p>
 
 [《使用 React 开发小程序》](https://www.yuque.com/seeconf/2020/qsytho)
 
