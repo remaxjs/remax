@@ -5,6 +5,7 @@ import VirtualEntry from './VirtualEntry';
 import Builder from '../Builder';
 import NativeAssets from '../NativeAssets';
 import output from '../utils/output';
+import { slash } from '@remax/shared';
 
 interface Manifest {
   usingComponents?: Record<string, string>;
@@ -41,10 +42,10 @@ export default class NativeEntry extends VirtualEntry {
     return Object.keys(usingComponents).reduce((acc: Map<string, NativeEntry>, name: string) => {
       const request: string = usingComponents[name];
       const filename = this.builder.projectPath.resolveAsset(request + '.js', this.filename);
-      if (filename === this.filename) {
-        return acc;
-      }
       if (filename && fs.existsSync(filename)) {
+        if (slash(filename) === slash(this.filename)) {
+          return acc;
+        }
         let entry = this.builder.entryCollection.nativeComponentEntries.get(filename);
         if (entry) {
           entry.updateSource();
