@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.6](https://github.com/remaxjs/remax/compare/v2.11.5...v2.11.6) (2021-03-05)
+
+### Bug Fixes
+
+- 修复原生组件递归引用导致的死循环 ([9baf852](https://github.com/remaxjs/remax/commit/9baf85284556b3b902ef7efbb84b67a49b621056)), closes [#1490](https://github.com/remaxjs/remax/issues/1490)
+- **wechat:** 修复 wxml 模板依赖查找错误的问题 ([ef5c982](https://github.com/remaxjs/remax/commit/ef5c982065e18b8f139f339ccd71d26bee537363)), closes [#1492](https://github.com/remaxjs/remax/issues/1492)
+
 ## [2.11.5](https://github.com/remaxjs/remax/compare/v2.11.4...v2.11.5) (2021-03-04)
 
 **Note:** Version bump only for package @remax/cli

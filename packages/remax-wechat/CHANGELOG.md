@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.6](https://github.com/remaxjs/remax/compare/v2.11.5...v2.11.6) (2021-03-05)
+
+### Bug Fixes
+
+- **wechat:** 修复 CoverView markerId 属性 ([a1191f3](https://github.com/remaxjs/remax/commit/a1191f3e84ea53609980df165a8ab5b710c99aca)), closes [#1490](https://github.com/remaxjs/remax/issues/1490)
+
 ## [2.11.5](https://github.com/remaxjs/remax/compare/v2.11.4...v2.11.5) (2021-03-04)
 
 ### Bug Fixes
