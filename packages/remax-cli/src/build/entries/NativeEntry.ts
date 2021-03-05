@@ -41,6 +41,9 @@ export default class NativeEntry extends VirtualEntry {
     return Object.keys(usingComponents).reduce((acc: Map<string, NativeEntry>, name: string) => {
       const request: string = usingComponents[name];
       const filename = this.builder.projectPath.resolveAsset(request + '.js', this.filename);
+      if (filename === this.filename) {
+        return acc;
+      }
       if (filename && fs.existsSync(filename)) {
         let entry = this.builder.entryCollection.nativeComponentEntries.get(filename);
         if (entry) {
