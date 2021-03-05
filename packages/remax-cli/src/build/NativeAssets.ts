@@ -101,7 +101,15 @@ export default class NativeAssets {
             walkTemplate(templateFile);
           }
         } else if (['include', 'import'].includes(name) && attrs.src) {
-          const templateFile = this.builder.projectPath.resolveAsset(attrs.src, filename);
+          let request = attrs.src;
+          /**
+           * 微信支持不写 ./ 引用当前路径
+           * https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/import.html
+           */
+          if (!/^(\.\/|\/)/.test(request)) {
+            request = './' + request;
+          }
+          const templateFile = this.builder.projectPath.resolveAsset(request, filename);
           if (templateFile) {
             walkTemplate(templateFile);
           }
