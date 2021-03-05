@@ -161,6 +161,7 @@ module.exports = {
       "style": "style",
       "animation": "animation",
       "scrollTop": "scroll-top",
+      "markerId": "marker-id",
       "onTap": "bindtap",
       "onClick": "bindtap"
     }
