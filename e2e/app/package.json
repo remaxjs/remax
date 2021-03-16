@@ -1,7 +1,7 @@
 {
   "name": "e2e-app",
   "private": true,
-  "version": "2.11.6",
+  "version": "2.11.7",
   "description": "intergration tests for Remax",
   "main": "index.js",
   "keywords": [],
@@ -25,7 +25,7 @@
     "clsx": "^1.0.4",
     "mini-antui": "^0.4.34",
     "react": "^16.8.6",
-    "remax": "2.11.6"
+    "remax": "2.11.7"
   },
   "devDependencies": {
     "@types/expect-puppeteer": "^4.4.0",
