@@ -402,6 +402,8 @@
 </template><template name="TPL_scroll-view">
   <scroll-view 
     class="{{node.props['class']}}" 
+    disable-lower-scroll="{{node.props['disable-lower-scroll']}}" 
+    disable-upper-scroll="{{node.props['disable-upper-scroll']}}" 
     enable-back-to-top="{{node.props['enable-back-to-top']}}" 
     id="{{node.props['id']}}" 
     lower-threshold="{{node.props['lower-threshold']}}" 

@@ -16,6 +16,8 @@ export const alias = {
   enableBackToTop: 'enable-back-to-top',
   trapScroll: 'trap-scroll',
   onScrollToUpper: 'onScrollToUpper',
+  disableLowerScroll: 'disable-lower-scroll',
+  disableUpperScroll: 'disable-upper-scroll',
   onScrollToLower: 'onScrollToLower',
   onScroll: 'onScroll',
   onTouchStart: 'onTouchStart',
