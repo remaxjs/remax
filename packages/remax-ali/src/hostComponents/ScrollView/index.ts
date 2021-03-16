@@ -17,6 +17,8 @@ export interface ScrollViewProps {
   scrollAnimationDuration?: number;
   enableBackToTop?: boolean;
   trapScroll?: boolean;
+  disableLowerScroll?: 'always' | 'out-of-bounds';
+  disableUpperScroll?: 'always' | 'out-of-bounds';
   onScrollToUpper?: (e: any) => void;
   onScrollToLower?: (e: any) => void;
   onScroll?: (e: any) => void;

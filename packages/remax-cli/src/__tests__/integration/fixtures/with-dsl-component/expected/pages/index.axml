@@ -524,6 +524,8 @@
 <template name="REMAX_TPL_1_scroll-view">
   <scroll-view
     class="{{item.props['class']}}"
+    disable-lower-scroll="{{item.props['disable-lower-scroll']}}"
+    disable-upper-scroll="{{item.props['disable-upper-scroll']}}"
     enable-back-to-top="{{item.props['enable-back-to-top']}}"
     id="{{item.props['id']}}"
     lower-threshold="{{item.props['lower-threshold']}}"
