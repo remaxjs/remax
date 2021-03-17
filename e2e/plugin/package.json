@@ -1,7 +1,7 @@
 {
   "name": "e2e-plugin",
   "private": true,
-  "version": "2.11.7",
+  "version": "2.11.8",
   "description": "intergration tests for Remax",
   "main": "index.js",
   "keywords": [],
@@ -18,7 +18,7 @@
     "clsx": "^1.0.4",
     "mini-antui": "^0.4.34",
     "react": "^16.8.6",
-    "remax": "2.11.7"
+    "remax": "2.11.8"
   },
   "devDependencies": {
     "@types/expect-puppeteer": "^4.4.0",

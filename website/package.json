@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "website",
-  "version": "2.11.7",
+  "version": "2.11.8",
   "scripts": {
     "clean": "rimraf dist",
     "start": "dumi dev",
