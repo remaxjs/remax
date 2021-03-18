@@ -1,11 +1,7 @@
 {
   "name": "e2e-plugin",
   "private": true,
-  "version": "2.11.8",
-  "description": "intergration tests for Remax",
-  "main": "index.js",
-  "keywords": [],
-  "license": "MIT",
+  "version": "1.0.0",
   "scripts": {
     "dev": "remax mini-plugin build -w",
     "prebuild": "rimraf dist",
@@ -18,7 +14,7 @@
     "clsx": "^1.0.4",
     "mini-antui": "^0.4.34",
     "react": "^16.8.6",
-    "remax": "2.11.8"
+    "remax": "*"
   },
   "devDependencies": {
     "@types/expect-puppeteer": "^4.4.0",
@@ -27,8 +23,7 @@
     "cross-env": "^6.0.3",
     "http-server": "^0.12.3",
     "jest-puppeteer": "^4.4.0",
-    "merge": "^1.2.1",
-    "rimraf": "^2.6.3"
+    "merge": "^1.2.1"
   },
   "workspaces": {
     "nohoist": [
