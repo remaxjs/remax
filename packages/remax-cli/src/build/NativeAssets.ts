@@ -3,6 +3,7 @@ import * as babelParser from '@babel/parser';
 import traverse from '@babel/traverse';
 import * as htmlparser2 from 'htmlparser2';
 import { get } from 'lodash';
+import { cssExtensions } from '../extensions';
 import { replaceExtension, getNativeAssetOutputPath } from './utils/paths';
 import Builder from './Builder';
 
@@ -130,7 +131,7 @@ export default class NativeAssets {
   }
 
   private findInCSS() {
-    const cssFile = replaceExtension(this.entry, this.builder.api.getMeta().style);
+    const cssFiles = [this.builder.api.getMeta().style, ...cssExtensions].map(ext => replaceExtension(this.entry, ext));
     // https://regexr.com/5fa60
     const URL_PATTERN = /(?<=url\(\s*['"]?)([^"')]+)(?=["']?\s*\))/gm;
     // https://regexr.com/5fa69
@@ -162,8 +163,9 @@ export default class NativeAssets {
           }
         });
       }
+      return true;
     };
 
-    walkCSS(cssFile);
+    cssFiles.some(walkCSS);
   }
 }

@@ -41,22 +41,29 @@ export default class NativeEntry extends VirtualEntry {
     const { usingComponents = {} } = this.readRawManifest();
     return Object.keys(usingComponents).reduce((acc: Map<string, NativeEntry>, name: string) => {
       const request: string = usingComponents[name];
-      const filename = this.builder.projectPath.resolveAsset(request + '.js', this.filename);
-      if (filename && fs.existsSync(filename)) {
-        if (slash(filename) === slash(this.filename)) {
-          return acc;
+      const fileExist = ['.js', '.ts'].some(ext => {
+        const filename = this.builder.projectPath.resolveAsset(request + ext, this.filename);
+        if (filename && fs.existsSync(filename)) {
+          if (slash(filename) === slash(this.filename)) {
+            return true;
+          }
+          let entry = this.builder.entryCollection.nativeComponentEntries.get(filename);
+          if (entry) {
+            entry.updateSource();
+          } else {
+            const output = getNativeAssetOutputPath(replaceExtension(filename, ''), this.builder.options);
+            entry = new NativeEntry(this.builder, output, filename);
+          }
+          acc.set(name, entry);
+          return true;
         }
-        let entry = this.builder.entryCollection.nativeComponentEntries.get(filename);
-        if (entry) {
-          entry.updateSource();
-        } else {
-          const output = getNativeAssetOutputPath(replaceExtension(filename, ''), this.builder.options);
-          entry = new NativeEntry(this.builder, output, filename);
-        }
-        acc.set(name, entry);
-      } else {
+        return false;
+      });
+
+      if (!fileExist) {
         output.warn(`${request} can not be resolved in ${this.name}'s \`usingComponents\`.`);
       }
+
       return acc;
     }, new Map());
   }

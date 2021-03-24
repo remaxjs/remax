@@ -1,4 +1,8 @@
 @import "./../remax-styles.acss";
+.b {
+  background-color: white;
+}
+
 .page-index___1ZW9Y {
   background-color: aliceblue;
 }

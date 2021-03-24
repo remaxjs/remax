@@ -1,20 +1,20 @@
 require('./../../runtime.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[3],{
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[4],{
 
-/***/ 17:
+/***/ 20:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(18);
+__webpack_require__(21);
 
 Component({});
 
 /***/ }),
 
-/***/ 18:
+/***/ 21:
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ })
 
-},[[17,0]]]);
+},[[20,0]]]);
