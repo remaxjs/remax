@@ -4,7 +4,7 @@ import { createHostComponent } from '@remax/runtime';
 
 export interface TextareaProps extends BaseProps {
   name?: string;
-  value: any;
+  value?: any;
   placeholder?: string;
   placeholderStyle?: React.CSSProperties;
   placeholderClassName?: string;
