@@ -1,3 +1,7 @@
 {
-  "pages": ["pages/mini/index", "pages/react/index"]
+  "pages": [
+    "pages/mini/index",
+    "pages/mini-ts/index",
+    "pages/react/index"
+  ]
 }
