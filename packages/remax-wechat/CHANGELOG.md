@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/remaxjs/remax/compare/v2.11.8...v2.12.0) (2021-04-07)
+
+### Bug Fixes
+
+- **wechat:** 修复 textarea 的 type 错误 ([#1517](https://github.com/remaxjs/remax/issues/1517)) ([32948d5](https://github.com/remaxjs/remax/commit/32948d59529ea3b33e609a30b2e0719b07176a9f))
+
 ## [2.11.8](https://github.com/remaxjs/remax/compare/v2.11.7...v2.11.8) (2021-03-17)
 
 **Note:** Version bump only for package @remax/wechat
