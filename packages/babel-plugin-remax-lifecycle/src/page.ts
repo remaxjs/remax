@@ -3,7 +3,7 @@ import { NodePath } from '@babel/traverse';
 import Store from '@remax/build-store';
 import { slash } from '@remax/shared';
 
-const lifecycleEvents = ['onPageScroll', 'onShareAppMessage'];
+const lifecycleEvents = ['onPageScroll', 'onShareAppMessage', 'onShareTimeline'];
 
 interface Options {
   test: (file: string) => boolean;
