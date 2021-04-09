@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.1](https://github.com/remaxjs/remax/compare/v2.12.0...v2.12.1) (2021-04-09)
+
+### Bug Fixes
+
+- 修复不兼容 Android 6.0 的问题 ([b77e4b8](https://github.com/remaxjs/remax/commit/b77e4b8b49db5e7ca6e98397499e52f7c03ea1a3)), closes [#1522](https://github.com/remaxjs/remax/issues/1522)
+
 # [2.12.0](https://github.com/remaxjs/remax/compare/v2.11.8...v2.12.0) (2021-04-07)
 
 **Note:** Version bump only for package @remax/runtime
