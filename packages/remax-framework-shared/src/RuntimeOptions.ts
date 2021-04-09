@@ -37,9 +37,9 @@ function merge(...options: Array<Partial<RuntimeOptions>>) {
       acc.hostComponents[k] = acc.hostComponents[k] ?? {};
       acc.hostComponents[k].additional = inputHostComponent?.additional ?? acc.hostComponents[k].additional;
       acc.hostComponents[k].alias = Object.assign(acc.hostComponents[k].alias ?? {}, inputHostComponent?.alias ?? {});
-      acc.hostComponents[k].props = Array.from(
-        new Set([...(acc.hostComponents[k].props ?? []), ...(inputHostComponent?.props ?? [])])
-      );
+      acc.hostComponents[k].props = [
+        ...new Set([...(acc.hostComponents[k].props ?? []), ...(inputHostComponent?.props ?? [])]),
+      ];
     });
 
     acc.pluginDriver = option.pluginDriver ?? acc.pluginDriver;

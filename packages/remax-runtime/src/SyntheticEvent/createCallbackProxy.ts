@@ -1,3 +1,4 @@
+import { find } from '@remax/framework-shared';
 import stopPropagation, { validate as validatePropagation, isPropagationStopped } from './stopPropagation';
 import { SYNTHETIC_TYPES, DEPRECATED_CATCH_TYPE } from './constants';
 import VNode from '../VNode';
@@ -9,7 +10,7 @@ function isSyntheticType(inputType: string) {
     );
   }
 
-  return !!SYNTHETIC_TYPES.find(type => type === inputType);
+  return !!find(SYNTHETIC_TYPES, type => type === inputType);
 }
 
 function createBaseSyntheticEvent(node: VNode, eventType: string, nativeEvent: any) {

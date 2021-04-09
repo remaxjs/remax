@@ -1,6 +1,6 @@
 import { CSSProperties } from 'react';
 import { isUnitlessNumber } from './CSSProperty';
-import { RuntimeOptions } from '@remax/framework-shared';
+import { find, RuntimeOptions } from '@remax/framework-shared';
 
 const vendorPrefixes = ['webkit', 'moz', 'ms', 'o'];
 
@@ -19,7 +19,7 @@ const transformReactStyleKey = (key: string) => {
     const firstWord = styleValue.split('-').filter(s => s)[0];
     styleValue = styleValue.replace(/^-/, '');
 
-    if (vendorPrefixes.find(prefix => prefix === firstWord)) {
+    if (find(vendorPrefixes, prefix => prefix === firstWord)) {
       styleValue = '-' + styleValue;
     }
   }

@@ -1,3 +1,4 @@
+import { includes } from '@remax/framework-shared';
 const STYLE = ['style', 'placeholderStyle'];
 const CHILDREN = 'children';
 const CLASS_NAME = 'className';
@@ -26,7 +27,7 @@ export default function diffProperties(
     ) {
       continue;
     }
-    if (STYLE.includes(propKey)) {
+    if (includes(STYLE, propKey)) {
       const lastStyle = lastProps[propKey];
       for (styleName in lastStyle) {
         if (hasOwnProperty.call(lastStyle, styleName)) {
@@ -49,7 +50,7 @@ export default function diffProperties(
     if (!hasOwnProperty.call(nextProps, propKey) || nextProp === lastProp || (nextProp == null && lastProp == null)) {
       continue;
     }
-    if (STYLE.includes(propKey)) {
+    if (includes(STYLE, propKey)) {
       if (process.env.NODE_ENV === 'development') {
         if (nextProp) {
           // Freeze the next style object so that we can assume it won't be
