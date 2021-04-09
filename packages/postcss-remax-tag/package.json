@@ -6,7 +6,7 @@
   "author": "Caihuanyu <eterlf41@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "postcss": "^7.0.27"
+    "postcss": "^8.2.9"
   },
   "publishConfig": {
     "access": "public"
