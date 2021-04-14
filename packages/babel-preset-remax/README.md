@@ -8,6 +8,10 @@ Babel preset for remax app.
 
 ## Options
 
+### react
+
+configure react preset. https://babeljs.io/docs/en/babel-preset-react
+
 ### typescript
 
 configure typescript preset. https://babeljs.io/docs/en/babel-preset-typescript
@@ -30,6 +34,9 @@ configure react preset throwIfNamespace option. https://babeljs.io/docs/en/babel
     [
       'remax',
       {
+        react: {
+          runtime: 'classic',
+        },
         typescript: {
           allowNamespaces: true,
         },
