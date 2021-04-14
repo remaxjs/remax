@@ -1,7 +1,7 @@
 import { declare } from '@babel/helper-plugin-utils';
 
 interface PresetOption {
-  react?: boolean;
+  react?: boolean | { [key: string]: any };
   typescript?: any;
   decorators?: any;
   'class-properties'?: any;
@@ -32,7 +32,10 @@ function preset(api: any, presetOption: PresetOption) {
   }
 
   if (react) {
-    presets.push([require.resolve('@babel/preset-react'), { throwIfNamespace }]);
+    const defaultReactOpt = { throwIfNamespace };
+    const reactOpts = typeof react === 'boolean' ? defaultReactOpt : Object.assign(defaultReactOpt, react);
+
+    presets.push([require.resolve('@babel/preset-react'), reactOpts]);
   }
 
   return {

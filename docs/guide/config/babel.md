@@ -30,6 +30,9 @@ module.exports = {
     [
       'remax',
       {
+        react: {
+          runtime: 'automatic',
+        },
         typescript: {
           allowNamespaces: true,
         },
