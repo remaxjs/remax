@@ -7,6 +7,12 @@
     "mini-page": "pages/mini/index",
     "react-page": "pages/react/index"
   },
+  "plugins": {
+    "myPlugin": {
+      "version": "1.0.0",
+      "provider": "wxidxxxxxxxxxxxxxxxx"
+    }
+  },
   "pages": ["pages/mini/index", "pages/react/index"],
   "main": "main"
 }
