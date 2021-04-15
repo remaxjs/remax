@@ -41,6 +41,9 @@ export default class NativeEntry extends VirtualEntry {
     const { usingComponents = {} } = this.readRawManifest();
     return Object.keys(usingComponents).reduce((acc: Map<string, NativeEntry>, name: string) => {
       const request: string = usingComponents[name];
+      if (request && request.startsWith('plugin://')) {
+        return acc;
+      }
       const fileExist = ['.js', '.ts'].some(ext => {
         const filename = this.builder.projectPath.resolveAsset(request + ext, this.filename);
         if (filename && fs.existsSync(filename)) {
