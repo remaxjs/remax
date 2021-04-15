@@ -1,6 +1,8 @@
 import type { Platform } from '@remax/types';
 
-const extensions = ['.mjs', '.js', '.jsx', '.json', '.ts', '.tsx'];
+const extensions = ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'];
+
+export const cssExtensions = ['.css', '.less', '.sass', '.scss', '.stylus', '.styl'];
 
 const matcher = new RegExp(`(${extensions.join('|')})$`);
 

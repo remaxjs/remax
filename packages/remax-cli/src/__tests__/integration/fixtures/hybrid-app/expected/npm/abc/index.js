@@ -1,17 +1,17 @@
 require('./../../runtime.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[5],{
+(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[6],{
 
-/***/ 21:
+/***/ 24:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* istanbul ignore next */
-__webpack_require__(22);
+__webpack_require__(25);
 
 Component({});
 
 /***/ }),
 
-/***/ 22:
+/***/ 25:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* istanbul ignore next */
@@ -19,4 +19,4 @@ Component({});
 
 /***/ })
 
-},[[21,0]]]);
+},[[24,0]]]);

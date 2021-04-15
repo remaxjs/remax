@@ -5,8 +5,15 @@ import { loader } from 'webpack';
 import Store from '@remax/build-store';
 import { isNativeComponent, slash } from '@remax/shared';
 import { getNativeAssetOutputPath, replaceExtension } from '../../utils/paths';
+import { cssExtensions } from '../../../extensions';
 import Builder from '../../Builder';
 import NativeEntry from '../../entries/NativeEntry';
+
+const EntryFilePathRegex = /\.entry\.(js|ts)$/;
+
+function isEntryFile(filepath: string) {
+  return EntryFilePathRegex.test(filepath);
+}
 
 export default async function nativeModule(this: loader.LoaderContext, source: string) {
   this.cacheable();
@@ -18,7 +25,7 @@ export default async function nativeModule(this: loader.LoaderContext, source: s
   const { builder }: { builder: Builder } = utils.getOptions(this) as any;
   const resourcePath = slash(this.resourcePath);
 
-  const entryRealPath = resourcePath.replace(/\.entry\.js$/, '.js');
+  const entryRealPath = resourcePath.replace(/\.entry(?=\.(js|ts)$)/, '');
   const entry =
     builder.entryCollection.entries.get(entryRealPath) ||
     builder.entryCollection.nativeComponentEntries.get(entryRealPath);
@@ -33,14 +40,17 @@ export default async function nativeModule(this: loader.LoaderContext, source: s
       })
     );
   }
-  if (resourcePath.endsWith('.entry.js')) {
-    const cssFile = replaceExtension(entryRealPath, builder.api.getMeta().style);
-    if (fs.existsSync(cssFile)) {
-      finalSource = `
-        require('./${path.basename(cssFile)}');
-        ${source}
-      `;
-    }
+  if (isEntryFile(resourcePath)) {
+    const cssFiles = [builder.api.getMeta().style, ...cssExtensions].map(ext => replaceExtension(entryRealPath, ext));
+    cssFiles.some(file => {
+      if (fs.existsSync(file)) {
+        finalSource = `
+          require('./${path.basename(file)}');
+          ${source}
+        `;
+        return true;
+      }
+    });
   }
 
   if (isNativeComponent(resourcePath)) {

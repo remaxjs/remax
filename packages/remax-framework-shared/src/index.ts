@@ -11,3 +11,4 @@ export * from './lifecycle';
 export * from './hooks';
 export * from './formatDisplayName';
 export * from './promisify';
+export * from './shim';
