@@ -2,6 +2,7 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  animation: 'animation',
   scrollX: 'scroll-x',
   scrollY: 'scroll-y',
   upperThreshold: 'upper-threshold',
@@ -21,7 +22,6 @@ export const alias = {
   onTouchMove: 'bindtouchmove',
   onTouchCancel: 'bindtouchcancel',
   onClick: 'bindtap',
-  animation: 'animation',
   scrollAnchoring: 'scroll-anchoring',
   refresherEnabled: 'refresher-enabled',
   refresherThreshold: 'refresher-threshold',
@@ -32,6 +32,14 @@ export const alias = {
   onRefresherRefresh: 'bindrefresherrefresh',
   onRefresherRestore: 'bindrefresherrestore',
   onRefresherAbort: 'bindrefresherabort',
+  enhanced: 'enhanced',
+  bounces: 'bounces',
+  showScrollbar: 'show-scrollbar',
+  pagingEnabled: 'paging-enabled',
+  fastDeceleration: 'fast-deceleration',
+  onDragStart: 'binddragstart',
+  onDragging: 'binddragging',
+  onDragEnd: 'binddragend',
 };
 
 export const props = Object.values(alias);

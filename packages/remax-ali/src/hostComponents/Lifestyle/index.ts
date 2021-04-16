@@ -1,4 +1,5 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 
 export interface LifestyleProps {
   readonly dataset?: DOMStringMap;
@@ -6,4 +7,4 @@ export interface LifestyleProps {
   onFollow?: (e: any) => void;
 }
 
-export const Lifestyle = createHostComponent<LifestyleProps>('lifestyle');
+export const Lifestyle = createHostComponent<LifestyleProps>('lifestyle') as React.ComponentType<LifestyleProps>;

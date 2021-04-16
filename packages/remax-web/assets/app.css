@@ -1,0 +1,149 @@
+.remax-button {
+  /* prettier-ignore */
+  font-size: 18PX;
+  /* prettier-ignore */
+  height: 47PX;
+  /* prettier-ignore */
+  line-height: 47PX;
+  /* prettier-ignore */
+  border-radius: 2PX;
+  display: block;
+  outline: 0;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  padding: 0;
+  text-align: center;
+  /* prettier-ignore */
+  border-radius: 2PX;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  white-space: nowrap;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  /* prettier-ignore */
+  border: 1PX solid rgb(238, 238, 238);
+}
+
+.remax-input {
+  /* prettier-ignore */
+  font-size: 17PX;
+  /* prettier-ignore */
+  height: 25PX;
+  display: inline-block;
+  background-color: rgb(255, 255, 255);
+  /* prettier-ignore */
+  padding: 2px 5px;
+  color: rgb(0, 0, 0);
+  box-sizing: content-box;
+}
+
+.remax-textarea {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  /* prettier-ignore */
+  padding: 2px 5px;
+  color: rgb(0, 0, 0);
+  /* prettier-ignore */
+  font-size: 17px;
+  /* prettier-ignore */
+  height: 42px;
+  line-height: 1.4;
+}
+
+.remax-image {
+  background-repeat: no-repeat;
+  display: inline-block;
+  overflow: hidden;
+  font-size: 0;
+  /* prettier-ignore */
+  width: 300PX;
+  /* prettier-ignore */
+  height: 225PX;
+}
+
+.remax-text-selectable {
+  user-select: text;
+}
+
+.remax-web-view {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.remax-page.with-tab-bar {
+  padding-bottom: 96px;
+}
+
+.remax-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-size: 32px;
+}
+
+.remax-page.disable-scroll {
+  overflow: hidden;
+}
+
+.rmc-pull-to-refresh-transition {
+  transition: transform 0.3s;
+}
+
+.rmc-pull-to-refresh-wrapper {
+  overflow: hidden;
+}
+
+.rmc-pull-to-refresh-indicator {
+  color: grey;
+  text-align: center;
+  height: 100px;
+}
+
+.rmc-pull-to-refresh-indicator {
+  margin-top: -100px;
+}
+
+.remax-pull-to-refresh-loading {
+  width: 100px;
+  height: 100px;
+}
+
+.remax-tab-bar {
+  height: 96px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 999999;
+}
+
+.remax-tab-bar .remax-tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.remax-tab-bar .remax-tab-item .remax-tab-item-image {
+  height: 34px;
+  width: 34px;
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+.remax-tab-bar .remax-tab-item .remax-tab-item-title {
+  font-size: 12px;
+  color: #333;
+  transform: scale(0.7);
+}
+
+.remax-tab-bar .remax-tab-item .remax-tab-item-title.active {
+  color: #108ee9;
+}

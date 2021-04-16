@@ -4,24 +4,33 @@ import View from './helpers/View';
 import Input from './helpers/Input';
 import render from '../render';
 import { reset as resetInstanceId } from '../instanceId';
-import { reset as resetActionId } from '../actionId';
 import Container from '../Container';
-import createPageWrapper from '../createPageWrapper';
-// eslint-disable-next-line @typescript-eslint/camelcase
-import { useNativeEffect, usePageInstance } from '../hooks';
+import { useNativeEffect } from '../hooks';
+import { RuntimeOptions } from '@remax/framework-shared';
+
+function delay(ms: number): Promise<void> {
+  if (typeof ms !== 'number') {
+    throw new Error('Must specify ms');
+  }
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve();
+    }, ms);
+  });
+}
 
 const p = {
-  setData(state: any, callback: Function) {
+  setData(state: any, callback: () => void) {
     setTimeout(() => {
       if (typeof callback === 'function') {
         callback();
       }
     });
   },
-  $batchedUpdates(callback: Function) {
+  $batchedUpdates(callback: () => void) {
     callback();
   },
-  $spliceData(state: any, callback: Function) {
+  $spliceData(state: any, callback: () => void) {
     setTimeout(() => {
       if (typeof callback === 'function') {
         callback();
@@ -30,9 +39,13 @@ const p = {
   },
 };
 
-describe('remax render', () => {
+describe('ali remax render', () => {
+  beforeEach(() => {
+    RuntimeOptions.apply({ platform: 'ali' });
+    resetInstanceId();
+  });
   afterEach(() => {
-    resetActionId();
+    RuntimeOptions.reset();
     resetInstanceId();
   });
 
@@ -80,6 +93,46 @@ describe('remax render', () => {
     page.current.insert();
     expect(container.root).toMatchSnapshot();
     page.current.insertBefore();
+    expect(container.root).toMatchSnapshot();
+  });
+
+  it('insert and remove element', () => {
+    class Page extends React.Component {
+      state = {
+        show: false,
+      };
+
+      show() {
+        this.setState({
+          show: true,
+        });
+      }
+
+      hide() {
+        this.setState({
+          show: false,
+        });
+      }
+
+      render() {
+        const { show } = this.state;
+        return (
+          <View>
+            <View>1</View>
+            {show && <View>2</View>}
+            <View>3</View>
+          </View>
+        );
+      }
+    }
+
+    const container = new Container(p);
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, container);
+    expect(container.root).toMatchSnapshot();
+    page.current.show();
+    expect(container.root).toMatchSnapshot();
+    page.current.hide();
     expect(container.root).toMatchSnapshot();
   });
 
@@ -159,6 +212,51 @@ describe('remax render', () => {
     page.current.updateA();
     expect(container.root).toMatchSnapshot();
     page.current.updateB();
+    expect(container.root).toMatchSnapshot();
+  });
+
+  it('update element props', () => {
+    class Page extends React.Component {
+      state = {
+        input: {
+          className: 'className',
+          style: {
+            display: 'flex',
+            flex: 1,
+          },
+          disable: false,
+        },
+      };
+
+      update() {
+        this.setState({
+          input: {
+            ...this.state.input,
+            style: {
+              ...this.state.input.style,
+              flex: 2,
+            },
+            disable: true,
+            className: 'updateClassName',
+          },
+        });
+      }
+
+      render() {
+        const { input } = this.state;
+        return (
+          <View>
+            <Input className={input.className} style={input.style} disabled={input.disable} />
+          </View>
+        );
+      }
+    }
+
+    const container = new Container(p);
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, container);
+    expect(container.root).toMatchSnapshot();
+    page.current.update();
     expect(container.root).toMatchSnapshot();
   });
 
@@ -304,82 +402,100 @@ it('useEffect works', done => {
   render(<Page />, container);
 });
 
-it('pure rerender when props changed', done => {
-  let payload: any[] = [];
-  const context = {
-    setData: (data: any) => {
-      payload = data.action.payload;
-    },
-  };
+describe('flatten update', () => {
+  beforeAll(() => {
+    RuntimeOptions.apply({ platform: 'web' });
+  });
 
-  class Page extends React.Component {
-    state = {
-      value: 'foo',
+  afterAll(() => {
+    RuntimeOptions.reset();
+  });
+
+  it('pure rerender when props changed', done => {
+    const payload: any[] = [];
+    const context = {
+      setData: (data: any) => {
+        payload.push(data);
+      },
     };
 
-    setValue(value: string) {
-      this.setState({ value });
+    class Page extends React.Component {
+      state = {
+        value: 'foo',
+      };
+
+      setValue(value: string) {
+        this.setState({ value });
+      }
+
+      render() {
+        return (
+          <View style={{ width: '32px' }}>
+            <Input value={this.state.value} />
+          </View>
+        );
+      }
     }
+    const container = new Container(context);
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, container);
 
-    render() {
-      return (
-        <View style={{ width: '32px' }}>
-          <Input value={this.state.value} />
-        </View>
-      );
-    }
-  }
-  const container = new Container(context);
-  const page = React.createRef<any>();
-  render(<Page ref={page} />, container);
+    expect.assertions(2);
 
-  expect.assertions(2);
+    page.current.setValue('bar');
 
-  page.current.setValue('bar');
+    setTimeout(() => {
+      expect(payload).toHaveLength(2);
+      expect(payload[1]).toMatchInlineSnapshot(`
+        Object {
+          "root.nodes.7.nodes.6.props.value": "bar",
+        }
+      `);
+      done();
+    }, 5);
+  });
 
-  setTimeout(() => {
-    expect(payload).toHaveLength(1);
-    expect(payload[0].item.type).toEqual('input');
-    done();
-  }, 5);
-});
-
-it('pure rerender when props delete', done => {
-  let payload: any[] = [];
-  const context = {
-    setData: (data: any) => {
-      payload = data.action.payload;
-    },
-  };
-
-  class Page extends React.Component {
-    state = {
-      value: 'foo',
+  it('pure rerender when props delete', done => {
+    const payload: any[] = [];
+    const context = {
+      setData: (data: any) => {
+        payload.push(data);
+      },
     };
 
-    setValue(value: string) {
-      this.setState({ value });
+    class Page extends React.Component {
+      state = {
+        value: 'foo',
+      };
+
+      setValue(value: string) {
+        this.setState({ value });
+      }
+
+      render() {
+        return (
+          <View style={{ width: '32px' }}>{!this.state.value ? <Input /> : <Input value={this.state.value} />}</View>
+        );
+      }
     }
+    const container = new Container(context);
+    const page = React.createRef<any>();
+    render(<Page ref={page} />, container);
 
-    render() {
-      return (
-        <View style={{ width: '32px' }}>{!this.state.value ? <Input /> : <Input value={this.state.value} />}</View>
-      );
-    }
-  }
-  const container = new Container(context);
-  const page = React.createRef<any>();
-  render(<Page ref={page} />, container);
+    expect.assertions(2);
 
-  expect.assertions(2);
+    page.current.setValue(undefined);
 
-  page.current.setValue(undefined);
-
-  setTimeout(() => {
-    expect(payload).toHaveLength(1);
-    expect(payload[0].item.type).toEqual('input');
-    done();
-  }, 5);
+    setTimeout(() => {
+      expect(payload).toHaveLength(2);
+      expect(payload[1]).toMatchInlineSnapshot(`
+        Object {
+          "root.nodes.10.nodes.9.props.value": null,
+        }
+      `);
+      done();
+    }, 5);
+  });
 });
 
 it('useNativeEffect once works', done => {
@@ -437,33 +553,7 @@ it('useNativeEffect deps works', done => {
   render(<Page />, container);
 });
 
-it('usePageInstance works', done => {
-  const Page = createPageWrapper(() => {
-    const instance = usePageInstance();
-
-    React.useEffect(() => {
-      expect(instance.data).toBeDefined();
-      done();
-    }, []);
-
-    return <View />;
-  }, {});
-  const container = new Container(p);
-  render(<Page page={{ data: {} }} />, container);
-});
-
 describe('Remax Suspense placeholder', () => {
-  function delay(ms: number) {
-    if (typeof ms !== 'number') {
-      throw new Error('Must specify ms');
-    }
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve();
-      }, ms);
-    });
-  }
-
   function createTextResource(ms: number, text: string) {
     let status = 'pending';
     let result: any;
@@ -511,13 +601,6 @@ describe('Remax Suspense placeholder', () => {
   const Suspense = React.Suspense;
 
   it('hides and unhides timed out DOM elements', async () => {
-    beforeAll(() => {
-      jest.useFakeTimers();
-    });
-
-    afterAll(() => {
-      jest.useRealTimers();
-    });
     const refs = [React.createRef<any>(), React.createRef<any>(), React.createRef<any>()];
 
     function App() {
@@ -544,7 +627,7 @@ describe('Remax Suspense placeholder', () => {
     expect(refs[1].current.props.style.display).toEqual('none');
     expect(refs[2].current.props.style.display).toEqual('none');
 
-    await delay(10);
+    await delay(100);
     expect(refs[0].current.props.style).toEqual(undefined);
     expect(refs[1].current.props.style).toEqual(undefined);
     expect(refs[2].current.props.style.display).toEqual('inline');
@@ -566,7 +649,7 @@ describe('Remax Suspense placeholder', () => {
     const container = new Container(p);
     render(<App />, container);
     expect(container.root.children[0].children.map(node => node.text).join('')).toBe('Loading...');
-    await delay(10);
+    await delay(100);
     expect(container.root.children[0].children.map(node => node.text).join('')).toBe('ABC');
   });
 });

@@ -3,6 +3,7 @@ export const alias = {
   name: 'name',
   className: 'class',
   style: 'style',
+  animation: 'animation',
   mode: 'mode',
   range: 'range',
   rangeKey: 'range-key',
@@ -15,7 +16,8 @@ export const alias = {
   fields: 'fields',
   customItem: 'custom-item',
   disabled: 'disabled',
-  animation: 'animation',
+  onClick: 'bindtap',
+  onTap: 'bindtap',
 };
 
 export const props = Object.values(alias);

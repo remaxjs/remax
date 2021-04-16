@@ -2,6 +2,7 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  animation: 'animation',
   src: 'src',
   loop: 'loop',
   controls: 'controls',
@@ -13,7 +14,6 @@ export const alias = {
   onPause: 'bindpause',
   onTimeUpdate: 'bindtimeupdate',
   onEnded: 'bindended',
-  animation: 'animation',
 };
 
 export const props = Object.values(alias);

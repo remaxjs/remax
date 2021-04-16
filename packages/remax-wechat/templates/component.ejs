@@ -1,83 +1,38 @@
 <template name="REMAX_TPL_<%=templateId%>_<%=id%>">
-  <%_ function propsKeyTpl(props) {
+  <%_ function propsKeyTpl(props, isCatch, indent) {
+    // 互斥事件
+    if (isCatch) {
+      props = props.filter(key => key !== 'bindtouchmove')
+    } else {
+      props = props.filter(key => key !== 'catchtouchmove')
+    }
+
     return props
-      .map(key => `${key}="{{_h.v(i.props['${key}'])}}"`)
+      .map(key => `${indent}${key}="{{_h.v(i.props['${key}'])}}"`)
       .join('\n')
-  } _%>
-  <%_ if (['input', 'textarea'].includes(id)) { _%>
-    <% const propsString = propsKeyTpl(props.filter(key => (key !== 'focus'))) %>
-    <<%=id%> wx:if="{{i.props.focus}}" focus
-      <%- propsString %>
-    />
-    <<%=id%> wx:else <%- propsString %> />
-  <%_ } else if (id === 'scroll-view') { _%>
-    <% const propsString = propsKeyTpl(props.filter(key => (key !== 'scroll-top' && key !== 'scroll-left'))) %>
-    <<%=id%> wx:if="{{i.props['scroll-y'] && i.props['scroll-top'] !== undefined && i.props['scroll-top'] !== null}}" scroll-top="{{i.props['scroll-top']}}" <%- propsString %> >
-      <block wx:for="{{i.children}}" wx:key="id">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-      </block>
+  } -%>
+  <%_ if (id === 'view') { -%>
+<%# view 标签需要区分是否含 catchtouchmove 事件，区分渲染模板 -%>
+  <block wx:if="{{i.props['catchtouchmove']}}">
+    <<%=id%>
+<%- propsKeyTpl(props, true, '      ') %>
+    >
+<%- include('./children.ejs', { props: props, id: id, type: type, slotView: slotView }) -%>
     </<%=id%>>
-    <<%=id%> wx:elif="{{i.props['scroll-x'] && i.props['scroll-left'] !== undefined && i.props['scroll-left'] !== null}}" scroll-left="{{i.props['scroll-left']}}" <%- propsString %> >
-      <block wx:for="{{i.children}}" wx:key="id">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-      </block>
+  </block>
+
+  <block wx:else>
+    <<%=id%>
+<%- propsKeyTpl(props, false, '      ') %>
+    >
+<%- include('./children.ejs', { props: props, id: id, type: type, slotView: slotView }) -%>
     </<%=id%>>
-    <<%=id%> wx:else <%- propsString %> >
-      <block wx:for="{{i.children}}" wx:key="id">
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-      </block>
-    </<%=id%>>
-  <%_ } else if (id === 'swiper') { _%>
-    <% const propsString = propsKeyTpl(props.filter(key => (key !== 'current'))) %>
-    <<%=id%> wx:if="{{i.props.current !== undefined && i.props.current !== null}}" current="{{i.props.current}}" <%- propsString %> >
-      <block wx:for="{{i.children}}" wx:key="id">
-        <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-          <block wx:for="{{item.children}}" wx:key="id">
-            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-          </block>
-        </swiper-item>
-      </block>
-    </<%=id%>>
-    <<%=id%> wx:else <%- propsString %> >
-      <block wx:for="{{i.children}}" wx:key="id">
-        <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-          <block wx:for="{{item.children}}" wx:key="id">
-            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-          </block>
-        </swiper-item>
-      </block>
-    </<%=id%>>
-  <%_ } else { _%>
+  </block>
+  <%_ } else { -%>
   <<%=id%>
-    <%- propsKeyTpl(props) %>>
-    <%_ if (id === 'swiper') { _%>
-    <block wx:for="{{i.children}}" wx:key="id">
-      <swiper-item item-id="{{item.props.itemId}}" key="{{item.props.key}}">
-        <block wx:for="{{item.children}}" wx:key="id">
-          <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-        </block>
-      </swiper-item>
-    </block>
-    <%_ } else if (type === 'native') { _%>
-    <block wx:for="{{i.children}}" wx:key="id">
-      <block wx:if="{{item.props['slot']}}">
-        <view slot="{{item.props['slot']}}" <% for(let i=0;i < slotView.props.length; i++) { %>
-          <%=slotView.props[i]%>="{{item.props['<%=slotView.props[i]%>']}}" <%}%>
-        >
-          <block wx:for="{{item.children}}" wx:key="id">
-            <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-          </block>
-        </view>
-      </block>
-      <block wx:else>
-        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-      </block>
-    </block>
-    <%_ } else { _%>
-    <block wx:for="{{i.children}}" wx:key="id">
-      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: item, a: a, tid: tid + 1 }}" />
-    </block>
-    <%_ } _%>
+<%- propsKeyTpl(props, false, '    ') %>
+  >
+<%- include('./children.ejs', { props: props, id: id, type: type, slotView: slotView }) -%>
   </<%=id%>>
-  <%_ } _%>
+  <%_ } -%>
 </template>

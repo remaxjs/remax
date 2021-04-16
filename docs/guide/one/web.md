@@ -17,17 +17,30 @@ $ remax build -t web
 
 为了与小程序对齐，Remax 为 Web 平台也提供了一份与小程序类似的应用配置。
 
+> router 配置从 2.6.0 开始支持
+
 ```js
 // app.config.js
 module.exports.web = {
-  // 页面默认标题
-  title: '页面默认标题',
   // 配置的页面
   pages: ['pages/index/index'],
-  // 是否全局开启下拉刷新
-  pullToRefresh: false,
-  // 触底滚动的默认距离，单位 px
-  reachBottomOffset: 50,
+
+  window: {
+    // 页面默认标题
+    defaultTitle: '页面默认标题',
+
+    // 是否全局开启下拉刷新
+    pullRefresh: false,
+
+    // 触底滚动的默认距离，单位 px
+    reachBottomOffset: 50,
+  },
+
+  router: {
+    // history 类型，支持 hash 和 browser
+    type: 'hash',
+  },
+
   // tab bar 配置
   tabBar: {
     // 背景色
@@ -60,12 +73,14 @@ module.exports.web = {
 ```js
 // app.config.js
 module.exports.web = {
-  // 页面标题
-  title: '页面标题',
-  // 是否开启下拉刷新
-  pullToRefresh: false,
-  // 触底滚动的距离，单位 px
-  reachBottomOffset: 50,
+  window: {
+    // 页面标题
+    defaultTitle: '页面标题',
+    // 是否开启下拉刷新
+    pullRefresh: false,
+    // 触底滚动的距离，单位 px
+    reachBottomOffset: 50,
+  }
 };
 ```
 

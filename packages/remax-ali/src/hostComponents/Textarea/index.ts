@@ -1,5 +1,5 @@
-import { createHostComponent } from '@remax/shared';
 import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 
 export interface TextareaProps {
   readonly dataset?: DOMStringMap;
@@ -16,10 +16,11 @@ export interface TextareaProps {
   autoHeight?: boolean;
   showCount?: boolean;
   controlled?: boolean;
+  enableNative?: boolean;
   onInput?: (e: any) => void;
   onFocus?: (e: any) => void;
   onBlur?: (e: any) => void;
   onConfirm?: (e: any) => void;
 }
 
-export const Textarea = createHostComponent<TextareaProps>('textarea');
+export const Textarea = createHostComponent<TextareaProps>('textarea') as React.ComponentType<TextareaProps>;

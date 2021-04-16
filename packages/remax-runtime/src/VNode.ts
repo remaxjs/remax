@@ -1,18 +1,21 @@
-import propsAlias from './propsAlias';
+import propsAlias, { propAlias } from './propsAlias';
 import { TYPE_TEXT } from './constants';
 import Container from './Container';
+import { RuntimeOptions } from '@remax/framework-shared';
 
 export interface RawNode {
-  id?: number;
+  id: number;
   type: string;
   props?: any;
-  children?: RawNode[];
+  nodes?: { [key: number]: RawNode };
+  children?: Array<RawNode | number>;
   text?: string;
 }
 
-function toRawNode(node: VNode) {
+function toRawNode(node: VNode): RawNode {
   if (node.type === TYPE_TEXT) {
     return {
+      id: node.id,
       type: node.type,
       text: node.text,
     };
@@ -27,10 +30,15 @@ function toRawNode(node: VNode) {
   };
 }
 
+function toRawProps(prop: string, value: any, type: string) {
+  return propAlias(prop, value, type);
+}
+
 export default class VNode {
   id: number;
   container: Container;
   mounted = false;
+  deleted = false;
   type: string;
   props?: any;
   parent: VNode | null = null;
@@ -48,11 +56,12 @@ export default class VNode {
     this.props = props;
   }
 
-  appendChild(node: VNode, immediately: boolean) {
-    this.removeChild(node, immediately);
+  appendChild(node: VNode) {
+    this.removeChild(node);
     this.size += 1;
 
     node.parent = this;
+    node.deleted = false; // 交换节点时删除的节点会被复用
 
     if (!this.firstChild) {
       this.firstChild = node;
@@ -66,11 +75,20 @@ export default class VNode {
     this.lastChild = node;
 
     if (this.isMounted()) {
-      this.container.requestUpdate(this.path + '.children', this.size - 1, 0, immediately, node.toJSON());
+      this.container.requestUpdate({
+        type: 'splice',
+        path: this.path,
+        start: node.index,
+        id: node.id,
+        deleteCount: 0,
+        children: this.children,
+        items: [node.toJSON()],
+        node: this,
+      });
     }
   }
 
-  removeChild(node: VNode, immediately: boolean) {
+  removeChild(node: VNode) {
     const { previousSibling, nextSibling } = node;
 
     if (node.parent !== this) {
@@ -98,17 +116,28 @@ export default class VNode {
 
     node.previousSibling = null;
     node.nextSibling = null;
+    node.deleted = true;
 
     if (this.isMounted()) {
-      this.container.requestUpdate(this.path + '.children', index, 1, immediately);
+      this.container.requestUpdate({
+        type: 'splice',
+        path: this.path,
+        start: index,
+        id: node.id,
+        deleteCount: 1,
+        children: this.children,
+        items: [],
+        node: this,
+      });
     }
   }
 
-  insertBefore(node: VNode, referenceNode: VNode, immediately: boolean) {
-    this.removeChild(node, immediately);
+  insertBefore(node: VNode, referenceNode: VNode) {
+    this.removeChild(node);
     this.size += 1;
 
     node.parent = this;
+    node.deleted = false; // 交换节点时删除的节点会被复用
 
     if (referenceNode === this.firstChild) {
       this.firstChild = node;
@@ -123,13 +152,52 @@ export default class VNode {
     node.nextSibling = referenceNode;
 
     if (this.isMounted()) {
-      this.container.requestUpdate(this.path + '.children', node.index, 0, immediately, node.toJSON());
+      this.container.requestUpdate({
+        type: 'splice',
+        path: this.path,
+        start: node.index,
+        id: node.id,
+        deleteCount: 0,
+        children: this.children,
+        items: [node.toJSON()],
+        node: this,
+      });
     }
   }
 
-  update() {
-    // root 不会更新，所以肯定有 parent
-    this.container.requestUpdate(this.parent!.path + '.children', this.index, 1, false, this.toJSON());
+  update(payload?: any[]) {
+    if (this.type === 'text' || !payload) {
+      this.container.requestUpdate({
+        type: 'splice',
+        // root 不会更新，所以肯定有 parent
+        path: this.parent!.path,
+        start: this.index,
+        id: this.id,
+        deleteCount: 1,
+        items: [this.toJSON()],
+        node: this,
+      });
+
+      return;
+    }
+
+    for (let i = 0; i < payload.length; i = i + 2) {
+      const [propName, propValue] = toRawProps(payload[i], payload[i + 1], this.type);
+
+      let path = [...this.parent!.path, 'nodes', this.id.toString(), 'props'];
+
+      if (RuntimeOptions.get('platform') === 'ali') {
+        path = [...this.parent!.path, `children[${this.index}].props`];
+      }
+
+      this.container.requestUpdate({
+        type: 'set',
+        path,
+        name: propName,
+        value: propValue,
+        node: this,
+      });
+    }
   }
 
   get index(): number {
@@ -157,7 +225,7 @@ export default class VNode {
   }
 
   get path() {
-    let dataPath = 'root';
+    const dataPath: string[] = [];
     const parents = [];
     let parent = this.parent;
 
@@ -168,7 +236,14 @@ export default class VNode {
 
     for (let i = 0; i < parents.length; i++) {
       const child = parents[i + 1] || this;
-      dataPath += '.children.' + child.index;
+
+      if (RuntimeOptions.get('platform') === 'ali') {
+        dataPath.push('children');
+        dataPath.push(child.index.toString());
+      } else {
+        dataPath.push('nodes');
+        dataPath.push(child.id.toString());
+      }
     }
 
     return dataPath;
@@ -176,6 +251,10 @@ export default class VNode {
 
   isMounted(): boolean {
     return this.parent ? this.parent.isMounted() : this.mounted;
+  }
+
+  isDeleted(): boolean {
+    return this.deleted === true ? this.deleted : this.parent?.isDeleted() ?? false;
   }
 
   toJSON() {
@@ -200,7 +279,18 @@ export default class VNode {
         const currentVNode = children[i];
         const currentRawNode = toRawNode(currentVNode);
 
-        currentNode.children![i] = currentRawNode;
+        if (RuntimeOptions.get('platform') !== 'ali') {
+          currentNode.children!.unshift(currentRawNode.id);
+        } else {
+          currentNode.children!.unshift(currentRawNode);
+        }
+
+        if (RuntimeOptions.get('platform') !== 'ali') {
+          if (!currentNode.nodes) {
+            currentNode.nodes = {};
+          }
+          currentNode.nodes[currentRawNode.id] = currentRawNode;
+        }
 
         stack.push({
           currentNode: currentRawNode,

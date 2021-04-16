@@ -1,0 +1,40 @@
+{
+  "name": "e2e-app",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "watch:mini": "remax build -w",
+    "dev:mini": " mini build -w ./",
+    "dev:web": "remax build -w -t web",
+    "dev:web:mpa": "MPA=1 remax build -w -t web",
+    "clean": "rimraf dist",
+    "build": "./scripts/build.sh",
+    "serve": "http-server ./dist/webng --cors --port=5678 -s",
+    "pretest": "npm run build",
+    "test": "jest",
+    "test:mini": "TEST_TARGET=mini npm run test",
+    "test:web": "TEST_TARGET=web npm run test"
+  },
+  "dependencies": {
+    "@remax/plugin-less": "^1.0.0",
+    "clsx": "^1.0.4",
+    "mini-antui": "^0.4.34",
+    "react": "^16.8.6",
+    "remax": "*"
+  },
+  "devDependencies": {
+    "@types/expect-puppeteer": "^4.4.0",
+    "@types/puppeteer": "^2.0.0",
+    "@types/react": "^16.9.1",
+    "cross-env": "^6.0.3",
+    "http-server": "^0.12.3",
+    "jest-puppeteer": "^4.4.0",
+    "merge": "^1.2.1"
+  },
+  "workspaces": {
+    "nohoist": [
+      "mini-antui",
+      "react"
+    ]
+  }
+}

@@ -2,6 +2,7 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  animation: 'animation',
   src: 'src',
   mode: 'mode',
   autoplay: 'autoplay',
@@ -21,7 +22,6 @@ export const alias = {
   onAudioVolumeNotify: 'bindaudiovolumenotify',
   onEnterPictureInPicture: 'bindenterpictureinpicture',
   onLeavePictureInPicture: 'bindleavepictureinpicture',
-  animation: 'animation',
 };
 
 export const props = Object.values(alias);

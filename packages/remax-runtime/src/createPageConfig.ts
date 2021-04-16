@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { pluginDriver } from '@remax/runtime-plugin';
-import createPageWrapper from './createPageWrapper';
-import { Lifecycle, callbackName, pageEvents } from './lifecycle';
+import { createPageWrapper, RuntimeOptions, Lifecycle, callbackName } from '@remax/framework-shared';
 import stopPullDownRefresh from './stopPullDownRefresh';
 import Container from './Container';
 import { createPortal } from './ReactPortal';
+import render from './render';
 
 let idCounter = 0;
 
@@ -25,39 +24,57 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
 
   const config: any = {
     data: {
-      action: {},
       root: {
+        children: [],
+      },
+      modalRoot: {
         children: [],
       },
     },
 
     wrapperRef: React.createRef<any>(),
 
-    lifecycleCallback: {} as any,
+    lifecycleCallback: {},
 
     onLoad(this: any, query: any) {
-      const PageWrapper = createPageWrapper(Page, query);
+      const PageWrapper = createPageWrapper(Page, name);
       this.pageId = generatePageId();
 
-      this.query = query;
-      this.container = new Container(this);
-      this.element = createPortal(
-        React.createElement(PageWrapper, {
-          page: this,
-          ref: this.wrapperRef,
-        }),
-        this.container,
-        this.pageId
-      );
+      this.lifecycleCallback = {};
+      this.data = {
+        root: {
+          children: [],
+        },
+        modalRoot: {
+          children: [],
+        },
+      };
 
-      app._mount(this);
+      this.query = query;
+      this.container = new Container(this, 'root');
+      this.modalContainer = new Container(this, 'modalRoot');
+      const pageElement = React.createElement(PageWrapper, {
+        page: this,
+        query,
+        modalContainer: this.modalContainer,
+        ref: this.wrapperRef,
+      });
+
+      if (app && app._mount) {
+        this.element = createPortal(pageElement, this.container, this.pageId);
+        app._mount(this);
+      } else {
+        this.element = render(pageElement, this.container);
+      }
+
+      return this.callLifecycle(Lifecycle.load, query);
     },
 
     onUnload(this: any) {
+      this.callLifecycle(Lifecycle.unload);
       this.unloaded = true;
       this.container.clearUpdate();
       app._unmount(this);
-      return this.callLifecycle(Lifecycle.load);
     },
 
     onTabItemTap(this: any, e: any) {
@@ -100,34 +117,28 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
     events: {
       // 页面返回时触发
       onBack(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.back, e);
+        return this.callLifecycle(Lifecycle.back, e);
       },
 
       // 键盘高度变化时触发
       onKeyboardHeight(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.keyboardHeight, e);
+        return this.callLifecycle(Lifecycle.keyboardHeight, e);
       },
 
       onTabItemTap(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.tabItemTap, e);
+        return this.callLifecycle(Lifecycle.tabItemTap, e);
       },
 
       // 点击但切换tabItem前触发
       beforeTabItemTap(this: any) {
-        return config.callLifecycle(Lifecycle.beforeTabItemTap);
+        return this.callLifecycle(Lifecycle.beforeTabItemTap);
       },
 
       onResize(this: any, e: any) {
-        return config.callLifecycle(Lifecycle.resize, e);
+        return this.callLifecycle(Lifecycle.resize, e);
       },
     },
 
-    /**
-     * lifecycle end
-     */
-  };
-
-  const lifecycleEvents: any = {
     onShow() {
       return this.callLifecycle(Lifecycle.show);
     },
@@ -154,14 +165,6 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
       return this.callLifecycle(Lifecycle.reachBottom);
     },
 
-    onPageScroll(e: any) {
-      return this.callLifecycle(Lifecycle.pageScroll, e);
-    },
-
-    onShareAppMessage(options: any) {
-      return this.callLifecycle(Lifecycle.shareAppMessage, options) || {};
-    },
-
     onTitleClick() {
       return this.callLifecycle(Lifecycle.titleClick);
     },
@@ -177,13 +180,31 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
     onPullIntercept() {
       return this.callLifecycle(Lifecycle.pullIntercept);
     },
+
+    /**
+     * lifecycle end
+     */
   };
 
-  pageEvents(name).forEach(eventName => {
+  const lifecycleEvents: any = {
+    onPageScroll(e: any) {
+      return this.callLifecycle(Lifecycle.pageScroll, e);
+    },
+
+    onShareAppMessage(options: any) {
+      return this.callLifecycle(Lifecycle.shareAppMessage, options) || {};
+    },
+
+    onShareTimeline(options: any) {
+      return this.callLifecycle(Lifecycle.shareTimeline, options) || {};
+    },
+  };
+
+  (RuntimeOptions.get('pageEvents')[name] ?? []).forEach(eventName => {
     if (lifecycleEvents[eventName]) {
       config[eventName] = lifecycleEvents[eventName];
     }
   });
 
-  return pluginDriver.onPageConfig(config);
+  return RuntimeOptions.get('pluginDriver').onPageConfig({ config, page: name });
 }

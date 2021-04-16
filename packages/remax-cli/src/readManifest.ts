@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import path from 'path';
-import { Platform } from '@remax/types';
+import type { Platform } from '@remax/types';
 
 function readTypescriptManifest(path: string, target: Platform) {
   require('@babel/register')({
@@ -27,7 +27,7 @@ function readJavascriptManifest(path: string, target: Platform) {
 export default function readManifest(filename: string, target: Platform, strict = false) {
   if (!fs.existsSync(filename)) {
     if (strict) {
-      throw new Error(`${path}.ts|js 文件不存在，请先创建配置文件，参考 https://remaxjs.org/guide/config`);
+      throw new Error(`${path}.ts|js 文件不存在，请先创建配置文件，参考 https://remaxjs.org/guide/config/remax`);
     }
     return {};
   }

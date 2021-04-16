@@ -24,7 +24,7 @@ import { Button } from 'remax/one';
 | hoverClassName | string                                                       | 按住按钮后对应的样式类                                       |
 | hoverStartTime | number                                                       | 按住后多久出现点击态，单位毫秒                               |
 | hoverStayTime  | boolean                                                      | 手指松开后点击态保留时间                                     |
-| formType       | 'submit' \| 'reset'                                          | 用于 form 组件，点击分别会触发 form 组件的 submit/reset 事件 |
+| type           | 'submit' \| 'reset'                                          | 用于 form 组件，点击分别会触发 form 组件的 submit/reset 事件 |
 | onTap          | ((event: [TapEvent](/api/remax-one/event#tapevent))) => void | 点击事件                                                     |
 
 > 注意
@@ -125,7 +125,7 @@ import { Label } from 'remax/one';
 | id        | string              | 节点 id           |
 | className | string              | 节点样式类        |
 | style     | React.CssProperties | 节点 inline style |
-| for       | string              | 绑定控件的 id     |
+| htmlFor   | string              | 绑定控件的 id     |
 
 ## Text
 
@@ -134,6 +134,8 @@ Text 组件
 ```jsx
 import { Text } from 'remax/one';
 ```
+
+属性
 
 | 名称       | 类型                                                         | 描述              |
 | ---------- | ------------------------------------------------------------ | ----------------- |
@@ -212,6 +214,8 @@ WebView 组件
 import { WebView } from 'remax/one';
 ```
 
+属性
+
 | 名称      | 类型                                                 | 描述              |
 | --------- | ---------------------------------------------------- | ----------------- |
 | id        | string                                               | 节点 id           |
@@ -219,3 +223,28 @@ import { WebView } from 'remax/one';
 | style     | React.CssProperties                                  | 节点 inline style |
 | src       | string                                               | 地址              |
 | onMessage | (event: [Event](/api/remax-one/event#event)) => void | 通信回调          |
+
+## Modal
+
+> turboPages 暂不支持使用 Modal
+
+Modal 组件是一种简单的覆盖在其他视图之上显示内容的方式。
+
+```jsx
+import { Modal, View } from 'remax/one';
+
+export default function PageIndex() {
+  return (
+    <View>
+      <Modal>
+        <View> modal </View>
+      </Modal>
+      <View>Page Index</View>
+    </View>
+  );
+}
+```
+
+属性
+
+无。

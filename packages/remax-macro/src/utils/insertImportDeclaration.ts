@@ -7,7 +7,8 @@ export default function insertImportDeclaration(program: any, imported: string, 
 
   if (node) {
     const specifier = (node as t.ImportDeclaration).specifiers.find(
-      specifier => t.isImportSpecifier(specifier) && specifier.imported.name === name
+      specifier =>
+        t.isImportSpecifier(specifier) && t.isIdentifier(specifier.imported) && specifier.imported.name === name
     );
 
     if (specifier) {

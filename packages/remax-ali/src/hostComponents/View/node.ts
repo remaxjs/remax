@@ -1,3 +1,5 @@
+import { unique } from '@remax/shared';
+
 export const alias = {
   id: 'id',
   disableScroll: 'disable-scroll',
@@ -27,4 +29,4 @@ export const alias = {
   onFirstAppear: 'onFirstAppear',
 };
 
-export const props = Object.values(alias);
+export const props = unique(Object.values(alias));

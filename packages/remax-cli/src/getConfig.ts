@@ -1,9 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import { getDefaultOptions } from './defaultOptions';
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import validateOptions from 'schema-utils';
-import schema from './OptionsSchema.json';
+
+const schema = require('../OptionsSchema.json');
 
 export interface CliOptions {
   target: string;
@@ -15,10 +16,20 @@ function readJavascriptConfig(path: string) {
   return config || {};
 }
 
+function normalizeConfigPath(options: Options): Options {
+  const pathKeys: Array<keyof Options> = ['cwd', 'rootDir', 'output'];
+  pathKeys.forEach(key => {
+    const value = options[key];
+    // @ts-ignore string-type
+    options[key] = path.normalize(value).replace(/(\\|\/)$/, '');
+  });
+  return options;
+}
+
 export default function getConfig(validate = true): Options {
   const configPath: string = path.join(process.cwd(), './remax.config');
 
-  let options = {};
+  let options = {} as Options;
 
   if (fs.existsSync(configPath + '.js')) {
     options = readJavascriptConfig(configPath + '.js');
@@ -30,8 +41,10 @@ export default function getConfig(validate = true): Options {
     });
   }
 
-  return {
+  const remaxConfig = {
     ...getDefaultOptions(),
     ...options,
   };
+
+  return normalizeConfigPath(remaxConfig);
 }

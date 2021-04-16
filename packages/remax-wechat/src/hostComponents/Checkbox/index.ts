@@ -1,4 +1,5 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 import { BaseProps } from '../../types/component';
 
 export interface CheckboxProps extends BaseProps {
@@ -13,4 +14,13 @@ export interface CheckboxProps extends BaseProps {
   color?: string;
 }
 
-export const Checkbox = createHostComponent<CheckboxProps>('checkbox');
+/**
+ * @see https://developers.weixin.qq.com/miniprogram/dev/component/checkbox.html
+ */
+export const Checkbox: React.ComponentType<CheckboxProps> = createHostComponent<CheckboxProps>('checkbox');
+
+Checkbox.defaultProps = {
+  disabled: false,
+  checked: false,
+  color: '#09bb07',
+};

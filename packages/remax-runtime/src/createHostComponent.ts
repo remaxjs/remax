@@ -1,21 +1,16 @@
 import * as React from 'react';
-
-export const hostComponents: {
-  [key: string]: {
-    alias?: {
-      [key: string]: string;
-    };
-  };
-} = __REMAX_HOST_COMPONENTS__ || {};
+import { RuntimeOptions } from '@remax/framework-shared';
 
 export default function createHostComponent<P = any>(name: string, component?: React.ComponentType<P>) {
   if (component) {
     return component;
   }
 
-  const Component: React.ForwardRefRenderFunction<any, P> = (props, ref: React.Ref<any>) => {
+  const Component = React.forwardRef((props, ref: React.Ref<any>) => {
     const { children = [] } = props;
-    return React.createElement(name, { ...props, ref }, children);
-  };
-  return React.forwardRef<any, React.PropsWithChildren<P>>(Component);
+    let element = React.createElement(name, { ...props, ref }, children);
+    element = RuntimeOptions.get('pluginDriver').onCreateHostComponentElement(element) as React.DOMElement<any, any>;
+    return element;
+  });
+  return RuntimeOptions.get('pluginDriver').onCreateHostComponent(Component);
 }

@@ -1,3 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Editor render correctly 1`] = `<editor />`;
+exports[`Editor render correctly 1`] = `
+<editor
+  readOnly={false}
+  showImgResize={false}
+  showImgSize={false}
+  showImgToolbar={false}
+/>
+`;

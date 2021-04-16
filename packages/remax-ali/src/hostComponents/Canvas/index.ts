@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface CanvasProps {
   readonly dataset?: DOMStringMap;
@@ -9,6 +9,7 @@ export interface CanvasProps {
   width?: string | number;
   height?: string | number;
   disableScroll?: boolean;
+  type?: string;
   onTap?: (e: any) => void;
   onTouchStart?: (e: any) => void;
   onTouchMove?: (e: any) => void;
@@ -16,4 +17,4 @@ export interface CanvasProps {
   onTouchCancel?: (e: any) => void;
   onLongTap?: (e: any) => void;
 }
-export const Canvas = createHostComponent<CanvasProps>('canvas');
+export const Canvas = createHostComponent<CanvasProps>('canvas') as React.ComponentType<CanvasProps>;

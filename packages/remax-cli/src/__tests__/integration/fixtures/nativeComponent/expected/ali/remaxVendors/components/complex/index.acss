@@ -1,5 +1,0 @@
-@import "./button.acss";
-
-.foo {
-  color: red;
-}

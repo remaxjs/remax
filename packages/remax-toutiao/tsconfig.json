@@ -10,12 +10,5 @@
     "downlevelIteration": true
   },
   "include": ["src/**/*", "typings/**/*"],
-  "references": [
-    {
-      "path": "../remax-types"
-    },
-    {
-      "path": "../remax-shared"
-    }
-  ]
+  "exclude": ["cjs", "esm"]
 }

@@ -1,32 +1,88 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input render correctly 1`] = `
+exports[`Input render correctly in ali 1`] = `
 <input
   className="class"
   controlled={false}
+  maxlength={140}
   onBlur={[Function]}
   onConfirm={[Function]}
   onFocus={[Function]}
-  onInput={[Function]}
   toutiao-selection-end={999}
   toutiao-selection-start={999}
-  wechat-selection-end={999}
-  wechat-selection-start={999}
+  wechat-adjust-position={true}
+  wechat-confirm-hold={false}
+  wechat-confirm-type="done"
+  wechat-cursor-spacing={0}
+  wechat-hold-keyboard={false}
+  wechat-placeholder-class="input-placeholder"
+  wechat-selection-end={-1}
+  wechat-selection-start={-1}
 />
 `;
 
-exports[`Input should have maxlength when PLATFORM is wechat or toutiao 1`] = `
+exports[`Input render correctly in toutiao 1`] = `
 <input
   className="class"
   controlled={false}
-  maxLength={140}
+  maxlength={140}
   onBlur={[Function]}
   onConfirm={[Function]}
   onFocus={[Function]}
-  onInput={[Function]}
   toutiao-selection-end={999}
   toutiao-selection-start={999}
-  wechat-selection-end={999}
-  wechat-selection-start={999}
+  wechat-adjust-position={true}
+  wechat-confirm-hold={false}
+  wechat-confirm-type="done"
+  wechat-cursor-spacing={0}
+  wechat-hold-keyboard={false}
+  wechat-placeholder-class="input-placeholder"
+  wechat-selection-end={-1}
+  wechat-selection-start={-1}
+/>
+`;
+
+exports[`Input render correctly in web 1`] = `
+<input
+  className="class"
+  controlled={false}
+  onBlur={[Function]}
+  onConfirm={[Function]}
+  onFocus={[Function]}
+  toutiao-selection-end={999}
+  toutiao-selection-start={999}
+  wechat-adjust-position={true}
+  wechat-confirm-hold={false}
+  wechat-confirm-type="done"
+  wechat-cursor-spacing={0}
+  wechat-hold-keyboard={false}
+  wechat-placeholder-class="input-placeholder"
+  wechat-selection-end={-1}
+  wechat-selection-start={-1}
+/>
+`;
+
+exports[`Input render correctly in wechat 1`] = `
+<input
+  className="class"
+  controlled={false}
+  disabled={false}
+  focus={false}
+  maxlength={140}
+  onBlur={[Function]}
+  onConfirm={[Function]}
+  onFocus={[Function]}
+  password={false}
+  toutiao-selection-end={999}
+  toutiao-selection-start={999}
+  type="text"
+  wechat-adjust-position={true}
+  wechat-confirm-hold={false}
+  wechat-confirm-type="done"
+  wechat-cursor-spacing={0}
+  wechat-hold-keyboard={false}
+  wechat-placeholder-class="input-placeholder"
+  wechat-selection-end={-1}
+  wechat-selection-start={-1}
 />
 `;

@@ -4,10 +4,12 @@ import { Textarea } from '../../hostComponents';
 import { InputEvent } from '../../types';
 
 describe('Textarea', () => {
-  it('render correctly', () => {
+  it('render correctly in ali', () => {
+    process.env.REMAX_PLATFORM = 'ali';
     const testRenderer = TestRenderer.create(
       <Textarea
         className="class"
+        maxLength={140}
         onConfirm={() => {
           // ignore
         }}
@@ -57,7 +59,7 @@ describe('Textarea', () => {
 
     expect(instance.props.value).toEqual('1');
 
-    const originalEvent = {
+    const nativeEvent = {
       target: {},
       currentTarget: {},
       detail: {
@@ -67,29 +69,69 @@ describe('Textarea', () => {
     };
 
     act(() => {
-      instance.props.onInput(originalEvent);
+      instance.props.onInput(nativeEvent);
     });
 
     expect(instance.props.value).toEqual('2');
   });
 
-  it('should have maxlength when PLATFORM is wechat or toutiao', () => {
+  it('render correctly in wechat', () => {
     process.env.REMAX_PLATFORM = 'wechat';
-
     const testRenderer = TestRenderer.create(
       <Textarea
         className="class"
-        onBlur={() => {
+        onConfirm={() => {
           // ignore
         }}
         onFocus={() => {
           // ignore
         }}
-        onConfirm={() => {
+        onBlur={() => {
           // ignore
         }}
       />
     );
+
+    expect(testRenderer.toJSON()).toMatchSnapshot();
+  });
+
+  it('render correctly in toutiao', () => {
+    process.env.REMAX_PLATFORM = 'wechat';
+    const testRenderer = TestRenderer.create(
+      <Textarea
+        className="class"
+        onConfirm={() => {
+          // ignore
+        }}
+        onFocus={() => {
+          // ignore
+        }}
+        onBlur={() => {
+          // ignore
+        }}
+      />
+    );
+
+    expect(testRenderer.toJSON()).toMatchSnapshot();
+  });
+
+  it('render correctly in web', () => {
+    process.env.REMAX_PLATFORM = 'wechat';
+    const testRenderer = TestRenderer.create(
+      <Textarea
+        className="class"
+        onConfirm={() => {
+          // ignore
+        }}
+        onFocus={() => {
+          // ignore
+        }}
+        onBlur={() => {
+          // ignore
+        }}
+      />
+    );
+
     expect(testRenderer.toJSON()).toMatchSnapshot();
   });
 });

@@ -1,0 +1,35 @@
+name: E2E web spa
+
+on:
+  push:
+    branches: [master]
+    paths-ignore:
+      - 'docs/**'
+  pull_request:
+    types: [opened, synchronize]
+    paths-ignore:
+      - 'docs/**'
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        os: [ubuntu-latest]
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install
+        run: yarn install --frozen-lockfile
+      - name: build
+        run: yarn build
+      - name: e2e
+        run: yarn test:e2e-web
+        env:
+          CI: true

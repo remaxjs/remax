@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
-
-export const PickerView = createHostComponent<PickerViewProps>('picker-view');
+import { createHostComponent } from '@remax/runtime';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface PickerViewProps extends BaseProps {
   name?: string;
@@ -17,9 +15,14 @@ export interface PickerViewProps extends BaseProps {
   /** 设置蒙层的类名 1.5.0 */
   maskClassName?: string;
   /** 滚动选择时触发change事件，event.detail = {value}；value为数组，表示 picker-view 内的 picker-view-column 当前选择的是第几项（下标从 0 开始） 1.0.0 */
-  onChange?: (event: any) => any;
+  onChange?: (event: GenericEvent) => any;
   /** 当滚动选择开始时候触发事件 2.3.1 */
-  onPickStart?: (event: any) => any;
+  onPickStart?: (event: GenericEvent) => any;
   /** 当滚动选择结束时候触发事件 2.3.1 */
-  onPickEnd?: (event: any) => any;
+  onPickEnd?: (event: GenericEvent) => any;
 }
+
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/picker-view.html
+ */
+export const PickerView: React.ComponentType<PickerViewProps> = createHostComponent<PickerViewProps>('picker-view');

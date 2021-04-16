@@ -1,15 +1,12 @@
 import API from '../API';
-import { Platform, Plugin } from '@remax/types';
+import type { Plugin } from '@remax/types';
 
 function entries(): Plugin {
-  return {
-    name: 'entries',
-  };
+  return {};
 }
 
 function props1(): Plugin {
   return {
-    name: 'props1',
     processProps({ props }) {
       return [...props, 'p1'];
     },
@@ -18,7 +15,6 @@ function props1(): Plugin {
 
 function props2(): Plugin {
   return {
-    name: 'props2',
     processProps({ props }) {
       return [...props, 'p2'];
     },
@@ -29,11 +25,8 @@ describe('api', () => {
   const api = new API();
 
   beforeAll(() => {
-    const options: any = {
-      plugins: [entries(), props1(), props2()],
-    };
-    api.registerPlugins(options);
-    api.registerAdapterPlugins(Platform.ali, options);
+    api.registerPlugins([entries(), props1(), props2()]);
+    api.registerAdapterPlugins('ali');
   });
 
   it('install plugins in a variety of ways', () => {
@@ -41,7 +34,6 @@ describe('api', () => {
   });
 
   it('install adapter plugin', () => {
-    expect(api.adapter.name).toEqual('ali');
     expect(api.adapter.target).toEqual('ali');
     expect(api.adapter.packageName).toEqual('@remax/ali');
   });
@@ -50,15 +42,6 @@ describe('api', () => {
     const props = api.processProps('text', []);
 
     expect(props).toEqual(['p1', 'p2']);
-  });
-
-  it('shouldHostComponentRegister', () => {
-    expect(api.shouldHostComponentRegister('view', 'import', false)).toBeTruthy();
-    expect(api.shouldHostComponentRegister('swiper-item', 'import', false)).toBeFalsy();
-  });
-
-  it('getHostComponents', () => {
-    expect(api.getHostComponents()).toBeDefined();
   });
 
   it('getMeta', () => {
@@ -78,5 +61,52 @@ describe('api', () => {
         "tag": "import",
       }
     `);
+  });
+
+  it('onAppConfig', () => {
+    api.registerPlugins([
+      {
+        onAppConfig({ config }) {
+          config.window = {
+            ...config.window,
+            defaultTitle: 'hello,',
+          };
+          return config;
+        },
+      },
+    ]);
+
+    expect(api.onAppConfig({})).toEqual({
+      window: {
+        defaultTitle: 'hello,',
+      },
+    });
+  });
+
+  it('onPageConfig', () => {
+    api.registerPlugins([
+      {
+        onPageConfig({ page, config }) {
+          if (page === 'pages/home/index') {
+            config.defaultTitle = 'home';
+          }
+          return config;
+        },
+      },
+    ]);
+
+    expect(
+      api.onPageConfig({
+        page: 'pages/index/index',
+        config: {},
+      })
+    ).toEqual({});
+
+    expect(
+      api.onPageConfig({
+        page: 'pages/home/index',
+        config: {},
+      })
+    ).toEqual({ defaultTitle: 'home' });
   });
 });

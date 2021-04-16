@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface FormProps {
   readonly dataset?: DOMStringMap;
@@ -10,4 +10,4 @@ export interface FormProps {
   onReset?: (e: any) => void;
 }
 
-export const Form = createHostComponent<FormProps>('form');
+export const Form = createHostComponent<FormProps>('form') as React.ComponentType<FormProps>;

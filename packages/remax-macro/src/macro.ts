@@ -1,15 +1,45 @@
 import * as React from 'react';
 import { NodePath } from '@babel/traverse';
 import { createMacro } from 'babel-plugin-macros';
-import createHostComponentMacro, { hostComponents } from './createHostComponent';
-import requirePluginComponentMacro, {
-  nativeComponents,
-  register as registerNativeComponent,
-} from './requirePluginComponent';
+import { slash } from '@remax/shared';
+import Store from '@remax/build-store';
+import createHostComponentMacro from './createHostComponent';
+import requirePluginComponentMacro from './requirePluginComponent';
 import requirePluginMacro from './requirePlugin';
-import usePageEventMacro, { pageEvents } from './usePageEvent';
-import useAppEventMacro, { appEvents } from './useAppEvent';
-import winPath from './utils/winPath';
+import usePageEventMacro from './usePageEvent';
+import useAppEventMacro from './useAppEvent';
+
+type PageEventName =
+  | 'onLoad'
+  | 'onShow'
+  | 'onHide'
+  | 'onReady'
+  | 'onPullDownRefresh'
+  | 'onReachBottom'
+  | 'onPageScroll'
+  | 'onShareAppMessage'
+  | 'onShareTimeline'
+  | 'onTitleClick'
+  | 'onOptionMenuClick'
+  | 'onPopMenuClick'
+  | 'onPullIntercept'
+  | 'onBack'
+  | 'onKeyboardHeight'
+  | 'onTabItemTap'
+  | 'beforeTabItemTap'
+  | 'onResize'
+  | 'onUnload';
+
+type AppEventName =
+  | 'onLaunch'
+  | 'onShow'
+  | 'onHide'
+  | 'onError'
+  | 'onShareAppMessage'
+  | 'onShareTimeline'
+  | 'onPageNotFound'
+  | 'onUnhandledRejection'
+  | 'onThemeChange';
 
 function remax({ references, state }: { references: { [name: string]: NodePath[] }; state: any }) {
   references.createHostComponent?.forEach(path => createHostComponentMacro(path, state));
@@ -18,10 +48,10 @@ function remax({ references, state }: { references: { [name: string]: NodePath[]
 
   references.requirePlugin?.forEach(path => requirePluginMacro(path));
 
-  const importer = winPath(state.file.opts.filename);
+  const importer = slash(state.file.opts.filename);
 
-  appEvents.delete(importer);
-  pageEvents.delete(importer);
+  Store.appEvents.delete(importer);
+  Store.pageEvents.delete(importer);
 
   references.useAppEvent?.forEach(path => useAppEventMacro(path, state));
 
@@ -37,10 +67,8 @@ export declare function requirePluginComponent<P = any>(pluginName: string): Rea
 
 export declare function requirePlugin<P = any>(pluginName: string): P;
 
-export declare function usePageEvent(eventName: string, callback: (...params: any[]) => any): void;
+export declare function usePageEvent(eventName: PageEventName, callback: (...params: any[]) => any): void;
 
-export declare function useAppEvent(eventName: string, callback: (...params: any[]) => any): void;
-
-export { hostComponents, nativeComponents, registerNativeComponent, pageEvents, appEvents };
+export declare function useAppEvent(eventName: AppEventName, callback: (...params: any[]) => any): void;
 
 export default createMacro(remax);

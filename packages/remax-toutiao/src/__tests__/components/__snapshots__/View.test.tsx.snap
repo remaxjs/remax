@@ -3,6 +3,10 @@
 exports[`View render correctly 1`] = `
 <view
   className="class"
+  hoverClassName="none"
+  hoverStartTime={50}
+  hoverStayTime={400}
+  hoverStopPropagation={false}
 >
   view
 </view>

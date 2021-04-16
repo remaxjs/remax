@@ -2,13 +2,15 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  animation: 'animation',
   name: 'name',
   min: 'min',
-  color: 'color',
   max: 'max',
   step: 'step',
   disabled: 'disabled',
   value: 'value',
+  color: 'color',
+  selectedColor: 'selected-color',
   showValue: 'show-value',
   activeColor: 'activeColor',
   backgroundColor: 'backgroundColor',
@@ -17,8 +19,6 @@ export const alias = {
   blockColor: 'block-color',
   onChange: 'bindchange',
   onChanging: 'bindchanging',
-  selectedColor: 'selectedColor',
-  animation: 'animation',
 };
 
 export const props = Object.values(alias);

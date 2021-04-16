@@ -1,15 +1,13 @@
 {
-  "packages": [
-    "packages/*",
-    "e2e/*",
-    "website"
-  ],
   "command": {
     "publish": {
-      "conventionalCommits": true
+      "conventionalCommits": true,
+      "exact": true,
+      "forcePublish": true,
+      "private": false
     }
   },
-  "version": "2.2.0",
+  "version": "2.12.1",
   "npmClient": "yarn",
   "useWorkspaces": true
 }

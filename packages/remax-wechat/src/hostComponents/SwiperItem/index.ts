@@ -1,4 +1,5 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 import { BaseProps } from '../../types/component';
 
 export interface SwiperItemProps extends BaseProps {
@@ -6,4 +7,7 @@ export interface SwiperItemProps extends BaseProps {
   itemId?: string;
 }
 
-export const SwiperItem = createHostComponent<SwiperItemProps>('swiper-item');
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/swiper-item.html
+ */
+export const SwiperItem: React.ComponentType<SwiperItemProps> = createHostComponent<SwiperItemProps>('swiper-item');

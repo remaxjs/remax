@@ -1,4 +1,5 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 import { BaseProps } from '../../types/component';
 
 export interface IconProps extends BaseProps {
@@ -10,4 +11,11 @@ export interface IconProps extends BaseProps {
   color?: string;
 }
 
-export const Icon = createHostComponent<IconProps>('icon');
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/icon.html
+ */
+export const Icon: React.ComponentType<IconProps> = createHostComponent<IconProps>('icon');
+
+Icon.defaultProps = {
+  size: 23,
+};

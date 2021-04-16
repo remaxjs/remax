@@ -3,6 +3,234 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.1](https://github.com/remaxjs/remax/compare/v2.12.0...v2.12.1) (2021-04-09)
+
+**Note:** Version bump only for package @remax/one
+
+# [2.12.0](https://github.com/remaxjs/remax/compare/v2.11.8...v2.12.0) (2021-04-07)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.11.8](https://github.com/remaxjs/remax/compare/v2.11.7...v2.11.8) (2021-03-17)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.11.7](https://github.com/remaxjs/remax/compare/v2.11.6...v2.11.7) (2021-03-16)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.11.6](https://github.com/remaxjs/remax/compare/v2.11.5...v2.11.6) (2021-03-05)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.11.5](https://github.com/remaxjs/remax/compare/v2.11.4...v2.11.5) (2021-03-04)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.11.4](https://github.com/remaxjs/remax/compare/v2.11.3...v2.11.4) (2021-01-21)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.11.3](https://github.com/remaxjs/remax/compare/v2.11.2...v2.11.3) (2020-12-31)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.11.2](https://github.com/remaxjs/remax/compare/v2.11.1...v2.11.2) (2020-12-17)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.11.1](https://github.com/remaxjs/remax/compare/v2.11.0...v2.11.1) (2020-12-17)
+
+**Note:** Version bump only for package @remax/one
+
+# [2.11.0](https://github.com/remaxjs/remax/compare/v2.10.1...v2.11.0) (2020-12-14)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.10.1](https://github.com/remaxjs/remax/compare/v2.10.0...v2.10.1) (2020-12-06)
+
+**Note:** Version bump only for package @remax/one
+
+# [2.10.0](https://github.com/remaxjs/remax/compare/v2.9.5...v2.10.0) (2020-12-04)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.9.5](https://github.com/remaxjs/remax/compare/v2.9.4...v2.9.5) (2020-12-01)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.9.4](https://github.com/remaxjs/remax/compare/v2.9.3...v2.9.4) (2020-11-30)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.9.3](https://github.com/remaxjs/remax/compare/v2.9.2...v2.9.3) (2020-11-30)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.9.2](https://github.com/remaxjs/remax/compare/v2.9.1...v2.9.2) (2020-11-28)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.9.1](https://github.com/remaxjs/remax/compare/v2.9.0...v2.9.1) (2020-11-27)
+
+**Note:** Version bump only for package @remax/one
+
+# [2.9.0](https://github.com/remaxjs/remax/compare/v2.8.10...v2.9.0) (2020-11-24)
+
+### Features
+
+- 一大波更新 ([#1366](https://github.com/remaxjs/remax/issues/1366)) ([45dab88](https://github.com/remaxjs/remax/commit/45dab88561bdbd1296ec4204aec572d00e46b1b4)), closes [#1153](https://github.com/remaxjs/remax/issues/1153) [#705](https://github.com/remaxjs/remax/issues/705) [#1077](https://github.com/remaxjs/remax/issues/1077)
+
+## [2.8.10](https://github.com/remaxjs/remax/compare/v2.8.9...v2.8.10) (2020-11-20)
+
+### Bug Fixes
+
+- **one:** 修复 Textarea 使用 autoHeight 后发获取 ref 的问题 ([f64fe77](https://github.com/remaxjs/remax/commit/f64fe7725f68ae2458f3860aa249b580ec1712ce))
+
+## [2.8.9](https://github.com/remaxjs/remax/compare/v2.8.8...v2.8.9) (2020-11-19)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.8.8](https://github.com/remaxjs/remax/compare/v2.8.7...v2.8.8) (2020-11-13)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.8.7](https://github.com/remaxjs/remax/compare/v2.8.6...v2.8.7) (2020-11-12)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.8.6](https://github.com/remaxjs/remax/compare/v2.8.5...v2.8.6) (2020-11-04)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.8.5](https://github.com/remaxjs/remax/compare/v2.8.4...v2.8.5) (2020-10-23)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.8.4](https://github.com/remaxjs/remax/compare/v2.8.3...v2.8.4) (2020-10-14)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.8.3](https://github.com/remaxjs/remax/compare/v2.8.2...v2.8.3) (2020-09-28)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.8.2](https://github.com/remaxjs/remax/compare/v2.8.1...v2.8.2) (2020-09-18)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.8.1](https://github.com/remaxjs/remax/compare/v2.8.0...v2.8.1) (2020-09-16)
+
+**Note:** Version bump only for package @remax/one
+
+# [2.8.0](https://github.com/remaxjs/remax/compare/v2.7.10...v2.8.0) (2020-09-15)
+
+### Performance Improvements
+
+- 优化 remax/one 组件渲染性能 ([#1264](https://github.com/remaxjs/remax/issues/1264)) ([7721da2](https://github.com/remaxjs/remax/commit/7721da2460d118b73a0c694a51359588d5689215))
+
+## [2.7.10](https://github.com/remaxjs/remax/compare/v2.7.9...v2.7.10) (2020-09-11)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.7.9](https://github.com/remaxjs/remax/compare/v2.7.8...v2.7.9) (2020-09-10)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
+
+### Bug Fixes
+
+- 修复 WebStrom 中组件不自动提示属性的问题 ([#1203](https://github.com/remaxjs/remax/issues/1203)) ([b3b7a8b](https://github.com/remaxjs/remax/commit/b3b7a8b8202c880e9b6efa307a678991d0cccc74))
+
+## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
+
+### Bug Fixes
+
+- **one:** 修复事件对象没有 nativeEvent 的问题 ([#1199](https://github.com/remaxjs/remax/issues/1199)) ([a7308c3](https://github.com/remaxjs/remax/commit/a7308c37ffdbc523dc2d710f9b0463c6ea390142))
+
+## [2.7.6](https://github.com/remaxjs/remax/compare/v2.7.5...v2.7.6) (2020-07-28)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.7.5](https://github.com/remaxjs/remax/compare/v2.7.4...v2.7.5) (2020-07-28)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.7.4](https://github.com/remaxjs/remax/compare/v2.7.3...v2.7.4) (2020-07-25)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.7.3](https://github.com/remaxjs/remax/compare/v2.7.2...v2.7.3) (2020-07-17)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.7.2](https://github.com/remaxjs/remax/compare/v2.7.1...v2.7.2) (2020-07-16)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.7.1](https://github.com/remaxjs/remax/compare/v2.7.0...v2.7.1) (2020-07-14)
+
+**Note:** Version bump only for package @remax/one
+
+# [2.7.0](https://github.com/remaxjs/remax/compare/v2.6.0...v2.7.0) (2020-07-09)
+
+### Features
+
+- 新增 Modal 组件 ([#1133](https://github.com/remaxjs/remax/issues/1133)) ([4c801d4](https://github.com/remaxjs/remax/commit/4c801d4ad239c1eee8c7b073cf506c44cb3e0bb5))
+
+# [2.6.0](https://github.com/remaxjs/remax/compare/v2.5.5...v2.6.0) (2020-07-03)
+
+### Bug Fixes
+
+- **one:** 修复 TouchEvent stopPropagation 属性 ([2fb2c0f](https://github.com/remaxjs/remax/commit/2fb2c0fca0f8102948ab315c23fa1d54994434fa)), closes [#1101](https://github.com/remaxjs/remax/issues/1101)
+- **web:** web 端函数组件缺少 ref forward ([#1124](https://github.com/remaxjs/remax/issues/1124)) ([990cde6](https://github.com/remaxjs/remax/commit/990cde64ce936300eebc004196d85c3046865d49))
+- **web:** 修复样式加载顺序问题 ([#1129](https://github.com/remaxjs/remax/issues/1129)) ([af8db50](https://github.com/remaxjs/remax/commit/af8db5035567ed41a5e5eca4996aac9cfe0d5d27))
+
+## [2.5.5](https://github.com/remaxjs/remax/compare/v2.5.4...v2.5.5) (2020-06-18)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.5.4](https://github.com/remaxjs/remax/compare/v2.5.3...v2.5.4) (2020-06-18)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.5.3](https://github.com/remaxjs/remax/compare/v2.5.2...v2.5.3) (2020-06-17)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.5.2](https://github.com/remaxjs/remax/compare/v2.5.1...v2.5.2) (2020-06-16)
+
+**Note:** Version bump only for package @remax/one
+
+## [2.5.1](https://github.com/remaxjs/remax/compare/v2.5.0...v2.5.1) (2020-06-16)
+
+**Note:** Version bump only for package @remax/one
+
+# [2.5.0](https://github.com/remaxjs/remax/compare/v2.4.1...v2.5.0) (2020-06-15)
+
+### Features
+
+- 支持 React DevTools ([#994](https://github.com/remaxjs/remax/issues/994)) ([396b326](https://github.com/remaxjs/remax/commit/396b3269d05f4d3218c3c3637d2aaaca03a5673c))
+
+## [2.4.1](https://github.com/remaxjs/remax/compare/v2.4.0...v2.4.1) (2020-06-10)
+
+### Bug Fixes
+
+- 修复 remax/one 组件导出缺少 Navigator ([b8dd1f5](https://github.com/remaxjs/remax/commit/b8dd1f57b3a0e6b5385ca2c5b2df80d426800126))
+
+# [2.4.0](https://github.com/remaxjs/remax/compare/v2.3.0...v2.4.0) (2020-06-05)
+
+### Bug Fixes
+
+- **one:** 修复 view 不支持 hoverClassName 的问题 ([7fade58](https://github.com/remaxjs/remax/commit/7fade58c38f435f6455ffd2d0ec66b915b8a27f0))
+
+# [2.3.0](https://github.com/remaxjs/remax/compare/v2.2.0...v2.3.0) (2020-06-04)
+
+### Features
+
+- 插件支持编译时的 onAppConfig 和 onPageConfig hook ([#1015](https://github.com/remaxjs/remax/issues/1015)) ([9ee59be](https://github.com/remaxjs/remax/commit/9ee59beb37422049e87bdbaf8e3431c3a6a7f762))
+
 # [2.2.0](https://github.com/remaxjs/remax/compare/v2.1.1...v2.2.0) (2020-05-29)
 
 ### Bug Fixes

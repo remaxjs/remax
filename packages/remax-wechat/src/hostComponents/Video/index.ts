@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { BaseProps } from '../../types/component';
-import { createHostComponent } from '@remax/shared';
+import { BaseProps, GenericEvent } from '../../types/component';
+import { createHostComponent } from '@remax/runtime';
 
 const hostComponentName = 'video';
 
@@ -12,7 +12,7 @@ export interface VideoProps extends BaseProps {
   /** 是否显示默认播放控件（播放/暂停按钮、播放进度、时间） 1.0.0 */
   controls?: boolean;
   /** 弹幕列表 1.0.0 */
-  danmuList?: object[];
+  danmuList?: any[];
   /** 是否显示弹幕按钮，只在初始化时有效，不能动态变更 1.0.0 */
   danmuBtn?: boolean;
   /** 是否展示弹幕，只在初始化时有效，不能动态变更 1.0.0 */
@@ -45,6 +45,12 @@ export interface VideoProps extends BaseProps {
   poster?: string;
   /** 用于给搜索等场景作为视频封面展示，建议使用无播放 icon 的视频封面图，只支持网络地址 */
   posterForCrawler?: string;
+  /** 显示投屏按钮。只安卓且同层渲染下生效，支持 DLNA 协议 1.10.2 */
+  showCastingButton?: boolean;
+  /** 设置小窗模式： push, pop，空字符串或通过数组形式设置多种模式（如： ["push", "pop"]） */
+  pictureInPictureMode?: string | string[];
+  /** 是否在小窗模式下显示播放进度	2.11.0 */
+  pictureInPictureShowProgress?: boolean;
   /** 是否显示静音按钮 2.4.0 */
   showMuteBtn?: boolean;
   /** 视频的标题，全屏时在顶部展示 2.4.0 */
@@ -53,6 +59,10 @@ export interface VideoProps extends BaseProps {
   playBtnPosition?: 'bottom' | 'center';
   /** 是否开启播放手势，即双击切换播放/暂停 2.4.0 */
   enablePlayGesture?: boolean;
+  /** 是否开启手机横屏时自动全屏，当系统设置开启自动旋转时生效 2.11.0 */
+  enableAutoRotation?: false;
+  /** 是否显示锁屏按钮，仅在全屏时显示，锁屏后控制栏的操作 2.11.0 */
+  showScreenLockButton?: false;
   /** 当跳转到其它小程序页面时，是否自动暂停本页面的视频 2.5.0 */
   autoPauseIfNavigate?: boolean;
   /** 当跳转到其它微信原生页面时，是否自动暂停本页面的视频 2.5.0 */
@@ -62,20 +72,20 @@ export interface VideoProps extends BaseProps {
   /** 在全屏模式下，是否开启亮度与音量调节手势 2.6.2 */
   vslideGestureInFullscreen?: boolean;
   /** 当开始/继续播放时触发play事件 1.0.0 */
-  onPlay?: (event: any) => any;
+  onPlay?: (event: GenericEvent) => any;
   /** 当暂停播放时触发 pause 事件 1.0.0 */
-  onPause?: (event: any) => any;
+  onPause?: (event: GenericEvent) => any;
   /** 当播放到末尾时触发 ended 事件 1.0.0 */
-  onEnded?: (event: any) => any;
+  onEnded?: (event: GenericEvent) => any;
   /** 播放进度变化时触发，event.detail = {currentTime, duration} 。触发频率 250ms 一次 1.0.0 */
-  onTimeUpdate?: (event: any) => any;
+  onTimeUpdate?: (event: GenericEvent) => any;
   /** 视频进入和退出全屏时触发，event.detail = {fullScreen, direction}，direction 有效值为 vertical 或 horizontal 1.4.0 */
-  onFullScreenChange?: (event: any) => any;
+  onFullScreenChange?: (event: GenericEvent) => any;
   /** 视频出现缓冲时触发 1.7.0 */
-  onWaiting?: (event: any) => any;
+  onWaiting?: (event: GenericEvent) => any;
   /** 视频播放出错时触发 1.7.0 */
-  onError?: (event: any) => any;
-  onProgress?: (event: any) => any;
+  onError?: (event: GenericEvent) => any;
+  onProgress?: (event: GenericEvent) => any;
 }
 
 const VideoRender: React.ForwardRefRenderFunction<any, VideoProps> = (props, ref) => {
@@ -90,6 +100,7 @@ const VideoRender: React.ForwardRefRenderFunction<any, VideoProps> = (props, ref
 
 /**
  * video 默认宽度 300px、高度 225px，可通过 wxss 设置宽高
+ * https://developers.weixin.qq.com/miniprogram/dev/component/video.html
  */
 const RemaxVideo = React.forwardRef(VideoRender);
 
@@ -115,6 +126,10 @@ RemaxVideo.defaultProps = {
   autoPauseIfOpenNative: true,
   vslideGesture: false,
   vslideGestureInFullscreen: true,
+  showCastingButton: false,
+  pictureInPictureShowProgress: false,
+  enableAutoRotation: false,
+  showScreenLockButton: false,
 };
 
-export const Video = createHostComponent(hostComponentName, RemaxVideo);
+export const Video: React.ComponentType<VideoProps> = createHostComponent<VideoProps>(hostComponentName, RemaxVideo);

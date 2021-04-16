@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface TextProps {
   readonly dataset?: DOMStringMap;
@@ -14,4 +14,4 @@ export interface TextProps {
   onClick?: (e: any) => void;
 }
 
-export const Text = createHostComponent<TextProps>('text');
+export const Text = createHostComponent<TextProps>('text') as React.ComponentType<TextProps>;

@@ -1,4 +1,5 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 
 import { BaseProps } from '../../types/component';
 
@@ -10,4 +11,8 @@ export interface FormProps extends BaseProps {
   catchReset?: (e: any) => void;
 }
 
-export const Form = createHostComponent<FormProps>('form');
+export const Form: React.ComponentType<FormProps> = createHostComponent<FormProps>('form');
+
+Form.defaultProps = {
+  reportSubmit: false,
+};

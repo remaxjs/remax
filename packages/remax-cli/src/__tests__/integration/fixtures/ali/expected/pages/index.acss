@@ -1,5 +1,6 @@
-.c {
-  background-color: red;
+@import "./../remax-styles.acss";
+.b {
+  background-color: white;
 }
 
 .page-index___1ZW9Y {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface InputProps {
   readonly dataset?: DOMStringMap;
@@ -30,4 +30,4 @@ export interface InputProps {
   onBlur?: (e: any) => void;
 }
 
-export const Input = createHostComponent<InputProps>('input');
+export const Input = createHostComponent<InputProps>('input') as React.ComponentType<InputProps>;

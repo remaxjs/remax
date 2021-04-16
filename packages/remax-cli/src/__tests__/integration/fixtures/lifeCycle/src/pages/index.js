@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { View } from 'remax/ali';
-import { usePageEvent } from 'remax/macro';
+import { View } from 'remax';
+import { usePageEvent } from '@remax/macro';
 import './module';
 
 export default () => {

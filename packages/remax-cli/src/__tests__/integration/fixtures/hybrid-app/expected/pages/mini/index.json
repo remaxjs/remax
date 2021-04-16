@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "foo": "/components/foo/index",
+    "zxc": "/components/zxc/index",
+    "abc": "/npm/abc/index"
+  }
+}

@@ -1,5 +1,6 @@
-import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface OpenDataProps extends BaseProps {
   /** 开放数据类型 1.4.0 */
@@ -21,7 +22,13 @@ export interface OpenDataProps extends BaseProps {
   /** 用户头像为空时的默认图片，支持相对路径和网络图片路径 2.8.1 */
   defaultAvatar?: string;
   /** 群名称或用户信息为空时触发 2.8.1 */
-  onError?: (event: any) => any;
+  onError?: (event: GenericEvent) => any;
 }
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/open-data.html
+ */
+export const OpenData: React.ComponentType<OpenDataProps> = createHostComponent<OpenDataProps>('open-data');
 
-export const OpenData = createHostComponent<OpenDataProps>('open-data');
+OpenData.defaultProps = {
+  lang: 'en',
+};

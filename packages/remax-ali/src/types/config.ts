@@ -133,4 +133,25 @@ export interface AppConfig {
      */
     items: TabItem[];
   };
+
+  /**
+   * 分包配置
+   */
+  subPackages?: Array<{
+    /**
+     * 分包根目录
+     */
+    root: string;
+    /**
+     * 分包页面路径
+     */
+    pages: string[];
+  }>;
+
+  plugins?: {
+    [name: string]: {
+      version: string;
+      provider: string;
+    };
+  };
 }

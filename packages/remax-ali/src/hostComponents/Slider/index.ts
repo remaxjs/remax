@@ -1,4 +1,5 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 
 export interface SliderProps {
   readonly dataset?: DOMStringMap;
@@ -20,4 +21,4 @@ export interface SliderProps {
   onChanging?: (e: any) => void;
 }
 
-export const Slider = createHostComponent<SliderProps>('slider');
+export const Slider = createHostComponent<SliderProps>('slider') as React.ComponentType<SliderProps>;

@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "moduleB": "../moduleB/index",
-    "moduleC": "moduleC"
-  }
-}

@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "properties": {
+    "one": {
+      "type": "boolean"
+    },
+    "turboRenders": {
+      "type": "boolean"
+    },
+    "notify": {
+      "type": "boolean"
+    },
+    "pxToRpx": {
+      "type": "boolean"
+    },
+    "cwd": {
+      "type": "string"
+    },
+    "progress": {
+      "type": "boolean"
+    },
+    "compressTemplate": {
+      "type": "boolean"
+    },
+    "input": {
+      "type": ["string", "array", "object"]
+    },
+    "output": {
+      "type": "string"
+    },
+    "rootDir": {
+      "type": "string"
+    },
+    "configWebpack": {
+      "anyOf": [{ "instanceof": "Function" }]
+    },
+    "plugins": {
+      "type": "array"
+    },
+    "web": {
+      "type": "object"
+    },
+    "errorScreen": {
+      "type": ["boolean", "object"]
+    },
+    "tracert": {
+      "type": ["boolean", "object"]
+    },
+    "UNSAFE_wechatTemplateDepth": {
+      "type": ["number", "object"]
+    }
+  },
+  "additionalProperties": false
+}

@@ -2,6 +2,7 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  animation: 'animation',
   url: 'url',
   mode: 'mode',
   autopush: 'autopush',
@@ -14,6 +15,7 @@ export const alias = {
   aspect: 'aspect',
   minBitrate: 'min-bitrate',
   maxBitrate: 'max-bitrate',
+  audioQuality: 'audio-quality',
   waitingImage: 'waiting-image',
   waitingImageHash: 'waiting-image-hash',
   zoom: 'zoom',
@@ -35,7 +37,6 @@ export const alias = {
   onBgmStart: 'bindbgmstart',
   onBgmProgress: 'bindbgmprogress',
   onBgmComplete: 'bindbgmcomplete',
-  animation: 'animation',
 };
 
 export const props = Object.values(alias);

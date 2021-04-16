@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { InputEvent } from '../../types';
-import { createCallback, createInputEvent } from '../../createHostComponent';
+import { createCallback, createInputEvent, aliasProps } from '../../createHostComponent';
 import { TextareaProps } from './props';
+import alias from './props/alias';
 
 export type { TextareaProps };
 
@@ -14,9 +15,17 @@ export default class Textarea extends React.Component<TextareaProps, TextareaSta
   static defaultProps = {
     'toutiao-selection-end': 999,
     'toutiao-selection-start': 999,
-    'wechat-selection-end': 999,
-    'wechat-selection-start': 999,
+
+    'wechat-selection-end': -1,
+    'wechat-selection-start': -1,
     'wechat-fixed': false,
+    'wechat-placeholder-class': 'textarea-placeholder',
+    'wechat-cursor-spacing': 0,
+    'wechat-cursor': -1,
+    'wechat-show-confirm-bar': true,
+    'wechat-adjust-position': true,
+    'wechat-hold-keyboard': false,
+    'wechat-disable-default-padding': false,
   };
 
   state: TextareaState = {
@@ -77,13 +86,25 @@ export default class Textarea extends React.Component<TextareaProps, TextareaSta
       inputProps.onBlur = createCallback(this.props.onBlur, createInputEvent);
     }
 
-    if (process.env.REMAX_PLATFORM === 'wechat' || process.env.REMAX_PLATFORM === 'toutiao') {
+    if (process.env.REMAX_PLATFORM === 'toutiao') {
       inputProps.maxLength = inputProps.maxLength ?? 140;
     }
 
-    return React.createElement('textarea', {
-      ...inputProps,
-      ...this.state,
-    });
+    if (process.env.REMAX_PLATFORM === 'wechat') {
+      inputProps.maxLength = inputProps.maxLength ?? 140;
+      inputProps.disabled = inputProps.disabled ?? false;
+      inputProps.focus = inputProps.focus ?? false;
+      inputProps.autoHeight = inputProps.autoHeight ?? false;
+    }
+
+    const nextProps = aliasProps(
+      {
+        ...inputProps,
+        ...this.state,
+      },
+      alias
+    );
+
+    return React.createElement('textarea', nextProps);
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-remax",
-  "version": "2.2.0",
+  "version": "2.12.1",
   "description": "remax babel preset",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -10,7 +10,8 @@
   "scripts": {
     "clean": "rimraf lib tsconfig.tsbuildinfo",
     "prebuild": "npm run clean",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest"
   },
   "bugs": {
     "url": "https://github.com/remaxjs/remax/issues"
@@ -30,14 +31,13 @@
     "@babel/preset-env": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
     "@babel/preset-typescript": "^7.7.4",
-    "@umijs/babel-plugin-auto-css-modules": "^3.1.1",
+    "@umijs/babel-plugin-auto-css-modules": "^3.3.1",
     "babel-plugin-auto-import": "^1.0.5",
     "babel-plugin-macros": "^2.8.0",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.4",
-    "typescript": "^3.7.3"
+    "@babel/core": "^7.7.4"
   },
   "peerDependencies": {
     "@babel/core": ">=7.0.0"

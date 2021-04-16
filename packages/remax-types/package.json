@@ -1,6 +1,6 @@
 {
   "name": "@remax/types",
-  "version": "2.2.0",
+  "version": "2.12.1",
   "description": "Remax Types",
   "author": "Caihuanyu <eterlf41@gmail.com>",
   "license": "MIT",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@babel/types": "^7.8.0",
-    "@types/webpack": "^4.41.10",
+    "@types/react": "^16.9.56",
     "@types/yargs": "^15.0.0",
     "webpack-chain": "^6.4.0"
   },

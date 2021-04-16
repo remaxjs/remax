@@ -1,4 +1,4 @@
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface SwitchProps {
   readonly dataset?: DOMStringMap;
@@ -12,4 +12,4 @@ export interface SwitchProps {
   onChange?: (e: any) => void;
 }
 
-export const Switch = createHostComponent<SwitchProps>('switch');
+export const Switch = createHostComponent<SwitchProps>('switch') as React.ComponentType<SwitchProps>;

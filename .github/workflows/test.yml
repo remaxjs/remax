@@ -1,6 +1,14 @@
 name: Build & Test
 
-on: [push]
+on:
+  push:
+    branches: [master]
+    paths-ignore:
+      - 'docs/**'
+  pull_request:
+    types: [opened, synchronize]
+    paths-ignore:
+      - 'docs/**'
 
 jobs:
   build:
@@ -8,12 +16,18 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x]
+        node-version: ['12']
         os: [ubuntu-latest, windows-latest]
+        include:
+          - node-version: '14'
+            os: windows-latest
+          - node-version: '14'
+            os: ubuntu-latest
+            coverage: true
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -22,16 +36,9 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: build
         run: yarn build
-      - name: test
-        run: yarn test:cov
-        env:
-          CI: true
-      - name: e2e
-        run: yarn test:e2e
-        env:
-          CI: true
-      - name: Upload coverage to Codecov
-        if: success() && runner.os == 'Linux'
-        run: curl -s https://codecov.io/bash | bash -s -- -t $CODECOV_TOKEN
-        env:
-          CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
+      - run: yarn test
+        if: ${{ !matrix.coverage }}
+      - run: yarn test:cov
+        if: ${{ matrix.coverage }}
+      - uses: codecov/codecov-action@v1
+        if: ${{ matrix.coverage }}

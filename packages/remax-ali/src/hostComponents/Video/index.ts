@@ -1,10 +1,14 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 
 export interface VideoProps {
   src: string;
   id?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  posterSize?: 'contain' | 'fill' | 'cover';
   poster?: string;
-  objectFit?: 'contain' | 'fill';
+  objectFit?: 'contain' | 'fill' | 'cover';
   initialTime?: number;
   duration?: number;
   controls?: boolean;
@@ -29,4 +33,4 @@ export interface VideoProps {
   onUserAction?: (e: any) => void;
 }
 
-export const Video = createHostComponent<VideoProps>('video');
+export const Video = createHostComponent<VideoProps>('video') as React.ComponentType<VideoProps>;

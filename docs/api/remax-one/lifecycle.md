@@ -2,6 +2,7 @@
 title: 生命周期
 group:
   title: remax/one
+  order: 2
 ---
 
 在这里列出的生命周期，表示在 `remax/one` 支持的平台中都可以使用，并尽量保证了行为一致。
@@ -57,6 +58,18 @@ useAppEvent('onError', () => {});
 ```
 
 ## Page 生命周期
+
+## onLoad
+
+页面加载时触发
+
+```js
+import { usePageEvent } from 'remax/macro';
+
+...
+
+usePageEvent('onLoad', () => {});
+```
 
 ## onShow
 

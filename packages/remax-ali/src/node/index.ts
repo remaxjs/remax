@@ -1,13 +1,12 @@
 import * as path from 'path';
 import hostComponents from '../hostComponents/node';
-import { PluginConstructor } from '@remax/types';
+import type { PluginConstructor } from '@remax/types';
 
 const TPL_DEFAULT_ROOT = path.join(__dirname, '../../templates', 'default');
 const TPL_STATIC_ROOT = path.join(__dirname, '../../templates', 'static');
 
 const plugin: PluginConstructor = () => {
   return {
-    name: 'remax-ali',
     meta: {
       global: 'my',
       template: {
@@ -28,11 +27,11 @@ const plugin: PluginConstructor = () => {
       staticEjs: {
         base: '',
         page: path.join(TPL_STATIC_ROOT, 'page.ejs'),
+        isolatedTemplates: path.join(TPL_STATIC_ROOT, 'isolated-templates.ejs'),
       },
     },
     hostComponents,
-    shouldHostComponentRegister: ({ componentName }) =>
-      componentName !== 'swiper-item' && componentName !== 'picker-view-column',
+    skipHostComponents: ['swiper-item', 'picker-view-column'],
   };
 };
 

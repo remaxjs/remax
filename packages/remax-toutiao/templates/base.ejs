@@ -1,18 +1,24 @@
 <template name="REMAX_TPL">
-  <block tt:for="{{tree.root.children}}" tt:key="{{id}}">
-    <template is="{{'REMAX_TPL_' + item.type}}" data="{{i: item}}" />
+  <block tt:for="{{root.children}}" tt:key="*this">
+    <template is="{{'REMAX_TPL_' + root.nodes[item].type}}" data="{{i: root.nodes[item]}}" />
   </block>
 </template>
 
-<% for (let component of components) { %>
-  <%- include('./component.ejs', {
-    type: component.type,
-    props: component.props,
-    id: component.id,
-    type: component.type,
-    slotView: slotView
-  }) %>
-<% } %>
+<% for (let component of sortBy(Array.from(components.values()), 'id')) { -%>
+  <%_ if (skipComponents.includes(component.id)) {
+    continue;
+  } else { -%>
+<%- include('./component.ejs', {
+  type: component.type,
+  props: component.props,
+  id: component.id,
+  type: component.type,
+  slotView: slotView
+}) -%>
+
+  <%_ } -%>
+<% } -%>
+
 <template name="REMAX_TPL_plain-text" data="{{i: i}}">
   <block>{{i.text}}</block>
 </template>

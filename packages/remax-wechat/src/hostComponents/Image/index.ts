@@ -1,5 +1,6 @@
-import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface ImageProps extends BaseProps {
   /**
@@ -14,6 +15,7 @@ export interface ImageProps extends BaseProps {
    * aspectFit	缩放模式，保持纵横比缩放图片，使图片的长边能完全显示出来。也就是说，可以完整地将图片显示出来。
    * aspectFill	缩放模式，保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。
    * widthFix	缩放模式，宽度不变，高度自动变化，保持原图宽高比不变
+   * heightFix 缩放模式，高度不变，宽度自动变化，保持原图宽高比不变
    * top	裁剪模式，不缩放图片，只显示图片的顶部区域
    * bottom	裁剪模式，不缩放图片，只显示图片的底部区域
    * center	裁剪模式，不缩放图片，只显示图片的中间区域
@@ -29,6 +31,7 @@ export interface ImageProps extends BaseProps {
     | 'aspectFit'
     | 'aspectFill'
     | 'widthFix'
+    | 'heightFix'
     | 'top'
     | 'bottom'
     | 'center'
@@ -38,6 +41,11 @@ export interface ImageProps extends BaseProps {
     | 'top right'
     | 'bottom left'
     | 'bottom right';
+  /**
+   * 2.9.0
+   * 默认不解析 webP 格式，只支持网络资源
+   */
+  webp?: boolean;
   /**
    * 1.5.0
    * 图片懒加载，在即将进入一定范围（上下三屏）时才开始加载
@@ -52,16 +60,22 @@ export interface ImageProps extends BaseProps {
    * 1.0.0
    * 当错误发生时触发，，event.detail = {errMsg}
    */
-  onError?: (event: any) => any;
+  onError?: (event: GenericEvent) => any;
   /**
    * 1.0.0
    * 当图片载入完毕时触发，event.detail = {height, width}
    */
-  onLoad?: (event: any) => any;
-  onTouchStart?: (e: any) => void;
-  onTouchMove?: (e: any) => void;
-  onTouchEnd?: (e: any) => void;
-  onTouchCancel?: (e: any) => void;
+  onLoad?: (event: GenericEvent) => any;
 }
 
-export const Image = createHostComponent<ImageProps>('image');
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/image.html
+ */
+export const Image: React.ComponentType<ImageProps> = createHostComponent<ImageProps>('image');
+
+Image.defaultProps = {
+  mode: 'scaleToFill',
+  webp: false,
+  lazyLoad: false,
+  showMenuByLongpress: false,
+};

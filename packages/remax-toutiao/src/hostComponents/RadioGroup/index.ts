@@ -1,4 +1,5 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 
 import { BaseProps } from '../../types/component';
 
@@ -7,4 +8,4 @@ export interface RadioGroupProps extends BaseProps {
   onChange?: (e: any) => void;
 }
 
-export const RadioGroup = createHostComponent<RadioGroupProps>('radio-group');
+export const RadioGroup: React.ComponentType<RadioGroupProps> = createHostComponent<RadioGroupProps>('radio-group');

@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { View, Text } from 'remax/ali';
-import { FunctionalPageNavigator as UnKnownComponent } from 'remax/wechat';
+import { View, Text } from 'remax';
 
 export default () => {
   const props = {};
@@ -21,8 +20,6 @@ export default () => {
         {obj?.a?.b}
         {value}
       </View>
-      <UnKnownComponent />
-      <UnBindingComponent />
       {TextElement}
     </View>
   );

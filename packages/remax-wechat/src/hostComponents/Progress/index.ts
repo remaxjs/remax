@@ -1,5 +1,6 @@
-import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface ProgressProps extends BaseProps {
   /** 百分比0~100 1.0.0 */
@@ -22,8 +23,27 @@ export interface ProgressProps extends BaseProps {
   active?: boolean;
   /** (default: backwards) backwards: 动画从头播；forwards：动画从上次结束点接着播 1.7.0 */
   activeMode?: 'backwards' | 'forwards';
+  /**
+   * 进度增加1%所需毫秒数	2.8.2
+   */
+  duration?: number;
   /** 动画完成事件 2.4.1 */
-  onActiveEnd?: (event: any) => any;
+  onActiveEnd?: (event: GenericEvent) => any;
 }
+/**
+ * https://developers.weixin.qq.com/miniprogram/dev/component/progress.html
+ */
+export const Progress: React.ComponentType<ProgressProps> = createHostComponent<ProgressProps>('progress');
 
-export const Progress = createHostComponent<ProgressProps>('progress');
+Progress.defaultProps = {
+  showInfo: false,
+  borderRadius: 0,
+  fontSize: 16,
+  strokeWidth: 6,
+  color: '#09BB07',
+  activeColor: '#09BB07',
+  backgroundColor: '#EBEBEB',
+  active: false,
+  activeMode: 'backwards',
+  duration: 30,
+};

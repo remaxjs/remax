@@ -1,5 +1,6 @@
-import runTest from './helpers/runTest';
+import { testBuildApp, testBuildMiniPlugin } from './helpers/runTest';
 
-describe('build hybrid app', () => {
-  runTest('hybrid');
+describe('hybrid', () => {
+  testBuildApp('hybrid-app');
+  testBuildMiniPlugin('hybrid-mini-plugin');
 });

@@ -1,4 +1,5 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 
 import { BaseProps } from '../../types/component';
 
@@ -12,4 +13,4 @@ export interface RichTextProps extends BaseProps {
   nodes?: Node | string;
 }
 
-export const RichText = createHostComponent<RichTextProps>('rich-text');
+export const RichText: React.ComponentType<RichTextProps> = createHostComponent<RichTextProps>('rich-text');

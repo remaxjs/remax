@@ -10,7 +10,7 @@ order: 2
 ```js
 // babel.config.js
 module.exports = {
-  plugins: ['loop-optimizer'], // 新增 `loop-optimizer` 插件
+  plugins: ['babel-plugin-import'], // 新增 `babel-plugin-import` 插件
 };
 ```
 
@@ -30,6 +30,9 @@ module.exports = {
     [
       'remax',
       {
+        react: {
+          runtime: 'automatic',
+        },
         typescript: {
           allowNamespaces: true,
         },

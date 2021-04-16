@@ -1,5 +1,6 @@
 import { CSSProperties } from 'react';
 import { isUnitlessNumber } from './CSSProperty';
+import { find, RuntimeOptions } from '@remax/framework-shared';
 
 const vendorPrefixes = ['webkit', 'moz', 'ms', 'o'];
 
@@ -18,7 +19,7 @@ const transformReactStyleKey = (key: string) => {
     const firstWord = styleValue.split('-').filter(s => s)[0];
     styleValue = styleValue.replace(/^-/, '');
 
-    if (vendorPrefixes.find(prefix => prefix === firstWord)) {
+    if (find(vendorPrefixes, prefix => prefix === firstWord)) {
       styleValue = '-' + styleValue;
     }
   }
@@ -47,7 +48,7 @@ const plainStyle = (style: CSSProperties) => {
         value = value + 'rpx';
       }
 
-      return [...acc, `${transformReactStyleKey(key)}:${__REMAX_PX2RPX__ ? transformPx(value) : value};`];
+      return [...acc, `${transformReactStyleKey(key)}:${RuntimeOptions.get('pxToRpx') ? transformPx(value) : value};`];
     }, [])
     .join('');
 };

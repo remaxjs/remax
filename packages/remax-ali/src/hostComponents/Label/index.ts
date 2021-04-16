@@ -1,4 +1,5 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 
 export interface LabelProps {
   readonly dataset?: DOMStringMap;
@@ -7,4 +8,4 @@ export interface LabelProps {
   className?: string;
 }
 
-export const Label = createHostComponent<LabelProps>('label');
+export const Label = createHostComponent<LabelProps>('label') as React.ComponentType<LabelProps>;

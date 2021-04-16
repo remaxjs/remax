@@ -22,42 +22,4 @@ describe('node', () => {
       }
     `);
   });
-
-  it('shouldHostComponentRegister', () => {
-    expect(
-      node().shouldHostComponentRegister!({
-        componentName: 'swiper-item',
-        phase: 'import',
-      })
-    ).toBeFalsy();
-
-    expect(
-      node().shouldHostComponentRegister!({
-        componentName: 'picker-view-column',
-        phase: 'import',
-      })
-    ).toBeFalsy();
-
-    expect(
-      node().shouldHostComponentRegister!({
-        componentName: 'view',
-        phase: 'import',
-      })
-    ).toBeTruthy();
-
-    expect(
-      node().shouldHostComponentRegister!({
-        componentName: 'view',
-        phase: 'extra',
-      })
-    ).toBeTruthy();
-
-    expect(
-      node().shouldHostComponentRegister!({
-        componentName: 'custom-view',
-        additional: true,
-        phase: 'import',
-      })
-    ).toBeTruthy();
-  });
 });

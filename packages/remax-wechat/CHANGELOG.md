@@ -3,6 +3,259 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.1](https://github.com/remaxjs/remax/compare/v2.12.0...v2.12.1) (2021-04-09)
+
+**Note:** Version bump only for package @remax/wechat
+
+# [2.12.0](https://github.com/remaxjs/remax/compare/v2.11.8...v2.12.0) (2021-04-07)
+
+### Bug Fixes
+
+- **wechat:** 修复 textarea 的 type 错误 ([#1517](https://github.com/remaxjs/remax/issues/1517)) ([32948d5](https://github.com/remaxjs/remax/commit/32948d59529ea3b33e609a30b2e0719b07176a9f))
+
+## [2.11.8](https://github.com/remaxjs/remax/compare/v2.11.7...v2.11.8) (2021-03-17)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.11.7](https://github.com/remaxjs/remax/compare/v2.11.6...v2.11.7) (2021-03-16)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.11.6](https://github.com/remaxjs/remax/compare/v2.11.5...v2.11.6) (2021-03-05)
+
+### Bug Fixes
+
+- **wechat:** 修复 CoverView markerId 属性 ([a1191f3](https://github.com/remaxjs/remax/commit/a1191f3e84ea53609980df165a8ab5b710c99aca)), closes [#1490](https://github.com/remaxjs/remax/issues/1490)
+
+## [2.11.5](https://github.com/remaxjs/remax/compare/v2.11.4...v2.11.5) (2021-03-04)
+
+### Bug Fixes
+
+- **wechat:** 修复 Map 组件缺失的属性 ([#1489](https://github.com/remaxjs/remax/issues/1489)) ([b319d9b](https://github.com/remaxjs/remax/commit/b319d9b2a568ba3d090a6fe8e52f761adcdb4506))
+
+## [2.11.4](https://github.com/remaxjs/remax/compare/v2.11.3...v2.11.4) (2021-01-21)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.11.3](https://github.com/remaxjs/remax/compare/v2.11.2...v2.11.3) (2020-12-31)
+
+### Bug Fixes
+
+- **wechat:** 修复 ScrollView 组件缺失的属性 ([#1460](https://github.com/remaxjs/remax/issues/1460)) ([be3c45d](https://github.com/remaxjs/remax/commit/be3c45dbcf7980c7ff7bc69f3922500abb085e67))
+
+## [2.11.2](https://github.com/remaxjs/remax/compare/v2.11.1...v2.11.2) (2020-12-17)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.11.1](https://github.com/remaxjs/remax/compare/v2.11.0...v2.11.1) (2020-12-17)
+
+**Note:** Version bump only for package @remax/wechat
+
+# [2.11.0](https://github.com/remaxjs/remax/compare/v2.10.1...v2.11.0) (2020-12-14)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.10.1](https://github.com/remaxjs/remax/compare/v2.10.0...v2.10.1) (2020-12-06)
+
+### Bug Fixes
+
+- **wechat:** Image 组件 mode 属性添加 heightFix ([#1402](https://github.com/remaxjs/remax/issues/1402)) ([a6d9d3a](https://github.com/remaxjs/remax/commit/a6d9d3a1afaa02483921697f62c0eb4be1e3ff09))
+- **wechat:** 修复 onLongPress 不生效的问题 ([987dd6b](https://github.com/remaxjs/remax/commit/987dd6bc24ae0102ee35fd95c53085d3f1880a64)), closes [#1369](https://github.com/remaxjs/remax/issues/1369)
+
+# [2.10.0](https://github.com/remaxjs/remax/compare/v2.9.5...v2.10.0) (2020-12-04)
+
+### Bug Fixes
+
+- **wechat:** 修复未导出 API ([#1403](https://github.com/remaxjs/remax/issues/1403)) ([4b5247f](https://github.com/remaxjs/remax/commit/4b5247f5153527b54c57e8b07f6b5524f3009ab2))
+
+## [2.9.5](https://github.com/remaxjs/remax/compare/v2.9.4...v2.9.5) (2020-12-01)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.9.4](https://github.com/remaxjs/remax/compare/v2.9.3...v2.9.4) (2020-11-30)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.9.3](https://github.com/remaxjs/remax/compare/v2.9.2...v2.9.3) (2020-11-30)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.9.2](https://github.com/remaxjs/remax/compare/v2.9.1...v2.9.2) (2020-11-28)
+
+### Bug Fixes
+
+- **wechat:** 修复 API 类型 ([087a581](https://github.com/remaxjs/remax/commit/087a5818a34558d8aeccc6b67eef7d486bfc7d96)), closes [#1389](https://github.com/remaxjs/remax/issues/1389)
+
+## [2.9.1](https://github.com/remaxjs/remax/compare/v2.9.0...v2.9.1) (2020-11-27)
+
+**Note:** Version bump only for package @remax/wechat
+
+# [2.9.0](https://github.com/remaxjs/remax/compare/v2.8.10...v2.9.0) (2020-11-24)
+
+### Features
+
+- 一大波更新 ([#1366](https://github.com/remaxjs/remax/issues/1366)) ([45dab88](https://github.com/remaxjs/remax/commit/45dab88561bdbd1296ec4204aec572d00e46b1b4)), closes [#1153](https://github.com/remaxjs/remax/issues/1153) [#705](https://github.com/remaxjs/remax/issues/705) [#1077](https://github.com/remaxjs/remax/issues/1077)
+
+## [2.8.10](https://github.com/remaxjs/remax/compare/v2.8.9...v2.8.10) (2020-11-20)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.8.9](https://github.com/remaxjs/remax/compare/v2.8.8...v2.8.9) (2020-11-19)
+
+### Bug Fixes
+
+- **wechat:** 修复 SwiperItem[className]不生效的问题 ([#1371](https://github.com/remaxjs/remax/issues/1371)) ([977704c](https://github.com/remaxjs/remax/commit/977704cd183d084931568b81b156e320e72cc2b0))
+
+## [2.8.8](https://github.com/remaxjs/remax/compare/v2.8.7...v2.8.8) (2020-11-13)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.8.7](https://github.com/remaxjs/remax/compare/v2.8.6...v2.8.7) (2020-11-12)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.8.6](https://github.com/remaxjs/remax/compare/v2.8.5...v2.8.6) (2020-11-04)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.8.5](https://github.com/remaxjs/remax/compare/v2.8.4...v2.8.5) (2020-10-23)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.8.4](https://github.com/remaxjs/remax/compare/v2.8.3...v2.8.4) (2020-10-14)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.8.3](https://github.com/remaxjs/remax/compare/v2.8.2...v2.8.3) (2020-09-28)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.8.2](https://github.com/remaxjs/remax/compare/v2.8.1...v2.8.2) (2020-09-18)
+
+### Bug Fixes
+
+- **wechat:** 微信 Button 组件支持 QQ 小程序新增参数 ([#1297](https://github.com/remaxjs/remax/issues/1297)) ([1d9a839](https://github.com/remaxjs/remax/commit/1d9a8396b4c967e7474d9e3d6735e195e570f088))
+
+## [2.8.1](https://github.com/remaxjs/remax/compare/v2.8.0...v2.8.1) (2020-09-16)
+
+**Note:** Version bump only for package @remax/wechat
+
+# [2.8.0](https://github.com/remaxjs/remax/compare/v2.7.10...v2.8.0) (2020-09-15)
+
+### Features
+
+- **wechat:** 导出 TouchEvent GenericEvent 事件定义 ([#1286](https://github.com/remaxjs/remax/issues/1286)) ([27a90cd](https://github.com/remaxjs/remax/commit/27a90cd5aef63ff84e43c25f57101b080387f638)), closes [#1062](https://github.com/remaxjs/remax/issues/1062)
+
+## [2.7.10](https://github.com/remaxjs/remax/compare/v2.7.9...v2.7.10) (2020-09-11)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.7.9](https://github.com/remaxjs/remax/compare/v2.7.8...v2.7.9) (2020-09-10)
+
+### Bug Fixes
+
+- **wechat:** 修复微信小程序 app.config.ts 声明错误问题 ([#1257](https://github.com/remaxjs/remax/issues/1257)) ([b2077ae](https://github.com/remaxjs/remax/commit/b2077aeaf1f559ff78532ea8d9136660691f02b4))
+- **wechat:** 微信添加 catchTouchMove 的类型定义 ([6efda1d](https://github.com/remaxjs/remax/commit/6efda1d0004f0e6588138068516f516d0016e4e2))
+
+## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
+
+### Bug Fixes
+
+- 修复 WebStrom 中组件不自动提示属性的问题 ([#1203](https://github.com/remaxjs/remax/issues/1203)) ([b3b7a8b](https://github.com/remaxjs/remax/commit/b3b7a8b8202c880e9b6efa307a678991d0cccc74))
+
+## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.7.6](https://github.com/remaxjs/remax/compare/v2.7.5...v2.7.6) (2020-07-28)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.7.5](https://github.com/remaxjs/remax/compare/v2.7.4...v2.7.5) (2020-07-28)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.7.4](https://github.com/remaxjs/remax/compare/v2.7.3...v2.7.4) (2020-07-25)
+
+### Bug Fixes
+
+- 修复 config 中分包配置类型缺失的问题 ([06af55c](https://github.com/remaxjs/remax/commit/06af55cd684f7dd2c9be78d0de1d9669d5d86b1a))
+- 修复 Picker 组件缺失 onClick 和 onTap 事件 ([#1170](https://github.com/remaxjs/remax/issues/1170)) ([d6c4d4a](https://github.com/remaxjs/remax/commit/d6c4d4af02da276dbbbf9a8a74c91cb1128cf70b))
+
+## [2.7.3](https://github.com/remaxjs/remax/compare/v2.7.2...v2.7.3) (2020-07-17)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.7.2](https://github.com/remaxjs/remax/compare/v2.7.1...v2.7.2) (2020-07-16)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.7.1](https://github.com/remaxjs/remax/compare/v2.7.0...v2.7.1) (2020-07-14)
+
+**Note:** Version bump only for package @remax/wechat
+
+# [2.7.0](https://github.com/remaxjs/remax/compare/v2.6.0...v2.7.0) (2020-07-09)
+
+### Bug Fixes
+
+- **wechat:** view 支持 catchTouchMove 事件 ([#1105](https://github.com/remaxjs/remax/issues/1105)) ([901cc2d](https://github.com/remaxjs/remax/commit/901cc2d63396d373d35c2bdd17fecccb81f94703))
+
+### Features
+
+- 新增 Modal 组件 ([#1133](https://github.com/remaxjs/remax/issues/1133)) ([4c801d4](https://github.com/remaxjs/remax/commit/4c801d4ad239c1eee8c7b073cf506c44cb3e0bb5))
+
+# [2.6.0](https://github.com/remaxjs/remax/compare/v2.5.5...v2.6.0) (2020-07-03)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.5.5](https://github.com/remaxjs/remax/compare/v2.5.4...v2.5.5) (2020-06-18)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.5.4](https://github.com/remaxjs/remax/compare/v2.5.3...v2.5.4) (2020-06-18)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.5.3](https://github.com/remaxjs/remax/compare/v2.5.2...v2.5.3) (2020-06-17)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.5.2](https://github.com/remaxjs/remax/compare/v2.5.1...v2.5.2) (2020-06-16)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.5.1](https://github.com/remaxjs/remax/compare/v2.5.0...v2.5.1) (2020-06-16)
+
+**Note:** Version bump only for package @remax/wechat
+
+# [2.5.0](https://github.com/remaxjs/remax/compare/v2.4.1...v2.5.0) (2020-06-15)
+
+### Bug Fixes
+
+- **wechat:** 添加 API offKeyboardHeightChange ([#1073](https://github.com/remaxjs/remax/issues/1073)) ([154ecd3](https://github.com/remaxjs/remax/commit/154ecd3946ad864cd96e9da014b6efa4a5850e6f))
+
+## [2.4.1](https://github.com/remaxjs/remax/compare/v2.4.0...v2.4.1) (2020-06-10)
+
+### Bug Fixes
+
+- **wechat:** 修复 ScrollView 滚动过快抖动问题 ([9f98a79](https://github.com/remaxjs/remax/commit/9f98a799af83edac49758859799ef2278ef7bee4))
+
+# [2.4.0](https://github.com/remaxjs/remax/compare/v2.3.0...v2.4.0) (2020-06-05)
+
+### Bug Fixes
+
+- **wechat:** 修复 Map 组件 polygons 属性不生效的问题 ([#1038](https://github.com/remaxjs/remax/issues/1038)) ([48487b2](https://github.com/remaxjs/remax/commit/48487b21f94be6d73c02a91847d9a4e46d476bb8)), closes [#1035](https://github.com/remaxjs/remax/issues/1035)
+
+# [2.3.0](https://github.com/remaxjs/remax/compare/v2.2.0...v2.3.0) (2020-06-04)
+
+### Features
+
+- 插件支持编译时的 onAppConfig 和 onPageConfig hook ([#1015](https://github.com/remaxjs/remax/issues/1015)) ([9ee59be](https://github.com/remaxjs/remax/commit/9ee59beb37422049e87bdbaf8e3431c3a6a7f762))
+
+### Performance Improvements
+
+- **remax:** 避免更新没有变化的属性 ([#989](https://github.com/remaxjs/remax/issues/989)) ([4709bda](https://github.com/remaxjs/remax/commit/4709bda754bd4d042d6259aff9ab074ed34f8ad8))
+
 # [2.2.0](https://github.com/remaxjs/remax/compare/v2.1.1...v2.2.0) (2020-05-29)
 
 **Note:** Version bump only for package @remax/wechat

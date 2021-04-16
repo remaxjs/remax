@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "moduleB": "/npm/moduleB/index",
+    "moduleC": "moduleC"
+  }
+}

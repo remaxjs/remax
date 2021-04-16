@@ -1,12 +1,11 @@
 import * as path from 'path';
 import hostComponents from '../hostComponents/node';
-import { PluginConstructor } from '@remax/types';
+import type { PluginConstructor } from '@remax/types';
 
 const EJS_TPL_ROOT = path.join(__dirname, '../../templates');
 
 const plugin: PluginConstructor = () => {
   return {
-    name: 'remax-wechat',
     meta: {
       global: 'wx',
       template: {
@@ -23,19 +22,10 @@ const plugin: PluginConstructor = () => {
       ejs: {
         base: path.join(EJS_TPL_ROOT, 'base.ejs'),
         page: path.join(EJS_TPL_ROOT, 'page.ejs'),
-        jsHelper: path.join(EJS_TPL_ROOT, 'helper.js'),
       },
     },
     hostComponents,
-    shouldHostComponentRegister: ({ componentName, additional, phase }) =>
-      componentName !== 'swiper-item' && (additional || phase !== 'extra'),
-    processProps: ({ node, props, additional }) => {
-      const isSpread = node && node.openingElement.attributes.find((a: any) => a.type === 'JSXSpreadAttribute');
-
-      const nextProps = isSpread || additional ? props : [];
-
-      return nextProps;
-    },
+    skipHostComponents: ['swiper-item'],
   };
 };
 

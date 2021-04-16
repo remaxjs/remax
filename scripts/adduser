@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+if [ -z "$1" ]; then
+  echo "username required."
+  echo
+  echo "example: ./scripts/adduser mayun"
+  exit 1;
+fi
+
+
+for pkg in `npx lerna list`; do
+  npm owner add $1 $pkg
+done

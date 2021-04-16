@@ -13,6 +13,12 @@ const {
   unstable_now: now,
 } = scheduler;
 
+const DOM_TAG_MAP: { [name: string]: string } = {
+  span: 'text',
+  div: 'view',
+  img: 'image',
+};
+
 function processProps(newProps: any, node: VNode, id: number) {
   const props: any = {};
   for (const propKey of Object.keys(newProps)) {
@@ -54,8 +60,8 @@ export default {
     // nothing to do
   },
 
-  resetAfterCommit: () => {
-    // nothing to do
+  resetAfterCommit: (container: Container) => {
+    container.applyUpdate();
   },
 
   getChildHostContext: () => {
@@ -66,7 +72,7 @@ export default {
     const id = generate();
     const node = new VNode({
       id,
-      type,
+      type: DOM_TAG_MAP[type] ?? type,
       props: {},
       container,
     });
@@ -97,31 +103,29 @@ export default {
   prepareUpdate(node: VNode, type: string, lastProps: any, nextProps: any) {
     lastProps = processProps(lastProps, node, node.id);
     nextProps = processProps(nextProps, node, node.id);
-    if (diffProperties(lastProps, nextProps)) {
-      return true;
-    }
-    return null;
+
+    return diffProperties(lastProps, nextProps);
   },
 
   commitUpdate(node: VNode, updatePayload: any, type: string, oldProps: any, newProps: any) {
     node.props = processProps(newProps, node, node.id);
-    node.update();
+    node.update(updatePayload);
   },
 
   appendInitialChild: (parent: VNode, child: VNode) => {
-    parent.appendChild(child, false);
+    parent.appendChild(child);
   },
 
   appendChild(parent: VNode, child: VNode) {
-    parent.appendChild(child, false);
+    parent.appendChild(child);
   },
 
   insertBefore(parent: VNode, child: VNode, beforeChild: VNode) {
-    parent.insertBefore(child, beforeChild, false);
+    parent.insertBefore(child, beforeChild);
   },
 
   removeChild(parent: VNode, child: VNode) {
-    parent.removeChild(child, false);
+    parent.removeChild(child);
   },
 
   finalizeInitialChildren: () => {

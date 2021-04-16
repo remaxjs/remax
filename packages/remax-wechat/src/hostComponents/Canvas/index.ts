@@ -1,5 +1,6 @@
-import { createHostComponent } from '@remax/shared';
-import { BaseProps } from '../../types/component';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 export interface CanvasProps extends BaseProps {
   /** 指定 canvas 类型，当前仅支持 webgl 2.7.0 */
@@ -8,18 +9,15 @@ export interface CanvasProps extends BaseProps {
   canvasId?: string;
   /** 当在 canvas 中移动时且有绑定手势事件时，禁止屏幕滚动以及下拉刷新 1.0.0 */
   disableScroll?: boolean;
-  /** 手指触摸动作开始 1.0.0 */
-  onTouchStart?: (event: any) => any;
-  /** 手指触摸后移动 1.0.0  */
-  onTouchMove?: (event: any) => any;
-  /** 手指触摸动作结束 1.0.0  */
-  onTouchEnd?: (event: any) => any;
-  /** 手指触摸动作被打断，如来电提醒，弹窗 1.0.0  */
-  onTouchCancel?: (event: any) => any;
-  /** 手指长按 500ms 之后触发，触发了长按事件后进行移动不会触发屏幕的滚动 1.0.0  */
-  onLongClick?: (event: any) => any;
   /** 当发生错误时触发 error 事件，detail = {errMsg} 1.0.0  */
-  onError?: (event: any) => any;
+  onError?: (event: GenericEvent) => any;
 }
 
-export const Canvas = createHostComponent<CanvasProps>('canvas');
+/**
+ * @see https://developers.weixin.qq.com/miniprogram/dev/component/canvas.html
+ */
+export const Canvas: React.ComponentType<CanvasProps> = createHostComponent<CanvasProps>('canvas');
+
+Canvas.defaultProps = {
+  disableScroll: false,
+};

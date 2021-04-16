@@ -3,7 +3,7 @@
     <%=props[i]%>="{{node.props['<%=props[i]%>']}}" <% } %>
   >
     <view>
-      <template is="TPL_DEFAULT" data="{{node: item.children[0]}}" />
+      <template is="TPL_DEFAULT" data="{{root: node.children[0]}}" />
     </view>
   </picker>
 </template>

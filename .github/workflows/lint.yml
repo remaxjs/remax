@@ -1,6 +1,14 @@
 name: Lint
 
-on: [push]
+on:
+  push:
+    branches: [master]
+    paths-ignore:
+      - 'docs/**'
+  pull_request:
+    types: [opened, synchronize]
+    paths-ignore:
+      - 'docs/**'
 
 jobs:
   build:
@@ -13,6 +21,8 @@ jobs:
         with:
           node-version: 12
       - name: install
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: true
         run: yarn install --frozen-lockfile
       - name: lint
         run: yarn lint

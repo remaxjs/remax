@@ -1,8 +1,12 @@
+import { unique } from '@remax/shared';
+
 export const alias = {
   className: 'class',
   src: 'src',
   id: 'id',
+  style: 'style',
   poster: 'poster',
+  posterSize: 'posterSize',
   objectFit: 'objectFit',
   initialTime: 'initial-time',
   duration: 'duration',
@@ -29,4 +33,4 @@ export const alias = {
   onUserAction: 'onUserAction',
 };
 
-export const props = Object.values(alias);
+export const props = unique(Object.values(alias));

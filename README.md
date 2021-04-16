@@ -12,7 +12,7 @@
 		<img src="https://img.shields.io/travis/remaxjs/remax/master?style=flat-square" alt="Travis CI build status" />
 	</a>
 	<a href="https://github.com/remaxjs/remax/actions?workflow=Node+CI">
-		<img src="https://github.com/remaxjs/remax/workflows/Node%20CI/badge.svg" alt="CI build status" />
+		<img src="https://github.com/remaxjs/remax/workflows/Build%20&%20Test/badge.svg" alt="CI build status" />
 	</a>
 	<a href="https://codecov.io/gh/remaxjs/remax">
 		<img src="https://img.shields.io/codecov/c/github/remaxjs/remax/master.svg?style=flat-square" alt="Codecov" />
@@ -23,6 +23,10 @@
 	<a href="https://user-images.githubusercontent.com/465125/69033897-f095d480-0a1a-11ea-9d4e-f14e6839bc1d.JPG">
 		<img alt="dingding" src="https://img.shields.io/badge/交流-钉钉群-brightgreen?style=flat-square" />
 	</a>
+</p>
+
+<p align="center">
+  <strong><a href="https://www.yuque.com/docs/share/076d56d7-6212-4ed5-b986-cf4325c417e6">🔥🔥🔥 蚂蚁集团体验技术部招聘</a></strong>
 </p>
 
 [《使用 React 开发小程序》](https://www.yuque.com/seeconf/2020/qsytho)

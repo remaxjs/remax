@@ -1,25 +1,38 @@
 import VNode, { RawNode } from './VNode';
 import { generate } from './instanceId';
-import { generate as generateActionId } from './actionId';
 import { FiberRoot } from 'react-reconciler';
 import nativeEffector from './nativeEffect';
+import { RuntimeOptions } from '@remax/framework-shared';
 
 interface SpliceUpdate {
-  path: string;
+  path: string[];
   start: number;
+  id: number;
   deleteCount: number;
   items: RawNode[];
+  children?: RawNode[];
+  type: 'splice';
+  node: VNode;
+}
+
+interface SetUpdate {
+  path: string[];
+  name: string;
+  value: any;
+  type: 'set';
+  node: VNode;
 }
 
 export default class Container {
   context: any;
   root: VNode;
-  updateQueue: SpliceUpdate[] = [];
+  rootKey: string;
+  updateQueue: Array<SpliceUpdate | SetUpdate> = [];
   _rootContainer?: FiberRoot;
   stopUpdate?: boolean;
   rendered = false;
 
-  constructor(context: any) {
+  constructor(context: any, rootKey = 'root') {
     this.context = context;
 
     this.root = new VNode({
@@ -28,35 +41,26 @@ export default class Container {
       container: this,
     });
     this.root.mounted = true;
+    this.rootKey = rootKey;
   }
 
-  requestUpdate(path: string, start: number, deleteCount: number, immediately: boolean, ...items: RawNode[]) {
-    const update: SpliceUpdate = {
-      path,
-      start,
-      deleteCount,
-      items,
-    };
-    if (immediately) {
-      this.updateQueue.push(update);
-      this.applyUpdate();
-    } else {
-      if (this.updateQueue.length === 0) {
-        Promise.resolve().then(() => this.applyUpdate());
-      }
-      this.updateQueue.push(update);
-    }
+  requestUpdate(update: SpliceUpdate | SetUpdate) {
+    this.updateQueue.push(update);
+  }
+
+  normalizeUpdatePath(paths: string[]) {
+    return [this.rootKey, ...paths].join('.');
   }
 
   applyUpdate() {
-    if (this.stopUpdate) {
+    if (this.stopUpdate || this.updateQueue.length === 0) {
       return;
     }
 
     const startTime = new Date().getTime();
 
     if (typeof this.context.$spliceData === 'function') {
-      let $batchedUpdates = (callback: Function) => {
+      let $batchedUpdates = (callback: () => void) => {
         callback();
       };
 
@@ -71,18 +75,33 @@ export default class Container {
             callback = () => {
               nativeEffector.run();
               /* istanbul ignore next */
-              if (__REMAX_DEBUG__) {
+              if (RuntimeOptions.get('debug')) {
                 console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`);
               }
             };
           }
 
-          this.context.$spliceData(
-            {
-              [update.path]: [update.start, update.deleteCount, ...update.items],
-            },
-            callback
-          );
+          if (update.type === 'splice') {
+            this.context.$spliceData(
+              {
+                [this.normalizeUpdatePath([...update.path, 'children'])]: [
+                  update.start,
+                  update.deleteCount,
+                  ...update.items,
+                ],
+              },
+              callback
+            );
+          }
+
+          if (update.type === 'set') {
+            this.context.setData(
+              {
+                [this.normalizeUpdatePath([...update.path, update.name])]: update.value,
+              },
+              callback
+            );
+          }
         });
       });
 
@@ -91,63 +110,50 @@ export default class Container {
       return;
     }
 
-    // TODO 统一更新行为
-    let action: any = {
-      type: 'splice',
-      payload: this.updateQueue.map(update => ({
-        path: update.path,
-        start: update.start,
-        deleteCount: update.deleteCount,
-        item: update.items[0],
-      })),
-      id: generateActionId(),
-    };
-
-    if (process.env.REMAX_PLATFORM === 'toutiao') {
-      action = {
-        root: this.root.toJSON(),
-      };
-    }
-
-    this.context.setData(
-      {
-        action,
-      },
-      () => {
-        nativeEffector.run();
-        /* istanbul ignore next */
-        if (__REMAX_DEBUG__) {
-          console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`, action);
-        }
+    const updatePayload = this.updateQueue.reduce<{ [key: string]: any }>((acc, update) => {
+      if (update.node.isDeleted()) {
+        return acc;
       }
-    );
+      if (update.type === 'splice') {
+        acc[this.normalizeUpdatePath([...update.path, 'nodes', update.id.toString()])] = update.items[0] || null;
+
+        if (update.children) {
+          acc[this.normalizeUpdatePath([...update.path, 'children'])] = (update.children || []).map(c => c.id);
+        }
+      } else {
+        acc[this.normalizeUpdatePath([...update.path, update.name])] = update.value;
+      }
+      return acc;
+    }, {});
+
+    this.context.setData(updatePayload, () => {
+      nativeEffector.run();
+      /* istanbul ignore next */
+      if (RuntimeOptions.get('debug')) {
+        console.log(`setData => 回调时间：${new Date().getTime() - startTime}ms`, updatePayload);
+      }
+    });
 
     this.updateQueue = [];
   }
 
   clearUpdate() {
     this.stopUpdate = true;
-
-    if (process.env.REMAX_PLATFORM === 'wechat') {
-      this.context.setData({
-        action: { type: 'clear' },
-      });
-    }
   }
 
-  createCallback(name: string, fn: Function) {
+  createCallback(name: string, fn: (...params: any) => any) {
     this.context[name] = fn;
   }
 
   appendChild(child: VNode) {
-    this.root.appendChild(child, true);
+    this.root.appendChild(child);
   }
 
   removeChild(child: VNode) {
-    this.root.removeChild(child, true);
+    this.root.removeChild(child);
   }
 
   insertBefore(child: VNode, beforeChild: VNode) {
-    this.root.insertBefore(child, beforeChild, true);
+    this.root.insertBefore(child, beforeChild);
   }
 }

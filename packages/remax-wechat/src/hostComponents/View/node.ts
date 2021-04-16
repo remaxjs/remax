@@ -18,10 +18,12 @@ export const alias = {
   onTouchCancel: 'bindtouchcancel',
   onLongTap: 'bindlongtap',
   onLongClick: 'bindlongtap',
+  onLongPress: 'bindlongpress',
   onTransitionEnd: 'bindtransitionend',
   onAnimationIteration: 'bindanimationiteration',
   onAnimationStart: 'bindanimationstart',
   onAnimationEnd: 'bindanimationend',
+  catchTouchMove: 'catchtouchmove',
 };
 
 export const props = Object.values(alias);

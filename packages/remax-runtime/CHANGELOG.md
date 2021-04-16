@@ -3,6 +3,279 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.12.1](https://github.com/remaxjs/remax/compare/v2.12.0...v2.12.1) (2021-04-09)
+
+### Bug Fixes
+
+- 修复不兼容 Android 6.0 的问题 ([b77e4b8](https://github.com/remaxjs/remax/commit/b77e4b8b49db5e7ca6e98397499e52f7c03ea1a3)), closes [#1522](https://github.com/remaxjs/remax/issues/1522)
+
+# [2.12.0](https://github.com/remaxjs/remax/compare/v2.11.8...v2.12.0) (2021-04-07)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.11.8](https://github.com/remaxjs/remax/compare/v2.11.7...v2.11.8) (2021-03-17)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.11.7](https://github.com/remaxjs/remax/compare/v2.11.6...v2.11.7) (2021-03-16)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.11.6](https://github.com/remaxjs/remax/compare/v2.11.5...v2.11.6) (2021-03-05)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.11.5](https://github.com/remaxjs/remax/compare/v2.11.4...v2.11.5) (2021-03-04)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.11.4](https://github.com/remaxjs/remax/compare/v2.11.3...v2.11.4) (2021-01-21)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.11.3](https://github.com/remaxjs/remax/compare/v2.11.2...v2.11.3) (2020-12-31)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.11.2](https://github.com/remaxjs/remax/compare/v2.11.1...v2.11.2) (2020-12-17)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.11.1](https://github.com/remaxjs/remax/compare/v2.11.0...v2.11.1) (2020-12-17)
+
+### Bug Fixes
+
+- 修复 style props 变更的错误异常 ([#1446](https://github.com/remaxjs/remax/issues/1446)) ([44d43a7](https://github.com/remaxjs/remax/commit/44d43a75cba47fcae7b64085c52ea858fe017a83))
+
+# [2.11.0](https://github.com/remaxjs/remax/compare/v2.10.1...v2.11.0) (2020-12-14)
+
+### Bug Fixes
+
+- 修复 placeholderStyle 属性 diff 错误的问题 ([#1429](https://github.com/remaxjs/remax/issues/1429)) ([b7622a4](https://github.com/remaxjs/remax/commit/b7622a4ff381f0a3eab113fab99f983dc0247122))
+
+## [2.10.1](https://github.com/remaxjs/remax/compare/v2.10.0...v2.10.1) (2020-12-06)
+
+**Note:** Version bump only for package @remax/runtime
+
+# [2.10.0](https://github.com/remaxjs/remax/compare/v2.9.5...v2.10.0) (2020-12-04)
+
+### Features
+
+- 支持在  所有  平台基础组件上使用平台前缀属性 ([#1412](https://github.com/remaxjs/remax/issues/1412)) ([d6e9072](https://github.com/remaxjs/remax/commit/d6e9072ef9714d62a21905c8a40061845a465b28))
+
+## [2.9.5](https://github.com/remaxjs/remax/compare/v2.9.4...v2.9.5) (2020-12-01)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.9.4](https://github.com/remaxjs/remax/compare/v2.9.3...v2.9.4) (2020-11-30)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.9.3](https://github.com/remaxjs/remax/compare/v2.9.2...v2.9.3) (2020-11-30)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.9.2](https://github.com/remaxjs/remax/compare/v2.9.1...v2.9.2) (2020-11-28)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.9.1](https://github.com/remaxjs/remax/compare/v2.9.0...v2.9.1) (2020-11-27)
+
+**Note:** Version bump only for package @remax/runtime
+
+# [2.9.0](https://github.com/remaxjs/remax/compare/v2.8.10...v2.9.0) (2020-11-24)
+
+### Bug Fixes
+
+- 修复小程序自定义组件无法设置 className 的问题 ([d253627](https://github.com/remaxjs/remax/commit/d253627765f688ee8c0e224fa244ef916129b94d))
+
+### Features
+
+- 一大波更新 ([#1366](https://github.com/remaxjs/remax/issues/1366)) ([45dab88](https://github.com/remaxjs/remax/commit/45dab88561bdbd1296ec4204aec572d00e46b1b4)), closes [#1153](https://github.com/remaxjs/remax/issues/1153) [#705](https://github.com/remaxjs/remax/issues/705) [#1077](https://github.com/remaxjs/remax/issues/1077)
+
+## [2.8.10](https://github.com/remaxjs/remax/compare/v2.8.9...v2.8.10) (2020-11-20)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.8.9](https://github.com/remaxjs/remax/compare/v2.8.8...v2.8.9) (2020-11-19)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.8.8](https://github.com/remaxjs/remax/compare/v2.8.7...v2.8.8) (2020-11-13)
+
+### Bug Fixes
+
+- 修复节点交换时渲染错误的问题 ([9be6614](https://github.com/remaxjs/remax/commit/9be66149610acefe23192c3815ef49828de92b7a))
+
+## [2.8.7](https://github.com/remaxjs/remax/compare/v2.8.6...v2.8.7) (2020-11-12)
+
+### Bug Fixes
+
+- **wechat:** 修复微信端节点交换时渲染错误的问题 ([#1364](https://github.com/remaxjs/remax/issues/1364)) ([62281ff](https://github.com/remaxjs/remax/commit/62281ff69c0da59c7bdf1a477188fbd41abee579)), closes [#1363](https://github.com/remaxjs/remax/issues/1363)
+
+## [2.8.6](https://github.com/remaxjs/remax/compare/v2.8.5...v2.8.6) (2020-11-04)
+
+### Bug Fixes
+
+- 完善 useQuery 类型定义 ([#1350](https://github.com/remaxjs/remax/issues/1350)) ([1bfcd22](https://github.com/remaxjs/remax/commit/1bfcd222aa844ba0bac7247a9235bf6eebe5449a))
+
+## [2.8.5](https://github.com/remaxjs/remax/compare/v2.8.4...v2.8.5) (2020-10-23)
+
+### Bug Fixes
+
+- 修复使用 react-query@2.21.0 构建报错的问题 ([d915ef7](https://github.com/remaxjs/remax/commit/d915ef792bbfd16527dcf63829a16145654f55dd)), closes [#1339](https://github.com/remaxjs/remax/issues/1339)
+
+## [2.8.4](https://github.com/remaxjs/remax/compare/v2.8.3...v2.8.4) (2020-10-14)
+
+### Bug Fixes
+
+- 修复 onUnload 事件不触发的问题 ([#1324](https://github.com/remaxjs/remax/issues/1324)) ([5c53ed8](https://github.com/remaxjs/remax/commit/5c53ed81455d7e2699e4b37409fad97e6f06aa2d))
+
+## [2.8.3](https://github.com/remaxjs/remax/compare/v2.8.2...v2.8.3) (2020-09-28)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.8.2](https://github.com/remaxjs/remax/compare/v2.8.1...v2.8.2) (2020-09-18)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.8.1](https://github.com/remaxjs/remax/compare/v2.8.0...v2.8.1) (2020-09-16)
+
+### Bug Fixes
+
+- 修复同一页面的生命周期会重复触发的问题 ([#1289](https://github.com/remaxjs/remax/issues/1289)) ([4e8fef1](https://github.com/remaxjs/remax/commit/4e8fef1dfe5f26824aecc0d530da23cf48aef758)), closes [#1288](https://github.com/remaxjs/remax/issues/1288)
+
+# [2.8.0](https://github.com/remaxjs/remax/compare/v2.7.10...v2.8.0) (2020-09-15)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.7.10](https://github.com/remaxjs/remax/compare/v2.7.9...v2.7.10) (2020-09-11)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.7.9](https://github.com/remaxjs/remax/compare/v2.7.8...v2.7.9) (2020-09-10)
+
+### Bug Fixes
+
+- **ali:** 修复同一个页面的生命周期会重复触发的问题 ([2af7537](https://github.com/remaxjs/remax/commit/2af753700e3048d231c0fb7d137e327e2089b9a7)), closes [#1225](https://github.com/remaxjs/remax/issues/1225)
+- **toutiao:** 修复飞书开发者工具运行报错的问题 ([00db2bf](https://github.com/remaxjs/remax/commit/00db2bf5d228c7ab6d1e695ce3d01b4e7e6e2aab))
+- **web:** 修复 web 下即使离开页面 onPageScroll 事件也会触发的问题 ([#1232](https://github.com/remaxjs/remax/issues/1232)) ([7ae649e](https://github.com/remaxjs/remax/commit/7ae649ec03598dc5afed1552dbe12f9c74297c2e))
+
+## [2.7.8](https://github.com/remaxjs/remax/compare/v2.7.7...v2.7.8) (2020-08-11)
+
+### Bug Fixes
+
+- **wechat:** 微信增加 onShareTimeline 生命周期 ([3e5f3cb](https://github.com/remaxjs/remax/commit/3e5f3cb0be474cee2d577f024ae7be100c8456c4))
+
+## [2.7.7](https://github.com/remaxjs/remax/compare/v2.7.6...v2.7.7) (2020-07-29)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.7.6](https://github.com/remaxjs/remax/compare/v2.7.5...v2.7.6) (2020-07-28)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.7.5](https://github.com/remaxjs/remax/compare/v2.7.4...v2.7.5) (2020-07-28)
+
+### Bug Fixes
+
+- 修复 stopPropagation 有可能导致方法不再触发的问题 ([1d6f961](https://github.com/remaxjs/remax/commit/1d6f9618d5cd5a31559d832f2cbd4d51a16ec0a1))
+
+## [2.7.4](https://github.com/remaxjs/remax/compare/v2.7.3...v2.7.4) (2020-07-25)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.7.3](https://github.com/remaxjs/remax/compare/v2.7.2...v2.7.3) (2020-07-17)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.7.2](https://github.com/remaxjs/remax/compare/v2.7.1...v2.7.2) (2020-07-16)
+
+### Bug Fixes
+
+- **web:** 修复 onLoad 和 onShow 事件不触发的问题 ([f871ae1](https://github.com/remaxjs/remax/commit/f871ae190c2244c1596211536adae46eb070da5d))
+
+## [2.7.1](https://github.com/remaxjs/remax/compare/v2.7.0...v2.7.1) (2020-07-14)
+
+**Note:** Version bump only for package @remax/runtime
+
+# [2.7.0](https://github.com/remaxjs/remax/compare/v2.6.0...v2.7.0) (2020-07-09)
+
+### Bug Fixes
+
+- 修复 onClick 和 onTouchStart 阻止冒泡会互相影响的问题 ([be9af42](https://github.com/remaxjs/remax/commit/be9af42d9a19866afcf613af11dbdf8502089744))
+- 修复页面 onLoad 事件缺少 query 参数的问题 ([#1134](https://github.com/remaxjs/remax/issues/1134)) ([a7547c1](https://github.com/remaxjs/remax/commit/a7547c182f0cf31719c27d539a115616b19d075f))
+
+### Features
+
+- 新增 Modal 组件 ([#1133](https://github.com/remaxjs/remax/issues/1133)) ([4c801d4](https://github.com/remaxjs/remax/commit/4c801d4ad239c1eee8c7b073cf506c44cb3e0bb5))
+
+# [2.6.0](https://github.com/remaxjs/remax/compare/v2.5.5...v2.6.0) (2020-07-03)
+
+### Bug Fixes
+
+- **web:** 修复 web 下 useQuery 无法获取到参数的问题 ([c6e6b75](https://github.com/remaxjs/remax/commit/c6e6b7516a14c88ddc326f167a932befd18c720e)), closes [#1112](https://github.com/remaxjs/remax/issues/1112)
+- **web:** 修复页面组件无法获取 props.location.query 的问题 ([#1132](https://github.com/remaxjs/remax/issues/1132)) ([7422aff](https://github.com/remaxjs/remax/commit/7422affac4e3b5f334c768e29645ba25efd008e7))
+
+## [2.5.5](https://github.com/remaxjs/remax/compare/v2.5.4...v2.5.5) (2020-06-18)
+
+### Bug Fixes
+
+- **wechat:** 修复条件渲染错误 ([#1100](https://github.com/remaxjs/remax/issues/1100)) ([a204ec7](https://github.com/remaxjs/remax/commit/a204ec7dd3ade1b6b97cd834f018fafa67ec960a)), closes [#1096](https://github.com/remaxjs/remax/issues/1096) [#1099](https://github.com/remaxjs/remax/issues/1099)
+
+## [2.5.4](https://github.com/remaxjs/remax/compare/v2.5.3...v2.5.4) (2020-06-18)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.5.3](https://github.com/remaxjs/remax/compare/v2.5.2...v2.5.3) (2020-06-17)
+
+**Note:** Version bump only for package @remax/runtime
+
+## [2.5.2](https://github.com/remaxjs/remax/compare/v2.5.1...v2.5.2) (2020-06-16)
+
+### Bug Fixes
+
+- **ali:** 修复条件渲染 JSX 可能导致报错的问题 ([#1092](https://github.com/remaxjs/remax/issues/1092)) ([309bc5b](https://github.com/remaxjs/remax/commit/309bc5b22c08679f1a159cd2fb53644f8a42da15))
+
+## [2.5.1](https://github.com/remaxjs/remax/compare/v2.5.0...v2.5.1) (2020-06-16)
+
+**Note:** Version bump only for package @remax/runtime
+
+# [2.5.0](https://github.com/remaxjs/remax/compare/v2.4.1...v2.5.0) (2020-06-15)
+
+### Bug Fixes
+
+- **wechat:** 修复更新已删除的节点导致报错的问题 ([#1078](https://github.com/remaxjs/remax/issues/1078)) ([84f45fa](https://github.com/remaxjs/remax/commit/84f45fab73a1fd86326bd52806a465e6c96a00ef)), closes [#1065](https://github.com/remaxjs/remax/issues/1065)
+
+### Features
+
+- 支持 React DevTools ([#994](https://github.com/remaxjs/remax/issues/994)) ([396b326](https://github.com/remaxjs/remax/commit/396b3269d05f4d3218c3c3637d2aaaca03a5673c))
+- **remax:** onTouchStart onTouchMove onTouchEnd 支持阻止冒泡 ([#1072](https://github.com/remaxjs/remax/issues/1072)) ([5a532c1](https://github.com/remaxjs/remax/commit/5a532c1935e900e8a86e288077d92338a46832f5)), closes [#1068](https://github.com/remaxjs/remax/issues/1068)
+
+## [2.4.1](https://github.com/remaxjs/remax/compare/v2.4.0...v2.4.1) (2020-06-10)
+
+### Bug Fixes
+
+- 修复 style 属性为 null 时报错的问题 ([#1066](https://github.com/remaxjs/remax/issues/1066)) ([ff83df3](https://github.com/remaxjs/remax/commit/ff83df3b1761eeb779f50eaea5d3df6f931bae53)), closes [#1065](https://github.com/remaxjs/remax/issues/1065)
+
+# [2.4.0](https://github.com/remaxjs/remax/compare/v2.3.0...v2.4.0) (2020-06-05)
+
+**Note:** Version bump only for package @remax/runtime
+
+# [2.3.0](https://github.com/remaxjs/remax/compare/v2.2.0...v2.3.0) (2020-06-04)
+
+### Bug Fixes
+
+- 修复 ES Module 的运行时插件无法注册的问题 ([8e73f1d](https://github.com/remaxjs/remax/commit/8e73f1d5fcc2dc2f1ee2bc9ad9caa5a992c99c5a))
+
+### Features
+
+- 支持 onLoad 和 unload 生命周期 ([4bfc325](https://github.com/remaxjs/remax/commit/4bfc325ec627cc75bcbe8e6524368d8a93ac8674))
+
+### Performance Improvements
+
+- **remax:** 避免更新没有变化的属性 ([#989](https://github.com/remaxjs/remax/issues/989)) ([4709bda](https://github.com/remaxjs/remax/commit/4709bda754bd4d042d6259aff9ab074ed34f8ad8))
+
 # [2.2.0](https://github.com/remaxjs/remax/compare/v2.1.1...v2.2.0) (2020-05-29)
 
 ### Features

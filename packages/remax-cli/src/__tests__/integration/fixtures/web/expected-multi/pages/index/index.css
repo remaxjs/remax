@@ -1,0 +1,45 @@
+
+.app___2lhPP {
+  text-align: center;
+  padding: 0 0.24rem;
+}
+
+.logo___Al4Xb {
+  -webkit-animation: logo-spin___3_EwH infinite 20s linear;
+          animation: logo-spin___3_EwH infinite 20s linear;
+  height: 2.40rem;
+  width: 2.40rem;
+  pointer-events: none;
+}
+
+.text___XEtZ5 {
+  margin-top: 0.64rem;
+}
+
+.header___3qOk9 {
+  padding-top: 30%;
+  font-size: 0.40rem;
+}
+
+@-webkit-keyframes logo-spin___3_EwH {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes logo-spin___3_EwH {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+

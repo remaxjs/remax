@@ -1,1 +1,0 @@
-export default __REMAX_HOST_COMPONENTS__;

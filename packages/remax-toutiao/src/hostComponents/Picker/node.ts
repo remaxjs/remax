@@ -15,6 +15,7 @@ export const alias = {
   customItem: 'custom-item',
   disabled: 'disabled',
   animation: 'animation',
+  mode: 'mode',
 };
 
 export const props = Object.values(alias);

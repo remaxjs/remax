@@ -3,6 +3,14 @@
 exports[`Button render correctly 1`] = `
 <button
   className="class"
+  disabled={false}
+  hoverClassName="button-hover"
+  hoverStartTime={20}
+  hoverStayTime={70}
+  hoverStopPropagation={false}
+  loading={false}
+  size="default"
+  type="default"
 >
   Button
 </button>

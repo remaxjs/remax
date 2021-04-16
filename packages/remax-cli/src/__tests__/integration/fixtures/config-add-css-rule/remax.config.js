@@ -1,9 +1,8 @@
 module.exports = {
   configWebpack(ctx) {
-    debugger;
     ctx.addCSSRule({
-      name: 'acss',
-      test: /\.acss(\?.*)?$/,
+      name: 'scss',
+      test: /\.scss(\?.*)?$/,
     });
   },
 };

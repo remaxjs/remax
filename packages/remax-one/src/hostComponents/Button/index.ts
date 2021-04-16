@@ -1,6 +1,8 @@
 import * as React from 'react';
 import createHostComponent from '../../createHostComponent';
 import { TapEvent } from '../../types';
+import alias from './props/alias';
+import defaults from './props/default';
 
 export interface ButtonProps extends React.AriaAttributes {
   // 通用属性
@@ -23,6 +25,6 @@ export interface ButtonProps extends React.AriaAttributes {
   onTap?: (event: TapEvent) => void;
 }
 
-const Button = createHostComponent<ButtonProps>('button');
+const Button: React.ComponentType<ButtonProps> = createHostComponent<ButtonProps>('button', alias, defaults);
 
 export default Button;

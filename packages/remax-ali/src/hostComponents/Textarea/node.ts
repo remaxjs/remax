@@ -1,3 +1,5 @@
+import { unique } from '@remax/shared';
+
 export const alias = {
   id: 'id',
   className: 'class',
@@ -14,10 +16,11 @@ export const alias = {
   autoHeight: 'auto-height',
   showCount: 'show-count',
   controlled: 'controlled',
+  enableNative: 'enableNative',
   onInput: 'onInput',
   onFocus: 'onFocus',
   onBlur: 'onBlur',
   onConfirm: 'onConfirm',
 };
 
-export const props = Object.values(alias);
+export const props = unique(Object.values(alias));

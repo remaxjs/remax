@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface ScrollViewProps {
   readonly dataset?: DOMStringMap;
@@ -17,6 +17,8 @@ export interface ScrollViewProps {
   scrollAnimationDuration?: number;
   enableBackToTop?: boolean;
   trapScroll?: boolean;
+  disableLowerScroll?: 'always' | 'out-of-bounds';
+  disableUpperScroll?: 'always' | 'out-of-bounds';
   onScrollToUpper?: (e: any) => void;
   onScrollToLower?: (e: any) => void;
   onScroll?: (e: any) => void;
@@ -26,4 +28,4 @@ export interface ScrollViewProps {
   onTouchCancel?: (e: any) => void;
 }
 
-export const ScrollView = createHostComponent<ScrollViewProps>('scroll-view');
+export const ScrollView = createHostComponent<ScrollViewProps>('scroll-view') as React.ComponentType<ScrollViewProps>;

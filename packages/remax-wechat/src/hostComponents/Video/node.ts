@@ -2,6 +2,7 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  animation: 'animation',
   src: 'src',
   duration: 'duration',
   controls: 'controls',
@@ -25,6 +26,8 @@ export const alias = {
   title: 'title',
   playBtnPosition: 'play-btn-position',
   posterForCrawler: 'poster-for-crawler',
+  showCastingButton: 'show-casting-button',
+  pictureInPictureMode: 'picture-in-picture-mode',
   enablePlayGesture: 'enable-play-gesture',
   autoPauseIfNavigate: 'auto-pause-if-navigate',
   autoPauseIfOpenNative: 'auto-pause-if-open-native',
@@ -38,7 +41,6 @@ export const alias = {
   onWaiting: 'bindwaiting',
   onError: 'binderror',
   onProgress: 'bindprogress',
-  animation: 'animation',
 };
 
 export const props = Object.values(alias);

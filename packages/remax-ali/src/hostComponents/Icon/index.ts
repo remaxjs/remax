@@ -1,4 +1,5 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 
 export interface IconProps {
   readonly dataset?: DOMStringMap;
@@ -19,4 +20,4 @@ export interface IconProps {
   color?: string;
 }
 
-export const Icon = createHostComponent<IconProps>('icon');
+export const Icon = createHostComponent<IconProps>('icon') as React.ComponentType<IconProps>;

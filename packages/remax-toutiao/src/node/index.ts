@@ -1,12 +1,11 @@
 import * as path from 'path';
 import hostComponents from '../hostComponents/node';
-import { PluginConstructor } from '@remax/types';
+import type { PluginConstructor } from '@remax/types';
 
 const EJS_TPL_ROOT = path.join(__dirname, '../../templates');
 
 const plugin: PluginConstructor = () => {
   return {
-    name: 'remax-toutiao',
     meta: {
       global: 'tt',
       template: {
@@ -21,7 +20,7 @@ const plugin: PluginConstructor = () => {
       },
     },
     hostComponents,
-    shouldHostComponentRegister: ({ componentName }) => componentName !== 'swiper-item',
+    skipHostComponents: ['swiper-item'],
   };
 };
 

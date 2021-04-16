@@ -57,6 +57,14 @@ class Page {
     });
   }
 
+  shareTimeline() {
+    this.config.onShareTimeline({
+      from: 'menu',
+      target: undefined,
+      webViewUrl: 'https://www.alipay.com',
+    });
+  }
+
   titleClick() {
     this.config.onTitleClick();
   }
@@ -74,21 +82,21 @@ class Page {
   }
 
   back() {
-    this.config.events.onBack();
+    this.config.events.onBack.apply(this.config);
   }
 
   keyboardHeight() {
-    this.config.events.onKeyboardHeight();
+    this.config.events.onKeyboardHeight.apply(this.config);
   }
   tabItemTap() {
-    this.config.events.onTabItemTap();
+    this.config.events.onTabItemTap.apply(this.config);
     this.config.onTabItemTap();
   }
   beforeTabItemTap() {
-    this.config.events.beforeTabItemTap();
+    this.config.events.beforeTabItemTap.apply(this.config);
   }
   resize() {
-    this.config.events.onResize();
+    this.config.events.onResize.apply(this.config);
     this.config.onResize();
   }
 }

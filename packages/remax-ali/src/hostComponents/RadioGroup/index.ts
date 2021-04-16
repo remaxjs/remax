@@ -1,4 +1,5 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 
 export interface RadioGroupProps {
   readonly dataset?: DOMStringMap;
@@ -8,4 +9,4 @@ export interface RadioGroupProps {
   onChange?: (e: any) => void;
 }
 
-export const RadioGroup = createHostComponent<RadioGroupProps>('radio-group');
+export const RadioGroup = createHostComponent<RadioGroupProps>('radio-group') as React.ComponentType<RadioGroupProps>;

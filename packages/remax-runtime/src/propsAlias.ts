@@ -1,12 +1,10 @@
 import plainStyle from './utils/plainStyle';
-import { hostComponents } from './createHostComponent';
+import { RuntimeOptions } from '@remax/framework-shared';
 
 export function getAlias(prop: string, type: string) {
-  prop = prop.replace('className', 'class');
+  const hostComponent = RuntimeOptions.get('hostComponents')[type];
 
-  const hostComponent = hostComponents[type];
-
-  const prefix = `${process.env.REMAX_PLATFORM}-`;
+  const prefix = `${RuntimeOptions.get('platform')}-`;
 
   // 判断是否是平台独有属性
   if (prop.startsWith(prefix)) {
@@ -17,7 +15,7 @@ export function getAlias(prop: string, type: string) {
 }
 
 function getValue(prop: string, value: any): any {
-  if (prop.toLowerCase().endsWith('style') && typeof value === 'object') {
+  if (prop.toLowerCase().endsWith('style') && Object.prototype.toString.call(value) === '[object Object]') {
     return plainStyle(value);
   }
 
@@ -28,15 +26,30 @@ export interface GenericProps {
   [key: string]: any;
 }
 
+export function propAlias(prop: string, value: any, type: string) {
+  return [getAlias(prop, type), getValue(prop, value)];
+}
+
 export default function propsAlias(props: GenericProps, type: string) {
   if (!props) {
     return props;
   }
 
+  const prefix = `${RuntimeOptions.get('platform')}-`;
+
   const aliasProps: GenericProps = {};
 
   for (const prop in props) {
-    aliasProps[getAlias(prop, type)] = getValue(prop, props[prop]);
+    // 平台前缀属性优先级提升
+    // @see https://github.com/remaxjs/remax/issues/1409
+    const hasPrefix = prop.startsWith(prefix);
+    const key = getAlias(prop, type);
+    const value = getValue(prop, props[prop]);
+    if (hasPrefix) {
+      aliasProps[key] = value;
+    } else {
+      aliasProps[key] = aliasProps[key] || value;
+    }
   }
 
   return aliasProps;

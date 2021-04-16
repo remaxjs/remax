@@ -1,15 +1,18 @@
 export const alias = {
   id: 'id',
   style: 'style',
+  animation: 'animation',
   className: 'class',
   latitude: 'latitude',
   longitude: 'longitude',
   scale: 'scale',
+  minScale: 'min-scale',
+  maxScale: 'max-scale',
   markers: 'markers',
   polyline: 'polyline',
   circles: 'circles',
   controls: 'controls',
-  polygon: 'polygon',
+  polygons: 'polygons',
   showLocation: 'show-location',
   includePoints: 'include-points',
   includePadding: 'include-padding',
@@ -30,6 +33,8 @@ export const alias = {
   enableRotate: 'enable-rotate',
   enableSatellite: 'enable-satellite',
   enableTraffic: 'enable-traffic',
+  enablePoi: 'enable-poi',
+  enableBuilding: 'enable-building',
   onTap: 'bindtap',
   onClick: 'bindtap',
   onMarkerTap: 'bindmarkertap',
@@ -42,7 +47,7 @@ export const alias = {
   onRegionChange: 'bindregionchange',
   onPoiTap: 'bindpoitap',
   onPoiClick: 'bindpoitap',
-  animation: 'animation',
+  onAnchorPointTap: 'bindanchorpointtap',
 };
 
 export const props = Object.values(alias);

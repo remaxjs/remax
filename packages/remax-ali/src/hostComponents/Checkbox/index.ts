@@ -1,4 +1,4 @@
-import { createHostComponent } from '@remax/shared';
+import { createHostComponent } from '@remax/runtime';
 
 export interface CheckboxProps {
   readonly dataset?: DOMStringMap;
@@ -12,4 +12,4 @@ export interface CheckboxProps {
   onChange?: (e: any) => void;
 }
 
-export const Checkbox = createHostComponent<CheckboxProps>('checkbox');
+export const Checkbox = createHostComponent<CheckboxProps>('checkbox') as React.ComponentType<CheckboxProps>;

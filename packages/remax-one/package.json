@@ -1,6 +1,6 @@
 {
   "name": "@remax/one",
-  "version": "2.2.0",
+  "version": "2.12.1",
   "description": "Remax 小程序多端方案",
   "main": "./cjs/index.js",
   "esnext": "./esm/index.js",
@@ -20,28 +20,24 @@
     "@types/react": "^16.9.33"
   },
   "devDependencies": {
-    "@remax/types": "2.2.0",
-    "@types/jest": "^25.2.1",
+    "@remax/types": "2.12.1",
     "@types/react": "^16.9.33",
     "@types/react-dom": "^16.9.6",
-    "@types/react-lazyload": "^2.6.0",
     "@types/react-test-renderer": "^16.9.1",
-    "jest": "^26.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.13.1",
-    "react-test-renderer": "^16.12.0",
-    "ts-jest": "^26.0.0",
-    "typescript": "^3.7.4"
+    "react-test-renderer": "^16.12.0"
   },
   "dependencies": {
-    "@remax/ali": "2.2.0",
-    "@remax/router": "2.2.0",
-    "@remax/toutiao": "2.2.0",
-    "@remax/wechat": "2.2.0",
+    "@remax/ali": "2.12.1",
+    "@remax/framework-shared": "2.12.1",
+    "@remax/runtime": "2.12.1",
+    "@remax/toutiao": "2.12.1",
+    "@remax/web": "2.12.1",
+    "@remax/wechat": "2.12.1",
     "clsx": "^1.1.0",
-    "react-autosize-textarea": "^7.0.0",
-    "react-lazyload": "^2.6.7",
-    "rmc-feedback": "^2.0.0"
+    "memoize-one": "^5.1.1",
+    "react-autosize-textarea": "^7.0.0"
   },
   "publishConfig": {
     "access": "public"

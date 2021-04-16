@@ -10,18 +10,5 @@
     "downlevelIteration": true
   },
   "include": ["src/**/*", "typings/**/*"],
-  "references": [
-    {
-      "path": "../remax-types"
-    },
-    {
-      "path": "../remax-ali"
-    },
-    {
-      "path": "../remax-toutiao"
-    },
-    {
-      "path": "../remax-wechat"
-    }
-  ]
+  "exclude": ["cjs", "esm"]
 }

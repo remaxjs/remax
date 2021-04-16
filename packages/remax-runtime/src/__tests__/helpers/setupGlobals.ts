@@ -2,8 +2,7 @@
 import pages from './pages';
 import createAppConfig from './../../createAppConfig';
 
-const app = createAppConfig(({ children }: any) => children);
 // @ts-ignore
-global['getApp'] = () => app;
+global['getApp'] = () => createAppConfig(({ children }: any) => children);
 // @ts-ignore
 global['getCurrentPages'] = () => pages;

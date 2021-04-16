@@ -2,20 +2,57 @@ import * as React from 'react';
 import './helpers/setupGlobals';
 import createPageConfig from '../createPageConfig';
 import { usePageEvent } from '../../src';
-import { PageProps } from '../createPageWrapper';
+import { RuntimeOptions, PageProps } from '@remax/framework-shared';
 import View from './helpers/View';
 import Page from './helpers/Page';
-
-jest.mock('../stopPullDownRefresh', () => () => void 0);
 
 const TEST_PAGE = 'pages/test/index';
 
 describe('page', () => {
+  beforeAll(() => {
+    RuntimeOptions.apply({
+      appEvents: [
+        'onLaunch',
+        'onShow',
+        'onHide',
+        'onShareAppMessage',
+        'onPageNotFound',
+        'onError',
+        'onUnhandledRejection',
+        'onThemeChange',
+      ],
+      pageEvents: {
+        'pages/test/only/onshow': ['onShow'],
+        'pages/test/index': [
+          'onShow',
+          'onHide',
+          'onPullDownRefresh',
+          'onPullIntercept',
+          'onReachBottom',
+          'onPageScroll',
+          'onShareAppMessage',
+          'onShareTimeline',
+          'onTitleClick',
+          'onOptionMenuClick',
+          'onPopMenuClick',
+          'onReady',
+          'onResize',
+          'onTabItemTap',
+        ],
+      },
+    });
+  });
+
+  afterAll(() => {
+    RuntimeOptions.reset();
+  });
+
   it('create page config', () => {
     const Foo = () => {
       return <View>foo</View>;
     };
     const page = Page(createPageConfig(Foo, TEST_PAGE));
+    getApp().onLaunch();
     page.load();
     expect(page.config.wrapper).not.toBeNull();
   });
@@ -24,6 +61,12 @@ describe('page', () => {
     it('works', () => {
       const log: string[] = [];
       const Foo: React.FC<PageProps> = () => {
+        usePageEvent('onLoad', () => {
+          log.push('useLoad');
+        });
+        usePageEvent('onUnload', () => {
+          log.push('useUnload');
+        });
         usePageEvent('onReady', () => {
           log.push('useReady');
         });
@@ -50,6 +93,13 @@ describe('page', () => {
         usePageEvent('onShareAppMessage', object => {
           log.push(object.from);
           log.push('useShareAppMessage');
+
+          return {};
+        });
+
+        usePageEvent('onShareTimeline', object => {
+          log.push(object.from);
+          log.push('useShareTimeline');
 
           return {};
         });
@@ -104,6 +154,7 @@ describe('page', () => {
       page.reachBottom();
       page.pageScroll();
       page.shareAppMessage();
+      page.shareTimeline();
       page.titleClick();
       page.optionMenuClick();
       page.popMenuClick();
@@ -113,8 +164,10 @@ describe('page', () => {
       page.beforeTabItemTap();
       page.resize();
       page.hide();
+      page.unload();
 
       expect(log).toEqual([
+        'useLoad',
         'useShow',
         'useEventOnShow',
         'useReady',
@@ -124,6 +177,8 @@ describe('page', () => {
         'usePageScroll',
         'menu',
         'useShareAppMessage',
+        'menu',
+        'useShareTimeline',
         'useTitleClick',
         'useOptionMenuClick',
         'usePopMenuClick',
@@ -137,6 +192,7 @@ describe('page', () => {
         // 测试了微信和阿里两个hook，所以有两个
         'useEventOnResize',
         'useHide',
+        'useUnload',
       ]);
     });
 
@@ -197,6 +253,14 @@ describe('page', () => {
         log.push('componentWillUnmount');
       }
 
+      onLoad() {
+        log.push('onLoad');
+      }
+
+      onUnload() {
+        log.push('onUnload');
+      }
+
       onShow() {
         log.push('onShow');
       }
@@ -220,6 +284,11 @@ describe('page', () => {
       onShareAppMessage(object: any) {
         log.push(object.from);
         log.push('onShareAppMessage');
+      }
+
+      onShareTimeline(object: any) {
+        log.push(object.from);
+        log.push('onShareTimeline');
       }
 
       onTitleClick() {
@@ -270,6 +339,7 @@ describe('page', () => {
     page.reachBottom();
     page.pageScroll();
     page.shareAppMessage();
+    page.shareTimeline();
     page.titleClick();
     page.optionMenuClick();
     page.popMenuClick();
@@ -284,6 +354,7 @@ describe('page', () => {
     expect(log).toEqual([
       'componentWillMount',
       'componentDidMount',
+      'onLoad',
       'onShow',
       'onPullDownRefresh',
       'onPullIntercept',
@@ -291,6 +362,8 @@ describe('page', () => {
       'onPageScroll',
       'menu',
       'onShareAppMessage',
+      'menu',
+      'onShareTimeline',
       'onTitleClick',
       'onOptionMenuClick',
       'onPopMenuClick',
@@ -302,6 +375,7 @@ describe('page', () => {
       'onTabItemTap',
       'onResize',
       'onResize',
+      'onUnload',
       'componentWillUnmount',
     ]);
   });

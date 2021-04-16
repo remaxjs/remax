@@ -5,6 +5,7 @@ export interface InputProps {
   readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
+  style?: React.CSSProperties;
   value?: string;
   name?: string;
   type?: string;
@@ -13,7 +14,7 @@ export interface InputProps {
   placeholderStyle?: React.CSSProperties;
   placeholderClassName?: string;
   disabled?: boolean;
-  maxlength?: number;
+  maxLength?: number;
   focus?: boolean;
   confirmType?: 'done' | 'go' | 'next' | 'search' | 'send';
   confirmHold?: boolean;

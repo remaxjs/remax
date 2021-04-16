@@ -1,53 +1,60 @@
-import { Options } from '@remax/types';
+import type { Options } from '@remax/types';
 import output from './utils/output';
-import remaxVersion from '../remaxVersion';
-import { Platform } from '@remax/types';
-import getConfig from '../getConfig';
 import * as webpack from 'webpack';
 import API from '../API';
 
-interface Argv {
-  target: Platform;
-  watch?: boolean;
-  notify?: boolean;
-  port?: number;
-}
+const version = require('remax/package.json').version;
 
-export function run(options: Options): webpack.Compiler {
-  const api = new API();
-  api.registerPlugins(options);
+export function run(options: Options, api: API): webpack.Compiler {
+  process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-  if (options.turboPages && options.turboPages.length > 0 && options.target !== Platform.ali) {
-    throw new Error('turboPages 目前仅支持 ali 平台开启');
-  }
+  api.loadBuiltinPlugins(options);
+  api.onBuildStart(options);
 
-  if (options.target === Platform.web) {
+  if (options.target === 'web') {
     // 兼容 herbox 所以用 require
-    const buildWeb = require('./web').default;
-    return buildWeb(api, options);
+    const WebBuilder = require('./WebBuilder').default;
+    return new WebBuilder(api, options).run();
   } else {
-    const buildMini = require('./mini').default;
-    return buildMini(api, options);
+    const MiniBuilder = require('./MiniBuilder').default;
+    return new MiniBuilder(api, options).run();
   }
 }
 
-export function build(argv: Argv) {
-  const { target } = argv;
+export function buildApp(options: Options) {
+  const api = new API();
+  api.registerPlugins(options.plugins);
+  return internalBuildApp(options, api);
+}
+
+export function internalBuildApp(options: Options, api: API) {
+  const { target, loglevel = 'verbose' } = options;
+  output.level = loglevel;
 
   process.env.REMAX_PLATFORM = target;
 
-  const options = getConfig();
+  output.message('🚀 构建应用', 'blue');
+  output.message(`\n⌨️  remax v${version}\n`, 'green');
 
-  output.message(`\n⌨️  Remax v${remaxVersion()}\n`, 'green');
-  output.message(`🎯 平台 ${target}`, 'blue');
-
-  const result = run({ ...options, ...argv });
-
-  try {
-    require('remax-stats').run();
-  } catch (e) {
-    // ignore
-  }
+  const result = run(options, api);
 
   return result;
+}
+
+export function buildMiniPlugin(options: Options) {
+  process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+  const { target, loglevel = 'verbose' } = options;
+  output.level = loglevel;
+
+  process.env.REMAX_PLATFORM = target;
+
+  output.message(`🔨 构建插件`, 'blue');
+  output.message(`\n⌨️  remax v${version}\n`, 'green');
+
+  const api = new API();
+  api.registerPlugins([]);
+
+  const MiniPluginBuilder = require('./MiniPluginBuilder').default;
+  return new MiniPluginBuilder(api, options).run();
 }

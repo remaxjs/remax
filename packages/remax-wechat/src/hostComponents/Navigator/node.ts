@@ -2,6 +2,7 @@ export const alias = {
   id: 'id',
   className: 'class',
   style: 'style',
+  animation: 'animation',
   openType: 'open-type',
   hoverClass: 'hover-class',
   hoverClassName: 'hover-class',
@@ -18,7 +19,6 @@ export const alias = {
   onSuccess: 'bindsuccess',
   onFail: 'bindfail',
   onComplete: 'bindcomplete',
-  animation: 'animation',
 };
 
 export const props = Object.values(alias);

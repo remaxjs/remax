@@ -1,3 +1,5 @@
+import { unique } from '@remax/shared';
+
 export const alias = {
   id: 'id',
   className: 'class',
@@ -14,6 +16,8 @@ export const alias = {
   enableBackToTop: 'enable-back-to-top',
   trapScroll: 'trap-scroll',
   onScrollToUpper: 'onScrollToUpper',
+  disableLowerScroll: 'disable-lower-scroll',
+  disableUpperScroll: 'disable-upper-scroll',
   onScrollToLower: 'onScrollToLower',
   onScroll: 'onScroll',
   onTouchStart: 'onTouchStart',
@@ -22,4 +26,4 @@ export const alias = {
   onTouchCancel: 'onTouchCancel',
 };
 
-export const props = Object.values(alias);
+export const props = unique(Object.values(alias));

@@ -1,4 +1,5 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 
 import { BaseProps } from '../../types/component';
 
@@ -47,4 +48,9 @@ interface RegionProps {
 
 export type PickerProps<T> = T extends Mode ? { mode: T } & PickerPropsMap[T] : never;
 
-export const Picker = createHostComponent<PickerProps<Mode>>('picker');
+export const Picker: React.ComponentType<PickerProps<Mode>> = createHostComponent<PickerProps<Mode>>('picker');
+
+Picker.defaultProps = {
+  mode: 'selector',
+  disabled: false,
+};

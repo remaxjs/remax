@@ -1,29 +1,23 @@
 import propsAlias, { getAlias } from '../propsAlias';
-
-jest.mock('../createHostComponent', () => ({
-  hostComponents: {
-    foo: {
-      alias: {
-        camelCase: 'kebab-case',
-      },
-    },
-  },
-}));
+import { RuntimeOptions } from '@remax/framework-shared';
 
 describe('props alias', () => {
-  it('transform className prop correctly', () => {
-    expect(getAlias('className', 'any')).toBe('class');
-
-    expect(
-      propsAlias(
-        {
-          className: 'class-name',
+  beforeAll(() => {
+    RuntimeOptions.apply({
+      platform: 'ali',
+      hostComponents: {
+        foo: {
+          alias: {
+            camelCase: 'kebab-case',
+          },
+          props: ['kebab-case'],
         },
-        'any'
-      )
-    ).toEqual({
-      class: 'class-name',
+      },
     });
+  });
+
+  afterAll(() => {
+    RuntimeOptions.reset();
   });
 
   it('transform style prop correctly', () => {
@@ -38,6 +32,15 @@ describe('props alias', () => {
             '--textColor': 'blue',
             backgroundColor: 'var(--textColor)',
           },
+        },
+        'any'
+      )
+    ).toMatchSnapshot();
+
+    expect(
+      propsAlias(
+        {
+          style: null,
         },
         'any'
       )
@@ -62,8 +65,18 @@ describe('props alias', () => {
   });
 
   it('transform platform props', () => {
-    process.env.REMAX_PLATFORM = 'ali';
     expect(getAlias('ali-prop', 'any')).toBe('prop');
-    process.env.REMAX_PLATFORM = '';
+  });
+
+  it('transform platform props priority boost', () => {
+    expect(
+      propsAlias(
+        {
+          'ali-type': 'foo',
+          type: 'bar',
+        },
+        'any'
+      )
+    ).toEqual({ type: 'foo' });
   });
 });

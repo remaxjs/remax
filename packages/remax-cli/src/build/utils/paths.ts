@@ -1,31 +1,30 @@
-import * as fs from 'fs';
 import * as path from 'path';
-import { Options } from '@remax/types';
-import getEntries from '../../getEntries';
+import { slash } from '@remax/shared';
+import type { Options } from '@remax/types';
+import crypto from 'crypto';
 
-export function searchJSFile(file: string) {
-  const exts = ['ts', 'tsx', 'js', 'jsx'];
+const hash = (name: string) => crypto.createHash('md5').update(name).digest('hex');
 
-  for (const e of exts) {
-    const extFile = file + '.' + e;
-    if (fs.existsSync(extFile)) {
-      return extFile;
-    }
+export function replaceExtension(file: string, ext: string) {
+  const oldExt = path.extname(file);
+  return file.replace(new RegExp(`${oldExt}$`), ext);
+}
+
+export function getNativeAssetOutputPath(sourcePath: string, options: Options) {
+  let output = slash(sourcePath)
+    .replace(slash(options.cwd) + '/', '')
+    .replace(slash(options.rootDir) + '/', '')
+    .replace(/@/g, '_')
+    .replace(/node_modules/g, 'npm');
+
+  if (path.isAbsolute(output)) {
+    // 通过 config.resolve.modules 设置非 cwd 的 sourcePath, 会进入此分支
+    // 将这种路径改成相对路径
+    const dirname = path.dirname(output);
+    const basename = path.basename(output);
+
+    output = '_external/' + hash(dirname) + basename;
   }
 
-  return '';
-}
-
-export function appConfigFile(options: Options) {
-  return searchJSFile(path.join(options.cwd, options.rootDir, 'app.config'));
-}
-
-export function pageConfigFile(pageFile: string) {
-  const ext = path.extname(pageFile);
-  return searchJSFile(pageFile.replace(new RegExp(`\\${ext}$`), '.config'));
-}
-
-export function pageConfigFiles(options: Options) {
-  const entries = getEntries(options);
-  return entries.pages.map(p => pageConfigFile(p.filename));
+  return output;
 }

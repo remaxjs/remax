@@ -1,8 +1,8 @@
 import * as path from 'path';
 import { Compiler, compilation } from 'webpack';
 import { ConcatSource } from 'webpack-sources';
-import { Meta } from '@remax/types';
-import winPath from '../../../winPath';
+import type { Meta } from '@remax/types';
+import { slash } from '@remax/shared';
 
 const PLUGIN_NAME = 'RemaxOptimizeEntriesPlugin';
 
@@ -31,7 +31,7 @@ export default class OptimizeEntriesPlugin {
           const requires: string[] = [];
           chunk.files.forEach((file: string) => {
             if (file.endsWith('.js')) {
-              const relativePath = winPath(path.relative(path.dirname(group.name), file));
+              const relativePath = slash(path.relative(path.dirname(group.name), file));
               requires.push(`require('./${relativePath}');\n`);
             }
           });
@@ -51,7 +51,7 @@ export default class OptimizeEntriesPlugin {
         const requires = (chunk.files as string[])
           .filter(file => file.endsWith(this.meta.style) && assetPath !== file)
           .map(file => {
-            const relativePath = winPath(path.relative(path.dirname(group.name), file));
+            const relativePath = slash(path.relative(path.dirname(group.name), file));
             const requirePath = `@import "./${relativePath}";\n`;
             return requirePath;
           });

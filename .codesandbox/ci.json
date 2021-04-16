@@ -1,19 +1,27 @@
 {
   "installCommand": "install:codesandbox",
   "packages": [
-    "packages/remax-types",
-    "packages/remax-macro",
-    "packages/remax-ali",
-    "packages/remax-wechat",
-    "packages/remax-toutiao",
-    "packages/remax-router",
-    "packages/remax-web",
-    "packages/remax-one",
+    "packages/babel-plugin-remax-host-component",
+    "packages/babel-plugin-remax-lifecycle",
+    "packages/babel-plugin-remax-regenerator-runtime",
+    "packages/babel-plugin-remax-turbo-render",
     "packages/babel-preset-remax",
-    "packages/remax",
-    "packages/remax-runtime",
     "packages/postcss-remax-tag",
-    "packages/remax-cli"
+    "packages/remax",
+    "packages/remax-ali",
+    "packages/remax-build-store",
+    "packages/remax-cli",
+    "packages/remax-framework-shared",
+    "packages/remax-macro",
+    "packages/remax-one",
+    "packages/remax-plugin-devtools",
+    "packages/remax-plugin-error-screen",
+    "packages/remax-runtime",
+    "packages/remax-shared",
+    "packages/remax-toutiao",
+    "packages/remax-types",
+    "packages/remax-web",
+    "packages/remax-wechat"
   ],
   "sandboxes": ["github/remaxjs/examples/tree/master/one"]
 }

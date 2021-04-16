@@ -1,10 +1,12 @@
-import { hostComponents } from '@remax/macro';
 import * as t from '@babel/types';
-import { Options, Plugin, Meta, HostComponent, Platform } from '@remax/types';
+import type { Plugin, Meta, HostComponent, Platform, Options } from '@remax/types';
+import { slash } from '@remax/shared';
 import { merge } from 'lodash';
 import Config from 'webpack-chain';
 import { RuleConfig } from './build/webpack/config/css';
-import winPath from '@remax/macro/lib/utils/winPath';
+import yargs from 'yargs';
+import Store from '@remax/build-store';
+import { builtinPlugins } from './builtinPlugins';
 
 export default class API {
   public plugins: Plugin[] = [];
@@ -59,10 +61,6 @@ export default class API {
     return meta;
   }
 
-  public getHostComponents() {
-    return hostComponents;
-  }
-
   public processProps(componentName: string, props: string[], additional?: boolean, node?: t.JSXElement) {
     let nextProps = props;
     this.plugins.forEach(plugin => {
@@ -79,18 +77,30 @@ export default class API {
     return nextProps;
   }
 
-  public shouldHostComponentRegister(componentName: string, phase: 'import' | 'jsx' | 'extra', additional?: boolean) {
-    return this.plugins.reduce((result, plugin) => {
-      if (typeof plugin.shouldHostComponentRegister === 'function') {
-        return plugin.shouldHostComponentRegister({
-          componentName,
-          additional,
-          phase,
-        });
+  onBuildStart(config: Options) {
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.onBuildStart === 'function') {
+        plugin.onBuildStart({ config });
       }
+    });
+  }
 
-      return result;
-    }, true);
+  onAppConfig(config: any) {
+    return this.plugins.reduce((acc, plugin) => {
+      if (typeof plugin.onAppConfig === 'function') {
+        acc = plugin.onAppConfig({ config: acc });
+      }
+      return acc;
+    }, config);
+  }
+
+  onPageConfig({ page, config }: { page: string; config: any }) {
+    return this.plugins.reduce((acc, plugin) => {
+      if (typeof plugin.onPageConfig === 'function') {
+        acc = plugin.onPageConfig({ page, config: acc });
+      }
+      return acc;
+    }, config);
   }
 
   configWebpack(params: { config: Config; webpack: any; addCSSRule: (ruleConfig: RuleConfig) => void }) {
@@ -109,40 +119,56 @@ export default class API {
     });
   }
 
+  extendCLI(cli: yargs.Argv) {
+    this.plugins.forEach(plugin => {
+      if (typeof plugin.extendCLI === 'function') {
+        plugin.extendCLI({ cli });
+      }
+    });
+  }
+
+  onPageTemplate({ template, page }: { template: string; page: string }) {
+    return this.plugins.reduce((acc, plugin) => {
+      if (typeof plugin.onPageTemplate === 'function') {
+        acc = plugin.onPageTemplate({ template, page });
+      }
+      return acc;
+    }, template);
+  }
+
   getRuntimePluginFiles() {
     return this.plugins
       .map(plugin => {
         if (typeof plugin.registerRuntimePlugin === 'function') {
-          return winPath(plugin.registerRuntimePlugin());
+          return slash(plugin.registerRuntimePlugin());
         }
       })
       .filter(Boolean);
   }
 
-  public registerAdapterPlugins(targetName: Platform, remaxConfig: Options) {
+  loadBuiltinPlugins(options: Options) {
+    const plugins = builtinPlugins(options).reduce((acc: Plugin[], plugin) => {
+      acc.push(plugin.init({}, options));
+      return acc;
+    }, []);
+    this.registerPlugins(plugins);
+  }
+
+  public registerAdapterPlugins(targetName: Platform) {
     this.adapter.target = targetName;
-    this.adapter.name = targetName;
     this.adapter.packageName = '@remax/' + targetName;
 
     const packagePath = this.adapter.packageName + '/node';
 
     let plugin = require(packagePath).default || require(packagePath);
     plugin = typeof plugin === 'function' ? plugin() : plugin;
+    Store.skipHostComponents = plugin.skipHostComponents;
     this.registerHostComponents(plugin.hostComponents);
     this.plugins.push(plugin);
-
-    if (remaxConfig.one) {
-      const onePath = '@remax/one/node';
-
-      const plugin = require(onePath).default || require(onePath);
-      const one = plugin();
-      this.registerHostComponents(one.hostComponents);
-      this.plugins.push(one);
-    }
   }
 
-  public registerPlugins(options: Options) {
-    options.plugins?.forEach(plugin => {
+  public registerPlugins(plugins: Plugin[]) {
+    plugins?.forEach(plugin => {
       if (plugin) {
         this.registerHostComponents(plugin.hostComponents);
         this.plugins.push(plugin);
@@ -156,7 +182,7 @@ export default class API {
     }
 
     for (const key of components.keys()) {
-      hostComponents.set(key, components.get(key)!);
+      Store.registeredHostComponents.set(key, components.get(key)!);
     }
   }
 }

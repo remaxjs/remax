@@ -1,8 +1,10 @@
 {
   "name": "remax",
-  "version": "2.2.0",
+  "version": "2.12.1",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
-  "main": "index.js",
+  "main": "./cjs/index.js",
+  "module": "./esm/index.js",
+  "types": "./esm/index.d.ts",
   "bin": {
     "remax": "./bin/remax"
   },
@@ -21,17 +23,24 @@
     "url": "git+https://github.com/remaxjs/remax.git"
   },
   "homepage": "https://remaxjs.org",
+  "scripts": {
+    "prebuild": "rm -rf cjs esm",
+    "build": "tsc",
+    "build:cjs": "tsc --module CommonJS --outDir cjs",
+    "prepack": "yarn build"
+  },
   "dependencies": {
-    "@remax/ali": "2.2.0",
-    "@remax/cli": "2.2.0",
-    "@remax/macro": "2.2.0",
-    "@remax/one": "2.2.0",
-    "@remax/runtime": "2.2.0",
-    "@remax/toutiao": "2.2.0",
-    "@remax/web": "2.2.0",
-    "@remax/wechat": "2.2.0",
+    "@remax/ali": "2.12.1",
+    "@remax/cli": "2.12.1",
+    "@remax/macro": "2.12.1",
+    "@remax/one": "2.12.1",
+    "@remax/runtime": "2.12.1",
+    "@remax/toutiao": "2.12.1",
+    "@remax/types": "2.12.1",
+    "@remax/web": "2.12.1",
+    "@remax/wechat": "2.12.1",
     "mini-types": "^0.1.1",
-    "miniprogram-api-typings": "^2.10.4"
+    "miniprogram-api-typings": "^3.1.3"
   },
   "gitHead": "06dcaa3df31f6bde22b6d07a979c361dc137351f"
 }

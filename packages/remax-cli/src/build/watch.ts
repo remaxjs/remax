@@ -1,25 +1,27 @@
 import chokidar from 'chokidar';
-import { Options } from '@remax/types';
-import { Compiler } from 'webpack';
 import SingleEntryPlugin from 'webpack/lib/SingleEntryPlugin';
-import { getPages } from '../getEntries';
+import Builder from './Builder';
 
 let isRunning = true;
 
-export default function watch(options: Options, compiler: Compiler, watcher: any, addEntry = false) {
+export default function watch(builder: Builder, watcher: any, addEntry = false) {
   // 监听额外的文件
-  const pages = getPages(options);
+  const { entries } = builder.entryCollection;
   chokidar
-    .watch([`${options.rootDir}/app.config.{js,ts}`], {
-      cwd: options.cwd,
+    .watch([`${builder.options.rootDir}/app.config.{js,ts}`], {
+      cwd: builder.options.cwd,
     })
     .on('change', () => {
       if (isRunning) return;
       if (addEntry) {
-        const nextPages = getPages(options);
-        nextPages.forEach(np => {
-          if (!pages.find(p => p.filename === np.filename)) {
-            new SingleEntryPlugin(null, np.filename, np.name).apply(compiler);
+        builder.fetchProjectConfig();
+        builder.entryCollection.init();
+        const nextEntries = builder.entryCollection.entries;
+        nextEntries.forEach(entry => {
+          if (!entries.get(entry.filename)) {
+            entry.virtualModule.apply(builder.webpackCompiler);
+            entry.updateSource(true);
+            new SingleEntryPlugin(null, entry.virtualPath, entry.name).apply(builder.webpackCompiler);
           }
         });
       }
@@ -27,19 +29,19 @@ export default function watch(options: Options, compiler: Compiler, watcher: any
     });
 
   chokidar
-    .watch([`${options.rootDir}/**/!(app).config.{js,ts}`], {
-      cwd: options.cwd,
+    .watch([`${builder.options.rootDir}/**/!(app).config.{js,ts}`], {
+      cwd: builder.options.cwd,
     })
     .on('all', () => {
       if (isRunning) return;
       watcher.invalidate();
     });
 
-  compiler.hooks.watchRun.tap('watchRun', () => {
+  builder.webpackCompiler.hooks.watchRun.tap('watchRun', () => {
     isRunning = true;
   });
 
-  compiler.hooks.done.tap('done', () => {
+  builder.webpackCompiler.hooks.done.tap('done', () => {
     isRunning = false;
   });
 

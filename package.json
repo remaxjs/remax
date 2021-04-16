@@ -6,10 +6,11 @@
     "watch": "concurrently \"lerna run build:cjs --parallel -- -w\" \"tsc -b -w\"",
     "prebuild": "npm run clean:packages",
     "build": "tsc -b && lerna run build:cjs",
-    "test": "lerna run --ignore babel-preset-remax --ignore website --ignore e2e-dummy --ignore e2e-mini --stream test",
-    "test:e2e": "lerna run --scope e2e-dummy test",
-    "test:e2e-mini": "lerna run --scope e2e-mini test",
-    "test:cov": "lerna run --ignore babel-preset-remax --ignore website --ignore e2e-dummy --ignore e2e-mini --stream test -- --collect-coverage",
+    "test": "lerna run --ignore babel-preset-remax --ignore website --ignore e2e-* --stream test",
+    "test:e2e-web": "yarn --cwd e2e/app test:web",
+    "test:e2e-mini": "yarn --cwd e2e/app test:mini",
+    "test:e2e-plugin": "yarn --cwd e2e/plugin test",
+    "test:cov": "lerna run --ignore babel-preset-remax --ignore website --ignore e2e-* --stream test -- --collect-coverage",
     "clean": "lerna clean",
     "clean:packages": "lerna run clean",
     "readme:copy": "lerna exec 'cp ../../README.md' . --scope remax --scope @remax/cli",
@@ -19,40 +20,41 @@
     "postinstall": "lerna bootstrap",
     "lint": "eslint \"packages/*/src/**/*.{ts,tsx}\"",
     "prerelease": "./scripts/prerelease",
-    "release": "lerna publish --force-publish --create-release=github --exact",
+    "release": "lerna publish",
     "postrelease": "./scripts/postrelease",
-    "site:build": "lerna run --scope website --stream build",
-    "site:deploy": "lerna run --scope website --stream deploy",
+    "site:build": "yarn --cwd website build",
+    "site:deploy": "yarn --cwd website deploy",
     "install:codesandbox": "PUPPETEER_SKIP_DOWNLOAD=1 yarn install",
     "authors": "./scripts/authors"
   },
-  "dependencies": {
+  "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "@typescript-eslint/eslint-plugin": "^2.12.0",
-    "@typescript-eslint/parser": "^2.12.0",
+    "@types/express": "^4.17.4",
+    "@types/jest": "^26.0.15",
+    "@types/webpack-dev-middleware": "^3.7.0",
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "concurrently": "^5.2.0",
     "eslint": "^6.2.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "husky": "^4.2.3",
+    "jest": "^26.6.3",
     "lerna": "^3.4.3",
+    "lint-staged": ">=8",
     "prettier": "^2.0.5",
-    "typescript": "^3.7.3"
+    "puppeteer": "~5.4.1",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.1.2"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.4",
-    "@types/webpack-dev-middleware": "^3.7.0",
-    "concurrently": "^5.2.0",
-    "lint-staged": ">=8",
-    "puppeteer": "^3.1.0",
-    "rimraf": "^3.0.2"
   },
   "collective": {
     "type": "opencollective",

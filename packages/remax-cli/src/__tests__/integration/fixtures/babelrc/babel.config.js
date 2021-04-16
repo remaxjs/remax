@@ -5,7 +5,7 @@ module.exports = function (api) {
     plugins: ['loop-optimizer'],
     presets: [
       [
-        'remax',
+        'babel-preset-remax',
         {
           typescript: {
             allowNamespaces: true,

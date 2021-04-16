@@ -1,4 +1,5 @@
-import { createHostComponent } from '@remax/shared';
+import * as React from 'react';
+import { createHostComponent } from '@remax/runtime';
 
 export interface ContactButtonProps {
   readonly dataset?: DOMStringMap;
@@ -10,4 +11,6 @@ export interface ContactButtonProps {
   alipayCardNo?: string;
 }
 
-export const ContactButton = createHostComponent<ContactButtonProps>('contact-button');
+export const ContactButton = createHostComponent<ContactButtonProps>(
+  'contact-button'
+) as React.ComponentType<ContactButtonProps>;

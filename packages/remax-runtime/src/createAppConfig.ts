@@ -1,12 +1,15 @@
 import './polyfills/Function';
 import * as React from 'react';
-import { pluginDriver } from '@remax/runtime-plugin';
+import { ForwardRef } from 'react-is';
 import render from './render';
 import AppContainer from './AppContainer';
-import isClassComponent from './utils/isClassComponent';
-import { AppLifecycle, callbackName, appEvents } from './lifecycle';
-import AppInstanceContext from './AppInstanceContext';
-import { ForwardRef } from './ReactIs';
+import {
+  AppInstanceContext,
+  RuntimeOptions,
+  AppLifecycle,
+  callbackName,
+  isClassComponent,
+} from '@remax/framework-shared';
 
 class DefaultAppComponent extends React.Component {
   render() {
@@ -15,15 +18,18 @@ class DefaultAppComponent extends React.Component {
 }
 
 export default function createAppConfig(this: any, App: any) {
+  const WrappedApp = RuntimeOptions.get('pluginDriver').onAppComponent(App);
   const createConfig = (AppComponent: React.ComponentType<any> = DefaultAppComponent) => {
     const config: any = {
-      _container: new AppContainer(this),
+      _container: new AppContainer(),
 
       _pages: [] as any[],
 
       _instance: React.createRef<any>(),
 
       onLaunch(options: any) {
+        this._container.context = this;
+
         this._render();
 
         return this.callLifecycle(AppLifecycle.launch, options);
@@ -46,6 +52,12 @@ export default function createAppConfig(this: any, App: any) {
       },
 
       _mount(pageInstance: any) {
+        /**
+         * 飞书开发者工具的问题，这里的 this 跟 getApp 拿到的不是同一个实例
+         */
+        if (!this._container.context) {
+          this._container.context = this;
+        }
         this._pages.push(pageInstance);
         this._render();
       },
@@ -71,9 +83,7 @@ export default function createAppConfig(this: any, App: any) {
           this._container
         );
       },
-    };
 
-    const lifecycleEvent: any = {
       onShow(options: any) {
         return this.callLifecycle(AppLifecycle.show, options);
       },
@@ -84,11 +94,6 @@ export default function createAppConfig(this: any, App: any) {
 
       onError(error: any) {
         return this.callLifecycle(AppLifecycle.error, error);
-      },
-
-      // 阿里
-      onShareAppMessage(options: any) {
-        return this.callLifecycle(AppLifecycle.shareAppMessage, options);
       },
 
       // 微信
@@ -107,14 +112,21 @@ export default function createAppConfig(this: any, App: any) {
       },
     };
 
-    appEvents().forEach(eventName => {
+    const lifecycleEvent: any = {
+      // 阿里
+      onShareAppMessage(options: any) {
+        return this.callLifecycle(AppLifecycle.shareAppMessage, options);
+      },
+    };
+
+    (RuntimeOptions.get('appEvents') || []).forEach(eventName => {
       if (lifecycleEvent[eventName]) {
         config[eventName] = lifecycleEvent[eventName];
       }
     });
 
-    return pluginDriver.onAppConfig(config);
+    return RuntimeOptions.get('pluginDriver').onAppConfig(config);
   };
 
-  return createConfig(App);
+  return createConfig(WrappedApp);
 }

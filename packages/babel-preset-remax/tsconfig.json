@@ -8,5 +8,5 @@
     "outDir": "lib"
   },
   "include": ["src/**/*", "typings/**/*"],
-  "exclude": ["__tests__/**/*"]
+  "exclude": ["__tests__/**/*", "lib"]
 }

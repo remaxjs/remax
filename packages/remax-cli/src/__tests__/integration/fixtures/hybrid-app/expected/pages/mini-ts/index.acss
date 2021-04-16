@@ -1,0 +1,7 @@
+.b {
+  background-color: white;
+}
+.b .a {
+  color: lightcoral;
+}
+

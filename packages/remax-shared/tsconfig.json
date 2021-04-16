@@ -4,6 +4,8 @@
     "rootDir": "src",
     "outDir": "esm",
     "declaration": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "jsx": "react"
+  },
+  "exclude": ["cjs", "esm"]
 }

@@ -1,3 +1,4 @@
+import { find } from '@remax/framework-shared';
 import stopPropagation, { validate as validatePropagation, isPropagationStopped } from './stopPropagation';
 import { SYNTHETIC_TYPES, DEPRECATED_CATCH_TYPE } from './constants';
 import VNode from '../VNode';
@@ -9,17 +10,17 @@ function isSyntheticType(inputType: string) {
     );
   }
 
-  return !!SYNTHETIC_TYPES.find(type => type === inputType);
+  return !!find(SYNTHETIC_TYPES, type => type === inputType);
 }
 
-function createBaseSyntheticEvent(node: VNode, nativeEvent: any) {
+function createBaseSyntheticEvent(node: VNode, eventType: string, nativeEvent: any) {
   if (!nativeEvent) {
     return;
   }
 
   // 添加阻止冒泡方法
   nativeEvent.stopPropagation = () => {
-    stopPropagation(node);
+    stopPropagation(node, eventType);
   };
 
   return nativeEvent;
@@ -31,10 +32,10 @@ export function createCallbackProxy(eventType: string, node: VNode, callback: (.
   }
 
   return function (nativeEvent: any, ...restParams: any) {
-    const syntheticEvent = createBaseSyntheticEvent(node, nativeEvent);
+    const syntheticEvent = createBaseSyntheticEvent(node, eventType, nativeEvent);
 
-    if (isPropagationStopped) {
-      validatePropagation(node);
+    if (isPropagationStopped[eventType]) {
+      validatePropagation(node, eventType);
       return;
     }
 
