@@ -30,7 +30,6 @@ export const alias = {
   onInput: 'bindinput',
   onConfirm: 'bindconfirm',
   onKeyboardHeightChange: 'bindkeyboardheightchange',
-  animation: 'animation',
   confirmType: 'confirm-type',
   confirmHold: 'confirm-hold',
 };
