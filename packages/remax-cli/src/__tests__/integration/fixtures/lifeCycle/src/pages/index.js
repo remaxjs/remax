@@ -8,5 +8,9 @@ export default () => {
     console.log('on show');
   });
 
+  usePageEvent('onShareTimeline', () => {
+    console.log('onShareTimeline');
+  });
+
   return <View>view</View>;
 };
