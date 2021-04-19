@@ -30,6 +30,10 @@ export interface TextareaProps extends BaseProps {
   adjustPosition?: boolean;
   /** focus时，点击页面的时候不收起键盘 */
   holdKeyboard?: boolean;
+  /** 设置键盘右下角按钮的文字 */
+  confirmType?: string;
+  /** 点击键盘右下角按钮时是否保持键盘不收起 */
+  confirmHold?: boolean;
   /** 是否去掉 iOS 下的默认内边距 2.10.0 */
   disableDefaultPadding?: boolean;
 

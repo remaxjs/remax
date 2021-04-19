@@ -746,7 +746,9 @@ module.exports = {
       "onLineChange": "bindlinechange",
       "onInput": "bindinput",
       "onConfirm": "bindconfirm",
-      "onKeyboardHeightChange": "bindkeyboardheightchange"
+      "onKeyboardHeightChange": "bindkeyboardheightchange",
+      "confirmType": "confirm-type",
+      "confirmHold": "confirm-hold"
     }
   },
   "video": {

@@ -2393,6 +2393,8 @@
     bindkeyboardheightchange="{{_h.v(i.props['bindkeyboardheightchange'])}}"
     bindlinechange="{{_h.v(i.props['bindlinechange'])}}"
     class="{{_h.v(i.props['class'])}}"
+    confirm-hold="{{_h.v(i.props['confirm-hold'])}}"
+    confirm-type="{{_h.v(i.props['confirm-type'])}}"
     controlled="{{_h.v(i.props['controlled'])}}"
     cursor="{{_h.v(i.props['cursor'])}}"
     cursor-spacing="{{_h.v(i.props['cursor-spacing'])}}"

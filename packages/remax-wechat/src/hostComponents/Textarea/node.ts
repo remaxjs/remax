@@ -30,6 +30,8 @@ export const alias = {
   onInput: 'bindinput',
   onConfirm: 'bindconfirm',
   onKeyboardHeightChange: 'bindkeyboardheightchange',
+  confirmType: 'confirm-type',
+  confirmHold: 'confirm-hold',
 };
 
 export const props = Object.values(alias);
