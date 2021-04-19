@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/remaxjs/remax/compare/v2.12.1...v2.13.0) (2021-04-19)
+
+### Bug Fixes
+
+- **wechat:** 添加 Textarea 组件 confirmType、confirmHold 类型 (remaxjs[#1532](https://github.com/remaxjs/remax/issues/1532)) ([#1533](https://github.com/remaxjs/remax/issues/1533)) ([b1f8b85](https://github.com/remaxjs/remax/commit/b1f8b85b671ffcd34f65a963412a35cc3260f914))
+
 ## [2.12.1](https://github.com/remaxjs/remax/compare/v2.12.0...v2.12.1) (2021-04-09)
 
 **Note:** Version bump only for package @remax/wechat

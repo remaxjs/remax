@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/remaxjs/remax/compare/v2.12.1...v2.13.0) (2021-04-19)
+
+### Features
+
+- 支持 React 17 ([#1527](https://github.com/remaxjs/remax/issues/1527)) ([7844089](https://github.com/remaxjs/remax/commit/7844089673d5188c10366833d03b8da58ff85f9d))
+
 ## [2.12.1](https://github.com/remaxjs/remax/compare/v2.12.0...v2.12.1) (2021-04-09)
 
 **Note:** Version bump only for package babel-preset-remax
