@@ -67,6 +67,9 @@ __webpack_require__.r(__webpack_exports__);
   Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["usePageEvent"])('onShow', function () {
     console.log('on show');
   });
+  Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["usePageEvent"])('onShareTimeline', function () {
+    console.log('onShareTimeline');
+  });
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__["createElement"](remax__WEBPACK_IMPORTED_MODULE_2__["View"], null, "view");
 });
 
