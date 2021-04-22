@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@babel/types": "^7.8.0",
-    "@types/react": "^16.9.56",
+    "@types/react": "^17.0.3",
     "@types/yargs": "^15.0.0",
     "webpack-chain": "^6.4.0"
   },
