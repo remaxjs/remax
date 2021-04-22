@@ -20,7 +20,12 @@ export function resetPageId() {
 }
 
 export default function createPageConfig(Page: React.ComponentType<any>, name: string) {
-  const app = getApp() as any;
+  let app: any;
+  try {
+    app = getApp();
+  } catch (e) {
+    app = null;
+  }
 
   const config: any = {
     data: {
@@ -74,7 +79,9 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
       this.callLifecycle(Lifecycle.unload);
       this.unloaded = true;
       this.container.clearUpdate();
-      app._unmount(this);
+      if (app) {
+        app._unmount(this);
+      }
     },
 
     onTabItemTap(this: any, e: any) {
