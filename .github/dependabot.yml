@@ -1,0 +1,43 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: copy-webpack-plugin
+    versions:
+    - ">= 6.a, < 7"
+  - dependency-name: history
+    versions:
+    - "> 4.10.1"
+  - dependency-name: parsec-hooks
+    versions:
+    - "> 0.0.123"
+  - dependency-name: postcss
+    versions:
+    - 8.2.4
+    - 8.2.7
+    - 8.2.8
+    - 8.2.9
+  - dependency-name: "@types/react-dom"
+    versions:
+    - 17.0.2
+  - dependency-name: "@babel/preset-env"
+    versions:
+    - 7.13.10
+  - dependency-name: "@types/react"
+    versions:
+    - 17.0.0
+    - 17.0.2
+  - dependency-name: webpack-bundle-analyzer
+    versions:
+    - 4.2.0
+    - 4.4.0
+  - dependency-name: "@commitlint/cli"
+    versions:
+    - 11.0.0
+  - dependency-name: serialize-javascript
+    versions:
+    - 4.0.0
