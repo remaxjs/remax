@@ -118,7 +118,7 @@
     "react-reconciler": "^0.25.1",
     "sander": "^0.6.0",
     "scheduler": "^0.19.1",
-    "webpack-node-externals": "^2.5.2"
+    "webpack-node-externals": "^3.0.0"
   },
   "publishConfig": {
     "access": "public"
