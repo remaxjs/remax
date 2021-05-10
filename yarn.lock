@@ -3575,9 +3575,9 @@
     "@umijs/utils" "3.3.0"
 
 "@umijs/babel-plugin-auto-css-modules@^3.3.1":
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/@umijs/babel-plugin-auto-css-modules/-/babel-plugin-auto-css-modules-3.3.1.tgz#62230c97fcf0befbf3034960e6a4ac657886fce1"
-  integrity sha512-xEoHmroDHcRKpCbB/fjeZvkS+/CZzbR085HFlWhc+U9gdcUFw0IzYnxVsMw+FicGS9tbwxmO6moe8EbImrtYIw==
+  version "3.4.15"
+  resolved "https://registry.yarnpkg.com/@umijs/babel-plugin-auto-css-modules/-/babel-plugin-auto-css-modules-3.4.15.tgz#56cadb67785f83e3b22d0adedf9738c6c50d1f34"
+  integrity sha512-5XQQrYm2ADrg+Vo3atwLPodbkoZWoMZqvwgP9V+rKEfL3BjZzhH5hRRvJjOF33PcztS32/sRWQUuQdjKi4EXfw==
 
 "@umijs/babel-plugin-import-to-await-require@3.3.0":
   version "3.3.0"
