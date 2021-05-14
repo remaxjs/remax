@@ -69,7 +69,7 @@ export interface PickerProps extends BaseProps {
    * 2.11.0
    * 选择器的标题，仅安卓可用
    */
-  headerText?:string;
+  headerText?: string;
 }
 
 /**
