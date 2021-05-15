@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: GitHub Pages
 
 # Controls when the action will run. 
 on:
@@ -33,5 +33,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.3
         with:
+          branch: gh-pages # The branch the action should deploy to.
           folder: website/dist # The folder the action should deploy.
 
