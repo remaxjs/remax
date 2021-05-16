@@ -19,6 +19,24 @@ export interface LivePusherProps extends BaseProps {
   orientation?: 'vertical' | 'horizontal';
   /** (default: 0) 美颜，取值范围 0-9 ，0 表示关闭 1.7.0 */
   beauty?: number;
+  /** 设置美颜类型 nature: 自然美颜 smooth: 光滑美颜 2.12.0 */
+  beautyStyle?: 'smooth' | 'nature';
+  /** 设置色彩滤镜
+   *  standard: 标准 pink: 粉嫩 nostalgia: 怀旧 blues: 蓝调 romantic: 浪漫
+   *  cool: 清凉 fresher: 清新 solor: 日系 aestheticism: 唯美 whitening: 美白 cerisered: 樱红
+   */
+  filter?:
+    | 'standard'
+    | 'pink'
+    | 'nostalgia'
+    | 'blues'
+    | 'romantic'
+    | 'cool'
+    | 'fresher'
+    | 'solor'
+    | 'aestheticism'
+    | 'whitening'
+    | 'cerisered';
   /** (default: 0) 美白，取值范围 0-9 ，0 表示关闭 1.7.0 */
   whiteness?: number;
   /** (default 9:16) 宽高比，可选值有 3:4, 9:16 1.7.0 */

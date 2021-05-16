@@ -11,6 +11,8 @@ export const alias = {
   autoFocus: 'auto-focus',
   orientation: 'orientation',
   beauty: 'beauty',
+  beautyStyle: 'beauty-style',
+  filter: 'filter',
   whiteness: 'whiteness',
   aspect: 'aspect',
   minBitrate: 'min-bitrate',
