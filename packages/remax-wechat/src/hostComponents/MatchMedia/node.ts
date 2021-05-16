@@ -1,7 +1,4 @@
 export const alias = {
-  id: 'id',
-  className: 'class',
-  style: 'style',
   minWidth: 'min-width',
   maxWidth: 'max-width',
   width: 'width',
