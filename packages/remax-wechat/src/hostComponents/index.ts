@@ -46,3 +46,4 @@ export * from './KeyboardAccessory';
 export * from './VoipRoom';
 export * from './AdCustom';
 export * from './PageMeta';
+export * from './NavigationBar';

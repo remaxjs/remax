@@ -46,6 +46,7 @@ import * as keyboardAccessory from './KeyboardAccessory/node';
 import * as voipRoom from './VoipRoom/node';
 import * as adCustom from './AdCustom/node';
 import * as pageMeta from './PageMeta/node';
+import * as navigationBar from './NavigationBar/node';
 
 const hostComponents = new Map();
 
@@ -97,5 +98,6 @@ hostComponents.set('keyboard-accessory', keyboardAccessory);
 hostComponents.set('voip-room', voipRoom);
 hostComponents.set('ad-custom', adCustom);
 hostComponents.set('page-meta', pageMeta);
+hostComponents.set('navigation-bar', navigationBar);
 
 export default hostComponents;
