@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageContainer render correctly 1`] = `
+<page-container
+  closeOnSlideDown={false}
+  duration={300}
+  overlay={true}
+  position="bottom"
+  round={false}
+  show={false}
+  zIndex={100}
+/>
+`;

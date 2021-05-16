@@ -5,6 +5,7 @@ exports[`Text render correctly 1`] = `
   className="class"
   decode={false}
   selectable={false}
+  userSelect={false}
 >
   text
 </text>

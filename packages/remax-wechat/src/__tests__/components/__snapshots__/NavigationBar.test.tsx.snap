@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationBar render correctly 1`] = `
+<NavigationBar
+  colorAnimationDuration={0}
+  colorAnimationTimingFunc="linear"
+  loading={false}
+/>
+`;

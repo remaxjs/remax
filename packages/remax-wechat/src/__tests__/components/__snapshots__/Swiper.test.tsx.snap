@@ -15,6 +15,7 @@ exports[`Swiper render correctly 1`] = `
   nextMargin="0px"
   previousMargin="0px"
   skipHiddenItemLayout={false}
+  snapToEdge={false}
   vertical={false}
 />
 `;

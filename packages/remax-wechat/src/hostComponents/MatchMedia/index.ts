@@ -16,7 +16,7 @@ export interface MatchMediaProps extends BaseProps {
   /** 页面高度（ px 为单位） 2.11.1 */
   height?: number;
   /** 屏幕方向（ landscape 或 portrait ） 2.11.1 */
-  orientation: string;
+  orientation?: 'portrait' | 'landscape';
 }
 /**
  * @see https://developers.weixin.qq.com/miniprogram/dev/component/match-media.html
