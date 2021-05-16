@@ -44,6 +44,7 @@ import * as pageContainer from './PageContainer/node';
 import * as shareElement from './ShareElement/node';
 import * as keyboardAccessory from './KeyboardAccessory/node';
 import * as voipRoom from './VoipRoom/node';
+import * as adCustom from './AdCustom/node';
 
 const hostComponents = new Map();
 
@@ -93,5 +94,6 @@ hostComponents.set('page-container', pageContainer);
 hostComponents.set('share-element', shareElement);
 hostComponents.set('keyboard-accessory', keyboardAccessory);
 hostComponents.set('viop-room', voipRoom);
+hostComponents.set('ad-custom', adCustom);
 
 export default hostComponents;

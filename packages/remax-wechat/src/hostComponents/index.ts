@@ -44,3 +44,4 @@ export * from './PageContainer';
 export * from './ShareElement';
 export * from './KeyboardAccessory';
 export * from './VoipRoom';
+export * from './AdCustom';
