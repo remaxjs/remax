@@ -43,6 +43,7 @@ import * as matchMedia from './MatchMedia/node';
 import * as pageContainer from './PageContainer/node';
 import * as shareElement from './ShareElement/node';
 import * as keyboardAccessory from './KeyboardAccessory/node';
+import * as voipRoom from './VoipRoom/node';
 
 const hostComponents = new Map();
 
@@ -91,5 +92,6 @@ hostComponents.set('match-media', matchMedia);
 hostComponents.set('page-container', pageContainer);
 hostComponents.set('share-element', shareElement);
 hostComponents.set('keyboard-accessory', keyboardAccessory);
+hostComponents.set('viop-room', voipRoom);
 
 export default hostComponents;
