@@ -102,6 +102,10 @@ interface TabList {
 // reference: https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html
 export interface AppConfig {
   /**
+   * 小程序默认启动首页
+   */
+  entryPagePath?: string;
+  /**
    * 页面路径列表
    */
   pages: string[];
@@ -311,4 +315,34 @@ export interface AppConfig {
    * 在小程序中可以使用云开发
    */
   cloud?: boolean;
+  /**
+   * 微信消息用小程序打开
+   * 微信客户端7.0.9,iOS 暂不支持
+   */
+  entranceDeclare?: Record<string, any>;
+  /**
+   * 小程序支持 DarkMode
+   * 2.11.0
+   */
+  darkmode?: boolean;
+  /**
+   * 指明 theme.json 的位置，darkmode为true为必填
+   * 开发者工具 1.03.2004271
+   */
+  themeLocation?: string;
+  /**
+   * 配置自定义组件代码按需注入
+   * 2.11.1
+   */
+  lazyCodeLoading?: string;
+  /**
+   * 单页模式相关配置
+   * 2.12.0
+   */
+  singlePage?: {
+    /**
+     * 默认自动调整，若原页面是自定义导航栏，则为 float，否则为 squeezed
+     */
+    navigationBarFit?: 'float' | 'squeezed';
+  };
 }
