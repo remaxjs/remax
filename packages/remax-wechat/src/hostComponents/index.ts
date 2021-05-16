@@ -40,3 +40,4 @@ export * from './WebView';
 export * from './FunctionalPageNavigator';
 export * from './Camera';
 export * from './MatchMedia';
+export * from './PageContainer';

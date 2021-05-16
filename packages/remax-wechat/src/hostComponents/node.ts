@@ -40,6 +40,7 @@ import * as video from './Video/node';
 import * as view from './View/node';
 import * as webView from './WebView/node';
 import * as matchMedia from './MatchMedia/node';
+import * as pageContainer from './PageContainer/node';
 
 const hostComponents = new Map();
 
@@ -85,5 +86,6 @@ hostComponents.set('video', video);
 hostComponents.set('view', view);
 hostComponents.set('web-view', webView);
 hostComponents.set('match-media', matchMedia);
+hostComponents.set('page-container', pageContainer);
 
 export default hostComponents;
