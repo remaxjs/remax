@@ -39,6 +39,7 @@ import * as textarea from './Textarea/node';
 import * as video from './Video/node';
 import * as view from './View/node';
 import * as webView from './WebView/node';
+import * as matchMedia from './MatchMedia/node';
 
 const hostComponents = new Map();
 
@@ -83,5 +84,6 @@ hostComponents.set('textarea', textarea);
 hostComponents.set('video', video);
 hostComponents.set('view', view);
 hostComponents.set('web-view', webView);
+hostComponents.set('match-media', matchMedia);
 
 export default hostComponents;

@@ -39,3 +39,4 @@ export * from './Ad';
 export * from './WebView';
 export * from './FunctionalPageNavigator';
 export * from './Camera';
+export * from './MatchMedia';
