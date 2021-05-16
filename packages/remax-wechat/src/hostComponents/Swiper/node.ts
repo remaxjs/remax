@@ -22,6 +22,7 @@ export const alias = {
   onAnimationFinish: 'bindanimationfinish',
   onTap: 'bindtap',
   onClick: 'bindtap',
+  snapToEdge: 'snap-to-edge',
 };
 
 export const props = Object.values(alias);
