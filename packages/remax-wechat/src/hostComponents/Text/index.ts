@@ -3,8 +3,10 @@ import { createHostComponent } from '@remax/runtime';
 import { BaseProps } from '../../types/component';
 
 export interface TextProps extends BaseProps {
-  /** (default: false) 文本是否可选 1.1.0 */
+  /** (default: false) 文本是否可选 文本是否可选 (已废弃) 1.1.0 */
   selectable?: boolean;
+  /** 文本是否可选，该属性会使文本节点显示为 inline-block 2.12.1 */
+  userSelect?: boolean;
   /**
    * 1.4.0
    * 显示连续空格
@@ -25,5 +27,6 @@ export const Text: React.ComponentType<TextProps> = createHostComponent<TextProp
 
 Text.defaultProps = {
   selectable: false,
+  userSelect: false,
   decode: false,
 };

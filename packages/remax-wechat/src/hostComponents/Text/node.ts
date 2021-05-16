@@ -4,6 +4,7 @@ export const alias = {
   style: 'style',
   animation: 'animation',
   selectable: 'selectable',
+  userSelect: 'user-select',
   space: 'space',
   decode: 'decode',
   onTap: 'bindtap',
