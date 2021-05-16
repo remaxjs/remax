@@ -1,7 +1,3 @@
-export const alias = {
-  id: 'id',
-  className: 'class',
-  style: 'style',
-};
+export const alias = {};
 
-export const props = Object.values(alias);
+export const props: string[] = [];
