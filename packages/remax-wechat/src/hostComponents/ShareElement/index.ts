@@ -13,6 +13,7 @@ export interface ShareElementProps extends BaseProps {
   easingFunction?: string;
 }
 
+/** @see https://developers.weixin.qq.com/miniprogram/dev/component/share-element.html */
 export const ShareElement: React.ComponentType<ShareElementProps> = createHostComponent<ShareElementProps>(
   'share-element'
 );
