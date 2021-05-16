@@ -68,7 +68,7 @@ export interface VideoProps extends BaseProps {
   /** 是否展示后台音频播放按钮 2.14.3 */
   showBackgroundPlaybackButton?: boolean;
   /** 进入后台音频播放后的通知栏图标（Android 独有） */
-  backgroundPoster: string;
+  backgroundPoster?: string;
   /** 当跳转到其它小程序页面时，是否自动暂停本页面的视频 2.5.0 */
   autoPauseIfNavigate?: boolean;
   /** 当跳转到其它微信原生页面时，是否自动暂停本页面的视频 2.5.0 */
