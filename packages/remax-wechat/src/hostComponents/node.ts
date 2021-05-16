@@ -42,6 +42,7 @@ import * as webView from './WebView/node';
 import * as matchMedia from './MatchMedia/node';
 import * as pageContainer from './PageContainer/node';
 import * as shareElement from './ShareElement/node';
+import * as keyboardAccessory from './KeyboardAccessory/node';
 
 const hostComponents = new Map();
 
@@ -89,5 +90,6 @@ hostComponents.set('web-view', webView);
 hostComponents.set('match-media', matchMedia);
 hostComponents.set('page-container', pageContainer);
 hostComponents.set('share-element', shareElement);
+hostComponents.set('keyboard-accessory', keyboardAccessory);
 
 export default hostComponents;

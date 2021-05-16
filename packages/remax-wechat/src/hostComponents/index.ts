@@ -42,3 +42,4 @@ export * from './Camera';
 export * from './MatchMedia';
 export * from './PageContainer';
 export * from './ShareElement';
+export * from './KeyboardAccessory';
