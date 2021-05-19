@@ -43,6 +43,146 @@
   </ad>
 </template>
 
+<template name="REMAX_TPL_1_ad-custom">
+  <ad-custom
+    ad-intervals="{{_h.v(i.props['ad-intervals'])}}"
+    bindclose="{{_h.v(i.props['bindclose'])}}"
+    binderror="{{_h.v(i.props['binderror'])}}"
+    bindload="{{_h.v(i.props['bindload'])}}"
+    unit-id="{{_h.v(i.props['unit-id'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </ad-custom>
+</template>
+
+<template name="REMAX_TPL_2_ad-custom">
+  <ad-custom
+    ad-intervals="{{_h.v(i.props['ad-intervals'])}}"
+    bindclose="{{_h.v(i.props['bindclose'])}}"
+    binderror="{{_h.v(i.props['binderror'])}}"
+    bindload="{{_h.v(i.props['bindload'])}}"
+    unit-id="{{_h.v(i.props['unit-id'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </ad-custom>
+</template>
+
+<template name="REMAX_TPL_3_ad-custom">
+  <ad-custom
+    ad-intervals="{{_h.v(i.props['ad-intervals'])}}"
+    bindclose="{{_h.v(i.props['bindclose'])}}"
+    binderror="{{_h.v(i.props['binderror'])}}"
+    bindload="{{_h.v(i.props['bindload'])}}"
+    unit-id="{{_h.v(i.props['unit-id'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </ad-custom>
+</template>
+
+<template name="REMAX_TPL_4_ad-custom">
+  <ad-custom
+    ad-intervals="{{_h.v(i.props['ad-intervals'])}}"
+    bindclose="{{_h.v(i.props['bindclose'])}}"
+    binderror="{{_h.v(i.props['binderror'])}}"
+    bindload="{{_h.v(i.props['bindload'])}}"
+    unit-id="{{_h.v(i.props['unit-id'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </ad-custom>
+</template>
+
+<template name="REMAX_TPL_5_ad-custom">
+  <ad-custom
+    ad-intervals="{{_h.v(i.props['ad-intervals'])}}"
+    bindclose="{{_h.v(i.props['bindclose'])}}"
+    binderror="{{_h.v(i.props['binderror'])}}"
+    bindload="{{_h.v(i.props['bindload'])}}"
+    unit-id="{{_h.v(i.props['unit-id'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </ad-custom>
+</template>
+
+<template name="REMAX_TPL_6_ad-custom">
+  <ad-custom
+    ad-intervals="{{_h.v(i.props['ad-intervals'])}}"
+    bindclose="{{_h.v(i.props['bindclose'])}}"
+    binderror="{{_h.v(i.props['binderror'])}}"
+    bindload="{{_h.v(i.props['bindload'])}}"
+    unit-id="{{_h.v(i.props['unit-id'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </ad-custom>
+</template>
+
+<template name="REMAX_TPL_7_ad-custom">
+  <ad-custom
+    ad-intervals="{{_h.v(i.props['ad-intervals'])}}"
+    bindclose="{{_h.v(i.props['bindclose'])}}"
+    binderror="{{_h.v(i.props['binderror'])}}"
+    bindload="{{_h.v(i.props['bindload'])}}"
+    unit-id="{{_h.v(i.props['unit-id'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </ad-custom>
+</template>
+
+<template name="REMAX_TPL_8_ad-custom">
+  <ad-custom
+    ad-intervals="{{_h.v(i.props['ad-intervals'])}}"
+    bindclose="{{_h.v(i.props['bindclose'])}}"
+    binderror="{{_h.v(i.props['binderror'])}}"
+    bindload="{{_h.v(i.props['bindload'])}}"
+    unit-id="{{_h.v(i.props['unit-id'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </ad-custom>
+</template>
+
+<template name="REMAX_TPL_9_ad-custom">
+  <ad-custom
+    ad-intervals="{{_h.v(i.props['ad-intervals'])}}"
+    bindclose="{{_h.v(i.props['bindclose'])}}"
+    binderror="{{_h.v(i.props['binderror'])}}"
+    bindload="{{_h.v(i.props['bindload'])}}"
+    unit-id="{{_h.v(i.props['unit-id'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </ad-custom>
+</template>
+
+<template name="REMAX_TPL_10_ad-custom">
+  <ad-custom
+    ad-intervals="{{_h.v(i.props['ad-intervals'])}}"
+    bindclose="{{_h.v(i.props['bindclose'])}}"
+    binderror="{{_h.v(i.props['binderror'])}}"
+    bindload="{{_h.v(i.props['bindload'])}}"
+    unit-id="{{_h.v(i.props['unit-id'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </ad-custom>
+</template>
+
 <template name="REMAX_TPL_1_audio">
   <audio
     animation="{{_h.v(i.props['animation'])}}"
@@ -916,6 +1056,7 @@
 <template name="REMAX_TPL_1_input">
   <input
     adjust-position="{{_h.v(i.props['adjust-position'])}}"
+    always-embed="{{_h.v(i.props['always-embed'])}}"
     animation="{{_h.v(i.props['animation'])}}"
     auto-focus="{{_h.v(i.props['auto-focus'])}}"
     bindblur="{{_h.v(i.props['bindblur'])}}"
@@ -948,6 +1089,106 @@
   <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
 </block>
   </input>
+</template>
+
+<template name="REMAX_TPL_1_keyboard-accessory">
+  <keyboard-accessory
+
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </keyboard-accessory>
+</template>
+
+<template name="REMAX_TPL_2_keyboard-accessory">
+  <keyboard-accessory
+
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </keyboard-accessory>
+</template>
+
+<template name="REMAX_TPL_3_keyboard-accessory">
+  <keyboard-accessory
+
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </keyboard-accessory>
+</template>
+
+<template name="REMAX_TPL_4_keyboard-accessory">
+  <keyboard-accessory
+
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </keyboard-accessory>
+</template>
+
+<template name="REMAX_TPL_5_keyboard-accessory">
+  <keyboard-accessory
+
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </keyboard-accessory>
+</template>
+
+<template name="REMAX_TPL_6_keyboard-accessory">
+  <keyboard-accessory
+
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </keyboard-accessory>
+</template>
+
+<template name="REMAX_TPL_7_keyboard-accessory">
+  <keyboard-accessory
+
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </keyboard-accessory>
+</template>
+
+<template name="REMAX_TPL_8_keyboard-accessory">
+  <keyboard-accessory
+
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </keyboard-accessory>
+</template>
+
+<template name="REMAX_TPL_9_keyboard-accessory">
+  <keyboard-accessory
+
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </keyboard-accessory>
+</template>
+
+<template name="REMAX_TPL_10_keyboard-accessory">
+  <keyboard-accessory
+
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </keyboard-accessory>
 </template>
 
 <template name="REMAX_TPL_1_label">
@@ -1068,6 +1309,7 @@
     autopush="{{_h.v(i.props['autopush'])}}"
     background-mute="{{_h.v(i.props['background-mute'])}}"
     beauty="{{_h.v(i.props['beauty'])}}"
+    beauty-style="{{_h.v(i.props['beauty-style'])}}"
     bindbgmcomplete="{{_h.v(i.props['bindbgmcomplete'])}}"
     bindbgmprogress="{{_h.v(i.props['bindbgmprogress'])}}"
     bindbgmstart="{{_h.v(i.props['bindbgmstart'])}}"
@@ -1080,6 +1322,7 @@
     enable-ans="{{_h.v(i.props['enable-ans'])}}"
     enable-camera="{{_h.v(i.props['enable-camera'])}}"
     enable-mic="{{_h.v(i.props['enable-mic'])}}"
+    filter="{{_h.v(i.props['filter'])}}"
     id="{{_h.v(i.props['id'])}}"
     local-mirror="{{_h.v(i.props['local-mirror'])}}"
     max-bitrate="{{_h.v(i.props['max-bitrate'])}}"
@@ -1155,6 +1398,166 @@
   <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
 </block>
   </map>
+</template>
+
+<template name="REMAX_TPL_1_match-media">
+  <match-media
+    height="{{_h.v(i.props['height'])}}"
+    max-height="{{_h.v(i.props['max-height'])}}"
+    max-width="{{_h.v(i.props['max-width'])}}"
+    min-height="{{_h.v(i.props['min-height'])}}"
+    min-width="{{_h.v(i.props['min-width'])}}"
+    orientation="{{_h.v(i.props['orientation'])}}"
+    width="{{_h.v(i.props['width'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </match-media>
+</template>
+
+<template name="REMAX_TPL_2_match-media">
+  <match-media
+    height="{{_h.v(i.props['height'])}}"
+    max-height="{{_h.v(i.props['max-height'])}}"
+    max-width="{{_h.v(i.props['max-width'])}}"
+    min-height="{{_h.v(i.props['min-height'])}}"
+    min-width="{{_h.v(i.props['min-width'])}}"
+    orientation="{{_h.v(i.props['orientation'])}}"
+    width="{{_h.v(i.props['width'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </match-media>
+</template>
+
+<template name="REMAX_TPL_3_match-media">
+  <match-media
+    height="{{_h.v(i.props['height'])}}"
+    max-height="{{_h.v(i.props['max-height'])}}"
+    max-width="{{_h.v(i.props['max-width'])}}"
+    min-height="{{_h.v(i.props['min-height'])}}"
+    min-width="{{_h.v(i.props['min-width'])}}"
+    orientation="{{_h.v(i.props['orientation'])}}"
+    width="{{_h.v(i.props['width'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </match-media>
+</template>
+
+<template name="REMAX_TPL_4_match-media">
+  <match-media
+    height="{{_h.v(i.props['height'])}}"
+    max-height="{{_h.v(i.props['max-height'])}}"
+    max-width="{{_h.v(i.props['max-width'])}}"
+    min-height="{{_h.v(i.props['min-height'])}}"
+    min-width="{{_h.v(i.props['min-width'])}}"
+    orientation="{{_h.v(i.props['orientation'])}}"
+    width="{{_h.v(i.props['width'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </match-media>
+</template>
+
+<template name="REMAX_TPL_5_match-media">
+  <match-media
+    height="{{_h.v(i.props['height'])}}"
+    max-height="{{_h.v(i.props['max-height'])}}"
+    max-width="{{_h.v(i.props['max-width'])}}"
+    min-height="{{_h.v(i.props['min-height'])}}"
+    min-width="{{_h.v(i.props['min-width'])}}"
+    orientation="{{_h.v(i.props['orientation'])}}"
+    width="{{_h.v(i.props['width'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </match-media>
+</template>
+
+<template name="REMAX_TPL_6_match-media">
+  <match-media
+    height="{{_h.v(i.props['height'])}}"
+    max-height="{{_h.v(i.props['max-height'])}}"
+    max-width="{{_h.v(i.props['max-width'])}}"
+    min-height="{{_h.v(i.props['min-height'])}}"
+    min-width="{{_h.v(i.props['min-width'])}}"
+    orientation="{{_h.v(i.props['orientation'])}}"
+    width="{{_h.v(i.props['width'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </match-media>
+</template>
+
+<template name="REMAX_TPL_7_match-media">
+  <match-media
+    height="{{_h.v(i.props['height'])}}"
+    max-height="{{_h.v(i.props['max-height'])}}"
+    max-width="{{_h.v(i.props['max-width'])}}"
+    min-height="{{_h.v(i.props['min-height'])}}"
+    min-width="{{_h.v(i.props['min-width'])}}"
+    orientation="{{_h.v(i.props['orientation'])}}"
+    width="{{_h.v(i.props['width'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </match-media>
+</template>
+
+<template name="REMAX_TPL_8_match-media">
+  <match-media
+    height="{{_h.v(i.props['height'])}}"
+    max-height="{{_h.v(i.props['max-height'])}}"
+    max-width="{{_h.v(i.props['max-width'])}}"
+    min-height="{{_h.v(i.props['min-height'])}}"
+    min-width="{{_h.v(i.props['min-width'])}}"
+    orientation="{{_h.v(i.props['orientation'])}}"
+    width="{{_h.v(i.props['width'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </match-media>
+</template>
+
+<template name="REMAX_TPL_9_match-media">
+  <match-media
+    height="{{_h.v(i.props['height'])}}"
+    max-height="{{_h.v(i.props['max-height'])}}"
+    max-width="{{_h.v(i.props['max-width'])}}"
+    min-height="{{_h.v(i.props['min-height'])}}"
+    min-width="{{_h.v(i.props['min-width'])}}"
+    orientation="{{_h.v(i.props['orientation'])}}"
+    width="{{_h.v(i.props['width'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </match-media>
+</template>
+
+<template name="REMAX_TPL_10_match-media">
+  <match-media
+    height="{{_h.v(i.props['height'])}}"
+    max-height="{{_h.v(i.props['max-height'])}}"
+    max-width="{{_h.v(i.props['max-width'])}}"
+    min-height="{{_h.v(i.props['min-height'])}}"
+    min-width="{{_h.v(i.props['min-width'])}}"
+    orientation="{{_h.v(i.props['orientation'])}}"
+    width="{{_h.v(i.props['width'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </match-media>
 </template>
 
 <template name="REMAX_TPL_1_movable-area">
@@ -1607,6 +2010,156 @@
   </movable-view>
 </template>
 
+<template name="REMAX_TPL_1_navigation-bar">
+  <navigation-bar
+    background-color="{{_h.v(i.props['background-color'])}}"
+    color-animation-duration="{{_h.v(i.props['color-animation-duration'])}}"
+    color-animation-timing-func="{{_h.v(i.props['color-animation-timing-func'])}}"
+    front-color="{{_h.v(i.props['front-color'])}}"
+    loading="{{_h.v(i.props['loading'])}}"
+    title="{{_h.v(i.props['title'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </navigation-bar>
+</template>
+
+<template name="REMAX_TPL_2_navigation-bar">
+  <navigation-bar
+    background-color="{{_h.v(i.props['background-color'])}}"
+    color-animation-duration="{{_h.v(i.props['color-animation-duration'])}}"
+    color-animation-timing-func="{{_h.v(i.props['color-animation-timing-func'])}}"
+    front-color="{{_h.v(i.props['front-color'])}}"
+    loading="{{_h.v(i.props['loading'])}}"
+    title="{{_h.v(i.props['title'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </navigation-bar>
+</template>
+
+<template name="REMAX_TPL_3_navigation-bar">
+  <navigation-bar
+    background-color="{{_h.v(i.props['background-color'])}}"
+    color-animation-duration="{{_h.v(i.props['color-animation-duration'])}}"
+    color-animation-timing-func="{{_h.v(i.props['color-animation-timing-func'])}}"
+    front-color="{{_h.v(i.props['front-color'])}}"
+    loading="{{_h.v(i.props['loading'])}}"
+    title="{{_h.v(i.props['title'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </navigation-bar>
+</template>
+
+<template name="REMAX_TPL_4_navigation-bar">
+  <navigation-bar
+    background-color="{{_h.v(i.props['background-color'])}}"
+    color-animation-duration="{{_h.v(i.props['color-animation-duration'])}}"
+    color-animation-timing-func="{{_h.v(i.props['color-animation-timing-func'])}}"
+    front-color="{{_h.v(i.props['front-color'])}}"
+    loading="{{_h.v(i.props['loading'])}}"
+    title="{{_h.v(i.props['title'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </navigation-bar>
+</template>
+
+<template name="REMAX_TPL_5_navigation-bar">
+  <navigation-bar
+    background-color="{{_h.v(i.props['background-color'])}}"
+    color-animation-duration="{{_h.v(i.props['color-animation-duration'])}}"
+    color-animation-timing-func="{{_h.v(i.props['color-animation-timing-func'])}}"
+    front-color="{{_h.v(i.props['front-color'])}}"
+    loading="{{_h.v(i.props['loading'])}}"
+    title="{{_h.v(i.props['title'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </navigation-bar>
+</template>
+
+<template name="REMAX_TPL_6_navigation-bar">
+  <navigation-bar
+    background-color="{{_h.v(i.props['background-color'])}}"
+    color-animation-duration="{{_h.v(i.props['color-animation-duration'])}}"
+    color-animation-timing-func="{{_h.v(i.props['color-animation-timing-func'])}}"
+    front-color="{{_h.v(i.props['front-color'])}}"
+    loading="{{_h.v(i.props['loading'])}}"
+    title="{{_h.v(i.props['title'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </navigation-bar>
+</template>
+
+<template name="REMAX_TPL_7_navigation-bar">
+  <navigation-bar
+    background-color="{{_h.v(i.props['background-color'])}}"
+    color-animation-duration="{{_h.v(i.props['color-animation-duration'])}}"
+    color-animation-timing-func="{{_h.v(i.props['color-animation-timing-func'])}}"
+    front-color="{{_h.v(i.props['front-color'])}}"
+    loading="{{_h.v(i.props['loading'])}}"
+    title="{{_h.v(i.props['title'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </navigation-bar>
+</template>
+
+<template name="REMAX_TPL_8_navigation-bar">
+  <navigation-bar
+    background-color="{{_h.v(i.props['background-color'])}}"
+    color-animation-duration="{{_h.v(i.props['color-animation-duration'])}}"
+    color-animation-timing-func="{{_h.v(i.props['color-animation-timing-func'])}}"
+    front-color="{{_h.v(i.props['front-color'])}}"
+    loading="{{_h.v(i.props['loading'])}}"
+    title="{{_h.v(i.props['title'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </navigation-bar>
+</template>
+
+<template name="REMAX_TPL_9_navigation-bar">
+  <navigation-bar
+    background-color="{{_h.v(i.props['background-color'])}}"
+    color-animation-duration="{{_h.v(i.props['color-animation-duration'])}}"
+    color-animation-timing-func="{{_h.v(i.props['color-animation-timing-func'])}}"
+    front-color="{{_h.v(i.props['front-color'])}}"
+    loading="{{_h.v(i.props['loading'])}}"
+    title="{{_h.v(i.props['title'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </navigation-bar>
+</template>
+
+<template name="REMAX_TPL_10_navigation-bar">
+  <navigation-bar
+    background-color="{{_h.v(i.props['background-color'])}}"
+    color-animation-duration="{{_h.v(i.props['color-animation-duration'])}}"
+    color-animation-timing-func="{{_h.v(i.props['color-animation-timing-func'])}}"
+    front-color="{{_h.v(i.props['front-color'])}}"
+    loading="{{_h.v(i.props['loading'])}}"
+    title="{{_h.v(i.props['title'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </navigation-bar>
+</template>
+
 <template name="REMAX_TPL_1_navigator">
   <navigator
     animation="{{_h.v(i.props['animation'])}}"
@@ -1658,6 +2211,486 @@
   </open-data>
 </template>
 
+<template name="REMAX_TPL_1_page-container">
+  <page-container
+    bindafterenter="{{_h.v(i.props['bindafterenter'])}}"
+    bindafterleave="{{_h.v(i.props['bindafterleave'])}}"
+    bindbeforeenter="{{_h.v(i.props['bindbeforeenter'])}}"
+    bindbeforeleave="{{_h.v(i.props['bindbeforeleave'])}}"
+    bindclickoverlay="{{_h.v(i.props['bindclickoverlay'])}}"
+    bindenter="{{_h.v(i.props['bindenter'])}}"
+    bindleave="{{_h.v(i.props['bindleave'])}}"
+    close-on-slideDown="{{_h.v(i.props['close-on-slideDown'])}}"
+    custom-style="{{_h.v(i.props['custom-style'])}}"
+    duration="{{_h.v(i.props['duration'])}}"
+    overlay="{{_h.v(i.props['overlay'])}}"
+    overlay-style="{{_h.v(i.props['overlay-style'])}}"
+    position="{{_h.v(i.props['position'])}}"
+    round="{{_h.v(i.props['round'])}}"
+    show="{{_h.v(i.props['show'])}}"
+    z-index="{{_h.v(i.props['z-index'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-container>
+</template>
+
+<template name="REMAX_TPL_2_page-container">
+  <page-container
+    bindafterenter="{{_h.v(i.props['bindafterenter'])}}"
+    bindafterleave="{{_h.v(i.props['bindafterleave'])}}"
+    bindbeforeenter="{{_h.v(i.props['bindbeforeenter'])}}"
+    bindbeforeleave="{{_h.v(i.props['bindbeforeleave'])}}"
+    bindclickoverlay="{{_h.v(i.props['bindclickoverlay'])}}"
+    bindenter="{{_h.v(i.props['bindenter'])}}"
+    bindleave="{{_h.v(i.props['bindleave'])}}"
+    close-on-slideDown="{{_h.v(i.props['close-on-slideDown'])}}"
+    custom-style="{{_h.v(i.props['custom-style'])}}"
+    duration="{{_h.v(i.props['duration'])}}"
+    overlay="{{_h.v(i.props['overlay'])}}"
+    overlay-style="{{_h.v(i.props['overlay-style'])}}"
+    position="{{_h.v(i.props['position'])}}"
+    round="{{_h.v(i.props['round'])}}"
+    show="{{_h.v(i.props['show'])}}"
+    z-index="{{_h.v(i.props['z-index'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-container>
+</template>
+
+<template name="REMAX_TPL_3_page-container">
+  <page-container
+    bindafterenter="{{_h.v(i.props['bindafterenter'])}}"
+    bindafterleave="{{_h.v(i.props['bindafterleave'])}}"
+    bindbeforeenter="{{_h.v(i.props['bindbeforeenter'])}}"
+    bindbeforeleave="{{_h.v(i.props['bindbeforeleave'])}}"
+    bindclickoverlay="{{_h.v(i.props['bindclickoverlay'])}}"
+    bindenter="{{_h.v(i.props['bindenter'])}}"
+    bindleave="{{_h.v(i.props['bindleave'])}}"
+    close-on-slideDown="{{_h.v(i.props['close-on-slideDown'])}}"
+    custom-style="{{_h.v(i.props['custom-style'])}}"
+    duration="{{_h.v(i.props['duration'])}}"
+    overlay="{{_h.v(i.props['overlay'])}}"
+    overlay-style="{{_h.v(i.props['overlay-style'])}}"
+    position="{{_h.v(i.props['position'])}}"
+    round="{{_h.v(i.props['round'])}}"
+    show="{{_h.v(i.props['show'])}}"
+    z-index="{{_h.v(i.props['z-index'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-container>
+</template>
+
+<template name="REMAX_TPL_4_page-container">
+  <page-container
+    bindafterenter="{{_h.v(i.props['bindafterenter'])}}"
+    bindafterleave="{{_h.v(i.props['bindafterleave'])}}"
+    bindbeforeenter="{{_h.v(i.props['bindbeforeenter'])}}"
+    bindbeforeleave="{{_h.v(i.props['bindbeforeleave'])}}"
+    bindclickoverlay="{{_h.v(i.props['bindclickoverlay'])}}"
+    bindenter="{{_h.v(i.props['bindenter'])}}"
+    bindleave="{{_h.v(i.props['bindleave'])}}"
+    close-on-slideDown="{{_h.v(i.props['close-on-slideDown'])}}"
+    custom-style="{{_h.v(i.props['custom-style'])}}"
+    duration="{{_h.v(i.props['duration'])}}"
+    overlay="{{_h.v(i.props['overlay'])}}"
+    overlay-style="{{_h.v(i.props['overlay-style'])}}"
+    position="{{_h.v(i.props['position'])}}"
+    round="{{_h.v(i.props['round'])}}"
+    show="{{_h.v(i.props['show'])}}"
+    z-index="{{_h.v(i.props['z-index'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-container>
+</template>
+
+<template name="REMAX_TPL_5_page-container">
+  <page-container
+    bindafterenter="{{_h.v(i.props['bindafterenter'])}}"
+    bindafterleave="{{_h.v(i.props['bindafterleave'])}}"
+    bindbeforeenter="{{_h.v(i.props['bindbeforeenter'])}}"
+    bindbeforeleave="{{_h.v(i.props['bindbeforeleave'])}}"
+    bindclickoverlay="{{_h.v(i.props['bindclickoverlay'])}}"
+    bindenter="{{_h.v(i.props['bindenter'])}}"
+    bindleave="{{_h.v(i.props['bindleave'])}}"
+    close-on-slideDown="{{_h.v(i.props['close-on-slideDown'])}}"
+    custom-style="{{_h.v(i.props['custom-style'])}}"
+    duration="{{_h.v(i.props['duration'])}}"
+    overlay="{{_h.v(i.props['overlay'])}}"
+    overlay-style="{{_h.v(i.props['overlay-style'])}}"
+    position="{{_h.v(i.props['position'])}}"
+    round="{{_h.v(i.props['round'])}}"
+    show="{{_h.v(i.props['show'])}}"
+    z-index="{{_h.v(i.props['z-index'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-container>
+</template>
+
+<template name="REMAX_TPL_6_page-container">
+  <page-container
+    bindafterenter="{{_h.v(i.props['bindafterenter'])}}"
+    bindafterleave="{{_h.v(i.props['bindafterleave'])}}"
+    bindbeforeenter="{{_h.v(i.props['bindbeforeenter'])}}"
+    bindbeforeleave="{{_h.v(i.props['bindbeforeleave'])}}"
+    bindclickoverlay="{{_h.v(i.props['bindclickoverlay'])}}"
+    bindenter="{{_h.v(i.props['bindenter'])}}"
+    bindleave="{{_h.v(i.props['bindleave'])}}"
+    close-on-slideDown="{{_h.v(i.props['close-on-slideDown'])}}"
+    custom-style="{{_h.v(i.props['custom-style'])}}"
+    duration="{{_h.v(i.props['duration'])}}"
+    overlay="{{_h.v(i.props['overlay'])}}"
+    overlay-style="{{_h.v(i.props['overlay-style'])}}"
+    position="{{_h.v(i.props['position'])}}"
+    round="{{_h.v(i.props['round'])}}"
+    show="{{_h.v(i.props['show'])}}"
+    z-index="{{_h.v(i.props['z-index'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-container>
+</template>
+
+<template name="REMAX_TPL_7_page-container">
+  <page-container
+    bindafterenter="{{_h.v(i.props['bindafterenter'])}}"
+    bindafterleave="{{_h.v(i.props['bindafterleave'])}}"
+    bindbeforeenter="{{_h.v(i.props['bindbeforeenter'])}}"
+    bindbeforeleave="{{_h.v(i.props['bindbeforeleave'])}}"
+    bindclickoverlay="{{_h.v(i.props['bindclickoverlay'])}}"
+    bindenter="{{_h.v(i.props['bindenter'])}}"
+    bindleave="{{_h.v(i.props['bindleave'])}}"
+    close-on-slideDown="{{_h.v(i.props['close-on-slideDown'])}}"
+    custom-style="{{_h.v(i.props['custom-style'])}}"
+    duration="{{_h.v(i.props['duration'])}}"
+    overlay="{{_h.v(i.props['overlay'])}}"
+    overlay-style="{{_h.v(i.props['overlay-style'])}}"
+    position="{{_h.v(i.props['position'])}}"
+    round="{{_h.v(i.props['round'])}}"
+    show="{{_h.v(i.props['show'])}}"
+    z-index="{{_h.v(i.props['z-index'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-container>
+</template>
+
+<template name="REMAX_TPL_8_page-container">
+  <page-container
+    bindafterenter="{{_h.v(i.props['bindafterenter'])}}"
+    bindafterleave="{{_h.v(i.props['bindafterleave'])}}"
+    bindbeforeenter="{{_h.v(i.props['bindbeforeenter'])}}"
+    bindbeforeleave="{{_h.v(i.props['bindbeforeleave'])}}"
+    bindclickoverlay="{{_h.v(i.props['bindclickoverlay'])}}"
+    bindenter="{{_h.v(i.props['bindenter'])}}"
+    bindleave="{{_h.v(i.props['bindleave'])}}"
+    close-on-slideDown="{{_h.v(i.props['close-on-slideDown'])}}"
+    custom-style="{{_h.v(i.props['custom-style'])}}"
+    duration="{{_h.v(i.props['duration'])}}"
+    overlay="{{_h.v(i.props['overlay'])}}"
+    overlay-style="{{_h.v(i.props['overlay-style'])}}"
+    position="{{_h.v(i.props['position'])}}"
+    round="{{_h.v(i.props['round'])}}"
+    show="{{_h.v(i.props['show'])}}"
+    z-index="{{_h.v(i.props['z-index'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-container>
+</template>
+
+<template name="REMAX_TPL_9_page-container">
+  <page-container
+    bindafterenter="{{_h.v(i.props['bindafterenter'])}}"
+    bindafterleave="{{_h.v(i.props['bindafterleave'])}}"
+    bindbeforeenter="{{_h.v(i.props['bindbeforeenter'])}}"
+    bindbeforeleave="{{_h.v(i.props['bindbeforeleave'])}}"
+    bindclickoverlay="{{_h.v(i.props['bindclickoverlay'])}}"
+    bindenter="{{_h.v(i.props['bindenter'])}}"
+    bindleave="{{_h.v(i.props['bindleave'])}}"
+    close-on-slideDown="{{_h.v(i.props['close-on-slideDown'])}}"
+    custom-style="{{_h.v(i.props['custom-style'])}}"
+    duration="{{_h.v(i.props['duration'])}}"
+    overlay="{{_h.v(i.props['overlay'])}}"
+    overlay-style="{{_h.v(i.props['overlay-style'])}}"
+    position="{{_h.v(i.props['position'])}}"
+    round="{{_h.v(i.props['round'])}}"
+    show="{{_h.v(i.props['show'])}}"
+    z-index="{{_h.v(i.props['z-index'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-container>
+</template>
+
+<template name="REMAX_TPL_10_page-container">
+  <page-container
+    bindafterenter="{{_h.v(i.props['bindafterenter'])}}"
+    bindafterleave="{{_h.v(i.props['bindafterleave'])}}"
+    bindbeforeenter="{{_h.v(i.props['bindbeforeenter'])}}"
+    bindbeforeleave="{{_h.v(i.props['bindbeforeleave'])}}"
+    bindclickoverlay="{{_h.v(i.props['bindclickoverlay'])}}"
+    bindenter="{{_h.v(i.props['bindenter'])}}"
+    bindleave="{{_h.v(i.props['bindleave'])}}"
+    close-on-slideDown="{{_h.v(i.props['close-on-slideDown'])}}"
+    custom-style="{{_h.v(i.props['custom-style'])}}"
+    duration="{{_h.v(i.props['duration'])}}"
+    overlay="{{_h.v(i.props['overlay'])}}"
+    overlay-style="{{_h.v(i.props['overlay-style'])}}"
+    position="{{_h.v(i.props['position'])}}"
+    round="{{_h.v(i.props['round'])}}"
+    show="{{_h.v(i.props['show'])}}"
+    z-index="{{_h.v(i.props['z-index'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-container>
+</template>
+
+<template name="REMAX_TPL_1_page-meta">
+  <page-meta
+    background-color="{{_h.v(i.props['background-color'])}}"
+    background-color-bottom="{{_h.v(i.props['background-color-bottom'])}}"
+    background-color-top="{{_h.v(i.props['background-color-top'])}}"
+    background-text-style="{{_h.v(i.props['background-text-style'])}}"
+    bindresize="{{_h.v(i.props['bindresize'])}}"
+    bindscroll="{{_h.v(i.props['bindscroll'])}}"
+    bindscrolldone="{{_h.v(i.props['bindscrolldone'])}}"
+    page-font-size="{{_h.v(i.props['page-font-size'])}}"
+    page-orientation="{{_h.v(i.props['page-orientation'])}}"
+    page-style="{{_h.v(i.props['page-style'])}}"
+    root-background-color="{{_h.v(i.props['root-background-color'])}}"
+    root-font-size="{{_h.v(i.props['root-font-size'])}}"
+    scroll-duration="{{_h.v(i.props['scroll-duration'])}}"
+    scroll-top="{{_h.v(i.props['scroll-top'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-meta>
+</template>
+
+<template name="REMAX_TPL_2_page-meta">
+  <page-meta
+    background-color="{{_h.v(i.props['background-color'])}}"
+    background-color-bottom="{{_h.v(i.props['background-color-bottom'])}}"
+    background-color-top="{{_h.v(i.props['background-color-top'])}}"
+    background-text-style="{{_h.v(i.props['background-text-style'])}}"
+    bindresize="{{_h.v(i.props['bindresize'])}}"
+    bindscroll="{{_h.v(i.props['bindscroll'])}}"
+    bindscrolldone="{{_h.v(i.props['bindscrolldone'])}}"
+    page-font-size="{{_h.v(i.props['page-font-size'])}}"
+    page-orientation="{{_h.v(i.props['page-orientation'])}}"
+    page-style="{{_h.v(i.props['page-style'])}}"
+    root-background-color="{{_h.v(i.props['root-background-color'])}}"
+    root-font-size="{{_h.v(i.props['root-font-size'])}}"
+    scroll-duration="{{_h.v(i.props['scroll-duration'])}}"
+    scroll-top="{{_h.v(i.props['scroll-top'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-meta>
+</template>
+
+<template name="REMAX_TPL_3_page-meta">
+  <page-meta
+    background-color="{{_h.v(i.props['background-color'])}}"
+    background-color-bottom="{{_h.v(i.props['background-color-bottom'])}}"
+    background-color-top="{{_h.v(i.props['background-color-top'])}}"
+    background-text-style="{{_h.v(i.props['background-text-style'])}}"
+    bindresize="{{_h.v(i.props['bindresize'])}}"
+    bindscroll="{{_h.v(i.props['bindscroll'])}}"
+    bindscrolldone="{{_h.v(i.props['bindscrolldone'])}}"
+    page-font-size="{{_h.v(i.props['page-font-size'])}}"
+    page-orientation="{{_h.v(i.props['page-orientation'])}}"
+    page-style="{{_h.v(i.props['page-style'])}}"
+    root-background-color="{{_h.v(i.props['root-background-color'])}}"
+    root-font-size="{{_h.v(i.props['root-font-size'])}}"
+    scroll-duration="{{_h.v(i.props['scroll-duration'])}}"
+    scroll-top="{{_h.v(i.props['scroll-top'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-meta>
+</template>
+
+<template name="REMAX_TPL_4_page-meta">
+  <page-meta
+    background-color="{{_h.v(i.props['background-color'])}}"
+    background-color-bottom="{{_h.v(i.props['background-color-bottom'])}}"
+    background-color-top="{{_h.v(i.props['background-color-top'])}}"
+    background-text-style="{{_h.v(i.props['background-text-style'])}}"
+    bindresize="{{_h.v(i.props['bindresize'])}}"
+    bindscroll="{{_h.v(i.props['bindscroll'])}}"
+    bindscrolldone="{{_h.v(i.props['bindscrolldone'])}}"
+    page-font-size="{{_h.v(i.props['page-font-size'])}}"
+    page-orientation="{{_h.v(i.props['page-orientation'])}}"
+    page-style="{{_h.v(i.props['page-style'])}}"
+    root-background-color="{{_h.v(i.props['root-background-color'])}}"
+    root-font-size="{{_h.v(i.props['root-font-size'])}}"
+    scroll-duration="{{_h.v(i.props['scroll-duration'])}}"
+    scroll-top="{{_h.v(i.props['scroll-top'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-meta>
+</template>
+
+<template name="REMAX_TPL_5_page-meta">
+  <page-meta
+    background-color="{{_h.v(i.props['background-color'])}}"
+    background-color-bottom="{{_h.v(i.props['background-color-bottom'])}}"
+    background-color-top="{{_h.v(i.props['background-color-top'])}}"
+    background-text-style="{{_h.v(i.props['background-text-style'])}}"
+    bindresize="{{_h.v(i.props['bindresize'])}}"
+    bindscroll="{{_h.v(i.props['bindscroll'])}}"
+    bindscrolldone="{{_h.v(i.props['bindscrolldone'])}}"
+    page-font-size="{{_h.v(i.props['page-font-size'])}}"
+    page-orientation="{{_h.v(i.props['page-orientation'])}}"
+    page-style="{{_h.v(i.props['page-style'])}}"
+    root-background-color="{{_h.v(i.props['root-background-color'])}}"
+    root-font-size="{{_h.v(i.props['root-font-size'])}}"
+    scroll-duration="{{_h.v(i.props['scroll-duration'])}}"
+    scroll-top="{{_h.v(i.props['scroll-top'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-meta>
+</template>
+
+<template name="REMAX_TPL_6_page-meta">
+  <page-meta
+    background-color="{{_h.v(i.props['background-color'])}}"
+    background-color-bottom="{{_h.v(i.props['background-color-bottom'])}}"
+    background-color-top="{{_h.v(i.props['background-color-top'])}}"
+    background-text-style="{{_h.v(i.props['background-text-style'])}}"
+    bindresize="{{_h.v(i.props['bindresize'])}}"
+    bindscroll="{{_h.v(i.props['bindscroll'])}}"
+    bindscrolldone="{{_h.v(i.props['bindscrolldone'])}}"
+    page-font-size="{{_h.v(i.props['page-font-size'])}}"
+    page-orientation="{{_h.v(i.props['page-orientation'])}}"
+    page-style="{{_h.v(i.props['page-style'])}}"
+    root-background-color="{{_h.v(i.props['root-background-color'])}}"
+    root-font-size="{{_h.v(i.props['root-font-size'])}}"
+    scroll-duration="{{_h.v(i.props['scroll-duration'])}}"
+    scroll-top="{{_h.v(i.props['scroll-top'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-meta>
+</template>
+
+<template name="REMAX_TPL_7_page-meta">
+  <page-meta
+    background-color="{{_h.v(i.props['background-color'])}}"
+    background-color-bottom="{{_h.v(i.props['background-color-bottom'])}}"
+    background-color-top="{{_h.v(i.props['background-color-top'])}}"
+    background-text-style="{{_h.v(i.props['background-text-style'])}}"
+    bindresize="{{_h.v(i.props['bindresize'])}}"
+    bindscroll="{{_h.v(i.props['bindscroll'])}}"
+    bindscrolldone="{{_h.v(i.props['bindscrolldone'])}}"
+    page-font-size="{{_h.v(i.props['page-font-size'])}}"
+    page-orientation="{{_h.v(i.props['page-orientation'])}}"
+    page-style="{{_h.v(i.props['page-style'])}}"
+    root-background-color="{{_h.v(i.props['root-background-color'])}}"
+    root-font-size="{{_h.v(i.props['root-font-size'])}}"
+    scroll-duration="{{_h.v(i.props['scroll-duration'])}}"
+    scroll-top="{{_h.v(i.props['scroll-top'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-meta>
+</template>
+
+<template name="REMAX_TPL_8_page-meta">
+  <page-meta
+    background-color="{{_h.v(i.props['background-color'])}}"
+    background-color-bottom="{{_h.v(i.props['background-color-bottom'])}}"
+    background-color-top="{{_h.v(i.props['background-color-top'])}}"
+    background-text-style="{{_h.v(i.props['background-text-style'])}}"
+    bindresize="{{_h.v(i.props['bindresize'])}}"
+    bindscroll="{{_h.v(i.props['bindscroll'])}}"
+    bindscrolldone="{{_h.v(i.props['bindscrolldone'])}}"
+    page-font-size="{{_h.v(i.props['page-font-size'])}}"
+    page-orientation="{{_h.v(i.props['page-orientation'])}}"
+    page-style="{{_h.v(i.props['page-style'])}}"
+    root-background-color="{{_h.v(i.props['root-background-color'])}}"
+    root-font-size="{{_h.v(i.props['root-font-size'])}}"
+    scroll-duration="{{_h.v(i.props['scroll-duration'])}}"
+    scroll-top="{{_h.v(i.props['scroll-top'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-meta>
+</template>
+
+<template name="REMAX_TPL_9_page-meta">
+  <page-meta
+    background-color="{{_h.v(i.props['background-color'])}}"
+    background-color-bottom="{{_h.v(i.props['background-color-bottom'])}}"
+    background-color-top="{{_h.v(i.props['background-color-top'])}}"
+    background-text-style="{{_h.v(i.props['background-text-style'])}}"
+    bindresize="{{_h.v(i.props['bindresize'])}}"
+    bindscroll="{{_h.v(i.props['bindscroll'])}}"
+    bindscrolldone="{{_h.v(i.props['bindscrolldone'])}}"
+    page-font-size="{{_h.v(i.props['page-font-size'])}}"
+    page-orientation="{{_h.v(i.props['page-orientation'])}}"
+    page-style="{{_h.v(i.props['page-style'])}}"
+    root-background-color="{{_h.v(i.props['root-background-color'])}}"
+    root-font-size="{{_h.v(i.props['root-font-size'])}}"
+    scroll-duration="{{_h.v(i.props['scroll-duration'])}}"
+    scroll-top="{{_h.v(i.props['scroll-top'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-meta>
+</template>
+
+<template name="REMAX_TPL_10_page-meta">
+  <page-meta
+    background-color="{{_h.v(i.props['background-color'])}}"
+    background-color-bottom="{{_h.v(i.props['background-color-bottom'])}}"
+    background-color-top="{{_h.v(i.props['background-color-top'])}}"
+    background-text-style="{{_h.v(i.props['background-text-style'])}}"
+    bindresize="{{_h.v(i.props['bindresize'])}}"
+    bindscroll="{{_h.v(i.props['bindscroll'])}}"
+    bindscrolldone="{{_h.v(i.props['bindscrolldone'])}}"
+    page-font-size="{{_h.v(i.props['page-font-size'])}}"
+    page-orientation="{{_h.v(i.props['page-orientation'])}}"
+    page-style="{{_h.v(i.props['page-style'])}}"
+    root-background-color="{{_h.v(i.props['root-background-color'])}}"
+    root-font-size="{{_h.v(i.props['root-font-size'])}}"
+    scroll-duration="{{_h.v(i.props['scroll-duration'])}}"
+    scroll-top="{{_h.v(i.props['scroll-top'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </page-meta>
+</template>
+
 <template name="REMAX_TPL_1_picker">
   <picker
     animation="{{_h.v(i.props['animation'])}}"
@@ -1670,6 +2703,7 @@
     disabled="{{_h.v(i.props['disabled'])}}"
     end="{{_h.v(i.props['end'])}}"
     fields="{{_h.v(i.props['fields'])}}"
+    header-text="{{_h.v(i.props['header-text'])}}"
     id="{{_h.v(i.props['id'])}}"
     mode="{{_h.v(i.props['mode'])}}"
     name="{{_h.v(i.props['name'])}}"
@@ -2041,6 +3075,136 @@
   </scroll-view>
 </template>
 
+<template name="REMAX_TPL_1_share-element">
+  <share-element
+    duration="{{_h.v(i.props['duration'])}}"
+    easing-function="{{_h.v(i.props['easing-function'])}}"
+    key="{{_h.v(i.props['key'])}}"
+    transform="{{_h.v(i.props['transform'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </share-element>
+</template>
+
+<template name="REMAX_TPL_2_share-element">
+  <share-element
+    duration="{{_h.v(i.props['duration'])}}"
+    easing-function="{{_h.v(i.props['easing-function'])}}"
+    key="{{_h.v(i.props['key'])}}"
+    transform="{{_h.v(i.props['transform'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </share-element>
+</template>
+
+<template name="REMAX_TPL_3_share-element">
+  <share-element
+    duration="{{_h.v(i.props['duration'])}}"
+    easing-function="{{_h.v(i.props['easing-function'])}}"
+    key="{{_h.v(i.props['key'])}}"
+    transform="{{_h.v(i.props['transform'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </share-element>
+</template>
+
+<template name="REMAX_TPL_4_share-element">
+  <share-element
+    duration="{{_h.v(i.props['duration'])}}"
+    easing-function="{{_h.v(i.props['easing-function'])}}"
+    key="{{_h.v(i.props['key'])}}"
+    transform="{{_h.v(i.props['transform'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </share-element>
+</template>
+
+<template name="REMAX_TPL_5_share-element">
+  <share-element
+    duration="{{_h.v(i.props['duration'])}}"
+    easing-function="{{_h.v(i.props['easing-function'])}}"
+    key="{{_h.v(i.props['key'])}}"
+    transform="{{_h.v(i.props['transform'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </share-element>
+</template>
+
+<template name="REMAX_TPL_6_share-element">
+  <share-element
+    duration="{{_h.v(i.props['duration'])}}"
+    easing-function="{{_h.v(i.props['easing-function'])}}"
+    key="{{_h.v(i.props['key'])}}"
+    transform="{{_h.v(i.props['transform'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </share-element>
+</template>
+
+<template name="REMAX_TPL_7_share-element">
+  <share-element
+    duration="{{_h.v(i.props['duration'])}}"
+    easing-function="{{_h.v(i.props['easing-function'])}}"
+    key="{{_h.v(i.props['key'])}}"
+    transform="{{_h.v(i.props['transform'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </share-element>
+</template>
+
+<template name="REMAX_TPL_8_share-element">
+  <share-element
+    duration="{{_h.v(i.props['duration'])}}"
+    easing-function="{{_h.v(i.props['easing-function'])}}"
+    key="{{_h.v(i.props['key'])}}"
+    transform="{{_h.v(i.props['transform'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </share-element>
+</template>
+
+<template name="REMAX_TPL_9_share-element">
+  <share-element
+    duration="{{_h.v(i.props['duration'])}}"
+    easing-function="{{_h.v(i.props['easing-function'])}}"
+    key="{{_h.v(i.props['key'])}}"
+    transform="{{_h.v(i.props['transform'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </share-element>
+</template>
+
+<template name="REMAX_TPL_10_share-element">
+  <share-element
+    duration="{{_h.v(i.props['duration'])}}"
+    easing-function="{{_h.v(i.props['easing-function'])}}"
+    key="{{_h.v(i.props['key'])}}"
+    transform="{{_h.v(i.props['transform'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </share-element>
+</template>
+
 <template name="REMAX_TPL_1_slider">
   <slider
     activeColor="{{_h.v(i.props['activeColor'])}}"
@@ -2092,6 +3256,7 @@
     next-margin="{{_h.v(i.props['next-margin'])}}"
     previous-margin="{{_h.v(i.props['previous-margin'])}}"
     skip-hidden-item-layout="{{_h.v(i.props['skip-hidden-item-layout'])}}"
+    snap-to-edge="{{_h.v(i.props['snap-to-edge'])}}"
     style="{{_h.v(i.props['style'])}}"
     vertical="{{_h.v(i.props['vertical'])}}"
   >
@@ -2305,6 +3470,7 @@
     selectable="{{_h.v(i.props['selectable'])}}"
     space="{{_h.v(i.props['space'])}}"
     style="{{_h.v(i.props['style'])}}"
+    user-select="{{_h.v(i.props['user-select'])}}"
   >
 <block wx:for="{{i.children}}" wx:key="*this">
   <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
@@ -2322,6 +3488,7 @@
     selectable="{{_h.v(i.props['selectable'])}}"
     space="{{_h.v(i.props['space'])}}"
     style="{{_h.v(i.props['style'])}}"
+    user-select="{{_h.v(i.props['user-select'])}}"
   >
 <block wx:for="{{i.children}}" wx:key="*this">
   <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
@@ -2339,6 +3506,7 @@
     selectable="{{_h.v(i.props['selectable'])}}"
     space="{{_h.v(i.props['space'])}}"
     style="{{_h.v(i.props['style'])}}"
+    user-select="{{_h.v(i.props['user-select'])}}"
   >
 <block wx:for="{{i.children}}" wx:key="*this">
   <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
@@ -2356,6 +3524,7 @@
     selectable="{{_h.v(i.props['selectable'])}}"
     space="{{_h.v(i.props['space'])}}"
     style="{{_h.v(i.props['style'])}}"
+    user-select="{{_h.v(i.props['user-select'])}}"
   >
 <block wx:for="{{i.children}}" wx:key="*this">
   <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
@@ -2373,6 +3542,7 @@
     selectable="{{_h.v(i.props['selectable'])}}"
     space="{{_h.v(i.props['space'])}}"
     style="{{_h.v(i.props['style'])}}"
+    user-select="{{_h.v(i.props['user-select'])}}"
   >
 <block wx:for="{{i.children}}" wx:key="*this">
   <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
@@ -2427,12 +3597,18 @@
     auto-pause-if-navigate="{{_h.v(i.props['auto-pause-if-navigate'])}}"
     auto-pause-if-open-native="{{_h.v(i.props['auto-pause-if-open-native'])}}"
     autoplay="{{_h.v(i.props['autoplay'])}}"
+    background-poster="{{_h.v(i.props['background-poster'])}}"
+    bindcontrolstoggle="{{_h.v(i.props['bindcontrolstoggle'])}}"
     bindended="{{_h.v(i.props['bindended'])}}"
+    bindenterpictureinpicture="{{_h.v(i.props['bindenterpictureinpicture'])}}"
     binderror="{{_h.v(i.props['binderror'])}}"
     bindfullscreenchange="{{_h.v(i.props['bindfullscreenchange'])}}"
+    bindleavepictureinpicture="{{_h.v(i.props['bindleavepictureinpicture'])}}"
+    bindloadedmetadata="{{_h.v(i.props['bindloadedmetadata'])}}"
     bindpause="{{_h.v(i.props['bindpause'])}}"
     bindplay="{{_h.v(i.props['bindplay'])}}"
     bindprogress="{{_h.v(i.props['bindprogress'])}}"
+    bindseekcomplete="{{_h.v(i.props['bindseekcomplete'])}}"
     bindtimeupdate="{{_h.v(i.props['bindtimeupdate'])}}"
     bindwaiting="{{_h.v(i.props['bindwaiting'])}}"
     class="{{_h.v(i.props['class'])}}"
@@ -2441,6 +3617,7 @@
     danmu-list="{{_h.v(i.props['danmu-list'])}}"
     direction="{{_h.v(i.props['direction'])}}"
     duration="{{_h.v(i.props['duration'])}}"
+    enable-auto-rotation="{{_h.v(i.props['enable-auto-rotation'])}}"
     enable-danmu="{{_h.v(i.props['enable-danmu'])}}"
     enable-play-gesture="{{_h.v(i.props['enable-play-gesture'])}}"
     enable-progress-gesture="{{_h.v(i.props['enable-progress-gesture'])}}"
@@ -2451,15 +3628,19 @@
     object-fit="{{_h.v(i.props['object-fit'])}}"
     page-gesture="{{_h.v(i.props['page-gesture'])}}"
     picture-in-picture-mode="{{_h.v(i.props['picture-in-picture-mode'])}}"
+    picture-in-picture-show-progress="{{_h.v(i.props['picture-in-picture-show-progress'])}}"
     play-btn-position="{{_h.v(i.props['play-btn-position'])}}"
     poster="{{_h.v(i.props['poster'])}}"
     poster-for-crawler="{{_h.v(i.props['poster-for-crawler'])}}"
+    show-background-playback-button="{{_h.v(i.props['show-background-playback-button'])}}"
     show-casting-button="{{_h.v(i.props['show-casting-button'])}}"
     show-center-play-btn="{{_h.v(i.props['show-center-play-btn'])}}"
     show-fullscreen-btn="{{_h.v(i.props['show-fullscreen-btn'])}}"
     show-mute-btn="{{_h.v(i.props['show-mute-btn'])}}"
     show-play-btn="{{_h.v(i.props['show-play-btn'])}}"
     show-progress="{{_h.v(i.props['show-progress'])}}"
+    show-screen-lock-button="{{_h.v(i.props['show-screen-lock-button'])}}"
+    show-snapshot-button="{{_h.v(i.props['show-snapshot-button'])}}"
     src="{{_h.v(i.props['src'])}}"
     style="{{_h.v(i.props['style'])}}"
     title="{{_h.v(i.props['title'])}}"
@@ -3710,6 +4891,136 @@
 </block>
     </view>
   </block>
+</template>
+
+<template name="REMAX_TPL_1_voip-room">
+  <voip-room
+    binderror="{{_h.v(i.props['binderror'])}}"
+    device-position="{{_h.v(i.props['device-position'])}}"
+    mode="{{_h.v(i.props['mode'])}}"
+    openid="{{_h.v(i.props['openid'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </voip-room>
+</template>
+
+<template name="REMAX_TPL_2_voip-room">
+  <voip-room
+    binderror="{{_h.v(i.props['binderror'])}}"
+    device-position="{{_h.v(i.props['device-position'])}}"
+    mode="{{_h.v(i.props['mode'])}}"
+    openid="{{_h.v(i.props['openid'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </voip-room>
+</template>
+
+<template name="REMAX_TPL_3_voip-room">
+  <voip-room
+    binderror="{{_h.v(i.props['binderror'])}}"
+    device-position="{{_h.v(i.props['device-position'])}}"
+    mode="{{_h.v(i.props['mode'])}}"
+    openid="{{_h.v(i.props['openid'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </voip-room>
+</template>
+
+<template name="REMAX_TPL_4_voip-room">
+  <voip-room
+    binderror="{{_h.v(i.props['binderror'])}}"
+    device-position="{{_h.v(i.props['device-position'])}}"
+    mode="{{_h.v(i.props['mode'])}}"
+    openid="{{_h.v(i.props['openid'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </voip-room>
+</template>
+
+<template name="REMAX_TPL_5_voip-room">
+  <voip-room
+    binderror="{{_h.v(i.props['binderror'])}}"
+    device-position="{{_h.v(i.props['device-position'])}}"
+    mode="{{_h.v(i.props['mode'])}}"
+    openid="{{_h.v(i.props['openid'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </voip-room>
+</template>
+
+<template name="REMAX_TPL_6_voip-room">
+  <voip-room
+    binderror="{{_h.v(i.props['binderror'])}}"
+    device-position="{{_h.v(i.props['device-position'])}}"
+    mode="{{_h.v(i.props['mode'])}}"
+    openid="{{_h.v(i.props['openid'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </voip-room>
+</template>
+
+<template name="REMAX_TPL_7_voip-room">
+  <voip-room
+    binderror="{{_h.v(i.props['binderror'])}}"
+    device-position="{{_h.v(i.props['device-position'])}}"
+    mode="{{_h.v(i.props['mode'])}}"
+    openid="{{_h.v(i.props['openid'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </voip-room>
+</template>
+
+<template name="REMAX_TPL_8_voip-room">
+  <voip-room
+    binderror="{{_h.v(i.props['binderror'])}}"
+    device-position="{{_h.v(i.props['device-position'])}}"
+    mode="{{_h.v(i.props['mode'])}}"
+    openid="{{_h.v(i.props['openid'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </voip-room>
+</template>
+
+<template name="REMAX_TPL_9_voip-room">
+  <voip-room
+    binderror="{{_h.v(i.props['binderror'])}}"
+    device-position="{{_h.v(i.props['device-position'])}}"
+    mode="{{_h.v(i.props['mode'])}}"
+    openid="{{_h.v(i.props['openid'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </voip-room>
+</template>
+
+<template name="REMAX_TPL_10_voip-room">
+  <voip-room
+    binderror="{{_h.v(i.props['binderror'])}}"
+    device-position="{{_h.v(i.props['device-position'])}}"
+    mode="{{_h.v(i.props['mode'])}}"
+    openid="{{_h.v(i.props['openid'])}}"
+  >
+<block wx:for="{{i.children}}" wx:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+  </voip-room>
 </template>
 
 <template name="REMAX_TPL_1_web-view">

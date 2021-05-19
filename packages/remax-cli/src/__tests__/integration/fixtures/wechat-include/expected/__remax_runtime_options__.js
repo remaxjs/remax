@@ -242,6 +242,7 @@ module.exports = {
       "autoFocus": "auto-focus",
       "className": "class",
       "focus": "focus",
+      "alwayEmbed": "always-embed",
       "name": "name",
       "maxlength": "maxlength",
       "value": "value",
@@ -322,6 +323,8 @@ module.exports = {
       "autoFocus": "auto-focus",
       "orientation": "orientation",
       "beauty": "beauty",
+      "beautyStyle": "beauty-style",
+      "filter": "filter",
       "whiteness": "whiteness",
       "aspect": "aspect",
       "minBitrate": "min-bitrate",
@@ -517,7 +520,8 @@ module.exports = {
       "customItem": "custom-item",
       "disabled": "disabled",
       "onClick": "bindtap",
-      "onTap": "bindtap"
+      "onTap": "bindtap",
+      "headerText": "header-text"
     }
   },
   "progress": {
@@ -684,7 +688,8 @@ module.exports = {
       "onTransition": "bindtransition",
       "onAnimationFinish": "bindanimationfinish",
       "onTap": "bindtap",
-      "onClick": "bindtap"
+      "onClick": "bindtap",
+      "snapToEdge": "snap-to-edge"
     }
   },
   "switch": {
@@ -708,6 +713,7 @@ module.exports = {
       "style": "style",
       "animation": "animation",
       "selectable": "selectable",
+      "userSelect": "user-select",
       "space": "space",
       "decode": "decode",
       "onTap": "bindtap",
@@ -774,6 +780,7 @@ module.exports = {
       "showPlayBtn": "show-play-btn",
       "showCenterPlayBtn": "show-center-play-btn",
       "enableProgressGesture": "enable-progress-gesture",
+      "showScreenLockButton": "show-screen-lock-button",
       "objectFit": "object-fit",
       "poster": "poster",
       "showMuteBtn": "show-mute-btn",
@@ -782,6 +789,11 @@ module.exports = {
       "posterForCrawler": "poster-for-crawler",
       "showCastingButton": "show-casting-button",
       "pictureInPictureMode": "picture-in-picture-mode",
+      "pictureInPictureShowProgress": "picture-in-picture-show-progress",
+      "enableAutoRotation": "enable-auto-rotation",
+      "showSnapshotButton": "show-snapshot-button",
+      "showBackgroundPlaybackButton": "show-background-playback-button",
+      "backgroundPoster": "background-poster",
       "enablePlayGesture": "enable-play-gesture",
       "autoPauseIfNavigate": "auto-pause-if-navigate",
       "autoPauseIfOpenNative": "auto-pause-if-open-native",
@@ -794,7 +806,12 @@ module.exports = {
       "onFullScreenChange": "bindfullscreenchange",
       "onWaiting": "bindwaiting",
       "onError": "binderror",
-      "onProgress": "bindprogress"
+      "onProgress": "bindprogress",
+      "onLoadedMetaData": "bindloadedmetadata",
+      "onControlsToggle": "bindcontrolstoggle",
+      "onEnterPictureInPicture": "bindenterpictureinpicture",
+      "onLeavePictureInPicture": "bindleavepictureinpicture",
+      "onSeekComplete": "bindseekcomplete"
     }
   },
   "view": {
@@ -832,6 +849,93 @@ module.exports = {
       "onMessage": "bindmessage",
       "onLoad": "bindload",
       "onError": "binderror"
+    }
+  },
+  "match-media": {
+    "alias": {
+      "minWidth": "min-width",
+      "maxWidth": "max-width",
+      "width": "width",
+      "minHeight": "min-height",
+      "maxHeight": "max-height",
+      "height": "height",
+      "orientation": "orientation"
+    }
+  },
+  "page-container": {
+    "alias": {
+      "show": "show",
+      "duration": "duration",
+      "zIndex": "z-index",
+      "overlay": "overlay",
+      "position": "position",
+      "round": "round",
+      "closeOnSlideDown": "close-on-slideDown",
+      "overlayStyle": "overlay-style",
+      "customStyle": "custom-style",
+      "onBeforeEnter": "bindbeforeenter",
+      "onEnter": "bindenter",
+      "onAfterEnter": "bindafterenter",
+      "onBeforeLeave": "bindbeforeleave",
+      "onLeave": "bindleave",
+      "onAfterLeave": "bindafterleave",
+      "onClickOverlay": "bindclickoverlay"
+    }
+  },
+  "share-element": {
+    "alias": {
+      "key": "key",
+      "transform": "transform",
+      "duration": "duration",
+      "easingFunction": "easing-function"
+    }
+  },
+  "keyboard-accessory": {
+    "alias": {}
+  },
+  "voip-room": {
+    "alias": {
+      "openId": "openid",
+      "mode": "mode",
+      "devicePosition": "device-position",
+      "onError": "binderror"
+    }
+  },
+  "ad-custom": {
+    "alias": {
+      "unitId": "unit-id",
+      "adIntervals": "ad-intervals",
+      "onLoad": "bindload",
+      "onError": "binderror",
+      "onClose": "bindclose"
+    }
+  },
+  "page-meta": {
+    "alias": {
+      "backgroundTextStyle": "background-text-style",
+      "backgroundColor": "background-color",
+      "backgroundColorTop": "background-color-top",
+      "backgroundColorBottom": "background-color-bottom",
+      "rootBackgroundColor": "root-background-color",
+      "scrollTop": "scroll-top",
+      "scrollDuration": "scroll-duration",
+      "pageStyle": "page-style",
+      "pageFontSize": "page-font-size",
+      "rootFontSize": "root-font-size",
+      "pageOrientation": "page-orientation",
+      "onResize": "bindresize",
+      "onScroll": "bindscroll",
+      "onScrollDone": "bindscrolldone"
+    }
+  },
+  "navigation-bar": {
+    "alias": {
+      "title": "title",
+      "loading": "loading",
+      "frontColor": "front-color",
+      "backgroundColor": "background-color",
+      "colorAnimationDuration": "color-animation-duration",
+      "colorAnimationTimingFunc": "color-animation-timing-func"
     }
   }
 },
