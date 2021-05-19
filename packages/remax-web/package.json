@@ -28,6 +28,7 @@
     "@remax/framework-shared": "2.13.1",
     "@remax/react-router-cache-route": "^1.8.4",
     "react-is": "^16.3.1",
+    "react-router-dom": "^5.2.0",
     "rmc-pull-to-refresh": "^1.0.12",
     "umi-hd": "^5.0.1"
   },
