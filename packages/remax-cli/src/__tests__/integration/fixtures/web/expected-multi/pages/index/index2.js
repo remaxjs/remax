@@ -46,9 +46,10 @@
       module.exports = require('react');
 
       /***/
-    } /* 8 */,
+    },
     ,
-    /* 7 */ /***/ function (module, exports) {
+    /* 7 */ /* 8 */
+    /***/ function (module, exports) {
       module.exports = require('remax');
 
       /***/
