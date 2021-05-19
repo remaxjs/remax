@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.2](https://github.com/remaxjs/remax/compare/v2.13.1...v2.13.2) (2021-05-19)
+
+### Bug Fixes
+
+- **wechat:** 同步微信小程序组件到最新版本 ([#1576](https://github.com/remaxjs/remax/issues/1576)) ([fd47e56](https://github.com/remaxjs/remax/commit/fd47e56c7c3a995bd7aa2f336f7d30f299bc92ac))
+
 ## [2.13.1](https://github.com/remaxjs/remax/compare/v2.13.0...v2.13.1) (2021-04-22)
 
 **Note:** Version bump only for package @remax/wechat
