@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`KeyboardAccessory render correctly 1`] = `<KeyboardAccessory />`;

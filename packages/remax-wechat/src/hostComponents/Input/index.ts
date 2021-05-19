@@ -13,6 +13,8 @@ export interface InputProps extends BaseProps {
    * 获取焦点
    */
   focus?: boolean;
+  /** 强制 input 处于同层状态，默认 focus 时 input 会切到非同层状态 (仅在 iOS 下生效) 2.10.4 */
+  alwaysEmbed?: boolean;
   name?: string;
   /**
    * 1.0.0
@@ -146,6 +148,7 @@ Input.defaultProps = {
   cursorSpacing: 0,
   autoFocus: false,
   focus: false,
+  alwaysEmbed: false,
   confirmType: 'done',
   confirmHold: false,
   maxlength: 140,

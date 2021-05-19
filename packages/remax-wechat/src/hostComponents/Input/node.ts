@@ -3,6 +3,7 @@ export const alias = {
   autoFocus: 'auto-focus',
   className: 'class',
   focus: 'focus',
+  alwayEmbed: 'always-embed',
   name: 'name',
   maxlength: 'maxlength',
   value: 'value',

@@ -63,6 +63,12 @@ export interface VideoProps extends BaseProps {
   enableAutoRotation?: false;
   /** 是否显示锁屏按钮，仅在全屏时显示，锁屏后控制栏的操作 2.11.0 */
   showScreenLockButton?: false;
+  /** 是否显示截屏按钮，仅在全屏时显示 2.13.0 */
+  showSnapshotButton?: boolean;
+  /** 是否展示后台音频播放按钮 2.14.3 */
+  showBackgroundPlaybackButton?: boolean;
+  /** 进入后台音频播放后的通知栏图标（Android 独有） */
+  backgroundPoster?: string;
   /** 当跳转到其它小程序页面时，是否自动暂停本页面的视频 2.5.0 */
   autoPauseIfNavigate?: boolean;
   /** 当跳转到其它微信原生页面时，是否自动暂停本页面的视频 2.5.0 */
@@ -85,7 +91,18 @@ export interface VideoProps extends BaseProps {
   onWaiting?: (event: GenericEvent) => any;
   /** 视频播放出错时触发 1.7.0 */
   onError?: (event: GenericEvent) => any;
+  /** 加载进度变化时触发，只支持一段加载。event.detail = {buffered}，百分比 2.4.0 */
   onProgress?: (event: GenericEvent) => any;
+  /** 视频元数据加载完成时触发。event.detail = {width, height, duration} 2.7.0 */
+  onLoadedMetaData?: (event: GenericEvent) => any;
+  /** 切换 controls 显示隐藏时触发。event.detail = {show} 2.9.5 */
+  onControlsToggle?: (event: GenericEvent) => any;
+  /** 播放器进入小窗 2.11.0 */
+  onEnterPictureInPicture?: (event: GenericEvent) => any;
+  /** 播放器退出小窗 2.11.0 */
+  onLeavePictureInPicture?: (event: GenericEvent) => any;
+  /** seek 完成时触发 (position iOS 单位 s, Android 单位 ms) 2.12.0 */
+  onSeekComplete?: (event: GenericEvent) => any;
 }
 
 const VideoRender: React.ForwardRefRenderFunction<any, VideoProps> = (props, ref) => {
@@ -130,6 +147,8 @@ RemaxVideo.defaultProps = {
   pictureInPictureShowProgress: false,
   enableAutoRotation: false,
   showScreenLockButton: false,
+  showSnapshotButton: false,
+  showBackgroundPlaybackButton: false,
 };
 
 export const Video: React.ComponentType<VideoProps> = createHostComponent<VideoProps>(hostComponentName, RemaxVideo);

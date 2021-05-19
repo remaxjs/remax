@@ -65,6 +65,11 @@ export interface PickerProps extends BaseProps {
    * 可为每一列的顶部添加一个自定义的项
    */
   customItem?: string;
+  /**
+   * 2.11.0
+   * 选择器的标题，仅安卓可用
+   */
+  headerText?: string;
 }
 
 /**

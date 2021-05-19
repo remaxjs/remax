@@ -39,6 +39,14 @@ import * as textarea from './Textarea/node';
 import * as video from './Video/node';
 import * as view from './View/node';
 import * as webView from './WebView/node';
+import * as matchMedia from './MatchMedia/node';
+import * as pageContainer from './PageContainer/node';
+import * as shareElement from './ShareElement/node';
+import * as keyboardAccessory from './KeyboardAccessory/node';
+import * as voipRoom from './VoipRoom/node';
+import * as adCustom from './AdCustom/node';
+import * as pageMeta from './PageMeta/node';
+import * as navigationBar from './NavigationBar/node';
 
 const hostComponents = new Map();
 
@@ -83,5 +91,13 @@ hostComponents.set('textarea', textarea);
 hostComponents.set('video', video);
 hostComponents.set('view', view);
 hostComponents.set('web-view', webView);
+hostComponents.set('match-media', matchMedia);
+hostComponents.set('page-container', pageContainer);
+hostComponents.set('share-element', shareElement);
+hostComponents.set('keyboard-accessory', keyboardAccessory);
+hostComponents.set('voip-room', voipRoom);
+hostComponents.set('ad-custom', adCustom);
+hostComponents.set('page-meta', pageMeta);
+hostComponents.set('navigation-bar', navigationBar);
 
 export default hostComponents;

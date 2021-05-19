@@ -3,6 +3,7 @@
 exports[`Input render correctly 1`] = `
 <input
   adjustPosition={true}
+  alwaysEmbed={false}
   autoFocus={false}
   confirmHold={false}
   confirmType="done"

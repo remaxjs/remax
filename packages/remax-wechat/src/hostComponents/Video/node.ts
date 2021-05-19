@@ -20,6 +20,7 @@ export const alias = {
   showPlayBtn: 'show-play-btn',
   showCenterPlayBtn: 'show-center-play-btn',
   enableProgressGesture: 'enable-progress-gesture',
+  showScreenLockButton: 'show-screen-lock-button',
   objectFit: 'object-fit',
   poster: 'poster',
   showMuteBtn: 'show-mute-btn',
@@ -28,6 +29,11 @@ export const alias = {
   posterForCrawler: 'poster-for-crawler',
   showCastingButton: 'show-casting-button',
   pictureInPictureMode: 'picture-in-picture-mode',
+  pictureInPictureShowProgress: 'picture-in-picture-show-progress',
+  enableAutoRotation: 'enable-auto-rotation',
+  showSnapshotButton: 'show-snapshot-button',
+  showBackgroundPlaybackButton: 'show-background-playback-button',
+  backgroundPoster: 'background-poster',
   enablePlayGesture: 'enable-play-gesture',
   autoPauseIfNavigate: 'auto-pause-if-navigate',
   autoPauseIfOpenNative: 'auto-pause-if-open-native',
@@ -41,6 +47,11 @@ export const alias = {
   onWaiting: 'bindwaiting',
   onError: 'binderror',
   onProgress: 'bindprogress',
+  onLoadedMetaData: 'bindloadedmetadata',
+  onControlsToggle: 'bindcontrolstoggle',
+  onEnterPictureInPicture: 'bindenterpictureinpicture',
+  onLeavePictureInPicture: 'bindleavepictureinpicture',
+  onSeekComplete: 'bindseekcomplete',
 };
 
 export const props = Object.values(alias);

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShareElement render correctly 1`] = `
+<share-element
+  duration={300}
+  easingFunction="ease-out"
+  transform={false}
+/>
+`;

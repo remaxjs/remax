@@ -18,6 +18,7 @@ export const alias = {
   disabled: 'disabled',
   onClick: 'bindtap',
   onTap: 'bindtap',
+  headerText: 'header-text',
 };
 
 export const props = Object.values(alias);
