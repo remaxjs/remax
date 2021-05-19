@@ -64,5 +64,6 @@
     "packages/*",
     "e2e/*",
     "website"
-  ]
+  ],
+  "dependencies": {}
 }
