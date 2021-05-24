@@ -1,9 +1,0 @@
-{
-  "miniprogramRoot": "miniprogram",
-  "pluginRoot": "dist",
-  "compileType": "plugin",
-  "component2": true,
-  "exclude": [
-    "miniapptools_dist/**/*"
-  ]
-}

@@ -1,3 +1,0 @@
-<view a:for="{{list}}">
-  <view>{{item.name}}:{{item.price}}</view>
-</view>

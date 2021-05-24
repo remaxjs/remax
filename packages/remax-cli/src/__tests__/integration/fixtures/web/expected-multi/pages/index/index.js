@@ -11,22 +11,22 @@ module.exports = __webpack_require__(1);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
-/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
-/* harmony import */ var _remax_web__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
-/* harmony import */ var _remax_web__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_remax_web__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
-/* harmony import */ var _remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
-/* harmony import */ var _remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_remax_web_assets_normalize_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+/* harmony import */ var _remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_remax_web_assets_app_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4);
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
+/* harmony import */ var _remax_web__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
+/* harmony import */ var _remax_web__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_remax_web__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
 
 
-Object(_remax_web__WEBPACK_IMPORTED_MODULE_2__["bootstrapMpa"])({
-  appComponent: _app__WEBPACK_IMPORTED_MODULE_0__["default"],
-  pageComponent: _index_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+Object(_remax_web__WEBPACK_IMPORTED_MODULE_4__["bootstrapMpa"])({
+  appComponent: _app__WEBPACK_IMPORTED_MODULE_2__["default"],
+  pageComponent: _index_js__WEBPACK_IMPORTED_MODULE_3__["default"],
   page: {
     "route": "pages/index/index",
     "config": {}
@@ -43,13 +43,25 @@ Object(_remax_web__WEBPACK_IMPORTED_MODULE_2__["bootstrapMpa"])({
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+module.exports = require("@remax/web/assets/normalize.css");
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = require("@remax/web/assets/app.css");
+
+/***/ }),
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+/* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 /* harmony import */ var _app_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_app_css__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
 
@@ -61,28 +73,28 @@ var App = function App(props) {
 /* harmony default export */ __webpack_exports__["default"] = (App);
 
 /***/ }),
-/* 3 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, exports) {
 
 module.exports = require("react");
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8);
 /* harmony import */ var remax__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(remax__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _index_css_modules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7);
+/* harmony import */ var _index_css_modules__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9);
 /* harmony import */ var _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_index_css_modules__WEBPACK_IMPORTED_MODULE_2__);
 
 
@@ -120,35 +132,23 @@ var SW = function SW() {
 });
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports) {
 
 module.exports = require("remax");
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 module.exports = {"app":"app___2lhPP","logo":"logo___Al4Xb","logo-spin":"logo-spin___3_EwH","text":"text___XEtZ5","header":"header___3qOk9"};
 
 /***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = require("@remax/web");
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-module.exports = require("@remax/web/assets/normalize.css");
-
-/***/ }),
 /* 10 */
 /***/ (function(module, exports) {
 
-module.exports = require("@remax/web/assets/app.css");
+module.exports = require("@remax/web");
 
 /***/ })
 ],[[0,0]]]);
