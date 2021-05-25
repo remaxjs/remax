@@ -21,7 +21,7 @@ export interface NavigationBarProps extends BaseProps {
  * @see https://developers.weixin.qq.com/miniprogram/dev/component/navigation-bar.html
  */
 export const NavigationBar: React.ComponentType<NavigationBarProps> = createHostComponent<NavigationBarProps>(
-  'NavigationBar'
+  'navigation-bar'
 );
 
 NavigationBar.defaultProps = {

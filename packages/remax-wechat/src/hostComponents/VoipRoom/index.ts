@@ -13,6 +13,10 @@ export interface VoipRoomProps extends BaseProps {
   onError?: (event: GenericEvent) => any;
 }
 
+/**
+ * 多人音视频对话。需用户授权 scope.camera、scope.record。
+ * @see https://developers.weixin.qq.com/miniprogram/dev/component/voip-room.html
+ */
 export const VoipRoom: React.ComponentType<VoipRoomProps> = createHostComponent<VoipRoomProps>('voip-room');
 VoipRoom.defaultProps = {
   mode: 'camera',
