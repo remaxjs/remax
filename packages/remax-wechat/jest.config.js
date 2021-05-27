@@ -1,6 +1,5 @@
 module.exports = {
   preset: 'ts-jest',
-  testEnvironment: 'node',
   testPathIgnorePatterns: ['/esm/', '/cjs/'],
   testRegex: '.*\\.test\\.tsx?$',
   coveragePathIgnorePatterns: ['/src/__tests__/'],
