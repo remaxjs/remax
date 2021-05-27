@@ -25,10 +25,6 @@
 	</a>
 </p>
 
-<p align="center">
-  <strong><a href="https://www.yuque.com/docs/share/076d56d7-6212-4ed5-b986-cf4325c417e6">🔥🔥🔥 蚂蚁集团体验技术部招聘</a></strong>
-</p>
-
 [《使用 React 开发小程序》](https://www.yuque.com/seeconf/2020/qsytho)
 
 Remax 将 React 运行在小程序环境中，让你可以使用完整的 React 进行小程序开发。
