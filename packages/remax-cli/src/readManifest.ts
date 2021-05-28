@@ -11,14 +11,14 @@ function readTypescriptManifest(path: string, target: Platform) {
     extensions: ['.ts'],
     cache: false,
   });
-  delete require.cache[path];
+  delete require.cache[require.resolve(path)];
   const config = require(path)[target] || require(path).default || require(path);
 
   return config;
 }
 
 function readJavascriptManifest(path: string, target: Platform) {
-  delete require.cache[path];
+  delete require.cache[require.resolve(path)];
   const config = require(path)[target] || require(path).default || require(path);
 
   return config;
