@@ -3424,19 +3424,10 @@
     "@types/serve-static" "*"
     "@types/webpack" "*"
 
-"@types/webpack-sources@*":
+"@types/webpack-sources@*", "@types/webpack-sources@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@types/webpack-sources/-/webpack-sources-2.1.0.tgz#8882b0bd62d1e0ce62f183d0d01b72e6e82e8c10"
   integrity sha512-LXn/oYIpBeucgP1EIJbKQ2/4ZmpvRl+dlrFdX7+94SKRUV3Evy3FsfMZY318vGhkWUS5MPhtOM3w1/hCOAOXcg==
-  dependencies:
-    "@types/node" "*"
-    "@types/source-list-map" "*"
-    source-map "^0.7.3"
-
-"@types/webpack-sources@^1.4.0":
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/@types/webpack-sources/-/webpack-sources-1.4.3.tgz#3041a5f20719fe1e95758dd1c45bcaf0f918e13d"
-  integrity sha512-2c/hwwRyGoSd7lrVLaekVQzmvVoG3NVPhJLZ84KvT14PTT1VEXGEbZjhtRKV9w/XQX3i1huYeqA29OECxq0NGA==
   dependencies:
     "@types/node" "*"
     "@types/source-list-map" "*"
