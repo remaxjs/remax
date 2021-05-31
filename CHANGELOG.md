@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.4](https://github.com/remaxjs/remax/compare/v2.13.3...v2.13.4) (2021-05-31)
+
+### Bug Fixes
+
+- 修复 watch 模式下 app.config 配置不更新的问题 ([#1546](https://github.com/remaxjs/remax/issues/1546)) ([b0bcdc4](https://github.com/remaxjs/remax/commit/b0bcdc4c4b0fffa4e733c5ff06711435a711960d))
+- 修复使用 react-devtools 无法显示小程序组件名称 ([#1585](https://github.com/remaxjs/remax/issues/1585)) ([ee42cc1](https://github.com/remaxjs/remax/commit/ee42cc181742d0c022f457963e7ddb8564bc038d)), closes [#1563](https://github.com/remaxjs/remax/issues/1563)
+- 修复子组件的 onShow 中改变状态导致父组件 onShow 不执行的问题 ([e93789f](https://github.com/remaxjs/remax/commit/e93789fad32b14f501b294ef23ab0af3f021a4cb)), closes [#1564](https://github.com/remaxjs/remax/issues/1564)
+
 ## [2.13.3](https://github.com/remaxjs/remax/compare/v2.13.2...v2.13.3) (2021-05-25)
 
 ### Bug Fixes
