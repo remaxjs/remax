@@ -56,7 +56,7 @@ $ cd my-app && yarn
 
 ```javascript
 // remax.config.js
-module.export = {
+module.exports = {
   // 通过环境变量区分不同平台的输出目录
   output: 'dist/' + process.env.REMAX_PLATFORM,
 };
