@@ -1,8 +1,5 @@
 #!/usr/bin/env sh
 
-
-[ -z "$GH_TOKEN" ] && printf "\nERROR!! Need to set GH_TOKEN first\n\n" && exit 1;
-
 printf "npm login:\n"
 
 npm whoami && npm run lint && npm run build && npm run test && npm run test:e2e-web

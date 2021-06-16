@@ -12,5 +12,6 @@ export default function createHostComponent<P = any>(name: string, component?: R
     element = RuntimeOptions.get('pluginDriver').onCreateHostComponentElement(element) as React.DOMElement<any, any>;
     return element;
   });
+  Component.displayName = name;
   return RuntimeOptions.get('pluginDriver').onCreateHostComponent(Component);
 }

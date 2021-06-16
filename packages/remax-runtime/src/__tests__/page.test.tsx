@@ -236,6 +236,36 @@ describe('page', () => {
       page.shareAppMessage();
       expect(log).toEqual(['onShow', 'onShareAppMessage']);
     });
+
+    it('call once with child hook', () => {
+      const log: string[] = [];
+      const foo = React.createRef<any>();
+
+      const Child = () => {
+        const [count, setCount] = React.useState(0);
+        usePageEvent('onShow', () => {
+          log.push('child onShow');
+          setCount(count + 1);
+        });
+
+        return <View>Child</View>;
+      };
+
+      const Foo = React.forwardRef((props, ref) => {
+        usePageEvent('onShow', () => {
+          log.push('foo onShow');
+        });
+
+        return (
+          <View>
+            <Child />
+          </View>
+        );
+      });
+      const page = Page(createPageConfig(() => <Foo ref={foo} />, TEST_PAGE));
+      page.load();
+      expect(log).toEqual(['child onShow', 'foo onShow']);
+    });
   });
 
   it('lifecycle methods', () => {

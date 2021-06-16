@@ -166,10 +166,10 @@ export default options => {
 {
   onAppConfig({ config }) {
     const onLaunch = config.onLaunch;
-    config.onLaunch = () => {
+    config.onLaunch = function(...args) {
       console.log('onLaunch');
       if (onLaunch) {
-        onLaunch();
+        onLaunch.call(this, ...args);
       }
     }
     return config;
@@ -191,10 +191,10 @@ export default options => {
 {
   onPageConfig({ config }) {
     const onLoad = config.onLoad;
-    config.onLoad = () => {
+    config.onLoad = function(...args) {
       console.log('onLoad');
       if (onLoad) {
-        onLoad();
+        onLoad.call(this, ...args);
       }
     }
     return config;

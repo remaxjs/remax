@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.4](https://github.com/remaxjs/remax/compare/v2.13.3...v2.13.4) (2021-05-31)
+
+### Bug Fixes
+
+- 修复 watch 模式下 app.config 配置不更新的问题 ([#1546](https://github.com/remaxjs/remax/issues/1546)) ([b0bcdc4](https://github.com/remaxjs/remax/commit/b0bcdc4c4b0fffa4e733c5ff06711435a711960d))
+
 ## [2.13.3](https://github.com/remaxjs/remax/compare/v2.13.2...v2.13.3) (2021-05-25)
 
 **Note:** Version bump only for package @remax/cli

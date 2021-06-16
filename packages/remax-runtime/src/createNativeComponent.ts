@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export default function createNativeComponent(name: string) {
-  return React.forwardRef((props, ref) => {
+  const Component = React.forwardRef((props, ref) => {
     const newProps: any = { ...props };
     newProps.__ref =
       typeof ref === 'function'
@@ -13,4 +13,6 @@ export default function createNativeComponent(name: string) {
           };
     return React.createElement(name, newProps, props.children);
   });
+  Component.displayName = name;
+  return Component;
 }
