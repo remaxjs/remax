@@ -94,6 +94,7 @@ export const clearStorage = promisify(wx.clearStorage);
 export const createMapContext = wx.createMapContext;
 export const saveImageToPhotosAlbum = promisify(wx.saveImageToPhotosAlbum);
 export const previewImage = promisify(wx.previewImage);
+export const previewMedia = promisify(wx.previewMedia);
 export const getImageInfo = promisify(wx.getImageInfo);
 export const compressImage = promisify(wx.compressImage);
 export const chooseMessageFile = promisify(wx.chooseMessageFile);
