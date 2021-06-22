@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.5](https://github.com/remaxjs/remax/compare/v2.13.4...v2.13.5) (2021-06-22)
+
+### Bug Fixes
+
+- **wechat:** fix preview media ([#1617](https://github.com/remaxjs/remax/issues/1617)) ([3995718](https://github.com/remaxjs/remax/commit/399571850d59d94eed5ef968280e5469cdff30e6))
+
 ## [2.13.4](https://github.com/remaxjs/remax/compare/v2.13.3...v2.13.4) (2021-05-31)
 
 ### Bug Fixes
