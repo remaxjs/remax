@@ -4,7 +4,7 @@ import chalk from 'chalk';
 import * as sander from 'sander';
 import * as crypto from 'crypto';
 import readdir from 'fs-readdir-recursive';
-import diff from 'jest-diff';
+import { diff } from 'jest-diff';
 import { sortBy } from 'lodash';
 import * as eol from 'eol';
 import { slash } from '@remax/shared';
