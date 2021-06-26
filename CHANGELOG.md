@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.13.6](https://github.com/remaxjs/remax/compare/v2.13.5...v2.13.6) (2021-06-26)
+
+### Bug Fixes
+
+- 微信组件未声明模板深度导致 base.wxml 过大的问题 ([#1628](https://github.com/remaxjs/remax/issues/1628)) ([db9484e](https://github.com/remaxjs/remax/commit/db9484e02e429eab3cf53ed6a8c15a34e986fdb9))
+
 ## [2.13.5](https://github.com/remaxjs/remax/compare/v2.13.4...v2.13.5) (2021-06-22)
 
 ### Bug Fixes
