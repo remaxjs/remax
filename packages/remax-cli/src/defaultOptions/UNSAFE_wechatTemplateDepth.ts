@@ -38,6 +38,14 @@ const UNSAFE_wechatTemplateDepth = {
   video: 1,
   view: 20,
   'web-view': 1,
+  'match-media': 1,
+  'page-container': 1,
+  'share-element': 1,
+  'keyboard-accessory': 1,
+  'voip-room': 1,
+  'ad-custom': 1,
+  'page-meta': 1,
+  'navigation-bar': 1,
 };
 
 export function ensureDepth(depth: number | { [key: string]: number }) {
