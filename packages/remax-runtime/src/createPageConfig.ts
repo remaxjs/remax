@@ -4,6 +4,7 @@ import stopPullDownRefresh from './stopPullDownRefresh';
 import Container from './Container';
 import { createPortal } from './ReactPortal';
 import render from './render';
+import { unstable_batchedUpdates } from './index';
 
 let idCounter = 0;
 
@@ -110,7 +111,9 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
       let result;
       // 生命周期中可能改变 state 导致 callbacks 发生变化
       [...callbacks].map((callback: any) => {
-        result = callback(...args);
+        result = unstable_batchedUpdates(args => {
+          return callback(...args);
+        }, args);
       });
       if (result) {
         return result;

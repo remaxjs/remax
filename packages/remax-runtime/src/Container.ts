@@ -3,6 +3,7 @@ import { generate } from './instanceId';
 import { FiberRoot } from 'react-reconciler';
 import nativeEffector from './nativeEffect';
 import { RuntimeOptions } from '@remax/framework-shared';
+import { unstable_batchedUpdates } from './index';
 
 interface SpliceUpdate {
   path: string[];
@@ -142,7 +143,11 @@ export default class Container {
   }
 
   createCallback(name: string, fn: (...params: any) => any) {
-    this.context[name] = fn;
+    this.context[name] = (...args: any) => {
+      return unstable_batchedUpdates(args => {
+        return fn(...args);
+      }, args);
+    };
   }
 
   appendChild(child: VNode) {
