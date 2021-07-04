@@ -367,8 +367,12 @@ describe('ali remax render', () => {
 
 it('create proxy for onClick callback', () => {
   const view = React.createRef<any>();
-  const handleClick = () => void 0;
-  const handleAnimationStart = () => void 0;
+  const handleClick = (event: any) => {
+    expect(event.stopPropagation).not.toBeUndefined();
+  };
+  const handleAnimationStart = (event: any) => {
+    expect(event.stopPropagation).toBeUndefined();
+  };
   class Page extends React.Component {
     render() {
       return <View ref={view} onClick={handleClick} onAnimationStart={handleAnimationStart} />;
@@ -383,11 +387,11 @@ it('create proxy for onClick callback', () => {
     return view.current.container.context[fnKey];
   }
 
-  const newHandleClick = findFn('onTap');
+  const newHandleClick = findFn('onClick');
   const newHandleAnimationStart = findFn('onAnimationStart');
 
-  expect(newHandleClick).not.toBe(handleClick);
-  expect(newHandleAnimationStart).toBe(handleAnimationStart);
+  newHandleClick({});
+  newHandleAnimationStart({});
 });
 
 it('useEffect works', done => {
