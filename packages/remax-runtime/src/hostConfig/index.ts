@@ -57,6 +57,14 @@ export default {
   },
 
   prepareForCommit: () => {
+    return null;
+  },
+
+  preparePortalMount: () => {
+    // nothing to do
+  },
+
+  clearContainer: () => {
     // nothing to do
   },
 

@@ -25,7 +25,7 @@ function getPublicRootInstance(container: ReactReconciler.FiberRoot) {
 export default function render(rootElement: React.ReactElement | null, container: Container | AppContainer) {
   // Create a root Container if it doesnt exist
   if (!container._rootContainer) {
-    container._rootContainer = ReactReconcilerInst.createContainer(container, false, false);
+    container._rootContainer = ReactReconcilerInst.createContainer(container, 0, false, null);
   }
 
   ReactReconcilerInst.updateContainer(rootElement, container._rootContainer, null, () => {

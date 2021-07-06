@@ -409,4 +409,108 @@ describe('page', () => {
       'componentWillUnmount',
     ]);
   });
+
+  it('hooks methods', done => {
+    const log: string[] = [];
+    const Foo = () => {
+      React.useEffect(() => {
+        log.push('componentDidMount');
+        return () => {
+          log.push('componentWillUnmount');
+          expect(log).toEqual(['componentDidMount', 'componentWillUnmount']);
+          done();
+        };
+      }, []);
+      return <View>foo</View>;
+    };
+    const page = Page(createPageConfig(Foo, TEST_PAGE));
+    page.load();
+    page.unload();
+  });
+
+  it('call useEffect', done => {
+    const Foo = React.forwardRef((props, ref) => {
+      const log = React.useRef<string[]>([]);
+      const times = React.useRef(0);
+      const [v1, upV1] = React.useState(1);
+      const [v2, upV2] = React.useState(1);
+
+      React.useEffect(() => {
+        log.current.push('foo didMount');
+        return () => {
+          expect(times.current).toEqual(2);
+          expect(log.current).toEqual(['foo onShow', 'foo didMount']);
+          done();
+        };
+      }, []);
+
+      React.useEffect(
+        function updateTimes() {
+          times.current += 1;
+        },
+        [v1, v2]
+      );
+
+      usePageEvent('onShow', function updateState() {
+        upV1(2);
+        upV2(2);
+        log.current.push('foo onShow');
+      });
+
+      return <View>useEffect</View>;
+    });
+    const page = Page(createPageConfig(() => <Foo />, TEST_PAGE));
+    page.load();
+    page.unload();
+  });
+
+  it('call events batchedUpdates', done => {
+    const Foo = React.forwardRef((props, ref) => {
+      const log = React.useRef<string[]>([]);
+      const times = React.useRef(0);
+      const [v1, upV1] = React.useState(1);
+      const [v2, upV2] = React.useState(1);
+
+      const up = (event: any) => {
+        expect(event.stopPropagation).toBeTruthy();
+        upV1(2);
+        upV2(2);
+      };
+
+      React.useEffect(() => {
+        log.current.push('foo didMount');
+        return () => {
+          expect(times.current).toEqual(2);
+          expect(log.current).toEqual(['foo onShow', 'foo didMount']);
+          done();
+        };
+      }, []);
+
+      React.useEffect(
+        function updateTimes() {
+          times.current += 1;
+        },
+        [v1, v2]
+      );
+
+      usePageEvent('onShow', function updateState() {
+        log.current.push('foo onShow');
+      });
+
+      return <View onClick={up}>useEffect</View>;
+    });
+    const page = Page(createPageConfig(() => <Foo />, TEST_PAGE));
+    page.load();
+    const fnKey = Object.keys(page.config).find(key => key.endsWith('onClick')) as string;
+    const fn = page.config[fnKey];
+
+    fn({
+      stopPropagation() {
+        // mock event
+      },
+    });
+    setTimeout(() => {
+      page.unload();
+    }, 300);
+  });
 });
