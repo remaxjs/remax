@@ -1,6 +1,6 @@
 {
   "name": "@remax/ali",
-  "version": "2.13.6",
+  "version": "2.14.0",
   "description": "Remax for Ali",
   "main": "./cjs/index.js",
   "esnext": "./esm/index.js",
@@ -16,11 +16,11 @@
   "repository": "git+https://github.com/remaxjs/remax.git",
   "license": "MIT",
   "dependencies": {
-    "@remax/shared": "2.13.6",
+    "@remax/shared": "2.14.0",
     "mini-types": "^0.1.1"
   },
   "devDependencies": {
-    "@remax/types": "2.13.6",
+    "@remax/types": "2.14.0",
     "@types/react": "^16.9.33",
     "@types/react-test-renderer": "^16.9.1",
     "react": "^16.12.0",

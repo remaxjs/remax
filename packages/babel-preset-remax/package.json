@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-remax",
-  "version": "2.13.6",
+  "version": "2.14.0",
   "description": "remax babel preset",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

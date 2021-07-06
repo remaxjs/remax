@@ -1,6 +1,6 @@
 {
   "name": "@remax/web",
-  "version": "2.13.6",
+  "version": "2.14.0",
   "description": "Shim of web for remax",
   "author": "Wei Zhu <yesmeck@gmail.com>",
   "homepage": "https://github.com/remaxjs/remax#readme",
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@loadable/component": "^5.12.0",
-    "@remax/framework-shared": "2.13.6",
+    "@remax/framework-shared": "2.14.0",
     "@remax/react-router-cache-route": "^1.8.4",
     "react-is": "^16.3.1",
     "react-router-dom": "^5.2.0",

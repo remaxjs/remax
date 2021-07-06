@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/remaxjs/remax/compare/v2.13.6...v2.14.0) (2021-07-06)
+
+**Note:** Version bump only for package @remax/plugin-devtools
+
 ## [2.13.6](https://github.com/remaxjs/remax/compare/v2.13.5...v2.13.6) (2021-06-26)
 
 **Note:** Version bump only for package @remax/plugin-devtools

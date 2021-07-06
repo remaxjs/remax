@@ -1,6 +1,6 @@
 {
   "name": "@remax/shared",
-  "version": "2.13.6",
+  "version": "2.14.0",
   "description": "Remax Shared",
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -25,7 +25,7 @@
     "react": "^16.0.0"
   },
   "devDependencies": {
-    "@remax/types": "2.13.6",
+    "@remax/types": "2.14.0",
     "@types/htmlparser2": "^3.10.1",
     "@types/react": "^16.9.35",
     "@types/react-test-renderer": "^16.9.2",

@@ -1,6 +1,6 @@
 {
   "name": "@remax/one",
-  "version": "2.13.6",
+  "version": "2.14.0",
   "description": "Remax 小程序多端方案",
   "main": "./cjs/index.js",
   "esnext": "./esm/index.js",
@@ -20,7 +20,7 @@
     "@types/react": "^16.9.33"
   },
   "devDependencies": {
-    "@remax/types": "2.13.6",
+    "@remax/types": "2.14.0",
     "@types/react": "^16.9.33",
     "@types/react-dom": "^17.0.5",
     "@types/react-test-renderer": "^16.9.1",
@@ -29,12 +29,12 @@
     "react-test-renderer": "^16.12.0"
   },
   "dependencies": {
-    "@remax/ali": "2.13.6",
-    "@remax/framework-shared": "2.13.6",
-    "@remax/runtime": "2.13.6",
-    "@remax/toutiao": "2.13.6",
-    "@remax/web": "2.13.6",
-    "@remax/wechat": "2.13.6",
+    "@remax/ali": "2.14.0",
+    "@remax/framework-shared": "2.14.0",
+    "@remax/runtime": "2.14.0",
+    "@remax/toutiao": "2.14.0",
+    "@remax/web": "2.14.0",
+    "@remax/wechat": "2.14.0",
     "clsx": "^1.1.0",
     "memoize-one": "^5.1.1",
     "react-autosize-textarea": "^7.0.0"

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/remaxjs/remax/compare/v2.13.6...v2.14.0) (2021-07-06)
+
+### Features
+
+- 生命周期 & 交互事件支持 batchedUpdates ([#1635](https://github.com/remaxjs/remax/issues/1635)) ([fec2741](https://github.com/remaxjs/remax/commit/fec2741dcb2baf5e3e98c5b1950d0446642303c9)), closes [#1633](https://github.com/remaxjs/remax/issues/1633)
+
 ## [2.13.6](https://github.com/remaxjs/remax/compare/v2.13.5...v2.13.6) (2021-06-26)
 
 **Note:** Version bump only for package @remax/runtime

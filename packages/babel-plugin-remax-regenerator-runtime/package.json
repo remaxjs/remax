@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-remax-regenerator-runtime",
-  "version": "2.13.6",
+  "version": "2.14.0",
   "description": "使用真正的 React 构建跨平台小程序",
   "author": "Wei Zhu <yesmeck@gmail.com>",
   "homepage": "https://remaxjs.org",

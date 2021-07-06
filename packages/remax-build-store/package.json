@@ -1,6 +1,6 @@
 {
   "name": "@remax/build-store",
-  "version": "2.13.6",
+  "version": "2.14.0",
   "description": "使用真正的 React 构建跨平台小程序",
   "author": "Wei Zhu <yesmeck@gmail.com>",
   "homepage": "https://remaxjs.org",
@@ -24,10 +24,10 @@
     "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },
   "dependencies": {
-    "@remax/shared": "2.13.6"
+    "@remax/shared": "2.14.0"
   },
   "devDependencies": {
-    "@remax/types": "2.13.6"
+    "@remax/types": "2.14.0"
   },
   "publishConfig": {
     "access": "public"

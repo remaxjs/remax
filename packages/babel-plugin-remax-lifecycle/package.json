@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-remax-lifecycle",
-  "version": "2.13.6",
+  "version": "2.14.0",
   "description": "使用真正的 React 构建跨平台小程序",
   "author": "Wei Zhu <yesmeck@gmail.com>",
   "homepage": "https://remaxjs.org",
@@ -28,11 +28,11 @@
     "@babel/helper-plugin-utils": "^7.10.4",
     "@babel/traverse": "^7.11.0",
     "@babel/types": "^7.11.0",
-    "@remax/shared": "2.13.6"
+    "@remax/shared": "2.14.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.0",
-    "@remax/build-store": "2.13.6"
+    "@remax/build-store": "2.14.0"
   },
   "gitHead": "df52bc6f39ef4b222b7da44c4e3c5744e4196a43"
 }
