@@ -16,6 +16,7 @@ export const alias = {
   onTouchCancel: 'onTouchCancel',
   onLongTap: 'onLongTap',
   onLongClick: 'onLongTap',
+  onReady: 'onReady',
 };
 
 export const props = unique(Object.values(alias));
