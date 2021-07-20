@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.1](https://github.com/remaxjs/remax/compare/v2.14.0...v2.14.1) (2021-07-20)
+
+### Bug Fixes
+
+- 微信小程序 textarea 组件 disableDefaultPadding 参数不生效的问题 ([c4f721c](https://github.com/remaxjs/remax/commit/c4f721c7f81474f177353bc9f12f77eda5f69e63))
+
 # [2.14.0](https://github.com/remaxjs/remax/compare/v2.13.6...v2.14.0) (2021-07-06)
 
 **Note:** Version bump only for package @remax/wechat
