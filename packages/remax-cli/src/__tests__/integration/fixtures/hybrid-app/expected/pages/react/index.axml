@@ -86,6 +86,7 @@
     height="{{item.props['height']}}"
     id="{{item.props['id']}}"
     onLongTap="{{item.props['onLongTap']}}"
+    onReady="{{item.props['onReady']}}"
     onTap="{{item.props['onTap']}}"
     onTouchCancel="{{item.props['onTouchCancel']}}"
     onTouchEnd="{{item.props['onTouchEnd']}}"

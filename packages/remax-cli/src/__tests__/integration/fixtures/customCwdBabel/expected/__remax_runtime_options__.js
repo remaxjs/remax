@@ -42,7 +42,8 @@ module.exports = {
       "onTouchEnd": "onTouchEnd",
       "onTouchCancel": "onTouchCancel",
       "onLongTap": "onLongTap",
-      "onLongClick": "onLongTap"
+      "onLongClick": "onLongTap",
+      "onReady": "onReady"
     }
   },
   "checkbox-group": {
