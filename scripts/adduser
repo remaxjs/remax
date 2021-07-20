@@ -8,6 +8,6 @@ if [ -z "$1" ]; then
 fi
 
 
-for pkg in `npx lerna list`; do
+for pkg in `npx lerna list | grep -v '^@remax'`; do
   npm owner add $1 $pkg
 done
