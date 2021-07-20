@@ -2524,6 +2524,7 @@
     controlled="{{_h.v(i.props['controlled'])}}"
     cursor="{{_h.v(i.props['cursor'])}}"
     cursor-spacing="{{_h.v(i.props['cursor-spacing'])}}"
+    disable-default-padding="{{_h.v(i.props['disable-default-padding'])}}"
     disabled="{{_h.v(i.props['disabled'])}}"
     fixed="{{_h.v(i.props['fixed'])}}"
     focus="{{_h.v(i.props['focus'])}}"
