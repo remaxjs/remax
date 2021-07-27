@@ -10,6 +10,7 @@ import Config from 'webpack-chain';
 import MiniBuilder from '../../../build/MiniBuilder';
 import MiniPluginBuilder from '../../../build/MiniPluginBuilder';
 import WebBuilder from '../../../build/WebBuilder';
+import MiniComponentBuilder from '../../../build/MiniComponentBuilder';
 
 function ensureWebpackMemoryFs(fs: IFs) {
   const nextFs = Object.create(fs);
@@ -167,6 +168,90 @@ export async function buildMiniPlugin(app: string, target: Platform, options: Pa
   };
 
   const builder = new MiniPluginBuilder(api, remaxOptions);
+
+  const fs = createFsFromVolume(new Volume());
+  const webpackFs = ensureWebpackMemoryFs(fs);
+  const compiler = builder.run();
+  compiler.outputFileSystem = webpackFs;
+
+  return new Promise(resolve => {
+    compiler.hooks.done.tap('done', stats => {
+      const info = stats.toJson();
+
+      if (stats.hasErrors()) {
+        console.error(info.errors);
+        throw new Error(info.errors.join('\n'));
+      }
+
+      if (stats.hasWarnings()) {
+        info.warnings.forEach(warning => {
+          console.warn(warning);
+        });
+      }
+
+      const exclude = options.exclude || ['node_modules'];
+      const include = options.include || [];
+      const includeRegExp = new RegExp(`(${include.join('|')})`);
+      const excludeRegExp = new RegExp(`(${exclude.join('|')})`);
+      const outputDir = path.join(remaxOptions.cwd, remaxOptions.output);
+
+      const output = getFilesInDir(fs, outputDir + '/', outputDir).filter(
+        c =>
+          (include.length > 0 && includeRegExp.test(c.fileName)) ||
+          (exclude.length > 0 && !excludeRegExp.test(c.fileName))
+      );
+
+      resolve(output);
+    });
+
+    compiler.hooks.failed.tap('failed', error => {
+      console.error(error.message);
+      throw error;
+    });
+  });
+}
+
+export function buildMiniComponent(
+  app: string,
+  inputs: { [k: string]: string },
+  target: Platform,
+  options: Partial<Options> = {}
+) {
+  const cwd = path.resolve(__dirname, `../fixtures/${app}`);
+  process.chdir(cwd);
+  process.env.NODE_ENV = 'test';
+  process.env.REMAX_PLATFORM = target;
+
+  const config = getConfig();
+  const api = new API();
+
+  api.registerPlugins(config.plugins);
+
+  const externals: any = [
+    nodeExternals({
+      modulesDir: path.resolve(__dirname, '../../../../../../node_modules'),
+      allowlist: options.externalsIgnore,
+    }),
+  ];
+
+  const remaxOptions = {
+    ...config,
+    input: inputs,
+    target,
+    configWebpack(context: { config: Config; webpack: any }) {
+      context.config
+        .mode('none')
+        .plugins.delete('webpackbar')
+        .end()
+        .externals([...context.config.get('externals'), ...externals]);
+
+      if (typeof config.configWebpack === 'function') {
+        config.configWebpack(context);
+      }
+    },
+  };
+
+  const builder = new MiniComponentBuilder(api, remaxOptions);
 
   const fs = createFsFromVolume(new Volume());
   const webpackFs = ensureWebpackMemoryFs(fs);

@@ -6,6 +6,8 @@ import API from './API';
 
 export * from './legacyExport';
 
+export { buildMiniComponent } from './build';
+
 export default class RemaxCLI {
   options?: Options;
   api?: API;

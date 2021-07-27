@@ -1,11 +1,13 @@
 import { sortBy } from 'lodash';
 import { compilation } from 'webpack';
 import ejs from 'ejs';
-import type { Options, Meta, EntryInfo } from '@remax/types';
+import type { Options, Meta } from '@remax/types';
 import Store from '@remax/build-store';
 import SourceCache from '../../../../SourceCache';
 import { slash } from '@remax/shared';
 import { getUsingComponents } from '../getUsingComponents';
+import path from 'path';
+import ComponentEntry from '../../../entries/ComponentEntry';
 
 export function createRenderOptions(componentPath: string, compilation: compilation.Compilation, options: Options) {
   const components = new Map(Store.getCollectedComponents());
@@ -28,7 +30,7 @@ export function createRenderOptions(componentPath: string, compilation: compilat
 }
 
 export default async function createComponentTemplate(
-  component: EntryInfo,
+  component: ComponentEntry,
   options: Options,
   meta: Meta,
   compilation: compilation.Compilation,
@@ -36,10 +38,17 @@ export default async function createComponentTemplate(
 ) {
   const fileName = slash(`${component.name}${meta.template.extension}`);
 
+  let baseTemplate = `/base${meta.template.extension}`;
+
+  // 如果是组件构建，生成相对路径
+  if (component.builder.buildType === 'minicomponent') {
+    baseTemplate = path.relative(path.dirname('./' + fileName), '.' + baseTemplate);
+  }
+
   const ejsOptions: { [props: string]: any } = {
     ...createRenderOptions(component.filename, compilation, options),
     renderIsolatedTemplates: false,
-    baseTemplate: `/base${meta.template.extension}`,
+    baseTemplate,
     sortBy,
   };
 
