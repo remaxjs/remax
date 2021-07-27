@@ -42,7 +42,7 @@ export default async function createComponentTemplate(
 
   // 如果是组件构建，生成相对路径
   if (component.builder.buildType === 'minicomponent') {
-    baseTemplate = path.relative(path.dirname('./' + fileName), '.' + baseTemplate);
+    baseTemplate = slash(path.relative(path.dirname('./' + fileName), '.' + baseTemplate));
   }
 
   const ejsOptions: { [props: string]: any } = {
