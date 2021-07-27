@@ -32,6 +32,7 @@ export const alias = {
   onKeyboardHeightChange: 'bindkeyboardheightchange',
   confirmType: 'confirm-type',
   confirmHold: 'confirm-hold',
+  disableDefaultPadding: 'disable-default-padding',
 };
 
 export const props = Object.values(alias);

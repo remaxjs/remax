@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.14.1](https://github.com/remaxjs/remax/compare/v2.14.0...v2.14.1) (2021-07-20)
+
+### Bug Fixes
+
+- canvas 新增 onReady 属性 ([#1650](https://github.com/remaxjs/remax/issues/1650)) ([199bbc3](https://github.com/remaxjs/remax/commit/199bbc360a4e5c7f485ac20a04001cae4557f096))
+
 # [2.14.0](https://github.com/remaxjs/remax/compare/v2.13.6...v2.14.0) (2021-07-06)
 
 **Note:** Version bump only for package @remax/ali

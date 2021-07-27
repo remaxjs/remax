@@ -58,6 +58,7 @@
     height="{{node.props['height']}}" 
     id="{{node.props['id']}}" 
     onLongTap="{{node.props['onLongTap']}}" 
+    onReady="{{node.props['onReady']}}" 
     onTap="{{node.props['onTap']}}" 
     onTouchCancel="{{node.props['onTouchCancel']}}" 
     onTouchEnd="{{node.props['onTouchEnd']}}" 
