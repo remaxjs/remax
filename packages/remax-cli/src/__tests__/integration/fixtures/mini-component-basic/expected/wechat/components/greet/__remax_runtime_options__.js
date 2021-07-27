@@ -754,7 +754,8 @@ module.exports = {
       "onConfirm": "bindconfirm",
       "onKeyboardHeightChange": "bindkeyboardheightchange",
       "confirmType": "confirm-type",
-      "confirmHold": "confirm-hold"
+      "confirmHold": "confirm-hold",
+      "disableDefaultPadding": "disable-default-padding"
     }
   },
   "video": {
