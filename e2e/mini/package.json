@@ -1,0 +1,19 @@
+{
+  "name": "e2e-mini",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "mini-antui": "^0.4.34",
+    "react": "^16.8.6",
+    "remax": "*"
+  },
+  "workspaces": {
+    "nohoist": [
+      "mini-antui",
+      "react"
+    ]
+  }
+}

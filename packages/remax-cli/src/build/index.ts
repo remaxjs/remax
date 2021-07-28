@@ -58,3 +58,21 @@ export function buildMiniPlugin(options: Options) {
   const MiniPluginBuilder = require('./MiniPluginBuilder').default;
   return new MiniPluginBuilder(api, options).run();
 }
+
+export function buildMiniComponent(options: Options) {
+  process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+  const { target, loglevel = 'verbose' } = options;
+  output.level = loglevel;
+
+  process.env.REMAX_PLATFORM = target;
+
+  output.message(`🔨 构建组件`, 'blue');
+  output.message(`\n⌨️  remax v${version}\n`, 'green');
+
+  const api = new API();
+  api.registerPlugins([]);
+
+  const MiniComponentBuilder = require('./MiniComponentBuilder').default;
+  return new MiniComponentBuilder(api, options).run();
+}

@@ -27,7 +27,16 @@ export default class RuntimeOptionsPlugin {
         const hostComponents = this.getHostComponents();
         const pageEvents = this.getPageEvents(chunks);
         const appEvents = this.getAppEvents();
-        this.createRuntimeOptions(compilation, hostComponents, pageEvents, appEvents, '');
+
+        if (this.builder.buildType === 'minicomponent') {
+          this.builder.entryCollection.entries.forEach(entry => {
+            const pathArr = entry.name.split('/');
+            const assetsPath = pathArr.splice(0, pathArr.length - 1).join('/');
+            this.createRuntimeOptions(compilation, hostComponents, pageEvents, appEvents, assetsPath);
+          });
+        } else {
+          this.createRuntimeOptions(compilation, hostComponents, pageEvents, appEvents, '');
+        }
       });
     });
   }

@@ -51,6 +51,28 @@ export default class EntryCollection {
 
   private initEntries() {
     const { projectConfig, projectPath } = this.builder;
+
+    // 纯组件库构建
+    if (this.builder.buildType === 'minicomponent') {
+      const inputs = this.builder.options.input;
+      if (typeof inputs === 'string' || Array.isArray(inputs) || !inputs) {
+        throw Error('组件构建, input仅支持对象方式传入');
+      }
+      const entries: Entries = new Map();
+
+      Object.keys(inputs).forEach((it: string) => {
+        const name = inputs[it];
+        const filename = projectPath.searchJSFile(projectPath.srcFile(name));
+        const entry = this.isNativeEntry(filename)
+          ? new NativeEntry(this.builder, name, filename)
+          : new ComponentEntry(this.builder, name, filename);
+        entries.set(filename, entry);
+      });
+
+      return entries;
+    }
+    // 纯组件构建 end
+
     // 页面
     const pages = projectConfig.pages.reduce(
       (ret: EntryInfo[], page: string) => [

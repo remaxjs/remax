@@ -1,0 +1,9 @@
+import { RuntimeOptions } from 'remax/runtime';
+import { hostComponents } from '/__remax_runtime_options__';
+
+RuntimeOptions.apply({
+platform: "<%- platform %>",
+debug: <%- debug %>,
+pxToRpx: <%- pxToRpx %>,
+hostComponents,
+})

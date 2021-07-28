@@ -1,0 +1,6 @@
+
+<view>
+  this is a blank page
+  <greet name="greet1"></greet>
+  <greet2 name="greet2"></greet2>
+</view>
