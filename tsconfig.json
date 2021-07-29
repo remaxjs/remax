@@ -59,6 +59,9 @@
       "path": "./packages/remax-cli"
     },
     {
+      "path": "./packages/remax-component-scripts"
+    },
+    {
       "path": "./packages/remax"
     }
   ]

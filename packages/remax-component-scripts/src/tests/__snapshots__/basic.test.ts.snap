@@ -1,0 +1,482 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test basic build esm 1`] = `
+"/**
+* This string will be inserted in a comment header
+**/
+\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+
+var React = require(\\"react\\");
+
+var one_1 = require(\\"remax/one\\");
+
+require(\\"./index.less\\");
+
+var Foo = function Foo(_a) {
+  var size = _a.size,
+      onClick = _a.onClick;
+  return /*#__PURE__*/React.createElement(one_1.Button, {
+    className: \\"button\\",
+    onTap: onClick,
+    style: {
+      fontSize: size === 'default' ? 30 : 20
+    }
+  }, \\"text\\");
+};
+
+exports.default = Foo;"
+`;
+
+exports[`test basic build esm 2`] = `
+"/**
+* This string will be inserted in a comment header
+**/
+
+import * as React from 'react';
+import { View, Text, Image } from 'remax/one';
+export default (function (_ref) {
+  var name = _ref.name;
+  return /*#__PURE__*/React.createElement(View, {
+    className: \\"greeting\\"
+  }, /*#__PURE__*/React.createElement(Text, null, \\"Hello111!!!!1 \\", name), /*#__PURE__*/React.createElement(View, null, /*#__PURE__*/React.createElement(Image, {
+    mode: \\"widthFix\\",
+    src: \\"https://gw.alicdn.com/tfs/TB1FvKecmR26e4jSZFEXXbwuXXa-140-140.svg\\"
+  })));
+});"
+`;
+
+exports[`test basic build mini build ali: ali Foo/index.js content 1`] = `
+"require('./../runtime.js');
+require('./../remax-vendors.js');
+module.exports =
+(my[\\"webpackJsonp\\"] = my[\\"webpackJsonp\\"] || []).push([[\\"Foo/index\\"],{
+
+/***/ \\"./src/Foo/index.entry.js\\":
+/*!********************************!*\\\\
+  !*** ./src/Foo/index.entry.js ***!
+  \\\\********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+\\"use strict\\";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @remax/runtime */ \\"../../../../../remax-runtime/esm/index.js\\");
+/* harmony import */ var _index_tsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.tsx */ \\"./src/Foo/index.tsx\\");
+/**
+* This string will be inserted in a comment header
+**/
+
+__webpack_require__(/*! ./index.less */ \\"./src/Foo/index.less\\");
+
+
+
+Component(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__[\\"createComponentConfig\\"])(_index_tsx__WEBPACK_IMPORTED_MODULE_1__[\\"default\\"]));
+
+/***/ }),
+
+/***/ \\"./src/Foo/index.less\\":
+/*!****************************!*\\\\
+  !*** ./src/Foo/index.less ***!
+  \\\\****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ \\"./src/Foo/index.tsx\\":
+/*!***************************!*\\\\
+  !*** ./src/Foo/index.tsx ***!
+  \\\\***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+\\"use strict\\";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \\"../../../../../../node_modules/react/index.js\\");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var remax_one__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! remax/one */ \\"../../../../../remax/one.js\\");
+/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.less */ \\"./src/Foo/index.less\\");
+/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_index_less__WEBPACK_IMPORTED_MODULE_2__);
+/**
+* This string will be inserted in a comment header
+**/
+
+
+
+
+
+var Foo = function Foo(_ref) {
+  var size = _ref.size,
+      onClick = _ref.onClick;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__[\\"createElement\\"](remax_one__WEBPACK_IMPORTED_MODULE_1__[\\"Button\\"], {
+    className: \\"button\\",
+    onTap: onClick,
+    style: {
+      fontSize: size === 'default' ? 30 : 20
+    }
+  }, \\"text\\");
+};
+
+/* harmony default export */ __webpack_exports__[\\"default\\"] = (Foo);
+
+/***/ }),
+
+/***/ \\"/__remax_runtime_options__\\":
+/*!**********************************************!*\\\\
+  !*** external \\"./__remax_runtime_options__\\" ***!
+  \\\\**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require(\\"./__remax_runtime_options__\\");
+
+/***/ }),
+
+/***/ 0:
+/*!*******************************************************************!*\\\\
+  !*** multi @remax/apply-runtime-options ./src/Foo/index.entry.js ***!
+  \\\\*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! @remax/apply-runtime-options */\\"./node_modules/@remax/apply-runtime-options.js\\");
+module.exports = __webpack_require__(/*! /Users/evans/codes/workers/remax/packages/remax-component-scripts/src/tests/fixture/basic/src/Foo/index.entry.js */\\"./src/Foo/index.entry.js\\");
+
+
+/***/ })
+
+},[[0,\\"runtime\\",\\"remax-vendors\\"]]]);"
+`;
+
+exports[`test basic build mini build ali: ali Foo/index.json content 1`] = `
+"{
+  \\"component\\": true,
+  \\"usingComponents\\": {}
+}"
+`;
+
+exports[`test basic build mini build ali: ali Greet/index.js content 1`] = `
+"require('./../runtime.js');
+require('./../remax-vendors.js');
+module.exports =
+(my[\\"webpackJsonp\\"] = my[\\"webpackJsonp\\"] || []).push([[\\"Greet/index\\"],{
+
+/***/ \\"./src/Greet/index.entry.js\\":
+/*!**********************************!*\\\\
+  !*** ./src/Greet/index.entry.js ***!
+  \\\\**********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+\\"use strict\\";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @remax/runtime */ \\"../../../../../remax-runtime/esm/index.js\\");
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.js */ \\"./src/Greet/index.js\\");
+/**
+* This string will be inserted in a comment header
+**/
+
+__webpack_require__(/*! ./index.less */ \\"./src/Greet/index.less\\");
+
+
+
+Component(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__[\\"createComponentConfig\\"])(_index_js__WEBPACK_IMPORTED_MODULE_1__[\\"default\\"]));
+
+/***/ }),
+
+/***/ \\"./src/Greet/index.js\\":
+/*!****************************!*\\\\
+  !*** ./src/Greet/index.js ***!
+  \\\\****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+\\"use strict\\";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \\"../../../../../../node_modules/react/index.js\\");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var remax_one__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! remax/one */ \\"../../../../../remax/one.js\\");
+/**
+* This string will be inserted in a comment header
+**/
+
+
+
+/* harmony default export */ __webpack_exports__[\\"default\\"] = (function (_ref) {
+  var name = _ref.name;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__[\\"createElement\\"](remax_one__WEBPACK_IMPORTED_MODULE_1__[\\"View\\"], {
+    className: \\"greeting\\"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__[\\"createElement\\"](remax_one__WEBPACK_IMPORTED_MODULE_1__[\\"Text\\"], null, \\"Hello111!!!!1 \\", name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__[\\"createElement\\"](remax_one__WEBPACK_IMPORTED_MODULE_1__[\\"View\\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__[\\"createElement\\"](remax_one__WEBPACK_IMPORTED_MODULE_1__[\\"Image\\"], {
+    mode: \\"widthFix\\",
+    src: \\"https://gw.alicdn.com/tfs/TB1FvKecmR26e4jSZFEXXbwuXXa-140-140.svg\\"
+  })));
+});
+
+/***/ }),
+
+/***/ \\"./src/Greet/index.less\\":
+/*!******************************!*\\\\
+  !*** ./src/Greet/index.less ***!
+  \\\\******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ \\"/__remax_runtime_options__\\":
+/*!**********************************************!*\\\\
+  !*** external \\"./__remax_runtime_options__\\" ***!
+  \\\\**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require(\\"./__remax_runtime_options__\\");
+
+/***/ }),
+
+/***/ 1:
+/*!*********************************************************************!*\\\\
+  !*** multi @remax/apply-runtime-options ./src/Greet/index.entry.js ***!
+  \\\\*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! @remax/apply-runtime-options */\\"./node_modules/@remax/apply-runtime-options.js\\");
+module.exports = __webpack_require__(/*! /Users/evans/codes/workers/remax/packages/remax-component-scripts/src/tests/fixture/basic/src/Greet/index.entry.js */\\"./src/Greet/index.entry.js\\");
+
+
+/***/ })
+
+},[[1,\\"runtime\\",\\"remax-vendors\\"]]]);"
+`;
+
+exports[`test basic build mini build ali: ali Greet/index.json content 1`] = `
+"{
+  \\"component\\": true,
+  \\"usingComponents\\": {}
+}"
+`;
+
+exports[`test basic build mini build ali: wechat Foo/index.js content 1`] = `
+"require('./../runtime.js');
+require('./../remax-vendors.js');
+module.exports =
+(wx[\\"webpackJsonp\\"] = wx[\\"webpackJsonp\\"] || []).push([[\\"Foo/index\\"],{
+
+/***/ \\"./src/Foo/index.entry.js\\":
+/*!********************************!*\\\\
+  !*** ./src/Foo/index.entry.js ***!
+  \\\\********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+\\"use strict\\";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @remax/runtime */ \\"../../../../../remax-runtime/esm/index.js\\");
+/* harmony import */ var _index_tsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.tsx */ \\"./src/Foo/index.tsx\\");
+/**
+* This string will be inserted in a comment header
+**/
+
+__webpack_require__(/*! ./index.less */ \\"./src/Foo/index.less\\");
+
+
+
+Component(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__[\\"createComponentConfig\\"])(_index_tsx__WEBPACK_IMPORTED_MODULE_1__[\\"default\\"]));
+
+/***/ }),
+
+/***/ \\"./src/Foo/index.less\\":
+/*!****************************!*\\\\
+  !*** ./src/Foo/index.less ***!
+  \\\\****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ \\"./src/Foo/index.tsx\\":
+/*!***************************!*\\\\
+  !*** ./src/Foo/index.tsx ***!
+  \\\\***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+\\"use strict\\";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \\"../../../../../../node_modules/react/index.js\\");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var remax_one__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! remax/one */ \\"../../../../../remax/one.js\\");
+/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.less */ \\"./src/Foo/index.less\\");
+/* harmony import */ var _index_less__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_index_less__WEBPACK_IMPORTED_MODULE_2__);
+/**
+* This string will be inserted in a comment header
+**/
+
+
+
+
+
+var Foo = function Foo(_ref) {
+  var size = _ref.size,
+      onClick = _ref.onClick;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__[\\"createElement\\"](remax_one__WEBPACK_IMPORTED_MODULE_1__[\\"Button\\"], {
+    className: \\"button\\",
+    onTap: onClick,
+    style: {
+      fontSize: size === 'default' ? 30 : 20
+    }
+  }, \\"text\\");
+};
+
+/* harmony default export */ __webpack_exports__[\\"default\\"] = (Foo);
+
+/***/ }),
+
+/***/ \\"/__remax_runtime_options__\\":
+/*!**********************************************!*\\\\
+  !*** external \\"./__remax_runtime_options__\\" ***!
+  \\\\**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require(\\"./__remax_runtime_options__\\");
+
+/***/ }),
+
+/***/ 0:
+/*!*******************************************************************!*\\\\
+  !*** multi @remax/apply-runtime-options ./src/Foo/index.entry.js ***!
+  \\\\*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! @remax/apply-runtime-options */\\"./node_modules/@remax/apply-runtime-options.js\\");
+module.exports = __webpack_require__(/*! /Users/evans/codes/workers/remax/packages/remax-component-scripts/src/tests/fixture/basic/src/Foo/index.entry.js */\\"./src/Foo/index.entry.js\\");
+
+
+/***/ })
+
+},[[0,\\"runtime\\",\\"remax-vendors\\"]]]);"
+`;
+
+exports[`test basic build mini build ali: wechat Foo/index.json content 1`] = `
+"{
+  \\"component\\": true,
+  \\"usingComponents\\": {}
+}"
+`;
+
+exports[`test basic build mini build ali: wechat Greet/index.js content 1`] = `
+"require('./../runtime.js');
+require('./../remax-vendors.js');
+module.exports =
+(wx[\\"webpackJsonp\\"] = wx[\\"webpackJsonp\\"] || []).push([[\\"Greet/index\\"],{
+
+/***/ \\"./src/Greet/index.entry.js\\":
+/*!**********************************!*\\\\
+  !*** ./src/Greet/index.entry.js ***!
+  \\\\**********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+\\"use strict\\";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @remax/runtime */ \\"../../../../../remax-runtime/esm/index.js\\");
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.js */ \\"./src/Greet/index.js\\");
+/**
+* This string will be inserted in a comment header
+**/
+
+__webpack_require__(/*! ./index.less */ \\"./src/Greet/index.less\\");
+
+
+
+Component(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__[\\"createComponentConfig\\"])(_index_js__WEBPACK_IMPORTED_MODULE_1__[\\"default\\"]));
+
+/***/ }),
+
+/***/ \\"./src/Greet/index.js\\":
+/*!****************************!*\\\\
+  !*** ./src/Greet/index.js ***!
+  \\\\****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+\\"use strict\\";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \\"../../../../../../node_modules/react/index.js\\");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var remax_one__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! remax/one */ \\"../../../../../remax/one.js\\");
+/**
+* This string will be inserted in a comment header
+**/
+
+
+
+/* harmony default export */ __webpack_exports__[\\"default\\"] = (function (_ref) {
+  var name = _ref.name;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__[\\"createElement\\"](remax_one__WEBPACK_IMPORTED_MODULE_1__[\\"View\\"], {
+    className: \\"greeting\\"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__[\\"createElement\\"](remax_one__WEBPACK_IMPORTED_MODULE_1__[\\"Text\\"], null, \\"Hello111!!!!1 \\", name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__[\\"createElement\\"](remax_one__WEBPACK_IMPORTED_MODULE_1__[\\"View\\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__[\\"createElement\\"](remax_one__WEBPACK_IMPORTED_MODULE_1__[\\"Image\\"], {
+    mode: \\"widthFix\\",
+    src: \\"https://gw.alicdn.com/tfs/TB1FvKecmR26e4jSZFEXXbwuXXa-140-140.svg\\"
+  })));
+});
+
+/***/ }),
+
+/***/ \\"./src/Greet/index.less\\":
+/*!******************************!*\\\\
+  !*** ./src/Greet/index.less ***!
+  \\\\******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ \\"/__remax_runtime_options__\\":
+/*!**********************************************!*\\\\
+  !*** external \\"./__remax_runtime_options__\\" ***!
+  \\\\**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require(\\"./__remax_runtime_options__\\");
+
+/***/ }),
+
+/***/ 1:
+/*!*********************************************************************!*\\\\
+  !*** multi @remax/apply-runtime-options ./src/Greet/index.entry.js ***!
+  \\\\*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! @remax/apply-runtime-options */\\"./node_modules/@remax/apply-runtime-options.js\\");
+module.exports = __webpack_require__(/*! /Users/evans/codes/workers/remax/packages/remax-component-scripts/src/tests/fixture/basic/src/Greet/index.entry.js */\\"./src/Greet/index.entry.js\\");
+
+
+/***/ })
+
+},[[1,\\"runtime\\",\\"remax-vendors\\"]]]);"
+`;
+
+exports[`test basic build mini build ali: wechat Greet/index.json content 1`] = `
+"{
+  \\"component\\": true,
+  \\"usingComponents\\": {}
+}"
+`;
