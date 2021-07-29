@@ -4,6 +4,7 @@ import { Stats } from 'webpack';
 import { join } from 'path';
 import rimraf = require('rimraf');
 import { readFileContent } from './helper/utils';
+import * as fs from 'fs';
 
 describe('test basic', () => {
   const dir = path.join(__dirname, './fixture/basic');
@@ -79,10 +80,16 @@ describe('test basic', () => {
           }
 
           try {
-            ['Foo/index.js', 'Foo/index.json', 'Greet/index.js', 'Greet/index.json'].forEach(file => {
-              const f = path.join('dist', target, file);
-              const content = readFileContent(f, dir);
-              expect(content).toMatchSnapshot(`${target} ${file} content`);
+            [
+              'Foo/index.js',
+              'Foo/index.json',
+              'Foo/__remax_runtime_options__.js',
+              'Greet/index.js',
+              'Greet/index.json',
+              'Greet/__remax_runtime_options__.js',
+            ].forEach(file => {
+              const f = path.join(dir, 'dist', target, file);
+              fs.accessSync(f);
             });
 
             done();
