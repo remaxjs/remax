@@ -38,10 +38,11 @@ exports[`test basic build esm 2`] = `
 
 import * as React from 'react';
 import { View, Text, Image } from 'remax/one';
+import styles from './index.scss';
 export default (function (_ref) {
   var name = _ref.name;
   return /*#__PURE__*/React.createElement(View, {
-    className: \\"greeting\\"
+    className: styles.greeting
   }, /*#__PURE__*/React.createElement(Text, null, \\"Hello111!!!!1 \\", name), /*#__PURE__*/React.createElement(View, null, /*#__PURE__*/React.createElement(Image, {
     mode: \\"widthFix\\",
     src: \\"https://gw.alicdn.com/tfs/TB1FvKecmR26e4jSZFEXXbwuXXa-140-140.svg\\"

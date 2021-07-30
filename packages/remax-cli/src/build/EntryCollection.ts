@@ -64,8 +64,8 @@ export default class EntryCollection {
         const name = inputs[it];
         const filename = projectPath.searchJSFile(projectPath.srcFile(name));
         const entry = this.isNativeEntry(filename)
-          ? new NativeEntry(this.builder, name, filename)
-          : new ComponentEntry(this.builder, name, filename);
+          ? new NativeEntry(this.builder, it, filename)
+          : new ComponentEntry(this.builder, it, filename);
         entries.set(filename, entry);
       });
 

@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "greet": "/components/greet/index",
-    "greet2": "/components/greet2/index"
+    "greet": "/components/greet",
+    "greet2": "/components/greet2"
   }
 }

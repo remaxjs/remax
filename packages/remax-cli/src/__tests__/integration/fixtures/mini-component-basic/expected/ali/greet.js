@@ -1,5 +1,5 @@
-require('./../../runtime.js');
-require('./../../remax-vendors.js');
+require('./runtime.js');
+require('./remax-vendors.js');
 module.exports =
 (my["webpackJsonp"] = my["webpackJsonp"] || []).push([[1],[
 /* 0 */

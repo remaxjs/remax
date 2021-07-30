@@ -22,7 +22,11 @@ export default function createManifest(
   const usingComponents: Record<string, string> = {};
 
   getUsingComponents(component.filename, compilation, options, prePath).forEach(component => {
-    usingComponents[component.id] = component.path;
+    let cpath = component.path;
+    if (!cpath.startsWith('.')) {
+      cpath = './' + cpath;
+    }
+    usingComponents[component.id] = cpath;
   });
 
   config.component = true;
