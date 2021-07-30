@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { View, Text, Image } from 'remax/one';
+import styles from './index.scss';
 
 export default ({ name }) => {
     return (
-        <View className="greeting">
+        <View className={styles.greeting}>
             <Text>Hello111!!!!1 {name}</Text>
 
             <View>

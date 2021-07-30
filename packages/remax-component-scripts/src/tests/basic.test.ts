@@ -80,14 +80,7 @@ describe('test basic', () => {
           }
 
           try {
-            [
-              'Foo/index.js',
-              'Foo/index.json',
-              'Foo/__remax_runtime_options__.js',
-              'Greet/index.js',
-              'Greet/index.json',
-              'Greet/__remax_runtime_options__.js',
-            ].forEach(file => {
+            ['foo.js', 'foo.json', '__remax_runtime_options__.js', 'greet.js', 'greet.json'].forEach(file => {
               const f = path.join(dir, 'dist', target, file);
               fs.accessSync(f);
             });

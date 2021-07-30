@@ -42,6 +42,13 @@ export function buildDsl({ cwd, sourceDir, miniOptions, output, watch, onTargetD
         options: {},
       });
 
+      addCSSRule({
+        name: 'scss',
+        test: /\.scss(\?.*)?$/,
+        loader: require.resolve('sass-loader'),
+        options: {},
+      });
+
       configWebpack && configWebpack({ config, addCSSRule });
     },
     UNSAFE_wechatTemplateDepth,

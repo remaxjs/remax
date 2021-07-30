@@ -1,15 +1,8 @@
-require('./../../runtime.js');
-require('./../../remax-vendors.js');
+require('./runtime.js');
+require('./remax-vendors.js');
 module.exports =
-(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[1],[
-/* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(1);
-module.exports = __webpack_require__(4);
-
-
-/***/ }),
+(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([[3],[
+/* 0 */,
 /* 1 */,
 /* 2 */
 /***/ (function(module, exports) {
@@ -23,26 +16,48 @@ module.exports = require("remax/runtime");
 module.exports = require("./__remax_runtime_options__");
 
 /***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
-/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
-
-
-Component(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createComponentConfig"])(_index_js__WEBPACK_IMPORTED_MODULE_1__["default"]));
-
-/***/ }),
+/* 4 */,
 /* 5 */
 /***/ (function(module, exports) {
 
 module.exports = require("@remax/runtime");
 
 /***/ }),
-/* 6 */
+/* 6 */,
+/* 7 */
+/***/ (function(module, exports) {
+
+module.exports = require("react");
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = require("remax/one");
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(1);
+module.exports = __webpack_require__(10);
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _index_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(11);
+
+
+Component(Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createComponentConfig"])(_index_js__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -61,17 +76,5 @@ console.log('greeting');
   }, "Hello ", name);
 });
 
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = require("remax/one");
-
 /***/ })
-],[[0,0,2]]]);
+],[[9,0,2]]]);

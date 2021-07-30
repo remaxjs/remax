@@ -33,7 +33,11 @@
     "@remax/father-build": "^1.19.8",
     "@types/lodash": "^4.14.171",
     "lodash": "^4.17.21",
-    "yargs": "^16.0.3"
+    "yargs": "^16.0.3",
+    "less": "^4.1.1",
+    "less-loader": "^6.0.1",
+    "node-sass": "^4.14.0",
+    "sass-loader": "^8.0.2"
   },
   "devDependencies": {
     "@types/node": "^16.4.5",
