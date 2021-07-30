@@ -26,6 +26,12 @@ export function run() {
             type: 'string',
             alias: 'c',
             description: '指定配置文件',
+          })
+          .option('output', {
+            type: 'string',
+            alias: 'o',
+            default: 'dist',
+            description: '指定输出目录',
           });
       },
       argv => {

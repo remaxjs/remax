@@ -42,7 +42,7 @@ const defaultConfig = {
 // 获取组件构建配置
 export function getConfig(argv: IArgv, { cwd = process.cwd() }): IOptions {
   let configFile;
-  const { watch, type } = argv;
+  const { watch, type, output } = argv;
 
   try {
     const configFilename = argv.config || 'remax-component.config.js';
@@ -52,5 +52,5 @@ export function getConfig(argv: IArgv, { cwd = process.cwd() }): IOptions {
     configFile = {};
   }
 
-  return _.merge(defaultConfig, configFile, { watch, type });
+  return _.merge(defaultConfig, configFile, { watch, type, output });
 }
