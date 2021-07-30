@@ -42,7 +42,7 @@ export function buildDsl({ cwd, sourceDir, miniOptions, output, watch, onTargetD
         options: {},
       });
 
-      configWebpack({ config, addCSSRule });
+      configWebpack && configWebpack({ config, addCSSRule });
     },
     UNSAFE_wechatTemplateDepth,
     errorScreen: false,

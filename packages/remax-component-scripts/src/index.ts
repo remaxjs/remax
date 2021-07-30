@@ -21,6 +21,11 @@ export function run() {
             alias: 't',
             default: 'esm',
             description: '编译类型',
+          })
+          .option('config', {
+            type: 'string',
+            alias: 'c',
+            description: '指定配置文件',
           });
       },
       argv => {
