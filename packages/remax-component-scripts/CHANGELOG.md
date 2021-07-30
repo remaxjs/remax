@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.1](https://github.com/remaxjs/remax/compare/v2.15.0...v2.15.1) (2021-07-30)
+
+### Features
+
+- 组件构建的命令行工具 — 调整 bin 文件名称 ([e660c1d](https://github.com/remaxjs/remax/commit/e660c1db02788b0ee3b71eea46fc9254102f7a8e))
+
 # [2.15.0](https://github.com/remaxjs/remax/compare/v2.14.1...v2.15.0) (2021-07-30)
 
 ### Features
