@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test basic build esm 1`] = `
+"/**
+* This string will be inserted in a comment header
+**/
+\\"use strict\\";
+
+Object.defineProperty(exports, \\"__esModule\\", {
+  value: true
+});
+
+var React = require(\\"react\\");
+
+var one_1 = require(\\"remax/one\\");
+
+require(\\"./index.less\\");
+
+var Foo = function Foo(_a) {
+  var size = _a.size,
+      onClick = _a.onClick;
+  return /*#__PURE__*/React.createElement(one_1.Button, {
+    className: \\"button\\",
+    onTap: onClick,
+    style: {
+      fontSize: size === 'default' ? 30 : 20
+    }
+  }, \\"text\\");
+};
+
+exports.default = Foo;"
+`;
+
+exports[`test basic build esm 2`] = `
+"/**
+* This string will be inserted in a comment header
+**/
+
+import * as React from 'react';
+import { View, Text, Image } from 'remax/one';
+export default (function (_ref) {
+  var name = _ref.name;
+  return /*#__PURE__*/React.createElement(View, {
+    className: \\"greeting\\"
+  }, /*#__PURE__*/React.createElement(Text, null, \\"Hello111!!!!1 \\", name), /*#__PURE__*/React.createElement(View, null, /*#__PURE__*/React.createElement(Image, {
+    mode: \\"widthFix\\",
+    src: \\"https://gw.alicdn.com/tfs/TB1FvKecmR26e4jSZFEXXbwuXXa-140-140.svg\\"
+  })));
+});"
+`;
