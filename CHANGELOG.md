@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/remaxjs/remax/compare/v2.14.1...v2.15.0) (2021-07-30)
+
+### Bug Fixes
+
+- 修复用例 ([d31160c](https://github.com/remaxjs/remax/commit/d31160c2494a5b3bd5572a3019166db3ea877d7e))
+- 修复用例 ([6c4dd01](https://github.com/remaxjs/remax/commit/6c4dd010c63b18cc509918ed8ea98b4ab1f64ce4))
+
+### Features
+
+- 支持 buildMiniComponent，以 webpack 方式构建小程序自定义组件 ([e5ed805](https://github.com/remaxjs/remax/commit/e5ed805191ad08ef269e2f4fa2d7ffa8a580862a))
+- 组件构建的命令行工具 — build 命令 ([dba8ab3](https://github.com/remaxjs/remax/commit/dba8ab38481146cb01f4d108e86afeb044e42d6e))
+- 组件构建的命令行工具 — 命令行参数支持 ([5698b77](https://github.com/remaxjs/remax/commit/5698b77202a2e5390b5f82050e79937e563ee7dc))
+- 组件构建的命令行工具 — 命令行参数支持 ([c4698eb](https://github.com/remaxjs/remax/commit/c4698eb4dd75d59529c60c26fa01dc08493033a2))
+- 组件构建的命令行工具 — 调整测试用例 ([4ae3f2b](https://github.com/remaxjs/remax/commit/4ae3f2b5df2c2866526e58441f1c581ec46584da))
+
 ## [2.14.1](https://github.com/remaxjs/remax/compare/v2.14.0...v2.14.1) (2021-07-20)
 
 ### Bug Fixes
