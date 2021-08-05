@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.3](https://github.com/remaxjs/remax/compare/v2.15.2...v2.15.3) (2021-08-05)
+
+### Features
+
+- 支持在配置文件中写 port 来更改 web 环境启动的端口 ([15d6ddd](https://github.com/remaxjs/remax/commit/15d6ddd56faa167039656a3d78ae07bab5211575))
+
 ## [2.15.2](https://github.com/remaxjs/remax/compare/v2.15.1...v2.15.2) (2021-07-30)
 
 ### Features

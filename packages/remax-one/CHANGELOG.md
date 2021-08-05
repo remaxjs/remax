@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.3](https://github.com/remaxjs/remax/compare/v2.15.2...v2.15.3) (2021-08-05)
+
+### Features
+
+- 调整 remax/one 的 button 组件 dom 结构 ([3d06f6c](https://github.com/remaxjs/remax/commit/3d06f6c639ec7380fe2c28f8c8c24c8dcf16702d))
+
 ## [2.15.2](https://github.com/remaxjs/remax/compare/v2.15.1...v2.15.2) (2021-07-30)
 
 **Note:** Version bump only for package @remax/one

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.3](https://github.com/remaxjs/remax/compare/v2.15.2...v2.15.3) (2021-08-05)
+
+### Features
+
+- 可以通过外部修改组件样式 ([d74a667](https://github.com/remaxjs/remax/commit/d74a667008476820861b1ada226f2267a4ff7a3e))
+
 ## [2.15.2](https://github.com/remaxjs/remax/compare/v2.15.1...v2.15.2) (2021-07-30)
 
 **Note:** Version bump only for package @remax/runtime

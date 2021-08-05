@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.3](https://github.com/remaxjs/remax/compare/v2.15.2...v2.15.3) (2021-08-05)
+
+### Features
+
+- 可以通过外部修改组件样式 ([d74a667](https://github.com/remaxjs/remax/commit/d74a667008476820861b1ada226f2267a4ff7a3e))
+- 支持在配置文件中写 port 来更改 web 环境启动的端口 ([15d6ddd](https://github.com/remaxjs/remax/commit/15d6ddd56faa167039656a3d78ae07bab5211575))
+- 调整 remax/one 的 button 组件 dom 结构 ([3d06f6c](https://github.com/remaxjs/remax/commit/3d06f6c639ec7380fe2c28f8c8c24c8dcf16702d))
+
 ## [2.15.2](https://github.com/remaxjs/remax/compare/v2.15.1...v2.15.2) (2021-07-30)
 
 ### Features
