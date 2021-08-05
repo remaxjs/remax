@@ -5,6 +5,10 @@ import render from './render';
 
 export default function createComponentConfig(Component: React.ComponentType<any>) {
   const config: any = {
+    options: {
+      styleIsolation: 'apply-shared',
+    },
+
     data: {
       action: {},
       root: {
