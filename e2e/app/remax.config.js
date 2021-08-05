@@ -2,6 +2,7 @@ const path = require('path');
 const less = require('@remax/plugin-less');
 
 module.exports = {
+  port: 3001,
   output: process.env.REMAX_PLATFORM === 'web' ? 'dist/webng' : 'build/src',
   plugins: [less()],
   configWebpack({ config }) {
