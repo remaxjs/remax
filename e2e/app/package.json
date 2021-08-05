@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "watch:mini": "remax build -w",
+    "predev:mini": "remax build",
     "dev:mini": " mini build -w ./",
     "dev:web": "remax build -w -t web",
     "dev:web:mpa": "MPA=1 remax build -w -t web",
