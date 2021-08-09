@@ -1,6 +1,6 @@
 {
   "name": "@remax/component-scripts",
-  "version": "2.15.3",
+  "version": "2.15.4",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "./lib/index.js",
   "bin": {
@@ -29,7 +29,7 @@
     "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },
   "dependencies": {
-    "@remax/cli": "2.15.3",
+    "@remax/cli": "2.15.4",
     "@remax/father-build": "^1.19.8",
     "@types/lodash": "^4.14.171",
     "less": "^4.1.1",

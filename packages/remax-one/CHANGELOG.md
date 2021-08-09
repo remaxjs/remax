@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.4](https://github.com/remaxjs/remax/compare/v2.15.3...v2.15.4) (2021-08-09)
+
+### Bug Fixes
+
+- 调整 Button 组件的 dom 标签 ([f810163](https://github.com/remaxjs/remax/commit/f810163b2c79baa81528177b6b32327df61a0fb4))
+
 ## [2.15.3](https://github.com/remaxjs/remax/compare/v2.15.2...v2.15.3) (2021-08-05)
 
 ### Features
