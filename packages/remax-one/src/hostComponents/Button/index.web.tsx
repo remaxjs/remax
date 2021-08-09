@@ -33,7 +33,7 @@ const Button: React.ForwardRefRenderFunction<any, ButtonWebProps> = (props, ref)
 
   return (
     <View>
-      <a
+      <button
         {...(restProps as any)}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
