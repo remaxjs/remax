@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import { ButtonWebProps } from './props';
 import { filterProps } from '../../utils/isPlatformSpecifyProp';
 import useWebTouch from '../useWebTouch';
-import View from '../View';
 
 export type ButtonProps = ButtonWebProps;
 
@@ -32,18 +31,16 @@ const Button: React.ForwardRefRenderFunction<any, ButtonWebProps> = (props, ref)
   });
 
   return (
-    <View>
-      <button
-        {...(restProps as any)}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        ref={ref}
-        onTouchCancel={handleTouchCancel}
-        className={clsx('remax-button', className, { [hoverClassName || '']: hovered })}
-        onClick={onTap as any}
-      />
-    </View>
+    <button
+      {...(restProps as any)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      ref={ref}
+      onTouchCancel={handleTouchCancel}
+      className={clsx('remax-button', className, { [hoverClassName || '']: hovered })}
+      onClick={onTap as any}
+    />
   );
 };
 
