@@ -23,6 +23,7 @@
   background-color: rgb(255, 255, 255);
   /* prettier-ignore */
   border: 1PX solid rgb(238, 238, 238);
+  width: 100%;
 }
 
 .remax-input {
