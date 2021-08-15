@@ -1,6 +1,5 @@
 ---
-title: 样式
-order: 6
+title: 样式 order: 6
 ---
 
 # 样式
@@ -36,7 +35,7 @@ Remax 会自动把 `px` 转换成小程序 `rpx`，（如果编译到 web，`px`
 
 ```css
 .foo {
-  height: 16rpx;
+  height: 16 rpx;
 }
 ```
 
@@ -71,6 +70,78 @@ import styles from './foo.css';
 // 会自动识 bar.css 别为全局样式
 import './bar.css';
 ```
+
+### Css-in-JS
+Remax 可以通过安装插件形式提供`css in js`支持
+## 安装依赖
+
+```bash
+$ npm install @remax/plugin-linaria linaria @linaria/shaker @linaria/babel-preset --save
+```
+
+```bash
+$ yarn add @remax/plugin-linaria linaria @linaria/shaker @linaria/babel-preset
+```
+
+## 使用
+
+```js
+const linaria = require('@remax/plugin-linaria');
+
+module.exports = {
+    plugins: [linaria()],
+};
+```
+
+### 根目录新增 babel.config.js 并配置
+
+```js
+module.exports = {
+    presets: [
+        ['remax', {
+            framework: 'react',
+            ts: true
+        }],
+        '@linaria' // 添加到 babel-preset
+    ]
+}
+```
+
+### 根目录新增 linaria.config.js 并配置
+```js
+module.exports = {
+    rules: [
+        {
+            action: require('@linaria/shaker').default,
+        },
+        {
+            test: /node_modules[\/\\](?!remax)/,
+            action: "ignore"
+        }
+    ]
+}
+```
+
+### 测试
+```js
+import * as React from 'react';
+import {View} from 'remax/wechat';
+import {styled} from 'linaria/react'
+
+
+export default () => {
+    const Title = styled(View)`
+      color: ${props => props.color}
+    `;
+    return (
+        <Title color='red'>
+            Hello World!
+        </Title>
+    );
+};
+```
+
+
 
 ## 引用图片
 
