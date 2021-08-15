@@ -72,7 +72,7 @@ import './bar.css';
 ```
 
 ### Css-in-JS
-Remax 可以通过安装插件形式提供`css in js`支持
+Remax 可以通过安装 @remax/plugin-linaria 插件形式提供`css in js`支持
 ## 安装依赖
 
 ```bash
