@@ -1,8 +1,8 @@
 import * as React from 'react';
 import qs from 'qs';
-import { createPageWrapper, Lifecycle, callbackName } from '@remax/framework-shared';
+import { callbackName, createPageWrapper, Lifecycle } from '@remax/framework-shared';
 import PullToRefresh from './PullToRefresh';
-import { TabBarConfig, PageConfig } from './types';
+import { PageConfig, TabBarConfig } from './types';
 
 interface LifeCycleCallback {
   [key: string]: Array<() => void>;
@@ -74,6 +74,9 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
 
     componentWillUnmount() {
       this.unregisterPageScroll();
+      page.callLifecycle(Lifecycle.hide);
+      page.callLifecycle(Lifecycle.back);
+      page.callLifecycle(Lifecycle.unload);
     }
 
     componentDidCache = () => {
