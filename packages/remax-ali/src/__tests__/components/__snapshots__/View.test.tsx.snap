@@ -2,6 +2,7 @@
 
 exports[`View render correctly 1`] = `
 <view
+  ariaLabel="view"
   catchClick={[Function]}
   className="class"
   onAnimationStart={[Function]}
