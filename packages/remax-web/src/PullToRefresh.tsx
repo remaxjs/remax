@@ -6,6 +6,7 @@ const RemaxPullToRefresh: React.FC<any> = props => {
   return (
     <PullToRefresh
       {...props}
+      getScrollContainer={() => document.body}
       indicator={{
         activate: <LoadingIcon />,
         deactivate: <LoadingIcon />,
