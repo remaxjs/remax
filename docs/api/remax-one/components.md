@@ -97,7 +97,7 @@ import { Input } from 'remax/one';
 | placeholder      | string                                                           | 输入框占位符        |
 | placeholderStyle | React.CSSProperties                                              | 占位符 inline style |
 | disabled         | boolean                                                          | 是否禁用            |
-| maxlength        | number                                                           | 最大输入长度        |
+| maxLength        | number                                                           | 最大输入长度        |
 | focus            | boolean                                                          | 是否获取焦点        |
 | onInput          | ((event: [InputEvent](/api/remax-one/event#inputevent))) => any  | 输入回调事件        |
 | onConfirm        | ((event: [InputEvent](/api/remax-one/event#inputevent))) => void | 键盘确认回调事件    |
@@ -166,7 +166,7 @@ import { Textarea } from 'remax/one';
 | placeholder      | string                                                           | 输入框占位符           |
 | placeholderStyle | React.CSSProperties                                              | 占位符 inline style    |
 | disabled         | boolean                                                          | 是否禁用               |
-| maxlength        | number                                                           | 最大输入长度           |
+| maxLength        | number                                                           | 最大输入长度           |
 | focus            | boolean                                                          | 是否获取焦点           |
 | autoHeight       | boolean                                                          | 是否随文本内容增加增高 |
 | onInput          | ((event: [InputEvent](/api/remax-one/event#inputevent))) => any  | 输入回调事件           |
