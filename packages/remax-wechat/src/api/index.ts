@@ -261,3 +261,5 @@ export const requestSubscribeMessage = promisify(wx.requestSubscribeMessage);
 export const hideHomeButton = promisify(wx.hideHomeButton);
 export const getRealtimeLogManager = wx.getRealtimeLogManager;
 export const hideKeyboard = promisify(wx.hideKeyboard);
+export const getUserProfile = promisify(wx.getUserProfile);
+export const showShareImageMenu = promisify(wx.showShareImageMenu);
