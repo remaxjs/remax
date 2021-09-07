@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.5](https://github.com/remaxjs/remax/compare/v2.15.4...v2.15.5) (2021-09-06)
+
+### Bug Fixes
+
+- 无障碍访问 api ([35a1af6](https://github.com/remaxjs/remax/commit/35a1af6fd57cd2ee14a96993ee8f85b44d9c7d61))
+- 调整 Button 组件的 dom 标签 ([63ac7cf](https://github.com/remaxjs/remax/commit/63ac7cf090fb8f52cd0ba863d86ab5a88d8a2fa6))
+
 ## [2.15.4](https://github.com/remaxjs/remax/compare/v2.15.3...v2.15.4) (2021-08-09)
 
 ### Bug Fixes
