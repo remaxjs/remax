@@ -7,7 +7,7 @@ describe('View', () => {
     const callback = () => void 0;
 
     const testRenderer = TestRenderer.create(
-      <View ariaLabel="view" onAnimationStart={callback} catchClick={callback} className="class">
+      <View onAnimationStart={callback} catchClick={callback} className="class">
         view
       </View>
     );
