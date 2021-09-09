@@ -1,36 +1,8 @@
 import * as React from 'react';
 
-/** 无障碍属性 */
-// reference: https://developers.weixin.qq.com/miniprogram/dev/component/aria-component.html
-export interface AriaProps {
-  ariaHidden?: string;
-  ariaRole?: string;
-  ariaLabel?: string;
-  ariaChecked?: string;
-  ariaDisabled?: string;
-  ariaDescribedby?: string;
-  ariaExpanded?: string;
-  ariaHaspopup?: string;
-  ariaSelected?: string;
-  ariaRequired?: string;
-  ariaOrientation?: string;
-  ariaValuemin?: string;
-  ariaValuemax?: string;
-  ariaValuenow?: string;
-  ariaReadonly?: string;
-  ariaMultiselectable?: string;
-  ariaControls?: string;
-  tabindex?: string;
-  ariaLabelledby?: string;
-  ariaModal?: string;
-  ariaLive?: string;
-  ariaAtomic?: string;
-  ariaRelevant?: string;
-}
-
 /** 微信内置组件公共属性 */
 // reference: https://developers.weixin.qq.com/miniprogram/dev/framework/view/component.html
-export interface BaseProps extends AriaProps {
+export interface BaseProps {
   /** 自定义属性: 组件上触发的事件时，会发送给事件处理函数 */
   readonly dataset?: DOMStringMap;
   /** 组件的唯一标示: 保持整个页面唯一 */

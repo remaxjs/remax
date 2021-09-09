@@ -2,7 +2,6 @@
 
 exports[`View render correctly 1`] = `
 <view
-  ariaLabel="view"
   className="class"
   hoverClassName="none"
   hoverStartTime={50}

@@ -734,28 +734,6 @@
 <template name="REMAX_TPL_1_view">
   <view
     animation="{{item.props['animation']}}"
-    aria-atomic="{{item.props['aria-atomic']}}"
-    aria-checked="{{item.props['aria-checked']}}"
-    aria-controls="{{item.props['aria-controls']}}"
-    aria-describedby="{{item.props['aria-describedby']}}"
-    aria-disabled="{{item.props['aria-disabled']}}"
-    aria-expanded="{{item.props['aria-expanded']}}"
-    aria-haspopup="{{item.props['aria-haspopup']}}"
-    aria-hidden="{{item.props['aria-hidden']}}"
-    aria-label="{{item.props['aria-label']}}"
-    aria-labelledby="{{item.props['aria-labelledby']}}"
-    aria-live="{{item.props['aria-live']}}"
-    aria-modal="{{item.props['aria-modal']}}"
-    aria-multiselectable="{{item.props['aria-multiselectable']}}"
-    aria-orientation="{{item.props['aria-orientation']}}"
-    aria-readonly="{{item.props['aria-readonly']}}"
-    aria-relevant="{{item.props['aria-relevant']}}"
-    aria-required="{{item.props['aria-required']}}"
-    aria-role="{{item.props['aria-role']}}"
-    aria-selected="{{item.props['aria-selected']}}"
-    aria-valuemax="{{item.props['aria-valuemax']}}"
-    aria-valuemin="{{item.props['aria-valuemin']}}"
-    aria-valuenow="{{item.props['aria-valuenow']}}"
     class="{{item.props['class']}}"
     disable-scroll="{{item.props['disable-scroll']}}"
     hidden="{{item.props['hidden']}}"
@@ -779,7 +757,6 @@
     onTouchStart="{{item.props['onTouchStart']}}"
     onTransitionEnd="{{item.props['onTransitionEnd']}}"
     style="{{item.props['style']}}"
-    tabindex="{{item.props['tabindex']}}"
   >
     <block a:for="{{item.children}}" key="{{item.id}}">
       <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
