@@ -40,6 +40,7 @@ export default function createAppConfig(this: any, App: any) {
       }
 
       componentWillUnmount() {
+        config.callLifecycle(AppLifecycle.hide);
         document.removeEventListener('visibilitychange', this.visibilityChangeEvent);
       }
 

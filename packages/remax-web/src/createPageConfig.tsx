@@ -74,6 +74,9 @@ export default function createPageConfig(Page: React.ComponentType<any>, name: s
 
     componentWillUnmount() {
       this.unregisterPageScroll();
+      page.callLifecycle(Lifecycle.hide);
+      page.callLifecycle(Lifecycle.back);
+      page.callLifecycle(Lifecycle.unload);
     }
 
     componentDidCache = () => {
