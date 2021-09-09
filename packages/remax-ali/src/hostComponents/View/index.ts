@@ -1,35 +1,7 @@
 import * as React from 'react';
 import { createHostComponent } from '@remax/runtime';
 
-/** 无障碍属性 */
-// reference: https://opendocs.alipay.com/mini/component/accessibility
-export interface AriaProps {
-  ariaHidden?: string;
-  ariaRole?: string;
-  ariaLabel?: string;
-  ariaChecked?: string;
-  ariaDisabled?: string;
-  ariaDescribedby?: string;
-  ariaExpanded?: string;
-  ariaHaspopup?: string;
-  ariaSelected?: string;
-  ariaRequired?: string;
-  ariaOrientation?: string;
-  ariaValuemin?: string;
-  ariaValuemax?: string;
-  ariaValuenow?: string;
-  ariaReadonly?: string;
-  ariaMultiselectable?: string;
-  ariaControls?: string;
-  tabindex?: string;
-  ariaLabelledby?: string;
-  ariaModal?: string;
-  ariaLive?: string;
-  ariaAtomic?: string;
-  ariaRelevant?: string;
-}
-
-export interface ViewProps extends AriaProps {
+export interface ViewProps {
   readonly dataset?: DOMStringMap;
   id?: string;
   className?: string;
