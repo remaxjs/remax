@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.6](https://github.com/remaxjs/remax/compare/v2.15.5...v2.15.6) (2021-09-10)
+
+**Note:** Version bump only for package @remax/runtime
+
 ## [2.15.5](https://github.com/remaxjs/remax/compare/v2.15.4...v2.15.5) (2021-09-06)
 
 **Note:** Version bump only for package @remax/runtime

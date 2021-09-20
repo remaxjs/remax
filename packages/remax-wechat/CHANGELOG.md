@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.6](https://github.com/remaxjs/remax/compare/v2.15.5...v2.15.6) (2021-09-10)
+
+### Bug Fixes
+
+- 微信小程序新增接口 ([23e8307](https://github.com/remaxjs/remax/commit/23e83073ce52f3e0cce53dcb5fbf19f8257e5605)), closes [#1687](https://github.com/remaxjs/remax/issues/1687) [#1693](https://github.com/remaxjs/remax/issues/1693)
+
+### Reverts
+
+- Revert "fix: 无障碍访问 api" (#1705) ([556fedb](https://github.com/remaxjs/remax/commit/556fedbd237db956a026a42590cd55aa3d6568d1)), closes [#1705](https://github.com/remaxjs/remax/issues/1705)
+
 ## [2.15.5](https://github.com/remaxjs/remax/compare/v2.15.4...v2.15.5) (2021-09-06)
 
 ### Bug Fixes
