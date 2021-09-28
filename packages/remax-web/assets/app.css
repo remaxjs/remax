@@ -148,3 +148,7 @@
 .remax-tab-bar .remax-tab-item .remax-tab-item-title.active {
   color: #108ee9;
 }
+
+a:-webkit-any-link {
+  text-decoration: none;
+}

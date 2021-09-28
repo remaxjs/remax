@@ -46,7 +46,7 @@ module.exports.web = {
     // 背景色
     backgroundColor: '#fff',
     // 选中状态的 tab 标题颜色
-    activeTitleColor: 'red',
+    selectedColor: 'red',
     // tab 标题颜色
     titleColor: 'blue',
     // tab 对象列表
@@ -80,7 +80,7 @@ module.exports.web = {
     pullRefresh: false,
     // 触底滚动的距离，单位 px
     reachBottomOffset: 50,
-  }
+  },
 };
 ```
 
