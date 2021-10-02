@@ -5,9 +5,6 @@
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
   "types": "./esm/index.d.ts",
-  "bin": {
-    "remax": "./bin/remax"
-  },
   "keywords": [
     "react",
     "miniapp",
@@ -31,7 +28,6 @@
   },
   "dependencies": {
     "@remax/ali": "2.15.6",
-    "@remax/cli": "2.15.6",
     "@remax/macro": "2.15.6",
     "@remax/one": "2.15.6",
     "@remax/runtime": "2.15.6",
