@@ -58,7 +58,7 @@ export interface PageConfig {
   usingComponents?: Record<string, any>;
 }
 
-interface TabList {
+interface TabItem {
   /**
    *页面路径，必须在 pages 中先定义
    */
@@ -170,7 +170,7 @@ export interface AppConfig {
     /**
      * tab 的列表，详见 list 属性说明，最少 2 个、最多 5 个 tab
      */
-    list: TabList[];
+    list: TabItem[];
     /**
      * 默认值：bottom
      * tabBar 的位置，仅支持 bottom / top
