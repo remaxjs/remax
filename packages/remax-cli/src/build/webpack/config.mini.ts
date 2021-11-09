@@ -204,7 +204,19 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
       .plugin('webpack-copy-plugin')
       .use(CopyPlugin, [[{ from: builder.projectPath.publicDir(), to: builder.projectPath.outputDir() }]]);
   }
-
+  // 判断是否是头条小程序，如果是的话将project.config.json复制到dist目录下
+  // 否则头条开发者工具无法识别Remax头条小程序
+  const miniProjectConfigJsonFile = `${builder.projectPath.projectDir()}/project.config.json`;
+  if (builder.options.target == 'toutiao' && fs.existsSync(miniProjectConfigJsonFile)) {
+    config.plugin('webpack-copy-plugin').use(CopyPlugin, [
+      [
+        {
+          from: miniProjectConfigJsonFile,
+          to: builder.projectPath.outputDir(),
+        },
+      ],
+    ]);
+  }
   config.plugin('webpackbar').use(WebpackBar);
   config.plugin('mini-css-extract-plugin').use(MiniCssExtractPlugin, [{ filename: `[name]${meta.style}` }]);
   config.plugin('remax-optimize-entries-plugin').use(RemaxPlugins.OptimizeEntries, [meta]);

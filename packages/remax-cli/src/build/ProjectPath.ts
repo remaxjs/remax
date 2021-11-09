@@ -13,6 +13,10 @@ export default class ProjectPath {
     this.builder = builder;
   }
 
+  projectDir() {
+    return slash(path.join(this.builder.options.cwd));
+  }
+
   outputDir() {
     return slash(path.join(this.builder.options.cwd, this.builder.options.output));
   }

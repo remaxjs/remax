@@ -13,6 +13,7 @@ export function run(options: Options, api: API): webpack.Compiler {
 
   if (options.target === 'web') {
     // 兼容 herbox 所以用 require
+    // https://opendocs.alipay.com/mini/tool/00nxap
     const WebBuilder = require('./WebBuilder').default;
     return new WebBuilder(api, options).run();
   } else {
