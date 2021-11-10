@@ -7,7 +7,7 @@
     "newFeature": true
   },
   "appid": "testAppId",
-  "projectname": "Remax toutiao111 Template",
+  "projectname": "Remax toutiao Template",
   "condition": {
     "miniprogram": {
       "current": -1
