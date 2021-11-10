@@ -1,5 +1,5 @@
 require('./../../runtime.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[2],[
+(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[2],[
 /* 0 */,
 /* 1 */,
 /* 2 */,
@@ -68,7 +68,7 @@ __webpack_require__.r(__webpack_exports__);
     className: _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.text
   }, "\u7F16\u8F91 ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](remax_toutiao__WEBPACK_IMPORTED_MODULE_1__["Text"], {
     className: _index_css_modules__WEBPACK_IMPORTED_MODULE_2___default.a.path
-  }, "src/pages/index/index.js"), ' ', "\u5F00\u59CB")));
+  }, "src/pages/index/index.js"), " \u5F00\u59CB")));
 });
 
 /***/ }),

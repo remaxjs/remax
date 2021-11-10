@@ -2,28 +2,37 @@ module.exports = {
       hostComponents: {
   "button": {
     "alias": {
-      "id": "id",
       "className": "class",
+      "id": "id",
       "style": "style",
-      "size": "size",
       "type": "type",
       "plain": "plain",
       "disabled": "disabled",
       "loading": "loading",
-      "hoverClass": "hover-class",
-      "hoverClassName": "hover-class",
-      "hoverStartTime": "hover-start-time",
-      "hoverStayTime": "hover-stay-time",
-      "hoverStopPropagation": "hover-stop-propagation",
       "formType": "form-type",
       "openType": "open-type",
-      "scope": "scope",
-      "onClick": "onTap",
-      "onTap": "onTap",
+      "hoverClass": "hover-class",
+      "hoverClassName": "hover-class",
+      "hoverStopPropagation": "hover-stop-propagation",
+      "hoverStartTime": "hover-start-time",
+      "hoverStayTime": "hover-stay-time",
+      "lang": "lang",
+      "sessionFrom": "session-from",
+      "sendMessageTitle": "send-message-title",
+      "sendMessagePath": "send-message-path",
+      "sendMessageImg": "send-message-img",
       "appParameter": "app-parameter",
-      "publicId": "public-id",
-      "onGetAuthorize": "onGetAuthorize",
-      "onError": "onError"
+      "showMessageCard": "show-message-card",
+      "onGetUserinfo": "bindgetuserinfo",
+      "onGetUserInfo": "bindgetuserinfo",
+      "onContact": "bindcontact",
+      "onGetPhoneNumber": "bindgetphonenumber",
+      "onError": "binderror",
+      "onOpenSetting": "bindopensetting",
+      "onLaunchApp": "bindlaunchapp",
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "animation": "animation"
     }
   },
   "canvas": {
@@ -35,69 +44,38 @@ module.exports = {
       "height": "height",
       "disableScroll": "disable-scroll",
       "type": "type",
-      "onClick": "onTap",
-      "onTap": "onTap",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel",
-      "onLongTap": "onLongTap",
-      "onLongClick": "onLongTap",
-      "onReady": "onReady"
+      "canvasId": "canvas-id",
+      "onTouchStart": "bindtouchstart",
+      "onTouchMove": "bindtouchmove",
+      "onTouchEnd": "bindtouchend",
+      "onTouchCancel": "bindtouchcancel",
+      "onLongTap": "bindlongtap",
+      "onLongClick": "bindlongtap",
+      "onError": "binderror",
+      "animation": "animation"
     }
   },
   "checkbox-group": {
     "alias": {
       "id": "id",
+      "name": "name",
       "className": "class",
       "style": "style",
-      "name": "name",
-      "onChange": "onChange"
+      "onChange": "bindchange"
     }
   },
   "checkbox": {
     "alias": {
-      "className": "class",
-      "style": "style",
       "id": "id",
       "name": "name",
+      "className": "class",
+      "style": "style",
       "value": "value",
       "checked": "checked",
       "disabled": "disabled",
-      "onChange": "onChange",
-      "color": "color"
-    }
-  },
-  "contact-button": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "tntInstId": "tnt-inst-id",
-      "scene": "scene",
-      "size": "size",
+      "onChange": "bindchange",
       "color": "color",
-      "icon": "icon",
-      "alipayCardNo": "alipay-card-no"
-    }
-  },
-  "cover-image": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "src": "src",
-      "style": "style",
-      "onClick": "onTap",
-      "onTap": "onTap"
-    }
-  },
-  "cover-view": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "onTap": "onTap",
-      "onClick": "onTap"
+      "animation": "animation"
     }
   },
   "form": {
@@ -106,8 +84,10 @@ module.exports = {
       "className": "class",
       "style": "style",
       "reportSubmit": "report-submit",
-      "onSubmit": "onSubmit",
-      "onReset": "onReset"
+      "onSubmit": "bindsubmit",
+      "onReset": "bindreset",
+      "reportSubmitTimeout": "report-submit-timeout",
+      "animation": "animation"
     }
   },
   "icon": {
@@ -117,7 +97,8 @@ module.exports = {
       "style": "style",
       "type": "type",
       "size": "size",
-      "color": "color"
+      "color": "color",
+      "animation": "animation"
     }
   },
   "image": {
@@ -128,44 +109,49 @@ module.exports = {
       "className": "class",
       "style": "style",
       "lazyLoad": "lazy-load",
-      "onLoad": "onLoad",
-      "onError": "onError",
-      "onTap": "onTap",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel",
-      "onClick": "onTap"
+      "onLoad": "bindload",
+      "onError": "binderror",
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "onTouchStart": "bindtouchstart",
+      "onTouchMove": "bindtouchmove",
+      "onTouchEnd": "bindtouchend",
+      "onTouchCancel": "bindtouchcancel",
+      "showMenuByLongpress": "show-menu-by-longpress",
+      "animation": "animation"
     }
   },
   "input": {
     "alias": {
-      "id": "id",
+      "autoFocus": "auto-focus",
       "className": "class",
-      "style": "style",
-      "value": "value",
-      "name": "name",
-      "type": "type",
-      "password": "password",
-      "placeholder": "placeholder",
-      "placeholderStyle": "placeholder-style",
-      "placeholderClass": "placeholder-class",
-      "placeholderClassName": "placeholder-class",
-      "disabled": "disabled",
-      "maxlength": "maxlength",
       "focus": "focus",
+      "name": "name",
+      "maxlength": "maxlength",
+      "value": "value",
+      "style": "style",
+      "password": "password",
+      "type": "type",
       "confirmType": "confirm-type",
       "confirmHold": "confirm-hold",
       "cursor": "cursor",
       "selectionStart": "selection-start",
       "selectionEnd": "selection-end",
-      "randomNumber": "randomNumber",
-      "controlled": "controlled",
-      "enableNative": "enableNative",
-      "onInput": "onInput",
-      "onConfirm": "onConfirm",
-      "onFocus": "onFocus",
-      "onBlur": "onBlur"
+      "adjustPosition": "adjust-position",
+      "placeholder": "placeholder",
+      "placeholderStyle": "placeholder-style",
+      "placeholderClass": "placeholder-class",
+      "placeholderClassName": "placeholder-class",
+      "disabled": "disabled",
+      "cursorSpacing": "cursor-spacing",
+      "onInput": "bindinput",
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "onFocus": "bindfocus",
+      "onBlur": "bindblur",
+      "onConfirm": "bindconfirm",
+      "onKeyboardHeightChange": "bindkeyboardheightchange",
+      "animation": "animation"
     }
   },
   "label": {
@@ -173,79 +159,8 @@ module.exports = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "for": "for"
-    }
-  },
-  "lifestyle": {
-    "alias": {
-      "publicId": "public-id",
-      "onFollow": "onFollow"
-    }
-  },
-  "map": {
-    "alias": {
-      "id": "id",
-      "style": "style",
-      "className": "class",
-      "latitude": "latitude",
-      "longitude": "longitude",
-      "scale": "scale",
-      "markers": "markers",
-      "polyline": "polyline",
-      "circles": "circles",
-      "controls": "controls",
-      "polygon": "polygon",
-      "showLocation": "show-location",
-      "includePoints": "include-points",
-      "includePadding": "include-padding",
-      "groundOverlays": "ground-overlays",
-      "tileOverlay": "tile-overlay",
-      "setting": "setting",
-      "onMarkerTap": "onMarkerTap",
-      "onMarkerClick": "onMarkerTap",
-      "onCalloutTap": "onCalloutTap",
-      "onCalloutClick": "onCalloutTap",
-      "onControlTap": "onControlTap",
-      "onControlClick": "onControlTap",
-      "onRegionChange": "onRegionChange",
-      "onTap": "onTap",
-      "onClick": "onTap"
-    }
-  },
-  "movable-area": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "width": "width",
-      "height": "height"
-    }
-  },
-  "movable-view": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "direction": "direction",
-      "width": "width",
-      "height": "height",
-      "x": "x",
-      "y": "y",
-      "disabled": "disabled",
-      "outOfBounds": "out-of-bounds",
-      "damping": "damping",
-      "friction": "friction",
-      "scale": "scale",
-      "scaleMin": "scale-min",
-      "scaleMax": "scale-max",
-      "scaleValue": "scale-value",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel",
-      "onChange": "onChange",
-      "onChangeEnd": "onChangeEnd",
-      "onScale": "onScale"
+      "for": "for",
+      "animation": "animation"
     }
   },
   "navigator": {
@@ -258,7 +173,18 @@ module.exports = {
       "hoverClassName": "hover-class",
       "hoverStartTime": "hover-start-time",
       "hoverStayTime": "hover-stay-time",
-      "url": "url"
+      "url": "url",
+      "target": "target",
+      "delta": "delta",
+      "appId": "app-id",
+      "path": "path",
+      "extraData": "extra-data",
+      "version": "version",
+      "hoverStopPropagation": "hover-stop-propagation",
+      "onSuccess": "bindsuccess",
+      "onFail": "bindfail",
+      "onComplete": "bindcomplete",
+      "animation": "animation"
     }
   },
   "picker-view-column": {
@@ -277,7 +203,10 @@ module.exports = {
       "maskStyle": "mask-style",
       "maskClass": "mask-class",
       "maskClassName": "mask-class",
-      "onChange": "onChange"
+      "onChange": "bindchange",
+      "onPickStart": "bindpickstart",
+      "onPickEnd": "bindpickend",
+      "animation": "animation"
     }
   },
   "picker": {
@@ -289,8 +218,16 @@ module.exports = {
       "range": "range",
       "rangeKey": "range-key",
       "value": "value",
-      "onChange": "onChange",
-      "disabled": "disabled"
+      "onChange": "bindchange",
+      "onCancel": "bindcancel",
+      "onColumnChange": "bindcolumnchange",
+      "start": "start",
+      "end": "end",
+      "fields": "fields",
+      "customItem": "custom-item",
+      "disabled": "disabled",
+      "animation": "animation",
+      "mode": "mode"
     }
   },
   "progress": {
@@ -300,10 +237,16 @@ module.exports = {
       "style": "style",
       "percent": "percent",
       "showInfo": "show-info",
+      "borderRadius": "border-radius",
+      "fontSize": "font-size",
       "strokeWidth": "stroke-width",
-      "activeColor": "active-color",
-      "backgroundColor": "background-color",
-      "active": "active"
+      "color": "color",
+      "activeColor": "activeColor",
+      "backgroundColor": "backgroundColor",
+      "active": "active",
+      "activeMode": "active-mode",
+      "onActiveEnd": "bindactiveend",
+      "animation": "animation"
     }
   },
   "radio-group": {
@@ -311,8 +254,9 @@ module.exports = {
       "id": "id",
       "className": "class",
       "style": "style",
-      "onChange": "onChange",
-      "name": "name"
+      "onChange": "bindchange",
+      "name": "name",
+      "animation": "animation"
     }
   },
   "radio": {
@@ -324,7 +268,8 @@ module.exports = {
       "value": "value",
       "checked": "checked",
       "disabled": "disabled",
-      "color": "color"
+      "color": "color",
+      "animation": "animation"
     }
   },
   "rich-text": {
@@ -333,14 +278,16 @@ module.exports = {
       "className": "class",
       "style": "style",
       "nodes": "nodes",
-      "onTap": "onTap",
-      "onClick": "onTap",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel",
-      "onLongTap": "onLongTap",
-      "onLongClick": "onLongTap"
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "space": "space",
+      "onTouchStart": "bindtouchstart",
+      "onTouchMove": "bindtouchmove",
+      "onTouchEnd": "bindtouchend",
+      "onTouchCancel": "bindtouchcancel",
+      "onLongTap": "bindlongtap",
+      "onLongClick": "bindlongtap",
+      "animation": "animation"
     }
   },
   "scroll-view": {
@@ -356,18 +303,14 @@ module.exports = {
       "scrollLeft": "scroll-left",
       "scrollIntoView": "scroll-into-view",
       "scrollWithAnimation": "scroll-with-animation",
-      "scrollAnimationDuration": "scroll-animation-duration",
       "enableBackToTop": "enable-back-to-top",
-      "trapScroll": "trap-scroll",
-      "onScrollToUpper": "onScrollToUpper",
-      "disableLowerScroll": "disable-lower-scroll",
-      "disableUpperScroll": "disable-upper-scroll",
-      "onScrollToLower": "onScrollToLower",
-      "onScroll": "onScroll",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel"
+      "enableFlex": "enable-flex",
+      "onScrollToUpper": "bindscrolltoupper",
+      "onScrollToLower": "bindscrolltolower",
+      "onScroll": "bindscroll",
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "animation": "animation"
     }
   },
   "slider": {
@@ -377,26 +320,31 @@ module.exports = {
       "style": "style",
       "name": "name",
       "min": "min",
+      "color": "color",
       "max": "max",
       "step": "step",
       "disabled": "disabled",
       "value": "value",
       "showValue": "show-value",
-      "activeColor": "active-color",
-      "backgroundColor": "background-color",
+      "activeColor": "activeColor",
+      "backgroundColor": "backgroundColor",
       "trackSize": "track-size",
-      "handleSize": "handle-size",
-      "handleColor": "handle-color",
-      "onChange": "onChange",
-      "onChanging": "onChanging"
+      "blockSize": "block-size",
+      "blockColor": "block-color",
+      "onChange": "bindchange",
+      "onChanging": "bindchanging",
+      "selectedColor": "selected-color",
+      "animation": "animation"
     }
   },
   "swiper-item": {
     "alias": {
+      "key": "key",
       "id": "id",
       "className": "class",
       "style": "style",
-      "key": "key"
+      "itemId": "item-id",
+      "animation": "animation"
     }
   },
   "swiper": {
@@ -407,24 +355,23 @@ module.exports = {
       "indicatorDots": "indicator-dots",
       "indicatorColor": "indicator-color",
       "indicatorActiveColor": "indicator-active-color",
-      "activeClass": "active-class",
-      "activeClassName": "active-class",
-      "changingClass": "changing-class",
-      "changingClassName": "changing-class",
       "autoplay": "autoplay",
       "current": "current",
-      "duration": "duration",
       "interval": "interval",
+      "duration": "duration",
       "circular": "circular",
       "vertical": "vertical",
       "previousMargin": "previous-margin",
       "nextMargin": "next-margin",
-      "acceleration": "acceleration",
-      "disableProgrammaticAnimation": "disable-programmatic-animation",
-      "onChange": "onChange",
-      "onTransition": "onTransition",
-      "onAnimationEnd": "onAnimationEnd",
-      "disableTouch": "disable-touch"
+      "displayMultipleItems": "display-multiple-items",
+      "skipHiddenItemLayout": "skip-hidden-item-layout",
+      "easingFunction": "easing-function",
+      "onChange": "bindchange",
+      "onTransition": "bindtransition",
+      "onAnimationFinish": "bindanimationfinish",
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "animation": "animation"
     }
   },
   "switch": {
@@ -436,8 +383,10 @@ module.exports = {
       "checked": "checked",
       "disabled": "disabled",
       "color": "color",
-      "onChange": "onChange",
-      "controlled": "controlled"
+      "onChange": "bindchange",
+      "controlled": "controlled",
+      "type": "type",
+      "animation": "animation"
     }
   },
   "text": {
@@ -448,9 +397,8 @@ module.exports = {
       "selectable": "selectable",
       "space": "space",
       "decode": "decode",
-      "numberOfLines": "number-of-lines",
-      "onClick": "onTap",
-      "onTap": "onTap"
+      "onTap": "bindtap",
+      "animation": "animation"
     }
   },
   "textarea": {
@@ -466,15 +414,68 @@ module.exports = {
       "placeholderClassName": "placeholder-class",
       "disabled": "disabled",
       "maxlength": "maxlength",
+      "autoFocus": "auto-focus",
       "focus": "focus",
+      "fixed": "fixed",
       "autoHeight": "auto-height",
       "showCount": "show-count",
       "controlled": "controlled",
-      "enableNative": "enableNative",
-      "onInput": "onInput",
-      "onFocus": "onFocus",
-      "onBlur": "onBlur",
-      "onConfirm": "onConfirm"
+      "cursorSpacing": "cursor-spacing",
+      "cursor": "cursor",
+      "showConfirmBar": "show-confirm-bar",
+      "selectionStart": "selection-start",
+      "selectionEnd": "selection-end",
+      "adjustPosition": "adjust-position",
+      "onFocus": "bindfocus",
+      "onBlur": "bindblur",
+      "onLineChange": "bindlinechange",
+      "onInput": "bindinput",
+      "onConfirm": "bindconfirm",
+      "onKeyboardHeightChange": "bindkeyboardheightchange",
+      "animation": "animation"
+    }
+  },
+  "video": {
+    "alias": {
+      "id": "id",
+      "className": "class",
+      "style": "style",
+      "src": "src",
+      "duration": "duration",
+      "controls": "controls",
+      "danmuList": "danmu-list",
+      "danmuBtn": "danmu-btn",
+      "enableDanmu": "enable-danmu",
+      "autoplay": "autoplay",
+      "loop": "loop",
+      "muted": "muted",
+      "initialTime": "initial-time",
+      "pageGesture": "page-gesture",
+      "direction": "direction",
+      "showProgress": "show-progress",
+      "showFullscreenBtn": "show-fullscreen-btn",
+      "showPlayBtn": "show-play-btn",
+      "showCenterPlayBtn": "show-center-play-btn",
+      "enableProgressGesture": "enable-progress-gesture",
+      "objectFit": "object-fit",
+      "poster": "poster",
+      "showMuteBtn": "show-mute-btn",
+      "title": "title",
+      "playBtnPosition": "play-btn-position",
+      "enablePlayGesture": "enable-play-gesture",
+      "autoPauseIfNavigate": "auto-pause-if-navigate",
+      "autoPauseIfOpenNative": "auto-pause-if-open-native",
+      "vSlideGesture": "vslide-gesture",
+      "vSlideGestureInfullscreen": "vslide-gesture-in-fullscreen",
+      "onPlay": "bindplay",
+      "onPause": "bindpause",
+      "onEnded": "bindended",
+      "onTimeUpdate": "bindtimeupdate",
+      "onFullscreenChange": "bindfullscreenchange",
+      "onWaiting": "bindwaiting",
+      "onError": "binderror",
+      "onProgress": "bindprogress",
+      "animation": "animation"
     }
   },
   "view": {
@@ -490,103 +491,27 @@ module.exports = {
       "style": "style",
       "animation": "animation",
       "hoverStopPropagation": "hover-stop-propagation",
-      "onClick": "onTap",
-      "onTap": "onTap",
-      "onTouchStart": "onTouchStart",
-      "onTouchMove": "onTouchMove",
-      "onTouchEnd": "onTouchEnd",
-      "onTouchCancel": "onTouchCancel",
-      "onLongTap": "onLongTap",
-      "onLongClick": "onLongTap",
-      "onTransitionEnd": "onTransitionEnd",
-      "onAnimationIteration": "onAnimationIteration",
-      "onAnimationStart": "onAnimationStart",
-      "onAnimationEnd": "onAnimationEnd",
-      "onAppear": "onAppear",
-      "onDisappear": "onDisappear",
-      "onFirstAppear": "onFirstAppear"
+      "onTap": "bindtap",
+      "onClick": "bindtap",
+      "onTouchStart": "bindtouchstart",
+      "onTouchMove": "bindtouchmove",
+      "onTouchEnd": "bindtouchend",
+      "onTouchCancel": "bindtouchcancel",
+      "onLongTap": "bindlongtap",
+      "onLongClick": "bindlongtap",
+      "onTransitionEnd": "bindtransitionend",
+      "onAnimationIteration": "bindanimationiteration",
+      "onAnimationStart": "bindanimationstart",
+      "onAnimationEnd": "bindanimationend"
     }
   },
   "web-view": {
     "alias": {
-      "id": "id",
       "src": "src",
-      "onMessage": "onMessage"
-    }
-  },
-  "video": {
-    "alias": {
-      "className": "class",
-      "src": "src",
-      "id": "id",
-      "style": "style",
-      "poster": "poster",
-      "posterSize": "posterSize",
-      "objectFit": "objectFit",
-      "initialTime": "initial-time",
-      "duration": "duration",
-      "controls": "controls",
-      "autoplay": "autoplay",
-      "direction": "direction",
-      "loop": "loop",
-      "muted": "muted",
-      "showFullscreenBtn": "show-fullscreen-btn",
-      "showPlayBtn": "show-play-btn",
-      "showCenterPlayBtn": "show-center-play-btn",
-      "showMuteBtn": "show-mute-btn",
-      "enableProgressGesture": "enableProgressGesture",
-      "mobilenetHintType": "mobilenetHintType",
-      "onPlay": "onPlay",
-      "onPause": "onPause",
-      "onEnded": "onEnded",
-      "onTimeUpdate": "onTimeUpdate",
-      "onLoading": "onLoading",
-      "onError": "onError",
-      "onFullScreenChange": "onFullScreenChange",
-      "onTap": "onTap",
-      "onClick": "onTap",
-      "onUserAction": "onUserAction"
-    }
-  },
-  "lottie": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "autoplay": "autoplay",
-      "path": "path",
-      "djangoId": "djangoId",
-      "md5": "md5",
-      "speed": "speed",
-      "repeatCount": "repeatCount",
-      "autoReverse": "autoReverse",
-      "assetsPath": "assetsPath",
-      "placeholder": "placeholder",
-      "optimize": "optimize",
-      "onDataReady": "onDataReady",
-      "onDataFailed": "onDataFailed",
-      "onDataLoadReady": "onDataLoadReady",
-      "onAnimationStart": "onAnimationStart",
-      "onAnimationEnd": "onAnimationEnd",
-      "onAnimationRepeat": "onAnimationRepeat",
-      "onAnimationCancel": "onAnimationCancel"
-    }
-  },
-  "camera": {
-    "alias": {
-      "id": "id",
-      "className": "class",
-      "style": "style",
-      "mode": "mode",
-      "devicePosition": "device-position",
-      "flash": "flash",
-      "outputDimension": "outputDimension",
-      "applyMicPermissionWhenInit": "applyMicPermissionWhenInit",
-      "frameSize": "frame-size",
-      "frameFormat": "frame-format",
-      "maxDuration": "max-duration",
-      "onStop": "onStop",
-      "onError": "onError",
-      "onScanCode": "onScanCode"
+      "progressbarColor": "progressbar-color",
+      "onMessage": "bindmessage",
+      "onLoad": "bindload",
+      "onError": "binderror"
     }
   }
 },

@@ -1,5 +1,5 @@
 require('./runtime.js');
-(my["webpackJsonp"] = my["webpackJsonp"] || []).push([[1],[
+(tt["webpackJsonp"] = tt["webpackJsonp"] || []).push([[1],[
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24,7 +24,7 @@ var pluginDriver = new remax_runtime__WEBPACK_IMPORTED_MODULE_0__["PluginDriver"
   return p.default || p;
 }));
 remax_runtime__WEBPACK_IMPORTED_MODULE_0__["RuntimeOptions"].apply({
-  platform: "ali",
+  platform: "toutiao",
   debug: false,
   pxToRpx: true,
   pluginDriver: pluginDriver,
