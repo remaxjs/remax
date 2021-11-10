@@ -1,0 +1,64 @@
+.app {
+  text-align: center;
+  padding: 0 24rpx;
+}
+
+.logo {
+  animation: logo-spin infinite 20s linear;
+  height: 240rpx;
+  width: 240rpx;
+  pointer-events: none;
+}
+
+.text {
+  margin-top: 64rpx;
+}
+
+.header {
+  padding-top: 30%;
+  background-color: #282c34;
+  font-size: 40rpx;
+  color: white;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app___2lhPP {
+  text-align: center;
+  padding: 0 24rpx;
+}
+
+.logo___Al4Xb {
+  animation: logo-spin___3_EwH infinite 20s linear;
+  height: 240rpx;
+  width: 240rpx;
+  pointer-events: none;
+}
+
+.text___XEtZ5 {
+  margin-top: 64rpx;
+}
+
+.header___3qOk9 {
+  padding-top: 30%;
+  background-color: #282c34;
+  font-size: 40rpx;
+  color: white;
+}
+
+@keyframes logo-spin___3_EwH {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
