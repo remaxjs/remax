@@ -21,7 +21,7 @@ export const output = (content: string | string[], color: 'red' | 'green' | 'blu
   }
 };
 
-const levelMap = { debug: 0, verbose: 1, info: 2, warn: 3, error: 4, silent: 5 };
+const levelMap: { [levelText: string]: number } = { debug: 0, verbose: 1, info: 2, warn: 3, error: 4, silent: 5 };
 let levelText: LogLevel = 'verbose';
 let levelWidth = levelMap[levelText];
 
