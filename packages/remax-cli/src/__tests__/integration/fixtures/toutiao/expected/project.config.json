@@ -1,0 +1,16 @@
+{
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true
+  },
+  "appid": "testAppId",
+  "projectname": "Remax toutiao Template",
+  "condition": {
+    "miniprogram": {
+      "current": -1
+    }
+  }
+}
