@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.7](https://github.com/remaxjs/remax/compare/v2.15.6...v2.15.7) (2021-11-17)
+
+### Bug Fixes
+
+- **toutiao:** 修复无法被头条小程序开发工具识别问题 ([fdc25e3](https://github.com/remaxjs/remax/commit/fdc25e3c456286764be90611a238d66067c1eddb)), closes [#1739](https://github.com/remaxjs/remax/issues/1739)
+
 ## [2.15.6](https://github.com/remaxjs/remax/compare/v2.15.5...v2.15.6) (2021-09-10)
 
 ### Reverts
