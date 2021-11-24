@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.8](https://github.com/remaxjs/remax/compare/v2.15.7...v2.15.8) (2021-11-23)
+
+**Note:** Version bump only for package @remax/web
+
+## [2.15.7](https://github.com/remaxjs/remax/compare/v2.15.6...v2.15.7) (2021-11-17)
+
+### Bug Fixes
+
+- **web:** selectedColor 文档错误 ([eb691a7](https://github.com/remaxjs/remax/commit/eb691a79ba67fe7bb25cfa68bbe510f54078c70d))
+
 ## [2.15.6](https://github.com/remaxjs/remax/compare/v2.15.5...v2.15.6) (2021-09-10)
 
 ### Bug Fixes

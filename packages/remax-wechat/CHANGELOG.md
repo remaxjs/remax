@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.8](https://github.com/remaxjs/remax/compare/v2.15.7...v2.15.8) (2021-11-23)
+
+**Note:** Version bump only for package @remax/wechat
+
+## [2.15.7](https://github.com/remaxjs/remax/compare/v2.15.6...v2.15.7) (2021-11-17)
+
+### Bug Fixes
+
+- [#1717](https://github.com/remaxjs/remax/issues/1717) ([#1727](https://github.com/remaxjs/remax/issues/1727)) ([a64dab6](https://github.com/remaxjs/remax/commit/a64dab6c7da643f763adb1fa374829f328ec1b95))
+
 ## [2.15.6](https://github.com/remaxjs/remax/compare/v2.15.5...v2.15.6) (2021-09-10)
 
 ### Bug Fixes
