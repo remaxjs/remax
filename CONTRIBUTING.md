@@ -42,7 +42,7 @@ $ yarn watch
 ```bash
 $ cd path/to/remax/packages/remax
 $ yarn link
-$ cd path/to/remax/packages/@remax/cli
+$ cd path/to/remax/packages/remax-cli
 $ yarn link
 $ git clone git@github.com:remaxjs/examples.git remax-examples
 $ cd remax-examples/ali # 找一个你要调试的例子
