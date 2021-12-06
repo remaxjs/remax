@@ -1,6 +1,6 @@
 {
   "name": "remax",
-  "version": "2.15.8",
+  "version": "2.15.8-alpha.8+14d4b95d",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
@@ -30,17 +30,17 @@
     "prepack": "yarn build"
   },
   "dependencies": {
-    "@remax/ali": "2.15.8",
-    "@remax/cli": "2.15.8",
-    "@remax/macro": "2.15.8",
-    "@remax/one": "2.15.8",
-    "@remax/runtime": "2.15.8",
-    "@remax/toutiao": "2.15.8",
-    "@remax/types": "2.15.8",
-    "@remax/web": "2.15.8",
-    "@remax/wechat": "2.15.8",
+    "@remax/ali": "2.15.8-alpha.8+14d4b95d",
+    "@remax/cli": "2.15.8-alpha.8+14d4b95d",
+    "@remax/macro": "2.15.8-alpha.8+14d4b95d",
+    "@remax/one": "2.15.8-alpha.8+14d4b95d",
+    "@remax/runtime": "2.15.8-alpha.8+14d4b95d",
+    "@remax/toutiao": "2.15.8-alpha.8+14d4b95d",
+    "@remax/types": "2.15.8-alpha.8+14d4b95d",
+    "@remax/web": "2.15.8-alpha.8+14d4b95d",
+    "@remax/wechat": "2.15.8-alpha.8+14d4b95d",
     "mini-types": "^0.1.1",
     "miniprogram-api-typings": "^3.4.3"
   },
-  "gitHead": "06dcaa3df31f6bde22b6d07a979c361dc137351f"
+  "gitHead": "14d4b95d916a55e4ecbe5fbda933bbc57018d7df"
 }

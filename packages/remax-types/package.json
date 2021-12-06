@@ -1,6 +1,6 @@
 {
   "name": "@remax/types",
-  "version": "2.15.8",
+  "version": "2.15.8-alpha.8+14d4b95d",
   "description": "Remax Types",
   "author": "Caihuanyu <eterlf41@gmail.com>",
   "license": "MIT",
@@ -20,5 +20,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "14d4b95d916a55e4ecbe5fbda933bbc57018d7df"
 }

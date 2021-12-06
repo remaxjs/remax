@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-remax",
-  "version": "2.15.8",
+  "version": "2.15.8-alpha.8+14d4b95d",
   "description": "remax babel preset",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -42,5 +42,5 @@
   "peerDependencies": {
     "@babel/core": ">=7.0.0"
   },
-  "gitHead": "421a0c2b5a64c6f3210f2f056bf61406d6736f28"
+  "gitHead": "14d4b95d916a55e4ecbe5fbda933bbc57018d7df"
 }
