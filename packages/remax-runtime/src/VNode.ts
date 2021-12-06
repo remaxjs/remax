@@ -181,13 +181,15 @@ export default class VNode {
       return;
     }
 
+    const parentPath = this.parent!.path;
+
     for (let i = 0; i < payload.length; i = i + 2) {
       const [propName, propValue] = toRawProps(payload[i], payload[i + 1], this.type);
 
-      let path = [...this.parent!.path, 'nodes', this.id.toString(), 'props'];
+      let path = [...parentPath, 'nodes', this.id.toString(), 'props'];
 
       if (RuntimeOptions.get('platform') === 'ali') {
-        path = [...this.parent!.path, `children[${this.index}].props`];
+        path = [...parentPath, `children[${this.index}].props`];
       }
 
       this.container.requestUpdate({
