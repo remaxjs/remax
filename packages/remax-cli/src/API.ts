@@ -103,6 +103,16 @@ export default class API {
     }, config);
   }
 
+  // 修改 remax 最终的 entry, 用于自定义目录结构等诉求
+  _onEntries(entries: any) {
+    return this.plugins.reduce((acc, plugin) => {
+      if (typeof plugin.unstable_onEntries === 'function') {
+        acc = plugin.unstable_onEntries({ entries: acc });
+      }
+      return acc;
+    }, entries);
+  }
+
   configWebpack(params: { config: Config; webpack: any; addCSSRule: (ruleConfig: RuleConfig) => void }) {
     this.plugins.forEach(plugin => {
       if (typeof plugin.configWebpack === 'function') {
