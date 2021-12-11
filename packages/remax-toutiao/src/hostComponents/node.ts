@@ -25,6 +25,8 @@ import * as textarea from './Textarea/node';
 import * as video from './Video/node';
 import * as view from './View/node';
 import * as webView from './WebView/node';
+import * as movableArea from './MovableArea/node';
+import * as movableView from './MovableView/node';
 
 const hostComponents = new Map();
 
@@ -55,5 +57,7 @@ hostComponents.set('textarea', textarea);
 hostComponents.set('video', video);
 hostComponents.set('view', view);
 hostComponents.set('web-view', webView);
+hostComponents.set('movable-area', movableArea);
+hostComponents.set('movable-view', movableView);
 
 export default hostComponents;
