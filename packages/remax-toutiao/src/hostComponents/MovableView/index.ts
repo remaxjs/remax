@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { createHostComponent } from '@remax/runtime';
-import { BaseProps } from '../../types/component';
-import { GenericEvent } from '@remax/wechat';
+import { BaseProps, GenericEvent } from '../../types/component';
 
 /***
  * https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/component/view-container/movable-view
