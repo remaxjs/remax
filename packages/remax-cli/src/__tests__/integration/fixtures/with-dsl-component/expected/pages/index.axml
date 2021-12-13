@@ -158,29 +158,6 @@
   </cover-view>
 </template>
 
-<template name="REMAX_TPL_1_dsl-module-index-c6c02ac">
-  <dsl-module-index-c6c02ac
-    type="{{item.props['type']}}"
-    value="{{item.props['value']}}"
-    ref="{{item.props['__ref']}}"
-  >
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view
-          slot="{{item.props['slot']}}"
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-  </dsl-module-index-c6c02ac>
-</template>
-
 <template name="REMAX_TPL_1_form">
   <form
     class="{{item.props['class']}}"
