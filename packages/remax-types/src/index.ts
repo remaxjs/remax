@@ -200,6 +200,7 @@ export interface Plugin {
    */
   onPageTemplate?: (params: { template: string; page: string }) => string;
 
+  unstable_onEntries?: (params: { entries: any }) => any;
   /**
    * 扩展命令行
    */

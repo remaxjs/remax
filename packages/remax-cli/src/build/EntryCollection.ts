@@ -50,7 +50,7 @@ export default class EntryCollection {
   }
 
   private initEntries() {
-    const { projectConfig, projectPath } = this.builder;
+    const { api, projectConfig, projectPath } = this.builder;
 
     // 纯组件库构建
     if (this.builder.buildType === 'minicomponent') {
@@ -105,9 +105,14 @@ export default class EntryCollection {
       });
     }
 
+    const compactEntries = {
+      pages,
+    };
+    api._onEntries(compactEntries);
+
     const entries: Entries = new Map();
 
-    pages.forEach(p => {
+    compactEntries.pages.forEach(p => {
       if (!p.filename) {
         return;
       }
