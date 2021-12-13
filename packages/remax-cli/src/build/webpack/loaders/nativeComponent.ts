@@ -55,15 +55,18 @@ export default async function nativeModule(this: loader.LoaderContext, source: s
 
   if (isNativeComponent(resourcePath)) {
     const name = getNativeAssetOutputPath(replaceExtension(resourcePath, ''), builder.options);
-    // loader 处理的文件顺序不固定，使用输出路径计算组件 id
-    const id = Store.registerNativeComponent(resourcePath, name);
     const entry = new NativeEntry(builder, name, resourcePath);
     builder.entryCollection.nativeComponentEntries.set(entry.filename, entry);
     entry.watchAssets(this);
-    await entry.addToWebpack(this._compiler, this._compilation);
-    finalSource = `import { createNativeComponent } from '@remax/runtime';
-export default createNativeComponent('${id}')
-`;
+    const alreadyNativeComponent = builder.entryCollection.nativeComponentEntries.has(entry.filename);
+    if (!alreadyNativeComponent) {
+      await entry.addToWebpack(this._compiler, this._compilation);
+      // loader 处理的文件顺序不固定，使用输出路径计算组件 id
+      const id = Store.registerNativeComponent(resourcePath, name);
+      finalSource = `import { createNativeComponent } from '@remax/runtime';
+      export default createNativeComponent('${id}')
+      // `;
+    }
   }
 
   callback(null, finalSource);
