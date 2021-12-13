@@ -327,27 +327,6 @@
   </map>
 </template>
 
-<template name="REMAX_TPL_1_mini-greet-index-774a1b6">
-  <mini-greet-index-774a1b6
-    ref="{{item.props['__ref']}}"
-  >
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <block a:if="{{item.props['slot']}}">
-        <view
-          slot="{{item.props['slot']}}"
-        >
-          <block a:for="{{item.children}}" key="{{item.id}}">
-            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-          </block>
-        </view>
-      </block>
-      <block a:else>
-        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-      </block>
-    </block>
-  </mini-greet-index-774a1b6>
-</template>
-
 <template name="REMAX_TPL_1_movable-area">
   <movable-area
     class="{{item.props['class']}}"
