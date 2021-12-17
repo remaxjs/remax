@@ -110,6 +110,7 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
       .options({
         usePlugins: [TurboRender.preprocess(options)],
         reactPreset: false,
+        cacheDirectory: true,
       });
   }
 
@@ -154,6 +155,7 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
       ],
       reactPreset: true,
       api: builder.api,
+      cacheDirectory: true,
       compact: process.env.NODE_ENV === 'production',
     })
     .end()
