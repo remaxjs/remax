@@ -1,5 +1,11 @@
 <import src="/isolated.axml"/>
 
+<template name="TPL_5da6971-1">
+  <view ><template is="TPL_DEFAULT" data="{{root: node.children[0]}}" />
+</view>
+
+</template>
+
 <template name="TPL_button">
   <button 
     app-parameter="{{node.props['app-parameter']}}" 
@@ -575,6 +581,7 @@
   </video>
 </template><template name="TPL_view">
   <view 
+    _tid="{{node.props['_tid']}}" 
     animation="{{node.props['animation']}}" 
     class="{{node.props['class']}}" 
     disable-scroll="{{node.props['disable-scroll']}}" 

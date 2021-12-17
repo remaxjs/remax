@@ -591,8 +591,15 @@ module.exports = {
   }
 },
       pageEvents: {
-  "pages/index": [],
-  "pages/classPage": []
+  "pages/index": [
+    "onShareAppMessage",
+    "onShareTimeline",
+    "onShow"
+  ],
+  "pages/classPage": [
+    "onPageScroll",
+    "onShareAppMessage"
+  ]
 },
       appEvents: []
     }

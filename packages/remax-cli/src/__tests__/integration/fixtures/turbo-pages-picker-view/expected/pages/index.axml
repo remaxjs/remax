@@ -1,5 +1,25 @@
 <import src="/isolated.axml"/>
 
+<template name="TPL_5da6971-1">
+  <view ><template is="TPL_DEFAULT" data="{{root: node.children[0]}}" />
+</view>
+
+</template>
+
+<template name="TPL_5da6971-2">
+  <view ><block ><block a:if="{{node.children[0].children}}">
+  <block a:for="{{node.children[0].children || []}}" key="{{item.id}}">
+    <template a:if="{{item.props._tid}}" is="{{'TPL_' + item.props._tid}}" data="{{ node: item }}" />
+    <template a:else is="{{ 'TPL_' + item.type }}" data="{{ node: item }}" />
+  </block>
+</block>
+<template a:elif="{{node.children[0].props._tid}}" is="{{'TPL_' + node.children[0].props._tid}}" data="{{ node: node.children[0] }}" />
+<template a:else is="{{ 'TPL_' + node.children[0].type }}" data="{{ node: node.children[0] }}" />
+</block>
+</view>
+
+</template>
+
 <template name="TPL_button">
   <button 
     app-parameter="{{node.props['app-parameter']}}" 
@@ -575,6 +595,7 @@
   </video>
 </template><template name="TPL_view">
   <view 
+    _tid="{{node.props['_tid']}}" 
     animation="{{node.props['animation']}}" 
     class="{{node.props['class']}}" 
     disable-scroll="{{node.props['disable-scroll']}}" 
@@ -584,6 +605,7 @@
     hover-stay-time="{{node.props['hover-stay-time']}}" 
     hover-stop-propagation="{{node.props['hover-stop-propagation']}}" 
     id="{{node.props['id']}}" 
+    key="{{node.props['key']}}" 
     onAnimationEnd="{{node.props['onAnimationEnd']}}" 
     onAnimationIteration="{{node.props['onAnimationIteration']}}" 
     onAnimationStart="{{node.props['onAnimationStart']}}" 

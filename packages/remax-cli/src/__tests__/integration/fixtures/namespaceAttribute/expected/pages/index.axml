@@ -375,6 +375,7 @@
 
 <template name="REMAX_TPL_1_native-component-index-f0e047f">
   <native-component-index-f0e047f
+    ns:prop="{{item.props['ns:prop']}}"
     ref="{{item.props['__ref']}}"
   >
     <block a:for="{{item.children}}" key="{{item.id}}">

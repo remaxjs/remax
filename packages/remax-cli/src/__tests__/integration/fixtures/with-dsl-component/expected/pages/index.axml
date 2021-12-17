@@ -160,6 +160,8 @@
 
 <template name="REMAX_TPL_1_dsl-module-index-c6c02ac">
   <dsl-module-index-c6c02ac
+    type="{{item.props['type']}}"
+    value="{{item.props['value']}}"
     ref="{{item.props['__ref']}}"
   >
     <block a:for="{{item.children}}" key="{{item.id}}">

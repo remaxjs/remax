@@ -704,6 +704,7 @@
   <view
     animation="{{item.props['animation']}}"
     class="{{item.props['class']}}"
+    data-foo="{{item.props['data-foo']}}"
     disable-scroll="{{item.props['disable-scroll']}}"
     hidden="{{item.props['hidden']}}"
     hover-class="{{item.props['hover-class']}}"
@@ -711,6 +712,7 @@
     hover-stay-time="{{item.props['hover-stay-time']}}"
     hover-stop-propagation="{{item.props['hover-stop-propagation']}}"
     id="{{item.props['id']}}"
+    key="{{item.props.__key}}"
     onAnimationEnd="{{item.props['onAnimationEnd']}}"
     onAnimationIteration="{{item.props['onAnimationIteration']}}"
     onAnimationStart="{{item.props['onAnimationStart']}}"
