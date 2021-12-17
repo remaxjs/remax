@@ -588,17 +588,6 @@ module.exports = {
       "onError": "onError",
       "onScanCode": "onScanCode"
     }
-  },
-  "foo-bar": {
-    "alias": {
-      "foo": "foo",
-      "className": "class"
-    }
-  },
-  "custom-component": {
-    "alias": {
-      "foo": "foo"
-    }
   }
 },
       pageEvents: {

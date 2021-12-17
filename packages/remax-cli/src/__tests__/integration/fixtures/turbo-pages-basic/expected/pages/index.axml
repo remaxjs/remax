@@ -158,15 +158,6 @@
   </cover-view>
 </template>
 
-<template name="REMAX_TPL_1_ddd">
-  <ddd
-  >
-    <block a:for="{{item.children}}" key="{{item.id}}">
-      <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
-    </block>
-  </ddd>
-</template>
-
 <template name="REMAX_TPL_1_form">
   <form
     class="{{item.props['class']}}"
@@ -384,7 +375,6 @@
 
 <template name="REMAX_TPL_1_native-component-index-f24c316">
   <native-component-index-f24c316
-    ns:attr="{{item.props['ns:attr']}}"
     ref="{{item.props['__ref']}}"
   >
     <block a:for="{{item.children}}" key="{{item.id}}">
@@ -742,7 +732,6 @@
     hover-stay-time="{{item.props['hover-stay-time']}}"
     hover-stop-propagation="{{item.props['hover-stop-propagation']}}"
     id="{{item.props['id']}}"
-    key="{{item.props.__key}}"
     onAnimationEnd="{{item.props['onAnimationEnd']}}"
     onAnimationIteration="{{item.props['onAnimationIteration']}}"
     onAnimationStart="{{item.props['onAnimationStart']}}"
