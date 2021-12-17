@@ -6,6 +6,27 @@
   </block>
 </template>
 
+<template name="REMAX_TPL_1_a-index-20116ca">
+  <a-index-20116ca
+    ref="{{item.props['__ref']}}"
+  >
+    <block a:for="{{item.children}}" key="{{item.id}}">
+      <block a:if="{{item.props['slot']}}">
+        <view
+          slot="{{item.props['slot']}}"
+        >
+          <block a:for="{{item.children}}" key="{{item.id}}">
+            <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+          </block>
+        </view>
+      </block>
+      <block a:else>
+        <template is="REMAX_TPL_1_CONTAINER" data="{{item: item}}" />
+      </block>
+    </block>
+  </a-index-20116ca>
+</template>
+
 <template name="REMAX_TPL_1_button">
   <button
     app-parameter="{{item.props['app-parameter']}}"

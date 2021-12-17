@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "dsl-module-index-c6c02ac": "../npm/dsl-module/index"
+  }
 }

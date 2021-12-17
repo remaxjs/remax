@@ -84,8 +84,10 @@ module.exports = require("remax");
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-Component({});
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
+/* harmony import */ var _remax_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_remax_runtime__WEBPACK_IMPORTED_MODULE_0__["createNativeComponent"])('native-component-index-f0e047f')); //
 
 /***/ })
 ],[[8,0]]]);
