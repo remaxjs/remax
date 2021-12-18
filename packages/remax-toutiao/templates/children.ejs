@@ -1,0 +1,30 @@
+<% if (id === 'swiper') { -%>
+<block tt:for="{{i.children}}" tt:key="*this">
+  <swiper-item class="{{i.nodes[item].props.class}}" item-id="{{i.nodes[item].props.itemId}}" key="{{i.nodes[item].props.key}}">
+    <block tt:for="{{i.nodes[item].children}}" tt:key="*this" tt:for-item="sItem">
+      <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}" />
+    </block>
+  </swiper-item>
+</block>
+<% } else if (type === 'native') { -%>
+<block tt:for="{{i.children}}" tt:key="*this">
+  <block tt:if="{{i.nodes[item].props['slot']}}">
+    <view slot="{{i.nodes[item].props['slot']}}"
+    <%_ for(let i=0;i < slotView.props.length; i++) { %>
+      <%=slotView.props[i]%>="{{i.nodes[item].props['<%=slotView.props[i]%>']}}"
+    <%_ } -%>
+    >
+      <block tt:for="{{i.nodes[item].children}}" tt:key="*this" tt:for-item="sItem">
+        <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item].nodes[sItem], a: a, tid: tid + 1 }}" />
+      </block>
+    </view>
+  </block>
+  <block tt:else>
+    <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+  </block>
+</block>
+<% } else { -%>
+<block tt:for="{{i.children}}" tt:key="*this">
+  <template is="{{'REMAX_TPL_' + (tid + 1) + '_CONTAINER'}}" data="{{i: i.nodes[item], a: a, tid: tid + 1 }}" />
+</block>
+<% } -%>
