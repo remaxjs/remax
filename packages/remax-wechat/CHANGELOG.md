@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.10](https://github.com/remaxjs/remax/compare/v2.15.9...v2.15.10) (2021-12-18)
+
+### Bug Fixes
+
+- **wechat:** 新增 MovableView 和 Slider 的 onTouchStart 和 onTouchEnd 事件([#1790](https://github.com/remaxjs/remax/issues/1790)) ([0748bff](https://github.com/remaxjs/remax/commit/0748bff988840d83ed44c192255f6ad6e49790eb)), closes [#1468](https://github.com/remaxjs/remax/issues/1468)
+
 ## [2.15.9](https://github.com/remaxjs/remax/compare/v2.15.7...v2.15.9) (2021-12-06)
 
 ### Features

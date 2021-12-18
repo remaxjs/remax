@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.10](https://github.com/remaxjs/remax/compare/v2.15.9...v2.15.10) (2021-12-18)
+
+### Bug Fixes
+
+- **toutiao:** 新增 MovableArea/MovableView 组件 ([18fffef](https://github.com/remaxjs/remax/commit/18fffef670cc4dbe6d3d0ea532fb944cc4f4adf7))
+- **toutiao:** 新增 ai/ar 能力接口 ([#1792](https://github.com/remaxjs/remax/issues/1792)) ([209963b](https://github.com/remaxjs/remax/commit/209963b0db994591d440a2436dffd157f5ac0dc9))
+- **wechat:** 新增 MovableView 和 Slider 的 onTouchStart 和 onTouchEnd 事件([#1790](https://github.com/remaxjs/remax/issues/1790)) ([0748bff](https://github.com/remaxjs/remax/commit/0748bff988840d83ed44c192255f6ad6e49790eb)), closes [#1468](https://github.com/remaxjs/remax/issues/1468)
+
+### Performance Improvements
+
+- **cli:** 开启 babel-loader 缓存，优化编译速度 ([#1789](https://github.com/remaxjs/remax/issues/1789)) ([2f41917](https://github.com/remaxjs/remax/commit/2f41917004b9f5e0875e077edd8e4a387f0e4ef9))
+- optimize update performance ([#1777](https://github.com/remaxjs/remax/issues/1777)) ([0e0a6b5](https://github.com/remaxjs/remax/commit/0e0a6b503a7db785c65e37c06e1a909b339b68ed))
+
 ## [2.15.9](https://github.com/remaxjs/remax/compare/v2.15.7...v2.15.9) (2021-12-06)
 
 ### Features
