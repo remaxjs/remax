@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.10](https://github.com/remaxjs/remax/compare/v2.15.9...v2.15.10) (2021-12-18)
+
+### Performance Improvements
+
+- optimize update performance ([#1777](https://github.com/remaxjs/remax/issues/1777)) ([0e0a6b5](https://github.com/remaxjs/remax/commit/0e0a6b503a7db785c65e37c06e1a909b339b68ed))
+
 ## [2.15.9](https://github.com/remaxjs/remax/compare/v2.15.7...v2.15.9) (2021-12-06)
 
 ### Features

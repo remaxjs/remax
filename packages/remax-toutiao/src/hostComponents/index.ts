@@ -25,3 +25,5 @@ export * from './Navigator';
 export * from './Image';
 export * from './Canvas';
 export * from './WebView';
+export * from './MovableArea';
+export * from './MovableView';

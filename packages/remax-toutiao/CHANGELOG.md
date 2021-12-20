@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.10](https://github.com/remaxjs/remax/compare/v2.15.9...v2.15.10) (2021-12-18)
+
+### Bug Fixes
+
+- **toutiao:** 新增 MovableArea/MovableView 组件 ([18fffef](https://github.com/remaxjs/remax/commit/18fffef670cc4dbe6d3d0ea532fb944cc4f4adf7))
+- **toutiao:** 新增 ai/ar 能力接口 ([#1792](https://github.com/remaxjs/remax/issues/1792)) ([209963b](https://github.com/remaxjs/remax/commit/209963b0db994591d440a2436dffd157f5ac0dc9))
+
 ## [2.15.9](https://github.com/remaxjs/remax/compare/v2.15.7...v2.15.9) (2021-12-06)
 
 ### Features

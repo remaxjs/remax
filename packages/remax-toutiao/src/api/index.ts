@@ -109,3 +109,7 @@ export const setTabBarBadge = promisify(tt.setTabBarBadge);
 export const removeTabBarBadge = promisify(tt.removeTabBarBadge);
 export const hideTabBarRedDot = promisify(tt.hideTabBarRedDot);
 export const hideTabBar = promisify(tt.hideTabBar);
+// AI/AR能力
+export const getAlgorithmManager = promisify(tt.getAlgorithmManager);
+export const createStickerManager = promisify(tt.createStickerManager);
+export const createBytennEngineContext = promisify(tt.createBytennEngineContext);
