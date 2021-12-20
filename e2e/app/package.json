@@ -29,7 +29,7 @@
     "@types/react": "^16.9.1",
     "cross-env": "^6.0.3",
     "http-server": "^0.12.3",
-    "jest-puppeteer": "^5.0.4",
+    "jest-puppeteer": "^6.0.3",
     "merge": "^1.2.1"
   },
   "workspaces": {
