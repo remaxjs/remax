@@ -24,8 +24,11 @@ nav:
 ## 创建项目
 
 ```bash
+// JavaScript 模板
 $ npx create-remax-app my-app
-$ cd my-app && npm install
+或者
+// TypeScript 模板
+$ npx create-remax-app my-app -t
 ```
 
 ## 运行项目
