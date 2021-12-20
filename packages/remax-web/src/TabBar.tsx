@@ -5,8 +5,8 @@ import { TabBarConfig, TabItem } from './types';
 
 export function TabBar({ config, history }: { config: TabBarConfig; history: History }) {
   const [currentPath, setCurrentPath] = React.useState<string>(history.location.pathname);
-  const tabBarList = config.items.map(item => item.url);
   const [hideTarBar, setHideTarBar] = React.useState(false);
+  const tabBarList = config.items.map(item => item.url);
 
   const filterTabBarItem = () => {
     // 移除 history.location.pathname 中第一个反斜杠否则导致includes判定不正确
@@ -26,7 +26,6 @@ export function TabBar({ config, history }: { config: TabBarConfig; history: His
     if (!url.startsWith('/')) {
       url = '/' + url;
     }
-
     return currentPath === url;
   };
 
