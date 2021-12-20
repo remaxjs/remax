@@ -60,7 +60,7 @@ export interface VideoProps extends BaseProps {
   /** 是否开启播放手势，即双击切换播放/暂停 2.4.0 */
   enablePlayGesture?: boolean;
   /** 是否开启手机横屏时自动全屏，当系统设置开启自动旋转时生效 2.11.0 */
-  enableAutoRotation?: false;
+  enableAutoRotation?: boolean;
   /** 是否显示锁屏按钮，仅在全屏时显示，锁屏后控制栏的操作 2.11.0 */
   showScreenLockButton?: false;
   /** 是否显示截屏按钮，仅在全屏时显示 2.13.0 */
