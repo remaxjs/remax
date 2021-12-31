@@ -16,4 +16,4 @@ export interface AdCustomProps extends BaseProps {
  * 原生模版广告
  * @see https://developers.weixin.qq.com/miniprogram/dev/component/ad-custom.html
  */
-export const AdCustom: React.ComponentType<AdCustomProps> = createHostComponent<AdCustomProps>('AdCustom');
+export const AdCustom: React.ComponentType<AdCustomProps> = createHostComponent<AdCustomProps>('ad-custom');
