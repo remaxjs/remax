@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.11](https://github.com/remaxjs/remax/compare/v2.15.10...v2.15.11) (2022-01-05)
+
+**Note:** Version bump only for package @remax/types
+
 ## [2.15.10](https://github.com/remaxjs/remax/compare/v2.15.9...v2.15.10) (2021-12-18)
 
 **Note:** Version bump only for package @remax/types

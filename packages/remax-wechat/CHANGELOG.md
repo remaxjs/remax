@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.11](https://github.com/remaxjs/remax/compare/v2.15.10...v2.15.11) (2022-01-05)
+
+### Bug Fixes
+
+- **wechat:** Video[enable-auto-rotation] 类型错误 ([#1798](https://github.com/remaxjs/remax/issues/1798)) ([e6291d8](https://github.com/remaxjs/remax/commit/e6291d876b5fcd91da82de16d532607c40272a26))
+- **wechat:** 修正 AdCustom 组件找不到模板 ([#1807](https://github.com/remaxjs/remax/issues/1807)) ([eb581e3](https://github.com/remaxjs/remax/commit/eb581e3a113aa738ba58abeb2032daaab342bb4e))
+
 ## [2.15.10](https://github.com/remaxjs/remax/compare/v2.15.9...v2.15.10) (2021-12-18)
 
 ### Bug Fixes
