@@ -1,5 +1,6 @@
-import { t, traverse } from '@umijs/utils';
 import { extname } from 'path';
+import * as t from '@babel/types';
+import { NodePath } from '@babel/traverse';
 
 export interface IOpts {
   flag?: string;
@@ -10,7 +11,7 @@ const CSS_EXT_NAMES = ['.css', '.less', '.sass', '.scss', '.stylus', '.styl'];
 export default function () {
   return {
     visitor: {
-      ImportDeclaration(path: traverse.NodePath<t.ImportDeclaration>, { opts }: { opts: IOpts }) {
+      ImportDeclaration(path: NodePath<t.ImportDeclaration>, { opts }: { opts: IOpts }) {
         const {
           specifiers,
           source,
@@ -23,7 +24,7 @@ export default function () {
 
       // e.g.
       // const styles = await import('./index.less');
-      VariableDeclarator(path: traverse.NodePath<t.VariableDeclarator>, { opts }: { opts: IOpts }) {
+      VariableDeclarator(path: NodePath<t.VariableDeclarator>, { opts }: { opts: IOpts }) {
         const { node } = path;
         if (
           t.isAwaitExpression(node.init) &&
@@ -36,6 +37,6 @@ export default function () {
           node.init.argument.arguments[0].value = `${node.init.argument.arguments[0].value}?${opts.flag || 'modules'}`;
         }
       },
-    } as traverse.Visitor,
+    },
   };
 }
