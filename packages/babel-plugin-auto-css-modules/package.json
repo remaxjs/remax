@@ -1,0 +1,35 @@
+{
+  "name": "@remax/babel-plugin-auto-css-modules",
+  "version": "2.15.11",
+  "description": "使用真正的 React 构建跨平台小程序",
+  "author": "Wei Zhu <yesmeck@gmail.com>",
+  "homepage": "https://remaxjs.org",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:remaxjs/remax.git"
+  },
+  "scripts": {
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "test": "jest",
+    "test:debug": "npx --node-arg=--inspect-brk jest -i"
+  },
+  "dependencies": {
+    "@umijs/utils": "3.5.20"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.0",
+    "@babel/plugin-syntax-top-level-await": "^7.14.5"
+  },
+  "gitHead": "14d4b95d916a55e4ecbe5fbda933bbc57018d7df"
+}
