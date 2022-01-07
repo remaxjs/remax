@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.11](https://github.com/remaxjs/remax/compare/v2.15.10...v2.15.11) (2022-01-05)
+
+### Bug Fixes
+
+- 去掉 Babel 缓存 ([#1812](https://github.com/remaxjs/remax/issues/1812)) ([159ae6d](https://github.com/remaxjs/remax/commit/159ae6dc28436f768d0120d39585d59558fe3d5f))
+
 ## [2.15.10](https://github.com/remaxjs/remax/compare/v2.15.9...v2.15.10) (2021-12-18)
 
 ### Bug Fixes
