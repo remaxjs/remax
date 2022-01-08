@@ -17,6 +17,9 @@
       "path": "./packages/babel-preset-remax"
     },
     {
+      "path": "./packages/babel-plugin-auto-css-modules"
+    },
+    {
       "path": "./packages/babel-plugin-remax-host-component"
     },
     {
