@@ -7,7 +7,7 @@ describe('TabBar 跳转', () => {
   });
 
   it('passes image page', async () => {
-    const app = await goTo('pages/image/index');
+    const app = await goTo('/pages/image/index');
     await expect(app).not.toMatchElement('.remax-tab-bar');
   });
 });
