@@ -7,6 +7,7 @@ import { reset as resetInstanceId } from '../instanceId';
 import Container from '../Container';
 import { useNativeEffect } from '../hooks';
 import { RuntimeOptions } from '@remax/framework-shared';
+import { REMAX_METHOD } from '../constants';
 
 function delay(ms: number): Promise<void> {
   if (typeof ms !== 'number') {
@@ -362,6 +363,39 @@ describe('ali remax render', () => {
       expect(actions).toMatchSnapshot();
       done();
     }, 100);
+  });
+
+  it('remove event listener when unmount', () => {
+    class Page extends React.Component<{ node: any }> {
+      state = {
+        show: true,
+      };
+
+      hide() {
+        this.setState({ show: false });
+      }
+
+      render() {
+        return (
+          <View>
+            {this.state.show && (
+              <View ref={this.props.node} onClick={() => console.log('hello')}>
+                foo
+              </View>
+            )}
+          </View>
+        );
+      }
+    }
+    const container = new Container(p);
+    const page = React.createRef<any>();
+    const node = React.createRef<any>();
+    render(<Page ref={page} node={node} />, container);
+    const nodeId = node.current.id;
+    const contextKey = `${REMAX_METHOD}_${nodeId}_onClick`;
+    expect(container.context[contextKey]).toBeTruthy();
+    page.current.hide();
+    expect(container.context[contextKey]).toBeUndefined();
   });
 });
 

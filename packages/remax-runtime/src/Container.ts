@@ -150,6 +150,10 @@ export default class Container {
     };
   }
 
+  removeCallback(name: string) {
+    delete this.context[name];
+  }
+
   appendChild(child: VNode) {
     this.root.appendChild(child);
   }

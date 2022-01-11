@@ -1,7 +1,8 @@
 import propsAlias, { propAlias } from './propsAlias';
-import { TYPE_TEXT } from './constants';
+import { REMAX_METHOD, TYPE_TEXT } from './constants';
 import Container from './Container';
 import { RuntimeOptions } from '@remax/framework-shared';
+import { createCallbackProxy } from './SyntheticEvent/createCallbackProxy';
 
 export interface RawNode {
   id: number;
@@ -48,6 +49,7 @@ export default class VNode {
   previousSibling: VNode | null = null;
   nextSibling: VNode | null = null;
   text?: string;
+  callbackIds = new Set<string>();
 
   constructor({ id, type, props, container }: { id: number; type: string; props?: any; container: any }) {
     this.id = id;
@@ -117,6 +119,7 @@ export default class VNode {
     node.previousSibling = null;
     node.nextSibling = null;
     node.deleted = true;
+    node.unregisteredCallbacks();
 
     if (this.isMounted()) {
       this.container.requestUpdate({
@@ -257,6 +260,19 @@ export default class VNode {
 
   isDeleted(): boolean {
     return this.deleted === true ? this.deleted : this.parent?.isDeleted() ?? false;
+  }
+
+  registerCallback(propKey: string, propValue: any) {
+    const id = `${REMAX_METHOD}_${this.id}_${propKey}`;
+    this.callbackIds.add(id);
+    this.container.createCallback(id, createCallbackProxy(propKey, this, propValue));
+    return id;
+  }
+
+  unregisteredCallbacks() {
+    this.callbackIds.forEach(id => {
+      this.container.removeCallback(id);
+    });
   }
 
   toJSON() {
