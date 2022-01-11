@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.12](https://github.com/remaxjs/remax/compare/v2.15.11...v2.15.12) (2022-01-11)
+
+### Bug Fixes
+
+- 修复节点卸载后回调没从 Page 上删除的问题 ([#1822](https://github.com/remaxjs/remax/issues/1822)) ([0a10885](https://github.com/remaxjs/remax/commit/0a1088571d1fc7ad4f5006ee79d81f8814671857)), closes [#1780](https://github.com/remaxjs/remax/issues/1780)
+
 ## [2.15.11](https://github.com/remaxjs/remax/compare/v2.15.10...v2.15.11) (2022-01-05)
 
 ### Bug Fixes

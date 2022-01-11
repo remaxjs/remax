@@ -1,6 +1,6 @@
 {
   "name": "@remax/babel-plugin-auto-css-modules",
-  "version": "2.15.11",
+  "version": "2.15.12",
   "description": "使用真正的 React 构建跨平台小程序",
   "authors": [
     "chencheng <sorrycc@gmail.com> (https://github.com/sorrycc)"
@@ -27,9 +27,9 @@
     "test:debug": "npx --node-arg=--inspect-brk jest -i"
   },
   "dependencies": {
-    "@babel/types": "^7.11.0",
+    "@babel/plugin-syntax-top-level-await": "^7.14.5",
     "@babel/traverse": "^7.11.0",
-    "@babel/plugin-syntax-top-level-await": "^7.14.5"
+    "@babel/types": "^7.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.11.0"
