@@ -1,9 +1,8 @@
 import * as scheduler from 'scheduler';
-import { REMAX_METHOD, TYPE_TEXT } from '../constants';
+import { TYPE_TEXT } from '../constants';
 import { generate } from '../instanceId';
 import VNode from '../VNode';
 import Container from '../Container';
-import { createCallbackProxy } from '../SyntheticEvent/createCallbackProxy';
 import diffProperties from './diffProperties';
 
 const {
@@ -19,13 +18,13 @@ const DOM_TAG_MAP: { [name: string]: string } = {
   img: 'image',
 };
 
-function processProps(newProps: any, node: VNode, id: number) {
+function processProps(newProps: any, node: VNode) {
   const props: any = {};
+  node.unregisteredCallbacks();
   for (const propKey of Object.keys(newProps)) {
     if (typeof newProps[propKey] === 'function') {
-      const contextKey = `${REMAX_METHOD}_${id}_${propKey}`;
-      node.container.createCallback(contextKey, createCallbackProxy(propKey, node, newProps[propKey]));
-      props[propKey] = contextKey;
+      const id = node.registerCallback(propKey, newProps[propKey]);
+      props[propKey] = id;
     } else if (propKey === 'style') {
       props[propKey] = newProps[propKey] || '';
     } else if (propKey === 'children') {
@@ -84,7 +83,7 @@ export default {
       props: {},
       container,
     });
-    node.props = processProps(newProps, node, id);
+    node.props = processProps(newProps, node);
 
     return node;
   },
@@ -109,14 +108,14 @@ export default {
   },
 
   prepareUpdate(node: VNode, type: string, lastProps: any, nextProps: any) {
-    lastProps = processProps(lastProps, node, node.id);
-    nextProps = processProps(nextProps, node, node.id);
+    lastProps = processProps(lastProps, node);
+    nextProps = processProps(nextProps, node);
 
     return diffProperties(lastProps, nextProps);
   },
 
   commitUpdate(node: VNode, updatePayload: any, type: string, oldProps: any, newProps: any) {
-    node.props = processProps(newProps, node, node.id);
+    node.props = processProps(newProps, node);
     node.update(updatePayload);
   },
 
