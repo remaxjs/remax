@@ -30,6 +30,7 @@ export const alias = {
   onBlur: 'bindblur',
   onConfirm: 'bindconfirm',
   onKeyboardHeightChange: 'bindkeyboardheightchange',
+  holdKeyboard: 'hold-keyboard'
 };
 
 export const props = Object.values(alias);
