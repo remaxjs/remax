@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.13](https://github.com/remaxjs/remax/compare/v2.15.12...v2.15.13) (2022-03-29)
+
+### Bug Fixes
+
+- 修复 CSS 变量的数字会被加上单位的问题 ([#1870](https://github.com/remaxjs/remax/issues/1870)) ([0df4c76](https://github.com/remaxjs/remax/commit/0df4c7664bdb947c71a82e3288a2f343c76240fc)), closes [#1869](https://github.com/remaxjs/remax/issues/1869)
+
 ## [2.15.12](https://github.com/remaxjs/remax/compare/v2.15.11...v2.15.12) (2022-01-11)
 
 ### Bug Fixes

@@ -8,4 +8,9 @@ describe('plainStyle pxToRpx', () => {
     style = plainStyle({ width: '100.55555px' });
     expect(style.indexOf('100.56rpx') > -1).toBeTruthy();
   });
+
+  it('does not transform css variable', () => {
+    const style = plainStyle({ '--column': 1 });
+    expect(style).toMatchInlineSnapshot(`"--column:1;"`);
+  });
 });

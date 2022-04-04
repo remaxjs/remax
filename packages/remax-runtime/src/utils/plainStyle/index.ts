@@ -1,4 +1,3 @@
-import { CSSProperties } from 'react';
 import { isUnitlessNumber } from './CSSProperty';
 import { find, RuntimeOptions } from '@remax/framework-shared';
 
@@ -39,12 +38,12 @@ const transformPx = (value: string) => {
   });
 };
 
-const plainStyle = (style: CSSProperties) => {
+const plainStyle = (style: Record<string, string | number>) => {
   return Object.keys(style)
     .reduce((acc: string[], key) => {
       let value = (style as any)[key];
 
-      if (!Number.isNaN(Number(value)) && !isUnitlessNumber[key]) {
+      if (!Number.isNaN(Number(value)) && !isUnitlessNumber[key] && !key?.startsWith('--')) {
         value = value + 'rpx';
       }
 
