@@ -1,5 +1,3 @@
-<h1>⚠️ 本项目不再维护</h1>
-
 <a href="https://remaxjs.org">
 	<img src="https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*7BLVSL14gvoAAAAAAAAAAABkARQnAQ" width="882" />
 </a>
