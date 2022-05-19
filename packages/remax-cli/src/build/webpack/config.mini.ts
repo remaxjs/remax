@@ -204,15 +204,15 @@ export default function webpackConfig(builder: Builder): webpack.Configuration {
       .plugin('webpack-copy-plugin')
       .use(CopyPlugin, [[{ from: builder.projectPath.publicDir(), to: builder.projectPath.outputDir() }]]);
   }
-  // 判断是否是头条小程序，如果是的话将project.config.json复制到dist目录下
-  // 否则头条开发者工具无法识别Remax头条小程序
-  const miniProjectConfigJsonFile = `${builder.projectPath.projectDir()}/project.config.json`;
+  // 判断是否是头条小程序，如果是的话将 project.tt.json 复制到 dist 目录下
+  // 否则头条开发者工具无法识别 Remax 头条小程序
+  const miniProjectConfigJsonFile = `${builder.projectPath.projectDir()}/project.tt.json`;
   if (builder.options.target == 'toutiao' && fs.existsSync(miniProjectConfigJsonFile)) {
     config.plugin('webpack-copy-plugin').use(CopyPlugin, [
       [
         {
           from: miniProjectConfigJsonFile,
-          to: builder.projectPath.outputDir(),
+          to: `${builder.projectPath.outputDir()}/project.config.json`,
         },
       ],
     ]);
