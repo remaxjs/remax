@@ -1,6 +1,6 @@
 {
   "name": "remax",
-  "version": "2.15.13",
+  "version": "2.15.14",
   "description": "Remax 是一个全新的基于 React 的小程序开发框架",
   "main": "./cjs/index.js",
   "module": "./esm/index.js",
@@ -30,15 +30,15 @@
     "prepack": "yarn build"
   },
   "dependencies": {
-    "@remax/ali": "2.15.13",
-    "@remax/cli": "2.15.13",
-    "@remax/macro": "2.15.13",
-    "@remax/one": "2.15.13",
-    "@remax/runtime": "2.15.13",
-    "@remax/toutiao": "2.15.13",
-    "@remax/types": "2.15.13",
-    "@remax/web": "2.15.13",
-    "@remax/wechat": "2.15.13",
+    "@remax/ali": "2.15.14",
+    "@remax/cli": "2.15.14",
+    "@remax/macro": "2.15.14",
+    "@remax/one": "2.15.14",
+    "@remax/runtime": "2.15.14",
+    "@remax/toutiao": "2.15.14",
+    "@remax/types": "2.15.14",
+    "@remax/web": "2.15.14",
+    "@remax/wechat": "2.15.14",
     "mini-types": "^0.1.1",
     "miniprogram-api-typings": "^3.4.3"
   },

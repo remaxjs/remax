@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.15.14](https://github.com/remaxjs/remax/compare/v2.15.13...v2.15.14) (2022-05-20)
+
+### Bug Fixes
+
+- [#1739](https://github.com/remaxjs/remax/issues/1739) ([31ed8a0](https://github.com/remaxjs/remax/commit/31ed8a00f5a6e0d368f10381237b35d4a5f00868))
+- 修复 字节 project.config.json 配置问题 配合新版本 create-remax-app 使用 ([1650c70](https://github.com/remaxjs/remax/commit/1650c70f2b232628b07344f24b37bba0798a8d1e))
+- 修改头条测试的 project.config 文件 ([55f6345](https://github.com/remaxjs/remax/commit/55f6345ec79e3a11e37d54826b6c1126ea682017))
+- 关闭 react-devtool 默认集成 ([8e741d8](https://github.com/remaxjs/remax/commit/8e741d8bc201d9c05a3190efa3f4fcb707ba245c))
+
 ## [2.15.13](https://github.com/remaxjs/remax/compare/v2.15.12...v2.15.13) (2022-03-29)
 
 ### Bug Fixes
