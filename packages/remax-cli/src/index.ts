@@ -71,12 +71,12 @@ export default class RemaxCLI {
               type: 'boolean',
               default: false,
             })
-            .option('devtools', {
-              describe: '启动 react-devtools 调试',
-              alias: 'd',
-              type: 'boolean',
-              default: true,
-            })
+            // .option('devtools', {
+            //   describe: '启动 react-devtools 调试',
+            //   alias: 'd',
+            //   type: 'boolean',
+            //   default: true,
+            // })
             .option('loglevel', {
               describe: '展示日志级别',
               type: 'string',
