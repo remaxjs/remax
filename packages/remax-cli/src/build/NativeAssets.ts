@@ -47,7 +47,7 @@ export default class NativeAssets {
     const templateFile = replaceExtension(this.entry, template.extension);
 
     const walkJsHelper = (filename: string) => {
-      if (!fs.existsSync(filename)) {
+      if (!fs.existsSync(filename) || this.assets.has(filename)) {
         return;
       }
       const content = fs.readFileSync(filename);
@@ -77,7 +77,7 @@ export default class NativeAssets {
     };
 
     const walkTemplate = (filename: string) => {
-      if (!fs.existsSync(filename)) {
+      if (!fs.existsSync(filename) || this.assets.has(filename)) {
         return;
       }
       const content = fs.readFileSync(filename);
