@@ -43,6 +43,7 @@ export const alias = {
   onAddGroupApp: 'bindaddgroupapp',
   onTap: 'bindtap',
   onClick: 'bindtap',
+  onChooseAvatar: 'bindchooseavatar',
 };
 
 export const props = Object.values(alias);

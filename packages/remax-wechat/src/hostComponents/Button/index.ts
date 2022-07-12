@@ -5,15 +5,15 @@ import { BaseProps, GenericEvent } from '../../types/component';
 export interface ButtonProps extends BaseProps {
   /**
    * 1.0.0
-   * default	默认大小
-   * mini	小尺寸
+   * default  默认大小
+   * mini  小尺寸
    */
   size?: 'default' | 'mini';
   /**
    * 1.0.0
-   * primary	绿色
-   * default	白色
-   * warn	红色
+   * primary  绿色
+   * default  白色
+   * warn  红色
    */
   type?: 'primary' | 'default' | 'warn';
 
@@ -34,28 +34,28 @@ export interface ButtonProps extends BaseProps {
   loading?: boolean;
   /**
    * 1.0.0
-   * submit	提交表单
-   * reset	重置表单
+   * submit  提交表单
+   * reset  重置表单
    */
   formType?: 'submit' | 'reset';
   /**
    * - 微信小程序 & QQ 小程序
-   * contact	打开客服会话，如果用户在会话中点击消息卡片后返回小程序，可以从 bindcontact 回调中获得具体信息	1.1.0
-   * share	触发用户转发，使用前建议先阅读使用指引	1.2.0
-   * getPhoneNumber	获取用户手机号，可以从 bindgetphonenumber 回调中获取到用户信息	1.2.0
-   * getUserInfo	获取用户信息，可以从 bindgetuserinfo 回调中获取到用户信息	1.3.0
-   * launchApp	打开 App，可以通过 app-parameter 属性设定向 App 传的参数	1.9.5
-   * openSetting	打开授权设置页	2.0.7
-   * feedback	打开“意见反馈”页面，用户可提交反馈内容并上传日志，开发者可以登录小程序管理后台后进入左侧菜单“客服反馈”页面获取到反馈内容	2.1.0
+   * contact  打开客服会话，如果用户在会话中点击消息卡片后返回小程序，可以从 bindcontact 回调中获得具体信息  1.1.0
+   * share  触发用户转发，使用前建议先阅读使用指引  1.2.0
+   * getPhoneNumber  获取用户手机号，可以从 bindgetphonenumber 回调中获取到用户信息  1.2.0
+   * getUserInfo  获取用户信息，可以从 bindgetuserinfo 回调中获取到用户信息  1.3.0
+   * launchApp  打开 App，可以通过 app-parameter 属性设定向 App 传的参数  1.9.5
+   * openSetting  打开授权设置页  2.0.7
+   * feedback  打开“意见反馈”页面，用户可提交反馈内容并上传日志，开发者可以登录小程序管理后台后进入左侧菜单“客服反馈”页面获取到反馈内容  2.1.0
    *
    * - QQ 小程序
-   * openGroupProfile	呼起群资料卡页面，可以通过 group-id 属性设定需要打开的群资料卡的群号，同时 app.json 中必须配置 groupIdList（数量不超过 10 个），表明可以打开群资料卡的群号	1.4.7
-   * addFriend	添加好友，对方需要通过该小程序进行授权，允许被加好友后才能调用成功	1.0.0
-   * addColorSign	添加彩签，点击后添加状态有用户提示，无回调	1.10.0
-   * openPublicProfile	打开公众号资料卡，可以通过 public-id 属性设定需要打开的公众号资料卡的号码，同时 app.json 中必须配置 publicIdList（目前只能配置 1 个），表明可以打开的公众号资料卡的号码	1.12.0
-   * addGroupApp	添加群应用（只有管理员或群主有权操作，建议先调用 qq.getGroupInfo 获取当前用户是否为管理员，如果是管理员才显示该按钮），添加后给 button 绑定 bindaddgroupapp 事件接收回调数据	1.16.0
-   * shareMessageToFriend	在自定义开放数据域组件中,向指定好友发起分享	1.17.0
-   * addToFavorites	收藏当前页面，点击按钮后会触发 Page.onAddToFavorites 方法	1.19.0
+   * openGroupProfile  呼起群资料卡页面，可以通过 group-id 属性设定需要打开的群资料卡的群号，同时 app.json 中必须配置 groupIdList（数量不超过 10 个），表明可以打开群资料卡的群号  1.4.7
+   * addFriend  添加好友，对方需要通过该小程序进行授权，允许被加好友后才能调用成功  1.0.0
+   * addColorSign  添加彩签，点击后添加状态有用户提示，无回调  1.10.0
+   * openPublicProfile  打开公众号资料卡，可以通过 public-id 属性设定需要打开的公众号资料卡的号码，同时 app.json 中必须配置 publicIdList（目前只能配置 1 个），表明可以打开的公众号资料卡的号码  1.12.0
+   * addGroupApp  添加群应用（只有管理员或群主有权操作，建议先调用 qq.getGroupInfo 获取当前用户是否为管理员，如果是管理员才显示该按钮），添加后给 button 绑定 bindaddgroupapp 事件接收回调数据  1.16.0
+   * shareMessageToFriend  在自定义开放数据域组件中,向指定好友发起分享  1.17.0
+   * addToFavorites  收藏当前页面，点击按钮后会触发 Page.onAddToFavorites 方法  1.19.0
    */
   openType?:
     | 'contact'
@@ -71,7 +71,8 @@ export interface ButtonProps extends BaseProps {
     | 'openPublicProfile'
     | 'addGroupApp'
     | 'shareMessageToFriend'
-    | 'addToFavorites';
+    | 'addToFavorites'
+    | 'chooseAvatar';
   /**
    * 1.0.0
    * 指定按钮按下去的样式类。当 hover-class="none" 时，没有点击态效果
@@ -94,9 +95,9 @@ export interface ButtonProps extends BaseProps {
   hoverStayTime?: number;
   /**
    * 1.3.0
-   * en	英文
-   * zh_CN	简体中文
-   * zh_TW	繁体中文
+   * en  英文
+   * zh_CN  简体中文
+   * zh_TW  繁体中文
    */
   lang?: 'en' | 'zh_CN' | 'zh_TW';
   /**
@@ -226,6 +227,12 @@ export interface ButtonProps extends BaseProps {
    * 添加群应用的回调
    */
   onAddGroupApp?: (event: GenericEvent) => any;
+  /**
+   * 微信基础库 2.21.2
+   * https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/userProfile.html
+   * 获取昵称与头像
+   */
+  onChooseavatar?: (event: GenericEvent) => any;
 }
 
 /**
