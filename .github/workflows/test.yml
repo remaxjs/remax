@@ -2,11 +2,11 @@ name: Build & Test
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
     paths-ignore:
       - 'docs/**'
   pull_request:
-    types: [opened, synchronize]
+    types: [ opened, synchronize ]
     paths-ignore:
       - 'docs/**'
 
@@ -16,8 +16,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: ['12']
-        os: [ubuntu-latest, windows-latest]
+        node-version: [ '12' ]
+        os: [ ubuntu-latest, windows-latest ]
         include:
           - node-version: '14'
             os: windows-latest
@@ -27,11 +27,13 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - name: User Yarn Cache
+        uses: c-hive/gha-yarn-cache@v2
       - name: install
         run: yarn install --frozen-lockfile
       - name: build
