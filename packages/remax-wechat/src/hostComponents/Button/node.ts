@@ -39,6 +39,7 @@ export const alias = {
   onError: 'binderror',
   onOpenSetting: 'bindopensetting',
   onLaunchApp: 'bindlaunchapp',
+  onChooseavatar: 'bindchooseavatar',
   onAddFriend: 'bindaddfriend',
   onAddGroupApp: 'bindaddgroupapp',
   onTap: 'bindtap',
