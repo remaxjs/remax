@@ -7,6 +7,7 @@ export default defineConfig({
   logo:
     'https://gw.alipayobjects.com/mdn/rms_b5fcc5/afts/img/A*1NHAQYduQiQAAAAAAAAAAABkARQnAQ',
   locales: [['zh-CN', '中文']],
+  publicPath: `/remax/`,
   navs: [
     null, // null 值代表保留约定式生成的导航，只做增量配置
     {
