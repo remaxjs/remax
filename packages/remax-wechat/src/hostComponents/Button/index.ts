@@ -71,7 +71,8 @@ export interface ButtonProps extends BaseProps {
     | 'openPublicProfile'
     | 'addGroupApp'
     | 'shareMessageToFriend'
-    | 'addToFavorites';
+    | 'addToFavorites'
+    | 'chooseAvatar';
   /**
    * 1.0.0
    * 指定按钮按下去的样式类。当 hover-class="none" 时，没有点击态效果
