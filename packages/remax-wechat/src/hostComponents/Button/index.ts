@@ -202,6 +202,11 @@ export interface ButtonProps extends BaseProps {
    */
   onGetPhoneNumber?: (event: GenericEvent) => any;
   /**
+   * 2.21.2
+   * 获取用户手机号回调，open-type=getPhoneNumber时有效
+   */
+  onChooseAvatar?: (event: GenericEvent) => any;
+  /**
    * 1.9.5
    * 当使用开放能力时，发生错误的回调，open-type=launchApp时有效
    */
