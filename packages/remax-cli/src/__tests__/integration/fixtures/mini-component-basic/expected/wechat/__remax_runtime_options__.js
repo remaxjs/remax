@@ -75,6 +75,7 @@ module.exports = {
       "onLaunchApp": "bindlaunchapp",
       "onAddFriend": "bindaddfriend",
       "onAddGroupApp": "bindaddgroupapp",
+      "onChooseAvatar": "bindchooseavatar",
       "onTap": "bindtap",
       "onClick": "bindtap"
     }

@@ -39,8 +39,12 @@ export interface InputProps extends BaseProps {
    * number	数字输入键盘
    * idcard	身份证输入键盘
    * digit	带小数点的数字键盘
+   * 2.18.0
+   * safe-password 密码安全输入键盘
+   * 2.21.2
+   * nickname 	昵称输入键盘
    */
-  type?: 'text' | 'number' | 'idcard' | 'digit';
+  type?: 'text' | 'number' | 'idcard' | 'digit' | 'safe-password' | 'nickname';
   /**
    * 1.1.0
    * 设置键盘右下角按钮的文字，仅在type='text'时生效
