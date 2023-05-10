@@ -3,6 +3,7 @@ export const alias = {
   className: 'class',
   style: 'style',
   animation: 'animation',
+  slot: 'slot',
   scrollTop: 'scroll-top',
   markerId: 'marker-id',
   onTap: 'bindtap',

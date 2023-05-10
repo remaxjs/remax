@@ -90,6 +90,7 @@
     app-parameter="{{_h.v(i.props['app-parameter'])}}"
     bindaddfriend="{{_h.v(i.props['bindaddfriend'])}}"
     bindaddgroupapp="{{_h.v(i.props['bindaddgroupapp'])}}"
+    bindchooseavatar="{{_h.v(i.props['bindchooseavatar'])}}"
     bindcontact="{{_h.v(i.props['bindcontact'])}}"
     binderror="{{_h.v(i.props['binderror'])}}"
     bindgetphonenumber="{{_h.v(i.props['bindgetphonenumber'])}}"
