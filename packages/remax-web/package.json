@@ -28,7 +28,6 @@
     "@remax/framework-shared": "2.15.14",
     "@remax/react-router-cache-route": "^1.8.4",
     "react-is": "^17.0.2",
-    "react-router-dom": "^5.2.0",
     "rmc-pull-to-refresh": "^1.0.12",
     "umi-hd": "^5.0.1"
   },
@@ -40,6 +39,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1"
+  },
+  "peerDependencies": {
+    "react-router-dom": "^5.0.0 || ^6.0.0"
   },
   "publishConfig": {
     "access": "public"
