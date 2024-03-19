@@ -4,6 +4,7 @@ export const alias = {
   style: 'style',
   animation: 'animation',
   scrollTop: 'scroll-top',
+  slot: 'slot',
   markerId: 'marker-id',
   onTap: 'bindtap',
   onClick: 'bindtap',
