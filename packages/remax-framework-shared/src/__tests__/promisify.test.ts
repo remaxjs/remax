@@ -27,6 +27,21 @@ describe('promisify', () => {
     expect(success).toBeCalledTimes(1);
   });
 
+  it('resolve by complete param', async () => {
+    function api({ complete }: any) {
+      complete('complete');
+    }
+
+    const promisifyAPI = promisify(api);
+    const complete = jest.fn();
+
+    await promisifyAPI({
+      complete,
+    });
+
+    expect(complete).toBeCalledTimes(1);
+  });
+
   it('promisify api and reject when failed', () => {
     function api({ fail }: any) {
       fail('error');
