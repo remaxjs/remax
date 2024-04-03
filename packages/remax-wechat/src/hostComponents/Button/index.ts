@@ -47,6 +47,7 @@ export interface ButtonProps extends BaseProps {
    * launchApp	打开 App，可以通过 app-parameter 属性设定向 App 传的参数	1.9.5
    * openSetting	打开授权设置页	2.0.7
    * feedback	打开“意见反馈”页面，用户可提交反馈内容并上传日志，开发者可以登录小程序管理后台后进入左侧菜单“客服反馈”页面获取到反馈内容	2.1.0
+   * chooseAvatar 获取用户头像，可以从 bindchooseavatar 回调中获取到头像信息  2.21.2
    *
    * - QQ 小程序
    * openGroupProfile	呼起群资料卡页面，可以通过 group-id 属性设定需要打开的群资料卡的群号，同时 app.json 中必须配置 groupIdList（数量不超过 10 个），表明可以打开群资料卡的群号	1.4.7
@@ -65,6 +66,7 @@ export interface ButtonProps extends BaseProps {
     | 'launchApp'
     | 'openSetting'
     | 'feedback'
+    | 'chooseAvatar'
     | 'openGroupProfile'
     | 'addFriend'
     | 'addColorSign'
@@ -216,6 +218,11 @@ export interface ButtonProps extends BaseProps {
    * 打开 APP 成功的回调，open-type=launchApp时有效
    */
   onLaunchApp?: (event: GenericEvent) => any;
+  /**
+   * 2.21.2
+   * 获取用户头像回调，open-type=chooseAvatar时有效
+   */
+  onChooseavatar?: (event: GenericEvent) => any;
   /**
    * QQ 小程序 1.0.0
    * 添加好友的回调
